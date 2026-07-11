@@ -26,12 +26,10 @@
   .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
   .logo a { color: var(--accent); text-decoration: none; }
 
-  /* Desktop nav */
   .desktop-nav { display: flex; align-items: center; gap: 20px; }
   .desktop-nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
   .desktop-nav a:hover { color: var(--text); }
 
-  /* Language dropdown */
   .lang-dropdown { position: relative; }
   .lang-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; }
   .lang-btn:hover { border-color: var(--accent); }
@@ -40,7 +38,6 @@
   .lang-menu a { display: block; padding: 6px 12px; color: var(--muted); text-decoration: none; font-size: 0.85rem; border-radius: 4px; }
   .lang-menu a:hover, .lang-menu a.active { background: rgba(139,92,246,0.15); color: var(--text); }
 
-  /* Mobile hamburger */
   .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; }
   .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
   .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
@@ -55,30 +52,26 @@
   .mobile-nav .lang-section a { display: inline-block; padding: 8px 16px; margin: 4px 4px 4px 0; background: var(--card); border: 1px solid var(--border); border-radius: 6px; font-size: 0.9rem; }
   .mobile-nav .lang-section a.active { background: rgba(139,92,246,0.2); border-color: var(--accent); }
 
-  /* Hero */
   .hero { padding: 60px 0 40px; text-align: center; }
   .hero h1 { font-size: 2.8rem; line-height: 1.15; margin: 0 0 16px; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; word-break: break-word; }
   .hero p { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto 28px; line-height: 1.6; }
   .cta-btn { display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: transform 0.2s; }
   .cta-btn:hover { transform: translateY(-2px); }
 
-  /* Stats */
   .stats { display: flex; justify-content: center; gap: 40px; padding: 32px 0; flex-wrap: wrap; }
   .stat { text-align: center; }
   .stat .num { font-size: 2.2rem; font-weight: 700; color: var(--accent); }
   .stat .label { color: var(--muted); font-size: 0.85rem; }
 
-  /* Phases */
   .phases { padding: 40px 0; }
   .phases h2 { text-align: center; margin-bottom: 32px; font-size: 1.6rem; }
-  .phase-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 14px; transition: all 0.2s; }
-  .phase-card:hover { border-color: var(--accent); }
+  .phase-card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 14px; transition: all 0.2s; text-decoration: none; color: var(--text); }
+  .phase-card:hover { border-color: var(--accent); transform: translateX(4px); }
   .phase-card h3 { margin: 0 0 8px; color: var(--accent); font-size: 1.1rem; }
   .phase-card p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
   .phase-card .meta { display: flex; gap: 12px; margin-top: 12px; font-size: 0.8rem; color: var(--muted); flex-wrap: wrap; }
   .badge { background: rgba(139,92,246,0.15); color: var(--accent); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
 
-  /* Audience */
   .audience { padding: 40px 0; background: rgba(17,24,39,0.5); }
   .audience h2 { text-align: center; margin-bottom: 8px; font-size: 1.6rem; }
   .audience > .container > p { text-align: center; color: var(--muted); margin-bottom: 28px; font-size: 0.95rem; }
@@ -88,12 +81,10 @@
   .audience-card h4 { margin: 0 0 4px; font-size: 0.95rem; }
   .audience-card p { margin: 0; font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
 
-  /* Footer */
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
   footer p { margin: 0; font-size: 0.85rem; }
   footer a { color: var(--muted); text-decoration: none; }
 
-  /* ========== MOBILE ========== */
   @media (max-width: 768px) {
     html { font-size: 15px; }
     .hero { padding: 40px 0 30px; }
@@ -107,12 +98,9 @@
     .audience-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .audience-card { padding: 12px; }
     .audience-card .icon { font-size: 1.5rem; }
-
-    /* Hide desktop nav, show hamburger */
     .desktop-nav { display: none; }
     .hamburger { display: flex; }
   }
-
   @media (max-width: 480px) {
     .hero h1 { font-size: 1.6rem; }
     .stats { gap: 20px; }
@@ -127,9 +115,8 @@
   <div class="container">
     <div class="logo"><a href="index.html">🧠 AI для Менеджеров</a></div>
 
-    <!-- Desktop Navigation -->
     <nav class="desktop-nav">
-      <a href="#phases">Программа</a>
+      <a href="#levels">Программа</a>
       <a href="#audience">Для кого</a>
       <a href="catalog.html">Каталог</a>
       <div class="lang-dropdown">
@@ -144,7 +131,6 @@
       </div>
     </nav>
 
-    <!-- Mobile Hamburger -->
     <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
       <span></span>
       <span></span>
@@ -153,9 +139,8 @@
   </div>
 </header>
 
-<!-- Mobile Navigation -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="#phases" onclick="toggleMobileNav()">Программа</a>
+  <a href="#levels" onclick="toggleMobileNav()">Программа</a>
   <a href="#audience" onclick="toggleMobileNav()">Для кого</a>
   <a href="catalog.html">Каталог</a>
   <div class="lang-section">
@@ -179,7 +164,7 @@
 <section class="stats">
   <div class="stat">
     <div class="num">7</div>
-    <div class="label">фаз</div>
+    <div class="label">уровней</div>
   </div>
   <div class="stat">
     <div class="num">30+</div>
@@ -195,81 +180,81 @@
   </div>
 </section>
 
-<section class="phases" id="phases">
+<section class="phases" id="levels">
   <div class="container">
     <h2>Программа курса</h2>
     
-    <div class="phase-card">
-      <h3>🚀 Фаза 0 — Основы AI</h3>
-      <p>Как работают ChatGPT, Claude, Kimi и Qwen. Когда брать облако, когда — on-premise. Сколько это стоит.</p>
+    <a href="catalog.html#level0" class="phase-card">
+      <h3>🚀 Уровень 0 — Основы AI</h3>
+      <p>Как работают ChatGPT, Claude, Kimi и Qwen. Когда брать облако, когда — локальное решение. Сколько это стоит.</p>
       <div class="meta">
         <span class="badge">4 урока</span>
         <span>🕐 2 часа</span>
       </div>
-    </div>
+    </a>
     
-    <div class="phase-card">
-      <h3>🛠️ Фаза 1 — Владение инструментами</h3>
+    <a href="catalog.html#level1" class="phase-card">
+      <h3>🛠️ Уровень 1 — Владение инструментами</h3>
       <p>Промпт-инжиниринг для менеджера: писать ТЗ, а не "сделай красиво". Структурированный вывод, цепочки запросов, работа с документами.</p>
       <div class="meta">
         <span class="badge">5 уроков</span>
         <span>🕐 4 часа</span>
       </div>
-    </div>
+    </a>
     
-    <div class="phase-card">
-      <h3>📄 Фаза 2 — Данные и документы</h3>
+    <a href="catalog.html#level2" class="phase-card">
+      <h3>📄 Уровень 2 — Данные и документы</h3>
       <p>RAG простыми словами. Как подключить AI к базе знаний компании. Суммаризация и анализ документов: договоры, отчёты, акты.</p>
       <div class="meta">
         <span class="badge">4 урока</span>
         <span>🕐 3 часа</span>
       </div>
-    </div>
+    </a>
     
-    <div class="phase-card">
-      <h3>⚡ Фаза 3 — Автоматизация</h3>
+    <a href="catalog.html#level3" class="phase-card">
+      <h3>⚡ Уровень 3 — Автоматизация</h3>
       <p>No-code автоматизация: Make, n8n, Zapier. Интеграция AI в процессы. Построение простых агентов без кода.</p>
       <div class="meta">
         <span class="badge">4 урока</span>
         <span>🕐 3 часа</span>
       </div>
-    </div>
+    </a>
     
-    <div class="phase-card">
-      <h3>🤖 Фаза 4 — Агенты и оркестрация</h3>
+    <a href="catalog.html#level4" class="phase-card">
+      <h3>🤖 Уровень 4 — Агенты и оркестрация</h3>
       <p>Что такое AI-агент. Мультиагентные системы. Человек в цикле. MCP и интеграция с корпоративными системами.</p>
       <div class="meta">
         <span class="badge">4 урока</span>
         <span>🕐 3 часа</span>
       </div>
-    </div>
+    </a>
     
-    <div class="phase-card">
-      <h3>🏢 Фаза 5 — Внедрение в бизнес</h3>
+    <a href="catalog.html#level5" class="phase-card">
+      <h3>🏢 Уровень 5 — Внедрение в бизнес</h3>
       <p>ROI-калькулятор. Выбор процесса для автоматизации. Пилотный проект. Масштабирование.</p>
       <div class="meta">
         <span class="badge">3 урока</span>
         <span>🕐 2 часа</span>
       </div>
-    </div>
+    </a>
     
-    <div class="phase-card">
-      <h3>🛡️ Фаза 6 — Этика, безопасность, комплаенс</h3>
+    <a href="catalog.html#level6" class="phase-card">
+      <h3>🛡️ Уровень 6 — Этика, безопасность, комплаенс</h3>
       <p>Конфиденциальные данные. Галлюцинации и проверка фактов. Правовые риски. AI-политика компании.</p>
       <div class="meta">
         <span class="badge">3 урока</span>
         <span>🕐 2 часа</span>
       </div>
-    </div>
+    </a>
     
-    <div class="phase-card">
-      <h3>🎯 Фаза 7 — Специализации</h3>
+    <a href="catalog.html#level7" class="phase-card">
+      <h3>🎯 Уровень 7 — Специализации</h3>
       <p>Капстоун-проекты под профессии: закупки, логистика, юристы, качество, продакт, аналитика, риск, комплаенс, аудит.</p>
       <div class="meta">
         <span class="badge">9 треков</span>
         <span>🕐 4 часа каждый</span>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -346,11 +331,11 @@ function toggleMobileNav() {
   document.getElementById('mobileNav').classList.toggle('show');
   document.getElementById('hamburger').classList.toggle('active');
 }
-// Close lang dropdown when clicking outside
 document.addEventListener('click', function(e) {
   const dropdown = document.querySelector('.lang-dropdown');
-  if (!dropdown.contains(e.target)) {
-    document.getElementById('langMenu').classList.remove('show');
+  if (dropdown && !dropdown.contains(e.target)) {
+    const menu = document.getElementById('langMenu');
+    if (menu) menu.classList.remove('show');
   }
 });
 </script>
