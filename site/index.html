@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI для Нетехнических Специалистов</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --bg: #0B0F19;
+    --card: #111827;
+    --text: #F3F4F6;
+    --muted: #9CA3AF;
+    --accent: #8B5CF6;
+    --accent2: #06B6D4;
+    --border: rgba(255,255,255,0.08);
+  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 20px 0; border-bottom: 1px solid var(--border); }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.3rem; font-weight: 700; color: var(--accent); }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 24px; font-size: 0.9rem; }
+  nav a:hover { color: var(--text); }
+  .hero { padding: 80px 0 60px; text-align: center; }
+  .hero h1 { font-size: 3rem; margin: 0 0 16px; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { font-size: 1.2rem; color: var(--muted); max-width: 600px; margin: 0 auto 32px; }
+  .cta-btn { display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: transform 0.2s; }
+  .cta-btn:hover { transform: translateY(-2px); }
+  .stats { display: flex; justify-content: center; gap: 48px; padding: 40px 0; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 2.5rem; font-weight: 700; color: var(--accent); }
+  .stat .label { color: var(--muted); font-size: 0.9rem; }
+  .phases { padding: 60px 0; }
+  .phase-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; transition: all 0.2s; }
+  .phase-card:hover { border-color: var(--accent); transform: translateX(4px); }
+  .phase-card h3 { margin: 0 0 8px; color: var(--accent); }
+  .phase-card p { margin: 0; color: var(--muted); }
+  .phase-card .meta { display: flex; gap: 16px; margin-top: 12px; font-size: 0.85rem; color: var(--muted); }
+  .badge { background: rgba(139,92,246,0.15); color: var(--accent); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+  .audience { padding: 60px 0; background: rgba(17,24,39,0.5); }
+  .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 32px; }
+  .audience-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; text-align: center; }
+  .audience-card .icon { font-size: 2rem; margin-bottom: 8px; }
+  .audience-card h4 { margin: 0 0 4px; }
+  .audience-card p { margin: 0; font-size: 0.85rem; color: var(--muted); }
+  footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); margin-top: 60px; }
+  .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 100; }
+  .lang-switch a { color: var(--muted); text-decoration: none; margin-left: 12px; font-size: 0.85rem; }
+  .lang-switch a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <a href="index.html">RU</a>
+  <a href="index-en.html">EN</a>
+  <a href="index-es.html">ES</a>
+  <a href="index-fr.html">FR</a>
+  <a href="index-zh.html">中文</a>
+</div>
+
+<header>
+  <div class="container">
+    <div class="logo">🧠 AI для Менеджеров</div>
+    <nav>
+      <a href="#phases">Программа</a>
+      <a href="#audience">Для кого</a>
+      <a href="catalog.html">Каталог</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>AI без программирования</h1>
+    <p>Научитесь использовать искусственный интеллект в работе: автоматизируйте рутину, делегируйте разработчикам чёткие задачи и принимайте решения на основе данных. Без кода. Без математики. Только практика.</p>
+    <a href="catalog.html" class="cta-btn">Начать обучение</a>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat">
+    <div class="num">7</div>
+    <div class="label">фаз</div>
+  </div>
+  <div class="stat">
+    <div class="num">30+</div>
+    <div class="label">уроков</div>
+  </div>
+  <div class="stat">
+    <div class="num">9</div>
+    <div class="label">специализаций</div>
+  </div>
+  <div class="stat">
+    <div class="num">4</div>
+    <div class="label">языка</div>
+  </div>
+</section>
+
+<section class="phases" id="phases">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 40px;">Программа курса</h2>
+    
+    <div class="phase-card">
+      <h3>🚀 Фаза 0 — Основы AI</h3>
+      <p>Как работают ChatGPT, Claude, Kimi и Qwen. Когда брать облако, когда — on-premise. Сколько это стоит.</p>
+      <div class="meta">
+        <span class="badge">4 урока</span>
+        <span>🕐 2 часа</span>
+      </div>
+    </div>
+    
+    <div class="phase-card">
+      <h3>🛠️ Фаза 1 — Владение инструментами</h3>
+      <p>Промпт-инжиниринг для менеджера: писать ТЗ, а не "сделай красиво". Структурированный вывод, цепочки запросов, работа с документами.</p>
+      <div class="meta">
+        <span class="badge">5 уроков</span>
+        <span>🕐 4 часа</span>
+      </div>
+    </div>
+    
+    <div class="phase-card">
+      <h3>📄 Фаза 2 — Данные и документы</h3>
+      <p>RAG простыми словами. Как подключить AI к базе знаний компании. Суммаризация и анализ документов: договоры, отчёты, акты.</p>
+      <div class="meta">
+        <span class="badge">4 урока</span>
+        <span>🕐 3 часа</span>
+      </div>
+    </div>
+    
+    <div class="phase-card">
+      <h3>⚡ Фаза 3 — Автоматизация</h3>
+      <p>No-code автоматизация: Make, n8n, Zapier. Интеграция AI в процессы. Построение простых агентов без кода.</p>
+      <div class="meta">
+        <span class="badge">4 урока</span>
+        <span>🕐 3 часа</span>
+      </div>
+    </div>
+    
+    <div class="phase-card">
+      <h3>🤖 Фаза 4 — Агенты и оркестрация</h3>
+      <p>Что такое AI-агент. Мультиагентные системы. Человек в цикле. MCP и интеграция с корпоративными системами.</p>
+      <div class="meta">
+        <span class="badge">4 урока</span>
+        <span>🕐 3 часа</span>
+      </div>
+    </div>
+    
+    <div class="phase-card">
+      <h3>🏢 Фаза 5 — Внедрение в бизнес</h3>
+      <p>ROI-калькулятор. Выбор процесса для автоматизации. Пилотный проект. Масштабирование.</p>
+      <div class="meta">
+        <span class="badge">3 урока</span>
+        <span>🕐 2 часа</span>
+      </div>
+    </div>
+    
+    <div class="phase-card">
+      <h3>🛡️ Фаза 6 — Этика, безопасность, комплаенс</h3>
+      <p>Конфиденциальные данные. Галлюцинации и проверка фактов. Правовые риски. AI-политика компании.</p>
+      <div class="meta">
+        <span class="badge">3 урока</span>
+        <span>🕐 2 часа</span>
+      </div>
+    </div>
+    
+    <div class="phase-card">
+      <h3>🎯 Фаза 7 — Специализации</h3>
+      <p>Капстоун-проекты под профессии: закупки, логистика, юристы, качество, продакт, аналитика, риск, комплаенс, аудит.</p>
+      <div class="meta">
+        <span class="badge">9 треков</span>
+        <span>🕐 4 часа каждый</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="audience" id="audience">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 8px;">Для кого этот курс</h2>
+    <p style="text-align: center; color: var(--muted); margin-bottom: 32px;">Выберите свою роль — и начните применять AI сразу</p>
+    
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="icon">🛒</div>
+        <h4>Закупки</h4>
+        <p>Тендеры, анализ поставщиков, сравнение предложений</p>
+      </div>
+      <div class="audience-card">
+        <div class="icon">📦</div>
+        <h4>Логистика</h4>
+        <p>Маршруты, прогнозирование, оптимизация запасов</p>
+      </div>
+      <div class="audience-card">
+        <div class="icon">⚖️</div>
+        <h4>Юристы</h4>
+        <p>Анализ договоров, compliance, регуляторика</p>
+      </div>
+      <div class="audience-card">
+        <div class="icon">✅</div>
+        <h4>Качество</h4>
+        <p>Аудит процессов, контроль дефектов, стандарты</p>
+      </div>
+      <div class="audience-card">
+        <div class="icon">🚀</div>
+        <h4>Продакт</h4>
+        <p>Исследования, гипотезы, аналитика, метрики</p>
+      </div>
+      <div class="audience-card">
+        <div class="icon">📊</div>
+        <h4>Аналитик</h4>
+        <p>BI, отчёты, прогнозы, визуализация</p>
+      </div>
+      <div class="audience-card">
+        <div class="icon">⚠️</div>
+        <h4>Риски</h4>
+        <p>Оценка рисков, сценарии, стресс-тесты</p>
+      </div>
+      <div class="audience-card">
+        <div class="icon">🔒</div>
+        <h4>Комплаенс</h4>
+        <p>AML, KYC, проверка регуляторики</p>
+      </div>
+      <div class="audience-card">
+        <div class="icon">🔍</div>
+        <h4>Аудит</h4>
+        <p>Автоматизация проверок, выборочный контроль</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI для Нетехнических Специалистов</p>
+    <p style="font-size: 0.85rem; margin-top: 8px;">
+      <a href="https://github.com/kimicito/ai-nontechnical-course" style="color: var(--muted);">GitHub</a> ·
+      <a href="https://github.com/kimicito/ai-native-course" style="color: var(--muted);">Техническая версия</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Каталог уроков — AI для Менеджеров</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --bg: #0B0F19;
+    --card: #111827;
+    --text: #F3F4F6;
+    --muted: #9CA3AF;
+    --accent: #8B5CF6;
+    --accent2: #06B6D4;
+    --border: rgba(255,255,255,0.08);
+  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 20px 0; border-bottom: 1px solid var(--border); }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.3rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 24px; font-size: 0.9rem; }
+  nav a:hover { color: var(--text); }
+  .page-title { padding: 40px 0 20px; }
+  .page-title h1 { margin: 0 0 8px; }
+  .page-title p { color: var(--muted); margin: 0; }
+  .phase-section { margin-bottom: 40px; }
+  .phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); }
+  .phase-header h2 { margin: 0; font-size: 1.3rem; }
+  .phase-header .badge { background: rgba(139,92,246,0.15); color: var(--accent); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; }
+  .lesson-list { display: flex; flex-direction: column; gap: 8px; }
+  .lesson-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text); transition: all 0.2s; }
+  .lesson-item:hover { border-color: var(--accent); transform: translateX(4px); }
+  .lesson-num { background: rgba(139,92,246,0.2); color: var(--accent); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-weight: 600; font-size: 0.85rem; flex-shrink: 0; }
+  .lesson-title { flex: 1; }
+  .lesson-meta { color: var(--muted); font-size: 0.8rem; }
+  .lock { opacity: 0.5; }
+  footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); margin-top: 60px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="index.html" class="logo">🧠 AI для Менеджеров</a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="catalog.html">Каталог</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-title">
+  <div class="container">
+    <h1>Каталог уроков</h1>
+    <p>Все фазы курса: от основ AI до специализаций по профессиям</p>
+  </div>
+</section>
+
+<main class="container">
+
+  <!-- Фаза 0 -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <h2>🚀 Фаза 0 — Основы AI</h2>
+      <span class="badge">4 урока · 2 часа</span>
+    </div>
+    <div class="lesson-list">
+      <a href="lessons/00-what-is-llm/index.html" class="lesson-item">
+        <span class="lesson-num">0.1</span>
+        <span class="lesson-title">Что такое LLM и как они работают</span>
+        <span class="lesson-meta">15 мин</span>
+      </a>
+      <a href="lessons/00-choose-model/index.html" class="lesson-item">
+        <span class="lesson-num">0.2</span>
+        <span class="lesson-title">Как выбрать модель: ChatGPT, Claude, Kimi, Qwen</span>
+        <span class="lesson-meta">20 мин</span>
+      </a>
+      <a href="lessons/00-cloud-vs-onprem/index.html" class="lesson-item">
+        <span class="lesson-num">0.3</span>
+        <span class="lesson-title">Облако vs On-premise: OpenWebUI для конфиденциальных данных</span>
+        <span class="lesson-meta">25 мин</span>
+      </a>
+      <a href="lessons/00-pricing/index.html" class="lesson-item">
+        <span class="lesson-num">0.4</span>
+        <span class="lesson-title">Сколько стоит AI: калькулятор для бизнеса</span>
+        <span class="lesson-meta">20 мин</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Фаза 1 -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <h2>🛠️ Фаза 1 — Владение инструментами</h2>
+      <span class="badge">5 уроков · 4 часа</span>
+    </div>
+    <div class="lesson-list">
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">1.1</span>
+        <span class="lesson-title">Промпт-инжиниринг для менеджера: писать ТЗ, а не "сделай красиво"</span>
+        <span class="lesson-meta">45 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">1.2</span>
+        <span class="lesson-title">Структурированный вывод: JSON, таблицы, чеклисты</span>
+        <span class="lesson-meta">40 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">1.3</span>
+        <span class="lesson-title">Цепочки запросов: от простого к сложному</span>
+        <span class="lesson-meta">45 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">1.4</span>
+        <span class="lesson-title">Работа с документами: анализ, суммаризация, сравнение</span>
+        <span class="lesson-meta">50 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">1.5</span>
+        <span class="lesson-title">Практика: автоматизируй свою первую задачу</span>
+        <span class="lesson-meta">60 мин</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Фаза 2 -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <h2>📄 Фаза 2 — Данные и документы</h2>
+      <span class="badge">4 урока · 3 часа</span>
+    </div>
+    <div class="lesson-list">
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">2.1</span>
+        <span class="lesson-title">RAG простыми словами: как подключить AI к базе знаний</span>
+        <span class="lesson-meta">40 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">2.2</span>
+        <span class="lesson-title">Векторные базы: что спросить у IT</span>
+        <span class="lesson-meta">35 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">2.3</span>
+        <span class="lesson-title">Длинные документы: как не потерять контекст</span>
+        <span class="lesson-meta">40 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">2.4</span>
+        <span class="lesson-title">Суммаризация и редактирование: отчёты, договоры, акты</span>
+        <span class="lesson-meta">45 мин</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Фаза 3 -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <h2>⚡ Фаза 3 — Автоматизация</h2>
+      <span class="badge">4 урока · 3 часа</span>
+    </div>
+    <div class="lesson-list">
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">3.1</span>
+        <span class="lesson-title">No-code автоматизация: Make, n8n, Zapier</span>
+        <span class="lesson-meta">45 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">3.2</span>
+        <span class="lesson-title">Интеграция AI в процессы: чеклисты и шаблоны</span>
+        <span class="lesson-meta">40 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">3.3</span>
+        <span class="lesson-title">Простые агенты без кода</span>
+        <span class="lesson-meta">45 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">3.4</span>
+        <span class="lesson-title">Мониторинг и качество: как проверить результат</span>
+        <span class="lesson-meta">40 мин</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Фаза 4 -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <h2>🤖 Фаза 4 — Агенты и оркестрация</h2>
+      <span class="badge">4 урока · 3 часа</span>
+    </div>
+    <div class="lesson-list">
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">4.1</span>
+        <span class="lesson-title">Что такое AI-агент: простыми словами</span>
+        <span class="lesson-meta">35 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">4.2</span>
+        <span class="lesson-title">Мультиагентные системы: когда нужны несколько агентов</span>
+        <span class="lesson-meta">40 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">4.3</span>
+        <span class="lesson-title">Человек в цикле: approve, reject, доработка</span>
+        <span class="lesson-meta">40 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">4.4</span>
+        <span class="lesson-title">MCP: интеграция с корпоративными системами</span>
+        <span class="lesson-meta">45 мин</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Фаза 5 -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <h2>🏢 Фаза 5 — Внедрение в бизнес</h2>
+      <span class="badge">3 урока · 2 часа</span>
+    </div>
+    <div class="lesson-list">
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">5.1</span>
+        <span class="lesson-title">ROI-калькулятор: выбор процесса для автоматизации</span>
+        <span class="lesson-meta">40 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">5.2</span>
+        <span class="lesson-title">Пилотный проект: от идеи до результата</span>
+        <span class="lesson-meta">45 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">5.3</span>
+        <span class="lesson-title">Масштабирование: от отдела к компании</span>
+        <span class="lesson-meta">35 мин</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Фаза 6 -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <h2>🛡️ Фаза 6 — Этика, безопасность, комплаенс</h2>
+      <span class="badge">3 урока · 2 часа</span>
+    </div>
+    <div class="lesson-list">
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">6.1</span>
+        <span class="lesson-title">Конфиденциальные данные: что можно, что нельзя</span>
+        <span class="lesson-meta">35 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">6.2</span>
+        <span class="lesson-title">Галлюцинации: как проверять факты</span>
+        <span class="lesson-meta">40 мин</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">6.3</span>
+        <span class="lesson-title">AI-политика компании: шаблон</span>
+        <span class="lesson-meta">45 мин</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Фаза 7 -->
+  <div class="phase-section">
+    <div class="phase-header">
+      <h2>🎯 Фаза 7 — Специализации</h2>
+      <span class="badge">9 треков · 4 часа каждый</span>
+    </div>
+    <div class="lesson-list">
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">7.1</span>
+        <span class="lesson-title">🛒 Закупки — автоматизация тендеров и анализ поставщиков</span>
+        <span class="lesson-meta">4 часа</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">7.2</span>
+        <span class="lesson-title">📦 Логистика — оптимизация маршрутов и прогнозирование</span>
+        <span class="lesson-meta">4 часа</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">7.3</span>
+        <span class="lesson-title">⚖️ Юристы — анализ договоров и compliance-чек</span>
+        <span class="lesson-meta">4 часа</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">7.4</span>
+        <span class="lesson-title">✅ Качество — аудит процессов и контроль дефектов</span>
+        <span class="lesson-meta">4 часа</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">7.5</span>
+        <span class="lesson-title">🚀 Продакт — исследования, аналитика, продуктовые гипотезы</span>
+        <span class="lesson-meta">4 часа</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">7.6</span>
+        <span class="lesson-title">📊 Аналитик — BI-агенты, отчёты, прогнозы</span>
+        <span class="lesson-meta">4 часа</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">7.7</span>
+        <span class="lesson-title">⚠️ Риск-менеджмент — оценка рисков и сценарный анализ</span>
+        <span class="lesson-meta">4 часа</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">7.8</span>
+        <span class="lesson-title">🔒 Комплаенс — AML, KYC, проверка регуляторики</span>
+        <span class="lesson-meta">4 часа</span>
+      </a>
+      <a href="#" class="lesson-item lock">
+        <span class="lesson-num">7.9</span>
+        <span class="lesson-title">🔍 Аудит — автоматизация проверок и выборочный контроль</span>
+        <span class="lesson-meta">4 часа</span>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI для Нетехнических Специалистов</p>
+  </div>
+</footer>
+
+</body>
+</html>
