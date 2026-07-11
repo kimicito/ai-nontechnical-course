@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0.3 Облако vs On-premise — AI для Менеджеров</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 20px 0; border-bottom: 1px solid var(--border); }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 40px 0 20px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 2rem; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 32px 0; }
+  .section h2 { color: var(--accent); font-size: 1.3rem; margin-bottom: 16px; }
+  .section h3 { color: var(--accent2); font-size: 1.1rem; margin: 24px 0 12px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 16px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.8rem; font-weight: 600; margin-bottom: 8px; }
+  .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .comparison-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .comparison-box h4 { margin: 0 0 12px; }
+  .cloud { border-left: 4px solid var(--accent2); }
+  .onprem { border-left: 4px solid var(--success); }
+  .nav-footer { display: flex; justify-content: space-between; padding: 40px 0; border-top: 1px solid var(--border); margin-top: 40px; }
+  .nav-btn { padding: 12px 24px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .risk-matrix { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .risk-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; text-align: center; }
+  .risk-high { color: var(--danger); }
+  .risk-medium { color: var(--warning); }
+  .risk-low { color: var(--success); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для Менеджеров</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none;">← Каталог</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🚀 ФАЗА 0 · ОСНОВЫ AI</div>
+    <h1>0.3 · Облако vs On-premise: OpenWebUI для конфиденциальных данных</h1>
+    <div class="meta">⏱️ 25 минут · 🎯 Без кода · ✅ Квиз в конце</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Зачем это бизнесу</h2>
+    <p><span class="highlight">60% компаний</span> не используют AI из-за страха утечки данных. Но между "отправлять всё в ChatGPT" и "не использовать AI" есть третий путь — <strong>on-premise размещение</strong>.</p>
+    
+    <div class="card card-danger">
+      <strong>⚠️ Реальный кейс:</strong> Менеджер закупок загрузил список поставщиков с ценами в ChatGPT. Через 3 месяца конкурент знал их стратегию ценообразования. Данные утекли через обучение модели.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Облако vs On-premise: простыми словами</h2>
+
+    <div class="comparison">
+      <div class="comparison-box cloud">
+        <h4>☁️ Облако (Cloud)</h4>
+        <p><strong>Что это:</strong> Вы отправляете данные на серверы компании (OpenAI, Anthropic, Google).</p>
+        <p style="color: var(--success);">✅ Дешево, быстро, не нужен IT-отдел</p>
+        <p style="color: var(--danger);">❌ Данные уходят за периметр компании</p>
+      </div>
+      <div class="comparison-box onprem">
+        <h4>🏢 On-premise (Свой сервер)</h4>
+        <p><strong>Что это:</strong> AI-модель работает на сервере внутри компании, данные не покидают офис.</p>
+        <p style="color: var(--success);">✅ Полный контроль данных, конфиденциальность</p>
+        <p style="color: var(--danger);">❌ Дороже, нужен сервер и админ</p>
+      </div>
+    </div>
+
+    <h3>Аналогия для переговоров</h3>
+    <div class="example">
+      <div class="example-label">💡 АНАЛОГИЯ</div>
+      <p><strong>Облако = аренда офиса в бизнес-центре.</strong> Удобно, но консьерж видит всех ваших посетителей, а соседи слышат через стенку.</p>
+      <p><strong>On-premise = свой дом.</strong> Вы хозяин, но сами чините краны и платите за ремонт крыши.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ OpenWebUI: золотая середина</h2>
+    
+    <p><strong>OpenWebUI</strong> — это бесплатный интерфейс (как ChatGPT), который работает с моделями на вашем сервере. Сотрудники видят привычный чат, но данные остаются внутри компании.</p>
+
+    <div class="card card-success">
+      <h3>Когда выбирать OpenWebUI:</h3>
+      <ul class="checklist">
+        <li>Работа с коммерческой тайной (цены, поставщики, контракты)</li>
+        <li>Персональные данные сотрудников или клиентов</li>
+        <li>Финансовая отчётность до публикации</li>
+        <li>Стратегические планы и прогнозы</li>
+        <li>Регуляторное требование хранить данные в стране (РФ, КНР, ЕС)</li>
+      </ul>
+    </div>
+
+    <h3>Матрица рисков</h3>
+    <div class="risk-matrix">
+      <div class="risk-item">
+        <div class="risk-high">🔴 ВЫСОКИЙ</div>
+        <p>Контракты, цены, M&A</p>
+      </div>
+      <div class="risk-item">
+        <div class="risk-medium">🟡 СРЕДНИЙ</div>
+        <p>Внутренние отчёты, HR</p>
+      </div>
+      <div class="risk-item">
+        <div class="risk-low">🟢 НИЗКИЙ</div>
+        <p>Маркетинг, публичные данные</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Как поставить задачу разработчику</h2>
+    
+    <div class="card card-success">
+      <strong>Шаблон для IT-директора:</strong>
+      <pre style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto;">
+"Нужно развернуть локальный LLM для отдела [НАЗВАНИЕ].
+
+Требования:
+- Количество пользователей: [N] человек
+- Документы: до [N] страниц за раз
+- Конфиденциальность: КРИТИЧНО (коммерческая тайна)
+- Языки: RU, EN
+- Бюджет железа: [сумма]
+- Срок: [N] дней
+
+Прошу предложить:
+1. Вариант модели (Qwen / Llama / Mistral)
+2. Конфигурацию сервера
+3. Стоимость лицензий
+4. План резервного копирования
+5. Инструкцию для пользователей"
+      </pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Чеклист принятия результата</h2>
+    <ul class="checklist">
+      <li>Данные не покидают сервер компании? (проверить firewall)</li>
+      <li>Есть резервное копирование? (что если сервер сгорит)</li>
+      <li>Пользователи могут работать без IT-шника? (интерфейс понятен)</li>
+      <li>Скорость ответа < 10 секунд? (проверить на пиковой нагрузке)</li>
+      <li>Есть процесс обновления модели? (новые версии выходят каждый месяц)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🧰 Инструменты</h2>
+    <div class="card">
+      <ul>
+        <li><strong>OpenWebUI (openwebui.com)</strong> — бесплатный интерфейс, ставится за 30 минут</li>
+        <li><strong>Ollama (ollama.com)</strong> — запуск локальных моделей (Llama, Mistral, Qwen)</li>
+        <li><strong>Qwen (Alibaba)</strong> — open-source модель для коммерческого использования</li>
+        <li><strong>vLLM</strong> — ускорение推理 для on-premise (потребует разработчика)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📝 Проверка понимания</h2>
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Можно ли использовать ChatGPT для анализа договоров с поставщиками?</p>
+      <p><em>Ответ: Нет, это коммерческая тайна. Нужен on-premise (OpenWebUI + Qwen/Llama).</em></p>
+    </div>
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Что такое OpenWebUI?</p>
+      <p><em>Ответ: Бесплатный интерфейс (как ChatGPT), который работает с локальными моделями. Данные не уходят в интернет.</em></p>
+    </div>
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Какой бюджет нужен для on-premise LLM?</p>
+      <p><em>Ответ: Сервер ~$2000-5000 (или облачный GPU ~$100-500/мес) + админ 20% времени.</em></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Главное из урока</h3>
+      <p>Для публичных данных — облачные модели (ChatGPT, Claude). Для конфиденциальных — on-premise (OpenWebUI + Qwen/Llama). Нет универсального решения — выбирайте по классу данных. И никогда не загружайте коммерческую тайну в публичные чат-боты.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../00-choose-model/index.html" class="nav-btn">← Предыдущий урок</a>
+    <a href="../00-pricing/index.html" class="nav-btn primary">Следующий урок →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI для Нетехнических Специалистов</p>
+  </div>
+</footer>
+
+</body>
+</html>
