@@ -2,18 +2,274 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>2.2 Векторные базы — AI для Менеджеров</title>
 <link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .compare-box { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  .compare-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .compare-box { grid-template-columns: 1fr; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
 </head>
-<body style="background:#0B0F19;color:#F3F4F6;font-family:system-ui,sans-serif;margin:0;">
-<div style="max-width:800px;margin:0 auto;padding:40px 20px;">
-  <a href="../../index.html" style="color:#8B5CF6;text-decoration:none;font-weight:700;">🧠 AI для Менеджеров</a>
-  <div style="margin-top:40px;padding:40px;background:#111827;border-radius:12px;border:1px solid rgba(255,255,255,0.08);">
-    <h1 style="margin:0 0 16px;">2.2 · Векторные базы</h1>
-    <p style="color:#9CA3AF;">⏱️ В разработке · Скоро будет доступно</p>
-    <a href="../../catalog.html" style="display:inline-block;margin-top:24px;padding:12px 24px;background:#8B5CF6;color:white;text-decoration:none;border-radius:8px;">← К каталогу</a>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для Менеджеров</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a>
   </div>
-</div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">📄 УРОВЕНЬ 2 · ДАННЫЕ И ДОКУМЕНТЫ</div>
+    <h1>2.2 · Векторные базы данных: как AI "понимает" смысл</h1>
+    <div class="meta">⏱️ 35 минут · 🎯 Без кода · ✅ Интерактивный квиз</div>
+  </div>
+
+  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <div class="section">
+    <h2>🎯 Зачем это бизнесу</h2>
+    <p>Обычный поиск ищет <strong>точные слова</strong>. Если вы ищете "неустойка", а в договоре написано "штраф за просрочку" — обычный поиск не найдёт.</p>
+    <div class="card card-success">
+      <p><strong>Векторный поиск</strong> ищет по <strong>смыслу</strong>. Он понимает, что "неустойка", "штраф", "пеня" — это про одно и то же.</p>
+      <p><strong>Пример:</strong> Сотрудник спрашивает "Как наказать поставщика за опоздание?" — векторный поиск найдёт раздел про неустойку, даже если в документе нет слов "наказать" или "опоздание".</p>
+    </div>
+  </div>
+
+  <!-- ЧТО ИЗУЧАЕМ -->
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+    
+    <h3>Обычный поиск vs Векторный поиск</h3>
+    <div class="compare-box">
+      <div class="compare-item">
+        <h4 style="color: var(--danger); margin: 0 0 10px;">❌ Обычный поиск</h4>
+        <ul style="font-size: 0.9rem; color: var(--muted);">
+          <li>Ищет точные слова</li>
+          <li>"Неустойка" ≠ "штраф"</li>
+          <li>Пропускает синонимы</li>
+          <li>Не понимает контекст</li>
+          <li>Требует точных формулировок</li>
+        </ul>
+      </div>
+      <div class="compare-item">
+        <h4 style="color: var(--success); margin: 0 0 10px;">✅ Векторный поиск</h4>
+        <ul style="font-size: 0.9rem; color: var(--muted);">
+          <li>Ищет по смыслу</li>
+          <li>"Неустойка" = "штраф" = "пеня"</li>
+          <li>Находит синонимы</li>
+          <li>Понимает контекст</li>
+          <li>Работает с естественным языком</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Как это работает (без математики)</h3>
+    <div class="card card-accent">
+      <p><strong>Аналогия:</strong> Представьте, что каждое слово — это точка в пространстве.</p>
+      <ul>
+        <li>"Король" и "королева" — близкие точки (родственники)</li>
+        <li>"Король" и "автомобиль" — далёкие точки (нет связи)</li>
+        <li>"Неустойка" и "штраф" — близкие точки (синонимы)</li>
+      </ul>
+      <p>AI превращает ваш вопрос в точку и ищет ближайшие к ней фрагменты документов.</p>
+    </div>
+
+    <h3>Пример из жизни</h3>
+    <div class="example">
+      <div class="example-label">💡 Пример вопроса</div>
+      <pre>"Что делать, если поставщик опаздывает?"</pre>
+    </div>
+    <div class="card">
+      <p><strong>Обычный поиск:</strong> Не найдёт ничего (в договоре нет слов "опаздывает")</p>
+      <p><strong>Векторный поиск:</strong> Найдёт разделы про "неустойка", "просрочка поставки", "штрафные санкции"</p>
+    </div>
+  </div>
+
+  <!-- КАК ПРИМЕНИТЬ -->
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+    
+    <h3>Где используется в бизнесе</h3>
+    <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Сценарий</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Как работает</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Поиск по договорам</td><td style="padding:10px;border-bottom:1px solid var(--border);">Находит релевантные clauses даже при другой формулировке</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Поддержка клиентов</td><td style="padding:10px;border-bottom:1px solid var(--border);">Понимает вопросы, сформулированные по-разному</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">База знаний</td><td style="padding:10px;border-bottom:1px solid var(--border);">Сотрудник находит ответ, не зная точной терминологии</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Анализ тендеров</td><td style="padding:10px;border-bottom:1px solid var(--border);">Группирует похожие требования из разных документов</td></tr>
+    </table>
+
+    <h3>Выбор векторной базы</h3>
+    <div class="card">
+      <table style="width:100%; border-collapse: collapse;">
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">База</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Для чего</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Сложность</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Pinecone</td><td style="padding:10px;border-bottom:1px solid var(--border);">Облачное решение, легко масштабировать</td><td style="padding:10px;border-bottom:1px solid var(--border);">Средняя</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Chroma</td><td style="padding:10px;border-bottom:1px solid var(--border);">Локальное решение, быстрое внедрение</td><td style="padding:10px;border-bottom:1px solid var(--border);">Низкая</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Weaviate</td><td style="padding:10px;border-bottom:1px solid var(--border);">Гибкие настройки, фильтрация</td><td style="padding:10px;border-bottom:1px solid var(--border);">Средняя</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Qdrant</td><td style="padding:10px;border-bottom:1px solid var(--border);">Высокая производительность</td><td style="padding:10px;border-bottom:1px solid var(--border);">Средняя</td></tr>
+      </table>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*Выбор базы — задача разработчика. Менеджеру достаточно понимать, зачем она нужна.</p>
+    </div>
+  </div>
+
+  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи</h3>
+      <pre>"Нужен корпоративный поиск по документам с векторной базой.
+
+Требования:
+1. Поиск по смыслу (не только точные совпадения)
+2. Поддержка русского и английского языков
+3. Масштабируемость: от 1000 до 100 000 документов
+4. Интеграция с [существующей системой]
+5. Время ответа < 2 секунд
+
+Пример запроса: [привести]
+Ожидаемый результат: [привести]
+
+Предпочтительная база: [Pinecone/Chroma/Weaviate — или оставить выбор разработчику]
+Срок: [дата]"</pre>
+    </div>
+  </div>
+
+  <!-- ЧЕКЛИСТ -->
+  <div class="section">
+    <h2>✅ Чеклист принятия результата</h2>
+    <ul class="checklist">
+      <li>Поиск находит синонимы? ("неустойка" = "штраф")</li>
+      <li>Поиск понимает контекст? (вопросы разными словами дают одинаковые результаты)</li>
+      <li>Время ответа приемлемо? (< 3 секунд)</li>
+      <li>Результаты релевантны? (первые 3 ответа полезны)</li>
+      <li>Система масштабируется при росте документов?</li>
+      <li>Есть возможность фильтрации по дате/типу документа?</li>
+    </ul>
+  </div>
+
+  <!-- КВИЗ -->
+  <div class="section">
+    <h2>📝 Проверка понимания</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Чем векторный поиск отличается от обычного?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Он быстрее</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Он ищет по смыслу, а не по точным словам</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Он дешевле</span>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Пример синонимов, которые векторный поиск свяжет:</p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) "Неустойка" и "штраф"</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) "Король" и "автомобиль"</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) "Договор" и "печенье"</span>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Кто выбирает конкретную векторную базу?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Менеджер</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Разработчик</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Директор</span>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- ГЛАВНОЕ -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Главное из урока</h3>
+      <p><strong>Векторный поиск</strong> позволяет AI понимать смысл, а не искать точные слова. Это критично для работы с документами: сотрудники задают вопросы своими словами, а AI находит правильные ответы. Менеджеру не нужно выбирать базу — это задача разработчика. Нужно понимать <strong>зачем</strong> это нужно и <strong>как проверить результат</strong>.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../02-rag-explained/index.html" class="nav-btn">← Предыдущий урок</a>
+    <a href="../02-long-docs/index.html" class="nav-btn primary">Следующий урок →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI для Нетехнических Специалистов</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  
+  options.forEach(opt => {
+    opt.style.pointerEvents = 'none';
+    if (opt === element) {
+      opt.classList.add(isCorrect ? 'correct' : 'wrong');
+    }
+  });
+  
+  resultDiv.classList.add('show');
+  if (isCorrect) {
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+  } else {
+    resultDiv.style.background = 'rgba(239,68,68,0.1)';
+    resultDiv.style.border = '1px solid var(--danger)';
+    resultDiv.innerHTML = '<strong>❌ Не совсем.</strong> Подумайте ещё раз.';
+  }
+}
+</script>
+
 </body>
 </html>
