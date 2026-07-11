@@ -2,18 +2,320 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>1.2 Структурированный вывод — AI для Менеджеров</title>
 <link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  tr:hover { background: rgba(255,255,255,0.02); }
+  .format-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  .format-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .format-card h4 { margin: 0 0 8px; color: var(--accent); }
+  .format-card p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .format-grid { grid-template-columns: 1fr; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
 </head>
-<body style="background:#0B0F19;color:#F3F4F6;font-family:system-ui,sans-serif;margin:0;">
-<div style="max-width:800px;margin:0 auto;padding:40px 20px;">
-  <a href="../../index.html" style="color:#8B5CF6;text-decoration:none;font-weight:700;">🧠 AI для Менеджеров</a>
-  <div style="margin-top:40px;padding:40px;background:#111827;border-radius:12px;border:1px solid rgba(255,255,255,0.08);">
-    <h1 style="margin:0 0 16px;">1.2 · Структурированный вывод</h1>
-    <p style="color:#9CA3AF;">⏱️ В разработке · Скоро будет доступно</p>
-    <a href="../../catalog.html" style="display:inline-block;margin-top:24px;padding:12px 24px;background:#8B5CF6;color:white;text-decoration:none;border-radius:8px;">← К каталогу</a>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для Менеджеров</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a>
   </div>
-</div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🛠️ УРОВЕНЬ 1 · ВЛАДЕНИЕ ИНСТРУМЕНТАМИ</div>
+    <h1>1.2 · Структурированный вывод: JSON, таблицы, чеклисты</h1>
+    <div class="meta">⏱️ 40 минут · 🎯 Без кода · ✅ Интерактивный квиз</div>
+  </div>
+
+  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <div class="section">
+    <h2>🎯 Зачем это бизнесу</h2>
+    <p>AI может выдавать ответы <strong>в любом формате</strong>. Но по умолчанию — сплошной текст, который приходится перебивать руками в Excel или 1С.</p>
+    <div class="card card-success">
+      <p><strong>Проблема:</strong> Менеджер получает анализ в виде текста, тратит 15 минут на перенос в таблицу.</p>
+      <p><strong>Решение:</strong> Попросить AI сразу выдать таблицу. Экономия: <strong>15 минут × 20 задач = 5 часов в неделю</strong>.</p>
+    </div>
+  </div>
+
+  <!-- ЧТО ИЗУЧАЕМ -->
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+    
+    <h3>4 формата вывода</h3>
+    <div class="format-grid">
+      <div class="format-card">
+        <h4>📊 Таблица</h4>
+        <p>Сравнение, анализ, отчёты. Легко копировать в Excel.</p>
+      </div>
+      <div class="format-card">
+        <h4>📋 JSON</h4>
+        <p>Для программистов и автоматизации. Структурированные данные.</p>
+      </div>
+      <div class="format-card">
+        <h4>☑️ Чеклист</h4>
+        <p>Для проверки, аудита, контроля качества.</p>
+      </div>
+      <div class="format-card">
+        <h4>📝 Markdown</h4>
+        <p>Для документации, инструкций, статей. Читается везде.</p>
+      </div>
+    </div>
+
+    <h3>Как попросить таблицу</h3>
+    <div class="example">
+      <div class="example-label">💡 Пример промпта</div>
+      <pre>Ты — финансовый аналитик.
+Проанализируй 3 инвестиционных проекта (данные ниже).
+
+Выведи результат в формате таблицы:
+| Проект | ROI | Срок окупаемости | Риск | Рекомендация |
+
+После таблицы — краткое обоснование рекомендации.</pre>
+    </div>
+
+    <h3>Как попросить чеклист</h3>
+    <div class="example">
+      <div class="example-label">💡 Пример промпта</div>
+      <pre>Ты — аудитор по ISO 9001.
+Проведи аудит процесса закупок по следующим критериям.
+
+Выведи результат в виде чеклиста:
+☐ Критерий 1 — [статус: пройден/не пройден] — [комментарий]
+☐ Критерий 2 — [статус] — [комментарий]
+
+В конце: общая оценка соответствия (в процентах).</pre>
+    </div>
+  </div>
+
+  <!-- КАК ПРИМЕНИТЬ -->
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+    
+    <h3>Сценарий 1: Сравнение поставщиков</h3>
+    <div class="card">
+      <p><strong>Задача:</strong> Выбрать поставщика упаковки из 3 вариантов.</p>
+      <div class="example">
+        <div class="example-label">Промпт</div>
+        <pre>Ты — закупщик FMCG.
+Сравни 3 предложения по критериям и выведи таблицей:
+| Критерий | Поставщик А | Поставщик Б | Поставщик В | Лидер |
+| Цена за ед. | | | | |
+| Мин. заказ | | | | |
+| Срок доставки | | | | |
+| Условия оплаты | | | | |
+
+Дай рекомендацию: кого выбрать и почему.</pre>
+      </div>
+      <p><strong>Результат:</strong> Готовая таблица для презентации руководству. Копируется в Excel одним кликом.</p>
+    </div>
+
+    <h3>Сценарий 2: Аудит контракта</h3>
+    <div class="card">
+      <p><strong>Задача:</strong> Проверить договор на риски.</p>
+      <div class="example">
+        <div class="example-label">Промпт</div>
+        <pre>Ты — корпоративный юрист.
+Проанализируй договор поставки на риски.
+
+Выведи результат чеклистом:
+☐ Риск: [описание] — Уровень: [Высокий/Средний/Низкий] — Рекомендация: [что сделать]
+
+В конце: общий вывод о приемлемости договора.</pre>
+      </div>
+    </div>
+
+    <h3>Сценарий 3: Еженедельный отчёт</h3>
+    <div class="card">
+      <p><strong>Задача:</strong> Подготовить отчёт о продажах за неделю.</p>
+      <div class="example">
+        <div class="example-label">Промпт</div>
+        <pre>Ты — бизнес-аналитик.
+На основе данных ниже подготовь еженедельный отчёт.
+
+Формат:
+1. Ключевые показатели (таблица: Показатель | Значение | Δ к прошлой неделе)
+2. Топ-3 тренда (список)
+3. Рекомендации (список с приоритетами)
+4. Риски (таблица: Риск | Вероятность | Влияние)</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи</h3>
+      <pre>"Нужен парсер ответов AI в стандартизированные форматы.
+
+Требования:
+1. Автоматически распознаёт формат (таблица/JSON/чеклист)
+2. Конвертирует таблицы в Excel (.xlsx)
+3. Конвертирует JSON в CSV
+4. Проверяет целостность данных (нет пустых полей)
+5. API endpoint для интеграции
+
+Пример входных данных (прикрепить):
+[вставить пример ответа AI]
+
+Ожидаемый результат (прикрепить):
+[вставить желаемый Excel/CSV]
+
+Срок: [дата]"</pre>
+    </div>
+  </div>
+
+  <!-- ЧЕКЛИСТ -->
+  <div class="section">
+    <h2>✅ Чеклист принятия результата</h2>
+    <ul class="checklist">
+      <li>Формат соответствует запросу? (таблица / JSON / чеклист)</li>
+      <li>Все поля заполнены? (нет пропусков)</li>
+      <li>Данные корректны? (проверьте 2-3 случайные ячейки)</li>
+      <li>Можно скопировать в Excel / 1С / CRM?</li>
+      <li>Структура понятна без объяснений?</li>
+      <li>Единицы измерения указаны? (рубли, дни, проценты)</li>
+    </ul>
+  </div>
+
+  <!-- ИНСТРУМЕНТЫ -->
+  <div class="section">
+    <h2>🛠️ Инструменты</h2>
+    <table>
+      <tr><th>Инструмент</th><th>Зачем</th><th>Стоимость</th></tr>
+      <tr><td>ChatGPT / Claude</td><td>Генерация в любом формате</td><td>Бесплатно / $20</td></tr>
+      <tr><td>Excel</td><td>Обработка таблиц</td><td>Входит в Office</td></tr>
+      <tr><td>Google Sheets</td><td>Онлайн-таблицы, шеринг</td><td>Бесплатно</td></tr>
+      <tr><td>JSON Formatter</td><td>Проверка JSON</td><td>Бесплатно (онлайн)</td></tr>
+      <tr><td>Make / n8n</td><td>Автоматическая конвертация</td><td>От бесплатного</td></tr>
+    </table>
+  </div>
+
+  <!-- КВИЗ -->
+  <div class="section">
+    <h2>📝 Проверка понимания</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Какой формат лучше для сравнения 5 поставщиков?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Таблица</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) JSON</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Свободный текст</span>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Зачем указывать формат в промпте?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Чтобы ответ был красивее</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Чтобы сэкономить время на переформатирование</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</span>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Какой формат подходит для автоматизации?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) JSON</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Таблица</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Чеклист</span>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- ГЛАВНОЕ -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Главное из урока</h3>
+      <p>Указывайте формат в промпте. <strong>Таблица</strong> для сравнения, <strong>JSON</strong> для автоматизации, <strong>чеклист</strong> для проверки. Это экономит 5-10 минут на форматирование каждый раз. За месяц — <strong>экономия 5-10 часов</strong>.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../01-prompt-engineering/index.html" class="nav-btn">← Предыдущий урок</a>
+    <a href="../01-chain-prompts/index.html" class="nav-btn primary">Следующий урок →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI для Нетехнических Специалистов</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  
+  options.forEach(opt => {
+    opt.style.pointerEvents = 'none';
+    if (opt === element) {
+      opt.classList.add(isCorrect ? 'correct' : 'wrong');
+    }
+  });
+  
+  resultDiv.classList.add('show');
+  if (isCorrect) {
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+  } else {
+    resultDiv.style.background = 'rgba(239,68,68,0.1)';
+    resultDiv.style.border = '1px solid var(--danger)';
+    resultDiv.innerHTML = '<strong>❌ Не совсем.</strong> Подумайте ещё раз.';
+  }
+}
+</script>
+
 </body>
 </html>

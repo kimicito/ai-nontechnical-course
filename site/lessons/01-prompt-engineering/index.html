@@ -2,18 +2,296 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>1.1 Промпт-инжиниринг — AI для Менеджеров</title>
 <link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .bad-prompt { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .bad-prompt-label { color: var(--danger); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  tr:hover { background: rgba(255,255,255,0.02); }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
 </head>
-<body style="background:#0B0F19;color:#F3F4F6;font-family:system-ui,sans-serif;margin:0;">
-<div style="max-width:800px;margin:0 auto;padding:40px 20px;">
-  <a href="../../index.html" style="color:#8B5CF6;text-decoration:none;font-weight:700;">🧠 AI для Менеджеров</a>
-  <div style="margin-top:40px;padding:40px;background:#111827;border-radius:12px;border:1px solid rgba(255,255,255,0.08);">
-    <h1 style="margin:0 0 16px;">1.1 · Промпт-инжиниринг</h1>
-    <p style="color:#9CA3AF;">⏱️ В разработке · Скоро будет доступно</p>
-    <a href="../../catalog.html" style="display:inline-block;margin-top:24px;padding:12px 24px;background:#8B5CF6;color:white;text-decoration:none;border-radius:8px;">← К каталогу</a>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для Менеджеров</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a>
   </div>
-</div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🛠️ УРОВЕНЬ 1 · ВЛАДЕНИЕ ИНСТРУМЕНТАМИ</div>
+    <h1>1.1 · Промпт-инжиниринг для менеджера</h1>
+    <div class="meta">⏱️ 45 минут · 🎯 Без кода · ✅ Интерактивный квиз</div>
+  </div>
+
+  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <div class="section">
+    <h2>🎯 Зачем это бизнесу</h2>
+    <p><span class="highlight">80% результата от AI зависит не от модели, а от того, как вы её спросили.</span></p>
+    <p>Менеджер тратит в среднем <strong>2-3 часа в день</strong> на: написание писем, анализ документов, сравнение предложений, подготовку отчётов. Хороший промпт сокращает это время в 3-5 раз.</p>
+    <div class="card card-success">
+      <p><strong>Пример экономии:</strong></p>
+      <p>Сравнение 3 коммерческих предложений поставщиков занимает 2 часа вручную. С хорошим промптом — 15 минут. Экономия: <strong>1 час 45 минут × 10 раз в месяц = 17.5 часов</strong>.</p>
+    </div>
+  </div>
+
+  <!-- ЧТО ИЗУЧАЕМ -->
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+    
+    <h3>Формула хорошего промпта: RCOF</h3>
+    <div class="card card-accent">
+      <table>
+        <tr><th>Буква</th><th>Значение</th><th>Вопрос</th></tr>
+        <tr><td><strong>R</strong></td><td>Role (Роль)</td><td>Кто отвечает? "Ты опытный закупщик"</td></tr>
+        <tr><td><strong>C</strong></td><td>Context (Контекст)</td><td>Что происходит? "Выбираем упаковку для печенья"</td></tr>
+        <tr><td><strong>O</strong></td><td>Objective (Цель)</td><td>Что получить? "Сравни 3 предложения"</td></tr>
+        <tr><td><strong>F</strong></td><td>Format (Формат)</td><td>В каком виде? "Таблица: Критерий | Поставщик 1 | Поставщик 2"</td></tr>
+      </table>
+    </div>
+
+    <h3>Сравнение: плохой vs хороший промпт</h3>
+    <div class="bad-prompt">
+      <div class="bad-prompt-label">❌ Плохой промпт</div>
+      <pre>"Проанализируй предложения и скажи что лучше"</pre>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 8px;">Результат: общий ответ без конкретики, придётся переспрашивать 3 раза</p>
+    </div>
+    
+    <div class="example">
+      <div class="example-label">✅ Хороший промпт (RCOF)</div>
+      <pre>Ты — опытный закупщик FMCG с 10-летним стажем.
+Мы выбираем поставщика картонной упаковки для печенья.
+Получили 3 предложения во вложениях.
+
+Задача: сравни предложения по критериям и рекомендуй лучшее.
+
+Критерии:
+1. Цена за единицу (включая доставку)
+2. Минимальный заказ
+3. Срок изготовления
+4. Условия оплаты
+5. Рейтинг поставщика
+
+Формат: таблица сравнения + однозначная рекомендация с обоснованием.
+
+Ограничение: если срок > 14 дней — отметь как риск.</pre>
+    </div>
+  </div>
+
+  <!-- КАК ПРИМЕНИТЬ -->
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+    
+    <h3>Шаг 1: Определите роль</h3>
+    <div class="card">
+      <p>AI лучше отвечает, когда знает, кем он "притворяется". Роль задаёт экспертизу и тон.</p>
+      <ul>
+        <li><strong>"Ты юрист"</strong> — правовой анализ, осторожные формулировки</li>
+        <li><strong>"Ты маркетолог"</strong> — креатив, метрики, CTA</li>
+        <li><strong>"Ты финансовый аналитик"</strong> — цифры, ROI, риски</li>
+      </ul>
+    </div>
+
+    <h3>Шаг 2: Дайте контекст</h3>
+    <div class="card">
+      <p>Без контекста AI даёт общий ответ. С контекстом — конкретный.</p>
+      <div class="example">
+        <div class="example-label">💡 Пример</div>
+        <p><strong>Без контекста:</strong> "Как снизить затраты?" → общие советы</p>
+        <p><strong>С контекстом:</strong> "Мы производитель печенья, 50 сотрудников, логистика занимает 30% бюджета. Как снизить затраты?" → конкретные шаги</p>
+      </div>
+    </div>
+
+    <h3>Шаг 3: Укажите формат</h3>
+    <div class="card">
+      <p>Формат экономит время на переформатирование.</p>
+      <table>
+        <tr><th>Формат</th><th>Когда использовать</th><th>Пример запроса</th></tr>
+        <tr><td>Таблица</td><td>Сравнение, анализ</td><td>"Выведи в таблице: Критерий | Вариант 1 | Вариант 2"</td></tr>
+        <tr><td>Список</td><td>Пошаговый план</td><td>"Дай 5 шагов в виде нумерованного списка"</td></tr>
+        <tr><td>JSON</td><td>Для программистов/автоматизации</td><td>"Верни результат в JSON с полями..."</td></tr>
+        <tr><td>Email</td><td>Готовое письмо</td><td>"Напиши письмо поставщику в деловом стиле"</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи для разработчика</h3>
+      <pre>"Нужно создать библиотеку промптов для отдела [НАЗВАНИЕ].
+
+Требования:
+1. Шаблоны для типовых задач: [перечислить]
+2. Система валидации: проверка на полноту RCOF
+3. Хранение в [Notion/Confluence/SharePoint]
+4. Версионирование: история изменений
+5. Доступ: [кто может редактировать]
+
+Пример промпта (прикрепить):
+[вставить хороший промпт]
+
+Срок: [дата]
+Ответственный: [имя]"</pre>
+    </div>
+  </div>
+
+  <!-- ЧЕКЛИСТ ПРИНЯТИЯ -->
+  <div class="section">
+    <h2>✅ Чеклист принятия результата</h2>
+    <ul class="checklist">
+      <li>Промпт содержит все 4 элемента RCOF?</li>
+      <li>Роль соответствует задаче? (не "ты AI", а "ты аналитик")</li>
+      <li>Контекст достаточно конкретный? (есть цифры, сроки, ограничения)</li>
+      <li>Цель однозначная? (одна задача, не 5 сразу)</li>
+      <li>Формат удобен для копирования в Excel/Word/CRM?</li>
+      <li>Есть ограничения? (что исключить, лимиты, крайние случаи)</li>
+      <li>Проверили на 3 реальных примерах? Работает стабильно?</li>
+    </ul>
+  </div>
+
+  <!-- ИНСТРУМЕНТЫ -->
+  <div class="section">
+    <h2>🛠️ Инструменты</h2>
+    <div class="card">
+      <table>
+        <tr><th>Инструмент</th><th>Зачем</th><th>Стоимость</th></tr>
+        <tr><td>ChatGPT / Claude</td><td>Базовые промпты, тестирование</td><td>Бесплатно / $20</td></tr>
+        <tr><td>PromptPerfect</td><td>Автоматическая оптимизация промптов</td><td>От $10/мес</td></tr>
+        <tr><td>LangChain Hub</td><td>Библиотека готовых промптов</td><td>Бесплатно</td></tr>
+        <tr><td>Notion</td><td>База знаний с шаблонами промптов</td><td>Бесплатно</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- КВИЗ -->
+  <div class="section">
+    <h2>📝 Проверка понимания</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Что означает буква R в формуле RCOF?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Request (Запрос)</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Role (Роль)</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Result (Результат)</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">D) Rule (Правило)</span>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Какой промпт лучше для сравнения поставщиков?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) "Сравни поставщиков и скажи кто лучше"</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) "Ты закупщик. Сравни 3 предложения по цене, срокам, минимальному заказу. Выведи таблицей. Рекомендуй лучшее с обоснованием."</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) "Какой поставщик лучше?"</span>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Зачем указывать формат ответа?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Чтобы красиво выглядело</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Чтобы сэкономить время на переформатирование</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</span>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- ГЛАВНОЕ -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Главное из урока</h3>
+      <p>Промпт — это <strong>ТЗ для AI</strong>. Используйте формулу <strong>RCOF</strong>: Роль, Контекст, Цель, Формат. Чем конкретнее промпт — тем лучше результат. Плохой промпт тратит ваше время на уточнения. Хороший промпт экономит <strong>2-3 часа в день</strong>.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../00-pricing/index.html" class="nav-btn">← Предыдущий урок</a>
+    <a href="../01-structured-output/index.html" class="nav-btn primary">Следующий урок →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI для Нетехнических Специалистов</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  
+  options.forEach(opt => {
+    opt.style.pointerEvents = 'none';
+    if (opt === element) {
+      opt.classList.add(isCorrect ? 'correct' : 'wrong');
+    }
+  });
+  
+  resultDiv.classList.add('show');
+  if (isCorrect) {
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong> ' + (card.querySelector('.result').id === 'result1' ? 'R = Role (Роль). Это критически важно — роль задаёт экспертизу и тон ответа.' : card.querySelector('.result').id === 'result2' ? 'Вариант B содержит RCOF: Роль (закупщик), Контекст (3 предложения), Цель (сравнить и рекомендовать), Формат (таблица).' : 'Указание формата экономит 5-10 минут на переформатирование каждый раз.');
+  } else {
+    resultDiv.style.background = 'rgba(239,68,68,0.1)';
+    resultDiv.style.border = '1px solid var(--danger)';
+    resultDiv.innerHTML = '<strong>❌ Не совсем.</strong> Подумайте ещё раз — какой вариант содержит все элементы хорошего промпта?';
+  }
+}
+</script>
+
 </body>
 </html>
