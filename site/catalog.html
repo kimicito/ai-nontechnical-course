@@ -2,41 +2,73 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Каталог уроков — AI для Менеджеров</title>
-<link rel="stylesheet" href="style.css">
 <style>
   :root {
-    --bg: #0B0F19;
-    --card: #111827;
-    --text: #F3F4F6;
-    --muted: #9CA3AF;
-    --accent: #8B5CF6;
-    --accent2: #06B6D4;
-    --border: rgba(255,255,255,0.08);
+    --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF;
+    --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08);
   }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-  header { padding: 20px 0; border-bottom: 1px solid var(--border); }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+  /* Header */
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
   header .container { display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-size: 1.3rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-  nav a { color: var(--muted); text-decoration: none; margin-left: 24px; font-size: 0.9rem; }
-  nav a:hover { color: var(--text); }
-  .page-title { padding: 40px 0 20px; }
-  .page-title h1 { margin: 0 0 8px; }
-  .page-title p { color: var(--muted); margin: 0; }
-  .phase-section { margin-bottom: 40px; }
-  .phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); }
-  .phase-header h2 { margin: 0; font-size: 1.3rem; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; white-space: nowrap; }
+
+  /* Desktop nav */
+  .desktop-nav { display: flex; align-items: center; gap: 20px; }
+  .desktop-nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+  .desktop-nav a:hover { color: var(--text); }
+
+  /* Lang dropdown */
+  .lang-dropdown { position: relative; }
+  .lang-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; }
+  .lang-menu { position: absolute; top: 100%; right: 0; margin-top: 4px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 4px; min-width: 100px; display: none; z-index: 200; }
+  .lang-menu.show { display: block; }
+  .lang-menu a { display: block; padding: 6px 12px; color: var(--muted); text-decoration: none; font-size: 0.85rem; border-radius: 4px; }
+  .lang-menu a:hover, .lang-menu a.active { background: rgba(139,92,246,0.15); color: var(--text); }
+
+  /* Mobile hamburger */
+  .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; }
+  .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+  .mobile-nav { display: none; position: fixed; top: 57px; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; padding: 20px 16px; }
+  .mobile-nav.show { display: block; }
+  .mobile-nav a { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid var(--border); }
+  .mobile-nav .lang-section { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .mobile-nav .lang-section p { color: var(--muted); font-size: 0.85rem; margin-bottom: 12px; }
+  .mobile-nav .lang-section a { display: inline-block; padding: 8px 16px; margin: 4px 4px 4px 0; background: var(--card); border: 1px solid var(--border); border-radius: 6px; font-size: 0.9rem; }
+
+  .page-title { padding: 32px 0 16px; }
+  .page-title h1 { margin: 0 0 8px; font-size: 1.8rem; }
+  .page-title p { color: var(--muted); margin: 0; font-size: 0.95rem; }
+  .phase-section { margin-bottom: 32px; }
+  .phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); flex-wrap: wrap; }
+  .phase-header h2 { margin: 0; font-size: 1.2rem; }
   .phase-header .badge { background: rgba(139,92,246,0.15); color: var(--accent); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; }
   .lesson-list { display: flex; flex-direction: column; gap: 8px; }
   .lesson-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text); transition: all 0.2s; }
-  .lesson-item:hover { border-color: var(--accent); transform: translateX(4px); }
+  .lesson-item:hover { border-color: var(--accent); }
   .lesson-num { background: rgba(139,92,246,0.2); color: var(--accent); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-weight: 600; font-size: 0.85rem; flex-shrink: 0; }
-  .lesson-title { flex: 1; }
-  .lesson-meta { color: var(--muted); font-size: 0.8rem; }
-  .lock { opacity: 0.5; }
-  footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); margin-top: 60px; }
+  .lesson-title { flex: 1; font-size: 0.95rem; }
+  .lesson-meta { color: var(--muted); font-size: 0.8rem; flex-shrink: 0; }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; font-size: 0.85rem; }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .page-title h1 { font-size: 1.4rem; }
+    .phase-header h2 { font-size: 1rem; }
+    .lesson-item { padding: 10px 12px; }
+    .lesson-title { font-size: 0.9rem; }
+    .desktop-nav { display: none; }
+    .hamburger { display: flex; }
+  }
 </style>
 </head>
 <body>
@@ -44,12 +76,42 @@
 <header>
   <div class="container">
     <a href="index.html" class="logo">🧠 AI для Менеджеров</a>
-    <nav>
+
+    <nav class="desktop-nav">
       <a href="index.html">Главная</a>
       <a href="catalog.html">Каталог</a>
+      <div class="lang-dropdown">
+        <button class="lang-btn" onclick="toggleLang()">🌐 RU ▼</button>
+        <div class="lang-menu" id="langMenu">
+          <a href="index.html" class="active">RU</a>
+          <a href="index-en.html">EN</a>
+          <a href="index-es.html">ES</a>
+          <a href="index-fr.html">FR</a>
+          <a href="index-zh.html">中文</a>
+        </div>
+      </div>
     </nav>
+
+    <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 </header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMobileNav()">Главная</a>
+  <a href="catalog.html">Каталог</a>
+  <div class="lang-section">
+    <p>🌐 Язык / Language</p>
+    <a href="index.html" class="active">RU</a>
+    <a href="index-en.html">EN</a>
+    <a href="index-es.html">ES</a>
+    <a href="index-fr.html">FR</a>
+    <a href="index-zh.html">中文</a>
+  </div>
+</div>
 
 <section class="page-title">
   <div class="container">
@@ -327,6 +389,23 @@
     <p>© 2026 Artur A. · AI для Нетехнических Специалистов</p>
   </div>
 </footer>
+
+<script>
+function toggleLang() {
+  document.getElementById('langMenu').classList.toggle('show');
+}
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('show');
+  document.getElementById('hamburger').classList.toggle('active');
+}
+document.addEventListener('click', function(e) {
+  const dropdown = document.querySelector('.lang-dropdown');
+  if (dropdown && !dropdown.contains(e.target)) {
+    const menu = document.getElementById('langMenu');
+    if (menu) menu.classList.remove('show');
+  }
+});
+</script>
 
 </body>
 </html>
