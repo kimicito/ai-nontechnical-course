@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.1 Промпт-инжиниринг — AI для Менеджеров</title>
+<title>1.1 Промпт-инжиниринг — AI для не ИТ-специалистов</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -42,6 +42,7 @@
   .quiz-option:hover { border-color: var(--accent); }
   .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
   .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
   .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
   .result.show { display: block; }
   pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
@@ -62,7 +63,7 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для Менеджеров</a>
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
     <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a>
   </div>
 </header>
@@ -72,7 +73,7 @@
   <div class="lesson-header">
     <div class="phase">🛠️ УРОВЕНЬ 1 · ВЛАДЕНИЕ ИНСТРУМЕНТАМИ</div>
     <h1>1.1 · Промпт-инжиниринг для менеджера</h1>
-    <div class="meta">⏱️ 45 минут · 🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
   </div>
 
   <!-- ЗАЧЕМ БИЗНЕСУ -->
@@ -263,7 +264,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для Нетехнических Специалистов</p>
+    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
   </div>
 </footer>
 
@@ -273,12 +274,12 @@ function checkAnswer(element, isCorrect) {
   const options = card.querySelectorAll('.quiz-option');
   const resultDiv = card.querySelector('.result');
   
-  options.forEach(opt => {
-    opt.style.pointerEvents = 'none';
-    if (opt === element) {
-      opt.classList.add(isCorrect ? 'correct' : 'wrong');
-    }
-  });
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
   
   resultDiv.classList.add('show');
   if (isCorrect) {
@@ -286,8 +287,8 @@ function checkAnswer(element, isCorrect) {
     resultDiv.style.border = '1px solid var(--success)';
     resultDiv.innerHTML = '<strong>✅ Правильно!</strong> ' + (card.querySelector('.result').id === 'result1' ? 'R = Role (Роль). Это критически важно — роль задаёт экспертизу и тон ответа.' : card.querySelector('.result').id === 'result2' ? 'Вариант B содержит RCOF: Роль (закупщик), Контекст (3 предложения), Цель (сравнить и рекомендовать), Формат (таблица).' : 'Указание формата экономит 5-10 минут на переформатирование каждый раз.');
   } else {
-    resultDiv.style.background = 'rgba(239,68,68,0.1)';
-    resultDiv.style.border = '1px solid var(--danger)';
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
     resultDiv.innerHTML = '<strong>❌ Не совсем.</strong> Подумайте ещё раз — какой вариант содержит все элементы хорошего промпта?';
   }
 }

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.1 AI для сметчика — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🏗️ УРОВЕНЬ 8 · AI ДЛЯ СТРОЙКИ</div>
+    <h1>8.1 · Сметы и расчёты: от локальной сметы до итоговой стоимости</h1>
+    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Зачем это бизнесу</h2>
+    <p>Сметчик тратит до <strong>60% времени на рутину</strong>: переписывание позиций из локальных смет в сводную, сверка расценок с ГЭСН/ФЕР, проверка коэффициентов, пересчёт при изменении объёмов. AI делает это за минуты.</p>
+    <div class="card card-success">
+      <p><strong>Кейс:</strong> Сметчик на объект из 500 позиций тратил 3 дня на сводку. С AI — 2 часа: AI извлёк позиции из 12 локальных смет, свёл в таблицу, проверил расценки по ГЭСН, нашёл 8 ошибок в коэффициентах, пересчитал итог с учётом НДС и накладных.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+    
+    <h3>Что AI делает для сметчика</h3>
+    <div class="card card-accent">
+      <ul>
+        <li>📄 Извлекает позиции из локальных смет (PDF, Excel, сканы)</li>
+        <li>🔢 Сверяет расценки с ГЭСН / ФЕР / региональными сборниками</li>
+        <li>📊 Сводит множество локальных смет в одну таблицу</li>
+        <li>🧮 Проверяет коэффициенты (поправки, индексы, КП)</li>
+        <li>💰 Пересчитывает итог при изменении объёмов или цен</li>
+        <li>⚠️ Находит дубли, пропуски, расхождения</li>
+      </ul>
+    </div>
+
+    <h3>Источники для сверки</h3>
+    <div class="card">
+      <table>
+        <tr><th>Источник</th><th>Что сверяем</th><th>Формат</th></tr>
+        <tr><td>ГЭСН / ФЕР</td><td>Расценки на работы</td><td>PDF, Excel</td></tr>
+        <tr><td>Региональные сборники</td><td>Поправки к расценкам</td><td>PDF, Excel</td></tr>
+        <tr><td>Территориальные единичные расценки</td><td>Материалы, механизмы</td><td>Excel</td></tr>
+        <tr><td>Коммерческие предложения</td><td>Цены материалов, аренды</td><td>PDF, Excel, email</td></tr>
+        <tr><td>История смет компании</td><td>Аналогичные позиции, коэффициенты</td><td>База данных / Excel</td></tr>
+      </table>
+    </div>
+
+    <h3>Пример запроса к AI</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Промпт для сметы</div>
+        <pre>"Проанализируй локальную смету (файл приложен).
+
+1. Извлеки все позиции: код, наименование, единица, количество, расценка, итог
+2. Сверь расценки с ГЭСН-2024 (файл ГЭСН приложен)
+3. Проверь коэффициенты: КП, поправки на зиму, индексы
+4. Найди дубли и пропуски
+5. Выведи таблицу: Позиция | Наша расценка | ГЭСН | Расхождение | Рекомендация
+
+Формат: Excel-совместимая таблица."</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+    
+    <h3>Сценарий: сводка 10 локальных смет</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Процесс</div>
+        <pre>1. Собираем все локальные сметы в папку (PDF, Excel, сканы)
+2. Загружаем в AI с запросом:
+   "Сведи все сметы в одну таблицу.
+   Группируй по видам работ (кладка, бетон, отделка).
+   Считай итоги по группам и общий итог.
+   Выдели позиции с расхождениями > 5%."
+3. AI генерирует сводную таблицу
+4. Сметчик проверяет расхождения и ключевые позиции
+5. Экспортирует в Excel / 1С / сметную программу</pre>
+      </div>
+    </div>
+
+    <h3>Расчёт итоговой стоимости</h3>
+    <div class="card card-accent">
+      <p>AI считает полную цепочку:</p>
+      <ol>
+        <li>Прямые затраты (работы + материалы + механизмы)</li>
+        <li>Накладные расходы (% от прямых)</li>
+        <li>Сметная прибыль (%)</li>
+        <li>НДС (если применимо)</li>
+        <li>Итог с учётом всех коэффициентов</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи</h3>
+      <pre>"Нужен AI-инструмент для сметчика.
+
+Входные данные:
+- Локальные сметы: PDF, Excel, сканы (через OCR)
+- ГЭСН/ФЕР: справочник расценок (PDF, Excel)
+- Коммерческие предложения: материалы, аренда (PDF, Excel, email)
+
+Что должен делать:
+1. Извлекать позиции из любого формата
+2. Сверять расценки с ГЭСН/ФЕР (по коду работы)
+3. Проверять коэффициенты (КП, поправки, индексы)
+4. Сводить множество смет в одну таблицу
+5. Находить дубли, пропуски, расхождения
+6. Пересчитывать итог при изменении объёмов
+
+Выход:
+- Excel-таблица
+- PDF-отчёт с расхождениями
+- Графики по видам работ
+
+Интеграция: [1С / сметная программа / Excel]
+Срок: [дата]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Чеклист принятия результата</h2>
+    <ul class="checklist">
+      <li>Все позиции извлечены? (проверить 5-10 случайных)</li>
+      <li>Расценки сверены с ГЭСН/ФЕР? (проверить 3-5 позиций)</li>
+      <li>Коэффициенты корректны? (КП, поправки, индексы)</li>
+      <li>Дубли и пропуски найдены?</li>
+      <li>Итоговая сумма совпадает с ручным расчётом?</li>
+      <li>Формат удобен для импорта в сметную программу?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Проверка понимания</h2>
+    
+    <div class="card card-accent" data-quiz="1">
+      <p><strong>Вопрос 1:</strong> С чем AI сверяет расценки?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) С ГЭСН / ФЕР / региональными сборниками</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) С ценами на Авито</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) С котировками ЦБ</span>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent" data-quiz="2">
+      <p><strong>Вопрос 2:</strong> Что проверяет AI в коэффициентах?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) КП, поправки на зиму, индексы, накладные</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Только НДС</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Коэффициенты не проверяет</span>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent" data-quiz="3">
+      <p><strong>Вопрос 3:</strong> Какой формат выходных данных удобен для сметчика?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Excel-совместимая таблица</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Только PDF-отчёт</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Текстовый файл</span>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Главное из урока</h3>
+      <p><strong>AI — помощник сметчика, а не замена.</strong> Он извлекает позиции, сверяет расценки, проверяет коэффициенты, находит ошибки. Сметчик остаётся ответственным за проверку и принятие решений. Экономия: 60-70% времени на рутине.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../catalog.html" class="nav-btn">← Каталог</a>
+    <a href="../08-project-check/index.html" class="nav-btn primary">Следующий урок →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    // Оставляем другие варианты активными для повторной попытки
+  }
+}
+</script>
+
+</body>
+</html>
