@@ -2,18 +2,277 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>6.1 Конфиденциальные данные — AI для Менеджеров</title>
 <link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
 </head>
-<body style="background:#0B0F19;color:#F3F4F6;font-family:system-ui,sans-serif;margin:0;">
-<div style="max-width:800px;margin:0 auto;padding:40px 20px;">
-  <a href="../../index.html" style="color:#8B5CF6;text-decoration:none;font-weight:700;">🧠 AI для Менеджеров</a>
-  <div style="margin-top:40px;padding:40px;background:#111827;border-radius:12px;border:1px solid rgba(255,255,255,0.08);">
-    <h1 style="margin:0 0 16px;">6.1 · Конфиденциальные данные</h1>
-    <p style="color:#9CA3AF;">⏱️ В разработке · Скоро будет доступно</p>
-    <a href="../../catalog.html" style="display:inline-block;margin-top:24px;padding:12px 24px;background:#8B5CF6;color:white;text-decoration:none;border-radius:8px;">← К каталогу</a>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для Менеджеров</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a>
   </div>
-</div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🛡️ УРОВЕНЬ 6 · ЭТИКА И БЕЗОПАСНОСТЬ</div>
+    <h1>6.1 · Конфиденциальные данные: что нельзя отправлять в AI</h1>
+    <div class="meta">⏱️ 35 минут · 🎯 Без кода · ✅ Интерактивный квиз</div>
+  </div>
+
+  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <div class="section">
+    <h2>🎯 Зачем это бизнесу</h2>
+    <p>Когда вы отправляете документ в ChatGPT, он <strong>может стать частью обучения модели</strong>. Это означает, что ваши конфиденциальные данные могут появиться в ответах другим пользователям.</p>
+    <div class="card card-danger">
+      <p><strong>Реальный кейс:</strong> Сотрудник отправил в ChatGPT договор с контрагентом, включая коммерческие условия. Через месяц конкурент получил похожий договор от AI, который "вспомнил" эти данные. Ущерб: утрата конкурентного преимущества.</p>
+    </div>
+  </div>
+
+  <!-- ЧТО ИЗУЧАЕМ -->
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+    
+    <h3>Что нельзя отправлять в облачный AI</h3>
+    <div class="card card-danger">
+      <table style="width:100%; border-collapse: collapse;">
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--danger);">Категория</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--danger);">Примеры</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Персональные данные</td><td style="padding:10px;border-bottom:1px solid var(--border);">Паспорта, ИНН, адреса, телефоны</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Коммерческая тайна</td><td style="padding:10px;border-bottom:1px solid var(--border);">Цены, маржи, поставщики, клиенты</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Банковская информация</td><td style="padding:10px;border-bottom:1px solid var(--border);">Реквизиты, платёжные поручения</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Договоры NDA</td><td style="padding:10px;border-bottom:1px solid var(--border);">Всё под NDA</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Медицинские данные</td><td style="padding:10px;border-bottom:1px solid var(--border);">Диагнозы, истории болезней</td></tr>
+      </table>
+    </div>
+
+    <h3>Как безопасно работать с AI</h3>
+    <div class="card card-success">
+      <h4>Уровень 1: Деидентификация</h4>
+      <p>Замените конфиденциальные данные перед отправкой.</p>
+      <div class="example">
+        <div class="example-label">Пример</div>
+        <pre>Вместо: "ООО Ромашка, ИНН 7701234567, цена 500 000 ₽"
+Отправьте: "Компания А, ИНН ХХХХХХХХХХ, цена Х ₽"</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h4>Уровень 2: Локальное решение</h4>
+      <p>Запускайте AI на своих серверах. Данные не покидают компанию.</p>
+      <ul>
+        <li>Ollama — запуск моделей локально</li>
+        <li>Llama 3, Mistral — open-source модели</li>
+        <li>Требуется: сервер с GPU</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <h4>Уровень 3: Корпоративные контракты</h4>
+      <p>Enterprise-версии с гарантиями конфиденциальности.</p>
+      <ul>
+        <li>ChatGPT Enterprise — данные не используются для обучения</li>
+        <li>Microsoft Copilot — в рамках вашего Azure</li>
+        <li>Claude for Work — корпоративные соглашения</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- КАК ПРИМЕНИТЬ -->
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+    
+    <h3>Алгоритм проверки перед отправкой</h3>
+    <div class="card card-accent">
+      <ol>
+        <li>Есть ли в тексте персональные данные? (ФИО, ИНН, паспорта)</li>
+        <li>Есть ли коммерческая тайна? (цены, клиенты, поставщики)</li>
+        <li>Есть ли данные под NDA?</li>
+        <li>Если да на любой вопрос → деидентифицировать или использовать локальное решение</li>
+      </ol>
+    </div>
+
+    <h3>Шаблон деидентификации</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">До деидентификации</div>
+        <pre>Договор №45 от 15.03.2025
+Сторона 1: ООО "ТехноПром", ИНН 7701234567
+Сторона 2: ООО "СтройМакс", ИНН 7707654321
+Предмет: Поставка оборудования на сумму 2 500 000 ₽</pre>
+      </div>
+      <div class="example">
+        <div class="example-label">После деидентификации</div>
+        <pre>Договор №[N] от [ДАТА]
+Сторона 1: Компания А, ИНН [ХХХХХХХХХХ]
+Сторона 2: Компания Б, ИНН [ХХХХХХХХХХ]
+Предмет: Поставка оборудования на сумму [СУММА]</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи</h3>
+      <pre>"Нужна система безопасной работы с AI.
+
+Требования:
+1. Автоматическая деидентификация перед отправкой в облако
+2. Локальное решение для конфиденциальных документов
+3. Политика доступа: кто что может отправлять
+4. Логирование всех запросов
+5. Проверка на утечку данных
+
+Категории данных:
+- Красные (строго локально): [перечислить]
+- Жёлтые (деидентификация): [перечислить]
+- Зелёные (можно в облако): [перечислить]
+
+Срок: [дата]"</pre>
+    </div>
+  </div>
+
+  <!-- ЧЕКЛИСТ -->
+  <div class="section">
+    <h2>✅ Чеклист принятия результата</h2>
+    <ul class="checklist">
+      <li>Все сотрудники знают, что нельзя отправлять?</li>
+      <li>Есть процесс деидентификации?</li>
+      <li>Локальное решение настроено для конфиденциальных данных?</li>
+      <li>Логирование работает? (можно проверить историю)</li>
+      <li>Есть автоматическая проверка на утечку?</li>
+      <li>Политика подписана всеми сотрудниками?</li>
+    </ul>
+  </div>
+
+  <!-- КВИЗ -->
+  <div class="section">
+    <h2>📝 Проверка понимания</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Можно ли отправлять договор с ценами в бесплатный ChatGPT?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Да, если удалить название компании</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Нет, цены — коммерческая тайна</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C>Да, ChatGPT безопасен</span>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Что такое деидентификация?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A>Замена конфиденциальных данных на плейсхолдеры</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B>Удаление документа</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C>Шифрование файла</span>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Какой уровень защиты самый надёжный?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A>Локальное решение (данные не покидают компанию)</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B>Enterprise-версия облачного AI</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C>Деидентификация</span>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- ГЛАВНОЕ -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Главное из урока</h3>
+      <p><strong>Конфиденциальность — не опция, а обязательство.</strong> Не отправляйте персональные данные, коммерческую тайну и NDA в облачный AI без защиты. Используйте деидентификацию, локальные решения или Enterprise-контракты. Одна утечка может стоить компании репутации и миллионов.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../05-scaling/index.html" class="nav-btn">← Предыдущий урок</a>
+    <a href="../06-hallucinations/index.html" class="nav-btn primary">Следующий урок →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI для Нетехнических Специалистов</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  
+  options.forEach(opt => {
+    opt.style.pointerEvents = 'none';
+    if (opt === element) {
+      opt.classList.add(isCorrect ? 'correct' : 'wrong');
+    }
+  });
+  
+  resultDiv.classList.add('show');
+  if (isCorrect) {
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+  } else {
+    resultDiv.style.background = 'rgba(239,68,68,0.1)';
+    resultDiv.style.border = '1px solid var(--danger)';
+    resultDiv.innerHTML = '<strong>❌ Не совсем.</strong> Подумайте ещё раз.';
+  }
+}
+</script>
+
 </body>
 </html>
