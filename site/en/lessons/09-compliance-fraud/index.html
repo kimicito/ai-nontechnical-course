@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>9.4 Compliance, фрод-мониторинг и отчёты аудита — AI для не ИТ-специалистов</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🔍 LEVEL 9 · АУДИТ, КОНТРОЛЬ И COMPLIANCE</div>
+    <h1>9.4 · Compliance, фрод-мониторинг и отчёты аудита</h1>
+    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Why It Matters for Business</h2>
+    <p>Регуляторика меняется постоянно, а проверки приходят неожиданно. Фрод может проявляться как подозрительные платежи, связанные контрагенты, круговые схемы. Подготовка к проверке занимает недели, а отчёт аудита — месяцы.</p>
+    <div class="card card-success">
+      <p><strong>AI для compliance и фрод-мониторинга</strong> — автоматический трекинг изменений в законах, мониторинг транзакций на аномалии, подготовка доказательной базы и генерация отчётов аудита за часы, а не недели.</p>
+      <p><strong>Пример:</strong> AI ежедневно проверяет 10 000 транзакций и за месяц выявил 23 подозрительных: 7 — выходные платежи, 12 — смена реквизитов контрагента, 4 — круговые схемы (платёшь A → A платит B → B платит тебе).</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+
+    <h3>Трекинг изменений в регуляторике</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Мониторинг законов:</strong> AI следит за изменениями в налоговом, трудовом, строительном законодательстве, ГОСТ, СНиП, 44-ФЗ/223-ФЗ</li>
+        <li><strong>Проверка внутренних политик:</strong> соответствуют ли внутренние регламенты новым требованиям? что нужно обновить?</li>
+        <li><strong>Алерты:</strong> уведомление ответственным, когда изменение требует действия (новый отчёт, новый порог, новая процедура)</li>
+      </ul>
+    </div>
+
+    <h3>Фрод-мониторинг: сигналы рисков</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Выходные и праздники:</strong> платежи в субботу/воскресенье — редко, но бывает. Пакет выходных платежей — сигнал.</li>
+        <li><strong>Смена реквизитов:</strong> контрагент вдруг сменил банк, ИНН, адрес — требует проверки.</li>
+        <li><strong>Круговые схемы:</strong> A платит B, B платит C, C платит A — AI строит граф связей и находит циклы.</li>
+        <li><strong>Подозрительные контрагенты:</strong> новые (зарегистрированы < 3 месяцев), массовые адреса, связанные учредители, статус «в процессе ликвидации».</li>
+        <li><strong>Аномалии сумм:</strong> круглые (500 000, 1 000 000), дробные с копейками (123 456,78), резкое отклонение от среднего.</li>
+      </ul>
+    </div>
+
+    <h3>Подготовка к проверкам и отчёты аудита</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Сборка доказательной базы:</strong> по запросу контролирующего органа AI собирает: реестр договоров, акты, платежи, переписку — в один пакет</li>
+        <li><strong>Структурирование ответов:</strong> формирование ответа на запрос по шаблону, с нумерацией, ссылками на документы</li>
+        <li><strong>Генерация аудиторского отчёта:</strong> из заключений специалистов AI собирает сводный отчёт с ранжированием рисков (высокий/средний/низкий) и рекомендациями</li>
+        <li><strong>Презентация для совета директоров:</strong> ключевые цифры, тренды, 3 главных риска, рекомендации — на 5 слайдах</li>
+      </ul>
+    </div>
+
+    <h3>Примеры фрод-сигналов</h3>
+    <table>
+      <tr><th>Сигнал</th><th>Что нашёл AI</th><th>Действие</th></tr>
+      <tr><td>🔴 Выходные платежи</td><td>15 платежей в субботу на одного контрагента</td><td>Проверить, подтвердить срочность, документировать</td></tr>
+      <tr><td>🔴 Смена реквизитов</td><td>Контрагент сменил банк за 3 дня до платежа 2 млн</td><td>Проверить по телефону, подписать дополнение</td></tr>
+      <tr><td>🔴 Круговая схема</td><td>A→B→C→A, суммы 1 млн каждый, за 2 дня</td><td>Аудит, проверка связанности, документирование</td></tr>
+      <tr><td>🟡 Новый контрагент</td><td>ООО зарегистрировано 2 недели назад, массовый адрес</td><td>Усиленная проверка, аванс только после поставки</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+
+    <h3>Сценарий: фрод-мониторинг транзакций</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Промпт для AI</div>
+        <pre>Проанализируй выписку из банка (файл) за месяц.
+
+Для каждой транзакции проверь:
+1. Дата: выходной или праздник? (если да — флаг)
+2. Контрагент: новый? сменил реквизиты за 30 дней? в чёрном списке?
+3. Сумма: круглая? резко отличается от средней по этому контрагенту?
+4. Граф связей: входит ли транзакция в круговую схему (A→B→C→A)?
+5. Частота: более 5 платежей одному контрагенту за день?
+
+Выведи:
+- Список подозрительных транзакций (с обоснованием)
+- Топ-5 контрагентов по риску
+- Сводка: сколько красных, жёлтых, зелёных</pre>
+      </div>
+      <p><strong>Результат:</strong> Руководитель финансового мониторинга получает ежедневный отчёт с 23 подозрительными транзакциями из 10 000. Время реакции — часы, а не недели.</p>
+    </div>
+
+    <h3>Сценарий: подготовка к налоговой проверке</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Промпт для AI</div>
+        <pre>Пришёл запрос из налоговой: "Предоставьте документы по контрагенту ООО 'Альфа' за 2025 год".
+
+Собери пакет:
+1. Найди все договоры с ООО "Альфа" (файл: договоры/)
+2. Найди все акты выполненных работ (файл: акты/)
+3. Найди все платежи (файл: выписка 2025.xlsx)
+4. Собери переписку по email с доменом alfa.ru (файл: email/)
+5. Сформируй реестр: №, дата, тип документа, сумма, описание
+6. Сформируй сопроводительное письмо по шаблону
+
+Выведи:
+- ZIP-архив с документами (пронумерованными)
+- Реестр в Excel
+- Сопроводительное письмо в Word</pre>
+      </div>
+      <p><strong>Результат:</strong> Вместо 2 недель поиска — 2 часа. Пакет собран, пронумерован, с реестром и письмом.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи (фрод-мониторинг)</h3>
+      <pre>"Нужен AI-фрод-мониторинг транзакций.
+
+Входные данные:
+- Банковские выписки (Excel / API банка)
+- Справочник контрагентов (Excel: ИНН, адрес, учредители, дата регистрации)
+- Чёрный список (Excel)
+
+Что проверяем:
+1. Выходные/праздничные платежи
+2. Смена реквизитов контрагента
+3. Круговые схемы (граф связей)
+4. Новые/подозрительные контрагенты
+5. Аномалии сумм (круглые, резкие отклонения)
+6. Частота платежей одному контрагенту
+
+Выход:
+- Дашборд с рейтингом транзакций (красный/жёлтый/зелёный)
+- Алерты в Telegram/SMS при красных
+- Ежедневный отчёт в Excel
+- Граф связей (визуализация круговых схем)
+
+Интеграция: банк (API), Telegram
+Срок: [дата]"</pre>
+    </div>
+    <div class="card card-success">
+      <h3>Шаблон задачи (подготовка к проверке)</h3>
+      <pre>"Нужен AI-сборщик документов для проверок.
+
+Входные данные:
+- Запрос от контролирующего органа (PDF / текст)
+- Договоры (папка / база)
+- Акты (папка / база)
+- Платежи (Excel / 1С)
+- Переписка (email / архив)
+
+Что делает:
+1. Распознаёт запрос: какой контрагент, какой период, какие документы
+2. Собирает документы из всех источников
+3. Формирует реестр (№, дата, тип, сумма, описание)
+4. Генерирует сопроводительное письмо по шаблону
+5. Упаковывает в ZIP с нумерацией
+
+Выход:
+- ZIP-архив с пронумерованными документами
+- Реестр в Excel
+- Сопроводительное письмо в Word
+- Время сборки: < 2 часов
+
+Интеграция: 1С, файловое хранилище, email
+Срок: [дата]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Acceptance Checklist</h2>
+    <ul class="checklist">
+      <li>Все 6 типов фрод-сигналов проверяются?</li>
+      <li>Круговые схемы находятся (не ложные срабатывания)?</li>
+      <li>Алерты приходят мгновенно (не через день)?</li>
+      <li>Трекинг регуляторики охватывает все нужные законы?</li>
+      <li>Сбор документов для проверки работает за < 2 часов?</li>
+      <li>Реестр понятен без объяснений (сам по себе)?</li>
+      <li>Аудиторский отчёт ранжирует риски (высокий/средний/низкий)?</li>
+      <li>Презентация для совета директоров — 5 слайдов, не 50?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Knowledge Check</h2>
+
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Что такое круговая схема?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Платёж по кругу на карусель</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) A платит B, B платит C, C платит A — замыкается цикл</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Оплата круглой суммой</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Какой платёж — фрод-сигнал?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Платёж в рабочий день по договору</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 15 платежей в субботу одному контрагенту</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Оплата по согласованной смете</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Зачем нужен AI при подготовке к проверке?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Чтобы заменить аудитора</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Чтобы собрать документы за 2 часа вместо 2 недель</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Чтобы написать письмо в налоговую без документов</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Key Takeaway</h3>
+      <p><strong>AI не предотвращает фрод, но находит его в часах, а не в месяцах.</strong> Трекинг регуляторики, мониторинг транзакций, сборка документов для проверок, генерация отчётов аудита — всё это рутина, которую AI делает системно и без усталости. Менеджер получает список того, что требует внимания, а не копается в тысячах строк.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../09-audit-construction-projects/index.html" class="nav-btn">← Previous lesson</a>
+    <a href="../../catalog.html" class="nav-btn primary">К каталогу →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>
