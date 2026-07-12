@@ -99,17 +99,18 @@
     <h2>🛠️ Калькулятор стоимости</h2>
     
     <div class="calc-box">
-      <label>Сколько запросов в день?<input type="number" id="dailyRequests" value="50" onchange="calculate()"></label>
-      <label>Средняя длина запроса (слов)?<input type="number" id="wordsPerRequest" value="200" onchange="calculate()"></label>
-      <label>Средняя длина ответа (слов)?<input type="number" id="wordsPerResponse" value="300" onchange="calculate()"></label>
-      <label>Модель:</select id="model" onchange="calculate()" style="width:100%; padding:8px; background:var(--bg); border:1px solid var(--border); border-radius:4px; color:var(--text); margin:8px 0;">
+      <label>Сколько запросов в день?<input type="number" id="dailyRequests" value="50" oninput="calculate()" onchange="calculate()"></label>
+      <label>Средняя длина запроса (слов)?<input type="number" id="wordsPerRequest" value="200" oninput="calculate()" onchange="calculate()"></label>
+      <label>Средняя длина ответа (слов)?<input type="number" id="wordsPerResponse" value="300" oninput="calculate()" onchange="calculate()"></label>
+      <label>Модель:</label>
+      <select id="model" oninput="calculate()" onchange="calculate()" style="width:100%; padding:8px; background:var(--bg); border:1px solid var(--border); border-radius:4px; color:var(--text); margin:8px 0;">
         <option value="0.14">DeepSeek V4-Flash ($0.14/1M токенов)</option>
         <option value="0.30">Gemini Flash ($0.30/1M)</option>
         <option value="1.00">Claude Haiku ($1.00/1M)</option>
         <option value="3.00" selected>Claude Sonnet ($3.00/1M)</option>
         <option value="5.00">Claude Opus ($5.00/1M)</option>
       </select></label>
-      <label>Рабочих дней в месяц:<input type="number" id="workDays" value="22" onchange="calculate()"></label>
+      <label>Рабочих дней в месяц:<input type="number" id="workDays" value="22" oninput="calculate()" onchange="calculate()"></label>
     </div>
 
     <div class="calc-result">
@@ -156,11 +157,17 @@
     <h2>📝 Проверка понимания</h2>
     <div class="card card-accent">
       <p><strong>Вопрос 1:</strong> Почему стоимость AI непредсказуема?</p>
-      <p><em>Ответ: Зависит от длины запроса и ответа. Чем длиннее документ, тем дороже. Невозможно предсказать точно заранее.</em></p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Зависит от длины запроса и ответа. Чем длиннее документ, тем дороже</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Потому что цены меняются каждый день</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Потому что модели работают медленно</span>
+      <div class="result" id="result1"></div>
     </div>
     <div class="card card-accent">
       <p><strong>Вопрос 2:</strong> Когда выгоднее локальное решение?</p>
-      <p><em>Ответ: При больших объёмах (> 10 000 запросов/день) или при работе с конфиденциальными данными. Порог ~$500-1000/мес на облако.</em></p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Всегда, локальное дешевле облака</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) При больших объёмах (>$500-1000/мес) или конфиденциальных данных</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Никогда, облако всегда выгоднее</span>
+      <div class="result" id="result2"></div>
     </div>
   </div>
 
@@ -206,5 +213,31 @@ function calculate() {
 calculate();
 </script>
 
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+  }
+}
+</script>
 </body>
 </html>

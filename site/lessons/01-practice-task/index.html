@@ -202,6 +202,32 @@
     </div>
   </div>
 
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Проверка понимания</h2>
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Какая задача подходит для автоматизации AI?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Разовая задача, которую делаем раз в год</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Повторяется >3 раз в неделю, занимает >20 минут, есть чёткий алгоритм</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Творческая задача без чётких критериев</span>
+      <div class="result" id="result1"></div>
+    </div>
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Что такое RCOF в промпте?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Название модели</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Роль, Контекст, Цель, Формат — структура промпта</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Размер файла в байтах</span>
+      <div class="result" id="result2"></div>
+    </div>
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Сколько примеров нужно для проверки промпта?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Минимум 3 реальных примера</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Достаточно 1 примера</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Не нужно проверять, AI всегда прав</span>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
   <!-- ПРАКТИЧЕСКОЕ ЗАДАНИЕ -->
   <div class="section">
     <h2>📝 Практическое задание</h2>
@@ -250,5 +276,31 @@
   </div>
 </footer>
 
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+  }
+}
+</script>
 </body>
 </html>

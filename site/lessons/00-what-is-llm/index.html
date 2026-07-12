@@ -196,7 +196,7 @@
       <ul>
         <li><strong>ChatGPT Plus ($20/мес)</strong> — приоритетный доступ, расширенные лимиты</li>
         <li><strong>Claude Pro ($20/мес)</strong> — больше сообщений, ранняя доступ к новым функциям</li>
-        <li><strong>OpenWebUI (Self-hosted)</strong> — для конфиденциальных данных, требует сервер</li>
+        <li><strong>GENAi (Self-hosted)</strong> — для конфиденциальных данных, требует сервер</li>
       </ul>
     </div>
   </div>
@@ -207,17 +207,26 @@
     
     <div class="card card-accent">
       <p><strong>Вопрос 1:</strong> LLM "понимает" текст так же, как человек?</p>
-      <p><em>Ответ: Нет. LLM предсказывает вероятные слова, не обладает сознанием или пониманием.</em></p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Нет, LLM предсказывает вероятные слова, не обладает сознанием</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Да, LLM понимает контекст так же, как эксперт</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Только если это GPT-4</span>
+      <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 2:</strong> Можно ли доверить LLM расчёт зарплаты?</p>
-      <p><em>Ответ: Нет. Точные математические расчёты — слабое место LLM. Используйте калькуляторы.</em></p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Да, LLM отлично считает</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Нет, точные расчёты — слабое место LLM, нужен калькулятор</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Только если попросить показать шаги</span>
+      <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Что лучше для конфиденциальных данных: облако или on-premise?</p>
-      <p><em>Ответ: On-premise (OpenWebUI + локальная модель). Данные не покидают компанию.</em></p>
+      <p><strong>Вопрос 3:</strong> Что лучше для конфиденциальных данных?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) ChatGPT — он самый умный</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) On-premise (GENAi + локальная модель) — данные не покидают компанию</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Любая платная версия</span>
+      <div class="result" id="result3"></div>
     </div>
   </div>
 
@@ -243,5 +252,31 @@
   </div>
 </footer>
 
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+  }
+}
+</script>
 </body>
 </html>

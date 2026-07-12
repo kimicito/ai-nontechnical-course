@@ -238,7 +238,6 @@ function checkAnswer(element, isCorrect) {
   const card = element.closest('.card');
   const options = card.querySelectorAll('.quiz-option');
   const resultDiv = card.querySelector('.result');
-  
   if (isCorrect) {
     options.forEach(opt => {
       opt.style.pointerEvents = 'none';
@@ -250,6 +249,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.style.border = '1px solid var(--success)';
     resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
   } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+  }
+} else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
