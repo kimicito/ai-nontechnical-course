@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>4.2 Мультиагенты — AI для не ИТ-специалистов</title>
+<title>4.2 Мультиагенты и Agent Swarm — AI для не ИТ-специалистов</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -72,7 +72,7 @@
 
   <div class="lesson-header">
     <div class="phase">🤖 УРОВЕНЬ 4 · АГЕНТЫ И ОРКЕСТРАЦИЯ</div>
-    <h1>4.2 · Мультиагентные системы: команда AI-сотрудников</h1>
+    <h1>4.2 · Мультиагенты и Agent Swarm: команда AI-сотрудников</h1>
     <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
   </div>
 
@@ -121,14 +121,54 @@
     </div>
 
     <h3>Сравнение: один агент vs команда</h3>
-    <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Один агент</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Команда агентов</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Универсал (но поверхностный)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Специалисты (глубокий анализ)</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Один контекст</td><td style="padding:10px;border-bottom:1px solid var(--border);">Разные контексты</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Проще настроить</td><td style="padding:10px;border-bottom:1px solid var(--border);">Сложнее настроить</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Дешевле (1 API)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Дороже (несколько API)</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Ошибка = провал всего</td><td style="padding:10px;border-bottom:1px solid var(--border);">Один агент заменяется</td></tr>
+    <table>
+      <tr><th>Один агент</th><th>Команда агентов</th></tr>
+      <tr><td>Универсал (но поверхностный)</td><td>Специалисты (глубокий анализ)</td></tr>
+      <tr><td>Один контекст</td><td>Разные контексты</td></tr>
+      <tr><td>Проще настроить</td><td>Сложнее настроить</td></tr>
+      <tr><td>Дешевле (1 API)</td><td>Дороже (несколько API)</td></tr>
+      <tr><td>Ошибка = провал всего</td><td>Один агент заменяется</td></tr>
     </table>
+
+    <h3>Режим роя (Agent Swarm)</h3>
+    <div class="card card-accent">
+      <p><strong>Agent Swarm</strong> — это когда агенты работают <strong>параллельно</strong>, а не по цепочке. Оркестратор (главный агент) разбивает задачу на независимые куски, запускает их одновременно, а потом собирает результаты.</p>
+      <p><strong>Модельная аналогия:</strong></p>
+      <ul>
+        <li>Один агент = один работник делает всё последовательно: исследование → черновик → редактура → форматирование</li>
+        <li>Swarm = менеджер нанял агентство: исследователь, аналитик, копирайтер, редактор, QA-специалист работают одновременно</li>
+      </ul>
+    </div>
+
+    <h3>Когда Swarm помогает</h3>
+    <div class="card card-success">
+      <ul>
+        <li>✅ Много независимых подзадач (исследовать 100 поставщиков → 10 агентов по 10 штук)</li>
+        <li>✅ Нужны разные специализации (SEO + копирайтинг + техническая проверка)</li>
+        <li>✅ Нужна скорость без потери качества (параллельно быстрее, чем последовательно)</li>
+        <li>✅ Пакет результатов (отчёт + таблица + чеклист + презентация)</li>
+      </ul>
+    </div>
+
+    <h3>Когда НЕ нужен Swarm</h3>
+    <div class="card card-warning">
+      <ul>
+        <li>❌ Маленькая задача: "Перепиши этот абзац"</li>
+        <li>❌ Последовательная работа: каждый шаг зависит от предыдущего (отладка бага)</li>
+        <li>❌ Нет чёткого определения "готово" — рой выдаст много текста, но не то, что нужно</li>
+      </ul>
+    </div>
+
+    <h3>Батчи: как не утонуть в тексте</h3>
+    <p>Ошибка: запустить всех агентов сразу и получить 50 страниц неструктурированного текста.</p>
+    <div class="example">
+      <div class="example-label">Правильный пайплайн (батчи)</div>
+      <pre>Партия A: Карта кластера (какие страницы, как связаны)
+Партия B: Аутлайны всех страниц (проверяем на пересечения)
+Партия C: Черновики (генерируем последовательно, по шаблону)
+Партия D: Редактура и полировка (единый тон, убираем повторы)
+Партия E: QA и финальная сборка (ссылки, факты, форматирование)</pre>
+    </div>
   </div>
 
   <!-- КАК ПРИМЕНИТЬ -->
@@ -148,20 +188,21 @@
       <p><strong>Экономия:</strong> 5 дней работы → 1 день</p>
     </div>
 
-    <h3>Когда использовать команду</h3>
-    <div class="card card-success">
-      <ul>
-        <li>✅ Задача требует > 3 компетенций</li>
-        <li>✅ Нужна проверка с разных сторон</li>
-        <li>✅ Важна глубина, а не скорость</li>
-        <li>✅ Есть бюджет на несколько API</li>
-      </ul>
-    </div>
-    <div class="card card-warning">
-      <ul>
-        <li>❌ Не используйте команду для простых задач</li>
-        <li>❌ Не используйте, если нет опыта с одиночными агентами</li>
-      </ul>
+    <h3>Сценарий: контент-пайплайн (Swarm)</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Swarm Brief — шаблон ТЗ для оркестратора</div>
+        <pre>Цель: Опубликовать кластер из 6 страниц про AI-инструменты
+Аудитория: новички + продвинутые пользователи
+Тон: дружелюбный, ясный, не роботизированный
+Структура: meta-title, meta-description, H1, хук,
+  4-6 разделов H2, таблица сравнения, 20-30 FAQ,
+  блок CTA с 2 кнопками
+Правила: короткие абзацы, без повторов, без "воды"
+Внутренние ссылки: /tools/, /pricing/, /api/
+Выходной формат: готовые HTML-блоки</pre>
+      </div>
+      <p>Оркестратор получает этот бриф и распределяет работу между агентами.</p>
     </div>
   </div>
 
@@ -169,7 +210,7 @@
   <div class="section">
     <h2>👨‍💻 Как делегировать разработчику</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
+      <h3>Шаблон задачи (классическая команда)</h3>
       <pre>"Нужна мультиагентная система для [задача].
 
 Команда агентов:
@@ -178,11 +219,26 @@
 3. [Роль 3] — [задача]
 4. Координатор — сбор результатов
 
-Процесс:
-[описать, как агенты взаимодействуют]
-
+Процесс: [описать, как агенты взаимодействуют]
 Интеграции: [с какими системами работать]
 Формат результата: [что ожидается на выходе]
+Срок: [дата]"</pre>
+    </div>
+    <div class="card card-success">
+      <h3>Шаблон задачи (Swarm-режим)</h3>
+      <pre>"Нужен Agent Swarm для [большая задача].
+
+Swarm Brief:
+- Цель: [что получить]
+- Аудитория: [для кого]
+- Тон: [как писать]
+- Структура: [требования к формату]
+- Правила: [что нельзя]
+- Пакет результатов: [список артефактов]
+
+Пайплайн: [батчи A → B → C → D → E]
+
+Контроль качества: [чеклист проверки]
 
 Срок: [дата]"</pre>
     </div>
@@ -191,6 +247,7 @@
   <!-- ЧЕКЛИСТ -->
   <div class="section">
     <h2>✅ Чеклист принятия результата</h2>
+    <h3>Классическая команда</h3>
     <ul class="checklist">
       <li>Каждый агент выполняет свою роль?</li>
       <li>Агенты корректно обмениваются данными?</li>
@@ -198,6 +255,16 @@
       <li>Нет дублирования работы между агентами?</li>
       <li>Если один агент "падает" — система продолжает работать?</li>
       <li>Результат проверен на противоречия?</li>
+    </ul>
+    <h3>Agent Swarm</h3>
+    <ul class="checklist">
+      <li>Swarm Brief был чётким и полным?</li>
+      <li>Каждый агент получил свою часть, а не всё подряд?</li>
+      <li>Результаты не противоречат друг другу?</li>
+      <li>Терминология единая во всех артефактах?</li>
+      <li>Факты и цифры проверены (не галлюцинации)?</li>
+      <li>Финальная редактура прошла "человеческий" проход?</li>
+      <li>Все ссылки и таблицы актуальны?</li>
     </ul>
   </div>
 
@@ -222,10 +289,10 @@
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Когда НЕ нужна команда агентов?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Для простых задач</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Для сложных проектов</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Для проверки compliance</span>
+      <p><strong>Вопрос 3:</strong> Когда НЕ нужен Agent Swarm?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Для простой задачи: переписать абзац</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Для исследования 100 поставщиков</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Для пакета: отчёт + таблица + чеклист</span>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -234,7 +301,8 @@
   <div class="section">
     <div class="card card-success">
       <h3>🎯 Главное из урока</h3>
-      <p><strong>Мультиагент = команда специалистов.</strong> Каждый агент — эксперт в своей области. Координатор собирает результаты. Это даёт глубину и надёжность, которых нет у одного универсального агента. Но не усложняйте простые задачи.</p>
+      <p><strong>Мультиагент = команда специалистов.</strong> Каждый агент — эксперт в своей области. Координатор собирает результаты. Это даёт глубину и надёжность, которых нет у одного универсального агента.</p>
+      <p><strong>Agent Swarm</strong> — это когда агенты работают параллельно, как агентство. Используйте для больших задач с независимыми частями. Не используйте для маленьких или последовательных задач. Не забудьте Swarm Brief и батчи.</p>
     </div>
   </div>
 
@@ -263,13 +331,14 @@ function checkAnswer(element, isCorrect) {
       if (opt === element) opt.classList.add('correct');
       else opt.classList.add('disabled');
     });
-  
-  resultDiv.classList.add('show');
-  if (isCorrect) {
+    resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
     resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
   } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
     resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
