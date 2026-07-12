@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>1.4 Работа с документами — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  tr:hover { background: rgba(255,255,255,0.02); }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🛠️ LEVEL 1 · MASTERING TOOLS</div>
+    <h1>1.4 · Работа с документами: анализ, суммаризация, сравнение</h1>
+    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+  </div>
+
+  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <div class="section">
+    <h2>🎯 Why It Matters for Business</h2>
+    <p>Менеджер читает в среднем <strong>2-3 часа документов в день</strong>: договоры, отчёты, коммерческие предложения, акты, протоколы.</p>
+    <div class="card card-success">
+      <p>AI сокращает это до <strong>15-20 минут</strong>:</p>
+      <ul>
+        <li>Суммаризация договора: 30 мин → 2 мин</li>
+        <li>Сравнение 2 КП: 1 час → 5 мин</li>
+        <li>Анализ рисков: 2 часа → 10 мин</li>
+      </ul>
+      <p><strong>Итого экономия: 3-4 часа в день</strong></p>
+    </div>
+  </div>
+
+  <!-- ЧТО ИЗУЧАЕМ -->
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+    
+    <h3>3 типа задач с документами</h3>
+    
+    <div class="card card-success">
+      <h4>1. Суммаризация (сжатие)</h4>
+      <p>Пересказать суть документа в нескольких пунктах.</p>
+      <div class="example">
+        <div class="example-label">💡 Пример промпта</div>
+        <pre>Ты — юрист.
+Перескажи договор в 5 пунктах:
+1. Что покупаем
+2. За сколько
+3. Сроки поставки
+4. Условия оплаты
+5. Штрафы и неустойка
+
+Если пункт не указан в договоре — напиши "Не указано".</pre>
+      </div>
+      <p><strong>Экономия:</strong> 30 мин → 2 минуты</p>
+    </div>
+
+    <div class="card card-success">
+      <h4>2. Сравнение</h4>
+      <p>Сравнить 2 или более документов по заданным критериям.</p>
+      <div class="example">
+        <div class="example-label">💡 Пример промпта</div>
+        <pre>Ты — закупщик.
+Сравни 2 коммерческих предложения по критериям:
+| Критерий | Предложение 1 | Предложение 2 | Лучшее |
+| Цена за ед. | | | |
+| Мин. заказ | | | |
+| Срок доставки | | | |
+| Условия оплаты | | | |
+| Гарантия | | | |
+
+Выдели различия жирным. Дай рекомендацию.</pre>
+      </div>
+      <p><strong>Экономия:</strong> 1 час → 5 минут</p>
+    </div>
+
+    <div class="card card-success">
+      <h4>3. Анализ рисков</h4>
+      <p>Найти потенциальные проблемы в документе.</p>
+      <div class="example">
+        <div class="example-label">💡 Пример промпта</div>
+        <pre>Ты — корпоративный юрист с 15-летним стажем.
+Проанализируй договор поставки на риски.
+
+Для каждого риска укажи:
+- Описание
+- Уровень: Высокий / Средний / Низкий
+- Рекомендация по минимизации
+
+Проверь разделы:
+☐ Неустойка
+☐ Форс-мажор
+☐ Расторжение
+☐ Порядок разрешения споров
+☐ Передача прав третьим лицам</pre>
+      </div>
+      <p><strong>Экономия:</strong> 2 часа → 10 минут</p>
+    </div>
+  </div>
+
+  <!-- КАК ПРИМЕНИТЬ -->
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+    
+    <h3>Сценарий: анализ договора</h3>
+    <div class="card">
+      <p><strong>Шаг 1:</strong> Загрузите договор в AI (ChatGPT Plus, Claude Pro, или Kimi поддерживают файлы)</p>
+      <p><strong>Шаг 2:</strong> Задайте роль и задачу</p>
+      <div class="example">
+        <div class="example-label">Полный промпт</div>
+        <pre>Ты — юрист по корпоративному праву.
+Проанализируй приложенный договор поставки.
+
+Задачи:
+1. Выдели ключевые условия (цена, сроки, объём, оплата)
+2. Найди риски для покупателя
+3. Оцени каждый риск: Высокий / Средний / Низкий
+4. Дай рекомендации по минимизации рисков
+5. Укажи, какие пункты необычны или отличаются от стандарта
+
+Формат: таблица рисков + общий вывод о приемлемости договора.</pre>
+      </div>
+      <p><strong>Шаг 3:</strong> Проверьте результат (особенно оценки рисков)</p>
+      <p><strong>Шаг 4:</strong> Сохраните шаблон промпта для будущих договоров</p>
+    </div>
+
+    <h3>Сценарий: сравнение КП</h3>
+    <div class="card">
+      <p><strong>Задача:</strong> Выбрать поставщика из 3 коммерческих предложений.</p>
+      <div class="example">
+        <div class="example-label">Промпт</div>
+        <pre>Ты — опытный закупщик.
+Сравни 3 коммерческих предложения во вложениях.
+
+Критерии сравнения:
+1. Цена за единицу (руб.)
+2. Минимальный заказ (шт.)
+3. Срок изготовления (дней)
+4. Срок доставки (дней)
+5. Условия оплаты
+6. Наличие сертификатов
+7. Гарантийный срок
+
+Выведи таблицей. Для каждого критерия укажи лидера.
+В конце — однозначную рекомендацию с обоснованием.
+
+Ограничение: если срок > 14 дней — отметь как риск.</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи</h3>
+      <pre>"Нужна система автоматического анализа договоров.
+
+Требования:
+1. Загрузка документов: PDF, DOCX, TXT
+2. Автоматический анализ по шаблонам:
+   - Суммаризация (5 ключевых пунктов)
+   - Сравнение с шаблоном компании
+   - Оценка рисков (таблица)
+3. Сохранение результатов в [Notion/SharePoint/1С]
+4. Уведомление ответственному лицу
+5. История анализов (поиск по контрагенту)
+
+Пример входного и выходного документа (прикрепить).
+
+Интеграции: [email / 1С / CRM]
+Срок: [дата]"</pre>
+    </div>
+  </div>
+
+  <!-- ЧЕКЛИСТ -->
+  <div class="section">
+    <h2>✅ Acceptance Checklist</h2>
+    <ul class="checklist">
+      <li>Все ключевые пункты договора учтены?</li>
+      <li>Риски оценены корректно? (проверьте 2-3 пункта)</li>
+      <li>Рекомендации применимы? (можно реализовать)</li>
+      <li>Формат удобен для передачи коллегам?</li>
+      <li>Нет галлюцинаций? (факты соответствуют документу)</li>
+      <li>Для критичных договоров — проверил юрист?</li>
+    </ul>
+  </div>
+
+  <!-- ИНСТРУМЕНТЫ -->
+  <div class="section">
+    <h2>🛠️ Инструменты</h2>
+    <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Инструмент</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Возможности</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Стоимость</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT Plus</td><td style="padding:10px;border-bottom:1px solid var(--border);">Загрузка PDF, DOCX, анализ</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/мес</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Pro</td><td style="padding:10px;border-bottom:1px solid var(--border);">Большие документы, юридический анализ</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/мес</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Kimi (Moonshot)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Огромный контекст, загрузка файлов</td><td style="padding:10px;border-bottom:1px solid var(--border);">Бесплатно / $8</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Notion AI</td><td style="padding:10px;border-bottom:1px solid var(--border);">Анализ документов в базе знаний</td><td style="padding:10px;border-bottom:1px solid var(--border);">$10/мес</td></tr>
+    </table>
+  </div>
+
+  <!-- КВИЗ -->
+  <div class="section">
+    <h2>📝 Knowledge Check</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Какая задача занимает больше всего времени вручную?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Суммаризация договора</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Анализ рисков</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Сравнение КП</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Можно ли полностью доверять AI в анализе договоров?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Да, AI не ошибается</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Нет, критичные договоры нужно проверять юристу</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только для простых договоров</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Какой инструмент поддерживает загрузку PDF?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) ChatGPT Plus</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Бесплатный ChatGPT</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только Claude</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- ГЛАВНОЕ -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Key Takeaway</h3>
+      <p>AI анализирует документы за минуты: <strong>суммирует, сравнивает, находит риски</strong>. Но всегда проверяйте критичные выводы. AI — помощник, не замена юристу. Экономия: <strong>3-4 часа в день</strong> на чтение документов.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../01-chain-prompts/index.html" class="nav-btn">← Previous lesson</a>
+    <a href="../01-practice-task/index.html" class="nav-btn primary">Next lesson →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

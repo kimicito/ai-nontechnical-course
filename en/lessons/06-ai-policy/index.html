@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.3 AI-политика — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🛡️ LEVEL 6 · ЭТИКА И БЕЗОПАСНОСТЬ</div>
+    <h1>6.3 · AI-политика компании: правила игры</h1>
+    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+  </div>
+
+  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <div class="section">
+    <h2>🎯 Why It Matters for Business</h2>
+    <p>Без правил использования AI компания рискует: <strong>утечкой данных</strong>, <strong>ошибочными решениями</strong>, <strong>нарушением законодательства</strong>. AI-политика — это не бюрократия, это страховка.</p>
+    <div class="card card-success">
+      <p><strong>Пример:</strong> Компания без политики: сотрудник отправил клиентские данные в бесплатный ChatGPT → Утечка → Штраф 500 000 ₽ по 152-ФЗ.</p>
+      <p>Компания с политикой: сотрудник знал, что нельзя → Использовал локальное решение → Нет утечки.</p>
+    </div>
+  </div>
+
+  <!-- ЧТО ИЗУЧАЕМ -->
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+    
+    <h3>Что должна содержать AI-политика</h3>
+    <div class="card">
+      <table style="width:100%; border-collapse: collapse;">
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Раздел</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Содержание</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">1. Цель</td><td style="padding:10px;border-bottom:1px solid var(--border);">Зачем используем AI, какие задачи решаем</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">2. Разрешённые инструменты</td><td style="padding:10px;border-bottom:1px solid var(--border);">Какие сервисы можно использовать (ChatGPT Enterprise, локальные и т.д.)</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">3. Запрещённые данные</td><td style="padding:10px;border-bottom:1px solid var(--border);">Что нельзя отправлять в облачный AI</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">4. Процессы</td><td style="padding:10px;border-bottom:1px solid var(--border);">В каких задачах AI может работать автономно, где нужен человек</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">5. Ответственность</td><td style="padding:10px;border-bottom:1px solid var(--border);">Кто отвечает за результат, кто проверяет</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">6. Обучение</td><td style="padding:10px;border-bottom:1px solid var(--border);">Как часто обучать, кто проводит</td></tr>
+      </table>
+    </div>
+
+    <h3>Пример: категории данных по уровням доступа</h3>
+    <div class="card card-success">
+      <p><strong>🔴 Красные (строго локально):</strong></p>
+      <ul>
+        <li>Персональные данные клиентов</li>
+        <li>Коммерческая тайна</li>
+        <li>Договоры NDA</li>
+        <li>Финансовая отчётность</li>
+      </ul>
+      <p><strong>🟡 Жёлтые (деидентификация + Enterprise):</strong></p>
+      <ul>
+        <li>Внутренние регламенты</li>
+        <li>Шаблоны договоров</li>
+        <li>Аналитические отчёты</li>
+      </ul>
+      <p><strong>🟢 Зелёные (можно в облако):</strong></p>
+      <ul>
+        <li>Общие знания, справочная информация</li>
+        <li>Черновики без конфиденциальных данных</li>
+        <li>Обучающие материалы</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- КАК ПРИМЕНИТЬ -->
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+    
+    <h3>Шаблон AI-политики (краткая версия)</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Пример политики</div>
+        <pre>1. Цель: Используем AI для автоматизации рутины 
+   и повышения качества анализа.
+
+2. Разрешённые инструменты:
+   - ChatGPT Enterprise (для общих задач)
+   - Локальная модель (для конфиденциальных)
+   - n8n / Zapier (для автоматизации)
+
+3. Запрещено:
+   - Отправлять персональные данные в бесплатный ChatGPT
+   - Использовать AI для финальных решений без проверки
+   - Доверять AI юридические и финансовые расчёты без верификации
+
+4. Процессы:
+   - Рутина (< 50 000 ₽): AI автономно
+   - Важные (> 50 000 ₽): AI + человек
+   - Критичные (> 500 000 ₽): человек
+
+5. Ответственность:
+   - Сотрудник: соблюдение политики
+   - Руководитель: проверка критичных решений
+   - IT: техническая поддержка
+
+6. Нарушения:
+   - Первое: предупреждение + обучение
+   - Повторное: дисциплинарная ответственность</pre>
+      </div>
+    </div>
+
+    <h3>Как внедрить политику</h3>
+    <div class="card card-accent">
+      <ol>
+        <li><strong>Соберите команду:</strong> IT, юрист, HR, бизнес-репрезентанты</li>
+        <li><strong>Напишите черновик:</strong> Используйте шаблон выше</li>
+        <li><strong>Согласуйте с юристом:</strong> Соответствие 152-ФЗ, NDA</li>
+        <li><strong>Утвердите руководством:</strong> Приказ / распоряжение</li>
+        <li><strong>Обучите сотрудников:</strong> Не просто "прочитайте", а практика</li>
+        <li><strong>Проверяйте:</strong> Аудит раз в квартал</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи</h3>
+      <pre>"Нужна система контроля соблюдения AI-политики.
+
+Требования:
+1. Автоматическая проверка входных данных 
+   (не содержат ли конфиденциальную информацию)
+2. Блокировка запрещённых операций
+3. Логирование всех AI-запросов
+4. Отчётность для аудита
+5. Интеграция с [Active Directory / SSO]
+
+Политика (прикрепить): [файл]
+Срок: [дата]"</pre>
+    </div>
+  </div>
+
+  <!-- ЧЕКЛИСТ -->
+  <div class="section">
+    <h2>✅ Acceptance Checklist</h2>
+    <ul class="checklist">
+      <li>Политика утверждена руководством?</li>
+      <li>Все сотрудники ознакомились и подписали?</li>
+      <li>Есть обучение (не просто "прочитайте")?</li>
+      <li>Технические ограничения настроены? (что нельзя отправить)</li>
+      <li>Есть процесс проверки и аудита?</li>
+      <li>Нарушения фиксируются и обрабатываются?</li>
+    </ul>
+  </div>
+
+  <!-- КВИЗ -->
+  <div class="section">
+    <h2>📝 Knowledge Check</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Зачем нужна AI-политика?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Чтобы защитить компанию от утечек и ошибок</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Чтобы усложнить работу</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Это формальность</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Какие данные — "красные" (строго локально)?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Персональные данные, коммерческая тайна, NDA</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Общие знания из интернета</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Шаблоны писем</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Кто должен согласовывать политику?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Юрист + руководство</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Только IT-директор</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Никто, политика необязательна</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- ГЛАВНОЕ -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Key Takeaway</h3>
+      <p><strong>AI-политика = правила дорожного движения.</strong> Без них — хаос и аварии. С ними — эффективное и безопасное использование. Политика должна быть понятной, практичной и обязательной. Не просто "запрещаем всё", а "разрешаем то, что безопасно, с контролем".</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../06-hallucinations/index.html" class="nav-btn">← Previous lesson</a>
+    <a href="../../catalog.html" class="nav-btn primary">К каталогу →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

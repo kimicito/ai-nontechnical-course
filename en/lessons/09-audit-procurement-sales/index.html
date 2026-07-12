@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>9.2 Аудит закупок и продаж — AI для не ИТ-специалистов</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🔍 LEVEL 9 · АУДИТ, КОНТРОЛЬ И COMPLIANCE</div>
+    <h1>9.2 · Аудит закупок и продаж</h1>
+    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Why It Matters for Business</h2>
+    <p>Закупки и продажи — точки максимального риска: переплаты, скидки без согласования, фиктивные поставщики, необоснованные отступные. Ручная проверка каждой сделки невозможна при объёмах.</p>
+    <div class="card card-success">
+      <p><strong>AI-аудит закупок и продаж</strong> — автоматический анализ всех сделок на соответствие политикам, поиск аномалий и выявление рисков. Менеджер получает рейтинг сделок: зелёные, жёлтые, красные.</p>
+      <p><strong>Пример:</strong> AI проанализировал 200 закупок за квартал и выявил 8 сделок с рисками: 3 — единственщики без обоснования, 2 — изменение реквизитов поставщика, 3 — скидки выше лимита.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+
+    <h3>Закупки: что проверяет AI</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Наличие 3 КП:</strong> есть ли три коммерческих предложения, соответствуют ли требованиям закона/политики</li>
+        <li><strong>Лимиты:</strong> не превышен ли лимит на закупку, правильно ли выбрана процедура (конкурс, аукцион, единственщик)</li>
+        <li><strong>Обоснование единственщика:</strong> есть ли меморандум, соответствует ли критериям (авторский надзор, технологическая уникальность, срочность)</li>
+        <li><strong>Связанные лица:</strong> проверка поставщиков на связанность (учредители, адреса, телефоны)</li>
+        <li><strong>История поставщика:</strong> новый контрагент, частые смены реквизитов, массовый адрес</li>
+      </ul>
+    </div>
+
+    <h3>Продажи: что проверяет AI</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Сверка отгрузки и оплаты:</strong> отгружено — оплачено, есть ли просрочки</li>
+        <li><strong>Скидки и отступные:</strong> не превышают ли лимит, есть ли согласование, кто одобрил</li>
+        <li><strong>Возвраты:</strong> аномальная частота возвратов по клиенту, причины (брак, передумал, ошибка менеджера)</li>
+        <li><strong>Дебиторка:</strong> просроченные платежи, динамика долга, клиенты с ростом задолженности</li>
+        <li><strong>Ценовые аномалии:</strong> резкое изменение цен, скидки в выходные, нетипичные условия</li>
+      </ul>
+    </div>
+
+    <h3>Сигналы рисков: красные, жёлтые, зелёные</h3>
+    <table>
+      <tr><th>Сигнал</th><th>Закупки</th><th>Продажи</th></tr>
+      <tr><td>🔴 Красный</td><td>Связанный поставщик, поддельные КП, смена реквизитов</td><td>Возврат >30%, клиент-банкрот, скидка 50% без одобрения</td></tr>
+      <tr><td>🟡 Жёлтый</td><td>Единственщик без меморандума, новый поставщик, круглая сумма</td><td>Просрочка 15 дней, частые возвраты, цена ниже себестоимости</td></tr>
+      <tr><td>🟢 Зелёный</td><td>3 КП, проверенный поставщик, всё по процедуре</td><td>Оплата в срок, типичные скидки, стабильный клиент</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+
+    <h3>Сценарий: ежемесячный аудит закупок</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Промпт для AI</div>
+        <pre>Проанализируй реестр закупок за месяц (файл).
+
+Для каждой сделки проверь:
+1. Процедура: конкурс / аукцион / единственщик — соответствует сумме?
+2. Единственщик: есть ли обоснование (меморандум)?
+3. КП: есть ли 3 предложения (если не единственщик)?
+4. Поставщик: проверенный или новый? есть ли в чёрном списке?
+5. Связанность: совпадают ли учредители/адреса с другими поставщиками?
+6. Сумма: круглая? резко отличается от рыночной?
+
+Выведи:
+- Топ-10 рисковых сделок (с обоснованием)
+- Сводка: сколько красных, жёлтых, зелёных
+- Рекомендации: что проверить вручную</pre>
+      </div>
+      <p><strong>Результат:</strong> Excel-таблица с рейтингом каждой сделки. Руководитель видит, на чём сосредоточить внимание аудитора.</p>
+    </div>
+
+    <h3>Сценарий: мониторинг продаж на аномалии</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Промпт для AI</div>
+        <pre>Проанализируй реестр продаж за квартал.
+
+Для каждой сделки проверь:
+1. Скидка: не превышает ли лимит? есть ли одобрение?
+2. Возврат: частота по клиенту, причины, сумма
+3. Дебиторка: сроки оплаты, просрочки, тренд
+4. Отступные: обоснованы? согласованы?
+5. Цена: не ниже себестоимости? аномально низкая?
+
+Выведи:
+- Клиенты с аномальными возвратами
+- Менеджеры с частыми скидками выше лимита
+- Сделки с ценой ниже себестоимости
+- Рекомендации по дебиторке</pre>
+      </div>
+      <p><strong>Результат:</strong> Менеджер по продажам получает список клиентов, требующих внимания, и сделок, которые нужно пересмотреть.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи</h3>
+      <pre>"Нужен AI-аудит закупок и продаж.
+
+Закупки — проверяем:
+- 3 КП, процедура, лимиты
+- Обоснование единственщика
+- Связанные лица (по учредителям, адресам)
+- История поставщика (новый, чёрный список, смена реквизитов)
+- Аномалии сумм
+
+Продажи — проверяем:
+- Сверка отгрузки и оплаты
+- Скидки и отступные (лимиты, одобрения)
+- Возвраты (частота, причины)
+- Дебиторка (просрочки, тренды)
+- Ценовые аномалии
+
+Выход:
+- Дашборд с рейтингом сделок (красный/жёлтый/зелёный)
+- Excel-отчёт с топ-рисками
+- Алерты в Telegram при красных сигналах
+
+Интеграция: 1С, ЭДО, банк, Telegram
+Срок: [дата]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Acceptance Checklist</h2>
+    <ul class="checklist">
+      <li>Все сделки имеют рейтинг (красный/жёлтый/зелёный)?</li>
+      <li>Проверка 3 КП работает корректно?</li>
+      <li>Связанные лица находятся (не ложные срабатывания)?</li>
+      <li>Скидки сравниваются с утверждёнными лимитами?</li>
+      <li>Дебиторка обновляется в реальном времени?</li>
+      <li>Красные сигналы приходят мгновенно (а не через неделю)?</li>
+      <li>Отчёт понятен директору (не только аудитору)?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Knowledge Check</h2>
+
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Какой сигнал — красный в закупках?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Новый поставщик без истории</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Связанный поставщик с поддельными КП</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 3 КП от разных поставщиков</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Что проверяет AI в продажах?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Только количество заказов</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Скидки, возвраты, дебиторку, цены</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только настроение клиентов</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Почему важен меморандум единственщика?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Это доказательство законности процедуры</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Это красивая обложка</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это не важно, AI сам разберётся</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Key Takeaway</h3>
+      <p><strong>AI превращает аудит из «проверь всё» в «проверь красное».</strong> Автоматический рейтинг сделок, поиск связанных лиц, проверка лимитов — это не замена аудитору, а его инструмент. Менеджер тратит время на решения, а не на просмотр тысяч строк.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../09-doc-check/index.html" class="nav-btn">← Previous lesson</a>
+    <a href="../09-audit-construction-projects/index.html" class="nav-btn primary">Next lesson →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

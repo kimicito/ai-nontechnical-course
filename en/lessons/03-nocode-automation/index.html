@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>3.1 No-code автоматизация: n8n и Zapier — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .tool-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 10px 0; }
+  .tool-card h4 { margin: 0 0 8px; color: var(--accent); }
+  .tool-card .price { color: var(--success); font-size: 0.9rem; }
+  .workflow-step { display: flex; align-items: flex-start; gap: 12px; padding: 12px; background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.15); border-radius: 8px; margin: 8px 0; }
+  .workflow-step .num { background: var(--accent); color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; flex-shrink: 0; }
+  .tag { display: inline-block; padding: 2px 8px; background: rgba(139,92,246,0.15); border-radius: 4px; font-size: 0.8rem; color: var(--accent); margin: 2px; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">⚡ LEVEL 3 · AUTOMATION</div>
+    <h1>3.1 · No-code автоматизация: n8n и Zapier</h1>
+    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+  </div>
+
+  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <div class="section">
+    <h2>🎯 Why It Matters for Business</h2>
+    <p>Менеджеры тратят <strong>30% времени на рутину</strong>: копирование данных между системами, отправку однотипных писем, заполнение отчётов.</p>
+    <div class="card card-success">
+      <p><strong>No-code платформы</strong> позволяют автоматизировать эти процессы без программирования. Соединяют разные сервисы: email, Excel, CRM, мессенджеры, AI.</p>
+      <p><strong>Пример:</strong> "Когда приходит письмо от поставщика → AI анализирует → если есть изменение цены → отправить уведомление закупщику в Telegram"</p>
+    </div>
+  </div>
+
+  <!-- ЧТО ИЗУЧАЕМ -->
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+    
+    <h3>Как работает автоматизация</h3>
+    <div class="card card-accent">
+      <p>Любая автоматизация состоит из 3 частей:</p>
+      <ol>
+        <li><strong>Триггер</strong> — что запускает процесс? (письмо, время, кнопка)</li>
+        <li><strong>Действие</strong> — что делать? (отправить письмо, записать в таблицу)</li>
+        <li><strong>Условие</strong> — когда делать? (если цена изменилась > 10%)</li>
+      </ol>
+    </div>
+
+    <h3>n8n — open-source автоматизация</h3>
+    <div class="tool-card">
+      <h4>🔗 n8n</h4>
+      <p class="price">💰 Бесплатно (self-hosted), облако от $20/мес</p>
+      <p>n8n — <strong>open-source</strong> платформа с визуальным редактором workflow. Устанавливается на свой сервер или используется в облаке. Код открыт, лицензия <strong>fair-code</strong> (бесплатно для себя, платно для облачных SaaS-провайдеров).</p>
+      
+      <div class="example">
+        <div class="example-label">Ключевые особенности</div>
+        <ul>
+          <li><strong>400+ интеграций</strong> «из коробки» (Google Sheets, Telegram, OpenAI, Notion, CRM)</li>
+          <li><strong>Визуальный редактор</strong> — перетаскиваете узлы, соединяете стрелками</li>
+          <li><strong>Self-hosted</strong> — данные не покидают ваш сервер (конфиденциальность)</li>
+          <li><strong>HTTP Request</strong> — подключение к любому API без программирования</li>
+          <li><strong>JavaScript/Python</strong> — можно встроить код для сложной логики</li>
+          <li><strong>Webhook</strong> — принимает данные из любых систем</li>
+          <li><strong>Schedule</strong> — запуск по расписанию (каждый час, день, крон-выражение)</li>
+        </ul>
+      </div>
+      
+      <div class="example">
+        <div class="example-label">Пример workflow в n8n</div>
+        <div class="workflow-step">
+          <span class="num">1</span>
+          <div><strong>Trigger:</strong> Webhook (пришёл новый лид с сайта)</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">2</span>
+          <div><strong>AI:</strong> OpenAI узел — анализирует запрос, определяет категорию</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">3</span>
+          <div><strong>Condition:</strong> Если категория = "Закупка" → отправить в Telegram закупщику</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">4</span>
+          <div><strong>Condition:</strong> Если категория = "Продажа" → создать сделку в CRM</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">5</span>
+          <div><strong>Action:</strong> Записать лог в Google Sheets</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Zapier — простота и скорость</h3>
+    <div class="tool-card">
+      <h4>⚡ Zapier</h4>
+      <p class="price">💰 Бесплатно до 100 задач/мес, далее от $19/мес</p>
+      <p>Zapier — самый зрелый инструмент на рынке. <strong>5000+ интеграций</strong>, работает с 2011 года. Идеален для быстрого старта без настройки серверов.</p>
+      
+      <div class="example">
+        <div class="example-label">Ключевые особенности</div>
+        <ul>
+          <li><strong>Zaps</strong> — автоматизации, состоящие из триггера и действий</li>
+          <li><strong>Paths</strong> — ветвление логики (if/else внутри одного Zap)</li>
+          <li><strong>Filter</strong> — условия, при которых Zap срабатывает</li>
+          <li><strong>Formatter</strong> — преобразование данных (даты, числа, текст)</li>
+          <li><strong>Schedule</strong> — запуск по времени</li>
+          <li><strong>Webhooks</strong> — приём данных из внешних систем</li>
+          <li><strong>AI Actions</strong> — встроенная интеграция с OpenAI, Anthropic, Cohere</li>
+          <li><strong>Tables</strong> — встроенная база данных (альтернатива Google Sheets)</li>
+        </ul>
+      </div>
+      
+      <div class="example">
+        <div class="example-label">Пример Zap</div>
+        <div class="workflow-step">
+          <span class="num">1</span>
+          <div><strong>Trigger:</strong> Gmail — новое письмо с вложением PDF</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">2</span>
+          <div><strong>AI:</strong> Zapier AI — извлекает ключевые данные из PDF (сумма, дата, контрагент)</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">3</span>
+          <div><strong>Filter:</strong> Если сумма > 100 000 ₽</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">4</span>
+          <div><strong>Action:</strong> Отправить уведомление в Slack → #закупки</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">5</span>
+          <div><strong>Action:</strong> Сохранить данные в Google Sheets</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Сравнение n8n vs Zapier</h3>
+    <table>
+      <tr><th>Критерий</th><th>n8n</th><th>Zapier</th></tr>
+      <tr><td>Сложность</td><td>Средняя (визуальный редактор)</td><td>Низкая (максимально просто)</td></tr>
+      <tr><td>Цена</td><td>Бесплатно (self-hosted) / $20 облако</td><td>От $19/мес</td></tr>
+      <tr><td>Конфиденциальность</td><td>✅ Данные на вашем сервере</td><td>☁️ В облаке Zapier</td></tr>
+      <tr><td>Интеграции</td><td>400+ (растёт быстро)</td><td>5000+ (максимум на рынке)</td></tr>
+      <tr><td>Код</td><td>✅ JS/Python внутри workflow</td><td>❌ Только через внешние сервисы</td></tr>
+      <tr><td>Self-hosted</td><td>✅ Docker, npm, облако</td><td>❌ Только облако</td></tr>
+      <tr><td>Лучше для</td><td>Контроль данных, сложная логика</td><td>Быстрый старт, масса интеграций</td></tr>
+    </table>
+
+    <h3>Когда что выбрать</h3>
+    <div class="card card-accent">
+      <p><span class="tag">n8n</span> если:</p>
+      <ul>
+        <li>Работаете с конфиденциальными данными (договоры, персональные данные)</li>
+        <li>Есть IT-специалист, который может поднять сервер</li>
+        <li>Нужна сложная логика (циклы, условия, код)</li>
+        <li>Хотите сэкономить на подписке (self-hosted = бесплатна лицензия, но нужен сервер и ИТ-специалист)</li>
+      </ul>
+      <p style="margin-top: 16px;"><span class="tag">Zapier</span> если:</p>
+      <ul>
+        <li>Нужно запустить за 10 минут без настройки сервера</li>
+        <li>Используете редкие сервисы (нужна максимальная совместимость)</li>
+        <li>Нет IT-ресурсов — всё должно работать «из коробки»</li>
+        <li>Готовы платить за удобство и стабильность</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- КАК ПРИМЕНИТЬ -->
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+    
+    <h3>Сценарий 1: Автоматическая обработка заявок</h3>
+    <div class="card">
+      <p><strong>Проблема:</strong> Заявки от клиентов приходят на email, менеджер вручную переносит их в CRM.</p>
+      <div class="example">
+        <div class="example-label">Автоматизация в n8n</div>
+        <div class="workflow-step">
+          <span class="num">1</span>
+          <div><strong>Email Trigger:</strong> Новое письмо на zakazy@company.ru</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">2</span>
+          <div><strong>OpenAI:</strong> Извлечь: продукт, бюджет, срок, контакт</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">3</span>
+          <div><strong>Code:</strong> Проверить, все ли поля заполнены</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">4</span>
+          <div><strong>CRM:</strong> Создать сделку (если поля заполнены)</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">5</span>
+          <div><strong>Telegram:</strong> Уведомить менеджера</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">6</span>
+          <div><strong>If:</strong> Бюджет > 100 000 ₽ → уведомить директора</div>
+        </div>
+      </div>
+      <p><strong>Экономия:</strong> 2 часа в день на обработку заявок</p>
+    </div>
+
+    <h3>Сценарий 2: Мониторинг цен поставщиков</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Автоматизация в Zapier</div>
+        <div class="workflow-step">
+          <span class="num">1</span>
+          <div><strong>Schedule:</strong> Еженедельно, например по понедельникам 9:00</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">2</span>
+          <div><strong>HTTP:</strong> Получить прайс-лист с сайта поставщика (API или парсинг)</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">3</span>
+          <div><strong>AI:</strong> Сравнить с прошлой неделей (Zapier AI или OpenAI)</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">4</span>
+          <div><strong>Filter:</strong> Если цена изменилась > 5%</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">5</span>
+          <div><strong>Sheets:</strong> Записать отчёт в Google Sheets</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">6</span>
+          <div><strong>Slack:</strong> Отправить уведомление закупщику</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Сценарий 3: Еженедельный отчёт</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Автоматизация в n8n</div>
+        <div class="workflow-step">
+          <span class="num">1</span>
+          <div><strong>По расписанию (cron):</strong> Каждую пятницу 17:00</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">2</span>
+          <div><strong>Database:</strong> Собрать данные из 1С / CRM (SQL-запрос или API)</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">3</span>
+          <div><strong>Code:</strong> Агрегировать данные (группировка, суммы)</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">4</span>
+          <div><strong>OpenAI:</strong> Сформировать текстовый отчёт с выводами</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">5</span>
+          <div><strong>Email:</strong> Отправить руководителю</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">6</span>
+          <div><strong>Google Drive:</strong> Сохранить PDF в архив</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи для n8n</h3>
+      <pre>"Нужно создать workflow в n8n.
+
+Триггер: [описать событие]
+Действия:
+1. [что делать]
+2. [что делать]
+3. [условие — когда делать]
+
+Интеграции: [список сервисов]
+AI-компонент: [да/нет, описание задачи]
+Self-hosted: [да/нет]
+
+Пример входных данных: [прикрепить]
+Ожидаемый результат: [описать]
+
+Срок: [дата]"</pre>
+    </div>
+
+    <div class="card card-success">
+      <h3>Шаблон задачи для Zapier</h3>
+      <pre>"Нужно создать Zap.
+
+Триггер: [сервис + событие]
+Действия:
+1. [сервис + действие]
+2. [сервис + действие]
+
+Условия (Filter/Paths):
+- [условие 1]
+- [условие 2]
+
+Интеграции: [список сервисов]
+AI-компонент: [Zapier AI / OpenAI / нет]
+
+Пример входных данных: [прикрепить]
+Ожидаемый результат: [описать]
+
+Срок: [дата]"</pre>
+    </div>
+  </div>
+
+  <!-- ЧЕКЛИСТ -->
+  <div class="section">
+    <h2>✅ Acceptance Checklist</h2>
+    <ul class="checklist">
+      <li>Сценарий запускается корректно? (триггер работает)</li>
+      <li>Данные передаются без потерь? (проверьте 3 запуска)</li>
+      <li>Условия срабатывают правильно? (крайние значения (граничные случаи))</li>
+      <li>Есть обработка ошибок? (если сервис недоступен)</li>
+      <li>Логи доступны для проверки? (история запусков в n8n / Zapier Task History)</li>
+      <li>Стоимость операций в пределах бюджета? (Zapier: счётчик задач, n8n: Execution History)</li>
+    </ul>
+  </div>
+
+  <!-- ИНСТРУМЕНТЫ -->
+  <div class="section">
+    <h2>🛠️ Инструменты</h2>
+    <table>
+      <tr><th>Платформа</th><th>Лучше для</th><th>Стоимость</th></tr>
+      <tr><td>n8n</td><td>Контроль данных, сложная логика, self-hosted</td><td>Бесплатно / $20</td></tr>
+      <tr><td>Zapier</td><td>Быстрый старт, 5000+ интеграций</td><td>От $19/мес</td></tr>
+      <tr><td>Microsoft Power Automate</td><td>Компании на Microsoft 365</td><td>От $15/мес</td></tr>
+    </table>
+  </div>
+
+  <!-- КВИЗ -->
+  <div class="section">
+    <h2>📝 Knowledge Check</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Что такое "триггер" в автоматизации?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Событие, которое запускает процесс</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Действие, которое выполняется</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Условие выполнения</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Какая платформа open-source и позволяет self-hosted?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Zapier</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) n8n</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Power Automate</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Сколько времени экономит автоматизация обработки заявок?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 15 минут</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 2 часа в день</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 30 минут</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- ГЛАВНОЕ -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Key Takeaway</h3>
+      <p><strong>No-code автоматизация</strong> — это LEGO для бизнес-процессов. <strong>n8n</strong> — если нужен контроль данных и сложная логика (open-source, self-hosted). <strong>Zapier</strong> — если нужен быстрый старт с максимумом интеграций. Триггер → действие → условие. Экономия: <strong>2-4 часа в день</strong> на рутине.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../02-summarization/index.html" class="nav-btn">← Previous lesson</a>
+    <a href="../03-ai-processes/index.html" class="nav-btn primary">Next lesson →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>
