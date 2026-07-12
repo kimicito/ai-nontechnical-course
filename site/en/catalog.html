@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -40,6 +40,7 @@
   .mobile-nav .lang-section { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
   .mobile-nav .lang-section p { color: var(--muted); font-size: 0.85rem; margin-bottom: 12px; }
   .mobile-nav .lang-section a { display: inline-block; padding: 8px 16px; margin: 4px 4px 4px 0; background: var(--card); border: 1px solid var(--border); border-radius: 6px; font-size: 0.9rem; }
+  .mobile-nav .lang-section a.active { background: rgba(139,92,246,0.2); border-color: var(--accent); }
 
   .page-title { padding: 32px 0 16px; }
   .page-title h1 { margin: 0 0 8px; font-size: 1.8rem; }
@@ -73,13 +74,14 @@
     <a href="index.html" class="logo">🧠 AI for Non-IT Professionals</a>
 
     <nav class="desktop-nav">
-      <a href="index.html">Главная</a>
+      <a href="index.html">Home</a>
       <a href="catalog.html">Catalog</a>
+      <a href="glossary.html">📖 Glossary</a>
       <div class="lang-dropdown">
-        <button class="lang-btn" onclick="toggleLang()">🌐 RU ▼</button>
+        <button class="lang-btn" onclick="toggleLang()">🌐 EN ▼</button>
         <div class="lang-menu" id="langMenu">
-          <a href="index.html" class="active">RU</a>
-          <a href="index.html">EN</a>
+          <a href="../index.html">RU</a>
+          <a href="index.html" class="active">EN</a>
           <a href="../index-es.html">ES</a>
           <a href="../index-fr.html">FR</a>
           <a href="../index-zh.html">中文</a>
@@ -96,13 +98,13 @@
 </header>
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="index.html" onclick="toggleMobileNav()">Главная</a>
+  <a href="index.html" onclick="toggleMobileNav()">Home</a>
   <a href="catalog.html">Catalog</a>
-  <a href="glossary.html">📖 Терминология</a>
-<div class="lang-section">
-    <p>🌐 Язык / Language</p>
-    <a href="index.html" class="active">RU</a>
-    <a href="index.html">EN</a>
+  <a href="glossary.html">📖 Glossary</a>
+  <div class="lang-section">
+    <p>🌐 Language</p>
+    <a href="../index.html">RU</a>
+    <a href="index.html" class="active">EN</a>
     <a href="../index-es.html">ES</a>
     <a href="../index-fr.html">FR</a>
     <a href="../index-zh.html">中文</a>
@@ -112,264 +114,264 @@
 <section class="page-title">
   <div class="container">
     <h1>Lesson Catalog</h1>
-    <p>Все уровни курса: от основ AI до специализаций по профессиям</p>
+    <p>All course levels: from AI fundamentals to profession-specific specializations</p>
   </div>
 </section>
 
 <main class="container">
 
-  <!-- Уровень 0 -->
+  <!-- Level 0 -->
   <div class="phase-section" id="level0">
     <div class="phase-header">
-      <h2>🚀 Уровень 0 — AI Fundamentals</h2>
-      <span class="badge">4 урока</span>
+      <h2>🚀 Level 0 — AI Fundamentals</h2>
+      <span class="badge">4 lessons</span>
     </div>
     <div class="lesson-list">
       <a href="lessons/00-what-is-llm/index.html" class="lesson-item">
         <span class="lesson-num">0.1</span>
-        <span class="lesson-title">Что такое LLM и как они работают</span>
+        <span class="lesson-title">What is an LLM and how they work</span>
       </a>
       <a href="lessons/00-choose-model/index.html" class="lesson-item">
         <span class="lesson-num">0.2</span>
-        <span class="lesson-title">Как выбрать модель: ChatGPT, Claude, Kimi, Qwen</span>
+        <span class="lesson-title">How to choose a model: ChatGPT, Claude, Kimi, Qwen</span>
       </a>
       <a href="lessons/00-cloud-vs-onprem/index.html" class="lesson-item">
         <span class="lesson-num">0.3</span>
-        <span class="lesson-title">Облако vs On-premise: GENAi для конфиденциальных данных</span>
+        <span class="lesson-title">Cloud vs On-premise: GENAi for confidential data</span>
       </a>
       <a href="lessons/00-pricing/index.html" class="lesson-item">
         <span class="lesson-num">0.4</span>
-        <span class="lesson-title">Сколько стоит AI: калькулятор для бизнеса</span>
+        <span class="lesson-title">How much does AI cost: calculator for business</span>
       </a>
     </div>
   </div>
 
-  <!-- Уровень 1 -->
+  <!-- Level 1 -->
   <div class="phase-section" id="level1">
     <div class="phase-header">
-      <h2>🛠️ Уровень 1 — Mastering Tools</h2>
+      <h2>🛠️ Level 1 — Mastering Tools</h2>
       <span class="badge">5 lessons</span>
     </div>
     <div class="lesson-list">
       <a href="lessons/01-prompt-engineering/index.html" class="lesson-item">
         <span class="lesson-num">1.1</span>
-        <span class="lesson-title">Промпт-инжиниринг для менеджера: писать ТЗ, а не "сделай красиво"</span>
+        <span class="lesson-title">Prompt engineering for managers: write specs, not "make it pretty"</span>
       </a>
       <a href="lessons/01-structured-output/index.html" class="lesson-item">
         <span class="lesson-num">1.2</span>
-        <span class="lesson-title">Структурированный вывод: JSON, таблицы, чеклисты</span>
+        <span class="lesson-title">Structured output: JSON, tables, checklists</span>
       </a>
       <a href="lessons/01-chain-prompts/index.html" class="lesson-item">
         <span class="lesson-num">1.3</span>
-        <span class="lesson-title">Цепочки запросов: от простого к сложному</span>
+        <span class="lesson-title">Prompt chains: from simple to complex</span>
       </a>
       <a href="lessons/01-documents/index.html" class="lesson-item">
         <span class="lesson-num">1.4</span>
-        <span class="lesson-title">Работа с документами: анализ, суммаризация, сравнение</span>
+        <span class="lesson-title">Working with documents: analysis, summarization, comparison</span>
       </a>
       <a href="lessons/01-practice-task/index.html" class="lesson-item">
         <span class="lesson-num">1.5</span>
-        <span class="lesson-title">Практика: автоматизируй свою первую задачу</span>
+        <span class="lesson-title">Practice: automate your first task</span>
       </a>
     </div>
   </div>
 
-  <!-- Уровень 2 -->
+  <!-- Level 2 -->
   <div class="phase-section" id="level2">
     <div class="phase-header">
-      <h2>📄 Уровень 2 — Data and Documents</h2>
-      <span class="badge">4 урока</span>
+      <h2>📄 Level 2 — Data and Documents</h2>
+      <span class="badge">4 lessons</span>
     </div>
     <div class="lesson-list">
       <a href="lessons/02-rag-explained/index.html" class="lesson-item">
         <span class="lesson-num">2.1</span>
-        <span class="lesson-title">RAG простыми словами: как подключить AI к базе знаний</span>
+        <span class="lesson-title">RAG in simple words: how to connect AI to your knowledge base</span>
       </a>
       <a href="lessons/02-vector-db/index.html" class="lesson-item">
         <span class="lesson-num">2.2</span>
-        <span class="lesson-title">Векторные базы: что спросить у IT</span>
+        <span class="lesson-title">Vector databases: what to ask IT</span>
       </a>
       <a href="lessons/02-long-docs/index.html" class="lesson-item">
         <span class="lesson-num">2.3</span>
-        <span class="lesson-title">Длинные документы: как не потерять контекст</span>
+        <span class="lesson-title">Long documents: how not to lose context</span>
       </a>
       <a href="lessons/02-summarization/index.html" class="lesson-item">
         <span class="lesson-num">2.4</span>
-        <span class="lesson-title">Суммаризация и редактирование: отчёты, договоры, акты</span>
+        <span class="lesson-title">Summarization and editing: reports, contracts, certificates</span>
       </a>
     </div>
   </div>
 
-  <!-- Уровень 3 -->
+  <!-- Level 3 -->
   <div class="phase-section" id="level3">
     <div class="phase-header">
-      <h2>⚡ Уровень 3 — Automation</h2>
-      <span class="badge">4 урока</span>
+      <h2>⚡ Level 3 — Automation</h2>
+      <span class="badge">4 lessons</span>
     </div>
     <div class="lesson-list">
       <a href="lessons/03-nocode-automation/index.html" class="lesson-item">
         <span class="lesson-num">3.1</span>
-        <span class="lesson-title">No-code автоматизация: Make, n8n, Zapier</span>
+        <span class="lesson-title">No-code automation: n8n, Zapier</span>
       </a>
       <a href="lessons/03-ai-processes/index.html" class="lesson-item">
         <span class="lesson-num">3.2</span>
-        <span class="lesson-title">Интеграция AI в процессы: чеклисты и шаблоны</span>
+        <span class="lesson-title">Integrating AI into processes: checklists and templates</span>
       </a>
       <a href="lessons/03-simple-agents/index.html" class="lesson-item">
         <span class="lesson-num">3.3</span>
-        <span class="lesson-title">Простые агенты без кода</span>
+        <span class="lesson-title">Simple agents without code</span>
       </a>
       <a href="lessons/03-monitoring/index.html" class="lesson-item">
         <span class="lesson-num">3.4</span>
-        <span class="lesson-title">Мониторинг и качество: как проверить результат</span>
+        <span class="lesson-title">Monitoring and quality: how to check results</span>
       </a>
     </div>
   </div>
 
-  <!-- Уровень 4 -->
+  <!-- Level 4 -->
   <div class="phase-section" id="level4">
     <div class="phase-header">
-      <h2>🤖 Уровень 4 — Agents and Orchestration</h2>
-      <span class="badge">4 урока</span>
+      <h2>🤖 Level 4 — Agents and Orchestration</h2>
+      <span class="badge">4 lessons</span>
     </div>
     <div class="lesson-list">
       <a href="lessons/04-what-is-agent/index.html" class="lesson-item">
         <span class="lesson-num">4.1</span>
-        <span class="lesson-title">Что такое AI-агент: простыми словами</span>
+        <span class="lesson-title">What is an AI agent: in simple words</span>
       </a>
       <a href="lessons/04-multi-agent/index.html" class="lesson-item">
         <span class="lesson-num">4.2</span>
-        <span class="lesson-title">Мультиагентные системы: когда нужны несколько агентов</span>
+        <span class="lesson-title">Multi-agent systems: when multiple agents are needed</span>
       </a>
       <a href="lessons/04-human-loop/index.html" class="lesson-item">
         <span class="lesson-num">4.3</span>
-        <span class="lesson-title">Человек в цикле: approve, reject, доработка</span>
+        <span class="lesson-title">Human-in-the-loop: approve, reject, revision</span>
       </a>
       <a href="lessons/04-mcp/index.html" class="lesson-item">
         <span class="lesson-num">4.4</span>
-        <span class="lesson-title">MCP: интеграция с корпоративными системами</span>
+        <span class="lesson-title">MCP: integration with enterprise systems</span>
       </a>
     </div>
   </div>
 
-  <!-- Уровень 5 -->
+  <!-- Level 5 -->
   <div class="phase-section" id="level5">
     <div class="phase-header">
-      <h2>🏢 Уровень 5 — Business Implementation</h2>
-      <span class="badge">3 урока</span>
+      <h2>🏢 Level 5 — Business Implementation</h2>
+      <span class="badge">3 lessons</span>
     </div>
     <div class="lesson-list">
       <a href="lessons/05-roi-calculator/index.html" class="lesson-item">
         <span class="lesson-num">5.1</span>
-        <span class="lesson-title">ROI-калькулятор: выбор процесса для автоматизации</span>
+        <span class="lesson-title">ROI calculator: choosing a process for automation</span>
       </a>
       <a href="lessons/05-pilot-project/index.html" class="lesson-item">
         <span class="lesson-num">5.2</span>
-        <span class="lesson-title">Пилотный проект: от идеи до результата</span>
+        <span class="lesson-title">Pilot project: from idea to result</span>
       </a>
       <a href="lessons/05-scaling/index.html" class="lesson-item">
         <span class="lesson-num">5.3</span>
-        <span class="lesson-title">Масштабирование: от отдела к компании</span>
+        <span class="lesson-title">Scaling: from department to company</span>
       </a>
     </div>
   </div>
 
-  <!-- Уровень 6 -->
+  <!-- Level 6 -->
   <div class="phase-section" id="level6">
     <div class="phase-header">
-      <h2>🛡️ Уровень 6 — Ethics, Security, Compliance</h2>
-      <span class="badge">3 урока</span>
+      <h2>🛡️ Level 6 — Ethics, Security, Compliance</h2>
+      <span class="badge">3 lessons</span>
     </div>
     <div class="lesson-list">
       <a href="lessons/06-confidential-data/index.html" class="lesson-item">
         <span class="lesson-num">6.1</span>
-        <span class="lesson-title">Конфиденциальные данные: что можно, что нельзя</span>
+        <span class="lesson-title">Confidential data: what is allowed, what is not</span>
       </a>
       <a href="lessons/06-hallucinations/index.html" class="lesson-item">
         <span class="lesson-num">6.2</span>
-        <span class="lesson-title">Галлюцинации: как проверять факты</span>
+        <span class="lesson-title">Hallucinations: how to check facts</span>
       </a>
       <a href="lessons/06-ai-policy/index.html" class="lesson-item">
         <span class="lesson-num">6.3</span>
-        <span class="lesson-title">AI-политика компании: шаблон</span>
+        <span class="lesson-title">Company AI policy: template</span>
       </a>
     </div>
   </div>
 
-  <!-- Уровень 7 -->
+  <!-- Level 7 -->
   <div class="phase-section" id="level7">
     <div class="phase-header">
-      <h2>🛒 Уровень 7 — AI for Procurement</h2>
-      <span class="badge">4 урока</span>
+      <h2>🛒 Level 7 — AI for Procurement</h2>
+      <span class="badge">4 lessons</span>
     </div>
     <div class="lesson-list">
       <a href="lessons/07-supplier-search/index.html" class="lesson-item">
         <span class="lesson-num">7.1</span>
-        <span class="lesson-title">Поиск и анализ поставщиков: от поиска до короткого списка</span>
+        <span class="lesson-title">Supplier search and analysis: from search to shortlist</span>
       </a>
       <a href="lessons/07-price-analysis/index.html" class="lesson-item">
         <span class="lesson-num">7.2</span>
-        <span class="lesson-title">Сравнение цен и аналитика рынка: аргументы для торгов</span>
+        <span class="lesson-title">Price comparison and market analytics: arguments for negotiations</span>
       </a>
       <a href="lessons/07-contract-check/index.html" class="lesson-item">
         <span class="lesson-num">7.3</span>
-        <span class="lesson-title">Проверка договоров и соответствие ТЗ: выявляйте риски</span>
+        <span class="lesson-title">Contract review and compliance check: identify risks</span>
       </a>
       <a href="lessons/07-selection-docs/index.html" class="lesson-item">
         <span class="lesson-num">7.4</span>
-        <span class="lesson-title">Протокол отбора и аккредитация: документы за минуты</span>
+        <span class="lesson-title">Selection protocols and accreditation: documents in minutes</span>
       </a>
     </div>
   </div>
 
-  <!-- Уровень 8 -->
+  <!-- Level 8 -->
   <div class="phase-section" id="level8">
     <div class="phase-header">
-      <h2>🏗️ Уровень 8 — AI for Construction</h2>
-      <span class="badge">4 урока</span>
+      <h2>🏗️ Level 8 — AI for Construction</h2>
+      <span class="badge">4 lessons</span>
     </div>
     <div class="lesson-list">
       <a href="lessons/08-estimates/index.html" class="lesson-item">
         <span class="lesson-num">8.1</span>
-        <span class="lesson-title">Сметы и расчёты: от локальной сметы до итоговой стоимости</span>
+        <span class="lesson-title">Estimates and calculations: from local estimate to total cost</span>
       </a>
       <a href="lessons/08-project-check/index.html" class="lesson-item">
         <span class="lesson-num">8.2</span>
-        <span class="lesson-title">Проверка проектов и нормативов: соответствие СНиП и ГОСТ</span>
+        <span class="lesson-title">Project and standards review: compliance with SNiP and GOST</span>
       </a>
       <a href="lessons/08-scheduling/index.html" class="lesson-item">
         <span class="lesson-num">8.3</span>
-        <span class="lesson-title">Планирование работ и ресурсов: графики, люди, техника</span>
+        <span class="lesson-title">Work and resource planning: schedules, people, equipment</span>
       </a>
       <a href="lessons/08-quality-check/index.html" class="lesson-item">
         <span class="lesson-num">8.4</span>
-        <span class="lesson-title">Приёмка работ и контроль качества: соответствие проекту и нормам</span>
+        <span class="lesson-title">Work acceptance and quality control: compliance with project and standards</span>
       </a>
     </div>
   </div>
 
-  <!-- Уровень 9 -->
+  <!-- Level 9 -->
   <div class="phase-section" id="level9">
     <div class="phase-header">
-      <h2>🔍 Уровень 9 — AI for Audit and Control</h2>
-      <span class="badge">4 урока</span>
+      <h2>🔍 Level 9 — AI for Audit and Control</h2>
+      <span class="badge">4 lessons</span>
     </div>
     <div class="lesson-list">
       <a href="lessons/09-doc-check/index.html" class="lesson-item">
         <span class="lesson-num">9.1</span>
-        <span class="lesson-title">Проверка документов и внутреннего контроля: сверка, дубли, аномалии</span>
+        <span class="lesson-title">Document and internal control verification: reconciliation, duplicates, anomalies</span>
       </a>
       <a href="lessons/09-audit-procurement-sales/index.html" class="lesson-item">
         <span class="lesson-num">9.2</span>
-        <span class="lesson-title">Аудит закупок и продаж: 3 КП, связанные лица, скидки, дебиторка</span>
+        <span class="lesson-title">Procurement and sales audit: 3 bids, related parties, discounts, receivables</span>
       </a>
       <a href="lessons/09-audit-construction-projects/index.html" class="lesson-item">
         <span class="lesson-num">9.3</span>
-        <span class="lesson-title">Аудит стройки и проектов: акты КС-2, перерасход, красные зоны</span>
+        <span class="lesson-title">Construction and project audit: KS-2 certificates, overruns, red zones</span>
       </a>
       <a href="lessons/09-compliance-fraud/index.html" class="lesson-item">
         <span class="lesson-num">9.4</span>
-        <span class="lesson-title">Compliance, фрод-мониторинг и отчёты аудита: трекинг, схемы, проверки</span>
+        <span class="lesson-title">Compliance, fraud monitoring and audit reports: tracking, schemes, checks</span>
       </a>
     </div>
   </div>
@@ -378,7 +380,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
   </div>
 </footer>
 
