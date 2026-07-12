@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.2 Структурированный вывод — AI для не ИТ-специалистов</title>
+<title>1.2 Structured inference - AI for non-IT professionals</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -68,208 +68,166 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛠️ LEVEL 1 · MASTERING TOOLS</div>
-    <h1>1.2 · Структурированный вывод: JSON, таблицы, чеклисты</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <div class="phase">🛠️ LEVEL 1 · TOOL PROFICIENCY</div>
+    <h1>1.2 · Structured output: JSON, tables, checklists</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>AI может выдавать ответы <strong>в любом формате</strong>. Но по умолчанию — сплошной текст, который приходится перебивать руками в Excel или 1С.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>AI can provide answers <strong>in any format</strong>. </p>
     <div class="card card-success">
-      <p><strong>Проблема:</strong> Менеджер получает анализ в виде текста, тратит 15 минут на перенос в таблицу.</p>
-      <p><strong>Решение:</strong> Попросить AI сразу выдать таблицу. Экономия: <strong>15 минут × 20 задач = 5 часов в неделю</strong>.</p>
+      <p><strong>Problem:</strong> The manager receives the analysis in text form and spends 15 minutes transferring it to the table.</p>
+      <p><strong>Solution:</strong> Ask the AI ​​to immediately produce a table. <strong>15 minutes × 20 tasks = 5 hours per week</strong>.</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>4 формата вывода</h3>
+    <h3>4 output formats</h3>
     <div class="format-grid">
       <div class="format-card">
-        <h4>📊 Таблица</h4>
-        <p>Сравнение, анализ, отчёты. Легко копировать в Excel.</p>
+        <h4>📊 Table</h4>
+        <p>Comparison, analysis, reports. </p>
       </div>
       <div class="format-card">
         <h4>📋 JSON</h4>
-        <p>Для программистов и автоматизации. Структурированные данные.</p>
+        <p>For programmers and automation. </p>
       </div>
       <div class="format-card">
-        <h4>☑️ Чеклист</h4>
-        <p>Для проверки, аудита, контроля качества.</p>
+        <h4>☑️ Checklist</h4>
+        <p>For inspection, audit, quality control.</p>
       </div>
       <div class="format-card">
         <h4>📝 Markdown</h4>
-        <p>Для документации, инструкций, статей. Читается везде.</p>
+        <p>For documentation, instructions, articles. </p>
       </div>
     </div>
 
-    <h3>Как попросить таблицу</h3>
+    <h3>How to ask for a table</h3>
     <div class="example">
-      <div class="example-label">💡 Пример промпта</div>
-      <pre>Ты — финансовый аналитик.
-Проанализируй 3 инвестиционных проекта (данные ниже).
-
-Выведи результат в формате таблицы:
-| Проект | ROI | Срок окупаемости | Риск | Рекомендация |
-
-После таблицы — краткое обоснование рекомендации.</pre>
+      <div class="example-label">💡 Prompt example</div>
+      <pre>You are a financial analyst.
+</pre>
     </div>
 
-    <h3>Как попросить чеклист</h3>
+    <h3>How to ask for a checklist</h3>
     <div class="example">
-      <div class="example-label">💡 Пример промпта</div>
-      <pre>Ты — аудитор по ISO 9001.
-Проведи аудит процесса закупок по следующим критериям.
-
-Выведи результат в виде чеклиста:
-☐ Критерий 1 — [статус: пройден/не пройден] — [комментарий]
-☐ Критерий 2 — [статус] — [комментарий]
-
-В конце: общая оценка соответствия (в процентах).</pre>
+      <div class="example-label">💡 Prompt example</div>
+      <pre>You are an ISO 9001 auditor.
+</pre>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий 1: Сравнение поставщиков</h3>
+    <h3>Scenario 1: Comparison of suppliers</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Выбрать поставщика упаковки из 3 вариантов.</p>
+      <p><strong>Task:</strong> Select a packaging supplier from 3 options.</p>
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — закупщик FMCG.
-Сравни 3 предложения по критериям и выведи таблицей:
-| Критерий | Поставщик А | Поставщик Б | Поставщик В | Лидер |
-| Цена за ед. | | | | |
-| Мин. заказ | | | | |
-| Срок доставки | | | | |
-| Условия оплаты | | | | |
-
-Дай рекомендацию: кого выбрать и почему.</pre>
+        <div class="example-label">Prompt</div>
+        <pre>You are an FMCG buyer.
+</pre>
       </div>
-      <p><strong>Результат:</strong> Готовая таблица для презентации руководству. Копируется в Excel одним кликом.</p>
+      <p><strong>Result:</strong> Ready table for presentation to management. </p>
     </div>
 
-    <h3>Сценарий 2: Аудит контракта</h3>
+    <h3>Scenario 2: Contract Audit</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Проверить договор на риски.</p>
+      <p><strong>Task:</strong> Check the contract for risks.</p>
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — корпоративный юрист.
-Проанализируй договор поставки на риски.
-
-Выведи результат чеклистом:
-☐ Риск: [описание] — Уровень: [Высокий/Средний/Низкий] — Рекомендация: [что сделать]
-
-В конце: общий вывод о приемлемости договора.</pre>
+        <div class="example-label">Prompt</div>
+        <pre>You are a corporate lawyer.
+</pre>
       </div>
     </div>
 
-    <h3>Сценарий 3: Еженедельный отчёт</h3>
+    <h3>Scenario 3: Weekly report</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Подготовить отчёт о продажах за неделю.</p>
+      <p><strong>Task:</strong> Prepare a weekly sales report.</p>
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — бизнес-аналитик.
-На основе данных ниже подготовь еженедельный отчёт.
-
-Формат:
-1. Ключевые показатели (таблица: Показатель | Значение | Δ к прошлой неделе)
-2. Топ-3 тренда (список)
-3. Рекомендации (список с приоритетами)
-4. Риски (таблица: Риск | Вероятность | Влияние)</pre>
+        <div class="example-label">Prompt</div>
+        <pre>You are a business analyst.
+</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен парсер ответов AI в стандартизированные форматы.
+      <h3>Task template</h3>
+      <pre>“We need an AI response parser into standardized formats.
 
-Требования:
-1. Автоматически распознаёт формат (таблица/JSON/чеклист)
-2. Конвертирует таблицы в Excel (.xlsx)
-3. Конвертирует JSON в CSV
-4. Проверяет целостность данных (нет пустых полей)
-5. API endpoint для интеграции
-
-Пример входных данных (прикрепить):
-[вставить пример ответа AI]
-
-Ожидаемый результат (прикрепить):
-[вставить желаемый Excel/CSV]
-
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Формат соответствует запросу? (таблица / JSON / чеклист)</li>
-      <li>Все поля заполнены? (нет пропусков)</li>
-      <li>Данные корректны? (проверьте 2-3 случайные ячейки)</li>
-      <li>Можно скопировать в Excel / 1С / CRM?</li>
-      <li>Структура понятна без объяснений?</li>
-      <li>Единицы измерения указаны? (рубли, дни, проценты)</li>
+      <li>Does the format match the request? </li>
+      <li>Are all fields filled in? </li>
+      <li>Is the data correct? </li>
+      <li>Can I copy it to Excel / 1C / CRM?</li>
+      <li>Is the structure clear without explanation?</li>
+      <li>Are the units of measurement specified? </li>
     </ul>
   </div>
 
-  <!-- ИНСТРУМЕНТЫ -->
+  <!-- TOOLS -->
   <div class="section">
-    <h2>🛠️ Инструменты</h2>
+    <h2>🛠️Tools</h2>
     <table>
-      <tr><th>Инструмент</th><th>Зачем</th><th>Стоимость</th></tr>
-      <tr><td>ChatGPT / Claude</td><td>Генерация в любом формате</td><td>Бесплатно / $20</td></tr>
-      <tr><td>Excel</td><td>Обработка таблиц</td><td>Входит в Office</td></tr>
-      <tr><td>Google Sheets</td><td>Онлайн-таблицы, шеринг</td><td>Бесплатно</td></tr>
-      <tr><td>JSON Formatter</td><td>Проверка JSON</td><td>Бесплатно (онлайн)</td></tr>
-      <tr><td>n8n / Zapier</td><td>Автоматическая конвертация</td><td>От бесплатного</td></tr>
+      <tr><th>Tool</th><th>For what</th><th>Price</th></tr>
+      <tr><td>ChatGPT / Claude</td><td>Generation in any format</td><td>Free / $20</td></tr>
+      <tr><td>Excel</td><td>Table Processing</td><td>Included in Office</td></tr>
+      <tr><td>Google Sheets</td><td>Online tables, sharing</td><td>For free</td></tr>
+      <tr><td>JSON Formatter</td><td>JSON Validation</td><td>Free (online)</td></tr>
+      <tr><td>n8n / Zapier</td><td>Automatic conversion</td><td>From free</td></tr>
     </table>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Какой формат лучше для сравнения 5 поставщиков?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Таблица</div>
+      <p><strong>Question 1:</strong> What is the best format for comparing 5 suppliers?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Table</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">B) JSON</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Свободный текст</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Free text</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Зачем указывать формат в промпте?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Чтобы ответ был красивее</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Чтобы сэкономить время на переформатирование</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</div>
+      <p><strong>Question 2:</strong> Why specify the format in the prompt?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) To make the answer more beautiful</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) To save time on reformatting</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) This is optional</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Какой формат подходит для автоматизации?</p>
+      <p><strong>Question 3:</strong> Which format is suitable for automation?</p>
       <div class="quiz-option" onclick="checkAnswer(this, true)">A) JSON</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Таблица</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Чеклист</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Table</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Checklist</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -277,8 +235,8 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p>Указывайте формат в промпте. <strong>Таблица</strong> для сравнения, <strong>JSON</strong> для автоматизации, <strong>чеклист</strong> для проверки. Это экономит 5-10 минут на форматирование каждый раз. За месяц — <strong>экономия 5-10 часов</strong>.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p>Specify the format in the prompt.<strong>Table</strong> for comparison,<strong>JSON</strong> for automation,<strong>checklist</strong> for checking. <strong>saving 5-10 hours</strong>.</p>
     </div>
   </div>
 
@@ -291,7 +249,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -309,14 +267,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

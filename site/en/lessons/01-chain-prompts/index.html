@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.3 Цепочки запросов — AI для не ИТ-специалистов</title>
+<title>1.3 Request chains - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -64,192 +64,176 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛠️ LEVEL 1 · MASTERING TOOLS</div>
-    <h1>1.3 · Цепочки запросов: от простого к сложному</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <div class="phase">🛠️ LEVEL 1 · TOOL PROFICIENCY</div>
+    <h1>1.3 · Request chains: from simple to complex</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Сложные задачи <strong>нельзя решить одним промптом</strong>. Попытка запросить всё сразу приводит к поверхностным ответам.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>Complex tasks <strong>can't be solved in one go</strong>. </p>
     <div class="card card-success">
-      <p><strong>Пример:</strong> Анализ рынка поставщиков включает: поиск → сравнение → оценку рисков → рекомендацию. Каждый шаг строится на предыдущем.</p>
-      <p><strong>Экономия:</strong> Цепочка из 4 промптов = 30 минут. Ручной анализ = 4 часа.</p>
+      <p><strong>Example:</strong> Supplier market analysis includes: search → comparison → risk assessment → recommendation. </p>
+      <p><strong>Saving:</strong> A chain of 4 prompts = 30 minutes. </p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Что такое цепочка запросов</h3>
+    <h3>What is a request chain</h3>
     <div class="card card-accent">
-      <p><strong>Цепочка</strong> — это последовательность промптов, где каждый следующий использует результат предыдущего.</p>
+      <p><strong>Chain</strong> is a sequence of prompts, where each next one uses the result of the previous one.</p>
       <div class="step-flow">
-        <div class="step-box">🔍 Сбор</div>
+        <div class="step-box">🔍 Collection</div>
         <div class="step-arrow">→</div>
-        <div class="step-box">📊 Структура</div>
+        <div class="step-box">📊 Structure</div>
         <div class="step-arrow">→</div>
-        <div class="step-box">🔎 Анализ</div>
+        <div class="step-box">🔎 Analysis</div>
         <div class="step-arrow">→</div>
-        <div class="step-box">✅ Решение</div>
+        <div class="step-box">✅ Solution</div>
       </div>
     </div>
 
-    <h3>Пример: подбор поставщика упаковки</h3>
+    <h3>Example: selection of packaging supplier</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Шаг 1: Сбор информации</div>
-        <pre>Ты — закупщик FMCG.
-Найди 5 крупнейших производителей картонной упаковки в Москве.
-Для каждого: название, сайт, телефон, минимальный заказ, срок изготовления.</pre>
+        <div class="example-label">Step 1: Gathering Information</div>
+        <pre>You are an FMCG buyer.
+</pre>
       </div>
       <div class="example">
-        <div class="example-label">Шаг 2: Структурирование</div>
-        <pre>На основе результатов предыдущего шага создай таблицу:
-| Поставщик | Сайт | Телефон | Мин. заказ | Срок | Примечания |
-
-Отметь поставщиков с сроком > 14 дней.</pre>
+        <div class="example-label">Step 2: Structuring</div>
+        <pre>Based on the results of the previous step, create a table:
+</pre>
       </div>
       <div class="example">
-        <div class="example-label">Шаг 3: Анализ рисков</div>
-        <pre>Проанализируй таблицу:
-1. Какие риски видишь? (сроки, минималки, неизвестные игроки)
-2. Кто лидер по соотношению цена/срок?
-3. Что проверить дополнительно?</pre>
+        <div class="example-label">Step 3: Risk Analysis</div>
+        <pre>Analyze the table:
+</pre>
       </div>
       <div class="example">
-        <div class="example-label">Шаг 4: Рекомендация</div>
-        <pre>На основе анализа рекомендуй 2 поставщика для первого контакта.
-Обоснуй выбор. Укажи, какие вопросы задать при звонке.</pre>
+        <div class="example-label">Step 4: Recommendation</div>
+        <pre>Based on the analysis, recommend 2 suppliers for the first contact.
+</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Правило: один промпт = одна задача</h3>
+    <h3>Rule: one prompt = one task</h3>
     <div class="card card-warning">
-      <p><strong>❌ Неправильно:</strong> "Найди поставщиков, сравни их, оцени риски и рекомендуй лучшего"</p>
-      <p><strong>✅ Правильно:</strong> Разбить на 4 отдельных промпта</p>
-      <p><em>Почему: AI даёт поверхностный ответ, когда просят слишком много сразу.</em></p>
+      <p><strong>❌ Incorrect:</strong>"Find suppliers, compare them, assess risks and recommend the best"</p>
+      <p><strong>✅ Correct:</strong> Split into 4 separate prompts</p>
+      <p><em>Why: AI gives a superficial answer when asking for too much at once.</em></p>
     </div>
 
-    <h3>Когда использовать цепочки</h3>
+    <h3>When to use chains</h3>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Признак</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Пример</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Задача требует > 3 действий</td><td style="padding:10px;border-bottom:1px solid var(--border);">Анализ рынка + сравнение + рекомендация</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Каждый шаг зависит от предыдущего</td><td style="padding:10px;border-bottom:1px solid var(--border);">Нельзя сравнить, пока не собрал данные</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Нужен промежуточный результат</td><td style="padding:10px;border-bottom:1px solid var(--border);">Таблица для проверки перед анализом</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Один промпт даёт слишком длинный ответ</td><td style="padding:10px;border-bottom:1px solid var(--border);">Ответ обрезается, теряются детали</td></tr>
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Sign</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Example</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Task requires > 3 actions</td><td style="padding:10px;border-bottom:1px solid var(--border);">Market analysis + comparison + recommendation</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Each step depends on the previous one</td><td style="padding:10px;border-bottom:1px solid var(--border);">Can't compare until you've collected data</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">We need an intermediate result</td><td style="padding:10px;border-bottom:1px solid var(--border);">Table to check before analysis</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">One prompt gives too long answer</td><td style="padding:10px;border-bottom:1px solid var(--border);">The answer is cut off, details are lost</td></tr>
     </table>
 
-    <h3>Шаблоны цепочек для бизнеса</h3>
+    <h3>Business chain templates</h3>
     <div class="card">
-      <h4>Цепочка "Тендер"</h4>
+      <h4>Chain "Tender"</h4>
       <ol>
-        <li>Собрать требования к поставщику</li>
-        <li>Составить список критериев оценки</li>
-        <li>Собрать предложения (или найти поставщиков)</li>
-        <li>Сравнить по критериям</li>
-        <li>Оценить риски</li>
-        <li>Сформулировать рекомендацию</li>
+        <li>Gather requirements for the supplier</li>
+        <li>Make a list of evaluation criteria</li>
+        <li>Collect proposals (or find suppliers)</li>
+        <li>Compare by criteria</li>
+        <li>Assess risks</li>
+        <li>Formulate a recommendation</li>
       </ol>
     </div>
     <div class="card">
-      <h4>Цепочка "Отчёт"</h4>
+      <h4>Chain "Report"</h4>
       <ol>
-        <li>Собрать данные за период</li>
-        <li>Вычислить ключевые метрики</li>
-        <li>Выявить тренды и аномалии</li>
-        <li>Сравнить с прошлым периодом</li>
-        <li>Сформулировать выводы и рекомендации</li>
+        <li>Collect data for the period</li>
+        <li>Calculate key metrics</li>
+        <li>Identify trends and anomalies</li>
+        <li>Compare with previous period</li>
+        <li>Formulate conclusions and recommendations</li>
       </ol>
     </div>
     <div class="card">
-      <h4>Цепочка "Договор"</h4>
+      <h4>Chain "Agreement"</h4>
       <ol>
-        <li>Проанализировать ключевые условия</li>
-        <li>Найти риски для каждой стороны</li>
-        <li>Сравнить с шаблоном/предыдущими договорами</li>
-        <li>Сформулировать замечания</li>
-        <li>Подготовить список вопросов контрагенту</li>
+        <li>Analyze key terms</li>
+        <li>Find risks for each side</li>
+        <li>Compare with template/previous contracts</li>
+        <li>Formulate comments</li>
+        <li>Prepare a list of questions for the counterparty</li>
       </ol>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужно автоматизировать цепочку анализа [процесс].
+      <h3>Task template</h3>
+      <pre>“We need to automate the analysis chain [process].
 
-Текущая цепочка (ручная):
-1. [шаг 1] → [шаг 2] → [шаг 3]
-
-Требования:
-1. Сохранение промежуточных результатов между шагами
-2. Возможность остановиться и проверить результат после каждого шага
-3. Если результат шага некорректный — возможность повторить
-4. Итоговый отчёт в формате [указать]
-5. Уведомление на email при завершении
-
-Интеграции: [1С / Excel / CRM / email]
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Каждый шаг имеет чёткую входную и выходную задачу?</li>
-      <li>Можно проверить результат промежуточного шага?</li>
-      <li>Если шаг 2 некорректен — можно перезапустить только его?</li>
-      <li>Итоговый результат строится на всех предыдущих шагах?</li>
-      <li>Нет шагов, которые можно объединить без потери качества?</li>
-      <li>Цепочка покрывает всю задачу от начала до конца?</li>
+      <li>Does each step have a clear input and output task?</li>
+      <li>Is it possible to check the result of the intermediate step?</li>
+      <li>If step 2 is incorrect, is it possible to restart only that step?</li>
+      <li>Is the final result built on all previous steps?</li>
+      <li>Are there no steps that can be combined without losing quality?</li>
+      <li>Does the chain cover the entire task from start to finish?</li>
     </ul>
   </div>
 
-  <!-- ИНСТРУМЕНТЫ -->
+  <!-- TOOLS -->
   <div class="section">
-    <h2>🛠️ Инструменты</h2>
+    <h2>🛠️Tools</h2>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Инструмент</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Зачем</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT / Claude</td><td style="padding:10px;border-bottom:1px solid var(--border);">Ручные цепочки (копируете результат шага в следующий)</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n / Zapier</td><td style="padding:10px;border-bottom:1px solid var(--border);">Автоматические цепочки: шаг A → шаг B → шаг C</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n</td><td style="padding:10px;border-bottom:1px solid var(--border);">Сложные цепочки с условиями и ветвлением</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Notion</td><td style="padding:10px;border-bottom:1px solid var(--border);">Хранение шаблонов цепочек и результатов</td></tr>
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Tool</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">For what</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT / Claude</td><td style="padding:10px;border-bottom:1px solid var(--border);">Manual chains (copy the result of the step to the next one)</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n / Zapier</td><td style="padding:10px;border-bottom:1px solid var(--border);">Automatic chains: step A → step B → step C</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n</td><td style="padding:10px;border-bottom:1px solid var(--border);">Complex chains with conditions and branching</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Notion</td><td style="padding:10px;border-bottom:1px solid var(--border);">Storing chain templates and results</td></tr>
     </table>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Почему сложную задачу нельзя решить одним промптом?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) AI не умеет решать сложные задачи</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) AI даёт поверхностный ответ, когда просят слишком много</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это дороже по токенам</div>
+      <p><strong>Question 1:</strong> Why can’t a complex problem be solved in one go?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) AI can’t solve complex problems</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) AI gives a superficial answer when asking for too much</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) It is more expensive in terms of tokens</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Сколько шагов в цепочке "Тендер"?</p>
+      <p><strong>Question 2:</strong> How many steps are there in the Tender chain?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) 3</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) 6</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) 4</div>
@@ -257,7 +241,7 @@
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Какой инструмент для автоматических цепочек?</p>
+      <p><strong>Question 3:</strong> Which tool for automatic chains?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) Excel</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) n8n / Zapier</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Word</div>
@@ -268,8 +252,8 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p>Сложные задачи <strong>разбивайте на цепочку</strong>: сбор → структурирование → анализ → рекомендация. Проверяйте результат каждого шага. Одна задача = один промпт. Это даёт качество, которого невозможно достичь одним запросом.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p>Complex tasks <strong>break it into a chain</strong>: collection → structuring → analysis → recommendation. </p>
     </div>
   </div>
 
@@ -282,7 +266,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -300,14 +284,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

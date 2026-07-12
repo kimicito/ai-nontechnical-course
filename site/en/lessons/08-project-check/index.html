@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>8.2 AI для проектанта — AI для не ИТ-специалистов</title>
+<title>8.2 AI for the designer - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -57,8 +57,8 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
@@ -66,160 +66,124 @@
 
   <div class="lesson-header">
     <div class="phase">🏗️ LEVEL 8 · AI FOR CONSTRUCTION</div>
-    <h1>8.2 · Проверка проектов и нормативов: соответствие СНиП и ГОСТ</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <h1>8.2 · Verification of projects and standards: compliance with SNiP and GOST</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Проектная документация — сотни страниц с чертежами, спецификациями, расчётами. <strong>Ошибка в проекте = переделка = срыв сроков и бюджета.</strong> AI проверяет проекты на соответствие нормативам (СНиП, ГОСТ, СП), находит несоответствия, пропуски и коллизии.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>Project documentation - hundreds of pages with drawings, specifications, calculations.<strong>Error in the project = rework = failure to meet deadlines and budget.</strong> AI checks projects for compliance with standards (SNiP, GOST, SP), finds inconsistencies, omissions and collisions.</p>
     <div class="card card-success">
-      <p><strong>Кейс:</strong> AI проверил проект 20-этажного здания. Нашёл: несоответствие СП 55 по пожарной безопасности (отсутствие дополнительного выхода), коллизию в ВК (труба проходит через несущую стену), пропуск в спецификации (не указан класс бетона для фундамента). Исправление до начала работ сэкономило 3 млн ₽ на переделках.</p>
+      <p><strong>Case:</strong> AI checked the design of a 20-story building. </p>
     </div>
   </div>
 
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Что проверяет AI в проекте</h3>
+    <h3>What does AI check in a project?</h3>
     <div class="card card-accent">
       <ul>
-        <li>📋 <strong>Полнота:</strong> Все ли разделы есть (АР, КР, ОВ, ВК, ЭОМ, ТС, ПБ)</li>
-        <li>📏 <strong>Соответствие нормативам:</strong> СНиП, ГОСТ, СП по каждому разделу</li>
-        <li>⚠️ <strong>Коллизии:</strong> Конфликты между разделами (труба vs стена, кабель vs балка)</li>
-        <li>📊 <strong>Спецификации:</strong> Соответствие спецификации чертежам, пропуски позиций</li>
-        <li>🔢 <strong>Расчёты:</strong> Проверка формул, единиц, итогов</li>
-        <li>🏗️ <strong>Увязка:</strong> Соответствие ГП, ЭС, КР, АР</li>
+        <li>📋 <strong>Completeness:</strong> Are all sections present (AR, KR, OV, VK, EOM, TS, PB)</li>
+        <li>📏 <strong>Compliance:</strong> SNiP, GOST, SP for each section</li>
+        <li>⚠️ <strong>Collisions:</strong> Conflicts between sections (pipe vs wall, cable vs beam)</li>
+        <li>📊 <strong>Specifications:</strong> Compliance with specifications and drawings, omissions of positions</li>
+        <li>🔢 <strong>Calculations:</strong> Checking formulas, units, totals</li>
+        <li>🏗️ <strong>Linking:</strong> Compliance with GP, ES, KR, AR</li>
       </ul>
     </div>
 
-    <h3>Нормативная база для проверки</h3>
+    <h3>Regulatory framework for verification</h3>
     <div class="card">
       <table>
-        <tr><th>Раздел</th><th>Нормативы</th><th>Что проверяем</th></tr>
-        <tr><td>АР (архитектура)</td><td>СП 118, СП 55</td><td>Высота этажей, ширина коридоров, выходы</td></tr>
-        <tr><td>КР (конструкции)</td><td>СП 63, СП 70, СП 16</td><td>Класс бетона, сечения, армирование</td></tr>
-        <tr><td>ОВ (отопление)</td><td>СП 60, СП 61</td><td>Теплопотери, расход воздуха, диаметры</td></tr>
-        <tr><td>ВК (водоснабжение)</td><td>СП 30, СП 31</td><td>Расход воды, напор, диаметры труб</td></tr>
-        <tr><td>ЭОМ (электрика)</td><td>ПУЭ, ГОСТ Р 50571</td><td>Сечения кабелей, защита, заземление</td></tr>
-        <tr><td>ПБ (пожарная безопасность)</td><td>ФЗ-123, СП 2.13130, СП 4.13130</td><td>Выходы, категории, расстояния</td></tr>
+        <tr><th>Chapter</th><th>Standards</th><th>What we check</th></tr>
+        <tr><td>AR (architecture)</td><td>SP 118, SP 55</td><td>Floor heights, corridor widths, exits</td></tr>
+        <tr><td>KR (structures)</td><td>SP 63, SP 70, SP 16</td><td>Concrete class, sections, reinforcement</td></tr>
+        <tr><td>OV (heating)</td><td>SP 60, SP 61</td><td>Heat loss, air flow, diameters</td></tr>
+        <tr><td>VK (water supply)</td><td>SP 30, SP 31</td><td>Water consumption, pressure, pipe diameters</td></tr>
+        <tr><td>EOM (electrical)</td><td>PUE, GOST R 50571</td><td>Cable cross-sections, protection, grounding</td></tr>
+        <tr><td>PB (fire safety)</td><td>FZ-123, SP 2.13130, SP 4.13130</td><td>Outputs, categories, distances</td></tr>
       </table>
     </div>
 
-    <h3>Пример запроса к AI</h3>
+    <h3>Example of a request to AI</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для проверки проекта</div>
-        <pre>"Проверь проект (файлы приложены) на соответствие нормативам.
+        <div class="example-label">Prompt to check the project</div>
+        <pre>"Check the project (files attached) for compliance with standards.
 
-1. Проверь полноту: есть ли все разделы (АР, КР, ОВ, ВК, ЭОМ, ТС, ПБ)?
-2. Проверь соответствие СНиП / СП:
-   - АР: СП 118 (высота этажей, коридоры, выходы)
-   - КР: СП 63 (класс бетона, защитный слой)
-   - ЭОМ: ПУЭ (сечения кабелей, защита)
-   - ПБ: СП 2.13130 (выходы, категории помещений)
-3. Найди коллизии между разделами (трубы vs стены, кабели vs балки)
-4. Проверь спецификации на соответствие чертежам
-5. Проверь расчёты: формулы, единицы, итоги
-
-Выведи таблицу: Проблема | Раздел | Норматив | Уровень | Рекомендация
-Уровни: 🔴 Критично (остановка работ) / 🟡 Важно (переделка) / 🟢 Замечание"</pre>
+</pre>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий: проверка проекта перед экспертизой</h3>
+    <h3>Scenario: checking the project before examination</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Процесс</div>
-        <pre>1. Собираем все разделы проекта (PDF, DWG, сканы)
-2. Загружаем в AI с нормативами (СНиП, СП, ГОСТ)
-3. AI проверяет: полноту, нормативы, коллизии, спецификации
-4. Получаем отчёт с уровнями риска
-5. Проектант исправляет 🔴 и 🟡
-6. Повторная проверка
-7. Отправка в экспертизу
-
-Результат: снижение замечаний экспертизы на 70%</pre>
+        <div class="example-label">Process</div>
+        <pre>1. We collect all sections of the project (PDF, DWG, scans)
+</pre>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-инструмент для проверки проектной документации.
+      <h3>Task template</h3>
+      <pre>“We need an AI tool to check project documentation.
 
-Входные данные:
-- Разделы проекта: АР, КР, ОВ, ВК, ЭОМ, ТС, ПБ (PDF, DWG через OCR, сканы)
-- Нормативная база: СНиП, СП, ГОСТ (PDF, текст)
-- База типовых замечаний экспертизы
-
-Что должен делать:
-1. Проверять полноту комплекта разделов
-2. Сверять с нормативами (по ключевым параметрам)
-3. Находить коллизии между разделами
-4. Проверять спецификации vs чертежи
-5. Проверять расчёты (формулы, единицы)
-6. Ранжировать замечания: критично/важно/замечание
-
-Выход:
-- PDF-отчёт с таблицей замечаний
-- Разметка на чертежах (если технически возможно)
-- Статистика: количество по разделам и уровням
-
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Все разделы проверены на полноту?</li>
-      <li>Ключевые нормативы учтены? (проверить 3-5 разделов)</li>
-      <li>Коллизии действительно существуют? (проверить на чертежах)</li>
-      <li>Спецификации соответствуют чертежам? (сверить 10 позиций)</li>
-      <li>Расчёты корректны? (проверить 2-3 расчёта)</li>
-      <li>Ранжирование уровней риска адекватно?</li>
+      <li>Have all sections been checked for completeness?</li>
+      <li>Have key standards been taken into account? </li>
+      <li>Do collisions really exist? </li>
+      <li>Do the specifications match the drawings? </li>
+      <li>Are the calculations correct? </li>
+      <li>Is the ranking of risk levels adequate?</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent" data-quiz="1">
-      <p><strong>Question 1:</strong> Какие разделы проекта проверяет AI?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) АР, КР, ОВ, ВК, ЭОМ, ТС, ПБ и др.</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только АР и КР</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только спецификации</div>
+      <p><strong>Question 1:</strong> What sections of the project does AI check?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) AR, KR, OV, VK, EOM, TS, PB, etc.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Only AR and KR</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Specifications only</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent" data-quiz="2">
-      <p><strong>Question 2:</strong> Что такое "коллизия" в проекте?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Конфликт между разделами (например, труба через стену)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Ошибка в расчёте</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Пропуск в спецификации</div>
+      <p><strong>Question 2:</strong> What is a "collision" in a project?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Conflict between partitions (for example, a pipe through a wall)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Error in calculation</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Specification omission</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent" data-quiz="3">
-      <p><strong>Question 3:</strong> Когда лучше проверять проект AI?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) До отправки в экспертизу — чтобы снизить замечания</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) После экспертизы — когда уже есть замечания</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только во время стройки</div>
+      <p><strong>Question 3:</strong> When is the best time to review an AI project?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Before sending for examination - to reduce comments</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) After the examination - when there are already comments</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Only during construction</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>AI — незаменимый помощник проектанта.</strong> Он проверяет полноту, нормативы, находит коллизии, сверяет спецификации. Проверка ДО экспертизы снижает замечания на 70% и спасает от переделок. Проектант остаётся ответственным за инженерные решения, но AI освобождает от рутинной проверки.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>AI is an indispensable designer's assistant.</strong> He checks completeness, standards, finds conflicts, and verifies specifications. </p>
     </div>
   </div>
 
@@ -232,7 +196,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -250,14 +214,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

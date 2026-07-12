@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>2.4 Суммаризация — AI для не ИТ-специалистов</title>
+<title>2.4 Summarization - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -64,189 +64,142 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">📄 LEVEL 2 · DATA AND DOCUMENTS</div>
-    <h1>2.4 · Суммаризация: сжимайте тексты без потери смысла</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <div class="phase">📄 LEVEL 2 DATA AND DOCUMENTS</div>
+    <h1>2.4 · Summarization: compress texts without losing meaning</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Руководители тратят <strong>30-40% времени на чтение</strong>: отчёты, письма, протоколы, договоры. Суммаризация сокращает объём в 5-10 раз, сохраняя ключевую информацию.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>CEOs spend <strong>30-40% of the time reading</strong>: reports, letters, protocols, contracts. </p>
     <div class="card card-success">
-      <p><strong>Пример экономии:</strong></p>
+      <p><strong>Saving example:</strong></p>
       <ul>
-        <li>Отчёт на 50 страниц → 1 страница выводов</li>
-        <li>Протокол совещания (10 страниц) → список решений и ответственных</li>
-        <li>Договор (20 страниц) → 5 ключевых пунктов</li>
+        <li>50 page report → 1 page of findings</li>
+        <li>Minutes of the meeting (10 pages) → list of decisions and responsible persons</li>
+        <li>Agreement (20 pages) → 5 key points</li>
       </ul>
-      <p><strong>Экономия:</strong> 2-3 часа в день</p>
+      <p><strong>Saving:</strong>2-3 hours a day</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>3 типа суммаризации</h3>
+    <h3>3 types of summation</h3>
     
     <div class="type-card">
-      <h4>📄 Extractive (Выделительная)</h4>
-      <p>AI выбирает и копирует самые важные предложения из текста.</p>
+      <h4>📄 Extractive</h4>
+      <p>AI selects and copies the most important sentences from the text.</p>
       <div class="example">
-        <div class="example-label">Пример</div>
-        <pre>Текст: "Компания объявляет о запуске нового продукта. 
-Продукт доступен с 1 марта. Цена составляет 5000 рублей. 
-Доставка бесплатная при заказе от 10 000 рублей."
-
-Суммаризация: 
-- Запуск нового продукта
-- Доступен с 1 марта
-- Цена: 5000 ₽
-- Бесплатная доставка от 10 000 ₽</pre>
+        <div class="example-label">Example</div>
+        <pre>Text: "The company announces the launch of a new product. 
+</pre>
       </div>
     </div>
 
     <div class="type-card">
-      <h4>🔄 Abstractive (Пересказ)</h4>
-      <p>AI переписывает текст своими словами, сжимая и обобщая.</p>
+      <h4>🔄 Abstractive (Retelling)</h4>
+      <p>AI rewrites the text in its own words, compressing and summarizing.</p>
       <div class="example">
-        <div class="example-label">Пример</div>
-        <pre>Текст: [тот же]
+        <div class="example-label">Example</div>
+        <pre>Text: [same]
 
-Суммаризация:
-"С 1 марта компания запускает продукт за 5000 ₽ 
-с бесплатной доставкой при заказе от 10 000 ₽."</pre>
+</pre>
       </div>
     </div>
 
     <div class="type-card">
-      <h4>🎯 Tailored (Целевая)</h4>
-      <p>Суммаризация под конкретную задачу или аудиторию.</p>
+      <h4>🎯 Tailored (Targeted)</h4>
+      <p>Summarization for a specific task or audience.</p>
       <div class="example">
-        <div class="example-label">Пример</div>
-        <pre>Для руководителя: "Запуск продукта, цена 5000 ₽, с марта"
-Для маркетолога: "Цена 5000 ₽, акция на доставку от 10 000 ₽"
-Для логиста: "Доставка бесплатная от 10 000 ₽, объёмы предстоят уточнить"</pre>
+        <div class="example-label">Example</div>
+        <pre>For the manager: “Product launch, price 5000 ₽, from March”
+</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий 1: Ежедневная сводка писем</h3>
+    <h3>Scenario 1: Daily email summary</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — ассистент руководителя.
-Проанализируй 15 писем ниже и создай сводку.
-
-Формат:
-🔴 Срочно (требуют ответа сегодня):
-🟡 Важно (ответить до конца недели):
-🟢 Информация (для сведения):
-
-Для каждого письма: отправитель, суть, нужен ли ответ, дедлайн.</pre>
+        <div class="example-label">Prompt</div>
+        <pre>You are an assistant manager.
+</pre>
       </div>
     </div>
 
-    <h3>Сценарий 2: Пересказ совещания</h3>
+    <h3>Scenario 2: Meeting Recap</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — секретарь совета директоров.
-На основе стенограммы совещания создай протокол.
-
-Формат:
-1. Участники (список)
-2. Решения (что решили):
-   - Решение | Ответственный | Срок
-3. Открытые вопросы (что не решили):
-   - Вопрос | Кто должен подготовить | Срок
-4. Следующие шаги (что делать дальше)</pre>
+        <div class="example-label">Prompt</div>
+        <pre>You are the secretary of the board of directors.
+</pre>
       </div>
     </div>
 
-    <h3>Сценарий 3: Аналитический отчёт</h3>
+    <h3>Scenario 3: Analytical report</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — бизнес-аналитик.
-Проанализируй отчёт о продажах за квартал (50 страниц).
-
-Создай executive summary для руководителя (1 страница):
-1. Ключевые цифры (выручка, прибыль, рост)
-2. Топ-3 достижения
-3. Топ-3 проблемы
-4. Рекомендации (3 пункта)
-
-Используй таблицы и буллиты. Без воды.</pre>
+        <div class="example-label">Prompt</div>
+        <pre>You are a business analyst.
+</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система автоматической суммаризации документов.
+      <h3>Task template</h3>
+      <pre>“We need a system for automatic document summarization.
 
-Требования:
-1. Поддержка форматов: PDF, DOCX, TXT, email
-2. 3 режима суммаризации:
-   - Краткий (10% от объёма)
-   - Средний (25% от объёма)
-   - Подробный (50% от объёма)
-3. Целевая суммаризация под роли:
-   - Для руководителя (фокус на цифрах и решениях)
-   - Для исполнителя (фокус на задачах и сроках)
-   - Для юриста (фокус на рисках и обязательствах)
-4. Сохранение структуры (заголовки, списки)
-5. Экспорт в PDF / Word / email
-
-Пример входного и выходного документа (прикрепить).
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Суммаризация сохраняет ключевую информацию?</li>
-      <li>Нет искажений фактов? (проверьте цифры, даты, имена)</li>
-      <li>Длина соответствует запросу? (краткая/средняя/подробная)</li>
-      <li>Структура удобна для чтения? (заголовки, списки)</li>
-      <li>Для целевой суммаризации — фокус на правильных аспектах?</li>
-      <li>Можно экспортировать в нужный формат?</li>
+      <li>Does summarization preserve key information?</li>
+      <li>No misrepresentations? </li>
+      <li>Is the length as requested? </li>
+      <li>Is the structure easy to read? </li>
+      <li>For target summarization - focus on the right aspects?</li>
+      <li>Can I export to the required format?</li>
     </ul>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Какой тип суммаризации переписывает текст своими словами?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Выделительная</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Пересказ (Abstractive)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Целевая</div>
+      <p><strong>Question 1:</strong> Which type of summarization rewrites the text in its own words?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Excretory</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Retelling (Abstractive)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Target</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Сколько времени экономит суммаризация?</p>
+      <p><strong>Question 2:</strong> How much time does summarization save?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) 10-15%</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) 60-80%</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) 20-30%</div>
@@ -254,10 +207,10 @@
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Что важно проверить в суммаризации?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Факты, цифры, даты</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только орфографию</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Ничего, AI не ошибается</div>
+      <p><strong>Question 3:</strong> What is important to check in summation?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Facts, figures, dates</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Spelling only</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Nothing, AI is not wrong</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -265,21 +218,21 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>Суммаризация</strong> — один из самых мощных инструментов AI для менеджера. 50 страниц → 1 страница выводов. Главное — <strong>всегда проверять факты</strong>: цифры, даты, имена. AI может сжать текст, но иногда искажает детали. Экономия: <strong>2-3 часа в день</strong> на чтении.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>Summarization</strong> is one of the most powerful AI tools for a manager. <strong>always check the facts</strong>: numbers, dates, names. <strong>2-3 hours a day</strong> on reading.</p>
     </div>
   </div>
 
   <div class="nav-footer">
     <a href="../02-long-docs/index.html" class="nav-btn">← Previous lesson</a>
-    <a href="../../catalog.html" class="nav-btn primary">К каталогу →</a>
+    <a href="../../catalog.html" class="nav-btn primary">Go to catalog →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -297,14 +250,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

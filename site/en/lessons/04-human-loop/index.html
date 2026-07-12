@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>4.3 Человек в цикле — AI для не ИТ-специалистов</title>
+<title>4.3 Human in the loop - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -66,8 +66,8 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
@@ -75,150 +75,138 @@
 
   <div class="lesson-header">
     <div class="phase">🤖 LEVEL 4 · AGENTS AND ORCHESTRATION</div>
-    <h1>4.3 · Человек в цикле: когда AI должен спрашивать разрешения</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <h1>4.3 · Human in the loop: when should AI ask permission</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>AI ошибается. И иногда эти ошибки <strong>дорого стоят</strong>: неверная цена в договоре, неправильное решение о закупке, утечка конфиденциальных данных.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>The AI ​​is wrong. <strong>are expensive</strong>: incorrect price in the contract, incorrect purchasing decision, leak of confidential data.</p>
     <div class="card card-danger">
-      <p><strong>Реальный кейс:</strong> AI-агент автоматически согласовал закупку по завышенной цене. Потери: 2 млн рублей. Причина: агент не запросил подтверждение у руководителя при цене > 1 млн.</p>
+      <p><strong>Real case:</strong> The AI ​​agent automatically approved the purchase at an inflated price. </p>
     </div>
     <div class="card card-success">
-      <p><strong>Решение:</strong> "Человек в цикле" (Human-in-the-loop) — AI выполняет задачу, но в критичных точках останавливается и ждёт подтверждения человека.</p>
+      <p><strong>Solution:</strong>“Human-in-the-loop” - AI performs the task, but at critical points it stops and waits for human confirmation.</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>3 уровня контроля</h3>
+    <h3>3 levels of control</h3>
     <div class="level-box">
       <div class="level-item">
-        <h4 style="color: var(--success); margin: 0 0 10px;">🟢 Полная автономия</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">AI действует без подтверждения</p>
-        <p style="font-size: 0.85rem; margin-top: 8px;">Для: рутинных задач, низкий риск</p>
-        <p style="font-size: 0.85rem;">Пример: ежедневная сводка писем</p>
+        <h4 style="color: var(--success); margin: 0 0 10px;">🟢 Full autonomy</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">AI acts without confirmation</p>
+        <p style="font-size: 0.85rem; margin-top: 8px;">For: routine tasks, low risk</p>
+        <p style="font-size: 0.85rem;">Example: Daily email summary</p>
       </div>
       <div class="level-item">
-        <h4 style="color: var(--warning); margin: 0 0 10px;">🟡 Частичный контроль</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">AI предлагает, человек подтверждает</p>
-        <p style="font-size: 0.85rem; margin-top: 8px;">Для: важных решений, средний риск</p>
-        <p style="font-size: 0.85rem;">Пример: согласование закупок > 100 000 ₽</p>
+        <h4 style="color: var(--warning); margin: 0 0 10px;">🟡 Partial control</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">AI suggests, human confirms</p>
+        <p style="font-size: 0.85rem; margin-top: 8px;">For: important decisions, medium risk</p>
+        <p style="font-size: 0.85rem;">Example: approval of purchases > 100,000 ₽</p>
       </div>
       <div class="level-item">
-        <h4 style="color: var(--danger); margin: 0 0 10px;">🔴 Полный контроль</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">AI только готовит, человек решает</p>
-        <p style="font-size: 0.85rem; margin-top: 8px;">Для: критичных решений, высокий риск</p>
-        <p style="font-size: 0.85rem;">Пример: подписание договора, увольнение</p>
+        <h4 style="color: var(--danger); margin: 0 0 10px;">🔴 Full control</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">AI only cooks, humans decide</p>
+        <p style="font-size: 0.85rem; margin-top: 8px;">For: critical decisions, high risk</p>
+        <p style="font-size: 0.85rem;">Example: signing a contract, dismissal</p>
       </div>
     </div>
 
-    <h3>Когда обязательно нужен человек</h3>
+    <h3>When you really need someone</h3>
     <div class="card card-warning">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Ситуация</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Почему</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Цена > порога</td><td style="padding:10px;border-bottom:1px solid var(--border);">Риск переплаты</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Новый поставщик</td><td style="padding:10px;border-bottom:1px solid var(--border);">Нужна проверка репутации</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Изменение условий договора</td><td style="padding:10px;border-bottom:1px solid var(--border);">Юридические риски</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Конфиденциальные данные</td><td style="padding:10px;border-bottom:1px solid var(--border);">Безопасность</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Нестандартная ситуация</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI не обучен на таких кейсах</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Situation</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Why</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Price > threshold</td><td style="padding:10px;border-bottom:1px solid var(--border);">Risk of overpayment</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">New supplier</td><td style="padding:10px;border-bottom:1px solid var(--border);">Need a reputation check</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Changing the terms of the contract</td><td style="padding:10px;border-bottom:1px solid var(--border);">Legal risks</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Confidential data</td><td style="padding:10px;border-bottom:1px solid var(--border);">Safety</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Non-standard situation</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI is not trained on such cases</td></tr>
       </table>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий: автоматизация закупок</h3>
+    <h3>Scenario: procurement automation</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">С контролем человека</div>
-        <pre>AI анализирует КП поставщика:
-↓
-Если сумма < 50 000 ₽ → Автоматически согласовывает
+        <div class="example-label">With human control</div>
+        <pre>AI analyzes the supplier’s CP:
+< 50 000 ₽ → Автоматически согласовывает
 Если сумма 50 000 - 500 000 ₽ → Отправляет на подтверждение закупщику
-Если сумма > 500 000 ₽ → Отправляет на подтверждение директору
-Если новый поставщик → Всегда отправляет на проверку</pre>
+Если сумма >500,000 ₽ → Sends to the director for confirmation
+</pre>
       </div>
-      <p><strong>Результат:</strong> Рутина автоматизирована, важные решения — под контролем.</p>
+      <p><strong>Result:</strong> Routine is automated, important decisions are under control.</p>
     </div>
 
-    <h3>Как настроить "человека в цикле"</h3>
+    <h3>How to set up a "man in the loop"</h3>
     <div class="card card-accent">
       <ol>
-        <li><strong>Определите пороги:</strong> При каких условиях нужно подтверждение?</li>
-        <li><strong>Выберите способ уведомления:</strong> Email, Telegram, Slack, задача в CRM</li>
-        <li><strong>Задайте время ответа:</strong> Сколько ждать подтверждения? Что делать при таймауте?</li>
-        <li><strong>Настройте эскалацию:</strong> Если первый человек не ответил — кому перенаправить?</li>
+        <li><strong>Define thresholds:</strong> Under what conditions is confirmation required?</li>
+        <li><strong>Select notification method:</strong> Email, Telegram, Slack, task in CRM</li>
+        <li><strong>Set response time:</strong> How long should I wait for confirmation? </li>
+        <li><strong>Set up escalation:</strong> If the first person did not respond, who should I redirect to?</li>
       </ol>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен механизм 'человек в цикле' для AI-агента [название].
+      <h3>Task template</h3>
+      <pre>"We need a 'man in the loop' mechanism for the AI agent [name].
 
-Условия для остановки (требуют подтверждения):
-- [перечислить: сумма > X, новый поставщик, etc.]
-
-Способ уведомления: [email / Telegram / Slack]
-Время на ответ: [N минут/часов]
-Эскалация: [если не ответил → кому отправить]
-
-Действие при одобрении: [что делает AI]
-Действие при отклонении: [что делает AI]
-
-Пример сценария: [описать]
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Все критичные операции требуют подтверждения?</li>
-      <li>Уведомления приходят вовремя?</li>
-      <li>Есть чёткие пороги для каждого уровня контроля?</li>
-      <li>Эскалация работает? (если первый не ответил)</li>
-      <li>Таймауты настроены разумно? (не слишком короткие)</li>
-      <li>Есть лог всех решений? (кто и когда одобрил)</li>
+      <li>Do all critical operations require confirmation?</li>
+      <li>Do notifications arrive on time?</li>
+      <li>Are there clear thresholds for each level of control?</li>
+      <li>Does escalation work? </li>
+      <li>Are timeouts set wisely? </li>
+      <li>Is there a log of all decisions? </li>
     </ul>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Зачем нужен "человек в цикле"?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы предотвратить дорогие ошибки AI</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы замедлить процесс</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Чтобы уволить сотрудников</div>
+      <p><strong>Question 1:</strong> Why do we need a “man in the loop”?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) To prevent expensive AI mistakes</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) To slow down the process</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) To fire employees</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Какой уровень контроля для подписания договора?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Полная автономия</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Полный контроль</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Частичный контроль</div>
+      <p><strong>Question 2:</strong> What is the level of control for signing a contract?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Full autonomy</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Full control</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Partial control</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Что делать при таймауте (человек не ответил)?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Эскалировать следующему ответственному</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI сам решает</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Отменить задачу</div>
+      <p><strong>Question 3:</strong> What to do if there is a timeout (the person did not answer)?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Escalate to next person responsible</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI decides for itself</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Cancel task</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -226,8 +214,8 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>Человек в цикле = страховка.</strong> AI автоматизирует рутину, но человек контролирует важные решения. Настройте пороги: полная автономия для простых задач, частичный контроль для важных, полный контроль для критичных. Это защищает от дорогих ошибок.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>Man in the loop = insurance.</strong> AI automates the routine, but humans control important decisions. </p>
     </div>
   </div>
 
@@ -240,7 +228,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -258,14 +246,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

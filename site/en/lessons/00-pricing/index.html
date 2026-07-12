@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>0.4 Сколько стоит AI — AI для не ИТ-специалистов</title>
+<title>0.4 How much does AI cost - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; }
@@ -48,172 +48,140 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
     <a href="../../catalog.html" style="color: var(--muted); text-decoration: none;">← Catalog</a>
     <span style="color: var(--border); margin: 0 8px;">|</span>
-    <a href="../../glossary.html" style="color: var(--muted); text-decoration: none;">📖 Термины</a>
+    <a href="../../glossary.html" style="color: var(--muted); text-decoration: none;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🚀 LEVEL 0 · AI FUNDAMENTALS</div>
-    <h1>0.4 · Сколько стоит AI: калькулятор для бизнеса</h1>
-    <div class="meta">🎯 Интерактивный калькулятор · ✅ Квиз</div>
+    <div class="phase">🚀 LEVEL 0 · AI BASICS</div>
+    <h1>0.4 · How much does AI cost: calculator for business</h1>
+    <div class="meta">🎯 Interactive calculator · ✅ Quiz</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p><span class="highlight">80% бюджетов на AI</span> срываются из-за непредсказуемых расходов. "$20 в месяц" превращается в "$2000" когда вся компания начинает использовать модель. Нужно считать заранее.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p><span class="highlight">80% of budgets for AI</span> are disrupted due to unpredictable expenses. </p>
   </div>
 
   <div class="section">
-    <h2>📚 Как ценообразуется AI</h2>
+    <h2>📚 How AI is priced</h2>
 
-    <h3>Единица измерения: токен</h3>
+    <h3>Unit of measurement: token</h3>
     <div class="example">
-      <div class="example-label">💡 АНАЛОГИЯ</div>
-      <p><strong>Токен ≈ 0.75 слова.</strong> Письмо на 300 слов = ~400 токенов. Сравнение 2 договоров по 50 страниц = ~30 000 токенов.</p>
+      <div class="example-label">💡 ANALOGY</div>
+      <p><strong>Token ≈ 0.75 words.</strong>300 word letter = ~400 tokens. </p>
     </div>
 
-    <h3>Тарификация моделей (ориентиры 2026)</h3>
+    <h3>Tariffing of models (guidelines 2026)</h3>
     <div class="tier">
       <div class="tier-price">~$0.14</div>
-      <div class="tier-desc"><strong>DeepSeek V4-Flash</strong> — самый дешёвый, open-weight, для рутины</div>
+      <div class="tier-desc"><strong>DeepSeek V4-Flash</strong>— the cheapest, open-weight, for routine</div>
     </div>
     <div class="tier">
       <div class="tier-price">~$0.30</div>
-      <div class="tier-desc"><strong>Gemini Flash</strong> — массовые простые задачи, Google инфраструктура</div>
+      <div class="tier-desc"><strong>Gemini Flash</strong>- massive simple tasks, Google infrastructure</div>
     </div>
     <div class="tier">
       <div class="tier-price">~$1-3</div>
-      <div class="tier-desc"><strong>Claude Haiku / GPT-4o-mini</strong> — рабочая лошадка, универсальные задачи</div>
+      <div class="tier-desc"><strong>Claude Haiku / GPT-4o-mini</strong>— workhorse, universal tasks</div>
     </div>
     <div class="tier">
       <div class="tier-price">~$3-5</div>
-      <div class="tier-desc"><strong>Claude Sonnet / GPT-4o</strong> — сложные анализы, длинные документы</div>
+      <div class="tier-desc"><strong>Claude Sonnet / GPT-4o</strong>- complex analyses, long documents</div>
     </div>
-    <p class="muted" style="font-size: 0.85rem;">*Цены за 1 млн входных токенов. Выходные токены обычно в 2-5 раз дороже.</p>
+    <p class="muted" style="font-size: 0.85rem;">*Prices for 1 million input tokens. </p>
   </div>
 
   <div class="section">
-    <h2>🛠️ Калькулятор стоимости</h2>
+    <h2>🛠️ Cost calculator</h2>
     
     <div class="calc-box">
-      <label>Сколько запросов в день?<input type="number" id="dailyRequests" value="50" oninput="calculate()" onchange="calculate()"></label>
-      <label>Средняя длина запроса (слов)?<input type="number" id="wordsPerRequest" value="200" oninput="calculate()" onchange="calculate()"></label>
-      <label>Средняя длина ответа (слов)?<input type="number" id="wordsPerResponse" value="300" oninput="calculate()" onchange="calculate()"></label>
-      <label>Модель:</label>
+      <label>How many requests per day?<input type="number" id="dailyRequests" value="50" oninput="calculate()" onchange="calculate()"></label>
+      <label>Average query length (words)?<input type="number" id="wordsPerRequest" value="200" oninput="calculate()" onchange="calculate()"></label>
+      <label>Average answer length (words)?<input type="number" id="wordsPerResponse" value="300" oninput="calculate()" onchange="calculate()"></label>
+      <label>Model:</label>
       <select id="model" oninput="calculate()" onchange="calculate()" style="width:100%; padding:8px; background:var(--bg); border:1px solid var(--border); border-radius:4px; color:var(--text); margin:8px 0;">
-        <option value="0.14">DeepSeek V4-Flash ($0.14/1M токенов)</option>
+        <option value="0.14">DeepSeek V4-Flash ($0.14/1M tokens)</option>
         <option value="0.30">Gemini Flash ($0.30/1M)</option>
         <option value="1.00">Claude Haiku ($1.00/1M)</option>
         <option value="3.00" selected>Claude Sonnet ($3.00/1M)</option>
         <option value="5.00">Claude Opus ($5.00/1M)</option>
       </select>
-      <label>Рабочих дней в месяц:<input type="number" id="workDays" value="22" oninput="calculate()" onchange="calculate()"></label>
+      <label>Working days per month:<input type="number" id="workDays" value="22" oninput="calculate()" onchange="calculate()"></label>
     </div>
 
     <div class="calc-result">
-      <div>Примерная стоимость в месяц:</div>
+      <div>Approximate cost per month:</div>
       <div class="sum" id="monthlyCost">$0</div>
       <div class="muted" id="breakdown" style="font-size: 0.9rem; margin-top: 8px;"></div>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 How to Delegate to a Developer</h2>
+    <h2>👨‍💻 How to assign a task to a developer</h2>
     <div class="card card-success">
-      <pre style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto;">
-"Нужен расчёт бюджета на LLM для [КОМАНДА].
+      <pre style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto;">“We need to calculate the budget for LLM for [TEAM].
 
-Параметры:
-- Пользователей: [N] человек
-- Запросов в день: [N]
-- Средний размер: [N] слов
-- Модель: [НАЗВАНИЕ]
-- Период: 12 месяцев
-
-Прошу предоставить:
-1. Оценку стоимости в месяц
-2. Пиковые нагрузки (×2 запас)
-3. Альтернативы дешевле
-4. Порог для переключения на on-premise"
-      </pre>
+</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Бюджет предсказуем и не превышает 5% расходов на ИТ?</li>
-      <li>Есть запас 2× на пиковые нагрузки?</li>
-      <li>Рассмотрены альтернативы (более дешёвые модели)?</li>
-      <li>Понятен порог, когда выгоднее перейти на локальное решение (> $500-1000/мес)?</li>
-      <li>Есть процесс контроля расходов (кто следит, кто блокирует)?</li>
+      <li>Is the budget predictable and does not exceed 5% of IT costs?</li>
+      <li>Is there a 2× reserve for peak loads?</li>
+      <li>Have alternatives (cheaper models) been considered?</li>
+      <li>Do you understand the threshold when it is more profitable to switch to a local solution (> $500-1000/month)?</li>
+      <li>Is there a process for controlling expenses (who monitors, who blocks)?</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Почему стоимость AI непредсказуема?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Зависит от длины запроса и ответа. Чем длиннее документ, тем дороже</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Потому что цены меняются каждый день</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Потому что модели работают медленно</div>
+      <p><strong>Question 1:</strong> Why is the cost of AI unpredictable?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Depends on the length of the request and response. </div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Because prices change every day</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Because the models are slow</div>
       <div class="result" id="result1"></div>
     </div>
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Когда выгоднее локальное решение?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Всегда, локальное дешевле облака</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) При больших объёмах (>$500-1000/мес) или конфиденциальных данных</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Никогда, облако всегда выгоднее</div>
+      <p><strong>Question 2:</strong> When is a local solution more profitable?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Always, local is cheaper than cloud</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) For large volumes (>$500-1000/month) or confidential data</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Never, the cloud is always more profitable</div>
       <div class="result" id="result2"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p>Считайте AI в токенах, а не в "запросах". Простые задачи — дешёвые модели ($0.14/1M). Сложные анализы — дорогие ($3-5/1M). Всегда закладывайте запас 2× и считайте on-premise при > $500/мес.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p>Think of AI in tokens, not in "queries". </p>
     </div>
   </div>
 
   <div class="nav-footer">
     <a href="../00-cloud-vs-onprem/index.html" class="nav-btn">← Previous lesson</a>
-    <a href="../../catalog.html" class="nav-btn primary">К каталогу →</a>
+    <a href="../../catalog.html" class="nav-btn primary">Go to catalog →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
-<script>
-function calculate() {
-  const daily = parseInt(document.getElementById('dailyRequests').value) || 0;
-  const reqWords = parseInt(document.getElementById('wordsPerRequest').value) || 0;
-  const respWords = parseInt(document.getElementById('wordsPerResponse').value) || 0;
-  const pricePerM = parseFloat(document.getElementById('model').value) || 0;
-  const days = parseInt(document.getElementById('workDays').value) || 0;
-  
-  const tokensPerReq = (reqWords / 0.75);
-  const tokensPerResp = (respWords / 0.75);
-  const totalTokensPerDay = daily * (tokensPerReq + tokensPerResp);
-  const totalTokensPerMonth = totalTokensPerDay * days;
-  const costPerMonth = (totalTokensPerMonth / 1000000) * pricePerM;
-  
-  document.getElementById('monthlyCost').textContent = '$' + costPerMonth.toFixed(2);
-  document.getElementById('breakdown').textContent = 
-    '~' + Math.round(totalTokensPerMonth/1000) + 'K токенов/мес · ' + 
-    Math.round(totalTokensPerDay/1000) + 'K токенов/день';
-}
-calculate();
-</script>
+<script>function calculate() {
+  </script>
 
 
 <script>
@@ -230,14 +198,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

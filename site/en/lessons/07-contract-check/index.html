@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>7.3 Проверка договоров — AI для не ИТ-специалистов</title>
+<title>7.3 Contract verification - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -66,170 +66,140 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛒 LEVEL 7 · AI FOR PROCUREMENT</div>
-    <h1>7.3 · Проверка договоров и соответствие ТЗ: выявляйте риски</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <div class="phase">🛒 LEVEL 7 · AI FOR BUYER</div>
+    <h1>7.3 · Review of contracts and compliance with technical specifications: identify risks</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Ошибка в договоре может стоить миллионы: непрописанные штрафы за просрочку, неясные условия приёмки, отсутствие гарантий. <strong>AI проверяет договоры за минуты</strong>, находит риски, сравнивает с ТЗ — и предупреждает о проблемах.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>An error in a contract can cost millions: unspecified late fees, unclear acceptance conditions, lack of guarantees.<strong>AI checks contracts in minutes</strong>, finds risks, compares them with technical specifications - and warns about problems.</p>
     <div class="card card-danger">
-      <p><strong>Кейс:</strong> В договоре не было пункта о штрафах за просрочку поставки. Поставщик задержал на 3 месяца. Убыток: простой производства на 8 млн ₽. AI заметил бы отсутствие штрафа за 30 секунд.</p>
+      <p><strong>Case:</strong> There was no clause in the contract regarding penalties for late delivery. </p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Что проверяет AI в договоре</h3>
+    <h3>What does AI check in a contract?</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Проверка</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Что ищет</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Риск</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Сроки</td><td style="padding:10px;border-bottom:1px solid var(--border);">Прописаны ли даты, штрафы за просрочку</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">Высокий</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Цена и условия</td><td style="padding:10px;border-bottom:1px solid var(--border);">Фиксированная? Пересмотр? Валюта?</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-medium">Средний</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Приёмка</td><td style="padding:10px;border-bottom:1px solid var(--border);">Критерии, сроки претензий, акты</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">Высокий</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Гарантии</td><td style="padding:10px;border-bottom:1px solid var(--border);">Срок, условия, кто несёт расходы</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-medium">Средний</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Ответственность</td><td style="padding:10px;border-bottom:1px solid var(--border);">Штрафы, неустойки, ограничения</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">Высокий</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Соответствие ТЗ</td><td style="padding:10px;border-bottom:1px solid var(--border);">Все ли требования ТЗ отражены в договоре</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">Высокий</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Examination</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">What is looking for</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Risk</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Deadlines</td><td style="padding:10px;border-bottom:1px solid var(--border);">Are dates and penalties for late payments written down?</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">High</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Price and conditions</td><td style="padding:10px;border-bottom:1px solid var(--border);">Fixed? </td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-medium">Average</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Acceptance</td><td style="padding:10px;border-bottom:1px solid var(--border);">Criteria, terms of claims, acts</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">High</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Guarantees</td><td style="padding:10px;border-bottom:1px solid var(--border);">Duration, conditions, who bears the costs</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-medium">Average</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Responsibility</td><td style="padding:10px;border-bottom:1px solid var(--border);">Fines, penalties, restrictions</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">High</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Compliance with technical requirements</td><td style="padding:10px;border-bottom:1px solid var(--border);">Are all the requirements of the technical specifications reflected in the contract?</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">High</td></tr>
       </table>
     </div>
 
-    <h3>Соответствие ТЗ (в процентах)</h3>
+    <h3>Compliance with technical specifications (in percent)</h3>
     <div class="card card-accent">
-      <p>AI сравнивает ТЗ и договор по каждому пункту:</p>
+      <p>AI compares the terms of reference and the contract for each item:</p>
       <div class="example">
-        <div class="example-label">Пример анализа</div>
-        <pre>ТЗ: "Кабель ВВГ 3х2.5, ГОСТ 31996-2012"
-Договор: "Кабель ВВГ 3х2.5"
-
-⚠️ Риск: Не указан ГОСТ
-Рекомендация: Добавить ссылку на ГОСТ 31996-2012
-
-Соответствие ТЗ: 85% (15% — требует уточнения)</pre>
+        <div class="example-label">Analysis example</div>
+        <pre>Technical specification: "Cable VVG 3x2.5, GOST 31996-2012"
+</pre>
       </div>
     </div>
 
-    <h3>Чек-лист проверки AI</h3>
+    <h3>AI verification checklist</h3>
     <div class="card card-success">
       <ol>
-        <li>✅ Реквизиты сторон (ИНН, КПП, ОГРН)</li>
-        <li>✅ Предмет договора (совпадает с ТЗ)</li>
-        <li>✅ Цена (с НДС/без, порядок оплаты)</li>
-        <li>✅ Сроки поставки (конкретные даты/периоды)</li>
-        <li>✅ Штрафы за просрочку (процент, максимум)</li>
-        <li>✅ Условия приёмки (критерии, сроки)</li>
-        <li>✅ Гарантийный срок (от даты поставки/ввода)</li>
-        <li>✅ Форс-мажор (определение, порядок)</li>
-        <li>✅ Порядок разрешения споров (арбитраж, суд)</li>
-        <li>✅ Соответствие ТЗ (все требования учтены)</li>
+        <li>✅ Details of the parties (TIN, KPP, OGRN)</li>
+        <li>✅ Subject of the agreement (coincides with the technical specifications)</li>
+        <li>✅ Price (with/without VAT, payment procedure)</li>
+        <li>✅ Delivery times (specific dates/periods)</li>
+        <li>✅ Late fees (percentage, maximum)</li>
+        <li>✅ Acceptance conditions (criteria, deadlines)</li>
+        <li>✅ Warranty period (from the date of delivery/commissioning)</li>
+        <li>✅ Force majeure (definition, order)</li>
+        <li>✅ Procedure for resolving disputes (arbitration, court)</li>
+        <li>✅ Compliance with technical specifications (all requirements are taken into account)</li>
       </ol>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий: проверка договора</h3>
+    <h3>Scenario: contract verification</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Процесс</div>
-        <pre>1. Загружаем договор и ТЗ в AI
-2. Запрос: "Проверь договор на риски. 
-   Сравни с ТЗ. Выведи соответствие в %."
-3. AI анализирует и выдаёт отчёт:
-   - Найденные риски (с уровнем)
-   - Пункты, не соответствующие ТЗ
-   - Рекомендации по исправлению
-4. Закупщик проверяет критичные пункты
-5. Отправляет замечания юристу/поставщику</pre>
+        <div class="example-label">Process</div>
+        <pre>1. Upload the contract and technical specifications to AI
+</pre>
       </div>
     </div>
 
-    <h3>Важно: AI не заменяет юриста</h3>
+    <h3>Important: AI does not replace a lawyer</h3>
     <div class="card card-warning">
-      <p><strong>AI находит риски, но не даёт юридических заключений.</strong> Всегда передавайте договор юристу для финальной проверки. AI ускоряет подготовку, но ответственность — на человеке.</p>
+      <p><strong>AI finds risks, but does not provide legal opinions.</strong> Always submit the contract to a lawyer for final review. </p>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-инструмент для проверки договоров.
+      <h3>Task template</h3>
+      <pre>“We need an AI tool to check contracts.
 
-Входные данные:
-- Договор (PDF, Word, скан)
-- Техническое задание
-
-Что должен делать:
-1. Извлекать текст из документа
-2. Проверять по чек-листу (10 пунктов)
-3. Сравнивать с ТЗ (соответствие в %)
-4. Выявлять риски (высокий/средний/низкий)
-5. Генерировать рекомендации
-6. Формировать отчёт
-
-Выход:
-- PDF-отчёт с замечаниями
-- Таблица рисков
-- Список рекомендаций
-
-Интеграция: выгрузка в [систему документооборота]
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Все 10 пунктов проверены?</li>
-      <li>Соответствие ТЗ измерено в %?</li>
-      <li>Риски ранжированы (выс/сред/низ)?</li>
-      <li>Рекомендации конкретны?</li>
-      <li>Критичные риски проверены юристом?</li>
-      <li>Отчёт понятен без объяснений?</li>
+      <li>Have all 10 points been checked?</li>
+      <li>Compliance with technical specifications measured in %?</li>
+      <li>Are the risks ranked (high/medium/low)?</li>
+      <li>Are the recommendations specific?</li>
+      <li>Have critical risks been checked by a lawyer?</li>
+      <li>Is the report clear without explanation?</li>
     </ul>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Что AI проверяет в договоре?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Риски, соответствие ТЗ, сроки, цены, гарантии</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Только цены</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Ничего — это задача юриста</div>
+      <p><strong>Question 1:</strong> What does AI check in a contract?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Risks, compliance with technical specifications, terms, prices, guarantees</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Only prices</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Nothing - this is the task of a lawyer</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Может ли AI заменить юриста?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Нет, AI находит риски, юрист даёт заключение</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Да, полностью</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Только для простых договоров</div>
+      <p><strong>Question 2:</strong> Can AI replace a lawyer?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>No, AI finds risks, the lawyer gives an opinion</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Yes, completely</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Only for simple contracts</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Что такое "соответствие ТЗ"?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Насколько договор отражает требования ТЗ (в %)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Соответствие ГОСТу</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Цена ниже рынка</div>
+      <p><strong>Question 3:</strong> What is “compliance with technical specifications”?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>To what extent does the contract reflect the requirements of the technical specification (in%)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Compliance with GOST</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Price below market</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -237,8 +207,8 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>AI — ваш первый фильтр.</strong> Он проверяет договор за минуты, находит риски, сравнивает с ТЗ. Но финальное решение — за юристом. Используйте AI для скорости, человека — для ответственности. Экономия: 3-4 часа на каждый договор.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>AI is your first filter.</strong> He checks the contract in minutes, finds risks, and compares them with the technical specifications. </p>
     </div>
   </div>
 
@@ -251,7 +221,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -269,14 +239,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>2.3 Длинные документы — AI для не ИТ-специалистов</title>
+<title>2.3 Long documents - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -63,170 +63,154 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">📄 LEVEL 2 · DATA AND DOCUMENTS</div>
-    <h1>2.3 · Работа с длинными документами: ограничения и решения</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <div class="phase">📄 LEVEL 2 DATA AND DOCUMENTS</div>
+    <h1>2.3 · Working with long documents: limitations and solutions</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Договоры, отчёты, тендерная документация — часто <strong>сотни страниц</strong>. AI имеет ограничение на объём текста, который может обработать за раз.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>Contracts, reports, tender documentation - often <strong>hundreds of pages</strong>. </p>
     <div class="limit-box">
-      <p><strong>Проблема:</strong> Если документ слишком длинный, AI "забывает" начало, когда дочитывает до конца. Или просто отказывается обрабатывать.</p>
-      <p><strong>Решение:</strong> Разбивка на части, RAG, специальные модели с большим контекстом.</p>
+      <p><strong>Problem:</strong> If the document is too long, the AI ​​“forgets” the beginning when it reads to the end. </p>
+      <p><strong>Solution:</strong> Breakdown, RAG, special models with more context.</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Ограничения моделей (контекстное окно)</h3>
+    <h3>Model Constraints (context window)</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Модель</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Сколько страниц</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Примерно</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">GPT-4o-mini</td><td style="padding:10px;border-bottom:1px solid var(--border);">~50 страниц</td><td style="padding:10px;border-bottom:1px solid var(--border);">Один небольшой договор</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Sonnet</td><td style="padding:10px;border-bottom:1px solid var(--border);">~200 страниц</td><td style="padding:10px;border-bottom:1px solid var(--border);">Длинный договор + приложения</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Kimi (Moonshot)</td><td style="padding:10px;border-bottom:1px solid var(--border);">~1000+ страниц</td><td style="padding:10px;border-bottom:1px solid var(--border);">Книга, полный архив</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Gemini 1.5 Pro</td><td style="padding:10px;border-bottom:1px solid var(--border);">~1500+ страниц</td><td style="padding:10px;border-bottom:1px solid var(--border);">Несколько книг</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Model</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">How many pages</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Approximately</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">GPT-4o-mini</td><td style="padding:10px;border-bottom:1px solid var(--border);">~50 pages</td><td style="padding:10px;border-bottom:1px solid var(--border);">One small agreement</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Sonnet</td><td style="padding:10px;border-bottom:1px solid var(--border);">~200 pages</td><td style="padding:10px;border-bottom:1px solid var(--border);">Long contract + applications</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Kimi (Moonshot)</td><td style="padding:10px;border-bottom:1px solid var(--border);">~1000+ pages</td><td style="padding:10px;border-bottom:1px solid var(--border);">Book, complete archive</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Gemini 1.5 Pro</td><td style="padding:10px;border-bottom:1px solid var(--border);">~1500+ pages</td><td style="padding:10px;border-bottom:1px solid var(--border);">Several books</td></tr>
       </table>
-      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*Ориентировочные цифры. Зависят от плотности текста.</p>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*Approximate figures. </p>
     </div>
 
-    <h3>3 способа работы с длинными документами</h3>
+    <h3>3 ways to work with long documents</h3>
     
     <div class="card card-success">
-      <h4>Способ 1: Выбор модели с большим контекстом</h4>
-      <p>Простое решение: использовать Kimi или Gemini для длинных документов.</p>
+      <h4>Method 1: Selecting a Model with More Context</h4>
+      <p>Simple solution: use Kimi or Gemini for long documents.</p>
       <div class="example">
-        <div class="example-label">💡 Когда использовать</div>
+        <div class="example-label">💡 When to use</div>
         <ul>
-          <li>Документ < 500 страниц</li>
-          <li>Нужен быстрый анализ без настройки</li>
-          <li>Нет чувствительных данных (облачные сервисы)</li>
+          <li>Document< 500 страниц</li>
+          <li>Need quick analysis without setup</li>
+          <li>No sensitive data (cloud services)</li>
         </ul>
       </div>
     </div>
 
     <div class="card card-success">
-      <h4>Способ 2: Разбивка на части (Chunking)</h4>
-      <p>Делим документ на логические части и анализируем по очереди.</p>
+      <h4>Method 2: Chunking</h4>
+      <p>We divide the document into logical parts and analyze them one by one.</p>
       <div class="example">
-        <div class="example-label">💡 Пример разбивки договора</div>
-        <pre>Часть 1: Преамбула, предмет договора
-Часть 2: Права и обязанности сторон
-Часть 3: Цена и порядок расчётов
-Часть 4: Ответственность и неустойка
-Часть 5: Форс-мажор и порядок разрешения споров
-Часть 6: Заключительные положения</pre>
+        <div class="example-label">💡 Example of contract breakdown</div>
+        <pre>Part 1: Preamble, subject of the agreement
+</pre>
       </div>
-      <p style="color: var(--muted); font-size: 0.9rem;">Каждая часть анализируется отдельно, затем результаты объединяются.</p>
+      <p style="color: var(--muted); font-size: 0.9rem;">Each part is analyzed separately, then the results are combined.</p>
     </div>
 
     <div class="card card-success">
-      <h4>Способ 3: RAG (Retrieval-Augmented Generation)</h4>
-      <p>Используем векторный поиск: AI находит релевантные фрагменты и анализирует только их.</p>
+      <h4>Method 3: RAG (Retrieval-Augmented Generation)</h4>
+      <p>We use vector search: AI finds relevant fragments and analyzes only them.</p>
       <div class="example">
-        <div class="example-label">💡 Когда использовать</div>
+        <div class="example-label">💡 When to use</div>
         <ul>
-          <li>Архив из сотен документов</li>
-          <li>Нужен поиск по смыслу</li>
-          <li>Регулярная работа с документами</li>
+          <li>Archive of hundreds of documents</li>
+          <li>Need a search for meaning</li>
+          <li>Regular work with documents</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий: Анализ тендерной документации (300 страниц)</h3>
+    <h3>Scenario: Analysis of tender documentation (300 pages)</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Проанализировать тендерную документацию на соответствие требованиям.</p>
+      <p><strong>Task:</strong> Analyze tender documentation for compliance with requirements.</p>
       <div class="example">
-        <div class="example-label">Алгоритм</div>
+        <div class="example-label">Algorithm</div>
         <ol>
-          <li>Загрузить документ в Kimi или Gemini (поддерживают большие файлы)</li>
-          <li>Задать промпт: "Проанализируй тендерную документацию. Выдели ключевые требования к поставщику, критерии оценки, сроки. Выведи таблицей."</li>
-          <li>Если ответ обрезан — уточнить: "Продолжи анализ раздела [название]"</li>
+          <li>Upload document to Kimi or Gemini (supports large files)</li>
+          <li>Set the prompt: “Analyze the tender documentation. Highlight the key requirements for the supplier, evaluation criteria, deadlines. Output in a table.”</li>
+          <li>If the answer is cut off, clarify: “Continue the analysis of section [name]”</li>
         </ol>
       </div>
     </div>
 
-    <h3>Сценарий: Анализ архива договоров (50 документов)</h3>
+    <h3>Scenario: Analysis of the archive of contracts (50 documents)</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Найти все договоры с неустойкой выше 1%.</p>
+      <p><strong>Task:</strong> Find all contracts with penalties above 1%.</p>
       <div class="example">
-        <div class="example-label">Алгоритм</div>
+        <div class="example-label">Algorithm</div>
         <ol>
-          <li>Загрузить все договоры в RAG-систему</li>
-          <li>Задать вопрос: "В каких договорах неустойка превышает 1% за день просрочки?"</li>
-          <li>Проверить ответы (AI укажет источники)</li>
+          <li>Upload all contracts into the RAG system</li>
+          <li>Ask the question: “In which contracts does the penalty exceed 1% per day of delay?”</li>
+          <li>Check answers (AI will indicate sources)</li>
         </ol>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система для работы с длинными документами.
+      <h3>Task template</h3>
+      <pre>“We need a system for working with long documents.
 
-Требования:
-1. Поддержка документов до [N] страниц
-2. Автоматическая разбивка на логические части
-3. Сохранение контекста между частями
-4. Возможность задавать вопросы по всему документу
-5. Указание источника (страница, раздел)
-
-Типы документов: [договоры / тендеры / отчёты]
-Количество: [N] документов
-Средний размер: [N] страниц
-
-Предпочтительное решение: [указать или оставить на разработчика]
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>AI обрабатывает документ полностью, без обрезки?</li>
-      <li>Сохраняется контекст между разделами?</li>
-      <li>Указаны источники (страницы, разделы)?</li>
-      <li>Можно задать уточняющий вопрос по документу?</li>
-      <li>Время обработки приемлемо? (< 1 минуты на 100 страниц)</li>
-      <li>Работает с форматами PDF, DOCX, TXT?</li>
+      <li>AI processes the document completely, without cropping?</li>
+      <li>Is context between sections preserved?</li>
+      <li>Are sources indicated (pages, sections)?</li>
+      <li>Can I ask a clarifying question about the document?</li>
+      <li>Is the processing time acceptable? < 1 минуты на 100 страниц)</li>
+      <li>Works with PDF, DOCX, TXT formats?</li>
     </ul>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Почему AI "забывает" начало длинного документа?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) У модели есть ограничение на объём обрабатываемого текста</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI плохо читает</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Документ нужно перевести в другой формат</div>
+      <p><strong>Question 1:</strong> Why does AI "forget" the beginning of a long document?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) The model has a limitation on the amount of text processed</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI doesn't read well</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) The document needs to be translated into another format</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Какая модель поддерживает самые длинные документы?</p>
+      <p><strong>Question 2:</strong> Which model supports the longest documents?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) GPT-4</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) Gemini 1.5 Pro / Kimi</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Claude Haiku</div>
@@ -234,10 +218,10 @@
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Что такое "разбивка на части" (chunking)?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Деление документа на логические части для поэтапного анализа</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Удаление ненужных страниц</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Сжатие документа</div>
+      <p><strong>Question 3:</strong> What is "chunking"?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Dividing the document into logical parts for step-by-step analysis</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Removing unnecessary pages</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Document compression</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -245,8 +229,8 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p>Длинные документы — не проблема, если знать инструменты. <strong>Kimi и Gemini</strong> обрабатывают тысячи страниц. Для архивов — <strong>RAG</strong>. Для средних документов — <strong>разбивка на части</strong>. Главное: всегда проверяйте, что AI не пропустил важные разделы.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p>Long documents are not a problem if you know the tools.<strong>Kimi and Gemini</strong> process thousands of pages. <strong>RAG</strong>. <strong>breakdown into parts</strong>. </p>
     </div>
   </div>
 
@@ -259,7 +243,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -277,14 +261,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

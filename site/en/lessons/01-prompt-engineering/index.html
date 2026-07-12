@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.1 Промпт-инжиниринг — AI для не ИТ-специалистов</title>
+<title>1.1 Prompt engineering - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -66,186 +66,161 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛠️ LEVEL 1 · MASTERING TOOLS</div>
-    <h1>1.1 · Промпт-инжиниринг для менеджера</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <div class="phase">🛠️ LEVEL 1 · TOOL PROFICIENCY</div>
+    <h1>1.1 · Prompt engineering for a manager</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p><span class="highlight">80% результата от AI зависит не от модели, а от того, как вы её спросили.</span></p>
-    <p>Менеджер тратит в среднем <strong>2-3 часа в день</strong> на: написание писем, анализ документов, сравнение предложений, подготовку отчётов. Хороший промпт сокращает это время в 3-5 раз.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p><span class="highlight">80% of the result from AI depends not on the model, but on how you asked it.</span></p>
+    <p>The manager spends on average <strong>2-3 hours a day</strong> for: writing letters, analyzing documents, comparing proposals, preparing reports. </p>
     <div class="card card-success">
-      <p><strong>Пример экономии:</strong></p>
-      <p>Сравнение 3 коммерческих предложений поставщиков занимает 2 часа вручную. С хорошим промптом — 15 минут. Экономия: <strong>1 час 45 минут × 10 раз в месяц = 17.5 часов</strong>.</p>
+      <p><strong>Saving example:</strong></p>
+      <p>Comparing 3 vendor quotes takes 2 hours manually. <strong>1 hour 45 minutes × 10 times a month = 17.5 hours</strong>.</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Формула хорошего промпта: RCOF</h3>
+    <h3>Formula for a good prompt: RCOF</h3>
     <div class="card card-accent">
       <table>
-        <tr><th>Буква</th><th>Значение</th><th>Вопрос</th></tr>
-        <tr><td><strong>R</strong></td><td>Role (Роль)</td><td>Кто отвечает? "Ты опытный закупщик"</td></tr>
-        <tr><td><strong>C</strong></td><td>Context (Контекст)</td><td>Что происходит? "Выбираем упаковку для печенья"</td></tr>
-        <tr><td><strong>O</strong></td><td>Objective (Цель)</td><td>Что получить? "Сравни 3 предложения"</td></tr>
-        <tr><td><strong>F</strong></td><td>Format (Формат)</td><td>В каком виде? "Таблица: Критерий | Поставщик 1 | Поставщик 2"</td></tr>
+        <tr><th>Letter</th><th>Meaning</th><th>Question</th></tr>
+        <tr><td><strong>R</strong></td><td>Role</td><td>Who is responsible? </td></tr>
+        <tr><td><strong>C</strong></td><td>Context</td><td>What's happening? </td></tr>
+        <tr><td><strong>O</strong></td><td>Objective</td><td>What to get? </td></tr>
+        <tr><td><strong>F</strong></td><td>Format</td><td>In what form? </td></tr>
       </table>
     </div>
 
-    <h3>Сравнение: плохой vs хороший промпт</h3>
+    <h3>Comparison: bad vs good prompt</h3>
     <div class="bad-prompt">
-      <div class="bad-prompt-label">❌ Плохой промпт</div>
-      <pre>"Проанализируй предложения и скажи что лучше"</pre>
-      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 8px;">Результат: общий ответ без конкретики, придётся переспрашивать 3 раза</p>
+      <div class="bad-prompt-label">❌ Bad prompt</div>
+      <pre>"Analyze the proposals and tell me which is better"</pre>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 8px;">Result: a general answer without specifics, you will have to ask again 3 times</p>
     </div>
     
     <div class="example">
-      <div class="example-label">✅ Хороший промпт (RCOF)</div>
-      <pre>Ты — опытный закупщик FMCG с 10-летним стажем.
-Мы выбираем поставщика картонной упаковки для печенья.
-Получили 3 предложения во вложениях.
-
-Задача: сравни предложения по критериям и рекомендуй лучшее.
-
-Критерии:
-1. Цена за единицу (включая доставку)
-2. Минимальный заказ
-3. Срок изготовления
-4. Условия оплаты
-5. Рейтинг поставщика
-
-Формат: таблица сравнения + однозначная рекомендация с обоснованием.
-
-Ограничение: если срок > 14 дней — отметь как риск.</pre>
+      <div class="example-label">✅ Good prompt (RCOF)</div>
+      <pre>You are an experienced FMCG buyer with 10 years of experience.
+</pre>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Шаг 1: Определите роль</h3>
+    <h3>Step 1: Define the role</h3>
     <div class="card">
-      <p>AI лучше отвечает, когда знает, кем он "притворяется". Роль задаёт экспертизу и тон.</p>
+      <p>AI responds better when it knows who it is “pretending to be.” </p>
       <ul>
-        <li><strong>"Ты юрист"</strong> — правовой анализ, осторожные формулировки</li>
-        <li><strong>"Ты маркетолог"</strong> — креатив, метрики, CTA</li>
-        <li><strong>"Ты финансовый аналитик"</strong> — цифры, ROI, риски</li>
+        <li><strong>"You're a lawyer"</strong>— legal analysis, careful wording</li>
+        <li><strong>"You're a marketer"</strong>— creative, metrics, CTA</li>
+        <li><strong>"You're a financial analyst"</strong>— numbers, ROI, risks</li>
       </ul>
     </div>
 
-    <h3>Шаг 2: Дайте контекст</h3>
+    <h3>Step 2: Give Context</h3>
     <div class="card">
-      <p>Без контекста AI даёт общий ответ. С контекстом — конкретный.</p>
+      <p>Without context, AI gives a general answer. </p>
       <div class="example">
-        <div class="example-label">💡 Пример</div>
-        <p><strong>Без контекста:</strong> "Как снизить затраты?" → общие советы</p>
-        <p><strong>С контекстом:</strong> "Мы производитель печенья, 50 сотрудников, логистика занимает 30% бюджета. Как снизить затраты?" → конкретные шаги</p>
+        <div class="example-label">💡 Example</div>
+        <p><strong>Without context:</strong>"How to reduce costs?" </p>
+        <p><strong>With context:</strong>“We are a cookie manufacturer, 50 employees, logistics takes up 30% of the budget. How to reduce costs?” </p>
       </div>
     </div>
 
-    <h3>Шаг 3: Укажите формат</h3>
+    <h3>Step 3: Specify the format</h3>
     <div class="card">
-      <p>Формат экономит время на переформатирование.</p>
+      <p>The format saves time on reformatting.</p>
       <table>
-        <tr><th>Формат</th><th>Когда использовать</th><th>Пример запроса</th></tr>
-        <tr><td>Таблица</td><td>Сравнение, анализ</td><td>"Выведи в таблице: Критерий | Вариант 1 | Вариант 2"</td></tr>
-        <tr><td>Список</td><td>Пошаговый план</td><td>"Дай 5 шагов в виде нумерованного списка"</td></tr>
-        <tr><td>JSON</td><td>Для программистов/автоматизации</td><td>"Верни результат в JSON с полями..."</td></tr>
-        <tr><td>Email</td><td>Готовое письмо</td><td>"Напиши письмо поставщику в деловом стиле"</td></tr>
+        <tr><th>Format</th><th>When to use</th><th>Example request</th></tr>
+        <tr><td>Table</td><td>Comparison, analysis</td><td>"Output in the table: Criterion | Option 1 | Option 2"</td></tr>
+        <tr><td>List</td><td>Step by step plan</td><td>"Give 5 steps as a numbered list"</td></tr>
+        <tr><td>JSON</td><td>For programmers/automation</td><td>"Return the result in JSON with fields..."</td></tr>
+        <tr><td>Email</td><td>Ready letter</td><td>"Write a letter to the supplier in a business style"</td></tr>
       </table>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи для разработчика</h3>
-      <pre>"Нужно создать библиотеку промптов для отдела [НАЗВАНИЕ].
+      <h3>Developer task template</h3>
+      <pre>"We need to create a library of prompts for the [NAME] department.
 
-Требования:
-1. Шаблоны для типовых задач: [перечислить]
-2. Система валидации: проверка на полноту RCOF
-3. Хранение в [Notion/Confluence/SharePoint]
-4. Версионирование: история изменений
-5. Доступ: [кто может редактировать]
-
-Пример промпта (прикрепить):
-[вставить хороший промпт]
-
-Срок: [дата]
-Ответственный: [имя]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ ПРИНЯТИЯ -->
+  <!-- ACCEPTANCE CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Промпт содержит все 4 элемента RCOF?</li>
-      <li>Роль соответствует задаче? (не "ты AI", а "ты аналитик")</li>
-      <li>Контекст достаточно конкретный? (есть цифры, сроки, ограничения)</li>
-      <li>Цель однозначная? (одна задача, не 5 сразу)</li>
-      <li>Формат удобен для копирования в Excel/Word/CRM?</li>
-      <li>Есть ограничения? (что исключить, лимиты, крайние случаи)</li>
-      <li>Проверили на 3 реальных примерах? Работает стабильно?</li>
+      <li>Does the prompt contain all 4 RCOF elements?</li>
+      <li>Is the role appropriate for the task? </li>
+      <li>Is the context specific enough? </li>
+      <li>Is the goal clear? </li>
+      <li>Is the format convenient for copying to Excel/Word/CRM?</li>
+      <li>Are there any restrictions? </li>
+      <li>Have you checked it with 3 real examples? </li>
     </ul>
   </div>
 
-  <!-- ИНСТРУМЕНТЫ -->
+  <!-- TOOLS -->
   <div class="section">
-    <h2>🛠️ Инструменты</h2>
+    <h2>🛠️Tools</h2>
     <div class="card">
       <table>
-        <tr><th>Инструмент</th><th>Зачем</th><th>Стоимость</th></tr>
-        <tr><td>ChatGPT / Claude</td><td>Базовые промпты, тестирование</td><td>Бесплатно / $20</td></tr>
-        <tr><td>PromptPerfect</td><td>Автоматическая оптимизация промптов</td><td>От $10/мес</td></tr>
-        <tr><td>LangChain Hub</td><td>Библиотека готовых промптов</td><td>Бесплатно</td></tr>
-        <tr><td>Notion</td><td>База знаний с шаблонами промптов</td><td>Бесплатно</td></tr>
+        <tr><th>Tool</th><th>For what</th><th>Price</th></tr>
+        <tr><td>ChatGPT / Claude</td><td>Basic prompts, testing</td><td>Free / $20</td></tr>
+        <tr><td>PromptPerfect</td><td>Automatic optimization of prompts</td><td>From $10/month</td></tr>
+        <tr><td>LangChain Hub</td><td>Library of ready-made prompts</td><td>For free</td></tr>
+        <tr><td>Notion</td><td>Knowledge base with prompt templates</td><td>For free</td></tr>
       </table>
     </div>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Что означает буква R в формуле RCOF?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Request (Запрос)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Role (Роль)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Result (Результат)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">D) Rule (Правило)</div>
+      <p><strong>Question 1:</strong> What does the letter R mean in the RCOF formula?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Request</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Role</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Result</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">D) Rule</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Какой промпт лучше для сравнения поставщиков?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) "Сравни поставщиков и скажи кто лучше"</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) "Ты закупщик. Сравни 3 предложения по цене, срокам, минимальному заказу. Выведи таблицей. Рекомендуй лучшее с обоснованием."</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) "Какой поставщик лучше?"</div>
+      <p><strong>Question 2:</strong> Which prompt is better for comparing suppliers?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) "Compare suppliers and tell me who is better"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) “You are a buyer. Compare 3 proposals on price, terms, minimum order. Display them in a table. Recommend the best with justification.”</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) "Which supplier is better?"</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Зачем указывать формат ответа?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Чтобы красиво выглядело</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Чтобы сэкономить время на переформатирование</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</div>
+      <p><strong>Question 3:</strong> Why specify the response format?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) To make it look nice</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) To save time on reformatting</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) This is optional</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -253,8 +228,8 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p>Промпт — это <strong>ТЗ для AI</strong>. Используйте формулу <strong>RCOF</strong>: Роль, Контекст, Цель, Формат. Чем конкретнее промпт — тем лучше результат. Плохой промпт тратит ваше время на уточнения. Хороший промпт экономит <strong>2-3 часа в день</strong>.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p>Prompt is <strong>TK for AI</strong>. <strong>RCOF</strong>: Role, Context, Purpose, Format. <strong>2-3 hours a day</strong>.</p>
     </div>
   </div>
 
@@ -267,7 +242,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -285,14 +260,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>
