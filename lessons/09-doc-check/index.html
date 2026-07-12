@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>9.1 Проверка документов и внутреннего контроля — AI для не ИТ-специалистов</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🔍 УРОВЕНЬ 9 · АУДИТ, КОНТРОЛЬ И COMPLIANCE</div>
+    <h1>9.1 · Проверка документов и внутреннего контроля</h1>
+    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Зачем это бизнесу</h2>
+    <p>Ошибки в документах стоят компании миллионы: двойная оплата, неверный контрагент, пропущенное согласование. Ручная проверка 1000+ документов в месяц невозможна.</p>
+    <div class="card card-success">
+      <p><strong>AI-контроль</strong> — автоматическая сверка документов, поиск аномалий и проверка процессов по чеклистам. Менеджер получает отчёт с найденными рисками, а не копается в бумагах.</p>
+      <p><strong>Пример:</strong> AI сверил 500 счетов за месяц и нашёл 12 расхождений: 3 — неверные реквизиты, 7 — дубли, 2 — пропущенные согласования.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+
+    <h3>Три уровня AI-проверки</h3>
+    <table>
+      <tr><th>Уровень</th><th>Что делает AI</th><th>Пример</th></tr>
+      <tr><td>Сверка</td><td>Сравнивает документы с данными в системе</td><td>Счёт vs 1С: сумма, контрагент, договор</td></tr>
+      <tr><td>Анализ</td><td>Ищет паттерны и аномалии</td><td>Круглые суммы, дубли, выходные даты</td></tr>
+      <tr><td>Проверка процессов</td><td>Контроль по чеклисту</td><td>Все ли согласования, все ли этапы</td></tr>
+    </table>
+
+    <h3>Что AI может найти</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Расхождения:</strong> сумма в счёте ≠ сумме в 1С, неверный ИНН/КПП</li>
+        <li><strong>Дубли:</strong> два счета на одну и ту же поставку, повторная оплата</li>
+        <li><strong>Аномалии:</strong> круглые суммы (100 000, 500 000), платёж в выходной, изменение реквизитов контрагента</li>
+        <li><strong>Пропуски:</strong> отсутствие согласования, пропущенный этап, неподписанный акт</li>
+        <li><strong>Сроки:</strong> просроченная оплата, истекающий договор, незакрытый этап</li>
+      </ul>
+    </div>
+
+    <h3>Кросс-проверка между системами</h3>
+    <div class="example">
+      <div class="example-label">Пример: сверка потока</div>
+      <pre>1С (бухгалтерия)    ←→    ЭДО (документооборот)    ←→    Банк (выписка)
+       Сумма 120 000              Сумма 120 000                 Списание 120 000
+       Контрагент ООО "А"         Подписан акт                   10.07.2026
+       Договор №45
+
+AI проверяет: суммы совпадают? даты совпадают? контрагент одинаковый?
+Если нет → алерт менеджеру</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+
+    <h3>Сценарий: ежемесячная сверка первичных документов</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Промпт для AI</div>
+        <pre>Сверь счета-фактуры (файл) с данными из 1С (экспорт).
+
+Проверь:
+- Сумма счёта = сумме в 1С
+- Контрагент совпадает (по ИНН)
+- Номер договора указан и существует
+- Дата счёта в пределах действия договора
+- Нет дублей (тот же номер + та же сумма)
+
+Выведи:
+- Список расхождений (что не совпало)
+- Список дублей
+- Список просроченных (срок оплаты &lt; сегодня)</pre>
+      </div>
+      <p><strong>Результат:</strong> Excel-файл с тремя вкладками: Расхождения, Дубли, Просроченные. Менеджер проверяет за 30 минут вместо 2 дней.</p>
+    </div>
+
+    <h3>Сценарий: проверка процесса по чеклисту</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Чеклист закупки</div>
+        <pre>☐ Запрос на потребность (инициатор)
+☐ Согласование бюджета (финансист)
+☐ 3 коммерческих предложения (закупщик)
+☐ Протокол согласования (закупщик)
+☐ Договор (юрист)
+☐ Подписание договора (обе стороны)
+☐ Аванс/оплата (бухгалтерия)
+☐ Акт выполненных работ (ответственный)</pre>
+      </div>
+      <p>AI проверяет журнал согласований и находит: «Закупка №452: пропущен этап — отсутствует протокол согласования». Алерт инициатору.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи</h3>
+      <pre>"Нужен автоматический контроль документов.
+
+Входные данные:
+- Счета-фактуры (PDF / Excel)
+- Выгрузка из 1С (Excel)
+- Выписка из банка (Excel / API)
+
+Что проверяем:
+1. Сверка сумм, контрагентов, договоров
+2. Поиск дублей
+3. Аномалии (круглые суммы, выходные, изменение реквизитов)
+4. Просроченные платежи и согласования
+
+Выход:
+- Отчёт в Excel с расхождениями
+- Алерты в Telegram / email критичным
+- Дашборд с метриками (сколько проверено, сколько найдено)
+
+Интеграция: 1С, банк (API), Telegram
+Срок: [дата]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Чеклист принятия результата</h2>
+    <ul class="checklist">
+      <li>Все три источника (1С, ЭДО, банк) подключены?</li>
+      <li>Сверка работает: суммы, контрагенты, договоры?</li>
+      <li>Дубли находятся корректно (не ложные срабатывания)?</li>
+      <li>Аномалии настроены под бизнес (не все круглые суммы — подозрительные)?</li>
+      <li>Алерты приходят вовремя и по нужным людям?</li>
+      <li>Отчёт понятен без объяснений (сам по себе)?</li>
+      <li>Есть история: можно посмотреть, что было в прошлом месяце?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Проверка понимания</h2>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Что AI проверяет на уровне «сверки»?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Соответствие документа данным в системе</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Настроение бухгалтера</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Цвет оформления счёта</span>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Какой паттерн подозрительный для AI?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Сумма 123 456,78</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Дубль: два счёта на одну поставку</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Платёж в рабочий день</span>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Какой документ нужен для кросс-проверки?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Только счёт</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Счёт + 1С + банковская выписка</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Только договор</span>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Главное из урока</h3>
+      <p><strong>AI не заменяет бухгалтера, но делает его работу точнее.</strong> Сверка документов, поиск дублей и аномалий, проверка процессов — всё это рутина, которую AI делает за минуты. Менеджер получает список проблем, а не копается в тысячах строк.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../catalog.html" class="nav-btn">← К каталогу</a>
+    <a href="../09-audit-procurement-sales/index.html" class="nav-btn primary">Следующий урок →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>
