@@ -35,7 +35,7 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
   .quiz-option:hover { border-color: var(--accent); }
   .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
   .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
@@ -186,25 +186,25 @@
     
     <div class="card card-accent">
       <p><strong>Вопрос 1:</strong> Какой уровень зрелости — полная автоматизация без участия человека?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Подмена</span>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Автоматизация</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Ускорение</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Подмена</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Автоматизация</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Ускорение</span>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 2:</strong> С чего начинать внедрение AI?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) С выбора частого и длительного процесса</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) С покупки самого дорогого инструмента</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) С обучения всех сотрудников</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) С выбора частого и длительного процесса</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) С покупки самого дорогого инструмента</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) С обучения всех сотрудников</span>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 3:</strong> Что важно измерить после внедрения?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Время до и после, количество ошибок</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Только стоимость лицензий</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Ничего не нужно измерять</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Время до и после, количество ошибок</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только стоимость лицензий</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Ничего не нужно измерять</div>
       <div class="result" id="result3"></div>
     </div>
   </div>

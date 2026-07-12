@@ -34,7 +34,7 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
   .quiz-option:hover { border-color: var(--accent); }
   .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
   .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
@@ -202,25 +202,25 @@
     
     <div class="card card-accent" data-quiz="1">
       <p><strong>Вопрос 1:</strong> Что такое критический путь?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Цепочка работ, которые нельзя задержать без срыва сроков объекта</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Самая длинная дорога на стройку</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Путь от склада до объекта</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Цепочка работ, которые нельзя задержать без срыва сроков объекта</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Самая длинная дорога на стройку</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Путь от склада до объекта</span>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent" data-quiz="2">
       <p><strong>Вопрос 2:</strong> Какие данные нужны AI для анализа графика?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) График, журнал работ, ресурсы, сметы, погода</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Только график</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Только сметы</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) График, журнал работ, ресурсы, сметы, погода</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только график</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только сметы</span>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent" data-quiz="3">
       <p><strong>Вопрос 3:</strong> Что делает AI при отклонении план/факт > 10%?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Предупреждает с рекомендацией по корректировке</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Игнорирует — это нормально</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Останавливает работы автоматически</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Предупреждает с рекомендацией по корректировке</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Игнорирует — это нормально</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Останавливает работы автоматически</div>
       <div class="result" id="result3"></div>
     </div>
   </div>

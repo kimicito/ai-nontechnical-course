@@ -38,7 +38,7 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
   .quiz-option:hover { border-color: var(--accent); }
   .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
   .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
@@ -223,26 +223,26 @@
     
     <div class="card card-accent">
       <p><strong>Вопрос 1:</strong> Что означает буква R в формуле RCOF?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Request (Запрос)</span>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Role (Роль)</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Result (Результат)</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">D) Rule (Правило)</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Request (Запрос)</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Role (Роль)</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Result (Результат)</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">D) Rule (Правило)</span>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 2:</strong> Какой промпт лучше для сравнения поставщиков?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">A) "Сравни поставщиков и скажи кто лучше"</span>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">B) "Ты закупщик. Сравни 3 предложения по цене, срокам, минимальному заказу. Выведи таблицей. Рекомендуй лучшее с обоснованием."</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) "Какой поставщик лучше?"</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) "Сравни поставщиков и скажи кто лучше"</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) "Ты закупщик. Сравни 3 предложения по цене, срокам, минимальному заказу. Выведи таблицей. Рекомендуй лучшее с обоснованием."</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) "Какой поставщик лучше?"</span>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 3:</strong> Зачем указывать формат ответа?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Чтобы красиво выглядело</span>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Чтобы сэкономить время на переформатирование</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Чтобы красиво выглядело</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Чтобы сэкономить время на переформатирование</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</div>
       <div class="result" id="result3"></div>
     </div>
   </div>

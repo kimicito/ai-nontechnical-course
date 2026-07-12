@@ -35,7 +35,7 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
   .quiz-option:hover { border-color: var(--accent); }
   .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
   .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
@@ -236,25 +236,25 @@
     
     <div class="card card-accent">
       <p><strong>Вопрос 1:</strong> Какой тип суммаризации переписывает текст своими словами?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Выделительная</span>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Пересказ (Abstractive)</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Целевая</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Выделительная</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Пересказ (Abstractive)</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Целевая</span>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 2:</strong> Сколько времени экономит суммаризация?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">A) 10-15%</span>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">B) 60-80%</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) 20-30%</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 10-15%</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 60-80%</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 20-30%</span>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 3:</strong> Что важно проверить в суммаризации?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Факты, цифры, даты</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Только орфографию</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Ничего, AI не ошибается</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Факты, цифры, даты</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только орфографию</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Ничего, AI не ошибается</div>
       <div class="result" id="result3"></div>
     </div>
   </div>

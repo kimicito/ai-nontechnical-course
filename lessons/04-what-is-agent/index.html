@@ -35,7 +35,7 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
   .quiz-option:hover { border-color: var(--accent); }
   .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
   .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
@@ -204,25 +204,25 @@
     
     <div class="card card-accent">
       <p><strong>Вопрос 1:</strong> Чем агент отличается от чат-бота?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Агент сам ставит цели и выполняет действия</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Агент дороже</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Агент быстрее отвечает</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Агент сам ставит цели и выполняет действия</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Агент дороже</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Агент быстрее отвечает</span>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 2:</strong> Что такое "память" агента?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Способность запоминать контекст и историю</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Объём жёсткого диска</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Скорость работы</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Способность запоминать контекст и историю</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Объём жёсткого диска</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Скорость работы</span>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 3:</strong> Зачем агенту "инструменты"?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы выполнять действия: искать, отправлять, записывать</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы выглядеть сложнее</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы выполнять действия: искать, отправлять, записывать</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы выглядеть сложнее</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</div>
       <div class="result" id="result3"></div>
     </div>
   </div>

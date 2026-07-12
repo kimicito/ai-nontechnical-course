@@ -35,7 +35,7 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
   .quiz-option:hover { border-color: var(--accent); }
   .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
   .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
@@ -207,25 +207,25 @@ AI: [запрашивает данные из 1С через MCP]
     
     <div class="card card-accent">
       <p><strong>Вопрос 1:</strong> Что такое MCP?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Протокол для подключения AI к корпоративным системам</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Новая модель AI</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Язык программирования</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Протокол для подключения AI к корпоративным системам</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Новая модель AI</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Язык программирования</span>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 2:</strong> Зачем AI доступ к 1С?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы отвечать на основе реальных данных, а не общих знаний</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы AI мог менять данные</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C>Это необязательно</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы отвечать на основе реальных данных, а не общих знаний</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы AI мог менять данные</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Это необязательно</span>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 3:</strong> Что важно проверить при внедрении MCP?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A>Безопасность и отсутствие утечки данных</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B>Только скорость</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C>Ничего не нужно проверять</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Безопасность и отсутствие утечки данных</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Только скорость</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Ничего не нужно проверять</div>
       <div class="result" id="result3"></div>
     </div>
   </div>

@@ -35,7 +35,7 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
   .quiz-option:hover { border-color: var(--accent); }
   .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
   .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
@@ -205,25 +205,25 @@
     
     <div class="card card-accent">
       <p><strong>Вопрос 1:</strong> Почему AI нужно мониторить?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) AI может ошибаться и галлюцинировать</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) AI работает медленно</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) AI дорогой</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) AI может ошибаться и галлюцинировать</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI работает медленно</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) AI дорогой</span>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 2:</strong> Как часто проверять качество вручную?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Ежедневно, 10-20 случайных ответов</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Раз в месяц</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Никогда, AI сам проверяет</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Ежедневно, 10-20 случайных ответов</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Раз в месяц</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Никогда, AI сам проверяет</span>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 3:</strong> Что делать, если удовлетворённость < 85%?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Уведомить руководителя и проверить AI</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Ничего, это нормально</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Выключить AI</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Уведомить руководителя и проверить AI</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Ничего, это нормально</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Выключить AI</div>
       <div class="result" id="result3"></div>
     </div>
   </div>

@@ -34,7 +34,7 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
   .quiz-option:hover { border-color: var(--accent); }
   .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
   .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
@@ -201,25 +201,25 @@ AI проверяет: суммы совпадают? даты совпадаю�
 
     <div class="card card-accent">
       <p><strong>Вопрос 1:</strong> Что AI проверяет на уровне «сверки»?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Соответствие документа данным в системе</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Настроение бухгалтера</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Цвет оформления счёта</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Соответствие документа данным в системе</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Настроение бухгалтера</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Цвет оформления счёта</span>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 2:</strong> Какой паттерн подозрительный для AI?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Сумма 123 456,78</span>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Дубль: два счёта на одну поставку</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Платёж в рабочий день</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Сумма 123 456,78</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Дубль: два счёта на одну поставку</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Платёж в рабочий день</span>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 3:</strong> Какой документ нужен для кросс-проверки?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Только счёт</span>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Счёт + 1С + банковская выписка</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Только договор</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Только счёт</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Счёт + 1С + банковская выписка</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только договор</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
