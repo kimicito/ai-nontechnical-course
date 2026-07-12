@@ -128,7 +128,7 @@
         <li><strong>Документы > 50 страниц</strong> → Claude или Kimi</li>
         <li><strong>Переписка, идеи, простые анализы</strong> → ChatGPT</li>
         <li><strong>Китайский рынок/поставщики</strong> → Kimi или Qwen</li>
-        <li><strong>Конфиденциальные данные</strong> → Qwen (on-premise) или OpenWebUI</li>
+        <li><strong>Конфиденциальные данные</strong> → Qwen (on-premise) или GENAi</li>
       </ul>
 
       <h3>Шаг 2: Какой бюджет?</h3>
@@ -196,15 +196,24 @@
     <h2>📝 Проверка понимания</h2>
     <div class="card card-accent">
       <p><strong>Вопрос 1:</strong> Какую модель выбрать для анализа 200-страничного договора?</p>
-      <p><em>Ответ: Claude или Kimi — лучшие в длинных документах.</em></p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Claude или Kimi — лучшие в длинных документах</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) ChatGPT — он самый универсальный</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Любая модель справится одинаково</span>
+      <div class="result" id="result1"></div>
     </div>
     <div class="card card-accent">
       <p><strong>Вопрос 2:</strong> Можно ли использовать ChatGPT для конфиденциальных данных?</p>
-      <p><em>Ответ: Нет, данные уходят на серверы OpenAI. Нужен on-premise (Qwen + OpenWebUI).</em></p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Да, если купить платную версию</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Нет, данные уходят на серверы OpenAI. Нужен on-premise (Qwen + GENAi)</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Да, ChatGPT не сохраняет данные</span>
+      <div class="result" id="result2"></div>
     </div>
     <div class="card card-accent">
       <p><strong>Вопрос 3:</strong> Почему не всегда брать самую мощную модель?</p>
-      <p><em>Ответ: Дороже, медленнее. Простые задачи ("перепиши письмо") можно дешёвой моделью.</em></p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Мощные модели всегда лучше</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Дороже и медленнее. Простые задачи можно дешёвой моделью</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Потому что их сложно найти</span>
+      <div class="result" id="result3"></div>
     </div>
   </div>
 
@@ -228,5 +237,31 @@
   </div>
 </footer>
 
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+  }
+}
+</script>
 </body>
 </html>

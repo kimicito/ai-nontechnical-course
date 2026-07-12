@@ -60,7 +60,7 @@
 
   <div class="lesson-header">
     <div class="phase">🚀 ФАЗА 0 · ОСНОВЫ AI</div>
-    <h1>0.3 · Облако vs On-premise: OpenWebUI для конфиденциальных данных</h1>
+    <h1>0.3 · Облако vs On-premise: GENAi для конфиденциальных данных</h1>
     <div class="meta">🎯 Без кода · ✅ Квиз в конце</div>
   </div>
 
@@ -100,12 +100,12 @@
   </div>
 
   <div class="section">
-    <h2>🛠️ OpenWebUI: золотая середина</h2>
+    <h2>🛠️ GENAi: золотая середина</h2>
     
-    <p><strong>OpenWebUI</strong> — это бесплатный интерфейс (как ChatGPT), который работает с моделями на вашем сервере. Сотрудники видят привычный чат, но данные остаются внутри компании.</p>
+    <p><strong>GENAi</strong> — это бесплатный интерфейс (как ChatGPT), который работает с моделями на вашем сервере. Сотрудники видят привычный чат, но данные остаются внутри компании.</p>
 
     <div class="card card-success">
-      <h3>Когда выбирать OpenWebUI:</h3>
+      <h3>Когда выбирать GENAi:</h3>
       <ul class="checklist">
         <li>Работа с коммерческой тайной (цены, поставщики, контракты)</li>
         <li>Персональные данные сотрудников или клиентов</li>
@@ -173,7 +173,7 @@
     <h2>🧰 Инструменты</h2>
     <div class="card">
       <ul>
-        <li><strong>OpenWebUI (openwebui.com)</strong> — бесплатный интерфейс, ставится за 30 минут</li>
+        <li><strong>GENAi (openwebui.com)</strong> — бесплатный интерфейс, ставится за 30 минут</li>
         <li><strong>Ollama (ollama.com)</strong> — запуск локальных моделей (Llama, Mistral, Qwen)</li>
         <li><strong>Qwen (Alibaba)</strong> — open-source модель для коммерческого использования</li>
         <li><strong>vLLM</strong> — ускорение推理 для on-premise (потребует разработчика)</li>
@@ -185,22 +185,31 @@
     <h2>📝 Проверка понимания</h2>
     <div class="card card-accent">
       <p><strong>Вопрос 1:</strong> Можно ли использовать ChatGPT для анализа договоров с поставщиками?</p>
-      <p><em>Ответ: Нет, это коммерческая тайна. Нужен on-premise (OpenWebUI + Qwen/Llama).</em></p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Да, ChatGPT безопасен для любых данных</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Нет, это коммерческая тайна. Нужен on-premise (GENAi + Qwen/Llama)</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Да, если удалить историю после</span>
+      <div class="result" id="result1"></div>
     </div>
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Что такое OpenWebUI?</p>
-      <p><em>Ответ: Бесплатный интерфейс (как ChatGPT), который работает с локальными моделями. Данные не уходят в интернет.</em></p>
+      <p><strong>Вопрос 2:</strong> Что такое GENAi?</p>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Платный чат-бот от Google</span>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Бесплатный интерфейс для локальных моделей. Данные не уходят в интернет</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Облачный сервис для хранения данных</span>
+      <div class="result" id="result2"></div>
     </div>
     <div class="card card-accent">
       <p><strong>Вопрос 3:</strong> Какой бюджет нужен для on-premise LLM?</p>
-      <p><em>Ответ: Сервер ~$2000-5000 (или облачный GPU ~$100-500/мес) + админ 20% времени.</em></p>
+      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Сервер ~$2000-5000 (или GPU ~$100-500/мес) + админ 20% времени</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Бесплатно, достаточно ноутбука</span>
+      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Только $20/мес как ChatGPT Plus</span>
+      <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
       <h3>🎯 Главное из урока</h3>
-      <p>Для публичных данных — облачные модели (ChatGPT, Claude). Для конфиденциальных — on-premise (OpenWebUI + Qwen/Llama). Нет универсального решения — выбирайте по классу данных. И никогда не загружайте коммерческую тайну в публичные чат-боты.</p>
+      <p>Для публичных данных — облачные модели (ChatGPT, Claude). Для конфиденциальных — on-premise (GENAi + Qwen/Llama). Нет универсального решения — выбирайте по классу данных. И никогда не загружайте коммерческую тайну в публичные чат-боты.</p>
     </div>
   </div>
 
@@ -217,5 +226,31 @@
   </div>
 </footer>
 
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+  }
+}
+</script>
 </body>
 </html>
