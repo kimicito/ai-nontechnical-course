@@ -36,7 +36,7 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
   .quiz-option:hover { border-color: var(--accent); }
   .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
   .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
@@ -197,25 +197,25 @@
     
     <div class="card card-accent">
       <p><strong>Вопрос 1:</strong> Зачем нужен "человек в цикле"?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы предотвратить дорогие ошибки AI</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы замедлить процесс</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Чтобы уволить сотрудников</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы предотвратить дорогие ошибки AI</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы замедлить процесс</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Чтобы уволить сотрудников</span>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 2:</strong> Какой уровень контроля для подписания договора?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">A) Полная автономия</span>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">B) Полный контроль</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Частичный контроль</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Полная автономия</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Полный контроль</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Частичный контроль</span>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
       <p><strong>Вопрос 3:</strong> Что делать при таймауте (человек не ответил)?</p>
-      <span class="quiz-option" onclick="checkAnswer(this, true)">A) Эскалировать следующему ответственному</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">B) AI сам решает</span>
-      <span class="quiz-option" onclick="checkAnswer(this, false)">C) Отменить задачу</span>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Эскалировать следующему ответственному</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI сам решает</span>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Отменить задачу</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
