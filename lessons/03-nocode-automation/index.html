@@ -69,7 +69,7 @@
 <header>
   <div class="container">
     <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
   </div>
 </header>
 
@@ -213,7 +213,7 @@
         <li>Работаете с конфиденциальными данными (договоры, персональные данные)</li>
         <li>Есть IT-специалист, который может поднять сервер</li>
         <li>Нужна сложная логика (циклы, условия, код)</li>
-        <li>Хотите сэкономить на подписке (self-hosted = бесплатно)</li>
+        <li>Хотите сэкономить на подписке (self-hosted = бесплатна лицензия, но нужен сервер и ИТ-специалист)</li>
       </ul>
       <p style="margin-top: 16px;"><span class="tag">Zapier</span> если:</p>
       <ul>
@@ -268,7 +268,7 @@
         <div class="example-label">Автоматизация в Zapier</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>Schedule:</strong> Каждый понедельник 9:00</div>
+          <div><strong>Schedule:</strong> Еженедельно, например по понедельникам 9:00</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
@@ -299,7 +299,7 @@
         <div class="example-label">Автоматизация в n8n</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>Cron:</strong> Каждую пятницу 17:00</div>
+          <div><strong>По расписанию (cron):</strong> Каждую пятницу 17:00</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
@@ -377,7 +377,7 @@ AI-компонент: [Zapier AI / OpenAI / нет]
     <ul class="checklist">
       <li>Сценарий запускается корректно? (триггер работает)</li>
       <li>Данные передаются без потерь? (проверьте 3 запуска)</li>
-      <li>Условия срабатывают правильно? (граничные случаи)</li>
+      <li>Условия срабатывают правильно? (крайние значения (граничные случаи))</li>
       <li>Есть обработка ошибок? (если сервис недоступен)</li>
       <li>Логи доступны для проверки? (история запусков в n8n / Zapier Task History)</li>
       <li>Стоимость операций в пределах бюджета? (Zapier: счётчик задач, n8n: Execution History)</li>

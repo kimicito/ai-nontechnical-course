@@ -66,7 +66,7 @@
 <header>
   <div class="container">
     <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
   </div>
 </header>
 
@@ -145,7 +145,7 @@
     <h3>Где используется в бизнесе</h3>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
       <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Сценарий</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Как работает</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Поиск по договорам</td><td style="padding:10px;border-bottom:1px solid var(--border);">Находит релевантные clauses даже при другой формулировке</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Поиск по договорам</td><td style="padding:10px;border-bottom:1px solid var(--border);">Находит релевантные положения даже при другой формулировке</td></tr>
       <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Поддержка клиентов</td><td style="padding:10px;border-bottom:1px solid var(--border);">Понимает вопросы, сформулированные по-разному</td></tr>
       <tr><td style="padding:10px;border-bottom:1px solid var(--border);">База знаний</td><td style="padding:10px;border-bottom:1px solid var(--border);">Сотрудник находит ответ, не зная точной терминологии</td></tr>
       <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Анализ тендеров</td><td style="padding:10px;border-bottom:1px solid var(--border);">Группирует похожие требования из разных документов</td></tr>
@@ -268,11 +268,6 @@ function checkAnswer(element, isCorrect) {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
-    resultDiv.style.background = 'rgba(245,158,11,0.1)';
-    resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
-  }
-} else {
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
     resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
