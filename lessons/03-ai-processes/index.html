@@ -101,7 +101,7 @@
     <div class="card">
       <p><strong>Уровень 1 — Подмена:</strong> Человек делает то же самое, но с помощью AI (чат, промпты)</p>
       <p><strong>Уровень 2 — Ускорение:</strong> AI автоматизирует часть задачи (суммаризация, таблицы)</p>
-      <p><strong>Уровень 3 — Автоматизация:</strong> AI работает без участия человека (Make, n8n)</p>
+      <p><strong>Уровень 3 — Автоматизация:</strong> AI работает без участия человека (n8n, Zapier)</p>
       <p><strong>Уровень 4 — Перестройка:</strong> Процесс пересмотрен с учётом возможностей AI</p>
     </div>
   </div>
@@ -252,11 +252,6 @@ function checkAnswer(element, isCorrect) {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
-    resultDiv.style.background = 'rgba(245,158,11,0.1)';
-    resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
-  }
-} else {
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
     resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
