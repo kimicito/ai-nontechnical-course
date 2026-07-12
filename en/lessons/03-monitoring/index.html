@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>3.4 Мониторинг — AI для не ИТ-специалистов</title>
+<title>3.4 Monitoring - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -67,8 +67,8 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
@@ -76,157 +76,136 @@
 
   <div class="lesson-header">
     <div class="phase">⚡ LEVEL 3 · AUTOMATION</div>
-    <h1>3.4 · Мониторинг: следите за AI, как за сотрудником</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <h1>3.4 · Monitoring: Monitor the AI ​​like an employee</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>AI — не волшебная палочка. Он <strong>ошибается</strong>: галлюцинирует факты, неправильно интерпретирует, даёт устаревшие данные. Без мониторинга вы узнаете об этом от клиента или при проверке.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>AI is not a magic wand. <strong>wrong</strong>: hallucinates facts, misinterprets, gives outdated data. </p>
     <div class="card card-warning">
-      <p><strong>Пример проблемы:</strong> AI-агент автоматически отвечал клиентам. Через месяц выяснилось, что 15% ответов содержали неверную информацию о ценах. Компания потеряла доверие клиентов.</p>
-      <p><strong>Решение:</strong> Мониторинг качества ответов AI.</p>
+      <p><strong>Example problem:</strong> The AI ​​agent automatically responded to customers. </p>
+      <p><strong>Solution:</strong> Monitoring the quality of AI responses.</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Что мониторить</h3>
+    <h3>What to monitor</h3>
     <div class="metric-card">
       <div class="metric-item">
         <div class="num">🎯</div>
-        <div class="label">Качество ответов</div>
-        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">Правильные ли факты? Нет ли галлюцинаций?</p>
+        <div class="label">Quality of answers</div>
+        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">Are the facts correct? </p>
       </div>
       <div class="metric-item">
         <div class="num">⏱️</div>
-        <div class="label">Время отклика</div>
-        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">Сколько секунд/минут ждёт пользователь?</p>
+        <div class="label">Response time</div>
+        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">How many seconds/minutes does the user wait?</p>
       </div>
       <div class="metric-item">
         <div class="num">💰</div>
-        <div class="label">Стоимость</div>
-        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">Сколько тратим на API? В пределах бюджета?</p>
+        <div class="label">Price</div>
+        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">How much do we spend on APIs? </p>
       </div>
       <div class="metric-item">
         <div class="num">😊</div>
-        <div class="label">Удовлетворённость</div>
-        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">Довольны ли пользователи ответами AI?</p>
+        <div class="label">Satisfaction</div>
+        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">Are users satisfied with AI responses?</p>
       </div>
     </div>
 
-    <h3>Как мониторить качество</h3>
+    <h3>How to monitor quality</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Метод</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Как делать</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Частота</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Ручная проверка</td><td style="padding:10px;border-bottom:1px solid var(--border);">Проверять 10-20 случайных ответов</td><td style="padding:10px;border-bottom:1px solid var(--border);">Ежедневно</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Обратная связь</td><td style="padding:10px;border-bottom:1px solid var(--border);">Кнопки "Полезно / Не полезно"</td><td style="padding:10px;border-bottom:1px solid var(--border);">Каждый ответ</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Аналитика</td><td style="padding:10px;border-bottom:1px solid var(--border);">Дашборд с метриками</td><td style="padding:10px;border-bottom:1px solid var(--border);">В реальном времени</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Тестовые кейсы</td><td style="padding:10px;border-bottom:1px solid var(--border);">Проверять на заранее известных вопросах</td><td style="padding:10px;border-bottom:1px solid var(--border);">Еженедельно</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Method</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">How to do</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Frequency</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Manual check</td><td style="padding:10px;border-bottom:1px solid var(--border);">Check 10-20 random answers</td><td style="padding:10px;border-bottom:1px solid var(--border);">Daily</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Feedback</td><td style="padding:10px;border-bottom:1px solid var(--border);">"Helpful / Not Helpful" buttons</td><td style="padding:10px;border-bottom:1px solid var(--border);">Every answer</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Analytics</td><td style="padding:10px;border-bottom:1px solid var(--border);">Dashboard with metrics</td><td style="padding:10px;border-bottom:1px solid var(--border);">Real time</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Test cases</td><td style="padding:10px;border-bottom:1px solid var(--border);">Test against previously known questions</td><td style="padding:10px;border-bottom:1px solid var(--border);">Weekly</td></tr>
       </table>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Настройка мониторинга</h3>
+    <h3>Monitoring setup</h3>
     <div class="card card-accent">
       <ol>
-        <li><strong>Определите ключевые метрики:</strong> Качество, время, стоимость, удовлетворённость</li>
-        <li><strong>Выберите инструмент:</strong> Google Analytics, custom дашборд, или встроенная аналитика</li>
-        <li><strong>Настройте алерты:</strong> Если качество < 80% — уведомить ответственного</li>
-        <li><strong>Создайте процесс реагирования:</strong> Кто и как исправляет проблемы?</li>
+        <li><strong>Define key metrics:</strong> Quality, time, cost, satisfaction</li>
+        <li><strong>Select a tool:</strong> Google Analytics, custom dashboard, or built-in analytics</li>
+        <li><strong>Set up alerts:</strong> If the quality< 80% — уведомить ответственного</li>
+        <li><strong>Create a response process:</strong> Who fixes the problems and how?</li>
       </ol>
     </div>
 
-    <h3>Пример: мониторинг AI-поддержки</h3>
+    <h3>Example: Monitoring AI support</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Метрики для отслеживания</div>
-        <pre>📊 Дашборд AI-поддержки:
+        <div class="example-label">Metrics to track</div>
+        <pre>📊 AI support dashboard:
 
-Сегодня:
-- Запросов: 150
-- Среднее время ответа: 12 сек
-- Удовлетворённость: 87%
-- Ошибок (по оценке): 3 (2%)
-
-⚠️ Алерты:
-- Удовлетворённость < 85% → Уведомить руководителя
-- Ошибок > 5% → Остановить и проверить
-- Время ответа > 30 сек → Проверить нагрузку</pre>
+< 85% → Уведомить руководителя
+- Ошибок >5% → Stop and check
+</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система мониторинга для AI-агента [название].
+      <h3>Task template</h3>
+      <pre>“We need a monitoring system for the AI agent [name].
 
-Метрики для отслеживания:
-1. Качество ответов (оценка по 5-балльной шкале)
-2. Время отклика (мс)
-3. Стоимость API-запросов ($)
-4. Количество ошибок
-5. Удовлетворённость пользователей
-
-Требования:
-- Дашборд в реальном времени
-- Алерты при превышении порогов
-- История метрик (за 90 дней)
-- Экспорт отчётов
-
-Интеграция: [email / Slack / Telegram]
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Все ключевые метрики отслеживаются?</li>
-      <li>Дашборд обновляется в реальном времени?</li>
-      <li>Алерты настроены на критичные пороги?</li>
-      <li>Есть процесс реагирования на проблемы?</li>
-      <li>Данные доступны для анализа за 90 дней?</li>
-      <li>Руководитель получает сводку регулярно?</li>
+      <li>Are all key metrics tracked?</li>
+      <li>Is the dashboard updated in real time?</li>
+      <li>Are alerts set to critical thresholds?</li>
+      <li>Is there a process for responding to problems?</li>
+      <li>Is there 90 days of data available for analysis?</li>
+      <li>Does the manager receive the summary regularly?</li>
     </ul>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Почему AI нужно мониторить?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) AI может ошибаться и галлюцинировать</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI работает медленно</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) AI дорогой</div>
+      <p><strong>Question 1:</strong> Why does AI need to be monitored?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) AI can make mistakes and hallucinate</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI is slow</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) AI is expensive</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Как часто проверять качество вручную?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Ежедневно, 10-20 случайных ответов</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Раз в месяц</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Никогда, AI сам проверяет</div>
+      <p><strong>Question 2:</strong> How often do you check quality manually?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Daily, 10-20 random answers</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Once a month</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Never, AI checks itself</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Что делать, если удовлетворённость < 85%?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Уведомить руководителя и проверить AI</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Ничего, это нормально</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Выключить AI</div>
+      <p><strong>Question 3:</strong> What to do if you are satisfied< 85%?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Notify supervisor and check AI</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Nothing, that's normal</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Turn off AI</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -234,21 +213,21 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>Мониторинг = страховка.</strong> AI ошибается, и это нормально. Важно находить ошибки раньше клиентов. Мониторьте качество, время, стоимость, удовлетворённость. Настройте алерты. Создайте процесс реагирования. Доверяй, но проверяй.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>Monitoring = insurance.</strong> The AI ​​makes mistakes, and that's okay. </p>
     </div>
   </div>
 
   <div class="nav-footer">
     <a href="../03-simple-agents/index.html" class="nav-btn">← Previous lesson</a>
-    <a href="../../catalog.html" class="nav-btn primary">К каталогу →</a>
+    <a href="../../catalog.html" class="nav-btn primary">Go to catalog →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -266,14 +245,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

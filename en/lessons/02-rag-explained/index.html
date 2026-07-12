@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>2.1 RAG — AI для не ИТ-специалистов</title>
+<title>2.1 RAG - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -64,202 +64,178 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">📄 LEVEL 2 · DATA AND DOCUMENTS</div>
-    <h1>2.1 · RAG простыми словами: как AI ищет в ваших документах</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <div class="phase">📄 LEVEL 2 DATA AND DOCUMENTS</div>
+    <h1>2.1 · RAG in simple words: how AI searches your documents</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Стандартный ChatGPT <strong>не знает</strong> о ваших внутренних документах: договорах, регламентах, прайс-листах, протоколах. Он отвечает на основе общих знаний.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>Standard ChatGPT <strong>doesn't know</strong> about your internal documents: contracts, regulations, price lists, protocols. </p>
     <div class="card card-success">
-      <p><strong>RAG (Retrieval-Augmented Generation)</strong> — технология, которая позволяет AI искать ответы <strong>в ваших документах</strong>, а не в общем интернете.</p>
-      <p><strong>Пример:</strong> Сотрудник спрашивает "Какой срок оплаты у поставщика X?" — AI ищет в договорах компании и даёт точный ответ со ссылкой на документ.</p>
+      <p><strong>RAG (Retrieval-Augmented Generation)</strong>- technology that allows AI to search for answers <strong>in your documents</strong>, and not on the general Internet.</p>
+      <p><strong>Example:</strong> The employee asks, “What is the due date for supplier X?” </p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Как работает RAG: 4 шага</h3>
+    <h3>How RAG works: 4 steps</h3>
     
     <div class="rag-step">
       <div class="num">1</div>
       <div>
-        <strong>Загрузка документов</strong>
-        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">Вы загружаете PDF, DOCX, TXT в систему. AI читает и запоминает содержимое.</p>
+        <strong>Uploading documents</strong>
+        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">You upload PDF, DOCX, TXT to the system. </p>
       </div>
     </div>
     
     <div class="rag-step">
       <div class="num">2</div>
       <div>
-        <strong>Индексация</strong>
-        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">AI разбивает документы на куски и создаёт "карту" — как библиотечный каталог.</p>
+        <strong>Indexing</strong>
+        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">AI breaks documents into pieces and creates a “map” - like a library catalog.</p>
       </div>
     </div>
     
     <div class="rag-step">
       <div class="num">3</div>
       <div>
-        <strong>Поиск</strong>
-        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">Когда вы задаёте вопрос, AI ищет релевантные куски в ваших документах.</p>
+        <strong>Search</strong>
+        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">When you ask a question, AI searches for relevant chunks in your documents.</p>
       </div>
     </div>
     
     <div class="rag-step">
       <div class="num">4</div>
       <div>
-        <strong>Генерация ответа</strong>
-        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">AI составляет ответ на основе найденных фрагментов + своих знаний.</p>
+        <strong>Generating a response</strong>
+        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">AI composes an answer based on the fragments found + its knowledge.</p>
       </div>
     </div>
 
-    <h3>Аналогия для понимания</h3>
+    <h3>Analogy for understanding</h3>
     <div class="card card-accent">
-      <p><strong>Без RAG:</strong> Вы спрашиваете совет у человека, который читал много книг, но ничего не знает о вашей компании.</p>
-      <p><strong>С RAG:</strong> Вы спрашиваете совет у секретаря, который имеет доступ ко всем документам компании и мгновенно находит нужную информацию.</p>
+      <p><strong>Without RAG:</strong> You are asking advice from someone who has read a lot of books but knows nothing about your company.</p>
+      <p><strong>With RAG:</strong> You ask the secretary for advice, who has access to all company documents and instantly finds the information you need.</p>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий 1: База знаний компании</h3>
+    <h3>Scenario 1: Company knowledge base</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Сотрудники тратят время на поиск информации в разных документах.</p>
-      <p><strong>Решение:</strong> Загрузить все регламенты, договоры, инструкции в RAG-систему.</p>
+      <p><strong>Task:</strong> Employees waste time searching for information in different documents.</p>
+      <p><strong>Solution:</strong> Upload all regulations, contracts, instructions into the RAG system.</p>
       <div class="example">
-        <div class="example-label">Пример вопроса сотрудника</div>
-        <pre>"Какой порог для согласования закупки без тендера?"</pre>
+        <div class="example-label">Example of an employee question</div>
+        <pre>“What is the threshold for approving a purchase without a tender?”</pre>
       </div>
       <div class="example">
-        <div class="example-label">Ответ AI с RAG</div>
-        <pre>Согласно Регламенту закупок (п. 4.2):
-Закупки до 100 000 ₽ — утверждает руководитель отдела.
-От 100 000 ₽ до 500 000 ₽ — требуется согласование директора.
-Свыше 500 000 ₽ — обязательный тендер.
-
-Источник: Регламент_закупок_2025.pdf, стр. 12</pre>
+        <div class="example-label">AI response with RAG</div>
+        <pre>According to the Procurement Regulations (clause 4.2):
+</pre>
       </div>
     </div>
 
-    <h3>Сценарий 2: Работа с клиентами</h3>
+    <h3>Scenario 2: Working with clients</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Менеджер не помнит детали договора с клиентом во время звонка.</p>
-      <p><strong>Решение:</strong> RAG с загруженными договорами клиентов.</p>
+      <p><strong>Task:</strong> The manager does not remember the details of the contract with the client during the call.</p>
+      <p><strong>Solution:</strong> RAG with loaded customer contracts.</p>
       <div class="example">
-        <div class="example-label">Пример</div>
-        <pre>"Какие скидки у клиента ООО Ромашка?"</pre>
-        <pre>Ответ: Согласно договору №45 от 15.03.2025:
-- Скидка 10% при заказе от 100 000 ₽
-- Скидка 15% при заказе от 500 000 ₽
-- Отсрочка платежа 30 дней
-
-Источник: Договор_Ромашка_2025.pdf</pre>
+        <div class="example-label">Example</div>
+        <pre>"What discounts does the client of Romashka LLC have?"</pre>
+        <pre>Answer: According to agreement No. 45 dated March 15, 2025:
+</pre>
       </div>
     </div>
 
-    <h3>Сценарий 3: Юридический анализ</h3>
+    <h3>Scenario 3: Legal Analysis</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Быстро найти прецеденты и условия в архиве договоров.</p>
+      <p><strong>Task:</strong> Quickly find precedents and conditions in the archive of contracts.</p>
       <div class="example">
-        <div class="example-label">Пример</div>
-        <pre>"В каких договорах есть неустойка 1% за каждый день просрочки?"</pre>
-        <pre>Ответ: Найдено в 3 договорах:
-1. Договор №12 с ООО СтройМакс (ст. 8.3)
-2. Договор №28 с ИП Иванов (п. 5.2)
-3. Договор №31 с АО ТехноПром (приложение 2)
-
-Рекомендация: рассмотреть снижение неустойки в новых договорах.</pre>
+        <div class="example-label">Example</div>
+        <pre>“Which contracts have a penalty of 1% for each day of delay?”</pre>
+        <pre>Answer: Found in 3 contracts:
+</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система корпоративного поиска по документам (RAG).
+      <h3>Task template</h3>
+      <pre>“We need a corporate document search system (RAG).
 
-Требования:
-1. Загрузка документов: PDF, DOCX, TXT, XLSX
-2. Поиск по смыслу (не только по ключевым словам)
-3. Ответ с указанием источника (название документа, страница)
-4. Доступ по ролям (юрист видит договоры, бухгалтер — счета)
-5. Интеграция с корпоративным мессенджером (Telegram / Slack)
-
-Пример запроса: [привести пример]
-Ожидаемый ответ: [привести пример]
-
-Объём данных: [N] документов, [N] ГБ
-Пользователей: [N] человек
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>AI отвечает на основе загруженных документов, а не общих знаний?</li>
-      <li>В ответе указан источник (название документа, страница)?</li>
-      <li>Поиск работает по смыслу, не только по точным словам?</li>
-      <li>Результаты релевантны (первые 3 ответа полезны)?</li>
-      <li>Есть разграничение доступа по ролям?</li>
-      <li>Система масштабируется при росте документов?</li>
+      <li>AI responds based on downloaded documents rather than general knowledge?</li>
+      <li>Does the answer indicate the source (document title, page)?</li>
+      <li>Does the search work by meaning, not just by exact words?</li>
+      <li>Are the results relevant (the first 3 answers are useful)?</li>
+      <li>Is there access control based on roles?</li>
+      <li>Does the system scale as documents grow?</li>
     </ul>
   </div>
 
-  <!-- ИНСТРУМЕНТЫ -->
+  <!-- TOOLS -->
   <div class="section">
-    <h2>🛠️ Инструменты</h2>
+    <h2>🛠️Tools</h2>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Инструмент</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Для кого</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Стоимость</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT + загрузка файлов</td><td style="padding:10px;border-bottom:1px solid var(--border);">Индивидуальная работа</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/мес</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Projects</td><td style="padding:10px;border-bottom:1px solid var(--border);">Работа с проектами/документами</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/мес</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Microsoft Copilot</td><td style="padding:10px;border-bottom:1px solid var(--border);">Компании на Microsoft 365</td><td style="padding:10px;border-bottom:1px solid var(--border);">От $30/мес</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Glean</td><td style="padding:10px;border-bottom:1px solid var(--border);">Корпоративный поиск</td><td style="padding:10px;border-bottom:1px solid var(--border);">По запросу</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Custom RAG (разработка)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Специфические требования</td><td style="padding:10px;border-bottom:1px solid var(--border);">От $5000</td></tr>
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Tool</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">For whom</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Price</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT + file upload</td><td style="padding:10px;border-bottom:1px solid var(--border);">Individual work</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/month</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Projects</td><td style="padding:10px;border-bottom:1px solid var(--border);">Working with projects/documents</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/month</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Microsoft Copilot</td><td style="padding:10px;border-bottom:1px solid var(--border);">Companies on Microsoft 365</td><td style="padding:10px;border-bottom:1px solid var(--border);">From $30/month</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Glean</td><td style="padding:10px;border-bottom:1px solid var(--border);">Corporate search</td><td style="padding:10px;border-bottom:1px solid var(--border);">On request</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Custom RAG (development)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Specific Requirements</td><td style="padding:10px;border-bottom:1px solid var(--border);">From $5000</td></tr>
     </table>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Что делает RAG?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Ускоряет работу AI</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Позволяет AI искать ответы в ваших документах</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Снижает стоимость запросов</div>
+      <p><strong>Question 1:</strong> What does RAG do?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Speeds up AI</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Allows AI to search your documents for answers</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Reduces query costs</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Почему в ответе должен быть указан источник?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы проверить, что AI не выдумал ответ</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы красиво выглядело</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</div>
+      <p><strong>Question 2:</strong> Why must the source be included in the answer?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) To check that the AI ​​did not make up the answer</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) To look beautiful</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) This is optional</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Какой инструмент подходит для индивидуальной работы с документами?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) ChatGPT с загрузкой файлов</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только custom разработка</div>
+      <p><strong>Question 3:</strong> Which tool is suitable for individual work with documents?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) ChatGPT with file upload</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Custom development only</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Excel</div>
       <div class="result" id="result3"></div>
     </div>
@@ -268,8 +244,8 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>RAG = AI + ваши документы.</strong> Стандартный ChatGPT не знает о вашей компании. RAG позволяет ему отвечать на основе ваших договоров, регламентов, прайс-листов. Экономия: <strong>часы поиска информации → секунды</strong>.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>RAG = AI + your documents.</strong> Standard ChatGPT does not know about your company. <strong>hours searching for information → seconds</strong>.</p>
     </div>
   </div>
 
@@ -282,7 +258,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -300,14 +276,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

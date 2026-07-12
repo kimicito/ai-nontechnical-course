@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>4.4 MCP — AI для не ИТ-специалистов</title>
+<title>4.4 MCP - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -65,8 +65,8 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
@@ -74,77 +74,72 @@
 
   <div class="lesson-header">
     <div class="phase">🤖 LEVEL 4 · AGENTS AND ORCHESTRATION</div>
-    <h1>4.4 · MCP: как AI подключается к вашим системам</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <h1>4.4 MCP: How AI connects to your systems</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>У вас есть CRM, 1С, Excel, email, мессенджеры — <strong>десятки систем</strong>. AI работает изолированно, не имея доступа к вашим данным.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>You have CRM, 1C, Excel, email, instant messengers -<strong>dozens of systems</strong>. </p>
     <div class="card card-success">
-      <p><strong>MCP (Model Context Protocol)</strong> — это "мост" между AI и вашими системами. Позволяет AI читать из 1С, писать в CRM, отправлять email — всё через единый стандарт.</p>
-      <p><strong>Без MCP:</strong> AI отвечает на основе общих знаний.</p>
-      <p><strong>С MCP:</strong> AI отвечает на основе ваших реальных данных из 1С, CRM, Excel.</p>
+      <p><strong>MCP (Model Context Protocol)</strong> is a “bridge” between AI and your systems. </p>
+      <p><strong>Without MCP:</strong> AI responds based on general knowledge.</p>
+      <p><strong>With MCP:</strong> AI responds based on your real data from 1C, CRM, Excel.</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Как работает MCP</h3>
+    <h3>How MCP works</h3>
     <div class="mcp-diagram">
-      <div class="mcp-box">Ваши системы<br><small style="color:var(--muted)">1С, CRM, Excel</small></div>
+      <div class="mcp-box">Your systems<br><small style="color:var(--muted)">1C, CRM, Excel</small></div>
       <div class="mcp-arrow">→</div>
-      <div class="mcp-box" style="border-color:var(--accent2);background:rgba(6,182,212,0.1);">MCP Сервер<br><small style="color:var(--muted)">Мост / API</small></div>
+      <div class="mcp-box" style="border-color:var(--accent2);background:rgba(6,182,212,0.1);">MCP Server<br><small style="color:var(--muted)">Bridge/API</small></div>
       <div class="mcp-arrow">→</div>
       <div class="mcp-box" style="border-color:var(--success);background:rgba(16,185,129,0.1);">AI<br><small style="color:var(--muted)">Claude, GPT</small></div>
     </div>
-    <p style="text-align: center; color: var(--muted); font-size: 0.9rem;">AI запрашивает данные → MCP сервер получает их из ваших систем → AI использует в ответе</p>
+    <p style="text-align: center; color: var(--muted); font-size: 0.9rem;">AI requests data → MCP server receives it from your systems → AI uses it in response</p>
 
-    <h3>Что можно подключить через MCP</h3>
+    <h3>What can be connected via MCP</h3>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Система</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Что AI может делать</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">1С / Бухгалтерия</td><td style="padding:10px;border-bottom:1px solid var(--border);">Читать остатки, проводки, отчёты</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">CRM (Bitrix, amo)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Читать сделки, клиентов, историю</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Excel / Google Sheets</td><td style="padding:10px;border-bottom:1px solid var(--border);">Читать и записывать данные</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Email</td><td style="padding:10px;border-bottom:1px solid var(--border);">Отправлять и получать письма</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Базы данных</td><td style="padding:10px;border-bottom:1px solid var(--border);">Выполнять SQL-запросы</td></tr>
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">System</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">What AI can do</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">1C / Accounting</td><td style="padding:10px;border-bottom:1px solid var(--border);">Read balances, postings, reports</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">CRM (Bitrix, amo)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Read deals, clients, history</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Excel / Google Sheets</td><td style="padding:10px;border-bottom:1px solid var(--border);">Read and write data</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Email</td><td style="padding:10px;border-bottom:1px solid var(--border);">Send and receive emails</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Databases</td><td style="padding:10px;border-bottom:1px solid var(--border);">Execute SQL queries</td></tr>
     </table>
 
-    <h3>Пример: AI с доступом к 1С</h3>
+    <h3>Example: AI with access to 1C</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Без MCP</div>
-        <pre>Пользователь: "Сколько у нас осталось упаковки на складе?"
-AI: "Я не имею доступа к вашей системе учёта. Проверьте в 1С."</pre>
+        <div class="example-label">Without MCP</div>
+        <pre>User: "How much packaging do we have left in stock?"
+</pre>
       </div>
       <div class="example">
-        <div class="example-label">С MCP</div>
-        <pre>Пользователь: "Сколько у нас осталось упаковки на складе?"
-AI: [запрашивает данные из 1С через MCP]
-Ответ: "На складе МосСклад осталось 1 250 единиц упаковки.
-Последнее поступление: 15.03.2025 (500 ед.)
-Прогноз: хватит на 3 недели при текущем расходе."</pre>
+        <div class="example-label">With MCP</div>
+        <pre>User: "How much packaging do we have left in stock?"
+</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий: умный ассистент закупщика</h3>
+    <h3>Scenario: smart purchasing assistant</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Закупщик спрашивает: "Нужно ли заказывать упаковку?"</p>
-      <p><strong>С MCP:</strong> AI проверяет остатки в 1С → Анализирует расход → Смотрит график поставок → Даёт рекомендацию.</p>
+      <p><strong>Task:</strong> The buyer asks: “Do I need to order packaging?”</p>
+      <p><strong>With MCP:</strong> AI checks balances in 1C → Analyzes consumption → Looks at the delivery schedule → Gives a recommendation.</p>
       <div class="example">
-        <div class="example-label">Ответ AI</div>
-        <pre>"На основании данных из 1С:
-- Остаток: 1 250 ед. (склад МосСклад)
-- Средний расход: 400 ед./неделю
-- До критического остатка (< 500 ед.): 2 недели
+        <div class="example-label">AI response</div>
+        <pre>"Based on data from 1C:
+< 500 ед.): 2 недели
 - Срок поставки от текущего поставщика: 3 недели
 
 ⚠️ Рекомендация: разместить заказ в течение 3 дней.
@@ -153,82 +148,68 @@ AI: [запрашивает данные из 1С через MCP]
       </div>
     </div>
 
-    <h3>Готовые MCP-серверы</h3>
+    <h3>Ready-made MCP servers</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Сервер</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Для чего</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-filesystem</td><td style="padding:10px;border-bottom:1px solid var(--border);">Работа с файлами и папками</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-postgres</td><td style="padding:10px;border-bottom:1px solid var(--border);">Подключение к PostgreSQL</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-slack</td><td style="padding:10px;border-bottom:1px solid var(--border);">Отправка сообщений в Slack</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-github</td><td style="padding:10px;border-bottom:1px solid var(--border);">Работа с репозиториями</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Server</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">For what</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-filesystem</td><td style="padding:10px;border-bottom:1px solid var(--border);">Working with files and folders</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-postgres</td><td style="padding:10px;border-bottom:1px solid var(--border);">Connecting to PostgreSQL</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-slack</td><td style="padding:10px;border-bottom:1px solid var(--border);">Sending messages to Slack</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-github</td><td style="padding:10px;border-bottom:1px solid var(--border);">Working with repositories</td></tr>
       </table>
-      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*Для корпоративных систем (1С, Bitrix) требуется custom разработка MCP-сервера.</p>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*For corporate systems (1C, Bitrix) custom development of an MCP server is required.</p>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен MCP-сервер для интеграции AI с [система].
+      <h3>Task template</h3>
+      <pre>“We need an MCP server to integrate AI with [system].
 
-Система: [1С / CRM / БД / etc.]
-Данные, к которым нужен доступ:
-- [список таблиц/полей]
-
-Операции:
-- [чтение / запись / оба]
-
-Безопасность:
-- [какие данные нельзя показывать AI]
-- [аутентификация]
-
-Пример запроса: [привести]
-Ожидаемый ответ: [привести]
-
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>AI корректно читает данные из системы?</li>
-      <li>Ответы содержат актуальные данные (не кэш)?</li>
-      <li>Нет утечки конфиденциальных данных?</li>
-      <li>Доступ только на чтение или и на запись тоже? (проверьте)</li>
-      <li>Скорость ответа приемлема? (< 5 секунд)</li>
-      <li>Есть логирование запросов? (для аудита)</li>
+      <li>Does AI correctly read data from the system?</li>
+      <li>Do the responses contain actual data (not cache)?</li>
+      <li>No confidential data leakage?</li>
+      <li>Read-only access or write access too? </li>
+      <li>Is the response rate acceptable? < 5 секунд)</li>
+      <li>Is there request logging? </li>
     </ul>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Что такое MCP?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Протокол для подключения AI к корпоративным системам</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Новая модель AI</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Язык программирования</div>
+      <p><strong>Question 1:</strong> What is MCP?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Protocol for connecting AI to enterprise systems</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) New AI model</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Programming language</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Зачем AI доступ к 1С?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы отвечать на основе реальных данных, а не общих знаний</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы AI мог менять данные</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Это необязательно</div>
+      <p><strong>Question 2:</strong> Why does AI need access to 1C?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) To answer based on real data rather than general knowledge</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) So that AI can change data</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>This is optional</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Что важно проверить при внедрении MCP?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Безопасность и отсутствие утечки данных</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Только скорость</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Ничего не нужно проверять</div>
+      <p><strong>Question 3:</strong> What is important to check when implementing MCP?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Security and no data leakage</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Only speed</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>No need to check anything</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -236,21 +217,21 @@ AI: [запрашивает данные из 1С через MCP]
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>MCP = мост между AI и вашими системами.</strong> Без него AI работает вслепую. С ним — AI знает остатки на складе, статус сделок, историю клиентов. Это превращает AI из игрушки в реальный бизнес-инструмент. Но помните о безопасности: ограничивайте доступ к чувствительным данным.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>MCP = bridge between AI and your systems.</strong> Without it, AI works blindly. </p>
     </div>
   </div>
 
   <div class="nav-footer">
     <a href="../04-human-loop/index.html" class="nav-btn">← Previous lesson</a>
-    <a href="../../catalog.html" class="nav-btn primary">К каталогу →</a>
+    <a href="../../catalog.html" class="nav-btn primary">Go to catalog →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -268,14 +249,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

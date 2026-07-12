@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>5.1 ROI-калькулятор — AI для не ИТ-специалистов</title>
+<title>5.1 ROI calculator - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -67,163 +67,145 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🏢 LEVEL 5 · BUSINESS IMPLEMENTATION</div>
-    <h1>5.1 · ROI-калькулятор: считайте выгоду от AI</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный калькулятор</div>
+    <div class="phase">🏢 LEVEL 5 · IMPLEMENTATION INTO BUSINESS</div>
+    <h1>5.1 · ROI calculator: calculate the benefits of AI</h1>
+    <div class="meta">🎯 No code · ✅ Interactive calculator</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Руководство выделяет бюджет, когда видит <strong>конкретные цифры</strong>. "AI ускорит работу" — слишком размыто. "AI сэкономит 2.4 млн рублей в год за счёт автоматизации обработки заявок" — понятно и измеримо.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>Management allocates budget when they see <strong>specific numbers</strong>. </p>
     <div class="card card-success">
-      <p><strong>ROI (Return on Investment)</strong> — коэффициент возврата инвестиций. Показывает, сколько вы заработали на каждый вложенный рубль.</p>
-      <p>Формула: <strong>ROI = (Выгода - Затраты) / Затраты × 100%</strong></p>
+      <p><strong>ROI (Return on Investment)</strong>— return on investment ratio. </p>
+      <p>Formula:<strong>ROI = (Benefit - Cost) / Cost × 100%</strong></p>
     </div>
   </div>
 
   <!-- КАЛЬКУЛЯТОР -->
   <div class="section">
-    <h2>🧮 Интерактивный калькулятор ROI</h2>
+    <h2>🧮 Interactive ROI calculator</h2>
     
     <div class="calc-box">
-      <label>Количество сотрудников:<input type="number" id="employees" value="10" oninput="calculateROI()" onchange="calculateROI()"></label>
-      <label>Зарплата сотрудника в месяц (₽):<input type="number" id="salary" value="80000" oninput="calculateROI()" onchange="calculateROI()"></label>
-      <label>Время на рутину в неделю (часов):<input type="number" id="routineHours" value="10" oninput="calculateROI()" onchange="calculateROI()"></label>
-      <label>Экономия времени с AI (%):<input type="number" id="savingsPercent" value="50" oninput="calculateROI()" onchange="calculateROI()"></label>
-      <label>Стоимость внедрения AI (₽):<input type="number" id="implementationCost" value="200000" oninput="calculateROI()" onchange="calculateROI()"></label>
-      <label>Ежемесячные расходы на AI (₽):<input type="number" id="monthlyCost" value="15000" oninput="calculateROI()" onchange="calculateROI()"></label>
+      <label>Number of employees:<input type="number" id="employees" value="10" oninput="calculateROI()" onchange="calculateROI()"></label>
+      <label>Employee salary per month (₽):<input type="number" id="salary" value="80000" oninput="calculateROI()" onchange="calculateROI()"></label>
+      <label>Time for routine per week (hours):<input type="number" id="routineHours" value="10" oninput="calculateROI()" onchange="calculateROI()"></label>
+      <label>Time savings with AI (%):<input type="number" id="savingsPercent" value="50" oninput="calculateROI()" onchange="calculateROI()"></label>
+      <label>AI implementation cost (₽):<input type="number" id="implementationCost" value="200000" oninput="calculateROI()" onchange="calculateROI()"></label>
+      <label>Monthly expenses for AI (₽):<input type="number" id="monthlyCost" value="15000" oninput="calculateROI()" onchange="calculateROI()"></label>
     </div>
 
     <div class="calc-result">
-      <div>Экономия в месяц:</div>
+      <div>Savings per month:</div>
       <div class="sum" id="monthlySavings">₽0</div>
       <div class="muted" id="yearlySavings" style="font-size: 0.9rem; margin-top: 8px;"></div>
     </div>
 
     <div class="calc-result">
-      <div>ROI (годовой):</div>
+      <div>ROI (annual):</div>
       <div class="sum" id="roiPercent">0%</div>
       <div class="muted" id="paybackPeriod" style="font-size: 0.9rem; margin-top: 8px;"></div>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Из чего складывается выгода</h3>
+    <h3>What is the benefit?</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Тип выгоды</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Пример</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Как считать</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Экономия времени</td><td style="padding:10px;border-bottom:1px solid var(--border);">Автоматизация отчётов</td><td style="padding:10px;border-bottom:1px solid var(--border);">Часы × ставка сотрудника</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Снижение ошибок</td><td style="padding:10px;border-bottom:1px solid var(--border);">Проверка договоров AI</td><td style="padding:10px;border-bottom:1px solid var(--border);">Средняя стоимость ошибки × количество</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Ускорение процессов</td><td style="padding:10px;border-bottom:1px solid var(--border);">Быстрее обработка заявок</td><td style="padding:10px;border-bottom:1px solid var(--border);">Доп. выручка от скорости</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Сокращение штата</td><td style="padding:10px;border-bottom:1px solid var(--border);">Не нанимать доп. сотрудников</td><td style="padding:10px;border-bottom:1px solid var(--border);">Зарплата + налоги</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Benefit type</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Example</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">How to count</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Save time</td><td style="padding:10px;border-bottom:1px solid var(--border);">Automation of reports</td><td style="padding:10px;border-bottom:1px solid var(--border);">Hours × employee rate</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Error reduction</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI contract verification</td><td style="padding:10px;border-bottom:1px solid var(--border);">Average cost of error × quantity</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Speeding up processes</td><td style="padding:10px;border-bottom:1px solid var(--border);">Faster processing of applications</td><td style="padding:10px;border-bottom:1px solid var(--border);">Add. </td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Staff reduction</td><td style="padding:10px;border-bottom:1px solid var(--border);">Don't hire extras. </td><td style="padding:10px;border-bottom:1px solid var(--border);">Salary + taxes</td></tr>
       </table>
     </div>
 
-    <h3>Из чего складываются затраты</h3>
+    <h3>What are the costs?</h3>
     <div class="card card-warning">
       <ul>
-        <li>Лицензии на ПО (ChatGPT, n8n, Zapier, etc.)</li>
-        <li>API-запросы (токены)</li>
-        <li>Разработка и внедрение</li>
-        <li>Обучение сотрудников</li>
-        <li>Поддержка и мониторинг</li>
+        <li>Software licenses (ChatGPT, n8n, Zapier, etc.)</li>
+        <li>API requests (tokens)</li>
+        <li>Development and implementation</li>
+        <li>Employee training</li>
+        <li>Support and monitoring</li>
       </ul>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий: обоснование бюджета на AI</h3>
+    <h3>Scenario: AI budget justification</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Структура предложения руководству</div>
-        <pre>1. Проблема: Закупщики тратят 12 часов/неделю на рутину
-2. Решение: Внедрение AI для автоматизации
-3. Затраты: 200 000 ₽ (внедрение) + 15 000 ₽/мес
-4. Выгода: 960 000 ₽/год (экономия времени)
-5. ROI: 320% (окупаемость за 3.5 месяца)
-6. Риски: [перечислить и как минимизировать]
-7. Следующие шаги: Пилотный проект (2 недели)</pre>
+        <div class="example-label">Structure of a proposal to management</div>
+        <pre>1. Problem: Buyers spend 12 hours/week on routine
+</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен расчёт ROI для проекта [название].
+      <h3>Task template</h3>
+      <pre>“We need an ROI calculation for the project [name].
 
-Параметры:
-- Процесс: [что автоматизируем]
-- Текущие затраты: [N] часов/неделю, [N] сотрудников
-- Ожидаемая экономия: [N]%
-- Стоимость внедрения: [N] руб.
-- Ежемесячные расходы: [N] руб.
-
-Прошу предоставить:
-1. Расчёт ROI (3 года)
-2. График окупаемости
-3. Чувствительность (что если экономия 30% вместо 50%?)
-4. Сравнение с альтернативами
-
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Все затраты учтены? (включая скрытые)</li>
-      <li>Выгода измерена в деньгах, а не в "эффективности"?</li>
-      <li>Есть сравнение сценариев (оптимистичный/реалистичный/пессимистичный)?</li>
-      <li>Окупаемость < 12 месяцев?</li>
-      <li>Риски учтены и есть план минимизации?</li>
-      <li>Расчёт понятен без объяснений?</li>
+      <li>Are all costs taken into account? </li>
+      <li>Is the benefit measured in money and not in “efficiency”?</li>
+      <li>Is there a comparison of scenarios (optimistic/realistic/pessimistic)?</li>
+      <li>Payback< 12 месяцев?</li>
+      <li>Have the risks been taken into account and is there a mitigation plan?</li>
+      <li>Is the calculation clear without explanation?</li>
     </ul>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Что такое ROI?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Возврат инвестиций (сколько заработали на вложенный рубль)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Риски операционных инвестиций</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Расходы на обслуживание инфраструктуры</div>
+      <p><strong>Question 1:</strong> What is ROI?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Return on investment (how much you earned per invested ruble)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Risks of operational investments</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Infrastructure maintenance costs</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Какой ROI считается хорошим?</p>
+      <p><strong>Question 2:</strong> What ROI is considered good?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) 10%</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) > 100% (окупаемость < 12 месяцев)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) > 100% (payback< 12 месяцев)</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C>50%</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Что важнее для руководства?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Конкретные цифры: экономия в рублях, срок окупаемости</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Красивые презентации</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Технические детали</div>
+      <p><strong>Question 3:</strong> What is more important for management?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Specific numbers: savings in rubles, payback period</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Beautiful presentations</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Technical details</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -231,8 +213,8 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>ROI = язык руководства.</strong> Не говорите "AI ускорит работу" — говорите "AI сэкономит 960 000 ₽ в год, окупится за 3.5 месяца". Считайте в деньгах, учитывайте все затраты, показывайте сценарии. Без цифр — нет бюджета.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>ROI = language of guidance.</strong> Don’t say “AI will speed up work” - say “AI will save 960,000 rubles per year, it will pay for itself in 3.5 months.” </p>
     </div>
   </div>
 
@@ -245,54 +227,19 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
-<script>
-function calculateROI() {
-  const employees = parseInt(document.getElementById('employees').value) || 0;
-  const salary = parseInt(document.getElementById('salary').value) || 0;
-  const routineHours = parseInt(document.getElementById('routineHours').value) || 0;
-  const savingsPercent = parseInt(document.getElementById('savingsPercent').value) || 0;
-  const implementationCost = parseInt(document.getElementById('implementationCost').value) || 0;
-  const monthlyCost = parseInt(document.getElementById('monthlyCost').value) || 0;
-  
-  const hourlyRate = salary / 168; // примерно 168 часов в месяц
-  const monthlySavings = employees * routineHours * 4.3 * hourlyRate * (savingsPercent / 100);
-  const yearlySavings = monthlySavings * 12;
-  const yearlyCost = implementationCost + (monthlyCost * 12);
-  const yearlyROI = ((yearlySavings - yearlyCost) / yearlyCost * 100).toFixed(0);
-  const paybackMonths = (implementationCost / (monthlySavings - monthlyCost)).toFixed(1);
-  
-  document.getElementById('monthlySavings').textContent = '₽' + Math.round(monthlySavings).toLocaleString();
-  document.getElementById('yearlySavings').textContent = 'В год: ₽' + Math.round(yearlySavings).toLocaleString();
-  document.getElementById('roiPercent').textContent = yearlyROI + '%';
-  document.getElementById('paybackPeriod').textContent = 'Окупаемость: ' + paybackMonths + ' месяцев';
-}
-calculateROI();
-
-function checkAnswer(element, isCorrect) {
-  const card = element.closest('.card');
-  const options = card.querySelectorAll('.quiz-option');
-  const resultDiv = card.querySelector('.result');
-  if (isCorrect) {
-    options.forEach(opt => {
-      opt.style.pointerEvents = 'none';
-      if (opt === element) opt.classList.add('correct');
-      else opt.classList.add('disabled');
-    });
-    resultDiv.classList.add('show');
-    resultDiv.style.background = 'rgba(16,185,129,0.1)';
-    resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+<script>function calculateROI() {
+  <strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

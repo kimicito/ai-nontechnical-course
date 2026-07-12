@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>6.2 Галлюцинации — AI для не ИТ-специалистов</title>
+<title>6.2 Hallucinations - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -63,173 +63,159 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛡️ LEVEL 6 · ЭТИКА И БЕЗОПАСНОСТЬ</div>
-    <h1>6.2 · Галлюцинации AI: когда машина врёт убедительно</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <div class="phase">🛡️ LEVEL 6 · ETHICS AND SAFETY</div>
+    <h1>6.2 · AI hallucinations: when a machine lies convincingly</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>AI <strong>не знает разницы между фактом и выдумкой</strong>. Он генерирует текст, который звучит правдоподобно, но может быть полностью вымышленным.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>AI <strong>doesn't know the difference between fact and fiction</strong>. </p>
     <div class="card card-danger">
-      <p><strong>Реальный кейс:</strong> Юрист использовал AI для подготовки судебного дела. AI придумал 6 прецедентов, которые никогда не существовали. Судья проверил — дело проиграно, репутация пострадала.</p>
+      <p><strong>Real case:</strong> A lawyer used AI to prepare a court case. </p>
     </div>
     <div class="card card-warning">
-      <p><strong>Опасность:</strong> Галлюцинации особенно опасны в бизнесе, потому что AI звучит уверенно и профессионально. Проверять нужно <strong>всегда</strong>.</p>
+      <p><strong>Danger:</strong> Hallucinations are especially dangerous in business because the AI ​​sounds confident and professional. <strong>Always</strong>.</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Что такое галлюцинации</h3>
+    <h3>What are hallucinations</h3>
     <div class="card card-accent">
-      <p><strong>Галлюцинация</strong> — когда AI генерирует информацию, которая выглядит правдоподобно, но является ложной или невыверяемой.</p>
-      <p>Типы галлюцинаций:</p>
+      <p><strong>Hallucination</strong>- when AI generates information that looks plausible, but is false or unverifiable.</p>
+      <p>Types of hallucinations:</p>
       <ul>
-        <li><strong>Факты:</strong> "Компания X была основана в 1995" (на самом деле в 2005)</li>
-        <li><strong>Источники:</strong> "Согласно статье в Forbes..." (статьи не существует)</li>
-        <li><strong>Цитаты:</strong> "Как сказал Илон Маск..." (Маск этого не говорил)</li>
-        <li><strong>Статистика:</strong> "Рынок вырос на 150%..." (цифра выдумана)</li>
+        <li><strong>Facts:</strong>"Company X was founded in 1995" (actually 2005)</li>
+        <li><strong>Sources:</strong>"According to an article in Forbes..." (article does not exist)</li>
+        <li><strong>Quotes:</strong>"As Elon Musk said..." (Musk didn't say that)</li>
+        <li><strong>Statistics:</strong>"The market grew by 150%..." (the figure is fictitious)</li>
       </ul>
     </div>
 
-    <h3>Почему AI галлюцинирует</h3>
+    <h3>Why AI hallucinates</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Причина</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Объяснение</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Нет данных</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI не знает ответа, но генерирует "наиболее вероятный"</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Устаревшие данные</td><td style="padding:10px;border-bottom:1px solid var(--border);">Обучение закончилось на определённой дате</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Путаница</td><td style="padding:10px;border-bottom:1px solid var(--border);">Смешались разные факты из разных источников</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Хочет угодить</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI стремится дать "полный" ответ, добавляет детали</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Cause</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Explanation</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">No data</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI doesn't know the answer, but generates "most likely"</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Outdated data</td><td style="padding:10px;border-bottom:1px solid var(--border);">Training ended on a certain date</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Confusion</td><td style="padding:10px;border-bottom:1px solid var(--border);">Mixed facts from different sources</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Wants to please</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI strives to give a “complete” answer, adds details</td></tr>
       </table>
     </div>
 
-    <h3>Как распознать галлюцинацию</h3>
+    <h3>How to recognize a hallucination</h3>
     <div class="card card-success">
       <ul>
-        <li>✅ Слишком конкретные детали без источников</li>
-        <li>✅ Ответ звучит "идеально" — без нюансов</li>
-        <li>✅ AI утверждает что-то, что противоречит вашим знаниям</li>
-        <li>✅ Цифры "круглые" или слишком точные</li>
-        <li>✅ Нет ссылок на источники (для фактов)</li>
+        <li>✅ Too specific details without sources</li>
+        <li>✅ The answer sounds “ideal” - without nuances</li>
+        <li>✅ AI says something that contradicts your knowledge</li>
+        <li>✅ Numbers are “round” or too precise</li>
+        <li>✅ No links to sources (for facts)</li>
       </ul>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Методы борьбы с галлюцинациями</h3>
+    <h3>Methods to combat hallucinations</h3>
     
     <div class="card card-success">
-      <h4>1. Требуйте источники</h4>
+      <h4>1. Ask for sources</h4>
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>"Дай ответ с указанием источников. Если не уверен — скажи 'не знаю'.
-НЕ выдумывай факты."</pre>
+        <div class="example-label">Prompt</div>
+        <pre>"Give an answer with sources. If you are not sure, say 'I don't know.'
+</pre>
       </div>
     </div>
 
     <div class="card card-success">
-      <h4>2. RAG (поиск в ваших документах)</h4>
-      <p>AI отвечает только на основе ваших документов, а не общих знаний.</p>
+      <h4>2. RAG (search your documents)</h4>
+      <p>AI only responds based on your documents, not general knowledge.</p>
     </div>
 
     <div class="card card-success">
-      <h4>3. Проверка критичных фактов</h4>
-      <p>Цифры, даты, имена, законы — всегда проверяйте вручную.</p>
+      <h4>3. Checking critical facts</h4>
+      <p>Numbers, dates, names, laws - always check manually.</p>
     </div>
 
     <div class="card card-success">
-      <h4>4. Используйте специализированные модели</h4>
-      <p>Модели, обученные на юридических/медицинских данных, галлюцинируют реже в своей области.</p>
+      <h4>4. Use specialized models</h4>
+      <p>Models trained on legal/medical data hallucinate less frequently in their domain.</p>
     </div>
 
-    <h3>Сценарий: проверка юридического анализа</h3>
+    <h3>Scenario: Legal Analysis Check</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Процесс проверки</div>
-        <pre>1. AI проанализировал договор
-2. Проверяем каждый факт:
-   - Статьи закона: сверить с Консультантом/Гарантом
-   - Прецеденты: проверить в судебной базе
-   - Сроки: сверить с календарём
-3. Если AI сказал "согласно ст. 123 ГК РФ" → 
-   открываем ГК РФ, ищем статью
-4. Сомнительные моменты → к юристу</pre>
+        <div class="example-label">Verification Process</div>
+        <pre>1. AI analyzed the contract
+</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система проверки фактов для AI-ответов.
+      <h3>Task template</h3>
+      <pre>“We need a fact-checking system for AI answers.
 
-Требования:
-1. Для каждого факта AI должен указывать источник
-2. Автоматическая проверка: даты, цифры, ссылки на законы
-3. Если источник не найден — пометить как 'требует проверки'
-4. Интеграция с [база данных / CRM / судебная база]
-5. Дашборд с процентом проверенных фактов
-
-Критичные области: [юриспруденция / финансы / медицина]
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Все факты проверены? (особенно цифры, даты, имена)</li>
-      <li>Есть источники для каждого утверждения?</li>
-      <li>AI сказал "не знаю" там, где не уверен?</li>
-      <li>Проверены крайние значения (граничные случаи)? (редкие ситуации)</li>
-      <li>Есть процесс проверки для критичных решений?</li>
-      <li>Пользователи знают, что AI может ошибаться?</li>
+      <li>Have all the facts been verified? </li>
+      <li>Are there sources for each statement?</li>
+      <li>AI said “I don’t know” where it’s not sure?</li>
+      <li>Have extreme values ​​(edge ​​cases) been tested? </li>
+      <li>Is there a review process for critical decisions?</li>
+      <li>Do users know that AI can make mistakes?</li>
     </ul>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Что такое галлюцинация AI?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>AI генерирует убедительную, но ложную информацию</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>AI работает медленно</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>AI не отвечает на вопросы</div>
+      <p><strong>Question 1:</strong> What is an AI hallucination?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>AI generates convincing but false information</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>AI is slow</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>AI does not answer questions</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Как защититься от галлюцинаций?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Требовать источники, проверять факты, использовать RAG</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Доверять AI полностью</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Не использовать AI</div>
+      <p><strong>Question 2:</strong> How to protect yourself from hallucinations?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Require sources, check facts, use RAG</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Trust AI completely</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Do not use AI</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Что делать, если AI ссылается на закон?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Проверить в официальной базе (Консультант, Гарант)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Поверить на слово</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Игнорировать</div>
+      <p><strong>Question 3:</strong> What to do if AI cites the law?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Check in the official database (Consultant, Guarantor)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B> Take my word for it</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Ignore</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -237,8 +223,8 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>AI врёт убедительно.</strong> Это не баг, а особенность технологии. Галлюцинации неизбежны, но управляемы. Требуйте источники, проверяйте факты, используйте RAG. Никогда не принимайте критичные решения на основе одного ответа AI. Доверяй, но проверяй — это не паранойя, это профессионализм.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>AI lies convincingly.</strong> This is not a bug, but a feature of the technology. </p>
     </div>
   </div>
 
@@ -251,7 +237,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -269,14 +255,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

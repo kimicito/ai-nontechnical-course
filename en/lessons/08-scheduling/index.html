@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>8.3 AI для организатора работ — AI для не ИТ-специалистов</title>
+<title>8.3 AI for the work organizer - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -57,8 +57,8 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
@@ -66,172 +66,135 @@
 
   <div class="lesson-header">
     <div class="phase">🏗️ LEVEL 8 · AI FOR CONSTRUCTION</div>
-    <h1>8.3 · Планирование работ и ресурсов: графики, люди, техника</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <h1>8.3 Work and resource planning: schedules, people, equipment</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Организатор работ (прораб, начальник участка) ежедневно решает: кто работает, на чём, в какой последовательности, что задерживается. <strong>AI помогает строить графики, оптимизировать ресурсы, прогнозировать задержки.</strong></p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>The work organizer (foreman, site manager) decides every day: who is working, on what, in what sequence, and what is delayed.<strong>AI helps build schedules, optimize resources, and predict delays.</strong></p>
     <div class="card card-success">
-      <p><strong>Кейс:</strong> AI проанализировал 3-месячный график и предупредил: бетонная работа на 5-м этаже начнётся раньше, чем кран освободится с 4-го. Задержка: 2 дня. Организатор перенёс начало на 2 дня — срыва графика не было.</p>
+      <p><strong>Case:</strong> AI analyzed the 3-month schedule and warned: concrete work on the 5th floor will begin before the crane is released from the 4th. </p>
     </div>
   </div>
 
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Что AI делает для организатора работ</h3>
+    <h3>What AI does for a work organizer</h3>
     <div class="card card-accent">
       <ul>
-        <li>📅 <strong>Графики:</strong> Построение / корректировка сетевого графика, критический путь</li>
-        <li>👷 <strong>Ресурсы:</strong> Распределение бригад, техники, материалов по объектам</li>
-        <li>⚠️ <strong>Риски:</strong> Предупреждение о задержках, перегрузках, конфликтах ресурсов</li>
-        <li>📊 <strong>Отчётность:</strong> Журнал работ, акты выполненных работ, сравнение план/факт</li>
-        <li>🔮 <strong>Прогноз:</strong> Когда закончится объект при текущем темпе?</li>
-        <li>📋 <strong>Наряд-задания:</strong> Автоматическая генерация на основе графика</li>
+        <li>📅 <strong>Charts:</strong> Construction/adjustment of network diagram, critical path</li>
+        <li>👷 <strong>Resources:</strong> Distribution of teams, equipment, materials among facilities</li>
+        <li>⚠️ <strong>Risks:</strong> Warning about delays, overloads, resource conflicts</li>
+        <li>📊 <strong>Reporting:</strong> Work log, work completion certificates, plan/actual comparison</li>
+        <li>🔮 <strong>Forecast:</strong> When will the object end at the current pace?</li>
+        <li>📋 <strong>Task order:</strong> Automatic generation based on graph</li>
       </ul>
     </div>
 
-    <h3>Входные данные для AI</h3>
+    <h3>AI inputs</h3>
     <div class="card">
       <table>
-        <tr><th>Данные</th><th>Формат</th><th>Что AI анализирует</th></tr>
-        <tr><td>Сетевой график (MS Project, Excel)</td><td>.mpp, Excel</td><td>Критический путь, ресурсы, зависимости</td></tr>
-        <tr><td>Журнал работ (ежедневные отчёты)</td><td>PDF, Excel, текст</td><td>План/факт, % выполнения, задержки</td></tr>
-        <tr><td>Сметы / локальные сметы</td><td>PDF, Excel</td><td>Объёмы, трудоёмкость, длительность</td></tr>
-        <tr><td>Наличие ресурсов (бригады, техника)</td><td>Excel, 1С, SAP</td><td>Загрузка, конфликты, доступность</td></tr>
-        <tr><td>Погода / сезонные ограничения</td><td>API, Excel</td><td>Прогноз погоды для наружных работ</td></tr>
+        <tr><th>Data</th><th>Format</th><th>What AI analyzes</th></tr>
+        <tr><td>Network diagram (MS Project, Excel)</td><td>.mpp, Excel</td><td>Critical path, resources, dependencies</td></tr>
+        <tr><td>Work log (daily reports)</td><td>PDF, Excel, text</td><td>Plan/actual, % completed, delays</td></tr>
+        <tr><td>Estimates / local estimates</td><td>PDF, Excel</td><td>Volumes, labor intensity, duration</td></tr>
+        <tr><td>Availability of resources (crews, equipment)</td><td>Excel, 1C, SAP</td><td>Loading, conflicts, availability</td></tr>
+        <tr><td>Weather/seasonal restrictions</td><td>API, Excel</td><td>Outdoor Weather Forecast</td></tr>
       </table>
     </div>
 
-    <h3>Пример запроса к AI</h3>
+    <h3>Example of a request to AI</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для графика</div>
-        <pre>"Проанализируй график строительства (файл приложен).
+        <div class="example-label">Prompt for chart</div>
+        <pre>"Analyze the construction schedule (file attached).
 
-1. Найди критический путь (работы, которые нельзя задержать)
-2. Проверь загрузку ресурсов: есть ли перегрузки (2 бригады на 1 объект)?
-3. Проверь зависимости: начинается ли работа раньше, чем закончится предыдущая?
-4. Сравни с погодным прогнозом: какие наружные работы попадают на дожди?
-5. Прогноз: дата окончания при текущем темпе?
-
-Выведи:
-- Таблица рисков: Работа | Риск | Уровень | Рекомендация
-- Обновлённый график с корректировками
-- Список наряд-заданий на следующую неделю"</pre>
+</pre>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий: еженедельный обзор графика</h3>
+    <h3>Scenario: Weekly Chart Review</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Процесс</div>
-        <pre>1. Загружаем в AI: график (MS Project/Excel), журнал работ за неделю, ресурсы
-2. Запрос: "Проверь график. Критический путь? Риски? Загрузка ресурсов?"
-3. AI анализирует и выдаёт:
-   - Критический путь (выделен красным)
-   - Риски: перегрузка крана 15.03, бетон придёт позже
-   - Рекомендации: перенести работы, добавить бригаду
-4. Прораб корректирует график
-5. AI генерирует наряд-задания на следующую неделю
-6. Раздаёт бригадирам</pre>
+        <div class="example-label">Process</div>
+        <pre>1. Upload to AI: schedule (MS Project/Excel), weekly work log, resources
+</pre>
       </div>
     </div>
 
-    <h3>Сравнение план/факт</h3>
+    <h3>Plan/actual comparison</h3>
     <div class="card card-accent">
-      <p>AI ежедневно сравнивает:</p>
+      <p>AI compares daily:</p>
       <ul>
-        <li>Запланировано объёмов vs выполнено</li>
-        <li>Даты начала/окончания vs факт</li>
-        <li>Расход материалов vs нормы</li>
-        <li>Трудозатраты vs план</li>
+        <li>Planned volumes vs completed</li>
+        <li>Start/end dates vs fact</li>
+        <li>Material consumption vs standards</li>
+        <li>Labor vs plan</li>
       </ul>
-      <p>При отклонении > 10% — предупреждение с рекомендацией.</p>
+      <p>If the deviation is > 10% - a warning with a recommendation.</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-инструмент для управления строительными графиками.
+      <h3>Task template</h3>
+      <pre>“We need an AI tool to manage construction schedules.
 
-Входные данные:
-- График: MS Project / Excel (сетевой график)
-- Журнал работ: ежедневные отчёты (PDF, Excel, текст)
-- Ресурсы: бригады, техника, материалы (Excel, 1С, SAP)
-- Сметы: локальные сметы (PDF, Excel)
-- Погода: API (или Excel с прогнозом)
-
-Что должен делать:
-1. Анализировать критический путь
-2. Проверять загрузку ресурсов (конфликты, перегрузки)
-3. Сравнивать план/факт
-4. Прогнозировать дату окончания
-5. Генерировать наряд-задания
-6. Предупреждать о рисках (задержки, погода, ресурсы)
-
-Выход:
-- PDF-отчёт (еженедельный)
-- Excel-таблица (обновлённый график)
-- Email/SMS-уведомления (критичные риски)
-
-Интеграция: [MS Project / 1С / SAP / Excel]
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Критический путь корректен? (сверить с ручным расчётом)</li>
-      <li>Риски реальны? (проверить 2-3 на графике)</li>
-      <li>Загрузка ресурсов адекватна? (нет перегрузок > 100%)</li>
-      <li>Прогноз даты окончания реалистичен?</li>
-      <li>Наряд-задания соответствуют графику?</li>
-      <li>Формат удобен для ежедневного использования?</li>
+      <li>Is the critical path correct? </li>
+      <li>Are the risks real? </li>
+      <li>Is resource loading adequate? </li>
+      <li>Is the end date forecast realistic?</li>
+      <li>Are the work orders on schedule?</li>
+      <li>Is the format convenient for daily use?</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent" data-quiz="1">
-      <p><strong>Question 1:</strong> Что такое критический путь?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Цепочка работ, которые нельзя задержать без срыва сроков объекта</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Самая длинная дорога на стройку</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Путь от склада до объекта</div>
+      <p><strong>Question 1:</strong> What is the critical path?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) A chain of work that cannot be delayed without disrupting the project’s deadlines</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) The longest road to the construction site</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Path from warehouse to facility</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent" data-quiz="2">
-      <p><strong>Question 2:</strong> Какие данные нужны AI для анализа графика?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) График, журнал работ, ресурсы, сметы, погода</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только график</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только сметы</div>
+      <p><strong>Question 2:</strong> What data does AI need to analyze a graph?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Schedule, work log, resources, estimates, weather</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Schedule only</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Estimates only</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent" data-quiz="3">
-      <p><strong>Question 3:</strong> Что делает AI при отклонении план/факт > 10%?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Предупреждает с рекомендацией по корректировке</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Игнорирует — это нормально</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Останавливает работы автоматически</div>
+      <p><strong>Question 3:</strong> What does AI do when the plan/actual deviation is > 10%?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Warns with correction recommendations</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Ignores - this is normal</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Stops work automatically</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>AI — прогнозный аналитик для стройки.</strong> Он видит риски, которые человек пропускает: перегрузку ресурсов, конфликты в графике, погодные задержки. Не заменяет прораба, но даёт ему инструмент для принятия решений на основе данных, а не на ощущениях.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>AI is a predictive analyst for construction.</strong> He sees the risks that people miss: resource overload, scheduling conflicts, weather delays. </p>
     </div>
   </div>
 
@@ -244,7 +207,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -262,14 +225,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

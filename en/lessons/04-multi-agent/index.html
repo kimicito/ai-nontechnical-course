@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>4.2 Мультиагенты и Agent Swarm — AI для не ИТ-специалистов</title>
+<title>4.2 Multi-agents and Agent Swarm - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -66,8 +66,8 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
@@ -75,227 +75,193 @@
 
   <div class="lesson-header">
     <div class="phase">🤖 LEVEL 4 · AGENTS AND ORCHESTRATION</div>
-    <h1>4.2 · Мультиагенты и Agent Swarm: команда AI-сотрудников</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <h1>4.2 Multiagents and Agent Swarm: a team of AI employees</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Сложные задачи требуют <strong>разных компетенций</strong>. Один агент не может быть одновременно юристом, аналитиком и закупщиком.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>Complex tasks require <strong>different competencies</strong>. </p>
     <div class="card card-success">
-      <p><strong>Мультиагентная система</strong> — это команда AI-агентов, каждый со своей ролью, которые работают вместе над общей задачей.</p>
-      <p><strong>Пример:</strong> Подготовка тендера требует: исследования рынка (аналитик) + проверки договоров (юрист) + расчёта бюджета (финансист). Вместо одного "универсального" агента — три специализированных.</p>
+      <p><strong>Multi-agent system</strong> is a team of AI agents, each with their own role, who work together on a common task.</p>
+      <p><strong>Example:</strong> Preparing a tender requires: market research (analyst) + verification of contracts (lawyer) + budget calculations (financier). </p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Как работает команда агентов</h3>
+    <h3>How does a team of agents work?</h3>
     <div class="card card-accent">
       <ol>
-        <li><strong>Распределение:</strong> Задача разбивается на подзадачи</li>
-        <li><strong>Специализация:</strong> Каждый агент делает своё дело</li>
-        <li><strong>Координация:</strong> Агенты обмениваются результатами</li>
-        <li><strong>Сборка:</strong> Результаты объединяются в итоговый продукт</li>
+        <li><strong>Distribution:</strong> The task is divided into subtasks</li>
+        <li><strong>Specialization:</strong> Each agent does his own thing</li>
+        <li><strong>Coordination:</strong> Agents share results</li>
+        <li><strong>Assembly:</strong> The results are combined into the final product</li>
       </ol>
     </div>
 
-    <h3>Пример: команда для тендера</h3>
+    <h3>Example: command for tender</h3>
     <div class="team-grid">
       <div class="team-card">
-        <h4 style="color: var(--accent);">🔍 Агент-исследователь</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">Ищет поставщиков, собирает КП, сравнивает цены</p>
+        <h4 style="color: var(--accent);">🔍 Research Agent</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">Searches for suppliers, collects proposals, compares prices</p>
       </div>
       <div class="team-card">
-        <h4 style="color: var(--accent2);">⚖️ Агент-юрист</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">Проверяет договоры, находит риски, готовит замечания</p>
+        <h4 style="color: var(--accent2);">⚖️ Agent-lawyer</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">Checks contracts, finds risks, prepares comments</p>
       </div>
       <div class="team-card">
-        <h4 style="color: var(--success);">💰 Агент-финансист</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">Считает бюджет, ROI, оценивает риски</p>
+        <h4 style="color: var(--success);">💰 Agent-financier</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">Calculates budget, ROI, assesses risks</p>
       </div>
       <div class="team-card">
-        <h4 style="color: var(--warning);">📋 Агент-координатор</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">Собирает результаты, готовит итоговый отчёт</p>
+        <h4 style="color: var(--warning);">📋 Coordinating agent</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">Collects results, prepares final report</p>
       </div>
     </div>
 
-    <h3>Сравнение: один агент vs команда</h3>
+    <h3>Comparison: single agent vs team</h3>
     <table>
-      <tr><th>Один агент</th><th>Команда агентов</th></tr>
-      <tr><td>Универсал (но поверхностный)</td><td>Специалисты (глубокий анализ)</td></tr>
-      <tr><td>Один контекст</td><td>Разные контексты</td></tr>
-      <tr><td>Проще настроить</td><td>Сложнее настроить</td></tr>
-      <tr><td>Дешевле (1 API)</td><td>Дороже (несколько API)</td></tr>
-      <tr><td>Ошибка = провал всего</td><td>Один агент заменяется</td></tr>
+      <tr><th>One agent</th><th>Team of agents</th></tr>
+      <tr><td>Universal (but superficial)</td><td>Specialists (in-depth analysis)</td></tr>
+      <tr><td>One context</td><td>Different contexts</td></tr>
+      <tr><td>Easier to set up</td><td>More difficult to set up</td></tr>
+      <tr><td>Cheaper (1 API)</td><td>More expensive (several APIs)</td></tr>
+      <tr><td>Error = failure of everything</td><td>One agent is replaced</td></tr>
     </table>
 
-    <h3>Режим роя (Agent Swarm)</h3>
+    <h3>Agent Swarm Mode</h3>
     <div class="card card-accent">
-      <p><strong>Agent Swarm</strong> — это когда агенты работают <strong>параллельно</strong>, а не по цепочке. Оркестратор (главный агент) разбивает задачу на независимые куски, запускает их одновременно, а потом собирает результаты.</p>
-      <p><strong>Модельная аналогия:</strong></p>
+      <p><strong>Agent Swarm</strong>- this is when agents work <strong>parallel</strong>, and not along the chain. </p>
+      <p><strong>Model analogy:</strong></p>
       <ul>
-        <li>Один агент = один работник делает всё последовательно: исследование → черновик → редактура → форматирование</li>
-        <li>Swarm = менеджер нанял агентство: исследователь, аналитик, копирайтер, редактор, QA-специалист работают одновременно</li>
+        <li>One agent = one worker does everything sequentially: research → drafting → editing → formatting</li>
+        <li>Swarm = manager hired an agency: researcher, analyst, copywriter, editor, QA specialist work simultaneously</li>
       </ul>
     </div>
 
-    <h3>Когда Swarm помогает</h3>
+    <h3>When Swarm Helps</h3>
     <div class="card card-success">
       <ul>
-        <li>✅ Много независимых подзадач (исследовать 100 поставщиков → 10 агентов по 10 штук)</li>
-        <li>✅ Нужны разные специализации (SEO + копирайтинг + техническая проверка)</li>
-        <li>✅ Нужна скорость без потери качества (параллельно быстрее, чем последовательно)</li>
-        <li>✅ Пакет результатов (отчёт + таблица + чеклист + презентация)</li>
+        <li>✅ Many independent subtasks (research 100 suppliers → 10 agents of 10 each)</li>
+        <li>✅ Different specializations are needed (SEO + copywriting + technical verification)</li>
+        <li>✅ You need speed without loss of quality (parallel is faster than sequential)</li>
+        <li>✅ Package of results (report + table + checklist + presentation)</li>
       </ul>
     </div>
 
-    <h3>Когда НЕ нужен Swarm</h3>
+    <h3>When is Swarm NOT needed?</h3>
     <div class="card card-warning">
       <ul>
-        <li>❌ Маленькая задача: "Перепиши этот абзац"</li>
-        <li>❌ Последовательная работа: каждый шаг зависит от предыдущего (отладка бага)</li>
-        <li>❌ Нет чёткого определения "готово" — рой выдаст много текста, но не то, что нужно</li>
+        <li>❌ Small task: “Rewrite this paragraph”</li>
+        <li>❌ Sequential work: each step depends on the previous one (bug debugging)</li>
+        <li>❌ There is no clear definition of “done” - the swarm will produce a lot of text, but not what you need</li>
       </ul>
     </div>
 
-    <h3>Батчи: как не утонуть в тексте</h3>
-    <p>Ошибка: запустить всех агентов сразу и получить 50 страниц неструктурированного текста.</p>
+    <h3>Butchi: how not to drown in text</h3>
+    <p>Error: Run all agents at once and get 50 pages of unstructured text.</p>
     <div class="example">
-      <div class="example-label">Правильный пайплайн (батчи)</div>
-      <pre>Партия A: Карта кластера (какие страницы, как связаны)
-Партия B: Аутлайны всех страниц (проверяем на пересечения)
-Партия C: Черновики (генерируем последовательно, по шаблону)
-Партия D: Редактура и полировка (единый тон, убираем повторы)
-Партия E: QA и финальная сборка (ссылки, факты, форматирование)</pre>
+      <div class="example-label">Correct pipeline (batches)</div>
+      <pre>Batch A: Cluster map (which pages are connected how)
+</pre>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий: подготовка годового отчёта</h3>
+    <h3>Scenario: preparing an annual report</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Распределение задач</div>
-        <pre>Агент-аналитик: Собирает данные, строит графики
-Агент-финансист: Считает метрики, прогнозы
-Агент-юрист: Проверяет compliance
-Агент-копирайтер: Пишет текст отчёта
-Агент-координатор: Собирает всё воедино</pre>
+        <div class="example-label">Task distribution</div>
+        <pre>Agent-analyst: Collects data, builds graphs
+</pre>
       </div>
-      <p><strong>Экономия:</strong> 5 дней работы → 1 день</p>
+      <p><strong>Saving:</strong>5 days of work → 1 day</p>
     </div>
 
-    <h3>Сценарий: контент-пайплайн (Swarm)</h3>
+    <h3>Scenario: content pipeline (Swarm)</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Swarm Brief — шаблон ТЗ для оркестратора</div>
-        <pre>Цель: Опубликовать кластер из 6 страниц про AI-инструменты
-Аудитория: новички + продвинутые пользователи
-Тон: дружелюбный, ясный, не роботизированный
-Структура: meta-title, meta-description, H1, хук,
-  4-6 разделов H2, таблица сравнения, 20-30 FAQ,
-  блок CTA с 2 кнопками
-Правила: короткие абзацы, без повторов, без "воды"
-Внутренние ссылки: /tools/, /pricing/, /api/
-Выходной формат: готовые HTML-блоки</pre>
+        <div class="example-label">Swarm Brief - technical specification template for orchestrator</div>
+        <pre>Goal: Publish a cluster of 6 pages about AI tools
+</pre>
       </div>
-      <p>Оркестратор получает этот бриф и распределяет работу между агентами.</p>
+      <p>The orchestrator receives this brief and distributes the work among the agents.</p>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи (классическая команда)</h3>
-      <pre>"Нужна мультиагентная система для [задача].
+      <h3>Task template (classic command)</h3>
+      <pre>“We need a multi-agent system for [task].
 
-Команда агентов:
-1. [Роль 1] — [задача]
-2. [Роль 2] — [задача]
-3. [Роль 3] — [задача]
-4. Координатор — сбор результатов
-
-Процесс: [описать, как агенты взаимодействуют]
-Интеграции: [с какими системами работать]
-Формат результата: [что ожидается на выходе]
-Срок: [дата]"</pre>
+</pre>
     </div>
     <div class="card card-success">
-      <h3>Шаблон задачи (Swarm-режим)</h3>
-      <pre>"Нужен Agent Swarm для [большая задача].
+      <h3>Task template (Swarm mode)</h3>
+      <pre>"Need Agent Swarm for [big task].
 
-Swarm Brief:
-- Цель: [что получить]
-- Аудитория: [для кого]
-- Тон: [как писать]
-- Структура: [требования к формату]
-- Правила: [что нельзя]
-- Пакет результатов: [список артефактов]
-
-Пайплайн: [батчи A → B → C → D → E]
-
-Контроль качества: [чеклист проверки]
-
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
-    <h3>Классическая команда</h3>
+    <h2>✅ Checklist for accepting the result</h2>
+    <h3>Classic team</h3>
     <ul class="checklist">
-      <li>Каждый агент выполняет свою роль?</li>
-      <li>Агенты корректно обмениваются данными?</li>
-      <li>Координатор собирает полный результат?</li>
-      <li>Нет дублирования работы между агентами?</li>
-      <li>Если один агент "падает" — система продолжает работать?</li>
-      <li>Результат проверен на противоречия?</li>
+      <li>Does each agent have a different role to play?</li>
+      <li>Do agents exchange data correctly?</li>
+      <li>Is the coordinator collecting the full result?</li>
+      <li>Is there any duplication of work between agents?</li>
+      <li>If one agent “falls,” does the system continue to work?</li>
+      <li>Has the result been checked for contradictions?</li>
     </ul>
     <h3>Agent Swarm</h3>
     <ul class="checklist">
-      <li>Swarm Brief был чётким и полным?</li>
-      <li>Каждый агент получил свою часть, а не всё подряд?</li>
-      <li>Результаты не противоречат друг другу?</li>
-      <li>Терминология единая во всех артефактах?</li>
-      <li>Факты и цифры проверены (не галлюцинации)?</li>
-      <li>Финальная редактура прошла "человеческий" проход?</li>
-      <li>Все ссылки и таблицы актуальны?</li>
+      <li>Was the Swarm Brief clear and complete?</li>
+      <li>Did each agent get their part, not everything?</li>
+      <li>Are the results consistent with each other?</li>
+      <li>Is the terminology the same across all artifacts?</li>
+      <li>Facts and figures verified (not hallucinations)?</li>
+      <li>Did the final edit go through a “human” pass?</li>
+      <li>Are all links and tables up to date?</li>
     </ul>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Зачем нужна команда агентов вместо одного?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Для глубокой специализации по ролям</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы было дороже</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Один агент всегда лучше</div>
+      <p><strong>Question 1:</strong> Why do you need a team of agents instead of just one?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) For deep specialization by role</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) To make it more expensive</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) One agent is always better</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Какой агент собирает результаты?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Аналитик</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Координатор</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Юрист</div>
+      <p><strong>Question 2:</strong> Which agent collects the results?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Analyst</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Coordinator</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Lawyer</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Когда НЕ нужен Agent Swarm?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Для простой задачи: переписать абзац</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Для исследования 100 поставщиков</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Для пакета: отчёт + таблица + чеклист</div>
+      <p><strong>Question 3:</strong> When is Agent Swarm NOT needed?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) For a simple task: rewrite a paragraph</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) To study 100 suppliers</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) For the package: report + table + checklist</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -303,9 +269,9 @@ Swarm Brief:
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>Мультиагент = команда специалистов.</strong> Каждый агент — эксперт в своей области. Координатор собирает результаты. Это даёт глубину и надёжность, которых нет у одного универсального агента.</p>
-      <p><strong>Agent Swarm</strong> — это когда агенты работают параллельно, как агентство. Используйте для больших задач с независимыми частями. Не используйте для маленьких или последовательных задач. Не забудьте Swarm Brief и батчи.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>Multi-agent = team of specialists.</strong> Each agent is an expert in their field. </p>
+      <p><strong>Agent Swarm</strong>- this is when agents work in parallel, like an agency. </p>
     </div>
   </div>
 
@@ -318,7 +284,7 @@ Swarm Brief:
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -336,14 +302,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

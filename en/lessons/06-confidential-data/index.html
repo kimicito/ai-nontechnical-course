@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>6.1 Конфиденциальные данные — AI для не ИТ-специалистов</title>
+<title>6.1 Confidential data - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -63,170 +63,154 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛡️ LEVEL 6 · ЭТИКА И БЕЗОПАСНОСТЬ</div>
-    <h1>6.1 · Конфиденциальные данные: что нельзя отправлять в AI</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <div class="phase">🛡️ LEVEL 6 · ETHICS AND SAFETY</div>
+    <h1>6.1 · Confidential data: what not to send to AI</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Когда вы отправляете документ в ChatGPT, он <strong>может стать частью обучения модели</strong>. Это означает, что ваши конфиденциальные данные могут появиться в ответах другим пользователям.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>When you send a document to ChatGPT, it <strong>can become part of model training</strong>. </p>
     <div class="card card-danger">
-      <p><strong>Реальный кейс:</strong> Сотрудник отправил в ChatGPT договор с контрагентом, включая коммерческие условия. Через месяц конкурент получил похожий договор от AI, который "вспомнил" эти данные. Ущерб: утрата конкурентного преимущества.</p>
+      <p><strong>Real case:</strong> The employee sent an agreement with the counterparty, including commercial terms, to ChatGPT. </p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Что нельзя отправлять в облачный AI</h3>
+    <h3>What can't be sent to cloud AI</h3>
     <div class="card card-danger">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--danger);">Категория</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--danger);">Примеры</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Персональные данные</td><td style="padding:10px;border-bottom:1px solid var(--border);">Паспорта, ИНН, адреса, телефоны</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Коммерческая тайна</td><td style="padding:10px;border-bottom:1px solid var(--border);">Цены, маржи, поставщики, клиенты</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Банковская информация</td><td style="padding:10px;border-bottom:1px solid var(--border);">Реквизиты, платёжные поручения</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Договоры NDA</td><td style="padding:10px;border-bottom:1px solid var(--border);">Всё под NDA</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Медицинские данные</td><td style="padding:10px;border-bottom:1px solid var(--border);">Диагнозы, истории болезней</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--danger);">Category</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--danger);">Examples</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Personal data</td><td style="padding:10px;border-bottom:1px solid var(--border);">Passports, TIN, addresses, telephone numbers</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Trade secret</td><td style="padding:10px;border-bottom:1px solid var(--border);">Prices, margins, suppliers, clients</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Banking information</td><td style="padding:10px;border-bottom:1px solid var(--border);">Details, payment orders</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">NDAs</td><td style="padding:10px;border-bottom:1px solid var(--border);">Everything is under NDA</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Medical data</td><td style="padding:10px;border-bottom:1px solid var(--border);">Diagnoses, medical histories</td></tr>
       </table>
     </div>
 
-    <h3>Как безопасно работать с AI</h3>
+    <h3>How to work safely with AI</h3>
     <div class="card card-success">
-      <h4>Уровень 1: Деидентификация</h4>
-      <p>Замените конфиденциальные данные перед отправкой.</p>
+      <h4>Level 1: De-identification</h4>
+      <p>Replace sensitive data before sending.</p>
       <div class="example">
-        <div class="example-label">Пример</div>
-        <pre>Вместо: "ООО Ромашка, ИНН 7701234567, цена 500 000 ₽"
-Отправьте: "Компания А, ИНН ХХХХХХХХХХ, цена Х ₽"</pre>
+        <div class="example-label">Example</div>
+        <pre>Instead of: "Romashka LLC, INN 7701234567, price 500,000 ₽"
+</pre>
       </div>
     </div>
 
     <div class="card card-success">
-      <h4>Уровень 2: Локальное решение</h4>
-      <p>Запускайте AI на своих серверах. Данные не покидают компанию.</p>
+      <h4>Level 2: Local Solution</h4>
+      <p>Run AI on your servers. </p>
       <ul>
-        <li>Ollama — запуск моделей локально</li>
-        <li>Llama 3, Mistral — open-source модели</li>
-        <li>Требуется: сервер с GPU</li>
+        <li>Ollama - running models locally</li>
+        <li>Llama 3, Mistral - open-source models</li>
+        <li>Required: server with GPU</li>
       </ul>
     </div>
 
     <div class="card card-success">
-      <h4>Уровень 3: Корпоративные контракты</h4>
-      <p>Enterprise-версии с гарантиями конфиденциальности.</p>
+      <h4>Level 3: Corporate Contracts</h4>
+      <p>Enterprise versions with confidentiality guarantees.</p>
       <ul>
-        <li>ChatGPT Enterprise — данные не используются для обучения</li>
-        <li>Microsoft Copilot — в рамках вашего Azure</li>
-        <li>Claude for Work — корпоративные соглашения</li>
+        <li>ChatGPT Enterprise - no data used for training</li>
+        <li>Microsoft Copilot - within your Azure</li>
+        <li>Claude for Work - Corporate Agreements</li>
       </ul>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Алгоритм проверки перед отправкой</h3>
+    <h3>Check algorithm before sending</h3>
     <div class="card card-accent">
       <ol>
-        <li>Есть ли в тексте персональные данные? (ФИО, ИНН, паспорта)</li>
-        <li>Есть ли коммерческая тайна? (цены, клиенты, поставщики)</li>
-        <li>Есть ли данные под NDA?</li>
-        <li>Если да на любой вопрос → деидентифицировать или использовать локальное решение</li>
+        <li>Does the text contain personal information? </li>
+        <li>Are there trade secrets? </li>
+        <li>Is there data under NDA?</li>
+        <li>If yes to any question -> deidentify or use local solution</li>
       </ol>
     </div>
 
-    <h3>Шаблон деидентификации</h3>
+    <h3>De-identification template</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">До деидентификации</div>
-        <pre>Договор №45 от 15.03.2025
-Сторона 1: ООО "ТехноПром", ИНН 7701234567
-Сторона 2: ООО "СтройМакс", ИНН 7707654321
-Предмет: Поставка оборудования на сумму 2 500 000 ₽</pre>
+        <div class="example-label">Before de-identification</div>
+        <pre>Agreement No. 45 dated March 15, 2025
+</pre>
       </div>
       <div class="example">
-        <div class="example-label">После деидентификации</div>
-        <pre>Договор №[N] от [ДАТА]
-Сторона 1: Компания А, ИНН [ХХХХХХХХХХ]
-Сторона 2: Компания Б, ИНН [ХХХХХХХХХХ]
-Предмет: Поставка оборудования на сумму [СУММА]</pre>
+        <div class="example-label">After de-identification</div>
+        <pre>Agreement No. [N] dated [DATE]
+</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система безопасной работы с AI.
+      <h3>Task template</h3>
+      <pre>“We need a system for safe work with AI.
 
-Требования:
-1. Автоматическая деидентификация перед отправкой в облако
-2. Локальное решение для конфиденциальных документов
-3. Политика доступа: кто что может отправлять
-4. Логирование всех запросов
-5. Проверка на утечку данных
-
-Категории данных:
-- Красные (строго локально): [перечислить]
-- Жёлтые (деидентификация): [перечислить]
-- Зелёные (можно в облако): [перечислить]
-
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Все сотрудники знают, что нельзя отправлять?</li>
-      <li>Есть процесс деидентификации?</li>
-      <li>Локальное решение настроено для конфиденциальных данных?</li>
-      <li>Логирование работает? (можно проверить историю)</li>
-      <li>Есть автоматическая проверка на утечку?</li>
-      <li>Политика подписана всеми сотрудниками?</li>
+      <li>Do all employees know what not to send?</li>
+      <li>Is there a de-identification process?</li>
+      <li>Is your on-premises solution configured for sensitive data?</li>
+      <li>Does logging work? </li>
+      <li>Is there an automatic leak check?</li>
+      <li>Is the policy signed by all employees?</li>
     </ul>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Можно ли отправлять договор с ценами в бесплатный ChatGPT?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Да, если удалить название компании</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Нет, цены — коммерческая тайна</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Да, ChatGPT безопасен</div>
+      <p><strong>Question 1:</strong> Is it possible to send a contract with prices to the free ChatGPT?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Yes, if you remove the company name</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) No, prices are a trade secret</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Yes, ChatGPT is safe</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Что такое деидентификация?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Замена конфиденциальных данных на плейсхолдеры</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Удаление документа</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Шифрование файла</div>
+      <p><strong>Question 2:</strong> What is de-identification?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Replacement of confidential data with placeholders</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Deleting a document</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>File encryption</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Какой уровень защиты самый надёжный?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Локальное решение (данные не покидают компанию)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Enterprise-версия облачного AI</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Деидентификация</div>
+      <p><strong>Question 3:</strong> What level of protection is the most reliable?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Local solution (data does not leave the company)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Enterprise version of cloud AI</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>De-identification</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -234,8 +218,8 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>Конфиденциальность — не опция, а обязательство.</strong> Не отправляйте персональные данные, коммерческую тайну и NDA в облачный AI без защиты. Используйте деидентификацию, локальные решения или Enterprise-контракты. Одна утечка может стоить компании репутации и миллионов.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>Privacy is not an option, but an obligation.</strong> Do not send personal data, trade secrets and NDAs to cloud AI without protection. </p>
     </div>
   </div>
 
@@ -248,7 +232,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -266,14 +250,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>3.1 No-code автоматизация: n8n и Zapier — AI для не ИТ-специалистов</title>
+<title>3.1 No-code automation: n8n and Zapier - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -68,8 +68,8 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
@@ -77,338 +77,310 @@
 
   <div class="lesson-header">
     <div class="phase">⚡ LEVEL 3 · AUTOMATION</div>
-    <h1>3.1 · No-code автоматизация: n8n и Zapier</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <h1>3.1 · No-code automation: n8n and Zapier</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Менеджеры тратят <strong>30% времени на рутину</strong>: копирование данных между системами, отправку однотипных писем, заполнение отчётов.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>Managers spend <strong>30% of the time on routine</strong>: copying data between systems, sending similar letters, filling out reports.</p>
     <div class="card card-success">
-      <p><strong>No-code платформы</strong> позволяют автоматизировать эти процессы без программирования. Соединяют разные сервисы: email, Excel, CRM, мессенджеры, AI.</p>
-      <p><strong>Пример:</strong> "Когда приходит письмо от поставщика → AI анализирует → если есть изменение цены → отправить уведомление закупщику в Telegram"</p>
+      <p><strong>No-code platforms</strong> allow you to automate these processes without programming. </p>
+      <p><strong>Example:</strong>"When a letter arrives from a supplier → AI analyzes → if there is a price change → send a notification to the buyer in Telegram"</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Как работает автоматизация</h3>
+    <h3>How automation works</h3>
     <div class="card card-accent">
-      <p>Любая автоматизация состоит из 3 частей:</p>
+      <p>Any automation consists of 3 parts:</p>
       <ol>
-        <li><strong>Триггер</strong> — что запускает процесс? (письмо, время, кнопка)</li>
-        <li><strong>Действие</strong> — что делать? (отправить письмо, записать в таблицу)</li>
-        <li><strong>Условие</strong> — когда делать? (если цена изменилась > 10%)</li>
+        <li><strong>Trigger</strong>— what starts the process? </li>
+        <li><strong>Action</strong>- what to do? </li>
+        <li><strong>Condition</strong>— when to do it? </li>
       </ol>
     </div>
 
-    <h3>n8n — open-source автоматизация</h3>
+    <h3>n8n - open-source automation</h3>
     <div class="tool-card">
       <h4>🔗 n8n</h4>
-      <p class="price">💰 Бесплатно (self-hosted), облако от $20/мес</p>
-      <p>n8n — <strong>open-source</strong> платформа с визуальным редактором workflow. Устанавливается на свой сервер или используется в облаке. Код открыт, лицензия <strong>fair-code</strong> (бесплатно для себя, платно для облачных SaaS-провайдеров).</p>
+      <p class="price">💰 Free (self-hosted), cloud from $20/month</p>
+      <p>n8n — <strong>open-source</strong> platform with a visual workflow editor. <strong>fair-code</strong>(free for yourself, paid for cloud SaaS providers).</p>
       
       <div class="example">
-        <div class="example-label">Ключевые особенности</div>
+        <div class="example-label">Key Features</div>
         <ul>
-          <li><strong>400+ интеграций</strong> «из коробки» (Google Sheets, Telegram, OpenAI, Notion, CRM)</li>
-          <li><strong>Визуальный редактор</strong> — перетаскиваете узлы, соединяете стрелками</li>
-          <li><strong>Self-hosted</strong> — данные не покидают ваш сервер (конфиденциальность)</li>
-          <li><strong>HTTP Request</strong> — подключение к любому API без программирования</li>
-          <li><strong>JavaScript/Python</strong> — можно встроить код для сложной логики</li>
-          <li><strong>Webhook</strong> — принимает данные из любых систем</li>
-          <li><strong>Schedule</strong> — запуск по расписанию (каждый час, день, крон-выражение)</li>
+          <li><strong>400+ integrations</strong>“out of the box” (Google Sheets, Telegram, OpenAI, Notion, CRM)</li>
+          <li><strong>Visual editor</strong>— drag the nodes, connect them with arrows</li>
+          <li><strong>Self-hosted</strong>— data does not leave your server (confidentiality)</li>
+          <li><strong>HTTP Request</strong>— connection to any API without programming</li>
+          <li><strong>JavaScript/Python</strong>- you can embed code for complex logic</li>
+          <li><strong>Webhook</strong>— accepts data from any systems</li>
+          <li><strong>Schedule</strong>— scheduled launch (every hour, day, crown expression)</li>
         </ul>
       </div>
       
       <div class="example">
-        <div class="example-label">Пример workflow в n8n</div>
+        <div class="example-label">Example workflow in n8n</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>Trigger:</strong> Webhook (пришёл новый лид с сайта)</div>
+          <div><strong>Trigger:</strong> Webhook (a new lead has arrived from the site)</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
-          <div><strong>AI:</strong> OpenAI узел — анализирует запрос, определяет категорию</div>
+          <div><strong>AI:</strong> OpenAI node - analyzes the request, determines the category</div>
         </div>
         <div class="workflow-step">
           <span class="num">3</span>
-          <div><strong>Condition:</strong> Если категория = "Закупка" → отправить в Telegram закупщику</div>
+          <div><strong>Condition:</strong> If category = "Purchase" → send to the buyer in Telegram</div>
         </div>
         <div class="workflow-step">
           <span class="num">4</span>
-          <div><strong>Condition:</strong> Если категория = "Продажа" → создать сделку в CRM</div>
+          <div><strong>Condition:</strong> If category = "Sale" → create a deal in CRM</div>
         </div>
         <div class="workflow-step">
           <span class="num">5</span>
-          <div><strong>Action:</strong> Записать лог в Google Sheets</div>
+          <div><strong>Action:</strong> Write log to Google Sheets</div>
         </div>
       </div>
     </div>
 
-    <h3>Zapier — простота и скорость</h3>
+    <h3>Zapier - simplicity and speed</h3>
     <div class="tool-card">
       <h4>⚡ Zapier</h4>
-      <p class="price">💰 Бесплатно до 100 задач/мес, далее от $19/мес</p>
-      <p>Zapier — самый зрелый инструмент на рынке. <strong>5000+ интеграций</strong>, работает с 2011 года. Идеален для быстрого старта без настройки серверов.</p>
+      <p class="price">💰 Free up to 100 tasks/month, then from $19/month</p>
+      <p>Zapier is the most mature tool on the market.<strong>5000+ integrations</strong>, has been operating since 2011. </p>
       
       <div class="example">
-        <div class="example-label">Ключевые особенности</div>
+        <div class="example-label">Key Features</div>
         <ul>
-          <li><strong>Zaps</strong> — автоматизации, состоящие из триггера и действий</li>
-          <li><strong>Paths</strong> — ветвление логики (if/else внутри одного Zap)</li>
-          <li><strong>Filter</strong> — условия, при которых Zap срабатывает</li>
-          <li><strong>Formatter</strong> — преобразование данных (даты, числа, текст)</li>
-          <li><strong>Schedule</strong> — запуск по времени</li>
-          <li><strong>Webhooks</strong> — приём данных из внешних систем</li>
-          <li><strong>AI Actions</strong> — встроенная интеграция с OpenAI, Anthropic, Cohere</li>
-          <li><strong>Tables</strong> — встроенная база данных (альтернатива Google Sheets)</li>
+          <li><strong>Zaps</strong>— automations consisting of a trigger and actions</li>
+          <li><strong>Paths</strong>— branching logic (if/else within one Zap)</li>
+          <li><strong>Filter</strong>— conditions under which Zap is triggered</li>
+          <li><strong>Formatter</strong>— data conversion (dates, numbers, text)</li>
+          <li><strong>Schedule</strong>- start by time</li>
+          <li><strong>Webhooks</strong>— receiving data from external systems</li>
+          <li><strong>AI Actions</strong>- built-in integration with OpenAI, Anthropic, Cohere</li>
+          <li><strong>Tables</strong>— built-in database (alternative to Google Sheets)</li>
         </ul>
       </div>
       
       <div class="example">
-        <div class="example-label">Пример Zap</div>
+        <div class="example-label">Example Zap</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>Trigger:</strong> Gmail — новое письмо с вложением PDF</div>
+          <div><strong>Trigger:</strong> Gmail - new email with PDF attachment</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
-          <div><strong>AI:</strong> Zapier AI — извлекает ключевые данные из PDF (сумма, дата, контрагент)</div>
+          <div><strong>AI:</strong> Zapier AI - extracts key data from PDF (amount, date, counterparty)</div>
         </div>
         <div class="workflow-step">
           <span class="num">3</span>
-          <div><strong>Filter:</strong> Если сумма > 100 000 ₽</div>
+          <div><strong>Filter:</strong> If the amount is > 100,000 ₽</div>
         </div>
         <div class="workflow-step">
           <span class="num">4</span>
-          <div><strong>Action:</strong> Отправить уведомление в Slack → #закупки</div>
+          <div><strong>Action:</strong> Send a notification to Slack → #purchases</div>
         </div>
         <div class="workflow-step">
           <span class="num">5</span>
-          <div><strong>Action:</strong> Сохранить данные в Google Sheets</div>
+          <div><strong>Action:</strong> Save data to Google Sheets</div>
         </div>
       </div>
     </div>
 
-    <h3>Сравнение n8n vs Zapier</h3>
+    <h3>Comparison n8n vs Zapier</h3>
     <table>
-      <tr><th>Критерий</th><th>n8n</th><th>Zapier</th></tr>
-      <tr><td>Сложность</td><td>Средняя (визуальный редактор)</td><td>Низкая (максимально просто)</td></tr>
-      <tr><td>Цена</td><td>Бесплатно (self-hosted) / $20 облако</td><td>От $19/мес</td></tr>
-      <tr><td>Конфиденциальность</td><td>✅ Данные на вашем сервере</td><td>☁️ В облаке Zapier</td></tr>
-      <tr><td>Интеграции</td><td>400+ (растёт быстро)</td><td>5000+ (максимум на рынке)</td></tr>
-      <tr><td>Код</td><td>✅ JS/Python внутри workflow</td><td>❌ Только через внешние сервисы</td></tr>
-      <tr><td>Self-hosted</td><td>✅ Docker, npm, облако</td><td>❌ Только облако</td></tr>
-      <tr><td>Лучше для</td><td>Контроль данных, сложная логика</td><td>Быстрый старт, масса интеграций</td></tr>
+      <tr><th>Criterion</th><th>n8n</th><th>Zapier</th></tr>
+      <tr><td>Complexity</td><td>Medium (visual editor)</td><td>Low (as simple as possible)</td></tr>
+      <tr><td>Price</td><td>Free (self-hosted) / $20 cloud</td><td>From $19/month</td></tr>
+      <tr><td>Confidentiality</td><td>✅ Data on your server</td><td>☁️ In the Zapier cloud</td></tr>
+      <tr><td>Integrations</td><td>400+ (growing fast)</td><td>5000+ (maximum on the market)</td></tr>
+      <tr><td>Code</td><td>✅ JS/Python inside workflow</td><td>❌ Only through external services</td></tr>
+      <tr><td>Self-hosted</td><td>✅ Docker, npm, cloud</td><td>❌ Cloud only</td></tr>
+      <tr><td>Better for</td><td>Data control, complex logic</td><td>Quick start, tons of integrations</td></tr>
     </table>
 
-    <h3>Когда что выбрать</h3>
+    <h3>When to choose what</h3>
     <div class="card card-accent">
-      <p><span class="tag">n8n</span> если:</p>
+      <p><span class="tag">n8n</span> If:</p>
       <ul>
-        <li>Работаете с конфиденциальными данными (договоры, персональные данные)</li>
-        <li>Есть IT-специалист, который может поднять сервер</li>
-        <li>Нужна сложная логика (циклы, условия, код)</li>
-        <li>Хотите сэкономить на подписке (self-hosted = бесплатна лицензия, но нужен сервер и ИТ-специалист)</li>
+        <li>You work with confidential data (contracts, personal data)</li>
+        <li>There is an IT specialist who can install the server</li>
+        <li>Requires complex logic (loops, conditions, code)</li>
+        <li>Want to save on a subscription (self-hosted = free license, but requires a server and an IT specialist)</li>
       </ul>
-      <p style="margin-top: 16px;"><span class="tag">Zapier</span> если:</p>
+      <p style="margin-top: 16px;"><span class="tag">Zapier</span> If:</p>
       <ul>
-        <li>Нужно запустить за 10 минут без настройки сервера</li>
-        <li>Используете редкие сервисы (нужна максимальная совместимость)</li>
-        <li>Нет IT-ресурсов — всё должно работать «из коробки»</li>
-        <li>Готовы платить за удобство и стабильность</li>
+        <li>Needs to be launched in 10 minutes without server setup</li>
+        <li>You use rare services (you need maximum compatibility)</li>
+        <li>No IT resources - everything should work out of the box</li>
+        <li>Are you willing to pay for convenience and stability?</li>
       </ul>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий 1: Автоматическая обработка заявок</h3>
+    <h3>Scenario 1: Automated order processing</h3>
     <div class="card">
-      <p><strong>Проблема:</strong> Заявки от клиентов приходят на email, менеджер вручную переносит их в CRM.</p>
+      <p><strong>Problem:</strong> Applications from clients come by email, and the manager manually transfers them to the CRM.</p>
       <div class="example">
-        <div class="example-label">Автоматизация в n8n</div>
+        <div class="example-label">Automation in n8n</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>Email Trigger:</strong> Новое письмо на zakazy@company.ru</div>
+          <div><strong>Email Trigger:</strong> New letter to zakazy@company.ru</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
-          <div><strong>OpenAI:</strong> Извлечь: продукт, бюджет, срок, контакт</div>
+          <div><strong>OpenAI:</strong> Extract: product, budget, deadline, contact</div>
         </div>
         <div class="workflow-step">
           <span class="num">3</span>
-          <div><strong>Code:</strong> Проверить, все ли поля заполнены</div>
+          <div><strong>Code:</strong> Check if all fields are filled in</div>
         </div>
         <div class="workflow-step">
           <span class="num">4</span>
-          <div><strong>CRM:</strong> Создать сделку (если поля заполнены)</div>
+          <div><strong>CRM:</strong> Create a deal (if fields are filled in)</div>
         </div>
         <div class="workflow-step">
           <span class="num">5</span>
-          <div><strong>Telegram:</strong> Уведомить менеджера</div>
+          <div><strong>Telegram:</strong> Notify manager</div>
         </div>
         <div class="workflow-step">
           <span class="num">6</span>
-          <div><strong>If:</strong> Бюджет > 100 000 ₽ → уведомить директора</div>
+          <div><strong>If:</strong> Budget > 100,000 ₽ → notify the director</div>
         </div>
       </div>
-      <p><strong>Экономия:</strong> 2 часа в день на обработку заявок</p>
+      <p><strong>Saving:</strong>2 hours a day to process applications</p>
     </div>
 
-    <h3>Сценарий 2: Мониторинг цен поставщиков</h3>
+    <h3>Scenario 2: Monitoring supplier prices</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Автоматизация в Zapier</div>
+        <div class="example-label">Automation in Zapier</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>Schedule:</strong> Еженедельно, например по понедельникам 9:00</div>
+          <div><strong>Schedule:</strong> Weekly, for example on Mondays 9:00</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
-          <div><strong>HTTP:</strong> Получить прайс-лист с сайта поставщика (API или парсинг)</div>
+          <div><strong>HTTP:</strong> Get a price list from the supplier’s website (API or parsing)</div>
         </div>
         <div class="workflow-step">
           <span class="num">3</span>
-          <div><strong>AI:</strong> Сравнить с прошлой неделей (Zapier AI или OpenAI)</div>
+          <div><strong>AI:</strong> Compare with last week (Zapier AI or OpenAI)</div>
         </div>
         <div class="workflow-step">
           <span class="num">4</span>
-          <div><strong>Filter:</strong> Если цена изменилась > 5%</div>
+          <div><strong>Filter:</strong> If the price has changed > 5%</div>
         </div>
         <div class="workflow-step">
           <span class="num">5</span>
-          <div><strong>Sheets:</strong> Записать отчёт в Google Sheets</div>
+          <div><strong>Sheets:</strong> Write a report in Google Sheets</div>
         </div>
         <div class="workflow-step">
           <span class="num">6</span>
-          <div><strong>Slack:</strong> Отправить уведомление закупщику</div>
+          <div><strong>Slack:</strong> Send a notification to the buyer</div>
         </div>
       </div>
     </div>
 
-    <h3>Сценарий 3: Еженедельный отчёт</h3>
+    <h3>Scenario 3: Weekly report</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Автоматизация в n8n</div>
+        <div class="example-label">Automation in n8n</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>По расписанию (cron):</strong> Каждую пятницу 17:00</div>
+          <div><strong>By schedule (cron):</strong> Every Friday 17:00</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
-          <div><strong>Database:</strong> Собрать данные из 1С / CRM (SQL-запрос или API)</div>
+          <div><strong>Database:</strong> Collect data from 1C / CRM (SQL query or API)</div>
         </div>
         <div class="workflow-step">
           <span class="num">3</span>
-          <div><strong>Code:</strong> Агрегировать данные (группировка, суммы)</div>
+          <div><strong>Code:</strong> Aggregate data (grouping, sums)</div>
         </div>
         <div class="workflow-step">
           <span class="num">4</span>
-          <div><strong>OpenAI:</strong> Сформировать текстовый отчёт с выводами</div>
+          <div><strong>OpenAI:</strong> Generate a text report with findings</div>
         </div>
         <div class="workflow-step">
           <span class="num">5</span>
-          <div><strong>Email:</strong> Отправить руководителю</div>
+          <div><strong>Email:</strong> Send to manager</div>
         </div>
         <div class="workflow-step">
           <span class="num">6</span>
-          <div><strong>Google Drive:</strong> Сохранить PDF в архив</div>
+          <div><strong>Google Drive:</strong> Save PDF to archive</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи для n8n</h3>
-      <pre>"Нужно создать workflow в n8n.
+      <h3>Problem template for n8n</h3>
+      <pre>"You need to create a workflow in n8n.
 
-Триггер: [описать событие]
-Действия:
-1. [что делать]
-2. [что делать]
-3. [условие — когда делать]
-
-Интеграции: [список сервисов]
-AI-компонент: [да/нет, описание задачи]
-Self-hosted: [да/нет]
-
-Пример входных данных: [прикрепить]
-Ожидаемый результат: [описать]
-
-Срок: [дата]"</pre>
+</pre>
     </div>
 
     <div class="card card-success">
-      <h3>Шаблон задачи для Zapier</h3>
-      <pre>"Нужно создать Zap.
+      <h3>Task template for Zapier</h3>
+      <pre>"We need to create a Zap.
 
-Триггер: [сервис + событие]
-Действия:
-1. [сервис + действие]
-2. [сервис + действие]
-
-Условия (Filter/Paths):
-- [условие 1]
-- [условие 2]
-
-Интеграции: [список сервисов]
-AI-компонент: [Zapier AI / OpenAI / нет]
-
-Пример входных данных: [прикрепить]
-Ожидаемый результат: [описать]
-
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Сценарий запускается корректно? (триггер работает)</li>
-      <li>Данные передаются без потерь? (проверьте 3 запуска)</li>
-      <li>Условия срабатывают правильно? (крайние значения (граничные случаи))</li>
-      <li>Есть обработка ошибок? (если сервис недоступен)</li>
-      <li>Логи доступны для проверки? (история запусков в n8n / Zapier Task History)</li>
-      <li>Стоимость операций в пределах бюджета? (Zapier: счётчик задач, n8n: Execution History)</li>
+      <li>Does the script run correctly? </li>
+      <li>Is data transferred without loss? </li>
+      <li>Are the conditions working correctly? </li>
+      <li>Is there error handling? </li>
+      <li>Are the logs available for review? </li>
+      <li>Cost of operations within budget? </li>
     </ul>
   </div>
 
-  <!-- ИНСТРУМЕНТЫ -->
+  <!-- TOOLS -->
   <div class="section">
-    <h2>🛠️ Инструменты</h2>
+    <h2>🛠️Tools</h2>
     <table>
-      <tr><th>Платформа</th><th>Лучше для</th><th>Стоимость</th></tr>
-      <tr><td>n8n</td><td>Контроль данных, сложная логика, self-hosted</td><td>Бесплатно / $20</td></tr>
-      <tr><td>Zapier</td><td>Быстрый старт, 5000+ интеграций</td><td>От $19/мес</td></tr>
-      <tr><td>Microsoft Power Automate</td><td>Компании на Microsoft 365</td><td>От $15/мес</td></tr>
+      <tr><th>Platform</th><th>Better for</th><th>Price</th></tr>
+      <tr><td>n8n</td><td>Data control, complex logic, self-hosted</td><td>Free / $20</td></tr>
+      <tr><td>Zapier</td><td>Quick start, 5000+ integrations</td><td>From $19/month</td></tr>
+      <tr><td>Microsoft Power Automate</td><td>Companies on Microsoft 365</td><td>From $15/month</td></tr>
     </table>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Что такое "триггер" в автоматизации?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Событие, которое запускает процесс</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Действие, которое выполняется</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Условие выполнения</div>
+      <p><strong>Question 1:</strong> What is a "trigger" in automation?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) An event that starts a process</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Action that is performed</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Fulfillment condition</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Какая платформа open-source и позволяет self-hosted?</p>
+      <p><strong>Question 2:</strong> Which platform is open-source and allows self-hosting?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) Zapier</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) n8n</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Power Automate</div>
@@ -416,10 +388,10 @@ AI-компонент: [Zapier AI / OpenAI / нет]
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Сколько времени экономит автоматизация обработки заявок?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 15 минут</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 2 часа в день</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 30 минут</div>
+      <p><strong>Question 3:</strong> How much time does automated application processing save?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 15 minutes</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 2 hours a day</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 30 minutes</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -427,8 +399,8 @@ AI-компонент: [Zapier AI / OpenAI / нет]
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>No-code автоматизация</strong> — это LEGO для бизнес-процессов. <strong>n8n</strong> — если нужен контроль данных и сложная логика (open-source, self-hosted). <strong>Zapier</strong> — если нужен быстрый старт с максимумом интеграций. Триггер → действие → условие. Экономия: <strong>2-4 часа в день</strong> на рутине.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>No-code automation</strong> is LEGO for business processes.<strong>n8n</strong>— if you need data control and complex logic (open-source, self-hosted).<strong>Zapier</strong>— if you need a quick start with maximum integrations. <strong>2-4 hours a day</strong> on a routine.</p>
     </div>
   </div>
 
@@ -441,7 +413,7 @@ AI-компонент: [Zapier AI / OpenAI / нет]
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -459,14 +431,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.4 Работа с документами — AI для не ИТ-специалистов</title>
+<title>1.4 Working with documents - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -63,226 +63,163 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛠️ LEVEL 1 · MASTERING TOOLS</div>
-    <h1>1.4 · Работа с документами: анализ, суммаризация, сравнение</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <div class="phase">🛠️ LEVEL 1 · TOOL PROFICIENCY</div>
+    <h1>1.4 · Working with documents: analysis, summarization, comparison</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
+  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Менеджер читает в среднем <strong>2-3 часа документов в день</strong>: договоры, отчёты, коммерческие предложения, акты, протоколы.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>Manager reads on average <strong>2-3 hours of documents per day</strong>: contracts, reports, commercial proposals, acts, protocols.</p>
     <div class="card card-success">
-      <p>AI сокращает это до <strong>15-20 минут</strong>:</p>
+      <p>AI reduces this to <strong>15-20 minutes</strong>:</p>
       <ul>
-        <li>Суммаризация договора: 30 мин → 2 мин</li>
-        <li>Сравнение 2 КП: 1 час → 5 мин</li>
-        <li>Анализ рисков: 2 часа → 10 мин</li>
+        <li>Contract summarization: 30 min → 2 min</li>
+        <li>Comparison 2 CP: 1 hour → 5 min</li>
+        <li>Risk analysis: 2 hours → 10 min</li>
       </ul>
-      <p><strong>Итого экономия: 3-4 часа в день</strong></p>
+      <p><strong>Total savings: 3-4 hours per day</strong></p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
+  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>3 типа задач с документами</h3>
+    <h3>3 types of document tasks</h3>
     
     <div class="card card-success">
-      <h4>1. Суммаризация (сжатие)</h4>
-      <p>Пересказать суть документа в нескольких пунктах.</p>
+      <h4>1. Summarization (compression)</h4>
+      <p>Retell the essence of the document in several paragraphs.</p>
       <div class="example">
-        <div class="example-label">💡 Пример промпта</div>
-        <pre>Ты — юрист.
-Перескажи договор в 5 пунктах:
-1. Что покупаем
-2. За сколько
-3. Сроки поставки
-4. Условия оплаты
-5. Штрафы и неустойка
-
-Если пункт не указан в договоре — напиши "Не указано".</pre>
+        <div class="example-label">💡 Prompt example</div>
+        <pre>You are a lawyer.
+</pre>
       </div>
-      <p><strong>Экономия:</strong> 30 мин → 2 минуты</p>
+      <p><strong>Saving:</strong>30 min → 2 minutes</p>
     </div>
 
     <div class="card card-success">
-      <h4>2. Сравнение</h4>
-      <p>Сравнить 2 или более документов по заданным критериям.</p>
+      <h4>2. Comparison</h4>
+      <p>Compare 2 or more documents based on specified criteria.</p>
       <div class="example">
-        <div class="example-label">💡 Пример промпта</div>
-        <pre>Ты — закупщик.
-Сравни 2 коммерческих предложения по критериям:
-| Критерий | Предложение 1 | Предложение 2 | Лучшее |
-| Цена за ед. | | | |
-| Мин. заказ | | | |
-| Срок доставки | | | |
-| Условия оплаты | | | |
-| Гарантия | | | |
-
-Выдели различия жирным. Дай рекомендацию.</pre>
+        <div class="example-label">💡 Prompt example</div>
+        <pre>You are a buyer.
+</pre>
       </div>
-      <p><strong>Экономия:</strong> 1 час → 5 минут</p>
+      <p><strong>Saving:</strong>1 hour → 5 minutes</p>
     </div>
 
     <div class="card card-success">
-      <h4>3. Анализ рисков</h4>
-      <p>Найти потенциальные проблемы в документе.</p>
+      <h4>3. Risk analysis</h4>
+      <p>Find potential problems in the document.</p>
       <div class="example">
-        <div class="example-label">💡 Пример промпта</div>
-        <pre>Ты — корпоративный юрист с 15-летним стажем.
-Проанализируй договор поставки на риски.
-
-Для каждого риска укажи:
-- Описание
-- Уровень: Высокий / Средний / Низкий
-- Рекомендация по минимизации
-
-Проверь разделы:
-☐ Неустойка
-☐ Форс-мажор
-☐ Расторжение
-☐ Порядок разрешения споров
-☐ Передача прав третьим лицам</pre>
+        <div class="example-label">💡 Prompt example</div>
+        <pre>You are a corporate lawyer with 15 years of experience.
+</pre>
       </div>
-      <p><strong>Экономия:</strong> 2 часа → 10 минут</p>
+      <p><strong>Saving:</strong>2 hours → 10 minutes</p>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
+  <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий: анализ договора</h3>
+    <h3>Scenario: Contract Analysis</h3>
     <div class="card">
-      <p><strong>Шаг 1:</strong> Загрузите договор в AI (ChatGPT Plus, Claude Pro, или Kimi поддерживают файлы)</p>
-      <p><strong>Шаг 2:</strong> Задайте роль и задачу</p>
+      <p><strong>Step 1:</strong> Upload the contract to AI (ChatGPT Plus, Claude Pro, or Kimi support files)</p>
+      <p><strong>Step 2:</strong> Set the role and task</p>
       <div class="example">
-        <div class="example-label">Полный промпт</div>
-        <pre>Ты — юрист по корпоративному праву.
-Проанализируй приложенный договор поставки.
-
-Задачи:
-1. Выдели ключевые условия (цена, сроки, объём, оплата)
-2. Найди риски для покупателя
-3. Оцени каждый риск: Высокий / Средний / Низкий
-4. Дай рекомендации по минимизации рисков
-5. Укажи, какие пункты необычны или отличаются от стандарта
-
-Формат: таблица рисков + общий вывод о приемлемости договора.</pre>
+        <div class="example-label">Full prompt</div>
+        <pre>You are a corporate lawyer.
+</pre>
       </div>
-      <p><strong>Шаг 3:</strong> Проверьте результат (особенно оценки рисков)</p>
-      <p><strong>Шаг 4:</strong> Сохраните шаблон промпта для будущих договоров</p>
+      <p><strong>Step 3:</strong> Check the result (especially the risk assessment)</p>
+      <p><strong>Step 4:</strong> Save the prompt template for future contracts</p>
     </div>
 
-    <h3>Сценарий: сравнение КП</h3>
+    <h3>Scenario: CP comparison</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Выбрать поставщика из 3 коммерческих предложений.</p>
+      <p><strong>Task:</strong> Select a supplier from 3 commercial offers.</p>
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — опытный закупщик.
-Сравни 3 коммерческих предложения во вложениях.
-
-Критерии сравнения:
-1. Цена за единицу (руб.)
-2. Минимальный заказ (шт.)
-3. Срок изготовления (дней)
-4. Срок доставки (дней)
-5. Условия оплаты
-6. Наличие сертификатов
-7. Гарантийный срок
-
-Выведи таблицей. Для каждого критерия укажи лидера.
-В конце — однозначную рекомендацию с обоснованием.
-
-Ограничение: если срок > 14 дней — отметь как риск.</pre>
+        <div class="example-label">Prompt</div>
+        <pre>You are an experienced buyer.
+</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
+  <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система автоматического анализа договоров.
+      <h3>Task template</h3>
+      <pre>“We need a system for automatic analysis of contracts.
 
-Требования:
-1. Загрузка документов: PDF, DOCX, TXT
-2. Автоматический анализ по шаблонам:
-   - Суммаризация (5 ключевых пунктов)
-   - Сравнение с шаблоном компании
-   - Оценка рисков (таблица)
-3. Сохранение результатов в [Notion/SharePoint/1С]
-4. Уведомление ответственному лицу
-5. История анализов (поиск по контрагенту)
-
-Пример входного и выходного документа (прикрепить).
-
-Интеграции: [email / 1С / CRM]
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
+  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Все ключевые пункты договора учтены?</li>
-      <li>Риски оценены корректно? (проверьте 2-3 пункта)</li>
-      <li>Рекомендации применимы? (можно реализовать)</li>
-      <li>Формат удобен для передачи коллегам?</li>
-      <li>Нет галлюцинаций? (факты соответствуют документу)</li>
-      <li>Для критичных договоров — проверил юрист?</li>
+      <li>Have all the key points of the contract been taken into account?</li>
+      <li>Are the risks assessed correctly? </li>
+      <li>Are the recommendations applicable? </li>
+      <li>Is the format convenient for sharing with colleagues?</li>
+      <li>No hallucinations? </li>
+      <li>For critical contracts - checked by a lawyer?</li>
     </ul>
   </div>
 
-  <!-- ИНСТРУМЕНТЫ -->
+  <!-- TOOLS -->
   <div class="section">
-    <h2>🛠️ Инструменты</h2>
+    <h2>🛠️Tools</h2>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Инструмент</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Возможности</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Стоимость</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT Plus</td><td style="padding:10px;border-bottom:1px solid var(--border);">Загрузка PDF, DOCX, анализ</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/мес</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Pro</td><td style="padding:10px;border-bottom:1px solid var(--border);">Большие документы, юридический анализ</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/мес</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Kimi (Moonshot)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Огромный контекст, загрузка файлов</td><td style="padding:10px;border-bottom:1px solid var(--border);">Бесплатно / $8</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Notion AI</td><td style="padding:10px;border-bottom:1px solid var(--border);">Анализ документов в базе знаний</td><td style="padding:10px;border-bottom:1px solid var(--border);">$10/мес</td></tr>
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Tool</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Possibilities</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Price</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT Plus</td><td style="padding:10px;border-bottom:1px solid var(--border);">Download PDF, DOCX, analysis</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/month</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Pro</td><td style="padding:10px;border-bottom:1px solid var(--border);">Large documents, legal analysis</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/month</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Kimi (Moonshot)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Huge context, file loading</td><td style="padding:10px;border-bottom:1px solid var(--border);">Free / $8</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Notion AI</td><td style="padding:10px;border-bottom:1px solid var(--border);">Analysis of documents in the knowledge base</td><td style="padding:10px;border-bottom:1px solid var(--border);">$10/month</td></tr>
     </table>
   </div>
 
   <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Какая задача занимает больше всего времени вручную?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Суммаризация договора</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Анализ рисков</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Сравнение КП</div>
+      <p><strong>Question 1:</strong> Which task takes the most time manually?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Summarization of the contract</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Risk analysis</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Comparison of CP</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Можно ли полностью доверять AI в анализе договоров?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Да, AI не ошибается</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Нет, критичные договоры нужно проверять юристу</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только для простых договоров</div>
+      <p><strong>Question 2:</strong> Can AI be completely trusted to analyze contracts?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Yes, AI does not make mistakes</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) No, critical contracts need to be checked by a lawyer</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Only for simple contracts</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Какой инструмент поддерживает загрузку PDF?</p>
+      <p><strong>Question 3:</strong> Which tool supports PDF uploading?</p>
       <div class="quiz-option" onclick="checkAnswer(this, true)">A) ChatGPT Plus</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Бесплатный ChatGPT</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только Claude</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Free ChatGPT</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Claude only</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -290,8 +227,8 @@
   <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p>AI анализирует документы за минуты: <strong>суммирует, сравнивает, находит риски</strong>. Но всегда проверяйте критичные выводы. AI — помощник, не замена юристу. Экономия: <strong>3-4 часа в день</strong> на чтение документов.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p>AI analyzes documents in minutes:<strong>summarizes, compares, finds risks</strong>. <strong>3-4 hours a day</strong> to read documents.</p>
     </div>
   </div>
 
@@ -304,7 +241,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -322,14 +259,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

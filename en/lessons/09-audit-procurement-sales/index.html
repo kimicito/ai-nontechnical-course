@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>9.2 Аудит закупок и продаж — AI для не ИТ-специалистов</title>
+<title>9.2 Audit of purchases and sales - AI for non-IT specialists</title>
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -62,185 +62,143 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🔍 LEVEL 9 · АУДИТ, КОНТРОЛЬ И COMPLIANCE</div>
-    <h1>9.2 · Аудит закупок и продаж</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <div class="phase">🔍 LEVEL 9 · AUDIT, CONTROL AND COMPLIANCE</div>
+    <h1>9.2 Audit of purchases and sales</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Закупки и продажи — точки максимального риска: переплаты, скидки без согласования, фиктивные поставщики, необоснованные отступные. Ручная проверка каждой сделки невозможна при объёмах.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>Purchasing and sales are points of maximum risk: overpayments, discounts without approval, fictitious suppliers, unreasonable compensation. </p>
     <div class="card card-success">
-      <p><strong>AI-аудит закупок и продаж</strong> — автоматический анализ всех сделок на соответствие политикам, поиск аномалий и выявление рисков. Менеджер получает рейтинг сделок: зелёные, жёлтые, красные.</p>
-      <p><strong>Пример:</strong> AI проанализировал 200 закупок за квартал и выявил 8 сделок с рисками: 3 — единственщики без обоснования, 2 — изменение реквизитов поставщика, 3 — скидки выше лимита.</p>
+      <p><strong>AI audit of purchases and sales</strong>— automatic analysis of all transactions for compliance with policies, search for anomalies and identification of risks. </p>
+      <p><strong>Example:</strong> AI analyzed 200 purchases for the quarter and identified 8 transactions with risks: 3 - single sellers without justification, 2 - changes in supplier details, 3 - discounts above the limit.</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
 
-    <h3>Закупки: что проверяет AI</h3>
+    <h3>Procurement: what AI checks</h3>
     <div class="card card-accent">
       <ul>
-        <li><strong>Наличие 3 КП:</strong> есть ли три коммерческих предложения, соответствуют ли требованиям закона/политики</li>
-        <li><strong>Лимиты:</strong> не превышен ли лимит на закупку, правильно ли выбрана процедура (конкурс, аукцион, единственщик)</li>
-        <li><strong>Обоснование единственщика:</strong> есть ли меморандум, соответствует ли критериям (авторский надзор, технологическая уникальность, срочность)</li>
-        <li><strong>Связанные лица:</strong> проверка поставщиков на связанность (учредители, адреса, телефоны)</li>
-        <li><strong>История поставщика:</strong> новый контрагент, частые смены реквизитов, массовый адрес</li>
+        <li><strong>Availability of 3 control points:</strong> are there three commercial proposals, do they comply with legal/policy requirements?</li>
+        <li><strong>Limits:</strong> whether the purchase limit has been exceeded, whether the procedure has been chosen correctly (competition, auction, sole supplier)</li>
+        <li><strong>Soleist's rationale:</strong> is there a memorandum, does it meet the criteria (designer supervision, technological uniqueness, urgency)</li>
+        <li><strong>Related persons:</strong> checking suppliers for relatedness (founders, addresses, telephone numbers)</li>
+        <li><strong>Supplier history:</strong> new counterparty, frequent changes of details, mass address</li>
       </ul>
     </div>
 
-    <h3>Продажи: что проверяет AI</h3>
+    <h3>Sales: what AI checks</h3>
     <div class="card card-accent">
       <ul>
-        <li><strong>Сверка отгрузки и оплаты:</strong> отгружено — оплачено, есть ли просрочки</li>
-        <li><strong>Скидки и отступные:</strong> не превышают ли лимит, есть ли согласование, кто одобрил</li>
-        <li><strong>Возвраты:</strong> аномальная частота возвратов по клиенту, причины (брак, передумал, ошибка менеджера)</li>
-        <li><strong>Дебиторка:</strong> просроченные платежи, динамика долга, клиенты с ростом задолженности</li>
-        <li><strong>Ценовые аномалии:</strong> резкое изменение цен, скидки в выходные, нетипичные условия</li>
+        <li><strong>Reconciliation of shipment and payment:</strong> shipped - paid, are there any delays?</li>
+        <li><strong>Discounts and compensation:</strong> do they exceed the limit, is there an agreement, who approved</li>
+        <li><strong>Returns:</strong> abnormal frequency of customer returns, reasons (defect, change of mind, manager’s error)</li>
+        <li><strong>Receivable:</strong> late payments, debt dynamics, clients with increasing debt</li>
+        <li><strong>Price anomalies:</strong> sudden price changes, weekend discounts, atypical conditions</li>
       </ul>
     </div>
 
-    <h3>Сигналы рисков: красные, жёлтые, зелёные</h3>
+    <h3>Risk signals: red, yellow, green</h3>
     <table>
-      <tr><th>Сигнал</th><th>Закупки</th><th>Продажи</th></tr>
-      <tr><td>🔴 Красный</td><td>Связанный поставщик, поддельные КП, смена реквизитов</td><td>Возврат >30%, клиент-банкрот, скидка 50% без одобрения</td></tr>
-      <tr><td>🟡 Жёлтый</td><td>Единственщик без меморандума, новый поставщик, круглая сумма</td><td>Просрочка 15 дней, частые возвраты, цена ниже себестоимости</td></tr>
-      <tr><td>🟢 Зелёный</td><td>3 КП, проверенный поставщик, всё по процедуре</td><td>Оплата в срок, типичные скидки, стабильный клиент</td></tr>
+      <tr><th>Signal</th><th>Procurement</th><th>Sales</th></tr>
+      <tr><td>🔴 Red</td><td>Associated supplier, fake CP, change of details</td><td>Refund >30%, bankrupt client, 50% discount without approval</td></tr>
+      <tr><td>🟡 Yellow</td><td>Sole supplier without memorandum, new supplier, round sum</td><td>Delay 15 days, frequent returns, price below cost</td></tr>
+      <tr><td>🟢 Green</td><td>3 CP, verified supplier, everything according to the procedure</td><td>Payment on time, typical discounts, stable client</td></tr>
     </table>
   </div>
 
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
 
-    <h3>Сценарий: ежемесячный аудит закупок</h3>
+    <h3>Scenario: Monthly procurement audit</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для AI</div>
-        <pre>Проанализируй реестр закупок за месяц (файл).
+        <div class="example-label">Prompt for AI</div>
+        <pre>Analyze the monthly purchase register (file).
 
-Для каждой сделки проверь:
-1. Процедура: конкурс / аукцион / единственщик — соответствует сумме?
-2. Единственщик: есть ли обоснование (меморандум)?
-3. КП: есть ли 3 предложения (если не единственщик)?
-4. Поставщик: проверенный или новый? есть ли в чёрном списке?
-5. Связанность: совпадают ли учредители/адреса с другими поставщиками?
-6. Сумма: круглая? резко отличается от рыночной?
-
-Выведи:
-- Топ-10 рисковых сделок (с обоснованием)
-- Сводка: сколько красных, жёлтых, зелёных
-- Рекомендации: что проверить вручную</pre>
+</pre>
       </div>
-      <p><strong>Результат:</strong> Excel-таблица с рейтингом каждой сделки. Руководитель видит, на чём сосредоточить внимание аудитора.</p>
+      <p><strong>Result:</strong> Excel spreadsheet with the rating of each transaction. </p>
     </div>
 
-    <h3>Сценарий: мониторинг продаж на аномалии</h3>
+    <h3>Scenario: monitoring sales for anomalies</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для AI</div>
-        <pre>Проанализируй реестр продаж за квартал.
+        <div class="example-label">Prompt for AI</div>
+        <pre>Analyze the sales register for the quarter.
 
-Для каждой сделки проверь:
-1. Скидка: не превышает ли лимит? есть ли одобрение?
-2. Возврат: частота по клиенту, причины, сумма
-3. Дебиторка: сроки оплаты, просрочки, тренд
-4. Отступные: обоснованы? согласованы?
-5. Цена: не ниже себестоимости? аномально низкая?
-
-Выведи:
-- Клиенты с аномальными возвратами
-- Менеджеры с частыми скидками выше лимита
-- Сделки с ценой ниже себестоимости
-- Рекомендации по дебиторке</pre>
+</pre>
       </div>
-      <p><strong>Результат:</strong> Менеджер по продажам получает список клиентов, требующих внимания, и сделок, которые нужно пересмотреть.</p>
+      <p><strong>Result:</strong> The sales manager receives a list of clients that require attention and deals that need to be renegotiated.</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-аудит закупок и продаж.
+      <h3>Task template</h3>
+      <pre>“We need an AI audit of procurement and sales.
 
-Закупки — проверяем:
-- 3 КП, процедура, лимиты
-- Обоснование единственщика
-- Связанные лица (по учредителям, адресам)
-- История поставщика (новый, чёрный список, смена реквизитов)
-- Аномалии сумм
-
-Продажи — проверяем:
-- Сверка отгрузки и оплаты
-- Скидки и отступные (лимиты, одобрения)
-- Возвраты (частота, причины)
-- Дебиторка (просрочки, тренды)
-- Ценовые аномалии
-
-Выход:
-- Дашборд с рейтингом сделок (красный/жёлтый/зелёный)
-- Excel-отчёт с топ-рисками
-- Алерты в Telegram при красных сигналах
-
-Интеграция: 1С, ЭДО, банк, Telegram
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Все сделки имеют рейтинг (красный/жёлтый/зелёный)?</li>
-      <li>Проверка 3 КП работает корректно?</li>
-      <li>Связанные лица находятся (не ложные срабатывания)?</li>
-      <li>Скидки сравниваются с утверждёнными лимитами?</li>
-      <li>Дебиторка обновляется в реальном времени?</li>
-      <li>Красные сигналы приходят мгновенно (а не через неделю)?</li>
-      <li>Отчёт понятен директору (не только аудитору)?</li>
+      <li>Are all trades rated (red/yellow/green)?</li>
+      <li>Is check 3 CP working correctly?</li>
+      <li>Are there related persons (not false positives)?</li>
+      <li>Are discounts compared to approved limits?</li>
+      <li>Are receivables updated in real time?</li>
+      <li>Do red signals come instantly (not after a week)?</li>
+      <li>Is the report understandable to the director (not just the auditor)?</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
 
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Какой сигнал — красный в закупках?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Новый поставщик без истории</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Связанный поставщик с поддельными КП</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 3 КП от разных поставщиков</div>
+      <p><strong>Question 1:</strong> What is the red signal in procurement?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) New supplier with no history</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Associated supplier with fake CP</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 3 CPs from different suppliers</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Что проверяет AI в продажах?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Только количество заказов</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Скидки, возвраты, дебиторку, цены</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только настроение клиентов</div>
+      <p><strong>Question 2:</strong> What does AI test in sales?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Order quantity only</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Discounts, returns, receivables, prices</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Only the mood of clients</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Почему важен меморандум единственщика?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Это доказательство законности процедуры</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Это красивая обложка</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это не важно, AI сам разберётся</div>
+      <p><strong>Question 3:</strong> Why is the sole owner's memorandum important?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) This is proof of the legality of the procedure</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) This is a beautiful cover</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) It doesn’t matter, the AI ​​will sort it out on its own</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>AI превращает аудит из «проверь всё» в «проверь красное».</strong> Автоматический рейтинг сделок, поиск связанных лиц, проверка лимитов — это не замена аудитору, а его инструмент. Менеджер тратит время на решения, а не на просмотр тысяч строк.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>AI transforms auditing from “check everything” to “check red.”</strong> Automatic rating of transactions, search for related parties, checking limits - this is not a replacement for the auditor, but his tool. </p>
     </div>
   </div>
 
@@ -253,7 +211,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -271,14 +229,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>

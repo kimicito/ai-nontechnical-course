@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>8.1 AI для сметчика — AI для не ИТ-специалистов</title>
+<title>8.1 AI for estimators - AI for non-IT specialists</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -62,8 +62,8 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
 
@@ -71,167 +71,135 @@
 
   <div class="lesson-header">
     <div class="phase">🏗️ LEVEL 8 · AI FOR CONSTRUCTION</div>
-    <h1>8.1 · Сметы и расчёты: от локальной сметы до итоговой стоимости</h1>
-    <div class="meta">🎯 No code · ✅ Интерактивный квиз</div>
+    <h1>8.1 · Estimates and calculations: from local estimates to the final cost</h1>
+    <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Why It Matters for Business</h2>
-    <p>Сметчик тратит до <strong>60% времени на рутину</strong>: переписывание позиций из локальных смет в сводную, сверка расценок с ГЭСН/ФЕР, проверка коэффициентов, пересчёт при изменении объёмов. AI делает это за минуты.</p>
+    <h2>🎯 Why does business need this?</h2>
+    <p>The estimator spends up to <strong>60% of the time on routine</strong>: rewriting items from local estimates into consolidated ones, reconciling prices with GESN/FER, checking coefficients, recalculating when volumes change. </p>
     <div class="card card-success">
-      <p><strong>Кейс:</strong> Сметчик на объект из 500 позиций тратил 3 дня на сводку. С AI — 2 часа: AI извлёк позиции из 12 локальных смет, свёл в таблицу, проверил расценки по ГЭСН, нашёл 8 ошибок в коэффициентах, пересчитал итог с учётом НДС и накладных.</p>
+      <p><strong>Case:</strong> An estimator for an object with 500 items spent 3 days on the summary. </p>
     </div>
   </div>
 
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 What we are studying</h2>
     
-    <h3>Что AI делает для сметчика</h3>
+    <h3>What AI does for an estimator</h3>
     <div class="card card-accent">
       <ul>
-        <li>📄 Извлекает позиции из локальных смет (PDF, Excel, сканы)</li>
-        <li>🔢 Сверяет расценки с ГЭСН / ФЕР / региональными сборниками</li>
-        <li>📊 Сводит множество локальных смет в одну таблицу</li>
-        <li>🧮 Проверяет коэффициенты (поправки, индексы, КП)</li>
-        <li>💰 Пересчитывает итог при изменении объёмов или цен</li>
-        <li>⚠️ Находит дубли, пропуски, расхождения</li>
+        <li>📄 Extracts items from local estimates (PDF, Excel, scans)</li>
+        <li>🔢 Compares prices with GESN / FER / regional collections</li>
+        <li>📊 Combines many local estimates into one table</li>
+        <li>🧮 Checks coefficients (amendments, indices, CP)</li>
+        <li>💰 Recalculates the total when volumes or prices change</li>
+        <li>⚠️ Finds duplicates, omissions, discrepancies</li>
       </ul>
     </div>
 
-    <h3>Источники для сверки</h3>
+    <h3>Sources for verification</h3>
     <div class="card">
       <table>
-        <tr><th>Источник</th><th>Что сверяем</th><th>Формат</th></tr>
-        <tr><td>ГЭСН / ФЕР</td><td>Расценки на работы</td><td>PDF, Excel</td></tr>
-        <tr><td>Региональные сборники</td><td>Поправки к расценкам</td><td>PDF, Excel</td></tr>
-        <tr><td>Территориальные единичные расценки</td><td>Материалы, механизмы</td><td>Excel</td></tr>
-        <tr><td>Коммерческие предложения</td><td>Цены материалов, аренды</td><td>PDF, Excel, email</td></tr>
-        <tr><td>История смет компании</td><td>Аналогичные позиции, коэффициенты</td><td>База данных / Excel</td></tr>
+        <tr><th>Source</th><th>What we check</th><th>Format</th></tr>
+        <tr><td>GESN/FER</td><td>Prices for work</td><td>PDF, Excel</td></tr>
+        <tr><td>Regional collections</td><td>Amendments to prices</td><td>PDF, Excel</td></tr>
+        <tr><td>Territorial unit prices</td><td>Materials, mechanisms</td><td>Excel</td></tr>
+        <tr><td>Commercial offers</td><td>Prices of materials, rental</td><td>PDF, Excel, email</td></tr>
+        <tr><td>History of company estimates</td><td>Similar positions, odds</td><td>Database/Excel</td></tr>
       </table>
     </div>
 
-    <h3>Пример запроса к AI</h3>
+    <h3>Example of a request to AI</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для сметы</div>
-        <pre>"Проанализируй локальную смету (файл приложен).
+        <div class="example-label">Prompt for estimate</div>
+        <pre>"Analyze the local estimate (file attached).
 
-1. Извлеки все позиции: код, наименование, единица, количество, расценка, итог
-2. Сверь расценки с ГЭСН-2024 (файл ГЭСН приложен)
-3. Проверь коэффициенты: КП, поправки на зиму, индексы
-4. Найди дубли и пропуски
-5. Выведи таблицу: Позиция | Наша расценка | ГЭСН | Расхождение | Рекомендация
-
-Формат: Excel-совместимая таблица."</pre>
+</pre>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ How to apply</h2>
     
-    <h3>Сценарий: сводка 10 локальных смет</h3>
+    <h3>Scenario: summary of 10 local estimates</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Процесс</div>
-        <pre>1. Собираем все локальные сметы в папку (PDF, Excel, сканы)
-2. Загружаем в AI с запросом:
-   "Сведи все сметы в одну таблицу.
-   Группируй по видам работ (кладка, бетон, отделка).
-   Считай итоги по группам и общий итог.
-   Выдели позиции с расхождениями > 5%."
-3. AI генерирует сводную таблицу
-4. Сметчик проверяет расхождения и ключевые позиции
-5. Экспортирует в Excel / 1С / сметную программу</pre>
+        <div class="example-label">Process</div>
+        <pre>1. We collect all local estimates into a folder (PDF, Excel, scans)
+</pre>
       </div>
     </div>
 
-    <h3>Расчёт итоговой стоимости</h3>
+    <h3>Calculation of the final cost</h3>
     <div class="card card-accent">
-      <p>AI считает полную цепочку:</p>
+      <p>AI considers the complete chain:</p>
       <ol>
-        <li>Прямые затраты (работы + материалы + механизмы)</li>
-        <li>Накладные расходы (% от прямых)</li>
-        <li>Сметная прибыль (%)</li>
-        <li>НДС (если применимо)</li>
-        <li>Итог с учётом всех коэффициентов</li>
+        <li>Direct costs (work + materials + mechanisms)</li>
+        <li>Overhead costs (% of direct)</li>
+        <li>Estimated profit (%)</li>
+        <li>VAT (if applicable)</li>
+        <li>Total taking into account all coefficients</li>
       </ol>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-инструмент для сметчика.
+      <h3>Task template</h3>
+      <pre>“We need an AI tool for the estimator.
 
-Входные данные:
-- Локальные сметы: PDF, Excel, сканы (через OCR)
-- ГЭСН/ФЕР: справочник расценок (PDF, Excel)
-- Коммерческие предложения: материалы, аренда (PDF, Excel, email)
-
-Что должен делать:
-1. Извлекать позиции из любого формата
-2. Сверять расценки с ГЭСН/ФЕР (по коду работы)
-3. Проверять коэффициенты (КП, поправки, индексы)
-4. Сводить множество смет в одну таблицу
-5. Находить дубли, пропуски, расхождения
-6. Пересчитывать итог при изменении объёмов
-
-Выход:
-- Excel-таблица
-- PDF-отчёт с расхождениями
-- Графики по видам работ
-
-Интеграция: [1С / сметная программа / Excel]
-Срок: [дата]"</pre>
+</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Acceptance Checklist</h2>
+    <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Все позиции извлечены? (проверить 5-10 случайных)</li>
-      <li>Расценки сверены с ГЭСН/ФЕР? (проверить 3-5 позиций)</li>
-      <li>Коэффициенты корректны? (КП, поправки, индексы)</li>
-      <li>Дубли и пропуски найдены?</li>
-      <li>Итоговая сумма совпадает с ручным расчётом?</li>
-      <li>Формат удобен для импорта в сметную программу?</li>
+      <li>Are all positions retrieved? </li>
+      <li>Have the prices been verified with GESN/FER? </li>
+      <li>Are the odds correct? </li>
+      <li>Are there any duplicates or omissions found?</li>
+      <li>Does the total amount match the manual calculation?</li>
+      <li>Is the format convenient for importing into an estimate program?</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Knowledge Check</h2>
+    <h2>📝Checking understanding</h2>
     
     <div class="card card-accent" data-quiz="1">
-      <p><strong>Question 1:</strong> С чем AI сверяет расценки?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) С ГЭСН / ФЕР / региональными сборниками</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) С ценами на Авито</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) С котировками ЦБ</div>
+      <p><strong>Question 1:</strong> What does AI check prices against?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) WITH GESN / FER / regional collections</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) With prices on Avito</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) With Central Bank quotes</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent" data-quiz="2">
-      <p><strong>Question 2:</strong> Что проверяет AI в коэффициентах?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) КП, поправки на зиму, индексы, накладные</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только НДС</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Коэффициенты не проверяет</div>
+      <p><strong>Question 2:</strong> What does AI check for odds?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) KP, adjustments for winter, indexes, invoices</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) VAT only</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Does not check coefficients</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent" data-quiz="3">
-      <p><strong>Question 3:</strong> Какой формат выходных данных удобен для сметчика?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Excel-совместимая таблица</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только PDF-отчёт</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Текстовый файл</div>
+      <p><strong>Question 3:</strong> What output data format is convenient for an estimator?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Excel compatible spreadsheet</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) PDF report only</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Text file</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Key Takeaway</h3>
-      <p><strong>AI — помощник сметчика, а не замена.</strong> Он извлекает позиции, сверяет расценки, проверяет коэффициенты, находит ошибки. Сметчик остаётся ответственным за проверку и принятие решений. Экономия: 60-70% времени на рутине.</p>
+      <h3>🎯 The main thing from the lesson</h3>
+      <p><strong>AI is an estimator's assistant, not a replacement.</strong> It retrieves items, checks prices, checks odds, finds errors. </p>
     </div>
   </div>
 
@@ -244,7 +212,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+    <p>© 2026 Artur A. · AI for non-IT specialists</p>
   </div>
 </footer>
 
@@ -262,14 +230,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
+    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
   }
 }
 </script>
