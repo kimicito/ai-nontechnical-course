@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0.3 Cloud vs On-premise - IA pour les non-spécialistes informatiques</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 20px 0; border-bottom: 1px solid var(--border); }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 40px 0 20px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 2rem; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 32px 0; }
+  .section h2 { color: var(--accent); font-size: 1.3rem; margin-bottom: 16px; }
+  .section h3 { color: var(--accent2); font-size: 1.1rem; margin: 24px 0 12px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 16px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.8rem; font-weight: 600; margin-bottom: 8px; }
+  .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .comparison-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .comparison-box h4 { margin: 0 0 12px; }
+  .cloud { border-left: 4px solid var(--accent2); }
+  .onprem { border-left: 4px solid var(--success); }
+  .nav-footer { display: flex; justify-content: space-between; padding: 40px 0; border-top: 1px solid var(--border); margin-top: 40px; }
+  .nav-btn { padding: 12px 24px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .risk-matrix { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .risk-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; text-align: center; }
+  .risk-high { color: var(--danger); }
+  .risk-medium { color: var(--warning); }
+  .risk-low { color: var(--success); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none;">← Catalogue</a>
+    <span style="color: var(--border); margin: 0 8px;">|</span>
+    <a href="../../glossary.html" style="color: var(--muted); text-decoration: none;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🚀 NIVEAU 0 · FONDAMENTAUX DE L'IA</div>
+    <h1>0.3 Cloud vs On-premise : GENAi pour les données sensibles</h1>
+    <div class="meta">🎯 Pas de code · ✅ Quiz à la fin</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p><span class="highlight">60% des entreprises</span>n’utilisez pas l’IA par crainte de fuite de données. Mais entre « envoyer tout à ChatGPT » et « ne pas utiliser l'IA », il existe une troisième voie :<strong>hébergement sur place</strong>.</p>
+    
+    <div class="card card-danger">
+      <strong>⚠️ Cas réel :</strong>Le responsable des achats a téléchargé une liste de fournisseurs avec des prix sur ChatGPT. Au bout de 3 mois, le concurrent connaissait sa stratégie tarifaire. Données divulguées lors de la formation du modèle.</div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Cloud vs On-premise : en termes simples</h2>
+
+    <div class="comparison">
+      <div class="comparison-box cloud">
+        <h4>☁️ Nuage</h4>
+        <p><strong>Qu'est-ce que c'est:</strong>Vous envoyez des données aux serveurs d'une autre entreprise (OpenAI, Anthropic, Google).</p>
+        <p style="color: var(--success);">✅ Pas cher, rapide, aucun service informatique nécessaire</p>
+        <p style="color: var(--danger);">❌ Les données dépassent le périmètre de l’entreprise</p>
+      </div>
+      <div class="comparison-box onprem">
+        <h4>🏢 Sur site (propre serveur)</h4>
+        <p><strong>Qu'est-ce que c'est:</strong>Le modèle d'IA fonctionne sur un serveur au sein de l'entreprise ; les données ne quittent pas le bureau.</p>
+        <p style="color: var(--success);">✅ Contrôle total des données, confidentialité</p>
+        <p style="color: var(--danger);">❌ Plus cher, vous avez besoin d'un serveur et d'un administrateur</p>
+      </div>
+    </div>
+
+    <h3>Analogie pour les négociations</h3>
+    <div class="example">
+      <div class="example-label">💡 ANALOGIE</div>
+      <p><strong>Cloud = location de bureaux dans un centre d'affaires.</strong>C'est pratique, mais le concierge voit tous vos visiteurs et les voisins entendent à travers le mur.</p>
+      <p><strong>Sur site = votre maison.</strong>Vous êtes propriétaire, mais vous réparez vous-même la robinetterie et payez les réparations du toit.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ GENAI : juste milieu</h2>
+    
+    <p><strong>GENAi</strong>est une interface gratuite (comme ChatGPT) qui fonctionne avec les modèles de votre serveur. Les employés voient le chat habituel, mais les données restent au sein de l'entreprise.</p>
+
+    <div class="card card-success">
+      <h3>Quand choisir GENAI :</h3>
+      <ul class="checklist">
+        <li>Travailler avec des secrets commerciaux (prix, fournisseurs, contrats)</li>
+        <li>Données personnelles des employés ou des clients</li>
+        <li>États financiers avant publication</li>
+        <li>Plans et prévisions stratégiques</li>
+        <li>Obligation réglementaire de stocker les données dans le pays (RF, RPC, UE)</li>
+      </ul>
+    </div>
+
+    <h3>Matrice des risques</h3>
+    <div class="risk-matrix">
+      <div class="risk-item">
+        <div class="risk-high">🔴 ÉLEVÉ</div>
+        <p>Contrats, prix, M&A</p>
+      </div>
+      <div class="risk-item">
+        <div class="risk-medium">🟡 MOYEN</div>
+        <p>Rapports internes, RH</p>
+      </div>
+      <div class="risk-item">
+        <div class="risk-low">🟢 FAIBLE</div>
+        <p>Marketing, données publiques</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Comment attribuer une tâche à un développeur</h2>
+    
+    <div class="card card-success">
+      <strong>Modèle pour le directeur informatique :</strong>
+      <pre style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto;">"Nous devons déployer un LLM local pour le département [NOM].
+
+Exigences :
+- Nombre d'utilisateurs : [N] personnes
+- Documents : jusqu'à [N] pages à la fois
+- Confidentialité : CRITIQUE (secret commercial)
+- Langues : RU, EN
+- Budget matériel : [montant]
+- Durée : [N] jours
+
+S'il vous plaît suggérer :
+1. Option modèle (Qwen / Lama / Mistral)
+2. Configuration du serveur
+3. Coûts de licence
+4. Plan de sauvegarde
+5. Instructions pour les utilisateurs"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Les données ne quittent-elles pas le serveur de l'entreprise ? (vérifier les paramètres de sécurité (pare-feu))</li>
+      <li>Y a-t-il une sauvegarde ? (et si le serveur brûle)</li>
+      <li>Les utilisateurs peuvent-ils travailler sans un informaticien ? (l'interface est claire)</li>
+      <li>Vitesse de réponse< 10 secondes? (vérifier sous charge maximale)</li>
+      <li>Existe-t-il un processus de mise à jour du modèle ? (de nouvelles versions sont publiées chaque mois)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🧰 Outils</h2>
+    <div class="card">
+      <ul>
+        <li><strong>GENAi (openwebui.com)</strong>— interface gratuite, installée en 30 minutes</li>
+        <li><strong>Ollama (ollama.com)</strong>— lancement de modèles locaux (Llama, Mistral, Qwen)</li>
+        <li><strong>Qwen (Alibaba)</strong>— modèle open source pour un usage commercial</li>
+        <li><strong>vLLM</strong>— accélération du raisonnement pour le on-premise (nécessitera un développeur)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>ChatGPT peut-il être utilisé pour analyser les contrats fournisseurs ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Oui, ChatGPT est sécurisé pour toutes les données</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Non, c'est un secret commercial. Besoin sur site (GENAi + Qwen/Llama)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Oui, si vous supprimez l'historique après</div>
+      <div class="result" id="result1"></div>
+    </div>
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Qu’est-ce que GENAI ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Chatbot payant de Google</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Interface gratuite pour les modèles locaux. Les données ne sont pas mises en ligne</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Service cloud pour le stockage de données</div>
+      <div class="result" id="result2"></div>
+    </div>
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Quel budget est nécessaire pour un LLM sur site ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Serveur ~ 2 000-5 000 $ (ou GPU ~ 100-500 $/mois) + administrateur 20 % du temps</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Gratuit, juste un ordinateur portable</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Seulement 20 $/mois avec ChatGPT Plus</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p>Pour les données publiques - modèles cloud (ChatGPT, Claude). Pour les confidentiels - sur site (GENAi + Qwen/Llama). Il n’existe pas de solution universelle : choisissez par classe de données. Et ne téléchargez jamais de secrets commerciaux sur des chatbots publics.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../00-choose-model/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../00-pricing/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+</body>
+</html>

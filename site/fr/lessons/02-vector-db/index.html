@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>2.2 Bases de données vectorielles - IA pour les non-informaticiens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .compare-box { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  .compare-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .compare-box { grid-template-columns: 1fr; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">📄 NIVEAU 2 · DONNÉES ET DOCUMENTS</div>
+    <h1>2.2 · Bases de données vectorielles : comment l'IA « comprend » le sens</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <!-- POURQUOI C'EST IMPORTANT -->
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>Une recherche régulière recherche<strong>mots exacts</strong>. Si vous recherchez « pénalité », mais que le contrat indique « amende pour retard de paiement », une recherche régulière ne la trouvera pas.</p>
+    <div class="card card-success">
+      <p><strong>Recherche de vecteurs</strong>recherches par<strong>signification</strong>. Il comprend que « forfait », « amende », « pénalité » sont à peu près la même chose.</p>
+      <p><strong>Exemple:</strong>Un employé demande « Comment punir un fournisseur pour son retard ? » — La recherche vectorielle trouvera une section sur les sanctions, même si le document ne contient pas les mots « punir » ou « en retard ».</p>
+    </div>
+  </div>
+
+  <!-- CE QUE NOUS ÉTUDIONS -->
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>Recherche régulière vs recherche vectorielle</h3>
+    <div class="compare-box">
+      <div class="compare-item">
+        <h4 style="color: var(--danger); margin: 0 0 10px;">❌ Recherche régulière</h4>
+        <ul style="font-size: 0.9rem; color: var(--muted);">
+          <li>Recherche des mots exacts</li>
+          <li>"Forfait" ≠ "amende"</li>
+          <li>Les synonymes de Sauter</li>
+          <li>Ne comprend pas le contexte</li>
+          <li>Nécessite une formulation précise</li>
+        </ul>
+      </div>
+      <div class="compare-item">
+        <h4 style="color: var(--success); margin: 0 0 10px;">✅ Recherche de vecteurs</h4>
+        <ul style="font-size: 0.9rem; color: var(--muted);">
+          <li>Recherches de sens</li>
+          <li>"Forfait" = "amende" = "pénalité"</li>
+          <li>Trouve des synonymes</li>
+          <li>Comprend le contexte</li>
+          <li>Fonctionne avec le langage naturel</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Comment ça marche (sans mathématiques)</h3>
+    <div class="card card-accent">
+      <p><strong>Analogie:</strong>Imaginez que chaque mot est un point dans l'espace.</p>
+      <ul>
+        <li>« Roi » et « reine » sont des points proches (parents)</li>
+        <li>"King" et "car" sont des points éloignés (pas de connexion)</li>
+        <li>« Forfait » et « amende » sont des points proches (synonymes)</li>
+      </ul>
+      <p>L'IA transforme votre question en un point et recherche les fragments de document les plus proches.</p>
+    </div>
+
+    <h3>Exemple tiré de la vie</h3>
+    <div class="example">
+      <div class="example-label">💡 Exemple de question</div>
+      <pre>« Que faire si le fournisseur est en retard ?</pre>
+    </div>
+    <div class="card">
+      <p><strong>Recherche générale :</strong>Je ne trouverai rien (il n'y a pas de mot « en retard » dans le contrat)</p>
+      <p><strong>Recherche de vecteur :</strong>Retrouvez les rubriques « pénalité », « retard de livraison », « pénalités »</p>
+    </div>
+  </div>
+
+  <!-- COMMENT APPLIQUER -->
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Où est-il utilisé en entreprise ?</h3>
+    <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Scénario</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Comment ça marche</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Recherche par contrats</td><td style="padding:10px;border-bottom:1px solid var(--border);">Trouve les dispositions pertinentes même avec une formulation différente</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Assistance client</td><td style="padding:10px;border-bottom:1px solid var(--border);">Comprend les questions formulées différemment</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Base de connaissances</td><td style="padding:10px;border-bottom:1px solid var(--border);">L'employé trouve la réponse sans connaître la terminologie exacte</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Analyse des offres</td><td style="padding:10px;border-bottom:1px solid var(--border);">Regroupe les exigences similaires de différents documents</td></tr>
+    </table>
+
+    <h3>Sélection d'une base vectorielle</h3>
+    <div class="card">
+      <table style="width:100%; border-collapse: collapse;">
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Base</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Pour quoi</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Complexité</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Pinecone</td><td style="padding:10px;border-bottom:1px solid var(--border);">Solution cloud, facile à mettre à l'échelle</td><td style="padding:10px;border-bottom:1px solid var(--border);">Moyenne</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Chroma</td><td style="padding:10px;border-bottom:1px solid var(--border);">Solution locale, mise en œuvre rapide</td><td style="padding:10px;border-bottom:1px solid var(--border);">Faible</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Weaviate</td><td style="padding:10px;border-bottom:1px solid var(--border);">Paramètres flexibles, filtrage</td><td style="padding:10px;border-bottom:1px solid var(--border);">Moyenne</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Qdrant</td><td style="padding:10px;border-bottom:1px solid var(--border);">Hautes performances</td><td style="padding:10px;border-bottom:1px solid var(--border);">Moyenne</td></tr>
+      </table>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*Le choix d'une base est la tâche du développeur. Il suffit au manager de comprendre pourquoi cela est nécessaire.</p>
+    </div>
+  </div>
+
+  <!-- COMMENT DÉLÉGUER -->
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>"Nous avons besoin d'une recherche de documents en entreprise avec une base de données vectorielles.
+
+Exigences :
+1. Recherche par signification (pas seulement des correspondances exactes)
+2. Prise en charge des langues russe et anglaise
+3. Evolutivité : de 1 000 à 100 000 documents
+4. Intégration avec [système existant]
+5. Temps de réponse< 2 secondes
+
+Exemple de demande : [donner]
+Résultat attendu : [donner]
+
+Balle préféréebase de données : [Pinecone/Chroma/Weaviate — ou laisser le choix au développeur]
+Délai : [date]"</pre>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>La recherche trouve-t-elle des synonymes ? (« pénalité » = « amende »)</li>
+      <li>La recherche comprend-elle le contexte ? (les questions avec des mots différents donnent les mêmes résultats)</li>
+      <li>Le délai de réponse est-il acceptable ? (< 3 secondes)</li>
+      <li>Les résultats sont-ils pertinents ? (les 3 premières réponses sont utiles)</li>
+      <li>Le système évolue-t-il à mesure que les documents se développent ?</li>
+      <li>Est-il possible de filtrer par date/type de document ?</li>
+    </ul>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>En quoi la recherche vectorielle est-elle différente de la recherche classique ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Il est plus rapide</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Il recherche par sens, pas par mots exacts</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) C'est moins cher</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Un exemple de synonymes qu'une recherche vectorielle reliera :</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) « Forfait » et « amende »</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) "Roi" et "voiture"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) « Contrat » et « cookies »</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Qui choisit une base vectorielle spécifique ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Gestionnaire</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Développeur</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Directeur</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- L'ESSENTIEL -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>Recherche de vecteurs</strong>permet à l’IA de comprendre le sens plutôt que de rechercher des mots exacts. Ceci est essentiel pour travailler avec des documents : les employés posent des questions avec leurs propres mots et l'IA trouve les bonnes réponses. Le gestionnaire n'a pas besoin de sélectionner une base - c'est la tâche du développeur. Besoin de comprendre<strong>Pour quoi</strong>c'est nécessaire et<strong>comment vérifier le résultat</strong>.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../02-rag-explained/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../02-long-docs/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

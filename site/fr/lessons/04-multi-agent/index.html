@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>4.2 Multi-agents et Agent Swarm - IA pour les non-spécialistes en informatique</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  .team-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .team-card h4 { margin: 0 0 8px; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .team-grid { grid-template-columns: 1fr; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🤖 NIVEAU 4 · AGENTS ET ORCHESTRATION</div>
+    <h1>4.2 Multiagents et Agent Swarm : une équipe d'employés de l'IA</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <!-- POURQUOI C'EST IMPORTANT -->
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>Les tâches complexes nécessitent<strong>différentes compétences</strong>. Un agent ne peut pas être à la fois avocat, analyste et acheteur.</p>
+    <div class="card card-success">
+      <p><strong>Système multi-agents</strong>est une équipe d'agents IA, chacun avec son propre rôle, qui travaillent ensemble sur une tâche commune.</p>
+      <p><strong>Exemple:</strong>La préparation d'un appel d'offre nécessite : une étude de marché (analyste) + une vérification des contrats (avocat) + des calculs budgétaires (financier). Au lieu d’un agent « universel », il existe trois agents spécialisés.</p>
+    </div>
+  </div>
+
+  <!-- CE QUE NOUS ÉTUDIONS -->
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>Comment fonctionne une équipe d’agents ?</h3>
+    <div class="card card-accent">
+      <ol>
+        <li><strong>Distribution:</strong>La tâche est divisée en sous-tâches</li>
+        <li><strong>Spécialisation:</strong>Chaque agent fait son propre truc</li>
+        <li><strong>Coordination:</strong>Les agents partagent les résultats</li>
+        <li><strong>Assemblée:</strong>Les résultats sont combinés dans le produit final</li>
+      </ol>
+    </div>
+
+    <h3>Exemple : commande d'appel d'offres</h3>
+    <div class="team-grid">
+      <div class="team-card">
+        <h4 style="color: var(--accent);">🔍 Agent de recherche</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">Recherche des fournisseurs, collecte des propositions, compare les prix</p>
+      </div>
+      <div class="team-card">
+        <h4 style="color: var(--accent2);">⚖️ Agent-avocat</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">Vérifie les contrats, trouve les risques, prépare les commentaires</p>
+      </div>
+      <div class="team-card">
+        <h4 style="color: var(--success);">💰 Agent-financier</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">Calcule le budget, le retour sur investissement, évalue les risques</p>
+      </div>
+      <div class="team-card">
+        <h4 style="color: var(--warning);">📋 Agent coordonnateur</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">Recueille les résultats, prépare le rapport final</p>
+      </div>
+    </div>
+
+    <h3>Comparaison : agent unique vs équipe</h3>
+    <table>
+      <tr><th>Un agent</th><th>Équipe d'agents</th></tr>
+      <tr><td>Universel (mais superficiel)</td><td>Spécialistes (analyse approfondie)</td></tr>
+      <tr><td>Un contexte</td><td>Différents contextes</td></tr>
+      <tr><td>Plus facile à mettre en place</td><td>Plus difficile à mettre en place</td></tr>
+      <tr><td>Moins cher (1 API)</td><td>Plus cher (plusieurs API)</td></tr>
+      <tr><td>Erreur = échec de tout</td><td>Un agent est remplacé</td></tr>
+    </table>
+
+    <h3>Mode Essaim d'agents</h3>
+    <div class="card card-accent">
+      <p><strong>Agent Swarm</strong>- c'est à ce moment-là que les agents travaillent<strong>parallèle</strong>, et non le long de la chaîne. L'orchestrateur (agent principal) divise la tâche en éléments indépendants, les exécute simultanément, puis collecte les résultats.</p>
+      <p><strong>Analogie du modèle :</strong></p>
+      <ul>
+        <li>Un agent = un travailleur fait tout de manière séquentielle : recherche → rédaction → édition → mise en forme</li>
+        <li>Swarm = manager embauché une agence : chercheur, analyste, rédacteur, éditeur, spécialiste QA travaillent simultanément</li>
+      </ul>
+    </div>
+
+    <h3>Quand Swarm aide</h3>
+    <div class="card card-success">
+      <ul>
+        <li>✅ De nombreuses sous-tâches indépendantes (recherche 100 fournisseurs → 10 agents de 10 chacun)</li>
+        <li>✅ Différentes spécialisations sont nécessaires (SEO + copywriting + vérification technique)</li>
+        <li>✅ Vous avez besoin de rapidité sans perte de qualité (le parallèle est plus rapide que le séquentiel)</li>
+        <li>✅ Package de résultats (rapport + tableau + checklist + présentation)</li>
+      </ul>
+    </div>
+
+    <h3>Quand Swarm n’est-il PAS nécessaire ?</h3>
+    <div class="card card-warning">
+      <ul>
+        <li>❌ Petite tâche : « Réécrire ce paragraphe »</li>
+        <li>❌ Travail séquentiel : chaque étape dépend de la précédente (bug debugging)</li>
+        <li>❌ Il n'y a pas de définition claire de « terminé » : l'essaim produira beaucoup de texte, mais pas ce dont vous avez besoin.</li>
+      </ul>
+    </div>
+
+    <h3>Butchi : comment ne pas se noyer sous les textes</h3>
+    <p>Erreur : exécutez tous les agents en même temps et obtenez 50 pages de texte non structuré.</p>
+    <div class="example">
+      <div class="example-label">Pipeline correct (lots)</div>
+      <pre>Lot A : carte de cluster (quelles pages sont connectées, comment)
+Partie B : contours de toutes les pages (vérification des intersections)
+Lot C : Brouillons (générés séquentiellement, selon un modèle)
+Partie D : Édition et polissage (un seul ton, suppression des répétitions)
+Lot E : AQ et assemblage final (liens, faits, formatage)</pre>
+    </div>
+  </div>
+
+  <!-- COMMENT APPLIQUER -->
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Scénario : préparer un rapport annuel</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Répartition des tâches</div>
+        <pre>Agent-analyste : collecte des données, construit des graphiques
+Agent-financier : Calcule des métriques, des prévisions
+Agent-avocat : Vérifie la conformité
+Agent rédacteur : rédige le texte du rapport
+Agent coordonnateur : rassemble le tout</pre>
+      </div>
+      <p><strong>Économie:</strong>5 jours de travail → 1 jour</p>
+    </div>
+
+    <h3>Scénario : pipeline de contenu (Swarm)</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Swarm Brief - modèle de spécifications techniques pour orchestrateur</div>
+        <pre>Objectif : Publier un cluster de 6 pages sur les outils d'IA
+Public : débutants + utilisateurs avancés
+Tonalité : conviviale, claire, pas robotique
+Structure : méta-titre, méta-description, H1, hook,
+  4-6 sections H2, tableau comparatif, 20-30 FAQ,
+  Bloc CTA avec 2 boutons
+Règles : paragraphes courts, pas de répétitions, pas d'"eau"
+Liens internes : /tools/, /pricing/, /api/
+Format de sortie : blocs HTML prêts à l'emploi</pre>
+      </div>
+      <p>L'orchestrateur reçoit ce brief et répartit le travail entre les agents.</p>
+    </div>
+  </div>
+
+  <!-- COMMENT DÉLÉGUER -->
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche (équipe classique)</h3>
+      <pre>« Nous avons besoin d'un système multi-agents pour [la tâche].
+
+Équipe d'agents :
+1. [Rôle 1] - [tâche]
+2. [Rôle 2] - [tâche]
+3. [Rôle 3] - [tâche]
+4. Coordinateur - collecte des résultats
+
+Processus : [décrire comment les agents interagissent]
+Intégrations : [avec quels systèmes travailler]
+Format du résultat : [ce qui est attendu dans la sortie]
+Date limite : [date]"</pre>
+    </div>
+    <div class="card card-success">
+      <h3>Modèle de tâche (mode Swarm)</h3>
+      <pre>"Besoin de l'agent Swarm pour [une grande tâche].
+
+Brief sur l'essaim :
+- Objectif : [quoi obtenir]
+- Public : [pour qui]
+- Ton : [comment écrire]
+- Structure : [exigences de format]
+- Règles : [ce qui n'est pas autorisé]
+- Package de résultats : [liste des artefacts]
+
+Pipeline : [lots A → B → C → D → E]
+
+Contrôle qualité : [liste de contrôle]
+
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <h3>Équipe classique</h3>
+    <ul class="checklist">
+      <li>Chaque agent a-t-il un rôle différent à jouer ?</li>
+      <li>Les agents échangent-ils correctement des données ?</li>
+      <li>Le coordinateur collecte-t-il le résultat complet ?</li>
+      <li>Y a-t-il une duplication du travail entre les agents ?</li>
+      <li>Si un agent « tombe », le système continue-t-il à fonctionner ?</li>
+      <li>Le résultat a-t-il été vérifié pour les contradictions ?</li>
+    </ul>
+    <h3>Agent Swarm</h3>
+    <ul class="checklist">
+      <li>Le Swarm Brief était-il clair et complet ?</li>
+      <li>Est-ce que chaque agent a eu sa part, pas tout ?</li>
+      <li>Les résultats sont-ils cohérents les uns avec les autres ?</li>
+      <li>La terminologie est-elle la même pour tous les artefacts ?</li>
+      <li>Des faits et des chiffres vérifiés (pas des hallucinations) ?</li>
+      <li>Le montage final est-il passé par un passage « humain » ?</li>
+      <li>Tous les liens et tableaux sont-ils à jour ?</li>
+    </ul>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Pourquoi avez-vous besoin d’une équipe d’agents au lieu d’un seul ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Pour une spécialisation approfondie par rôle</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Pour le rendre plus cher</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Un agent, c'est toujours mieux</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Quel agent collecte les résultats ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Analyste</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Coordinateur</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Avocat</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Quand l’Agent Swarm n’est-il PAS nécessaire ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Pour une tâche simple : réécrire un paragraphe</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Etudier 100 fournisseurs</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Pour le package : rapport + tableau + checklist</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- L'ESSENTIEL -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>Multi-agent = équipe de spécialistes.</strong>Chaque agent est un expert dans son domaine. Le coordinateur collecte les résultats. Cela donne une profondeur et une fiabilité qu’un seul agent universel ne possède pas.</p>
+      <p><strong>Agent Swarm</strong>- c'est alors que les agents travaillent en parallèle, comme une agence. À utiliser pour les grandes tâches avec des pièces indépendantes. Ne pas utiliser pour des tâches petites ou séquentielles. N'oubliez pas le Swarm Brief et les lots.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../04-what-is-agent/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../04-human-loop/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

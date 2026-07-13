@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>1.5 Pratique - IA pour les non-informaticiens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .task-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 14px 0; }
+  .task-box h4 { margin: 0 0 10px; color: var(--accent); }
+  .timer { display: inline-block; padding: 4px 12px; background: rgba(245,158,11,0.1); border: 1px solid var(--warning); border-radius: 4px; color: var(--warning); font-size: 0.85rem; margin: 8px 0; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🛠️ NIVEAU 1 · MAÎTRISE DES OUTILS</div>
+    <h1>1.5 Pratique : automatisez votre première tâche</h1>
+    <div class="meta">🎯 Pratique · ✅ Pas de code</div>
+  </div>
+
+  <!-- POURQUOI C'EST IMPORTANT -->
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>La théorie sans la pratique ne sert à rien.<strong>Choisissez un vrai problème</strong>de votre travail et automatisez-le en 1 heure.</p>
+    <div class="card card-success">
+      <p><strong>Cible:</strong>Après cette leçon, vous aurez<strong>invite de travail</strong>pour une vraie tâche qui permet de gagner 2 à 3 heures par semaine.</p>
+    </div>
+  </div>
+
+  <!-- CHOIX DE LA TÂCHE -->
+  <div class="section">
+    <h2>📚 Étape 1 : Sélectionnez une tâche</h2>
+    
+    <h3>Tâche idéale pour l'automatisation</h3>
+    <div class="card">
+      <ul>
+        <li>✅ Répété<strong>> 3 fois par semaine</strong></li>
+        <li>✅ Occupe<strong>> 20 minutes</strong>à chaque fois</li>
+        <li>✅ Oui<strong>algorithme clair</strong>(vous pouvez décrire les étapes)</li>
+        <li>✅ <strong>Ne nécessite pas de décisions critiques</strong>(on peut se tromper en toute sécurité)</li>
+      </ul>
+    </div>
+
+    <h3>Exemples de tâches par rôle</h3>
+    <div class="task-box">
+      <h4>🛒 Acheteur</h4>
+      <p>"Comparez 3 offres commerciales et faites une recommandation"</p>
+      <p>"Vérifiez les risques du contrat avant de le signer"</p>
+      <p>"Créer un rapport d'achat hebdomadaire à partir de CSV"</p>
+    </div>
+    <div class="task-box">
+      <h4>📊 Analyste</h4>
+      <p>"Analyser les ventes mensuelles et trouver les anomalies"</p>
+      <p>"Faire une prévision pour le prochain trimestre en fonction des tendances"</p>
+    </div>
+    <div class="task-box">
+      <h4>⚖️ Avocat</h4>
+      <p>"Vérifiez 5 contrats pour les risques typiques"</p>
+      <p>"Comparez le nouvel accord avec le modèle d'entreprise"</p>
+    </div>
+    <div class="task-box">
+      <h4>📦 Logisticien</h4>
+      <p>"Optimisez votre itinéraire de livraison à 10 points"</p>
+      <p>"Calculez les frais d'expédition en utilisant différentes méthodes"</p>
+    </div>
+  </div>
+
+  <!-- ALGORITHME -->
+  <div class="section">
+    <h2>🛠️ Étape 2 : Algorithme d'automatisation</h2>
+    
+    <div class="card card-accent">
+      <h3>Étape 1 : Décrivez la tâche</h3>
+      <p>Que faites-vous, pourquoi, à quelle fréquence, combien de temps cela prend-il.</p>
+      <div class="example">
+        <div class="example-label">Exemple</div>
+        <pre>Tâche : Comparaison des CP des fournisseurs
+Fréquence : 5 fois par semaine
+Durée : 1h30 à chaque fois
+Problème : Des détails importants sont longs et faciles à manquer</pre>
+      </div>
+    </div>
+
+    <div class="card card-accent">
+      <h3>Étape 2 : Écrivez une invite (RCOF)</h3>
+      <p>Rôle, contexte, objectif, format.</p>
+      <div class="example">
+        <div class="example-label">Exemple</div>
+        <pre>Vous êtes un acheteur FMCG expérimenté.
+Sélection d'un fournisseur d'emballages en carton pour cookies.
+Reçu 3 offres.
+
+Tâche : comparer les offres selon des critères et recommander la meilleure.
+
+Critères :
+1. Prix unitaire (frais de port compris)
+2. Commande minimale
+3. Délai de production
+4. Conditions de paiement
+
+Format : tableau + recommandation avec justification.
+Limitation : délai > 14 jours = risque.</pre>
+      </div>
+    </div>
+
+    <div class="card card-accent">
+      <h3>Étape 3 : Testez avec 3 exemples</h3>
+      <p>Prenez 3 exemples réels et vérifiez si l'invite fonctionne.</p>
+      <div class="example">
+        <div class="example-label">Que vérifier</div>
+        <ul>
+          <li>Le résultat correspond-il à la demande ?</li>
+          <li>Le format est-il pratique ?</li>
+          <li>Aucune erreur/hallucination ?</li>
+          <li>Le temps a-t-il été raccourci ?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card card-accent">
+      <h3>Étape 4 : Enregistrez le processus</h3>
+      <p>Créez un modèle dans Notion/Word/Excel.</p>
+      <div class="example">
+        <div class="example-label">Structure du modèle</div>
+        <pre>Nom de la tâche : [que faites-vous]
+Fréquence : [combien de fois]
+Temps jusqu'à : [X minutes]
+Temps après : [Y minutes]
+
+INVITE :
+[insérer l'invite]
+
+EXEMPLES DE DONNÉES D'ENTRÉE :
+[insérer un exemple]
+
+EXEMPLE DE RÉSULTAT :
+[insérer le résultat]
+
+VÉRIFIÉ : [date]
+FONCTIONNE : Oui / Non (que réparer)</pre>
+      </div>
+    </div>
+
+    <div class="card card-accent">
+      <h3>Étape 5 : Partager avec des collègues</h3>
+      <p>Montrez comment vous gagnez du temps. Cela motive les autres.</p>
+      <div class="example">
+        <div class="example-label">Comment partager</div>
+        <ul>
+          <li>Envoyer un modèle d'invite au chat d'entreprise</li>
+          <li>Afficher lors d'une réunion : « J'ai réduit le temps de X heures. »</li>
+          <li>Créez une base de connaissances avec des modèles pour votre équipe</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Quelle tâche convient à l’automatisation de l’IA ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Une tâche ponctuelle que nous effectuons une fois par an</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Se répète >3 fois par semaine, prend >20 minutes, il existe un algorithme clair</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Tâche créative sans critères clairs</div>
+      <div class="result" id="result1"></div>
+    </div>
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Qu’est-ce que RCOF dans une invite ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Nom du modèle</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Rôle, Contexte, Objectif, Format - structure de l'invite</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Taille du fichier en octets</div>
+      <div class="result" id="result2"></div>
+    </div>
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Combien d’exemples sont nécessaires pour tester une invite ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Au moins 3 exemples réels</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 1 exemple suffit</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Pas besoin de vérifier, l'IA a toujours raison</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- EXERCICE PRATIQUE -->
+  <div class="section">
+    <h2>📝 Tâche pratique</h2>
+    <div class="card card-warning">
+      <h3>Défi : Automatiser une tâche en 60 minutes</h3>
+      <div class="timer"></div>
+      <ol>
+        <li><strong>Minutes 0 à 10 :</strong>Sélectionnez une tâche dans la liste ci-dessus (ou la vôtre)</li>
+        <li><strong>Minutes 10-25 :</strong>Écrivez une invite en utilisant la formule RCOF</li>
+        <li><strong>Minutes 25-40 :</strong>Vérifiez avec 3 exemples réels</li>
+        <li><strong>40-50 minutes :</strong>Améliorez l'invite (qu'est-ce qui ne fonctionne pas ?)</li>
+        <li><strong>50-60 minutes :</strong>Enregistrez le modèle et enregistrez</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h4>Critères d'acceptation</h4>
+      <ul class="checklist">
+        <li>L'invite contient RCOF</li>
+        <li>Testé sur 3 exemples</li>
+        <li>Le résultat est stable (ne change pas d'une requête à l'autre)</li>
+        <li>Gain de temps > 50%</li>
+        <li>Le modèle est enregistré et disponible pour réutilisation</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- L'ESSENTIEL -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p>La meilleure façon d'apprendre est<strong>faire</strong>. Sélectionnez une tâche, rédigez une invite, vérifiez-la avec 3 exemples, notez le processus. Gagner 2 à 3 heures par semaine est une réalité et non une théorie. Partagez le résultat avec vos collègues - cela accélérera la mise en œuvre de l'IA dans l'entreprise.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../01-documents/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../../catalog.html" class="nav-btn primary">Vers le catalogue →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+</body>
+</html>

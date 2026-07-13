@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>9.1 Examen des documents et du contrôle interne – IA pour les non-professionnels de l'informatique</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🔍 NIVEAU 9 · AUDIT, CONTRÔLE ET CONFORMITÉ</div>
+    <h1>9.1 · Revue des documents et contrôles internes</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>Les erreurs dans les documents coûtent des millions à l'entreprise : double paiement, contrepartie incorrecte, approbation manquée. La vérification manuelle de plus de 1 000 documents par mois est impossible.</p>
+    <div class="card card-success">
+      <p><strong>Contrôle de l'IA</strong>— rapprochement automatique des documents, recherche d'anomalies et vérification des processus à l'aide de listes de contrôle. Le gestionnaire reçoit un rapport avec les risques trouvés, plutôt que de fouiller dans les papiers.</p>
+      <p><strong>Exemple:</strong>AI a rapproché 500 factures par mois et a trouvé 12 écarts : 3 - détails incorrects, 7 - doublons, 2 - approbations manquées.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+
+    <h3>Trois niveaux de vérification de l'IA</h3>
+    <table>
+      <tr><th>Niveau</th><th>Que fait l'IA</th><th>Exemple</th></tr>
+      <tr><td>Réconciliation</td><td>Compare les documents avec les données du système</td><td>Compte vs 1C : montant, contrepartie, accord</td></tr>
+      <tr><td>Analyse</td><td>Recherche des modèles et des anomalies</td><td>Sommes rondes, doubles, dates de week-end</td></tr>
+      <tr><td>Vérification du processus</td><td>Contrôle de la liste de contrôle</td><td>Y a-t-il toutes les approbations, y a-t-il toutes les étapes ?</td></tr>
+    </table>
+
+    <h3>Ce que l'IA peut trouver</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Écarts :</strong>montant de la facture ≠ montant 1C, TIN/KPP incorrect</li>
+        <li><strong>Double:</strong>deux factures pour une même livraison, paiement répété</li>
+        <li><strong>Anomalies :</strong>montants ronds (100 000, 500 000), paiement le week-end, changement de coordonnées de la contrepartie</li>
+        <li><strong>Passes :</strong>manque d'approbation, étape manquée, acte non signé</li>
+        <li><strong>Délais :</strong>retard de paiement, contrat expiré, étape non clôturée</li>
+      </ul>
+    </div>
+
+    <h3>Vérification croisée entre les systèmes</h3>
+    <div class="example">
+      <div class="example-label">Exemple : rapprochement des flux</div>
+      <pre>1C (comptabilité) ←→ EDF (flux documentaire) ←→ Banque (relevé)
+       Montant 120 000 Montant 120 000 Radiation 120 000
+       Contrepartie LLC "A" Acte signé 10/07/2026
+       Accord n° 45
+
+Chèques IA : les montants correspondent-ils ? les dates correspondent-elles ? La contrepartie est-elle la même ?
+Sinon → gestionnaire d'alertes</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+
+    <h3>Scénario : rapprochement mensuel des documents primaires</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Invite pour l'IA</div>
+        <pre>Vérifiez les factures (fichier) avec les données de 1C (export).
+
+Vérifiez :
+- Montant de la facture = montant en 1C
+- Les contreparties correspondent (par TIN)
+- Le numéro de contrat est indiqué et existe
+- Date de facture dans le cadre du contrat
+- Pas de doublons (même numéro + même montant)
+
+Sortie :
+- Liste des divergences (ce qui ne correspondait pas)
+- Liste des prises
+- Liste des retards (paiement dû <aujourd'hui)</pre>
+      </div>
+      <p><strong>Résultat:</strong>Fichier Excel comportant trois onglets : Écarts, Doublons, En retard. Le responsable s'enregistre en 30 minutes au lieu de 2 jours.</p>
+    </div>
+
+    <h3>Scénario : vérifier un processus à l'aide d'une liste de contrôle</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Liste de contrôle d'achat</div>
+        <pre>☐ Demande de besoin (initiateur)
+☐ Approbation du budget (financier)
+☐ 3 offres commerciales (acheteur)
+☐ Protocole d'approbation (acheteur)
+☐ Contrat (avocat)
+☐ Signature du contrat (les deux parties)
+☐ Avance/paiement (comptabilité)
+☐ Certificat de travaux réalisés (responsable)</pre>
+      </div>
+      <p>AI vérifie le journal d'approbation et constate : « Marché n° 452 : étape ignorée - protocole d'approbation manquant. » Alerte à l'initiateur.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous avons besoin d’un contrôle automatique des documents.
+
+Données d'entrée :
+- Factures (PDF/Excel)
+- Téléchargement depuis 1C (Excel)
+- Relevé bancaire (Excel/API)
+
+Ce que nous vérifions :
+1. Rapprochement des montants, contreparties, contrats
+2. Rechercher des doublons
+3. Anomalies (sommes rondes, jours de congés, changements de détails)
+4. Retards de paiement et approbations
+
+Sortie :
+- Rapport Excel avec écarts
+- Alertes dans Telegram / email aux critiques
+- Tableau de bord avec métriques (combien ont été vérifiés, combien ont été trouvés)
+
+Intégration : 1C, banque (API), Telegram
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Les trois sources (1C, EDO, banque) sont-elles connectées ?</li>
+      <li>La réconciliation fonctionne-t-elle : montants, contreparties, contrats ?</li>
+      <li>Les doublons sont-ils trouvés correctement (pas de faux positifs) ?</li>
+      <li>Les anomalies sont-elles adaptées aux entreprises (toutes les sommes rondes ne sont pas suspectes) ?</li>
+      <li>Les alertes arrivent-elles à temps et aux bonnes personnes ?</li>
+      <li>Le rapport est-il clair sans explication (en soi) ?</li>
+      <li>Il y a une histoire : puis-je voir ce qui s'est passé le mois dernier ?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Que vérifie l’IA au niveau « réconciliation » ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Correspondance du document avec les données du système</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) L'humeur du comptable</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Couleur de la facture</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Quel modèle est suspect pour l’IA ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Montant 123 456,78</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Double : deux factures pour une livraison</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Paiement un jour ouvrable</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Quel document est nécessaire pour le recoupement ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Compte uniquement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Compte + 1C + relevé bancaire</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Uniquement le contrat</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>L'IA ne remplace pas un comptable, mais rend son travail plus précis.</strong>Rapprocher les documents, rechercher les doublons et les anomalies, vérifier les processus - tout cela est une routine que l'IA effectue en quelques minutes. Le responsable reçoit une liste de problèmes, plutôt que de fouiller dans des milliers de lignes.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../catalog.html" class="nav-btn">← Vers le catalogue</a>
+    <a href="../09-audit-procurement-sales/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

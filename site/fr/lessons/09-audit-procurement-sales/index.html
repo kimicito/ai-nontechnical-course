@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>9.2 Audit des achats et des ventes - IA pour les non-informaticiens</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🔍 NIVEAU 9 · AUDIT, CONTRÔLE ET CONFORMITÉ</div>
+    <h1>9.2 Audit des achats et des ventes</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>Les achats et les ventes sont des points de risque maximum : trop-payés, remises sans accord, fournisseurs fictifs, compensations déraisonnables. La vérification manuelle de chaque transaction est impossible en raison des volumes.</p>
+    <div class="card card-success">
+      <p><strong>Audit IA des achats et des ventes</strong>— analyse automatique de toutes les transactions pour le respect des politiques, recherche d'anomalies et identification des risques. Le manager reçoit une note de transaction : vert, jaune, rouge.</p>
+      <p><strong>Exemple:</strong>AI a analysé 200 achats pour le trimestre et identifié 8 transactions présentant des risques : 3 - vendeurs uniques sans justification, 2 - modifications des coordonnées du fournisseur, 3 - remises supérieures à la limite.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+
+    <h3>Achats : ce que vérifie l’IA</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Disponibilité de 3 points de contrôle :</strong>existe-t-il trois propositions commerciales, sont-elles conformes aux exigences juridiques/politiques ?</li>
+        <li><strong>Limites :</strong>si la limite d'achat a été dépassée, si la procédure a été correctement choisie (concurrence, enchères, fournisseur exclusif)</li>
+        <li><strong>Justification de Soleist :</strong>existe-t-il un mémorandum, répond-il aux critères (encadrement du concepteur, unicité technologique, urgence)</li>
+        <li><strong>Personnes liées :</strong>vérifier le lien de parenté avec les fournisseurs (fondateurs, adresses, numéros de téléphone)</li>
+        <li><strong>Historique du fournisseur :</strong>nouvelle contrepartie, changements fréquents de coordonnées, adresse de masse</li>
+      </ul>
+    </div>
+
+    <h3>Ventes : ce que l'IA vérifie</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Rapprochement de l'expédition et du paiement :</strong>expédié - payé, y a-t-il des retards ?</li>
+        <li><strong>Remises et compensations :</strong>dépassent-ils la limite, existe-t-il un accord qui a approuvé</li>
+        <li><strong>Retours :</strong>fréquence anormale des retours clients, raisons (défaut, changement d’avis, erreur du responsable)</li>
+        <li><strong>Recevable:</strong>retards de paiement, dynamique de la dette, clients dont la dette augmente</li>
+        <li><strong>Anomalies de prix :</strong>changements de prix brusques, réductions de week-end, conditions atypiques</li>
+      </ul>
+    </div>
+
+    <h3>Signaux de risque : rouge, jaune, vert</h3>
+    <table>
+      <tr><th>Signal</th><th>Approvisionnement</th><th>Ventes</th></tr>
+      <tr><td>🔴 Rouge</td><td>Fournisseur associé, faux CP, changement de coordonnées</td><td>Remboursement >30%, client en faillite, 50% de réduction sans approbation</td></tr>
+      <tr><td>🟡 Jaune</td><td>Fournisseur unique sans mémorandum, nouveau fournisseur, somme rondelette</td><td>Délai 15 jours, retours fréquents, prix inférieur au coût</td></tr>
+      <tr><td>🟢 Vert</td><td>3 CP, fournisseur vérifié, tout selon la procédure</td><td>Paiement à temps, remises typiques, client stable</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+
+    <h3>Scénario : Audit mensuel des achats</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Invite pour l'IA</div>
+        <pre>Analyser le registre mensuel des achats (fichier).
+
+Pour chaque transaction, vérifiez :
+1. Procédure : concours/enchère/enchérisseur unique – le montant correspond-il ?
+2. Unique : existe-t-il une justification (mémorandum) ?
+3. KP : y a-t-il 3 offres (sinon la seule) ?
+4. Fournisseur : éprouvé ou nouveau ? est-ce sur la liste noire ?
+5. Lien de parenté : les fondateurs/adresses sont-ils les mêmes que ceux des autres fournisseurs ?
+6. Montant : rond ? nettement différent du marché ?
+
+Sortie :
+- Top 10 des transactions risquées (avec justification)
+- Résumé : combien de rouge, jaune, vert
+- Recommandations : que vérifier manuellement</pre>
+      </div>
+      <p><strong>Résultat:</strong>Feuille de calcul Excel avec la note de chaque transaction. Le manager voit sur quoi concentrer l'attention de l'auditeur.</p>
+    </div>
+
+    <h3>Scénario : surveillance des ventes pour détecter les anomalies</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Invite pour l'IA</div>
+        <pre>Analyser le registre des ventes du trimestre.
+
+Pour chaque transaction, vérifiez :
+1. Remise : dépasse-t-elle la limite ? y a-t-il une approbation ?
+2. Retours : fréquence par client, motifs, montant
+3. Créances clients : conditions de paiement, arriérés, tendance
+4. Rémunération : justifiée ? convenu ?
+5. Prix : pas en dessous du coût ? anormalement bas ?
+
+Sortie :
+- Clients avec des retours anormaux
+- Gestionnaires avec des remises fréquentes au-dessus de la limite
+- Transactions avec un prix inférieur au coût
+- Recommandations sur les créances</pre>
+      </div>
+      <p><strong>Résultat:</strong>Le directeur commercial reçoit une liste de clients qui nécessitent une attention particulière et des offres qui doivent être renégociées.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous avons besoin d’un audit IA des achats et des ventes.
+
+Achats - nous vérifions :
+- 3 CP, procédure, limites
+- Justification du seul
+- Personnes liées (par fondateurs, adresses)
+- Historique des fournisseurs (nouveau, liste noire, changement de détails)
+- Anomalies de montant
+
+Ventes - vérifiez :
+- Rapprochement de l'expédition et du paiement
+- Remises et compensations (limites, agréments)
+- Retours (fréquence, motifs)
+- Comptes clients (en souffrance, tendances)
+- Anomalies de prix
+
+Sortie :
+- Tableau de bord avec notes des transactions (rouge/jaune/vert)
+- Rapport Excel avec les principaux risques
+- Alertes dans Telegram lorsque les signaux sont rouges
+
+Intégration : 1C, EDI, banque, Telegram
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Tous les métiers sont-ils notés (rouge/jaune/vert) ?</li>
+      <li>Le contrôle 3 CP fonctionne-t-il correctement ?</li>
+      <li>Y a-t-il des personnes liées (pas de faux positifs) ?</li>
+      <li>Les remises sont-elles par rapport aux limites approuvées ?</li>
+      <li>Les créances sont-elles mises à jour en temps réel ?</li>
+      <li>Les signaux rouges arrivent-ils instantanément (pas après une semaine) ?</li>
+      <li>Le rapport est-il compréhensible pour le directeur (pas seulement pour l'auditeur) ?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Quel est le signal rouge en matière d’achats ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Nouveau fournisseur sans historique</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Fournisseur associé à un faux CP</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 3 CP de différents fournisseurs</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Que teste l’IA dans les ventes ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Quantité commandée uniquement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Remises, retours, créances, prix</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Uniquement l'humeur des clients</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Pourquoi le mémorandum du propriétaire unique est-il important ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Ceci constitue la preuve de la légalité de la procédure</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) C'est une belle couverture</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Ce n’est pas grave, l’IA réglera le problème toute seule</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>L’IA transforme l’audit de « tout vérifier » à « vérifier le rouge ».</strong>Notation automatique des transactions, recherche de parties liées, vérification des limites - cela ne remplace pas l'auditeur, mais son outil. Le responsable passe du temps à prendre des décisions plutôt que de parcourir des milliers de lignes.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../09-doc-check/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../09-audit-construction-projects/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

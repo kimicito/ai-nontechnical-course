@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.4 IA pour l'accepteur de travail - IA pour les non-informaticiens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .risk-high { color: var(--danger); font-weight: 600; }
+  .risk-medium { color: var(--warning); font-weight: 600; }
+  .risk-low { color: var(--success); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🏗️ NIVEAU 8 · IA POUR LA CONSTRUCTION</div>
+    <h1>8.4 · Réception des travaux et contrôle qualité : respect du projet et des normes</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>La réception des travaux est une étape importante : il faut vérifier ce qui a été réalisé conformément au projet, aux normes et à la technologie.<strong>Erreur à l'acceptation = reprise, réclamations, amendes.</strong>L'IA aide à systématiser l'inspection, à comparer avec le projet, à trouver des écarts et à générer des actes.</p>
+    <div class="card card-danger">
+      <p><strong>Cas:</strong>Lors de la réception des travaux de bétonnage, AI a comparé le certificat d'achèvement des travaux avec le projet et a découvert : classe de béton B25 au lieu du modèle B30, l'épaisseur de la couche de protection est de 25 mm au lieu de 40 mm. Le vice a été découvert AVANT la signature de l'acte. Réclamation auprès de l'entrepreneur - 1,2 million de roubles pour les retouches.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>Ce que l'IA vérifie lors de l'acceptation</h3>
+    <div class="card card-accent">
+      <ul>
+        <li>📐 <strong>Conformité au projet :</strong>Dimensions, matériaux, classes, marques, épaisseurs</li>
+        <li>📋 <strong>Normes :</strong>SNiP, SP, GOST par type de travail (SP 70, SP 71, SP 126, etc.)</li>
+        <li>📊 <strong>Actes :</strong>Conformité du certificat d'achèvement des travaux avec les volumes réels</li>
+        <li>🔍 <strong>Défauts :</strong>Analyse des photos/vidéos de l'objet (fissures, irrégularités, omissions)</li>
+        <li>📄 <strong>Documents :</strong>Disponibilité des certificats, des programmes exécutifs, des protocoles de laboratoire</li>
+        <li>⚠️ <strong>Œuvres cachées :</strong>Vérification des rapports de travaux cachés (renforcement, étanchéité, isolation thermique)</li>
+      </ul>
+    </div>
+
+    <h3>Types de travaux et normes d'inspection</h3>
+    <div class="card">
+      <table>
+        <tr><th>Type de travail</th><th>Normes</th><th>Ce que nous vérifions</th></tr>
+        <tr><td>Travaux de terrassement</td><td>SP70.13330</td><td>Profondeur, pentes, compactage, drainage</td></tr>
+        <tr><td>Travaux de béton</td><td>SP70.13330, SP63.13330</td><td>Classe de béton, épaisseur, couche de protection, vibration</td></tr>
+        <tr><td>Travaux de maçonnerie</td><td>SP70.13330, SP15.13330</td><td>Marque de brique, épaisseur des joints, renfort</td></tr>
+        <tr><td>Installation de structures</td><td>SP70.13330, SP16.13330</td><td>Nuance d'acier, soudure, protection anti-corrosion</td></tr>
+        <tr><td>Travaux de finition</td><td>SP71.13330</td><td>Uniformité, adhérence, couleur, texture</td></tr>
+        <tr><td>Réseaux d'ingénierie</td><td>SP 73.13330, SP 124, SP 30, SP 31</td><td>Matériaux, pentes, étanchéité, essais</td></tr>
+        <tr><td>Électrique</td><td>PUE, PTEEP, GOST R 50571</td><td>Sections, mise à la terre, RCD, résistance d'isolement</td></tr>
+      </table>
+    </div>
+
+    <h3>Exemple de demande à AI</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Demande d'acceptation</div>
+        <pre>« Vérifier l'attestation d'achèvement des travaux n°45 (fichier joint).
+
+1. Vérifiez auprès du projet (dessins joints) :
+   - Cours concret : projet vs acte
+   - Epaisseur de la couche protectrice : projet vs acte
+   - Périmètre : projet vs acte
+   
+2. Vérifiez la conformité au SP 70 :
+   - Tolérances sur épaisseur, couche de protection
+   - Exigences en matière de vibrations
+   - Conditions de température et d'humidité
+   
+3. Vérifiez les documents :
+   - Certificat pour le béton (ci-joint)
+   - Protocole de laboratoire (ci-joint)
+   - Schéma exécutif (ci-joint)
+   
+4. Affichez le tableau : Paramètre | Projet | Agir | Tolérance | Statut | Risque
+   Statuts : ✅ Conforme / ⚠️ A la limite / ❌ Non conforme
+   Risques : 🔴 Critique / 🟡 Important / 🟢 Remarque"</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Scénario : réception des travaux de bétonnage</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Processus</div>
+        <pre>1. L'entrepreneur présente une attestation d'achèvement des travaux + un ensemble de documents
+2. Le récepteur télécharge sur AI : acte, projet, normes, certificats, photos
+3. Contrôles IA : conformité au projet, normes, documents, photos
+4. Reçoit un rapport avec un tableau : paramètre vs projet vs tolérance
+5. Vérifications 🔴 et 🟡 sur place (visuellement, instrumentalement)
+6. Signe l'acte ou émet des commentaires avec une réclamation
+7. L'IA génère un protocole de commentaires avec des liens vers des normes
+
+Résultat : temps de réception réduit de 4 heures à 1 heure, 
+la qualité du contrôle a augmenté (les paramètres cachés ne sont pas manqués)"</pre>
+      </div>
+    </div>
+
+    <h3>Vérification par photo et vidéo</h3>
+    <div class="card card-accent">
+      <p>L'IA avec vision par ordinateur (ou analyse de photos) peut :</p>
+      <ul>
+        <li>🖼️ Comparez la photo avec le projet (par exemple, placement du renfort)</li>
+        <li>🔍 Rechercher les défauts : fissures, irrégularités, vides, écarts</li>
+        <li>📏 Mesurer à partir de la photo (s'il y a une échelle/des repères) : écarts par rapport au projet</li>
+        <li>📊 Comparez avec les photos des étapes précédentes (dynamique des défauts)</li>
+      </ul>
+      <p><strong>Important:</strong>L'IA analyse les photos, mais ne remplace pas le contrôle instrumental. Vérifiez toujours les paramètres critiques à l’aide de méthodes manuelles.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous avons besoin d’un outil d’IA pour accepter les travaux de construction.
+
+Données d'entrée :
+- Certificat de fin de travaux (PDF, Excel, scan)
+- Projet (dessins, PDF, DWG via OCR)
+- Normes : SP, GOST (PDF, texte)
+- Documents : certificats, protocoles, schémas exécutifs (PDF)
+- Photo/vidéo de l'objet (JPG, MP4)
+
+Que devez-vous faire :
+1. Vérifier l'acte avec le projet (paramètres clés)
+2. Vérifier le respect des normes (SP, GOST)
+3. Vérifier l'ensemble des documents (disponibilité, délais)
+4. Analyser les photos pour détecter les défauts (fissures, écarts)
+5. Classer les risques : critique/important/remarque
+6. Générer un protocole de commentaires
+7. Former un certificat de réception (si tout est en ordre)
+
+Sortie :
+- Rapport PDF avec tableau de vérification
+- Protocole de commentaires (avec liens vers les normes)
+- Certificat d'acceptation (s'il n'y a pas de commentaires)
+- Reportage photo avec marquage des défauts
+
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Tous les paramètres ont-ils été vérifiés par rapport au projet ? (cochez 5 à 10 éléments clés)</li>
+      <li>Les normes sont-elles prises en compte ? (vérifier 2-3 SP/GOST)</li>
+      <li>Les documents ont-ils été vérifiés ? (certificats, protocoles, délais)</li>
+      <li>Les défauts sur la photo sont-ils réels ? (à vérifier sur place)</li>
+      <li>Le classement des risques est-il adéquat ? (🔴 = arrêter, 🟡 = retravailler)</li>
+      <li>Le protocole de commentaires contient-il des références à des normes ?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent" data-quiz="1">
+      <p><strong>Question 1 :</strong>Que vérifie l’IA lorsqu’elle accepte un travail ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Conformité au projet, normes, documents, défauts sur la photo</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Portée des travaux uniquement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Tarifs uniquement</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent" data-quiz="2">
+      <p><strong>Question 2 :</strong>L’IA peut-elle remplacer complètement le récepteur ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Non, l'IA analyse, mais le récepteur vérifie les paramètres critiques de l'installation</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Oui, complètement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Non, l'IA n'est pas nécessaire pour l'acceptation</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent" data-quiz="3">
+      <p><strong>Question 3 :</strong>Qu’est-ce que le « travail caché » ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Ouvrages ne pouvant être contrôlés sans destruction une fois terminés (renforcement, étanchéité)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Travaux que l'entrepreneur a caché à l'entrepreneur</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Travail effectué la nuit</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>AI - système de contrôle qualité.</strong>Il vérifie l'acte avec le projet, vérifie les normes, analyse les documents, constate des défauts sur la photo. Le destinataire reste responsable de la décision, mais l'IA lui donne une image complète : ce qui a été vérifié, ce qui est conforme, ce qui ne l'est pas - avec des références aux normes. Gains : 70% de temps lors de la réception, réduction des défauts manquants de 80%.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-scheduling/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../../catalog.html" class="nav-btn primary">Vers le catalogue →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>
