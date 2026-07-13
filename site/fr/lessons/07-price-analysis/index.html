@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.2 Comparaison des prix - IA pour les professionnels non informatiques</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🛒 NIVEAU 7 · IA POUR LES ACHATS</div>
+    <h1>7.2 · Comparaison des prix et analyses de marché : arguments en faveur d'un appel d'offres</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <!-- POURQUOI C'EST IMPORTANT -->
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>Les prix se présentent sous différents formats : tarifs PDF, tableaux Excel, lettres du CP, scans.<strong>L'IA rassemble tout dans une seule table</strong>, identifie les anomalies, construit des analyses de marché et fournit des arguments pour le trading.</p>
+    <div class="card card-success">
+      <p><strong>Exemple:</strong>L'acheteur a reçu 5 CP dans différents formats. En 2 minutes, AI les a compilés dans un tableau, a calculé le prix moyen du marché, a trouvé les articles trop chers et a préparé des arguments pour réduire le prix de 12 %.</p>
+    </div>
+  </div>
+
+  <!-- CE QUE NOUS ÉTUDIONS -->
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>Comment l'IA traite différents formats</h3>
+    <div class="card card-accent">
+      <table style="width:100%; border-collapse: collapse;">
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Format</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Ce que fait l'IA</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">PDF/numérisation</td><td style="padding:10px;border-bottom:1px solid var(--border);">OCR + extraction du tableau des prix</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Excel</td><td style="padding:10px;border-bottom:1px solid var(--border);">Analyse de structure, normalisation</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Courriel du CP</td><td style="padding:10px;border-bottom:1px solid var(--border);">Extraire les prix du texte</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Word</td><td style="padding:10px;border-bottom:1px solid var(--border);">Analyser des tables et des listes</td></tr>
+      </table>
+    </div>
+
+    <h3>Analyses construites par l'IA</h3>
+    <div class="card">
+      <ul>
+        <li>📊 <strong>Tableau récapitulatif :</strong>Fournisseur × Position × Prix × Conditions</li>
+        <li>📈 <strong>Gamme de marché :</strong>min / moyenne / max pour chaque position</li>
+        <li>🚩 <strong>Anomalies :</strong>prix supérieurs/inférieurs à ceux du marché de > 20 %</li>
+        <li>💰 <strong>Économies totales :</strong>lors du choix du fournisseur optimal</li>
+        <li>📉 <strong>Dynamique:</strong>comparaison avec les achats précédents</li>
+      </ul>
+    </div>
+
+    <h3>Arguments pour soumissionner</h3>
+    <div class="card card-success">
+      <div class="example">
+        <div class="example-label">Exemple d'analyse d'IA</div>
+        <pre>Position : "Câble VVG 3x2,5"
+Gamme de marché : 45-62 RUR/m
+Fournisseur A : 78 ₽/m (+26% au maximum)
+Fournisseur B : 52 ₽/m (en gamme)
+
+Argument pour enchérir avec A :
+"Votre prix pour le câble VVG 3x2,5 est supérieur au prix du marché 
+de 26%. La moyenne du marché est de 54 ₽/m. 
+Êtes-vous prêt à vous adapter à 55 ₽/m ?"</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMENT APPLIQUER -->
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Scénario : Créer un tableau de comparaison</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Processus</div>
+        <pre>1. Nous rassemblons tous les CP dans un dossier (PDF, Excel, email)
+2. Téléchargez sur AI avec la demande :
+   « Faites un tableau comparatif des prix.
+   Pour chaque position : min, max, moyenne.
+   Mettre en évidence les anomalies > 20 %.
+3. L'IA génère le tableau
+4. Nous vérifions manuellement les positions clés
+5. Utiliser pour les négociations</pre>
+      </div>
+    </div>
+
+    <h3>Négociations basées sur l'analyse</h3>
+    <div class="card card-accent">
+      <p><strong>Formule:</strong></p>
+      <pre>1. Nommez le prix du marché (moyen)
+2. Précisez la différence (%) spécifique
+3. Proposez un prix cible spécifique
+4. Justifier par le volume ou sur le long terme</pre>
+    </div>
+  </div>
+
+  <!-- COMMENT DÉLÉGUER -->
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous avons besoin d’un outil d’IA pour comparer les prix.
+
+Données d'entrée :
+- Fichiers KP : PDF, Excel, Word, email
+- Historique des achats (pour la dynamique)
+
+Que devez-vous faire :
+1. Extrayez les prix de n'importe quel format
+2. Normaliser les noms (comparer différents noms)
+3. Construisez un tableau comparatif
+4. Calculer la fourchette de marché
+5. Détecter les anomalies
+6. Générez des arguments pour les enchères
+
+Sortie :
+- Fichier Excel avec tableau
+- Rapport PDF avec analyses
+- Graphiques de dynamique
+
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Tous les points de contrôle ont-ils été traités ? (vérifier 100 % de couverture)</li>
+      <li>Les noms sont-ils normalisés ? (mêmes produits sous le même nom)</li>
+      <li>Les prix sont-ils corrects ? (cochez 3 à 5 positions)</li>
+      <li>Les anomalies sont-elles vraiment anormales ?</li>
+      <li>Les arguments en faveur des enchères sont-ils spécifiques (avec des chiffres) ?</li>
+      <li>Une histoire à comparer ? (si vous avez besoin de dynamique)</li>
+    </ul>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Quels formats l’IA peut-elle gérer ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>PDF, Excel, Word, email</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Excel uniquement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C> Uniquement les analyses</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Qu’est-ce qu’une « anomalie » dans l’analyse des prix ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Le prix est très différent du marché</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Prix le plus bas</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Prix moyen</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Comment utiliser l’analytique dans les négociations ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A> Nommer les numéros spécifiques et la gamme de marché</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Demander une réduction « à l’amiable »</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Menacer de changement de fournisseur</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- L'ESSENTIEL -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>Les chiffres sont votre principal argument.</strong>L’IA transforme le chaos des différents points de contrôle en analyses structurées. Vous voyez la fourchette du marché, les anomalies, les économies. Les négociations cessent d’être « basées sur les ressentis » : elles deviennent basées sur des données. Économiser 10 à 15 % est un vrai résultat.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-supplier-search/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../07-contract-check/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

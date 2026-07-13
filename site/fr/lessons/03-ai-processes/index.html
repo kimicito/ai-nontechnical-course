@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>3.2 Intégration de l'IA - IA pour les non-spécialistes en informatique</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">⚡ NIVEAU 3 · AUTOMATISATION</div>
+    <h1>3.2 Intégration de l'IA dans les processus métiers</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <!-- POURQUOI C'EST IMPORTANT -->
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>L’IA isolée est un jouet.<strong>IA en cours</strong>est un outil qui fonctionne automatiquement sans nécessiter d'intervention.</p>
+    <div class="card card-success">
+      <p><strong>Exemple:</strong>Au lieu de copier les données d'un e-mail dans Excel, puis de les analyser manuellement, puis de rédiger un rapport, l'IA fait tout seule pendant que vous buvez votre café.</p>
+    </div>
+  </div>
+
+  <!-- CE QUE NOUS ÉTUDIONS -->
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>Où mettre en œuvre l'IA dans les processus</h3>
+    <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Processus</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Quoi automatiser</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Économie</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Traitement des demandes</td><td style="padding:10px;border-bottom:1px solid var(--border);">Classification, routage, réponses</td><td style="padding:10px;border-bottom:1px solid var(--border);">2-3 heures/jour</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Flux de documents</td><td style="padding:10px;border-bottom:1px solid var(--border);">Vérifier, comparer, archiver</td><td style="padding:10px;border-bottom:1px solid var(--border);">1-2 heures/jour</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Rapports</td><td style="padding:10px;border-bottom:1px solid var(--border);">Collecte de données, analyse, formatage</td><td style="padding:10px;border-bottom:1px solid var(--border);">3-4 heures/semaine</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Communications</td><td style="padding:10px;border-bottom:1px solid var(--border);">Projets de lettres, traductions, résumés</td><td style="padding:10px;border-bottom:1px solid var(--border);">1 heure/jour</td></tr>
+    </table>
+
+    <h3>Modèle de maturité de l’adoption de l’IA</h3>
+    <div class="card">
+      <p><strong>Niveau 1 - Remplacement :</strong>Une personne fait la même chose, mais avec l'aide de l'IA (chat, invites)</p>
+      <p><strong>Niveau 2 - Accélération :</strong>L'IA automatise une partie de la tâche (résumé, tableaux)</p>
+      <p><strong>Niveau 3 - Automatisation :</strong>L'IA fonctionne sans intervention humaine (n8n, Zapier)</p>
+      <p><strong>Niveau 4 - Reconstruction :</strong>Processus révisé pour tirer parti des capacités de l’IA</p>
+    </div>
+  </div>
+
+  <!-- COMMENT APPLIQUER -->
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Algorithme pour introduire l'IA dans le processus</h3>
+    <div class="card card-accent">
+      <ol>
+        <li><strong>Sélectionnez le processus :</strong>Se répète > 3 fois/semaine, dure > 30 minutes</li>
+        <li><strong>Décrivez le processus actuel :</strong>Qui, quoi, quand, combien de temps</li>
+        <li><strong>Retrouvez le point d'application de l'IA :</strong>Où est le plus fait main ?</li>
+        <li><strong>Créez un prototype :</strong>Une invite, une automatisation</li>
+        <li><strong>Mesurez le résultat :</strong>Combien de temps avez-vous gagné ?</li>
+        <li><strong>Échelle:</strong>Transfert vers des tâches similaires</li>
+      </ol>
+    </div>
+
+    <h3>Exemple : mise en œuvre au sein du service achats</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Avant la mise en œuvre</div>
+        <pre>1. Recevez 3 CP (email)
+2. Imprimez, comparez manuellement
+3. Rédiger une analyse (1h30)
+4. D'accord avec le manager
+5. Écrivez le résultat dans Excel</pre>
+      </div>
+      <div class="example">
+        <div class="example-label">Après la mise en œuvre</div>
+        <pre>1. Recevez 3 CP (email)
+2. L'IA compare automatiquement (2 min)
+3. Vérifiez le résultat (5 min)
+4. Envoyer pour approbation (1 min)
+5. Enregistrez automatiquement sur Excel</pre>
+      </div>
+      <p><strong>Économie:</strong>1h30 → 8 minutes</p>
+    </div>
+  </div>
+
+  <!-- COMMENT DÉLÉGUER -->
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous devons introduire l’IA dans le processus [nom].
+
+Processus actuel :
+[décrire étape par étape]
+
+Problèmes :
+- [combien de temps]
+- [ce qui est souvent une erreur]
+- [quelle routine]
+
+Résultat souhaité :
+[décrivez comment cela devrait fonctionner]
+
+Intégrations : [avec quels systèmes travailler]
+Utilisateurs : [N] personnes
+Volume : [N] opérations par jour/semaine
+
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Le processus est-il devenu plus rapide ? (nous avons mesuré le temps avant et après)</li>
+      <li>Y a-t-il moins d'erreurs ?</li>
+      <li>Les salariés sont-ils contents ? (interviewé)</li>
+      <li>Le résultat est-il stable ? (fonctionne pendant 2 semaines sans panne)</li>
+      <li>Existe-t-il des documents ? (comment l'utiliser, où aller)</li>
+      <li>Le processus peut-il être étendu à d’autres tâches ?</li>
+    </ul>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Quel est le niveau de maturité d’une automatisation complète sans intervention humaine ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Remplacement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Automatisation</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Accélération</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Par où commencer à mettre en œuvre l’IA ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Du choix d’un processus fréquent et long</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Dès l'achat de l'instrument le plus cher</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Avec formation de tous les employés</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Qu’est-ce qu’il est important de mesurer après la mise en œuvre ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Temps avant et après, nombre d'erreurs</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Uniquement le coût des licences</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Rien ne doit être mesuré</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- L'ESSENTIEL -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p>L'IA ne fonctionne efficacement que<strong>en cours</strong>. Pas seulement « utiliser l’IA », mais « intégrer l’IA dans le processus de traitement des demandes/de reporting/de flux de documents ». Commencez par un processus fréquent et long. Mesurez le résultat. Augmentez-le.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../03-nocode-automation/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../03-simple-agents/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

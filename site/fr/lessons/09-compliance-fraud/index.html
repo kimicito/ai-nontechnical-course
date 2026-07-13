@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>9.4 Rapports de conformité, de surveillance des fraudes et d'audit - IA pour les non-spécialistes en informatique</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🔍 NIVEAU 9 · AUDIT, CONTRÔLE ET CONFORMITÉ</div>
+    <h1>9.4 · Rapports de conformité, de surveillance de la fraude et d'audit</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>Les réglementations évoluent constamment et les inspections surviennent de manière inattendue. La fraude peut se manifester par des paiements suspects, des contreparties liées ou des stratagèmes circulaires. La préparation d'un audit prend des semaines et le rapport d'audit prend des mois.</p>
+    <div class="card card-success">
+      <p><strong>IA pour la conformité et la surveillance de la fraude</strong>— suivi automatique des modifications apportées aux lois, surveillance des transactions pour déceler les anomalies, préparation d'une base de preuves et génération de rapports d'audit en quelques heures et non en semaines.</p>
+      <p><strong>Exemple:</strong>AI vérifie quotidiennement 10 000 transactions et en a identifié 23 suspectes en un mois : 7 - paiements de sortie, 12 - changement de coordonnées de la contrepartie, 4 - schémas circulaires (vous payez A → A paie B → B vous paie).</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+
+    <h3>Suivi des évolutions de la réglementation</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Surveillance des lois :</strong>L'IA surveille les changements dans la législation fiscale, du travail, de la construction, GOST, SNiP, 44-FZ/223-FZ</li>
+        <li><strong>Vérification des politiques internes :</strong>Le règlement intérieur est-il conforme aux nouvelles exigences ? que faut-il mettre à jour ?</li>
+        <li><strong>Alertes :</strong>notification aux responsables lorsqu'un changement nécessite une action (nouveau rapport, nouveau seuil, nouvelle procédure)</li>
+      </ul>
+    </div>
+
+    <h3>Surveillance de la fraude : signaux de risque</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Week-ends et jours fériés :</strong>Les paiements le samedi/dimanche sont rares, mais cela arrive. Un ensemble de paiements de sortie est un signal.</li>
+        <li><strong>Modification des détails :</strong>la contrepartie a soudainement changé de banque, de NIF, d'adresse - nécessite une vérification.</li>
+        <li><strong>Motifs circulaires :</strong>A paie B, B paie C, C paie A - L'IA construit un graphique de connexions et trouve des cycles.</li>
+        <li><strong>Contreparties suspectes :</strong>nouveau (enregistré< 3 mois), adresses massives, fondateurs liés, statut «en cours de liquidation».</li>
+        <li><strong>Anomalies de montant :</strong>rond (500 000, 1 000 000), fractionnaire avec kopecks (123 456,78), un net écart par rapport à la moyenne.</li>
+      </ul>
+    </div>
+
+    <h3>Préparation des inspections et des rapports d'audit</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Collecte de preuves:</strong>à la demande de l'autorité de régulation, AI collecte : un registre des contrats, actes, paiements, correspondances - en un seul colis</li>
+        <li><strong>Des réponses structurantes :</strong>générer une réponse à une demande à l'aide d'un modèle, avec numérotation, liens vers des documents</li>
+        <li><strong>Générer un rapport d'audit :</strong>L'IA collecte un rapport de synthèse à partir des avis d'experts avec un classement des risques (élevé/moyen/faible) et des recommandations.</li>
+        <li><strong>Présentation au Conseil d'Administration :</strong>chiffres clés, tendances, 3 risques principaux, recommandations - sur 5 slides</li>
+      </ul>
+    </div>
+
+    <h3>Exemples de signaux de fraude</h3>
+    <table>
+      <tr><th>Signal</th><th>Qu'a trouvé l'IA ?</th><th>Action</th></tr>
+      <tr><td>🔴 Quitter les paiements</td><td>15 paiements le samedi par contrepartie</td><td>Vérifier, confirmer l'urgence, documenter</td></tr>
+      <tr><td>🔴Modification des détails</td><td>La contrepartie a changé de banque 3 jours avant le paiement de 2 millions</td><td>Vérifiez par téléphone, signez l'avenant</td></tr>
+      <tr><td>🔴Motif circulaire</td><td>A→B→C→A, s'élève à 1 million chacun, en 2 jours</td><td>Audit, contrôle de connectivité, documentation</td></tr>
+      <tr><td>🟡 Nouvelle contrepartie</td><td>LLC enregistrée il y a 2 semaines, adresse de masse</td><td>Vérification renforcée, paiement anticipé uniquement après la livraison</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+
+    <h3>Scénario : surveillance des transactions frauduleuses</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Invite pour l'IA</div>
+        <pre>Analyser le relevé bancaire (dossier) du mois.
+
+Pour chaque transaction, vérifiez :
+1. Date : week-end ou jour férié ? (si oui – drapeau)
+2. Entrepreneur : nouveau ? modifié vos coordonnées dans les 30 jours ? sur liste noire ?
+3. Montant : rond ? diffère fortement de la moyenne de cette contrepartie ?
+4. Graphique de relation : la transaction fait-elle partie d'un motif circulaire (A→B→C→A) ?
+5. Fréquence : plus de 5 paiements à une contrepartie par jour ?
+
+Sortie :
+- Liste des transactions suspectes (avec justification)
+- Top 5 des contreparties par risque
+- Résumé : combien de rouge, jaune, vert</pre>
+      </div>
+      <p><strong>Résultat:</strong>Le responsable du contrôle financier reçoit quotidiennement un rapport avec 23 opérations suspectes sur 10 000. Le temps de réponse est de quelques heures et non de plusieurs semaines.</p>
+    </div>
+
+    <h3>Scénario : préparer un contrôle fiscal</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Invite pour l'IA</div>
+        <pre>Une demande est venue du bureau des impôts : « Fournir des documents sur la contrepartie LLC Alfa pour 2025. »
+
+Récupérez le colis :
+1. Retrouvez tous les contrats avec Alpha LLC (fichier : contracts/)
+2. Retrouvez tous les actes des travaux réalisés (fichier : actes/)
+3. Retrouvez tous les paiements (fichier : relevé 2025.xlsx)
+4. Collectez la correspondance par e-mail avec le domaine alfa.ru (fichier : email/)
+5. Créer un registre : n°, date, type de document, montant, description
+6. Créez une lettre de motivation à l'aide d'un modèle
+
+Sortie :
+- Archive ZIP avec documents (numérotés)
+- Registre dans Excel
+- Lettre de motivation dans Word</pre>
+      </div>
+      <p><strong>Résultat:</strong>Au lieu de 2 semaines de recherche - 2 heures. Le colis est assemblé, numéroté, avec un registre et une lettre.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche (surveillance de la fraude)</h3>
+      <pre>« Nous avons besoin d’une surveillance des transactions frauduleuses par l’IA.
+
+Données d'entrée :
+- Relevés bancaires (Excel / Bank API)
+- Annuaire des contreparties (Excel : NIF, adresse, fondateurs, date d'enregistrement)
+- Liste noire (Excel)
+
+Ce que nous vérifions :
+1. Paiements week-end/vacances
+2. Modification des coordonnées de la contrepartie
+3. Diagrammes circulaires (graphique de connexion)
+4. Contreparties nouvelles/suspectes
+5. Anomalies de montants (ronds, écarts brusques)
+6. Fréquence des paiements à une contrepartie
+
+Sortie :
+- Tableau de bord avec note des transactions (rouge/jaune/vert)
+- Alertes dans Telegram/SMS quand rouge
+- Rapport quotidien sous Excel
+- Graphique de connexion (visualisation de schémas circulaires)
+
+Intégration : banque (API), Telegram
+Date limite : [date]"</pre>
+    </div>
+    <div class="card card-success">
+      <h3>Modèle de tâche (préparation aux tests)</h3>
+      <pre>« Nous avons besoin d’un collecteur de documents IA pour les inspections.
+
+Données d'entrée :
+- Demande de l'autorité de régulation (PDF/texte)
+- Accords (dossier/base)
+- Actes (dossier/base)
+- Paiements (Excel / 1C)
+- Correspondance (email/archive)
+
+Ce qu'il fait :
+1. Reconnaît la demande : quelle contrepartie, quelle période, quels documents
+2. Collecte des documents de toutes sources
+3. Forme un registre (N°, date, type, montant, description)
+4. Génère une lettre de motivation à l'aide d'un modèle
+5. Emballé en ZIP avec numérotation
+
+Sortie :
+- Archive ZIP avec documents numérotés
+- Registre dans Excel
+- Lettre de motivation dans Word
+- Temps de construction :< 2 heures
+
+Intégration : 1C, stockage de fichiers, email
+Délai : [date]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Les 6 types de signaux de fraude sont-ils vérifiés ?</li>
+      <li>Existe-t-il des modèles circulaires (pas de faux positifs) ?</li>
+      <li>Les alertes arrivent-elles instantanément (pas tous les deux jours) ?</li>
+      <li>Le suivi réglementaire couvre-t-il toutes les lois nécessaires ?</li>
+      <li>Collecte des documents pour les frais de vérification< 2 heures?</li>
+      <li>Le registre est-il clair sans explication (par lui-même) ?</li>
+      <li>Le rapport d’audit classe-t-il les risques (élevé/moyen/faible) ?</li>
+      <li>Présentation au conseil d'administration - 5 diapositives, pas 50 ?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Qu'est-ce qu'un diagramme circulaire ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Paiement en cercle au carrousel</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) A paie B, B paie C, C paie A - le cycle est terminé</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Paiement forfaitaire</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Quel paiement est un signal de fraude ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Paiement un jour ouvrable selon l'accord</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 15 paiements le samedi à une contrepartie</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Paiement selon le devis convenu</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Pourquoi avez-vous besoin de l’IA pour préparer un audit ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Pour remplacer le commissaire aux comptes</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Récupérer les documents en 2 heures au lieu de 2 semaines</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Pour écrire une lettre au bureau des impôts sans documents</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>L’IA n’empêche pas la fraude, mais elle la détecte en quelques heures, et non en quelques mois.</strong>Suivi réglementaire, surveillance des transactions, collecte de documents pour les inspections, génération de rapports d'audit, tout cela est une routine que l'IA effectue systématiquement et sans fatigue. Le responsable reçoit une liste de ce qui nécessite son attention, plutôt que de fouiller dans des milliers de lignes.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../09-audit-construction-projects/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../../catalog.html" class="nav-btn primary">Vers le catalogue →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

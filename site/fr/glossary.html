@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Glossaire — L'IA pour les non-spécialistes IT</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .page-header { padding: 32px 0 16px; }
+  .page-header h1 { margin: 8px 0; font-size: 1.8rem; }
+  .page-header p { color: var(--muted); }
+  .term-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .term-card h3 { color: var(--accent); margin: 0 0 8px; font-size: 1.1rem; }
+  .term-card .simple { color: var(--accent2); font-size: 0.9rem; margin-bottom: 8px; }
+  .term-card p { margin: 0; color: var(--text); }
+  .tag { display: inline-block; padding: 2px 10px; background: rgba(139,92,246,0.15); border-radius: 12px; font-size: 0.75rem; color: var(--accent); margin-right: 6px; }
+  .section-title { color: var(--accent); font-size: 1.2rem; margin: 32px 0 16px; }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); margin-top: 32px; }
+  .desktop-nav { display: flex; align-items: center; gap: 20px; }
+  .desktop-nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+  .desktop-nav a:hover { color: var(--text); }
+  .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; }
+  .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+  .mobile-nav { display: none; position: fixed; top: 57px; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; padding: 20px 16px; }
+  .mobile-nav.show { display: block; }
+  .mobile-nav a { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid var(--border); }
+  @media (max-width: 768px) {
+    .desktop-nav { display: none; }
+    .hamburger { display: flex; }
+    .page-header h1 { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="index.html" class="logo">🧠 L'IA pour les non-spécialistes IT</a>
+    <nav class="desktop-nav">
+      <a href="catalog.html">Catalogue</a>
+      <a href="glossary.html" style="color: var(--accent);">📖 Glossaire</a>
+    </nav>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="catalog.html">Catalogue</a>
+  <a href="glossary.html">📖 Glossaire</a>
+  <a href="index.html">← Retour à l'accueil</a>
+</div>
+
+<article class="container">
+
+  <div class="page-header">
+    <h1>📖 Glossaire</h1>
+    <p>Concepts complexes de l'IA expliqués en mots simples. Si vous rencontrez un mot inconnu dans le cours — cherchez-le ici.</p>
+  </div>
+
+  <div class="section-title">🔤 Termes clés</div>
+
+  <div class="term-card">
+    <h3>API</h3>
+    <div class="simple">« Prise de données » — un moyen pour les programmes de se connecter entre eux</div>
+    <p>Si le site A veut obtenir des données du programme B, il utilise une API. Par exemple, quand une calculatrice de cours obtient le taux actuel du dollar sur le site de la Banque centrale.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Open-source</h3>
+    <div class="simple">Logiciel avec code source ouvert — peut être téléchargé et utilisé gratuitement</div>
+    <p>Les développeurs ont publié le code publiquement. N'importe qui peut le télécharger, l'étudier et le modifier. Exemples : n8n, LibreOffice. Mais : le support et la formation peuvent être payants (comme Red Hat).</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Self-hosted</h3>
+    <div class="simple">« Sur votre propre serveur » — le programme fonctionne à l'intérieur de l'entreprise, pas dans le cloud</div>
+    <p>Les données ne quittent jamais le bureau. Nécessite un serveur et un spécialiste IT pour la configuration. La licence est gratuite, mais le matériel et la maintenance ne le sont pas.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>VPN</h3>
+    <div class="simple">Réseau privé virtuel — un tunnel sécurisé pour le travail à distance</div>
+    <p>Permet à un employé travaillant de chez lui de se connecter en toute sécurité au réseau d'entreprise. Pour l'IA on-premise au bureau, un réseau local est nécessaire ; pour le travail à distance — un VPN.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Firewall</h3>
+    <div class="simple">Barrière réseau — protection contre les connexions non désirées</div>
+    <p>Comme un gardien à l'entrée : ne laisse passer que ceux qui ont l'autorisation. Configuré par le département IT.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Cron / Planning</h3>
+    <div class="simple">Exécution d'une tâche selon un planning : chaque jour, chaque heure, etc.</div>
+    <p>Par exemple : « Chaque lundi à 9h00 vérifier les prix des fournisseurs. » Dans n8n cela s'appelle Schedule, en programmation — cron.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>JSON</h3>
+    <div class="simple">Format de données pour les programmes — « un tableau sous forme de texte »</div>
+    <p>L'IA fournit souvent des réponses au format JSON, qui est ensuite converti en Excel/tableau. Pour les humains, cela ressemble à du texte avec des accolades.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>CSV</h3>
+    <div class="simple">Format tabulaire — s'ouvre dans Excel</div>
+    <p>Format texte simple où les données sont séparées par des virgules. N'importe quel tableau peut être enregistré au format CSV.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>LLM (Large Language Model)</h3>
+    <div class="simple">Grand modèle de langage — le « cerveau » de l'IA qui comprend et génère du texte</div>
+    <p>ChatGPT, Claude, Kimi — tous sont des LLM. Entraînés sur une quantité énorme de textes pour comprendre les questions et donner des réponses pertinentes.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Token</h3>
+    <div class="simple">Unité de mesure de texte pour l'IA — environ les ¾ d'un mot</div>
+    <p>L'IA compte non pas les mots, mais les tokens. 1000 tokens ≈ 750 mots. Le coût d'une requête dépend du nombre de tokens.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>RAG (Retrieval-Augmented Generation)</h3>
+    <div class="simple">Recherche + génération — l'IA trouve d'abord les faits, puis répond</div>
+    <p>Au lieu de se fier uniquement à la mémoire, l'IA recherche des informations dans vos documents et donne une réponse sur leur base. Réduit le risque d'inventions.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Base de données vectorielle</h3>
+    <div class="simple">Stockage où l'IA recherche par sens, et non par mots exacts</div>
+    <p>Si vous recherchez « fournisseur cher », il trouvera aussi « prix élevé » et « pas bon marché ». Il comprend le contexte, pas seulement la formulation.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Prompt</h3>
+    <div class="simple">Une requête ou instruction pour l'IA — ce que vous écrivez dans le chat</div>
+    <p>Plus le prompt est précis, meilleure est la réponse. Un bon prompt contient : le rôle, la tâche, le format, les contraintes, des exemples.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Agent IA</h3>
+    <div class="simple">Un programme qui effectue des tâches de manière autonome selon des instructions données</div>
+    <p>Il ne se contente pas de répondre aux questions, il agit : recherche, compare, envoie des emails, remplit des documents.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Hallucination</h3>
+    <div class="simple">Quand l'IA fournit avec assurance des informations inventées</div>
+    <p>Peut inventer une loi inexistante, une fausse citation ou un fait erroné. Vérifiez toujours les données critiques.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Fine-tuning</h3>
+    <div class="simple">Entraînement d'un modèle sur vos données pour des tâches spécifiques</div>
+    <p>Un modèle prêt à l'emploi est « ajusté » à vos documents, terminologie et style. Plus cher que l'utilisation normale, mais plus précis.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Cas limites (Edge cases)</h3>
+    <div class="simple">Situations extrêmes, non standard — quand tout ne se passe pas comme prévu</div>
+    <p>Par exemple : budget = 0, fichier vide, fournisseur ne répond pas. Une bonne automatisation prend en compte aussi ces scénarios.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>MCP (Model Context Protocol)</h3>
+    <div class="simple">Standard de connexion de l'IA aux systèmes externes</div>
+    <p>Permet à un agent IA d'accéder à vos bases de données, CRM et emails. Comme un connecteur universel pour différents appareils.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>On-premise</h3>
+    <div class="simple">« Sur site » — tout fonctionne à l'intérieur de l'entreprise, pas dans le cloud</div>
+    <p>Les données restent dans vos murs. Sécurisé, mais plus cher à maintenir. Adapté aux informations confidentielles.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Workflow</h3>
+    <div class="simple">Une séquence d'étapes d'automatisation</div>
+    <p>Par exemple : recevoir un email → extraire les données → écrire dans un tableau → envoyer une notification. Dans n8n et Zapier, les workflows se créent visuellement.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Webhook</h3>
+    <div class="simple">« Signal » d'un programme à un autre — notification instantanée</div>
+    <p>Quand un événement se produit (par exemple, une nouvelle commande), le système A informe instantanément le système B. Sans interrogation constante.</p>
+  </div>
+
+  <div class="section-title">⚙️ Paramètres, automatisation et audit</div>
+
+  <div class="term-card">
+    <h3>Fenêtre de contexte</h3>
+    <div class="simple">« Mémoire du modèle » — combien de texte l'IA retient à la fois</div>
+    <p>Si le document est plus long que la fenêtre, le modèle oublie le début. Pour analyser un contrat de 50 pages, il faut un LLM avec une grande fenêtre (200K+ tokens) ou une technique de chunking.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Température</h3>
+    <div class="simple">« Niveau de créativité » de l'IA — du strict à l'imaginatif</div>
+    <p>0,1 — prévisible, presque déterministe (pour les contrats, rapports). 0,7 — créatif, génère des variantes (pour le brainstorming, marketing). 1,0+ — peut commencer à inventer.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Embedding</h3>
+    <div class="simple">« Empreinte numérique du sens » — comment l'IA comprend que deux textes sont similaires</div>
+    <p>Chaque morceau de texte se voit attribuer un ensemble de nombres (vecteur). L'IA trouve les documents pertinents par « proximité mathématique », même si les mots sont complètement différents.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Chunking</h3>
+    <div class="simple">« Découpage en morceaux » — division d'un long document en parties</div>
+    <p>Un contrat de 100 pages est découpé en paragraphes de 500 tokens chacun, pour que chaque morceau tienne dans la mémoire du modèle. Ensuite l'IA trouve les morceaux nécessaires et assemble la réponse.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Parsing</h3>
+    <div class="simple">« Extraction de structure du chaos » — transformation de données non structurées en tableau</div>
+    <p>Extraire prix, références, unités de mesure d'un catalogue PDF fournisseur vers Excel. Ou extraire dates, montants et adresses d'une correspondance email.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>SaaS</h3>
+    <div class="simple">Logiciel par abonnement via Internet — pas d'installation, payez et utilisez</div>
+    <p>ChatGPT, n8n Cloud, Zapier — tous sont du SaaS. Accès via navigateur, données sur les serveurs du fournisseur. Pratique, mais pour les documents confidentiels il faut une alternative on-premise.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Scoring</h3>
+    <div class="simple">Évaluation par points — sélection objective des fournisseurs ou contrôle qualité</div>
+    <p>Un fournisseur obtient 85/100 — passe, 60/100 — éliminé. Critères : prix, délais, réputation, certificats, expérience. L'IA peut calculer automatiquement selon une échelle donnée.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Conformité (Compliance)</h3>
+    <div class="simple">Conformité aux règles — lois, normes, règlements internes</div>
+    <p>Vérification qu'un contrat ne viole pas les lois, qu'un devis est conforme aux normes, qu'un achat a passé toutes les validations. L'IA croise le document avec une liste de contrôle des exigences.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>SLA</h3>
+    <div class="simple">Accord sur les niveaux de service — temps de réponse, disponibilité, pénalités</div>
+    <p>« Réponse à la demande — sous 2 heures, disponibilité 99,9 %, pénalité d'indisponibilité — 1 % du tarif mensuel. » L'IA peut surveiller le respect du SLA et signaler les violations.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Pipeline</h3>
+    <div class="simple">« Convoyeur » — une chaîne d'étapes de traitement des données</div>
+    <p>Étape 1 : recevoir un email → Étape 2 : extraire les données → Étape 3 : écrire dans le CRM → Étape 4 : envoyer une notification. Dans n8n et Zapier, les pipelines se construisent visuellement, sans programmation.</p>
+  </div>
+
+  <div class="section-title">🏷️ Abréviations du cours</div>
+
+  <div class="term-card">
+    <h3>GENAi</h3>
+    <div class="simple">Service interne de l'entreprise basé sur OpenWebUI</div>
+    <p>Fonctionne sur vos serveurs (on-premise). Sécurisé pour les documents confidentiels. Utilisez GENAi pour : contrats, rapports, données personnelles, protocoles internes.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>NDA</h3>
+    <div class="simple">Accord de confidentialité — contrat de non-divulgation</div>
+    <p>Signé avec les fournisseurs d'IA pour qu'ils n'utilisent pas vos données pour entraîner leurs modèles.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>ROI</h3>
+    <div class="simple">Retour sur investissement — rentabilité des investissements</div>
+    <p>Montre combien d'argent rapporte l'implémentation de l'IA par rapport aux coûts. ROI = (Profit − Coûts) / Coûts × 100 %.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>CRM</h3>
+    <div class="simple">Système de gestion de la relation client</div>
+    <p>Stocke les informations sur les clients, les transactions, les contacts. Exemples : amoCRM, Bitrix24, Salesforce.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>ERP</h3>
+    <div class="simple">Système de planification des ressources de l'entreprise</div>
+    <p>Unifie la comptabilité, la production, les achats et les ventes. Exemples : 1C, SAP, Oracle.</p>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · L'IA pour les non-spécialistes IT</p>
+    <p style="font-size: 0.8rem; margin-top: 8px;"><a href="catalog.html" style="color: var(--accent); text-decoration: none;">← Retour au catalogue</a></p>
+  </div>
+</footer>
+
+<script>
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('show');
+  document.getElementById('hamburger').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>

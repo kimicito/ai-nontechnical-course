@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>L'IA pour les non-spécialistes IT</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --bg: #0B0F19;
+    --card: #111827;
+    --text: #F3F4F6;
+    --muted: #9CA3AF;
+    --accent: #8B5CF6;
+    --accent2: #06B6D4;
+    --border: rgba(255,255,255,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
+  .logo a { color: var(--accent); text-decoration: none; }
+
+  .desktop-nav { display: flex; align-items: center; gap: 20px; }
+  .desktop-nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+  .desktop-nav a:hover { color: var(--text); }
+
+  .lang-dropdown { position: relative; }
+  .lang-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; }
+  .lang-btn:hover { border-color: var(--accent); }
+  .lang-menu { position: absolute; top: 100%; right: 0; margin-top: 4px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 4px; min-width: 100px; display: none; z-index: 200; }
+  .lang-menu.show { display: block; }
+  .lang-menu a { display: block; padding: 6px 12px; color: var(--muted); text-decoration: none; font-size: 0.85rem; border-radius: 4px; }
+  .lang-menu a:hover, .lang-menu a.active { background: rgba(139,92,246,0.15); color: var(--text); }
+
+  .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; }
+  .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+  .mobile-nav { display: none; position: fixed; top: 57px; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; padding: 20px 16px; }
+  .mobile-nav.show { display: block; }
+  .mobile-nav a { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid var(--border); }
+  .mobile-nav .lang-section { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .mobile-nav .lang-section p { color: var(--muted); font-size: 0.85rem; margin-bottom: 12px; }
+  .mobile-nav .lang-section a { display: inline-block; padding: 8px 16px; margin: 4px 4px 4px 0; background: var(--card); border: 1px solid var(--border); border-radius: 6px; font-size: 0.9rem; }
+  .mobile-nav .lang-section a.active { background: rgba(139,92,246,0.2); border-color: var(--accent); }
+
+  .hero { padding: 60px 0 40px; text-align: center; }
+  .hero h1 { font-size: 2.8rem; line-height: 1.15; margin: 0 0 16px; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; word-break: break-word; }
+  .hero p { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto 28px; line-height: 1.6; }
+  .cta-btn { display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: transform 0.2s; }
+  .cta-btn:hover { transform: translateY(-2px); }
+
+  .stats { display: flex; justify-content: center; gap: 40px; padding: 32px 0; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat .num { font-size: 2.2rem; font-weight: 700; color: var(--accent); }
+  .stat .label { color: var(--muted); font-size: 0.85rem; }
+
+  .phases { padding: 40px 0; }
+  .phases h2 { text-align: center; margin-bottom: 32px; font-size: 1.6rem; }
+  .phase-card { display: block; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 14px; transition: all 0.2s; text-decoration: none; color: var(--text); }
+  .phase-card:hover { border-color: var(--accent); transform: translateX(4px); }
+  .phase-card h3 { margin: 0 0 8px; color: var(--accent); font-size: 1.1rem; }
+  .phase-card p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+  .phase-card .meta { display: flex; gap: 12px; margin-top: 12px; font-size: 0.8rem; color: var(--muted); flex-wrap: wrap; }
+  .badge { background: rgba(139,92,246,0.15); color: var(--accent); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+
+  .audience { padding: 40px 0; background: rgba(17,24,39,0.5); }
+  .audience h2 { text-align: center; margin-bottom: 8px; font-size: 1.6rem; }
+  .audience > .container > p { text-align: center; color: var(--muted); margin-bottom: 28px; font-size: 0.95rem; }
+  .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+  .audience-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+  .audience-card .icon { font-size: 1.8rem; margin-bottom: 6px; }
+  .audience-card h4 { margin: 0 0 4px; font-size: 0.95rem; }
+  .audience-card p { margin: 0; font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
+  footer p { margin: 0; font-size: 0.85rem; }
+  footer a { color: var(--muted); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    html { font-size: 15px; }
+    .hero { padding: 40px 0 30px; }
+    .hero h1 { font-size: 1.9rem; line-height: 1.2; }
+    .hero p { font-size: 1rem; padding: 0 8px; }
+    .cta-btn { padding: 12px 24px; font-size: 0.95rem; }
+    .stats { gap: 24px; }
+    .stat .num { font-size: 1.8rem; }
+    .phase-card { padding: 16px; }
+    .phase-card h3 { font-size: 1rem; }
+    .audience-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .audience-card { padding: 12px; }
+    .audience-card .icon { font-size: 1.5rem; }
+    .desktop-nav { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
+    .stats { gap: 20px; }
+    .stat .num { font-size: 1.6rem; }
+    .audience-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo"><a href="index.html">🧠 IA pour les Managers</a></div>
+
+    <nav class="desktop-nav">
+      <a href="#levels">Programme</a>
+      <a href="#audience">Pour qui</a>
+      <a href="catalog.html">Catalogue</a>
+      <div class="lang-dropdown">
+        <button class="lang-btn" onclick="toggleLang()">🌐 FR ▼</button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../index.html">RU</a>
+          <a href="en/index.html">EN</a>
+          <a href="../index-es.html">ES</a>
+          <a href="index.html" class="active">FR</a>
+          <a href="../index-zh.html">中文</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#levels" onclick="toggleMobileNav()">Programme</a>
+  <a href="#audience" onclick="toggleMobileNav()">Pour qui</a>
+  <a href="catalog.html">Catalogue</a>
+  <a href="glossary.html">📖 Glossaire</a>
+  <div class="lang-section">
+    <p>🌐 Langue / Language</p>
+    <a href="../index.html">RU</a>
+    <a href="en/index.html">EN</a>
+    <a href="../index-es.html">ES</a>
+    <a href="index.html" class="active">FR</a>
+    <a href="../index-zh.html">中文</a>
+  </div>
+</div>
+
+<section class="author-note" style="background: rgba(139,92,246,0.05); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1100px;">
+  <p style="margin: 0 0 16px; color: var(--text); font-size: 1rem; line-height: 1.7;">
+    Les possibilités de l'IA générative pour le B2B évoluent constamment. Aujourd'hui, il ne faut pas ignorer cette technologie dans son travail, et c'est pourquoi j'ai décidé de créer ce cours de formation.
+  </p>
+  <p style="margin: 0 0 16px; color: var(--text); font-size: 1rem; line-height: 1.7;">
+    Il inclut des connaissances issues des cours de formation d'Anthropic (Claude), OpenAI (ChatGPT) et Google (Gemini), ainsi que mon expérience d'enseignement de mes collègues à travailler avec l'IA générative.
+  </p>
+  <p style="margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.7;">
+    Je comprends que tout le monde ne maîtrise pas la programmation, l'analyse système, mais il existe une autre expertise tout aussi précieuse — le domaine, la spécifique — et elle est devenue encore plus précieuse avec l'apparition de l'IA. Avocats, acheteurs, auditeurs, financiers et collègues d'autres spécialités — ce cours est pour vous. Nous avons compilé ce cours avec mon agent IA nommé Kimicito et l'améliorons constamment grâce aux retours. Vous pouvez m'écrire directement <a href="https://t.me/tagartur" target="_blank" style="color: var(--accent);">@tagartur</a> et ensemble nous créerons un cours corporatif utile sur « L'IA pour les non-informaticiens ».
+  </p>
+</section>
+
+<section class="hero">
+  <div class="container">
+    <h1>L'IA sans programmation</h1>
+    <p>Apprenez à utiliser l'intelligence artificielle dans votre travail : automatisez les tâches récurrentes, déléguez des tâches claires aux développeurs et prenez des décisions basées sur les données. Sans code. Sans mathématiques. Seulement la pratique.</p>
+    <a href="catalog.html" class="cta-btn">Commencer la formation</a>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat">
+    <div class="num">9</div>
+    <div class="label">niveaux</div>
+  </div>
+  <div class="stat">
+    <div class="num">39</div>
+    <div class="label">leçons</div>
+  </div>
+  <div class="stat">
+    <div class="num">3</div>
+    <div class="label">spécialisations</div>
+  </div>
+  <div class="stat">
+    <div class="num">5</div>
+    <div class="label">langues</div>
+  </div>
+</section>
+
+<section class="phases" id="levels">
+  <div class="container">
+    <h2>Programme du cours</h2>
+    
+    <a href="catalog.html#level0" class="phase-card">
+      <h3>🚀 Niveau 0 — Fondamentaux de l'IA</h3>
+      <p>Comment fonctionnent ChatGPT, Claude, Kimi et Qwen. Quand choisir le cloud, quand choisir une solution locale. Combien cela coûte.</p>
+      <div class="meta">
+        <span class="badge">4 leçons</span>
+        
+      </div>
+    </a>
+    
+    <a href="catalog.html#level1" class="phase-card">
+      <h3>🛠️ Niveau 1 — Maîtrise des outils</h3>
+      <p>L'ingénierie de prompts pour le manager : rédiger des cahiers des charges, pas « fais-le beau ». Sortie structurée, chaînes de requêtes, travail avec des documents.</p>
+      <div class="meta">
+        <span class="badge">5 leçons</span>
+        
+      </div>
+    </a>
+    
+    <a href="catalog.html#level2" class="phase-card">
+      <h3>📄 Niveau 2 — Données et documents</h3>
+      <p>RAG en mots simples. Comment connecter l'IA à la base de connaissances de l'entreprise. Synthèse et analyse de documents : contrats, rapports, certificats.</p>
+      <div class="meta">
+        <span class="badge">4 leçons</span>
+        
+      </div>
+    </a>
+    
+    <a href="catalog.html#level3" class="phase-card">
+      <h3>⚡ Niveau 3 — Automatisation</h3>
+      <p>Automatisation no-code : Make, n8n, Zapier. Intégration de l'IA dans les processus. Création d'agents simples sans code.</p>
+      <div class="meta">
+        <span class="badge">4 leçons</span>
+        
+      </div>
+    </a>
+    
+    <a href="catalog.html#level4" class="phase-card">
+      <h3>🤖 Niveau 4 — Agents et orchestration</h3>
+      <p>Ce qu'est un agent IA. Systèmes multi-agents. L'humain dans la boucle. MCP et intégration avec les systèmes d'entreprise.</p>
+      <div class="meta">
+        <span class="badge">4 leçons</span>
+        
+      </div>
+    </a>
+    
+    <a href="catalog.html#level5" class="phase-card">
+      <h3>🏢 Niveau 5 — Implémentation en entreprise</h3>
+      <p>Calculateur ROI. Choix du processus à automatiser. Projet pilote. Mise à l'échelle.</p>
+      <div class="meta">
+        <span class="badge">3 leçons</span>
+        
+      </div>
+    </a>
+    
+    <a href="catalog.html#level6" class="phase-card">
+      <h3>🛡️ Niveau 6 — Éthique, sécurité, conformité</h3>
+      <p>Données confidentielles. Hallucinations et vérification des faits. Risques juridiques. Politique IA de l'entreprise.</p>
+      <div class="meta">
+        <span class="badge">3 leçons</span>
+        
+      </div>
+    </a>
+    
+    <a href="catalog.html#level7" class="phase-card">
+      <h3>🛒 Niveau 7 — IA pour les Achats</h3>
+      <p>Recherche de fournisseurs, comparaison des prix, vérification des contrats, protocoles de sélection. Spécialisation pour la profession d'acheteur.</p>
+      <div class="meta">
+        <span class="badge">4 leçons</span>
+        
+      </div>
+    </a>
+    
+    <a href="catalog.html#level8" class="phase-card">
+      <h3>🏗️ Niveau 8 — IA pour la Construction</h3>
+      <p>Devis et calculs, vérification des projets, planification des travaux, réception et contrôle qualité. Spécialisation pour le secteur de la construction.</p>
+      <div class="meta">
+        <span class="badge">4 leçons</span>
+      </div>
+    </a>
+    
+    <a href="catalog.html#level9" class="phase-card">
+      <h3>🔍 Niveau 9 — IA pour l'Audit et le Contrôle</h3>
+      <p>Vérification des documents, audit des achats et des ventes, contrôle de la construction et des projets, conformité, surveillance de la fraude. Audit transversal.</p>
+      <div class="meta">
+        <span class="badge">4 leçons</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="audience" id="audience">
+  <div class="container">
+    <h2>Pour qui est ce cours</h2>
+    <p>Choisissez votre rôle — et commencez à appliquer l'IA immédiatement</p>
+    
+    <div class="audience-grid">
+      <div class="audience-card" onclick="window.location.href='catalog.html#level7'" style="cursor:pointer;">
+        <div class="icon">🛒</div>
+        <h4>Achats</h4>
+        <p>Appels d'offres, analyse des fournisseurs, comparaison des offres</p>
+      </div>
+      <div class="audience-card" onclick="window.location.href='catalog.html#level8'" style="cursor:pointer;">
+        <div class="icon">🏗️</div>
+        <h4>Construction</h4>
+        <p>Devis, projets, plannings, réception des travaux</p>
+      </div>
+      <div class="audience-card" style="opacity:0.6;">
+        <div class="icon">📦</div>
+        <h4>Logistique</h4>
+        <p>Routes, prévisions, optimisation des stocks</p>
+      </div>
+      <div class="audience-card" style="opacity:0.6;">
+        <div class="icon">⚖️</div>
+        <h4>Juristes</h4>
+        <p>Analyse des contrats, conformité, réglementation</p>
+      </div>
+      <div class="audience-card" style="opacity:0.6;">
+        <div class="icon">✅</div>
+        <h4>Qualité</h4>
+        <p>Audit des processus, contrôle des défauts, normes</p>
+      </div>
+      <div class="audience-card" style="opacity:0.6;">
+        <div class="icon">🚀</div>
+        <h4>Product</h4>
+        <p>Recherches, hypothèses, analyses, métriques</p>
+      </div>
+      <div class="audience-card" style="opacity:0.6;">
+        <div class="icon">📊</div>
+        <h4>Analyste</h4>
+        <p>BI, rapports, prévisions, visualisation</p>
+      </div>
+      <div class="audience-card" style="opacity:0.6;">
+        <div class="icon">⚠️</div>
+        <h4>Risques</h4>
+        <p>Évaluation des risques, scénarios, stress-tests</p>
+      </div>
+      <div class="audience-card" style="opacity:0.6;">
+        <div class="icon">🔒</div>
+        <h4>Conformité</h4>
+        <p>AML, KYC, vérification réglementaire</p>
+      </div>
+      <div class="audience-card" onclick="window.location.href='catalog.html#level9'" style="cursor:pointer;">
+        <div class="icon">🔍</div>
+        <h4>Audit</h4>
+        <p>Automatisation des contrôles, contrôle par sondage</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · L'IA pour les non-spécialistes IT</p>
+    <p style="font-size: 0.8rem; margin-top: 8px;">
+      <a href="https://github.com/kimicito/ai-nontechnical-course">GitHub</a> ·
+      <a href="https://github.com/kimicito/ai-native-course">Version technique</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+function toggleLang() {
+  document.getElementById('langMenu').classList.toggle('show');
+}
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('show');
+  document.getElementById('hamburger').classList.toggle('active');
+}
+document.addEventListener('click', function(e) {
+  const dropdown = document.querySelector('.lang-dropdown');
+  if (dropdown && !dropdown.contains(e.target)) {
+    const menu = document.getElementById('langMenu');
+    if (menu) menu.classList.remove('show');
+  }
+});
+</script>
+
+</body>
+</html>

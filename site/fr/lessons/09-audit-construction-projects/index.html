@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>9.3 Audit de construction et de projets - IA pour les non-informaticiens</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🔍 NIVEAU 9 · AUDIT, CONTRÔLE ET CONFORMITÉ</div>
+    <h1>9.3 · Audit des constructions et des projets</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>Les projets de construction sont des processus complexes en plusieurs étapes avec beaucoup de paperasse, d'écarts et de risques. Échecs du contrôle manuel : dépenses excessives en matériel, délais non respectés, écarts par rapport au devis, actes manqués.</p>
+    <div class="card card-success">
+      <p><strong>Audit IA des chantiers et projets de construction</strong>— comparaison automatique des faits avec le plan (devis, planning, projet), détection des écarts >5% et alerte précoce des zones rouges.</p>
+      <p><strong>Exemple:</strong>AI a vérifié 150 actes KS-2 pendant six mois avec des estimations et a identifié 12 écarts : 7 - surconsommation de matériaux >10%, 3 - manque de travail approprié dans le projet, 2 - double paiement pour un acte.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+
+    <h3>Construction : ce que vérifie l’IA</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Rapprochement des actes KS-2/KS-3 avec les estimations :</strong>Les travaux effectués sont-ils conformes à la documentation de devis ? ne pas dépasser le volume ?</li>
+        <li><strong>Surconsommation de matières :</strong>consommation réelle vs consommation estimée en tenant compte des normes GESN/FER. Déviation >10% – alerte.</li>
+        <li><strong>Conformité au projet :</strong>Les travaux réalisés sont-ils inclus dans le projet ? Y a-t-il des positions « de gauche » ?</li>
+        <li><strong>Délais et planning :</strong>écart par rapport au planning prévu, retards sur les chemins critiques, risque d'échec de livraison</li>
+        <li><strong>Paiements doubles :</strong>le même acte dans des paiements différents, duplication de postes</li>
+        <li><strong>SNIP/GOST :</strong>respect des normes (épaisseurs minimales, qualités de matériaux, tolérances)</li>
+      </ul>
+    </div>
+
+    <h3>Projets : ce que l'IA vérifie</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Étapes et livrables :</strong>toutes les étapes ont-elles été franchies, toutes les approbations ont-elles été reçues, tous les documents sont-ils en place ?</li>
+        <li><strong>Budget:</strong>fait vs plan, écart par article, prévision du coût final</li>
+        <li><strong>Délais :</strong>écart par rapport à la ligne de base, tendance (sommes-nous en avance ou en retard), risque d'échec</li>
+        <li><strong>Ressources:</strong>charge de travail de l'équipe, dépenses excessives en heures de travail, ressources non planifiées</li>
+        <li><strong>Zones rouges :</strong>allocation automatique : budget >110%, temps de panne >2 semaines, ressources à 120%</li>
+      </ul>
+    </div>
+
+    <h3>Seuils de déviation : lorsque l'IA émet un bip</h3>
+    <table>
+      <tr><th>Paramètre</th><th>Vert</th><th>Jaune</th><th>Rouge</th></tr>
+      <tr><td>Surconsommation de matériaux</td><td>≤ 5%</td><td>5–10%</td><td>> 10%</td></tr>
+      <tr><td>Écart budgétaire</td><td>≤ 3%</td><td>3–10%</td><td>> 10%</td></tr>
+      <tr><td>Manquer une date limite (projet)</td><td>≤ 3 jours</td><td>3 à 14 jours</td><td>> 14 jours</td></tr>
+      <tr><td>Chargement des ressources</td><td>≤ 90%</td><td>90–110%</td><td>> 110%</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+
+    <h3>Scénario : rapprochement des actes KS-2 avec les estimations</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Invite pour l'IA</div>
+        <pre>Vérifiez les actes KS-2 (fichier : actes.xlsx) avec le devis (fichier : estimation.xlsx).
+
+Pour chaque acte :
+1. Trouver le poste correspondant dans le devis (par nom de l'ouvrage)
+2. Comparez le volume de travail effectué avec le volume estimé
+3. Vérifiez si la consommation de matière dépasse la norme GESN/FER (±10%)
+4. Vérifiez si ce travail est dans le projet (fichier : project.pdf)
+5. Vérifiez si cet acte a été payé deux fois (fichier : payment.xlsx)
+
+Sortie :
+- Agit avec écart >10% (en volume ou matériaux)
+- Actes pour travaux non inclus dans le projet
+- Doubles paiements
+- Résumé : combien de vert, jaune, rouge</pre>
+      </div>
+      <p><strong>Résultat:</strong>Fichier Excel avec vérification de chaque acte. Le contremaître et l'encadrement technique ne vérifient que les rouges.</p>
+    </div>
+
+    <h3>Scénario : suivi des projets en zones rouges</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Invite pour l'IA</div>
+        <pre>Analyser l'état des projets (fichier : projets.xlsx).
+
+Pour chaque projet :
+1. Faits par rapport au plan budgétaire : % d'écart pour chaque élément
+2. Plan faits par rapport aux délais : décalage/avance en jours
+3. Chargement des ressources : planifié ou réellement dépensé
+4. Achèvement des étapes : quel % est achevé, ce qui est en retard
+
+Appliquer des seuils :
+- Vert : budget ≤103%, durée ≤3 jours, ressources ≤90%
+- Jaune : budget 103-110 %, période 3-14 jours, ressources 90-110 %
+- Rouge : budget >110%, délai >14 jours, ressources >110%
+
+Sortie :
+- Tableau de bord : tous les projets avec statut de couleur
+- Zones rouges : détails pour chaque projet rouge
+- Forecast : quels projets passeront dans le rouge dans un mois (tendance)</pre>
+      </div>
+      <p><strong>Résultat:</strong>Le chef de projet voit un tableau de bord avec 20 projets : 12 verts, 5 jaunes, 3 rouges. L'accent est mis sur 3 rouges.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche (chantier de construction)</h3>
+      <pre>« Nous avons besoin d’un contrôle par l’IA des actes de KS-2/KS-3.
+
+Données d'entrée :
+- Actes KS-2 (Excel / PDF)
+- Devis (Excel : GESN/FER)
+- Projet (PDF)
+- Ordres de paiement (Excel / 1C)
+
+Ce que nous vérifions :
+1. Conformité des actes aux devis (volume, prix)
+2. Surconsommation de matières (±10% de la norme)
+3. Disponibilité du travail dans le projet
+4. Doubles paiements
+5. Conformité à SNiP/GOST (vérifier selon l'ouvrage de référence)
+
+Sortie :
+- Rapport Excel avec la note de chaque acte
+- Alertes pour écart> 10%
+- Tableau de bord par objets
+
+Intégration : 1C, Télégramme
+Date limite : [date]"</pre>
+    </div>
+    <div class="card card-success">
+      <h3>Modèle de tâche (projets)</h3>
+      <pre>« Nous avons besoin d’un suivi des projets par l’IA.
+
+Données d'entrée :
+- Plan de projet (Excel : étapes, délais, budget, ressources)
+- Fait (CRM/Jira/Excel : mise en œuvre, coûts, coûts de main d'œuvre)
+
+Ce que nous vérifions :
+1. Écart budgétaire par poste
+2. Écart des délais par rapport à la référence
+3. Chargement des ressources
+4. Réalisation des étapes et livrables
+5. Prévision du coût final et du délai
+
+Seuils :
+- Vert/jaune/rouge (voir tableau ci-dessus)
+
+Sortie :
+- Tableau de bord des projets avec statut des couleurs
+- Alertes lorsque l'on passe au rouge
+- Prévision des risques (tendance)
+
+Intégration : Jira / Asana / Lundi, Excel, Telegram
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Les actes sont-ils vérifiés avec l'estimation du volume et du prix ?</li>
+      <li>La surconsommation de matériaux est-elle prise en compte en tenant compte des normes GESN/FER ?</li>
+      <li>Le contrôle de double paiement fonctionne-t-il (pas de faux positifs) ?</li>
+      <li>L'indice de couleur est-il clair sans explication ?</li>
+      <li>Les zones rouges apparaissent-elles immédiatement dans les alertes ?</li>
+      <li>La prévision des risques montre-t-elle ce qui se passera dans un mois ?</li>
+      <li>Les trois sources (fait, plan, projet) sont-elles connectées ?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Quel écart de matériaux est rouge ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 3%</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 7%</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">C) 12%</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Qu’est-ce que l’IA vérifie dans les projets ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Budget uniquement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Budget, calendrier, ressources, jalons</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Seule l'humeur de l'équipe</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Comment l’IA détecte-t-elle les doubles paiements ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Demande au comptable</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Compare les actes avec les ordres de paiement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Devinez</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>L'IA ne construit pas, mais trouve où elle construit de manière incorrecte.</strong>Rapprochement des actes avec les devis, contrôle des dépenses excessives, surveillance des zones rouges, voilà ce que l'IA fait mieux qu'une personne : rapidement, sans fatigue, selon tous les documents. Le contremaître et le chef de projet passent du temps à prendre des décisions plutôt qu'à réviser des documents.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../09-audit-procurement-sales/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../09-compliance-fraud/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.3 IA pour l'organisateur du travail - IA pour les non-informaticiens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🏗️ NIVEAU 8 · IA POUR LA CONSTRUCTION</div>
+    <h1>8.3 Planification du travail et des ressources : horaires, personnes, équipement</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>L'organisateur des travaux (contremaître, chef de chantier) décide chaque jour : qui travaille, sur quoi, dans quel ordre et ce qui est retardé.<strong>L'IA aide à établir des plannings, à optimiser les ressources et à prédire les retards.</strong></p>
+    <div class="card card-success">
+      <p><strong>Cas:</strong>AI a analysé le planning sur 3 mois et a prévenu : les travaux de bétonnage du 5ème étage débuteront avant le largage de la grue du 4ème. Délai : 2 jours. L'organisateur a reporté le départ de 2 jours - il n'y a eu aucune perturbation du planning.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>Ce que l'IA fait pour un organisateur de travail</h3>
+    <div class="card card-accent">
+      <ul>
+        <li>📅 <strong>Graphiques :</strong>Construction/ajustement du schéma de réseau, chemin critique</li>
+        <li>👷 <strong>Ressources:</strong>Répartition des équipes, des équipements, du matériel entre les installations</li>
+        <li>⚠️ <strong>Risques :</strong>Avertissement concernant les retards, les surcharges, les conflits de ressources</li>
+        <li>📊 <strong>Rapports :</strong>Carnet de travail, certificats d'achèvement des travaux, comparaison plan/réel</li>
+        <li>🔮 <strong>Prévision:</strong>Quand l’objet se terminera-t-il au rythme actuel ?</li>
+        <li>📋 <strong>Ordre des tâches :</strong>Génération automatique basée sur un graphique</li>
+      </ul>
+    </div>
+
+    <h3>Entrées IA</h3>
+    <div class="card">
+      <table>
+        <tr><th>Données</th><th>Format</th><th>Ce que l'IA analyse</th></tr>
+        <tr><td>Schéma de réseau (MS Project, Excel)</td><td>.mpp, Excel</td><td>Chemin critique, ressources, dépendances</td></tr>
+        <tr><td>Journal de travail (rapports quotidiens)</td><td>PDF, Excel, texte</td><td>Plan/réel, % réalisé, retards</td></tr>
+        <tr><td>Estimations / estimations locales</td><td>PDF, Excel</td><td>Volumes, intensité de travail, durée</td></tr>
+        <tr><td>Disponibilité des ressources (équipages, équipements)</td><td>Excel, 1C, SAP</td><td>Chargement, conflits, disponibilité</td></tr>
+        <tr><td>Restrictions météorologiques/saisonnières</td><td>API, Excel</td><td>Prévisions météorologiques extérieures</td></tr>
+      </table>
+    </div>
+
+    <h3>Exemple de demande à AI</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Demander un graphique</div>
+        <pre>"Analyser le planning de construction (fichier ci-joint).
+
+1. Trouver le chemin critique (travail qui ne peut être retardé)
+2. Vérifiez la charge des ressources : y a-t-il des surcharges (2 équipes pour 1 établissement) ?
+3. Vérifiez les dépendances : le travail démarre-t-il avant la fin du précédent ?
+4. Comparez avec la météo : quels ouvrages extérieurs sont concernés par la pluie ?
+5. Prévisions : date de fin au rythme actuel ?
+
+Sortie :
+- Tableau des risques : Travail | Risque | Niveau | Recommandation
+- Calendrier mis à jour avec des ajustements
+- Liste des bons de travail pour la semaine prochaine"</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Scénario : examen hebdomadaire des graphiques</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Processus</div>
+        <pre>1. Télécharger vers AI : planning (MS Project/Excel), journal de travail hebdomadaire, ressources
+2. Requête : « Vérifier le planning. Chemin critique ? Risques ? Chargement des ressources ?
+3. Analyses et résultats de l’IA :
+   - Chemin critique (surligné en rouge)
+   - Risques : surcharge de la grue le 15 mars, le béton arrivera plus tard
+   - Recommandations : reprogrammer les travaux, ajouter une équipe
+4. Le contremaître ajuste l'horaire
+5. L'IA génère des bons de travail pour la semaine prochaine
+6. Distribue aux contremaîtres</pre>
+      </div>
+    </div>
+
+    <h3>Comparaison prévue/réelle</h3>
+    <div class="card card-accent">
+      <p>L'IA compare quotidiennement :</p>
+      <ul>
+        <li>Volumes prévus vs réalisés</li>
+        <li>Dates de début/fin et faits</li>
+        <li>Consommation de matière vs normes</li>
+        <li>Travail vs plan</li>
+      </ul>
+      <p>Si l'écart est > 10 % - un avertissement avec une recommandation.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous avons besoin d’un outil d’IA pour gérer les calendriers de construction.
+
+Données d'entrée :
+- Graphique : MS Project / Excel (graphique réseau)
+- Carnet de travail : rapports quotidiens (PDF, Excel, texte)
+- Ressources : équipes, équipements, matériels (Excel, 1C, SAP)
+- Estimations : estimations locales (PDF, Excel)
+- Météo : API (ou Excel avec prévisions)
+
+Que devez-vous faire :
+1. Analyser le chemin critique
+2. Vérifiez le chargement des ressources (conflits, surcharges)
+3. Comparez le plan/le réel
+4. Prévoyez la date de fin
+5. Générer des bons de travail
+6. Avertir des risques (retards, météo, ressources)
+
+Sortie :
+- Rapport PDF (hebdomadaire)
+- Tableau Excel (graphique mis à jour)
+- Notifications email/SMS (risques critiques)
+
+Intégration : [MS Project / 1C / SAP / Excel]
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Le chemin critique est-il correct ? (vérifier avec calcul manuel)</li>
+      <li>Les risques sont-ils réels ? (cochez 2-3 sur le graphique)</li>
+      <li>Le chargement des ressources est-il adéquat ? (pas de surcharge > 100%)</li>
+      <li>La date de fin prévue est-elle réaliste ?</li>
+      <li>Les bons de travail sont-ils dans les délais ?</li>
+      <li>Le format est-il adapté à un usage quotidien ?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent" data-quiz="1">
+      <p><strong>Question 1 :</strong>Quel est le chemin critique ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Une chaîne de travail qui ne peut être retardée sans perturber les délais du projet</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) La route la plus longue vers le chantier</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Chemin de l'entrepôt à l'installation</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent" data-quiz="2">
+      <p><strong>Question 2 :</strong>De quelles données l’IA a-t-elle besoin pour analyser un graphique ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Calendrier, carnet de travail, ressources, estimations, météo</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Horaire seulement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Estimations seulement</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent" data-quiz="3">
+      <p><strong>Question 3 :</strong>Que fait l’IA lorsque l’écart prévu/réel est > 10 % ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Avertit avec des recommandations de correction</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Ignore - c'est normal</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Arrête le travail automatiquement</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>L'IA est un analyste prédictif pour la construction.</strong>Il voit les risques qui échappent aux gens : surcharge des ressources, conflits d'horaires, retards météorologiques. Il ne remplace pas le contremaître, mais lui donne un outil pour prendre des décisions basées sur des données et non sur des sentiments.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-project-check/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../08-quality-check/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.3 Politique IA - IA pour les non-spécialistes en informatique</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🛡️ NIVEAU 6 · ÉTHIQUE ET SÉCURITÉ</div>
+    <h1>6.3 · Politique IA de l'entreprise : règles du jeu</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <!-- POURQUOI C'EST IMPORTANT -->
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>Sans règles d’utilisation de l’IA, une entreprise risque :<strong>fuite de données</strong>, <strong>mauvaises décisions</strong>, <strong>violation de la loi</strong>. La politique en matière d’IA n’est pas une bureaucratie, c’est une assurance.</p>
+    <div class="card card-success">
+      <p><strong>Exemple:</strong>Entreprise sans politique : un employé a envoyé des données client à ChatGPT gratuit → Fuite → Amende de 500 000 roubles en vertu de la loi fédérale 152.</p>
+      <p>Entreprise avec une politique : l'employé savait que ce n'était pas le cas → Solution locale utilisée → Aucune fuite.</p>
+    </div>
+  </div>
+
+  <!-- CE QUE NOUS ÉTUDIONS -->
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>Que doit contenir une politique en matière d’IA ?</h3>
+    <div class="card">
+      <table style="width:100%; border-collapse: collapse;">
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Chapitre</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Contenu</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">1. Objectif</td><td style="padding:10px;border-bottom:1px solid var(--border);">Pourquoi utilisons-nous l’IA, quels problèmes résolvons-nous ?</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">2. Outils autorisés</td><td style="padding:10px;border-bottom:1px solid var(--border);">Quels services peuvent être utilisés (ChatGPT Enterprise, local, etc.)</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">3. Données interdites</td><td style="padding:10px;border-bottom:1px solid var(--border);">Ce qui ne peut pas être envoyé au cloud AI</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">4. Processus</td><td style="padding:10px;border-bottom:1px solid var(--border);">Dans quelles tâches l’IA peut-elle fonctionner de manière autonome et où un humain est-il nécessaire ?</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">5. Responsabilité</td><td style="padding:10px;border-bottom:1px solid var(--border);">Qui est responsable du résultat, qui vérifie</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">6. Formation</td><td style="padding:10px;border-bottom:1px solid var(--border);">À quelle fréquence former, qui dirige</td></tr>
+      </table>
+    </div>
+
+    <h3>Exemple : catégories de données par niveaux d'accès</h3>
+    <div class="card card-success">
+      <p><strong>🔴 Rouge (strictement local) :</strong></p>
+      <ul>
+        <li>Données personnelles des clients</li>
+        <li>Secret commercial</li>
+        <li>NDA</li>
+        <li>États financiers</li>
+      </ul>
+      <p><strong>🟡 Jaune (désidentification + Entreprise) :</strong></p>
+      <ul>
+        <li>Règlement intérieur</li>
+        <li>Modèles de contrat</li>
+        <li>Rapports analytiques</li>
+      </ul>
+      <p><strong>🟢 Vert (peut être dans le cloud) :</strong></p>
+      <ul>
+        <li>Connaissances générales, informations générales</li>
+        <li>Brouillons sans données sensibles</li>
+        <li>Matériel pédagogique</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMMENT APPLIQUER -->
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Modèle de politique d'IA (version courte)</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Exemple de politique</div>
+        <pre>1. Objectif : Utiliser l’IA pour automatiser les routines 
+   et améliorer la qualité de l'analyse.
+
+2. Outils autorisés :
+   - ChatGPT Enterprise (pour les tâches générales)
+   - Modèle local (à titre confidentiel)
+   - n8n / Zapier (pour l'automatisation)
+
+3. Interdit :
+   - Envoyer des données personnelles à ChatGPT gratuit
+   - Utiliser l'IA pour les décisions finales sans vérification
+   - Faites confiance à l'IA avec des calculs juridiques et financiers sans vérification
+
+4. Processus :
+   - Routine (< 50 000 ₽): AI autonome
+   - Importants (>50 000 ₽) : IA + humain
+   - Critique (> 500 000 ₽) : personne
+
+5. Responsabilité :
+   - Employé : respect de la politique
+   - Manager : revue des décisions critiques
+   - Informatique : support technique
+
+6. Infractions :
+   - Premièrement : avertissement + formation
+   - Répété : responsabilité disciplinaire</pre>
+      </div>
+    </div>
+
+    <h3>Comment mettre en œuvre une politique</h3>
+    <div class="card card-accent">
+      <ol>
+        <li><strong>Constituez l’équipe :</strong>Informatique, avocat, RH, représentants d'entreprises</li>
+        <li><strong>Rédigez un brouillon :</strong>Utilisez le modèle ci-dessus</li>
+        <li><strong>D'accord avec un avocat :</strong>Conformité avec 152-FZ, NDA</li>
+        <li><strong>Approuver par la direction :</strong>Commande / instruction</li>
+        <li><strong>Formez vos collaborateurs :</strong>Ne vous contentez pas de « lire », mais pratiquez</li>
+        <li><strong>Vérifier:</strong>Audit une fois par trimestre</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- COMMENT DÉLÉGUER -->
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous avons besoin d’un système pour contrôler le respect des politiques en matière d’IA.
+
+Exigences :
+1. Vérification automatique des données d'entrée 
+   (contient-il des informations confidentielles)
+2. Bloquer les opérations interdites
+3. Journalisation de toutes les demandes d'IA
+4. Rapports pour audit
+5. Intégration avec [Active Directory/SSO]
+
+Politique (joindre) : [fichier]
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>La politique a-t-elle été approuvée par la direction ?</li>
+      <li>Tous les employés ont-ils lu et signé ?</li>
+      <li>Y a-t-il une formation (pas seulement « lire ») ?</li>
+      <li>Des restrictions techniques sont-elles définies ? (qui ne peut pas être envoyé)</li>
+      <li>Existe-t-il un processus d'examen et d'audit ?</li>
+      <li>Les violations sont-elles enregistrées et traitées ?</li>
+    </ul>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Pourquoi avons-nous besoin d’une politique en matière d’IA ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Pour protéger l'entreprise des fuites et des erreurs</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Pour compliquer le travail</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>C'est une formalité</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Quelles données sont « rouges » (strictement locales) ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Données personnelles, secrets commerciaux, NDA</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Connaissances générales sur Internet</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Modèles de lettres</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Qui devrait s’entendre sur la politique ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Avocat + direction</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Seul directeur informatique</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Personne, la politique est facultative</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- L'ESSENTIEL -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>Politique d'IA = règles de circulation.</strong>Sans eux, c'est le chaos et les accidents. Avec eux - une utilisation efficace et sûre. La politique doit être claire, pratique et contraignante. Nous ne nous contentons pas de « tout interdire », mais de « permettre ce qui est sûr, avec contrôle ».</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../06-hallucinations/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../../catalog.html" class="nav-btn primary">Vers le catalogue →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.2 Hallucinations - IA pour les non-informaticiens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🛡️ NIVEAU 6 · ÉTHIQUE ET SÉCURITÉ</div>
+    <h1>6.2 · Hallucinations de l'IA : quand une machine ment de manière convaincante</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <!-- POURQUOI C'EST IMPORTANT -->
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>AI <strong>ne connaît pas la différence entre la réalité et la fiction</strong>. Il génère un texte qui semble plausible mais qui peut être complètement fictif.</p>
+    <div class="card card-danger">
+      <p><strong>Cas réel :</strong>Un avocat a utilisé l’IA pour préparer un procès. AI a créé 6 précédents qui n’ont jamais existé. Le juge a vérifié : l'affaire a été perdue, la réputation a été endommagée.</p>
+    </div>
+    <div class="card card-warning">
+      <p><strong>Danger:</strong>Les hallucinations sont particulièrement dangereuses en affaires car l'IA semble confiante et professionnelle. Il faut vérifier<strong>Toujours</strong>.</p>
+    </div>
+  </div>
+
+  <!-- CE QUE NOUS ÉTUDIONS -->
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>Que sont les hallucinations</h3>
+    <div class="card card-accent">
+      <p><strong>Hallucination</strong>- lorsque l'IA génère des informations qui semblent plausibles, mais qui sont fausses ou invérifiables.</p>
+      <p>Types d'hallucinations :</p>
+      <ul>
+        <li><strong>Faits:</strong>"La société X a été fondée en 1995" (en fait en 2005)</li>
+        <li><strong>Sources :</strong>"D'après un article de Forbes..." (l'article n'existe pas)</li>
+        <li><strong>Citations:</strong>"Comme Elon Musk l'a dit..." (Musk n'a pas dit ça)</li>
+        <li><strong>Statistiques:</strong>"Le marché a augmenté de 150%..." (le chiffre est fictif)</li>
+      </ul>
+    </div>
+
+    <h3>Pourquoi l'IA hallucine</h3>
+    <div class="card">
+      <table style="width:100%; border-collapse: collapse;">
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Cause</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Explication</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Aucune donnée</td><td style="padding:10px;border-bottom:1px solid var(--border);">L'IA ne connaît pas la réponse, mais génère "le plus probable"</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Données obsolètes</td><td style="padding:10px;border-bottom:1px solid var(--border);">La formation s'est terminée à une certaine date</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Confusion</td><td style="padding:10px;border-bottom:1px solid var(--border);">Faits mitigés provenant de différentes sources</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Veut plaire</td><td style="padding:10px;border-bottom:1px solid var(--border);">L'IA s'efforce de donner une réponse « complète » et ajoute des détails</td></tr>
+      </table>
+    </div>
+
+    <h3>Comment reconnaître une hallucination</h3>
+    <div class="card card-success">
+      <ul>
+        <li>✅ Détails trop précis sans sources</li>
+        <li>✅ La réponse semble « idéale » - sans nuances</li>
+        <li>✅ L'IA dit quelque chose qui contredit vos connaissances</li>
+        <li>✅ Les chiffres sont « ronds » ou trop précis</li>
+        <li>✅ Aucun lien vers des sources (pour des faits)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMMENT APPLIQUER -->
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Méthodes pour lutter contre les hallucinations</h3>
+    
+    <div class="card card-success">
+      <h4>1. Demandez des sources</h4>
+      <div class="example">
+        <div class="example-label">Rapide</div>
+        <pre>"Donnez une réponse avec vos sources. Si vous n'êtes pas sûr, dites 'Je ne sais pas'.
+N'inventez PAS de faits."</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h4>2. RAG (recherchez vos documents)</h4>
+      <p>L'IA répond uniquement en fonction de vos documents, et non de vos connaissances générales.</p>
+    </div>
+
+    <div class="card card-success">
+      <h4>3. Vérification des faits critiques</h4>
+      <p>Chiffres, dates, noms, lois - vérifiez toujours manuellement.</p>
+    </div>
+
+    <div class="card card-success">
+      <h4>4. Utilisez des modèles spécialisés</h4>
+      <p>Les modèles formés sur des données juridiques/médicales hallucinent moins fréquemment dans leur domaine.</p>
+    </div>
+
+    <h3>Scénario : Vérification de l'analyse juridique</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Processus de vérification</div>
+        <pre>1. AI a analysé le contrat
+2. Nous vérifions chaque fait :
+   - Articles de loi : se renseigner auprès du Consultant/Garant
+   - Précédents : vérification dans la base de données judiciaire
+   - Dates : vérifier avec le calendrier
+3. Si AI disait « conformément à l'article 123 du Code civil de la Fédération de Russie » → 
+   ouvrez le Code civil de la Fédération de Russie, recherchez un article
+4. Points douteux → consulter un avocat</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMENT DÉLÉGUER -->
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous avons besoin d’un système de vérification des faits pour les réponses de l’IA.
+
+Exigences :
+1. Pour chaque fait, l’IA doit indiquer la source
+2. Vérification automatique : dates, numéros, liens vers les lois
+3. Si la source n'est pas trouvée, marquez comme « nécessite une vérification »
+4. Intégration avec [base de données / CRM / base de données judiciaire]
+5. Tableau de bord avec le pourcentage de faits vérifiés
+
+Domaines critiques : [droit/finances/médecine]
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Tous les faits ont-ils été vérifiés ? (surtout les chiffres, les dates, les noms)</li>
+      <li>Existe-t-il des sources pour chaque déclaration ?</li>
+      <li>AI a dit « Je ne sais pas » alors qu'elle n'est pas sûre ?</li>
+      <li>Les valeurs extrêmes (cas limites) ont-elles été testées ? (situations rares)</li>
+      <li>Existe-t-il un processus de révision pour les décisions critiques ?</li>
+      <li>Les utilisateurs savent-ils que l’IA peut faire des erreurs ?</li>
+    </ul>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Qu’est-ce qu’une hallucination IA ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>AI génère des informations convaincantes mais fausses</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>AI est lent</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>AI ne répond pas aux questions</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Comment se protéger des hallucinations ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Exiger des sources, vérifier les faits, utiliser RAG</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Faites entièrement confiance à l’IA</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Ne pas utiliser l'IA</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Que faire si l’IA cite la loi ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Vérification dans la base de données officielle (Consultant, Garant)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B> Croyez-moi sur parole</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Ignorer</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- L'ESSENTIEL -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>L’IA ment de manière convaincante.</strong>Ce n'est pas un bug, mais une fonctionnalité de la technologie. Les hallucinations sont inévitables mais gérables. Exigez des sources, vérifiez les faits, utilisez RAG. Ne prenez jamais de décisions critiques basées sur une seule réponse de l’IA. Faites confiance mais vérifiez : ce n’est pas de la paranoïa, c’est du professionnalisme.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../06-confidential-data/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../06-ai-policy/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

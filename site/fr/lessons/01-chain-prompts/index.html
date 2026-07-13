@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>1.3 Chaînes de requêtes - IA pour les non-informaticiens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .step-flow { display: flex; align-items: center; gap: 8px; margin: 14px 0; flex-wrap: wrap; }
+  .step-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 0.9rem; }
+  .step-arrow { color: var(--accent); font-size: 1.2rem; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .step-flow { flex-direction: column; align-items: flex-start; }
+    .step-arrow { transform: rotate(90deg); }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🛠️ NIVEAU 1 · MAÎTRISE DES OUTILS</div>
+    <h1>1.3 · Chaînes de requêtes : du simple au complexe</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <!-- POURQUOI C'EST IMPORTANT -->
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>Tâches complexes<strong>ne peut pas être résolu en une seule fois</strong>. Essayer de tout demander en même temps conduit à des réponses superficielles.</p>
+    <div class="card card-success">
+      <p><strong>Exemple:</strong>L'analyse du marché des fournisseurs comprend : recherche → comparaison → évaluation des risques → recommandation. Chaque étape s’appuie sur la précédente.</p>
+      <p><strong>Économie:</strong>Une chaîne de 4 invites = 30 minutes. Analyse manuelle = 4 heures.</p>
+    </div>
+  </div>
+
+  <!-- CE QUE NOUS ÉTUDIONS -->
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>Qu'est-ce qu'une chaîne de requêtes</h3>
+    <div class="card card-accent">
+      <p><strong>Chaîne</strong>est une séquence d'invites, où chacune suivante utilise le résultat de la précédente.</p>
+      <div class="step-flow">
+        <div class="step-box">🔍Collection</div>
+        <div class="step-arrow">→</div>
+        <div class="step-box">📊 Structure</div>
+        <div class="step-arrow">→</div>
+        <div class="step-box">🔎 Analyse</div>
+        <div class="step-arrow">→</div>
+        <div class="step-box">✅Solution</div>
+      </div>
+    </div>
+
+    <h3>Exemple : sélection du fournisseur d'emballage</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Étape 1 : Collecte d'informations</div>
+        <pre>Vous êtes un acheteur FMCG.
+Retrouvez les 5 plus grands fabricants d'emballages en carton à Moscou.
+Pour chacun : nom, site internet, numéro de téléphone, minimum de commande, délai de production.</pre>
+      </div>
+      <div class="example">
+        <div class="example-label">Étape 2 : Structuration</div>
+        <pre>Sur la base des résultats de l'étape précédente, créez un tableau :
+| Fournisseur | Site Web | Téléphone | Min. commander | Date limite | Remarques |
+
+Marquez les fournisseurs avec un délai > 14 jours.</pre>
+      </div>
+      <div class="example">
+        <div class="example-label">Étape 3 : Analyse des risques</div>
+        <pre>Analysez le tableau :
+1. Quels risques voyez-vous ? (délais, salaire minimum, joueurs inconnus)
+2. Qui est le leader en termes de rapport prix/durée ?
+3. Que dois-je vérifier en plus ?</pre>
+      </div>
+      <div class="example">
+        <div class="example-label">Étape 4 : Recommandation</div>
+        <pre>Sur la base de l’analyse, recommandez 2 fournisseurs pour le premier contact.
+Justifiez votre choix. Indiquez les questions à poser lors de l'appel.</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMENT APPLIQUER -->
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Règle : une invite = une tâche</h3>
+    <div class="card card-warning">
+      <p><strong>❌ Incorrect :</strong>"Trouver des fournisseurs, les comparer, évaluer les risques et recommander les meilleurs"</p>
+      <p><strong>✅ Exactement :</strong>Divisé en 4 invites distinctes</p>
+      <p><em>Pourquoi : L’IA donne une réponse superficielle lorsqu’elle en demande trop à la fois.</em></p>
+    </div>
+
+    <h3>Quand utiliser les chaînes</h3>
+    <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Signe</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Exemple</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">La tâche nécessite > 3 actions</td><td style="padding:10px;border-bottom:1px solid var(--border);">Analyse de marché + comparaison + recommandation</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Chaque étape dépend de la précédente</td><td style="padding:10px;border-bottom:1px solid var(--border);">Impossible de comparer tant que vous n'avez pas collecté de données</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Nous avons besoin d'un résultat intermédiaire</td><td style="padding:10px;border-bottom:1px solid var(--border);">Tableau à vérifier avant analyse</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Une invite donne une réponse trop longue</td><td style="padding:10px;border-bottom:1px solid var(--border);">La réponse est coupée, les détails sont perdus</td></tr>
+    </table>
+
+    <h3>Modèles de chaîne commerciale</h3>
+    <div class="card">
+      <h4>Chaîne "Tender"</h4>
+      <ol>
+        <li>Recueillir les exigences du fournisseur</li>
+        <li>Faire une liste de critères d'évaluation</li>
+        <li>Recueillir des propositions (ou trouver des fournisseurs)</li>
+        <li>Comparer par critères</li>
+        <li>Évaluer les risques</li>
+        <li>Formuler une recommandation</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h4>Chaîne "Rapport"</h4>
+      <ol>
+        <li>Collecter les données pour la période</li>
+        <li>Calculer les indicateurs clés</li>
+        <li>Identifier les tendances et les anomalies</li>
+        <li>Comparer avec la période précédente</li>
+        <li>Formuler des conclusions et des recommandations</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h4>Chaîne "Accord"</h4>
+      <ol>
+        <li>Analyser les termes clés</li>
+        <li>Trouver les risques pour chaque côté</li>
+        <li>Comparez avec le modèle/les contrats précédents</li>
+        <li>Formuler des commentaires</li>
+        <li>Préparer une liste de questions pour la contrepartie</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- COMMENT DÉLÉGUER -->
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous devons automatiser la chaîne d'analyse [processus].
+
+Chaîne actuelle (manuelle) :
+1. [étape 1] → [étape 2] → [étape 3]
+
+Exigences :
+1. Sauvegarde des résultats intermédiaires entre les étapes
+2. Possibilité de s'arrêter et de vérifier le résultat après chaque étape
+3. Si le résultat d'une étape est incorrect, vous pouvez la répéter
+4. Rapport final au format [préciser]
+5. Notification par email une fois terminé
+
+Intégrations : [1C / Excel / CRM / email]
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Chaque étape a-t-elle une tâche d’entrée et de sortie claire ?</li>
+      <li>Est-il possible de vérifier le résultat de l’étape intermédiaire ?</li>
+      <li>Si l’étape 2 est incorrecte, est-il possible de redémarrer uniquement cette étape ?</li>
+      <li>Le résultat final est-il construit sur toutes les étapes précédentes ?</li>
+      <li>N’existe-t-il pas d’étapes pouvant être combinées sans perte de qualité ?</li>
+      <li>La chaîne couvre-t-elle l’intégralité de la tâche du début à la fin ?</li>
+    </ul>
+  </div>
+
+  <!-- OUTILS -->
+  <div class="section">
+    <h2>🛠️Outils</h2>
+    <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Outil</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Pour quoi</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT / Claude</td><td style="padding:10px;border-bottom:1px solid var(--border);">Enchaînements manuels (copier le résultat de l'étape à la suivante)</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n / Zapier</td><td style="padding:10px;border-bottom:1px solid var(--border);">Chaînes automatiques : étape A → étape B → étape C</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n</td><td style="padding:10px;border-bottom:1px solid var(--border);">Chaînes complexes avec conditions et ramifications</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Notion</td><td style="padding:10px;border-bottom:1px solid var(--border);">Stockage des modèles de chaîne et des résultats</td></tr>
+    </table>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Pourquoi un problème complexe ne peut-il pas être résolu d’un seul coup ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) L’IA ne peut pas résoudre des problèmes complexes</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) L’IA donne une réponse superficielle lorsqu’elle en demande trop</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) C'est plus cher en terme de tokens</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Combien d'étapes y a-t-il dans la chaîne d'appel d'offres ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 3</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 6</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 4</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Quel outil pour les chaînes automatiques ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Excel</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) n8n / Zapier</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Word</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- L'ESSENTIEL -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p>Tâches complexes<strong>le briser en chaîne</strong>: collecte → structuration → analyse → recommandation. Vérifiez le résultat de chaque étape. Une tâche = une invite. Cela donne une qualité qui ne peut être obtenue avec une seule demande.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../01-structured-output/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../01-documents/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

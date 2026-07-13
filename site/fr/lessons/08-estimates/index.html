@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.1 IA pour les estimateurs - IA pour les non-informaticiens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🏗️ NIVEAU 8 · IA POUR LA CONSTRUCTION</div>
+    <h1>8.1 · Estimations et calculs : des estimations locales au coût final</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>L'estimateur dépense jusqu'à<strong>60% du temps en routine</strong>: réécriture des postes des devis locaux vers des postes consolidés, rapprochement des prix avec GESN/FER, vérification des coefficients, recalcul lors de l'évolution des volumes. L'IA fait cela en quelques minutes.</p>
+    <div class="card card-success">
+      <p><strong>Cas:</strong>Un estimateur pour un objet de 500 éléments a passé 3 jours sur le résumé. Avec AI - 2 heures : AI a extrait les articles de 12 devis locaux, les a compilés dans un tableau, vérifié les prix selon GESN, trouvé 8 erreurs dans les coefficients, recalculé le total en tenant compte de la TVA et des factures.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>Ce que l'IA fait pour un estimateur</h3>
+    <div class="card card-accent">
+      <ul>
+        <li>📄 Extrait les éléments des devis locaux (PDF, Excel, scans)</li>
+        <li>🔢 Compare les prix avec les collections GESN/FER/régionales</li>
+        <li>📊 Combine de nombreuses estimations locales en un seul tableau</li>
+        <li>🧮 Vérifie les coefficients (amendements, indices, CP)</li>
+        <li>💰 Recalcule le total lorsque les volumes ou les prix changent</li>
+        <li>⚠️ Trouve les doublons, les omissions, les divergences</li>
+      </ul>
+    </div>
+
+    <h3>Sources de vérification</h3>
+    <div class="card">
+      <table>
+        <tr><th>Source</th><th>Ce que nous vérifions</th><th>Format</th></tr>
+        <tr><td>GESN/FER</td><td>Tarifs des travaux</td><td>PDF, Excel</td></tr>
+        <tr><td>Collections régionales</td><td>Modifications des prix</td><td>PDF, Excel</td></tr>
+        <tr><td>Prix ​​unitaires territoriaux</td><td>Matériaux, mécanismes</td><td>Excel</td></tr>
+        <tr><td>Offres commerciales</td><td>Prix ​​des matériaux, location</td><td>PDF, Excel, email</td></tr>
+        <tr><td>Historique des estimations d'entreprises</td><td>Positions similaires, cotes</td><td>Base de données/Excel</td></tr>
+      </table>
+    </div>
+
+    <h3>Exemple de demande à AI</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Demander une estimation</div>
+        <pre>"Analyser le devis local (fichier joint).
+
+1. Extrayez toutes les positions : code, nom, unité, quantité, prix, total
+2. Vérifiez les prix avec GESN-2024 (fichier GESN ci-joint)
+3. Vérifiez les coefficients : CP, ajustements hivernaux, indices
+4. Rechercher les doublons et les lacunes
+5. Affichez le tableau : Position | Notre prix | GESN | Divergences | Recommandation
+
+Format : Tableau compatible Excel."</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Scénario : synthèse de 10 estimations locales</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Processus</div>
+        <pre>1. Nous collectons toutes les estimations locales dans un dossier (PDF, Excel, scans)
+2. Téléchargez sur AI avec la demande :
+   "Compilez toutes les estimations dans un seul tableau.
+   Regrouper par type de travaux (maçonnerie, béton, finition).
+   Calculez les totaux du groupe et le total global.
+   Mettez en surbrillance les positions présentant des écarts > 5 %.
+3. L'IA génère un tableau croisé dynamique
+4. L'estimateur vérifie les écarts et les éléments clés
+5. Exportations vers Excel / 1C / programme de devis</pre>
+      </div>
+    </div>
+
+    <h3>Calcul du coût final</h3>
+    <div class="card card-accent">
+      <p>L’IA considère la chaîne complète :</p>
+      <ol>
+        <li>Coûts directs (travaux + matériaux + mécanismes)</li>
+        <li>Frais généraux (% des frais directs)</li>
+        <li>Bénéfice estimé (%)</li>
+        <li>TVA (le cas échéant)</li>
+        <li>Total prenant en compte tous les coefficients</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous avons besoin d’un outil d’IA pour l’estimateur.
+
+Données d'entrée :
+- Devis locaux : PDF, Excel, scans (via OCR)
+- GESN/FER : guide des prix (PDF, Excel)
+- Offres commerciales : matériels, location (PDF, Excel, email)
+
+Que devez-vous faire :
+1. Extraire les positions de n'importe quel format
+2. Vérifiez les prix auprès de GESN/FER (par code travail)
+3. Vérifier les coefficients (CP, amendements, indices)
+4. Combinez plusieurs estimations dans un seul tableau
+5. Rechercher les doublons, les omissions et les divergences
+6. Recalculez le total lorsque les volumes changent
+
+Sortie :
+- Tableau Excel
+- Rapport PDF avec écarts
+- Horaires par type de travaux
+
+Intégration : [1C / programme de devis / Excel]
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Toutes les positions sont-elles récupérées ? (cochez 5 à 10 au hasard)</li>
+      <li>Les prix ont-ils été vérifiés auprès du GESN/FER ? (cochez 3 à 5 positions)</li>
+      <li>Les cotes sont-elles correctes ? (KP, amendements, indices)</li>
+      <li>Y a-t-il des doublons ou des omissions trouvés ?</li>
+      <li>Le montant total correspond-il au calcul manuel ?</li>
+      <li>Le format est-il pratique pour l’importation dans un programme d’estimation ?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent" data-quiz="1">
+      <p><strong>Question 1 :</strong>À quoi l’IA vérifie-t-elle les prix ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) AVEC GESN / FER / collections régionales</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Avec les prix sur Avito</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Avec les cotations des banques centrales</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent" data-quiz="2">
+      <p><strong>Question 2 :</strong>Que vérifie l’IA pour les cotes ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) KP, ajustements pour l'hiver, index, factures</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) TVA uniquement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Ne vérifie pas les coefficients</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent" data-quiz="3">
+      <p><strong>Question 3 :</strong>Quel format de données de sortie convient à un estimateur ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Feuille de calcul compatible Excel</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Rapport PDF uniquement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Fichier texte</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>L'IA est l'assistant d'un estimateur, pas un remplaçant.</strong>Il récupère les articles, vérifie les prix, vérifie les cotes, trouve les erreurs. L'estimateur demeure responsable de l'inspection et de la prise de décision. Économies : 60 à 70 % du temps consacré à la routine.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../catalog.html" class="nav-btn">← Catalogue</a>
+    <a href="../08-project-check/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Catalogue des leçons — L'IA pour les non-spécialistes IT</title>
+<style>
+  :root {
+    --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF;
+    --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08);
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; white-space: nowrap; }
+
+  .desktop-nav { display: flex; align-items: center; gap: 20px; }
+  .desktop-nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+  .desktop-nav a:hover { color: var(--text); }
+
+  .lang-dropdown { position: relative; }
+  .lang-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; }
+  .lang-menu { position: absolute; top: 100%; right: 0; margin-top: 4px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 4px; min-width: 100px; display: none; z-index: 200; }
+  .lang-menu.show { display: block; }
+  .lang-menu a { display: block; padding: 6px 12px; color: var(--muted); text-decoration: none; font-size: 0.85rem; border-radius: 4px; }
+  .lang-menu a:hover, .lang-menu a.active { background: rgba(139,92,246,0.15); color: var(--text); }
+
+  .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; }
+  .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+  .mobile-nav { display: none; position: fixed; top: 57px; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; padding: 20px 16px; }
+  .mobile-nav.show { display: block; }
+  .mobile-nav a { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid var(--border); }
+  .mobile-nav .lang-section { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .mobile-nav .lang-section p { color: var(--muted); font-size: 0.85rem; margin-bottom: 12px; }
+  .mobile-nav .lang-section a { display: inline-block; padding: 8px 16px; margin: 4px 4px 4px 0; background: var(--card); border: 1px solid var(--border); border-radius: 6px; font-size: 0.9rem; }
+  .mobile-nav .lang-section a.active { background: rgba(139,92,246,0.2); border-color: var(--accent); }
+
+  .page-title { padding: 32px 0 16px; }
+  .page-title h1 { margin: 0 0 8px; font-size: 1.8rem; }
+  .page-title p { color: var(--muted); margin: 0; font-size: 0.95rem; }
+  .phase-section { margin-bottom: 32px; }
+  .phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); flex-wrap: wrap; }
+  .phase-header h2 { margin: 0; font-size: 1.2rem; }
+  .phase-header .badge { background: rgba(139,92,246,0.15); color: var(--accent); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; }
+  .lesson-list { display: flex; flex-direction: column; gap: 8px; }
+  .lesson-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; text-decoration: none; color: var(--text); transition: all 0.2s; }
+  .lesson-item:hover { border-color: var(--accent); }
+  .lesson-num { background: rgba(139,92,246,0.2); color: var(--accent); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-weight: 600; font-size: 0.85rem; flex-shrink: 0; }
+  .lesson-title { flex: 1; font-size: 0.95rem; }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; font-size: 0.85rem; }
+
+  @media (max-width: 768px) {
+    .page-title h1 { font-size: 1.4rem; }
+    .phase-header h2 { font-size: 1rem; }
+    .lesson-item { padding: 10px 12px; }
+    .lesson-title { font-size: 0.9rem; }
+    .desktop-nav { display: none; }
+    .hamburger { display: flex; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="index.html" class="logo">🧠 L'IA pour les non-spécialistes IT</a>
+
+    <nav class="desktop-nav">
+      <a href="index.html">Accueil</a>
+      <a href="catalog.html">Catalogue</a>
+      <a href="glossary.html">📖 Glossaire</a>
+      <div class="lang-dropdown">
+        <button class="lang-btn" onclick="toggleLang()">🌐 FR ▼</button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../index.html">RU</a>
+          <a href="en/index.html">EN</a>
+          <a href="../index-es.html">ES</a>
+          <a href="index.html" class="active">FR</a>
+          <a href="../index-zh.html">中文</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="toggleMobileNav()">Accueil</a>
+  <a href="catalog.html">Catalogue</a>
+  <a href="glossary.html">📖 Glossaire</a>
+  <div class="lang-section">
+    <p>🌐 Langue</p>
+    <a href="../index.html">RU</a>
+    <a href="en/index.html">EN</a>
+    <a href="../index-es.html">ES</a>
+    <a href="index.html" class="active">FR</a>
+    <a href="../index-zh.html">中文</a>
+  </div>
+</div>
+
+<section class="page-title">
+  <div class="container">
+    <h1>Catalogue des leçons</h1>
+    <p>Tous les niveaux du cours : des fondamentaux de l'IA aux spécialisations par métier</p>
+  </div>
+</section>
+
+<main class="container">
+
+  <!-- Niveau 0 -->
+  <div class="phase-section" id="level0">
+    <div class="phase-header">
+      <h2>🚀 Niveau 0 — Fondamentaux de l'IA</h2>
+      <span class="badge">4 leçons</span>
+    </div>
+    <div class="lesson-list">
+      <a href="lessons/00-what-is-llm/index.html" class="lesson-item">
+        <span class="lesson-num">0.1</span>
+        <span class="lesson-title">Qu'est-ce qu'un LLM et comment ils fonctionnent</span>
+      </a>
+      <a href="lessons/00-choose-model/index.html" class="lesson-item">
+        <span class="lesson-num">0.2</span>
+        <span class="lesson-title">Comment choisir un modèle : ChatGPT, Claude, Kimi, Qwen</span>
+      </a>
+      <a href="lessons/00-cloud-vs-onprem/index.html" class="lesson-item">
+        <span class="lesson-num">0.3</span>
+        <span class="lesson-title">Cloud vs On-premise : GENAi pour les données confidentielles</span>
+      </a>
+      <a href="lessons/00-pricing/index.html" class="lesson-item">
+        <span class="lesson-num">0.4</span>
+        <span class="lesson-title">Combien coûte l'IA : calculateur pour l'entreprise</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Niveau 1 -->
+  <div class="phase-section" id="level1">
+    <div class="phase-header">
+      <h2>🛠️ Niveau 1 — Maîtrise des outils</h2>
+      <span class="badge">5 leçons</span>
+    </div>
+    <div class="lesson-list">
+      <a href="lessons/01-prompt-engineering/index.html" class="lesson-item">
+        <span class="lesson-num">1.1</span>
+        <span class="lesson-title">Ingénierie de prompts pour le manager : rédiger des CDC, pas « fais-le beau »</span>
+      </a>
+      <a href="lessons/01-structured-output/index.html" class="lesson-item">
+        <span class="lesson-num">1.2</span>
+        <span class="lesson-title">Sortie structurée : JSON, tableaux, checklists</span>
+      </a>
+      <a href="lessons/01-chain-prompts/index.html" class="lesson-item">
+        <span class="lesson-num">1.3</span>
+        <span class="lesson-title">Chaînes de requêtes : du simple au complexe</span>
+      </a>
+      <a href="lessons/01-documents/index.html" class="lesson-item">
+        <span class="lesson-num">1.4</span>
+        <span class="lesson-title">Travail avec des documents : analyse, synthèse, comparaison</span>
+      </a>
+      <a href="lessons/01-practice-task/index.html" class="lesson-item">
+        <span class="lesson-num">1.5</span>
+        <span class="lesson-title">Pratique : automatisez votre première tâche</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Niveau 2 -->
+  <div class="phase-section" id="level2">
+    <div class="phase-header">
+      <h2>📄 Niveau 2 — Données et documents</h2>
+      <span class="badge">4 leçons</span>
+    </div>
+    <div class="lesson-list">
+      <a href="lessons/02-rag-explained/index.html" class="lesson-item">
+        <span class="lesson-num">2.1</span>
+        <span class="lesson-title">RAG en mots simples : comment connecter l'IA à la base de connaissances</span>
+      </a>
+      <a href="lessons/02-vector-db/index.html" class="lesson-item">
+        <span class="lesson-num">2.2</span>
+        <span class="lesson-title">Bases de données vectorielles : quoi demander à l'IT</span>
+      </a>
+      <a href="lessons/02-long-docs/index.html" class="lesson-item">
+        <span class="lesson-num">2.3</span>
+        <span class="lesson-title">Documents longs : comment ne pas perdre le contexte</span>
+      </a>
+      <a href="lessons/02-summarization/index.html" class="lesson-item">
+        <span class="lesson-num">2.4</span>
+        <span class="lesson-title">Synthèse et édition : rapports, contrats, certificats</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Niveau 3 -->
+  <div class="phase-section" id="level3">
+    <div class="phase-header">
+      <h2>⚡ Niveau 3 — Automatisation</h2>
+      <span class="badge">4 leçons</span>
+    </div>
+    <div class="lesson-list">
+      <a href="lessons/03-nocode-automation/index.html" class="lesson-item">
+        <span class="lesson-num">3.1</span>
+        <span class="lesson-title">Automatisation no-code : n8n, Zapier</span>
+      </a>
+      <a href="lessons/03-ai-processes/index.html" class="lesson-item">
+        <span class="lesson-num">3.2</span>
+        <span class="lesson-title">Intégration de l'IA dans les processus : checklists et modèles</span>
+      </a>
+      <a href="lessons/03-simple-agents/index.html" class="lesson-item">
+        <span class="lesson-num">3.3</span>
+        <span class="lesson-title">Agents simples sans code</span>
+      </a>
+      <a href="lessons/03-monitoring/index.html" class="lesson-item">
+        <span class="lesson-num">3.4</span>
+        <span class="lesson-title">Surveillance et qualité : comment vérifier les résultats</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Niveau 4 -->
+  <div class="phase-section" id="level4">
+    <div class="phase-header">
+      <h2>🤖 Niveau 4 — Agents et orchestration</h2>
+      <span class="badge">4 leçons</span>
+    </div>
+    <div class="lesson-list">
+      <a href="lessons/04-what-is-agent/index.html" class="lesson-item">
+        <span class="lesson-num">4.1</span>
+        <span class="lesson-title">Qu'est-ce qu'un agent IA : en mots simples</span>
+      </a>
+      <a href="lessons/04-multi-agent/index.html" class="lesson-item">
+        <span class="lesson-num">4.2</span>
+        <span class="lesson-title">Systèmes multi-agents : quand plusieurs agents sont nécessaires</span>
+      </a>
+      <a href="lessons/04-human-loop/index.html" class="lesson-item">
+        <span class="lesson-num">4.3</span>
+        <span class="lesson-title">L'humain dans la boucle : approuver, rejeter, réviser</span>
+      </a>
+      <a href="lessons/04-mcp/index.html" class="lesson-item">
+        <span class="lesson-num">4.4</span>
+        <span class="lesson-title">MCP : intégration avec les systèmes d'entreprise</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Niveau 5 -->
+  <div class="phase-section" id="level5">
+    <div class="phase-header">
+      <h2>🏢 Niveau 5 — Implémentation en entreprise</h2>
+      <span class="badge">3 leçons</span>
+    </div>
+    <div class="lesson-list">
+      <a href="lessons/05-roi-calculator/index.html" class="lesson-item">
+        <span class="lesson-num">5.1</span>
+        <span class="lesson-title">Calculateur ROI : choisir un processus à automatiser</span>
+      </a>
+      <a href="lessons/05-pilot-project/index.html" class="lesson-item">
+        <span class="lesson-num">5.2</span>
+        <span class="lesson-title">Projet pilote : de l'idée au résultat</span>
+      </a>
+      <a href="lessons/05-scaling/index.html" class="lesson-item">
+        <span class="lesson-num">5.3</span>
+        <span class="lesson-title">Mise à l'échelle : du département à l'entreprise</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Niveau 6 -->
+  <div class="phase-section" id="level6">
+    <div class="phase-header">
+      <h2>🛡️ Niveau 6 — Éthique, sécurité, conformité</h2>
+      <span class="badge">3 leçons</span>
+    </div>
+    <div class="lesson-list">
+      <a href="lessons/06-confidential-data/index.html" class="lesson-item">
+        <span class="lesson-num">6.1</span>
+        <span class="lesson-title">Données confidentielles : ce qui est permis, ce qui ne l'est pas</span>
+      </a>
+      <a href="lessons/06-hallucinations/index.html" class="lesson-item">
+        <span class="lesson-num">6.2</span>
+        <span class="lesson-title">Hallucinations : comment vérifier les faits</span>
+      </a>
+      <a href="lessons/06-ai-policy/index.html" class="lesson-item">
+        <span class="lesson-num">6.3</span>
+        <span class="lesson-title">Politique IA de l'entreprise : modèle</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Niveau 7 -->
+  <div class="phase-section" id="level7">
+    <div class="phase-header">
+      <h2>🛒 Niveau 7 — IA pour les Achats</h2>
+      <span class="badge">4 leçons</span>
+    </div>
+    <div class="lesson-list">
+      <a href="lessons/07-supplier-search/index.html" class="lesson-item">
+        <span class="lesson-num">7.1</span>
+        <span class="lesson-title">Recherche et analyse de fournisseurs : de la recherche à la shortlist</span>
+      </a>
+      <a href="lessons/07-price-analysis/index.html" class="lesson-item">
+        <span class="lesson-num">7.2</span>
+        <span class="lesson-title">Comparaison des prix et analyse de marché : arguments pour les négociations</span>
+      </a>
+      <a href="lessons/07-contract-check/index.html" class="lesson-item">
+        <span class="lesson-num">7.3</span>
+        <span class="lesson-title">Vérification des contrats et conformité au CDC : identifier les risques</span>
+      </a>
+      <a href="lessons/07-selection-docs/index.html" class="lesson-item">
+        <span class="lesson-num">7.4</span>
+        <span class="lesson-title">Protocole de sélection et accréditation : documents en minutes</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Niveau 8 -->
+  <div class="phase-section" id="level8">
+    <div class="phase-header">
+      <h2>🏗️ Niveau 8 — IA pour la Construction</h2>
+      <span class="badge">4 leçons</span>
+    </div>
+    <div class="lesson-list">
+      <a href="lessons/08-estimates/index.html" class="lesson-item">
+        <span class="lesson-num">8.1</span>
+        <span class="lesson-title">Devis et calculs : du devis local au coût total</span>
+      </a>
+      <a href="lessons/08-project-check/index.html" class="lesson-item">
+        <span class="lesson-num">8.2</span>
+        <span class="lesson-title">Vérification des projets et normes : conformité aux normes et standards</span>
+      </a>
+      <a href="lessons/08-scheduling/index.html" class="lesson-item">
+        <span class="lesson-num">8.3</span>
+        <span class="lesson-title">Planification des travaux et ressources : plannings, personnes, équipement</span>
+      </a>
+      <a href="lessons/08-quality-check/index.html" class="lesson-item">
+        <span class="lesson-num">8.4</span>
+        <span class="lesson-title">Réception des travaux et contrôle qualité : conformité au projet et aux normes</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Niveau 9 -->
+  <div class="phase-section" id="level9">
+    <div class="phase-header">
+      <h2>🔍 Niveau 9 — IA pour l'Audit et le Contrôle</h2>
+      <span class="badge">4 leçons</span>
+    </div>
+    <div class="lesson-list">
+      <a href="lessons/09-doc-check/index.html" class="lesson-item">
+        <span class="lesson-num">9.1</span>
+        <span class="lesson-title">Vérification des documents et du contrôle interne : réconciliation, doublons, anomalies</span>
+      </a>
+      <a href="lessons/09-audit-procurement-sales/index.html" class="lesson-item">
+        <span class="lesson-num">9.2</span>
+        <span class="lesson-title">Audit des achats et des ventes : 3 devis, parties liées, remises, créances</span>
+      </a>
+      <a href="lessons/09-audit-construction-projects/index.html" class="lesson-item">
+        <span class="lesson-num">9.3</span>
+        <span class="lesson-title">Audit de la construction et des projets : certificats, dépassements, zones rouges</span>
+      </a>
+      <a href="lessons/09-compliance-fraud/index.html" class="lesson-item">
+        <span class="lesson-num">9.4</span>
+        <span class="lesson-title">Conformité, surveillance de la fraude et rapports d'audit : suivi, schémas, contrôles</span>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · L'IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function toggleLang() {
+  document.getElementById('langMenu').classList.toggle('show');
+}
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('show');
+  document.getElementById('hamburger').classList.toggle('active');
+}
+document.addEventListener('click', function(e) {
+  const dropdown = document.querySelector('.lang-dropdown');
+  if (dropdown && !dropdown.contains(e.target)) {
+    const menu = document.getElementById('langMenu');
+    if (menu) menu.classList.remove('show');
+  }
+});
+</script>
+
+</body>
+</html>

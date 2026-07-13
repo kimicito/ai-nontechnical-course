@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.2 IA pour le concepteur - IA pour les non-informaticiens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🏗️ NIVEAU 8 · IA POUR LA CONSTRUCTION</div>
+    <h1>8.2 · Vérification des projets et des normes : conformité avec SNiP et GOST</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>Documentation du projet - des centaines de pages avec des dessins, des spécifications, des calculs.<strong>Erreur dans le projet = retravail = non-respect des délais et du budget.</strong>L'IA vérifie la conformité des projets aux normes (SNiP, GOST, SP), détecte des incohérences, des omissions et des collisions.</p>
+    <div class="card card-success">
+      <p><strong>Cas:</strong>AI a vérifié la conception d'un bâtiment de 20 étages. J'ai constaté : non-respect du SP 55 pour la sécurité incendie (absence de sortie supplémentaire), un conflit dans le système d'alimentation en eau (le tuyau traverse le mur porteur), une omission dans le cahier des charges (la classe de béton pour la fondation n'est pas précisée). La correction avant le début des travaux a permis d'économiser 3 millions de roubles en retouches.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>Que vérifie l’IA dans un projet ?</h3>
+    <div class="card card-accent">
+      <ul>
+        <li>📋 <strong>Complétude :</strong>Toutes les sections sont-elles présentes (AR, KR, OV, VK, EOM, TS, PB)</li>
+        <li>📏 <strong>Conformité:</strong>SNiP, GOST, SP pour chaque section</li>
+        <li>⚠️ <strong>Collisions :</strong>Conflits entre sections (tuyau contre mur, câble contre poutre)</li>
+        <li>📊 <strong>Caractéristiques:</strong>Respect des devis et dessins, omissions de positions</li>
+        <li>🔢 <strong>Calculs :</strong>Vérification des formules, des unités, des totaux</li>
+        <li>🏗️ <strong>Enchaînement:</strong>Conformité avec GP, ES, KR, AR</li>
+      </ul>
+    </div>
+
+    <h3>Cadre réglementaire pour la vérification</h3>
+    <div class="card">
+      <table>
+        <tr><th>Chapitre</th><th>Normes</th><th>Ce que nous vérifions</th></tr>
+        <tr><td>RA (architecture)</td><td>SP118, SP55</td><td>Hauteurs de sol, largeurs de couloirs, sorties</td></tr>
+        <tr><td>KR (structures)</td><td>SP63, SP70, SP16</td><td>Classe de béton, sections, armatures</td></tr>
+        <tr><td>VO (chauffage)</td><td>SP60, SP61</td><td>Pertes de chaleur, débit d'air, diamètres</td></tr>
+        <tr><td>VK (approvisionnement en eau)</td><td>SP30, SP31</td><td>Consommation d'eau, pression, diamètres de tuyaux</td></tr>
+        <tr><td>MOE (électrique)</td><td>PUE, GOST R 50571</td><td>Sections de câbles, protection, mise à la terre</td></tr>
+        <tr><td>PB (sécurité incendie)</td><td>FZ-123, SP2.13130, SP4.13130</td><td>Sorties, catégories, distances</td></tr>
+      </table>
+    </div>
+
+    <h3>Exemple de demande à AI</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Invite à vérifier le projet</div>
+        <pre>"Vérifiez la conformité du projet (fichiers joints) aux normes.
+
+1. Vérifiez l'exhaustivité : toutes les sections sont-elles présentes (AR, KR, OV, VK, EOM, TS, PB) ?
+2. Vérifiez la conformité avec SNiP / SP :
+   - AR : SP 118 (hauteurs d'étages, couloirs, sorties)
+   - KR : SP 63 (classe béton, couche de protection)
+   - EOM : PUE (tronçons de câbles, protection)
+   - PB : SP 2.13130 (sorties, catégories de chambres)
+3. Recherchez les collisions entre les sections (tuyaux contre murs, câbles contre poutres)
+4. Vérifiez les spécifications par rapport aux dessins
+5. Vérifiez les calculs : formules, unités, totaux
+
+Afficher le tableau : Problème | Rubrique | Norme | Niveau | Recommandation
+Niveaux : 🔴 Critique (arrêt de travail) / 🟡 Important (reprise) / 🟢 Remarque"</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Scénario : vérification du projet avant examen</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Processus</div>
+        <pre>1. Nous collectons toutes les sections du projet (PDF, DWG, scans)
+2. Télécharger vers l'IA avec les normes (SNiP, SP, GOST)
+3. Contrôles IA : exhaustivité, normes, collisions, spécifications
+4. Nous recevons un rapport avec les niveaux de risque
+5. Le designer corrige 🔴 et 🟡
+6. Revérifiez
+7. Envoi pour examen
+
+Résultat : réduction des commentaires d’experts de 70%</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous avons besoin d'un outil d'IA pour vérifier la documentation du projet.
+
+Données d'entrée :
+- Sections du projet : AR, KR, OV, VK, EOM, TS, PB (PDF, DWG via OCR, scans)
+- Cadre réglementaire : SNiP, SP, GOST (PDF, texte)
+- Base de données des commentaires d'examen standard
+
+Que devez-vous faire :
+1. Vérifier l'exhaustivité de l'ensemble des sections
+2. Vérifiez auprès des normes (paramètres clés)
+3. Trouver des collisions entre les sections
+4. Vérifiez les spécifications par rapport aux dessins
+5. Vérifier les calculs (formules, unités)
+6. Classer les commentaires : critique/important/remarque
+
+Sortie :
+- Rapport PDF avec un tableau de commentaires
+- Marquage sur plans (si techniquement possible)
+- Statistiques : nombre par sections et niveaux
+
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Toutes les sections ont-elles été vérifiées pour s'assurer qu'elles sont complètes ?</li>
+      <li>Les normes clés ont-elles été prises en compte ? (vérifiez 3 à 5 sections)</li>
+      <li>Les collisions existent-elles vraiment ? (vérifier les dessins)</li>
+      <li>Les spécifications correspondent-elles aux dessins ? (cochez 10 positions)</li>
+      <li>Les calculs sont-ils corrects ? (vérifiez 2-3 calculs)</li>
+      <li>Le classement des niveaux de risque est-il adéquat ?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent" data-quiz="1">
+      <p><strong>Question 1 :</strong>Quelles sections du projet l’IA vérifie-t-elle ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) AR, KR, OV, VK, EOM, TS, PB, etc.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Uniquement AR et KR</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Spécifications uniquement</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent" data-quiz="2">
+      <p><strong>Question 2 :</strong>Qu'est-ce qu'une « collision » dans un projet ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Conflit entre cloisons (par exemple un tuyau traversant un mur)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Erreur de calcul</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Omission de spécification</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent" data-quiz="3">
+      <p><strong>Question 3 :</strong>Quel est le meilleur moment pour examiner un projet d’IA ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Avant d'envoyer pour examen - pour réduire les commentaires</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Après l'examen - quand il y a déjà des commentaires</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Uniquement pendant les travaux</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>L'IA est l'assistante indispensable du concepteur.</strong>Il vérifie l'exhaustivité, les normes, trouve les conflits et vérifie les spécifications. Vérifier AVANT l'examen réduit les commentaires de 70 % et vous évite des retouches. Le concepteur reste responsable des décisions techniques, mais l’IA vous libère des vérifications de routine.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-estimates/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../08-scheduling/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

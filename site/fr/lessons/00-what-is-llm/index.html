@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0.1 Qu'est-ce que le LLM - IA pour les non-spécialistes en informatique</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root {
+    --bg: #0B0F19;
+    --card: #111827;
+    --text: #F3F4F6;
+    --muted: #9CA3AF;
+    --accent: #8B5CF6;
+    --accent2: #06B6D4;
+    --border: rgba(255,255,255,0.08);
+    --success: #10B981;
+    --warning: #F59E0B;
+  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 20px 0; border-bottom: 1px solid var(--border); }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 40px 0 20px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 2rem; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 32px 0; }
+  .section h2 { color: var(--accent); font-size: 1.3rem; margin-bottom: 16px; }
+  .section h3 { color: var(--accent2); font-size: 1.1rem; margin: 24px 0 12px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 16px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.8rem; font-weight: 600; margin-bottom: 8px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 40px 0; border-top: 1px solid var(--border); margin-top: 40px; }
+  .nav-btn { padding: 12px 24px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 40px 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none;">← Catalogue</a>
+    <span style="color: var(--border); margin: 0 8px;">|</span>
+    <a href="../../glossary.html" style="color: var(--muted); text-decoration: none;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🚀 NIVEAU 0 · FONDAMENTAUX DE L'IA</div>
+    <h1>0.1 · Que sont les LLM et comment fonctionnent-ils ?</h1>
+    <div class="meta">🎯 Pas de code · ✅ Quiz à la fin</div>
+  </div>
+
+  <!-- WHY -->
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>D’ici 2026, les entreprises qui n’utilisent pas l’IA perdront<span class="highlight">20 à 40 % de productivité</span>par rapport aux concurrents. Mais la plupart des managers ne comprennent pas ce qu'est le LLM et ont peur des « technologies complexes ».</p>
+    
+    <div class="card card-accent">
+      <strong>Après cette leçon, vous serez capable de :</strong>
+      <ul>
+        <li>Expliquez au réalisateur pourquoi l'IA n'est pas « magique », mais un outil prévisible</li>
+        <li>Comprendre quelles tâches conviennent au LLM et lesquelles ne le sont pas</li>
+        <li>Posez les bonnes questions à l'équipe informatique lors du choix d'une solution</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WHAT -->
+  <div class="section">
+    <h2>📚 Qu'est-ce que le LLM en mots simples</h2>
+    
+    <p><strong>LLM (Large Language Model)</strong>est un programme qui prédit le mot suivant dans un texte. ChatGPT, Claude, Kimi et tous les autres sont construits sur ce principe simple.</p>
+
+    <div class="example">
+      <div class="example-label">💡 ANALOGIE POUR LES NÉGOCIATIONS</div>
+      <p>Considérez le LLM comme un stagiaire doté d'une mémoire phénoménale. Il a lu<strong>tous les livres, articles et documents</strong>que l'humanité a créé. Mais il n'a pas sa propre opinion - il « sélectionne » simplement la suite la plus probable de la phrase.</p>
+      <p><em>Comme une secrétaire expérimentée qui a vu des milliers de lettres et sait comment elles répondent habituellement à une demande particulière.</em></p>
+    </div>
+
+    <h3>Comment ça marche (sans mathématiques)</h3>
+    
+    <div class="card">
+      <ol>
+        <li><strong>Éducation:</strong>Le modèle « lit » des milliards de textes (livres, articles, code, dialogues)</li>
+        <li><strong>Motifs:</strong>Elle se souvient des mots qui vont habituellement ensemble</li>
+        <li><strong>Prédiction:</strong>Lorsque vous posez une question, le modèle prédit la réponse la plus probable</li>
+        <li><strong>Formation complémentaire (mise au point) :</strong>Les créateurs « peaufinent » le modèle pour que les réponses soient utiles et sûres</li>
+      </ol>
+    </div>
+
+    <div class="card card-warning">
+      <strong>⚠️ Limitation importante</strong>
+      <p>LLM <strong>ne comprend pas</strong>texte comme une personne. Elle ne "pense" pas - elle<strong>prédit</strong>. C'est comme terminer la phrase "Après qu'il pleuve dehors..." - vous direz probablement "mouillé" car c'est ce qui arrive le plus souvent. Mais parfois, il y a un « arc-en-ciel ».</p>
+    </div>
+  </div>
+
+  <!-- HOW TO APPLY -->
+  <div class="section">
+    <h2>🛠️ Comment appliquer aujourd'hui</h2>
+    
+    <h3>Checklist : cette tâche est-elle adaptée pour LLM ?</h3>
+    <ul class="checklist">
+      <li>La tâche est-elle liée au texte (rédaction, analyse, synthèse) ?</li>
+      <li>Avez-vous besoin d’une approche « créative » (options, idées, formulations) ?</li>
+      <li>La précision n'est pas critique (pouvez-vous vérifier le résultat) ?</li>
+      <li>Pas besoin de données réelles en temps réel ?</li>
+    </ul>
+
+    <div class="example">
+      <div class="example-label">✅ ADAPTÉ POUR LLM</div>
+      <ul>
+        <li>Résumer un rapport de 50 pages en 1 page</li>
+        <li>Rédaction de 10 versions d'une lettre à un fournisseur</li>
+        <li>Analyse du contrat pour les clauses à risque</li>
+        <li>Traduction du texte en 5 langues</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <div class="example-label">❌ NON ADAPTÉ POUR LLM</div>
+      <ul>
+        <li>Calcul du salaire au centime près</li>
+        <li>Données de prix réels pour aujourd’hui (le modèle est « figé » dans le temps)</li>
+        <li>Avis juridiquement contraignants sans vérification</li>
+        <li>Diagnostic des maladies</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HOW TO DELEGATE -->
+  <div class="section">
+    <h2>👨‍💻 Comment attribuer une tâche à un développeur</h2>
+    
+    <div class="card card-success">
+      <strong>Modèle de demande pour IT :</strong>
+      <pre style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.9rem;">«Nous devons mettre en œuvre le LLM pour [OBJECTIF].
+
+Exigences :
+- Langue : russe/anglais
+- Volume de documents : ~[N] pages par jour
+- Confidentialité : [oui/non]
+- Intégration avec : [système]
+- Budget : ~[montant] par mois
+
+Questions :
+1. Quel modèle recommandez-vous ?
+2. Cloud ou sur site ?
+3. Combien de temps prendra la mise en œuvre ?
+4. Quels risques voyez-vous ? »</pre>
+    </div>
+  </div>
+
+  <!-- HOW TO CHECK -->
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Le modèle répond-il aux demandes typiques de votre domaine ?</li>
+      <li>Les réponses sont-elles exemptes d’erreurs évidentes (hallucinations) ?</li>
+      <li>La vitesse de réponse est-elle acceptable pour le processus métier ?</li>
+      <li>Le coût d'utilisation est-il conforme à votre budget ?</li>
+      <li>Existe-t-il un processus d’examen humain des réponses critiques ?</li>
+    </ul>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="section">
+    <h2>🧰 Outils pour la pratique</h2>
+    
+    <div class="card">
+      <h3>Gratuits (pour commencer)</h3>
+      <ul>
+        <li><strong>ChatGPT (Free)</strong>— version de base de GPT-4o, limite de messages</li>
+        <li><strong>Claude.ai</strong>- d'Anthropic, fonctionne très bien avec des documents longs</li>
+        <li><strong>Kimi</strong> — <a href="https://kimi.moonshot.cn" target="_blank" style="color: var(--accent);">kimi.moonshot.cn</a>- par Moonshot AI, bon pour le chinois et l'anglais</li>
+        <li><strong>Qwen</strong> — <a href="https://qwen.aliyun.com" target="_blank" style="color: var(--accent);">qwen.aliyun.com</a>- d'Alibaba, fort en multilinguisme</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Payants (pour l'entreprise)</h3>
+      <ul>
+        <li><strong>ChatGPT Plus (20 $/mois)</strong>— accès prioritaire, limites étendues</li>
+        <li><strong>Claude Pro (20$/mois)</strong>- plus de messages, accès anticipé aux nouvelles fonctionnalités</li>
+        <li><strong>GENAi (Self-hosted)</strong>- pour les données confidentielles, serveur requis</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Le LLM « comprend-il » le texte de la même manière qu'un humain ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Non, LLM prédit les mots probables, n'est pas conscient</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Oui, le LLM comprend le contexte comme un expert</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Seulement s'il s'agit de GPT-4</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Peut-on faire confiance à un LLM pour calculer les salaires ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Oui, LLM fait d'excellents calculs.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Non, les calculs précis sont le point faible du LLM, il faut une calculatrice</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Seulement si vous demandez à montrer les étapes</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Quel est le meilleur choix pour les données sensibles ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) ChatGPT - il est le plus intelligent</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Sur site (GENAi + modèle local) - les données ne quittent pas l'entreprise</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Toute version payante</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- KEY TAKEAWAY -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p>Le LLM est un outil puissant pour travailler avec du texte, mais il ne s’agit pas d’une « intelligence magique ». Il prédit les mots, mais ne pense pas. Convient aux tâches créatives et analytiques, mais pas aux calculs précis et aux décisions critiques sans vérification.</p>
+      <p><strong>Prochaine étape :</strong>Apprenez à choisir le bon modèle pour votre tâche → Leçon 0.2</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../catalog.html" class="nav-btn">← Catalogue</a>
+    <a href="../00-choose-model/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+</body>
+</html>

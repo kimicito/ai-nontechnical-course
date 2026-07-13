@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.1 Données confidentielles - IA pour non-informaticiens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🛡️ NIVEAU 6 · ÉTHIQUE ET SÉCURITÉ</div>
+    <h1>6.1 · Données confidentielles : ce qu'il ne faut pas envoyer à AI</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <!-- POURQUOI C'EST IMPORTANT -->
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>Lorsque vous envoyez un document à ChatGPT, il<strong>peut faire partie de la formation des modèles</strong>. Cela signifie que vos données sensibles peuvent apparaître dans les réponses des autres utilisateurs.</p>
+    <div class="card card-danger">
+      <p><strong>Cas réel :</strong>L'employé a envoyé à ChatGPT un accord avec la contrepartie, comprenant des conditions commerciales. Un mois plus tard, le concurrent a reçu un contrat similaire d'AI, qui a « mémorisé » ces données. Dommage : perte d’avantage concurrentiel.</p>
+    </div>
+  </div>
+
+  <!-- CE QUE NOUS ÉTUDIONS -->
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>Ce qui ne peut pas être envoyé au cloud AI</h3>
+    <div class="card card-danger">
+      <table style="width:100%; border-collapse: collapse;">
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--danger);">Catégorie</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--danger);">Exemples</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Données personnelles</td><td style="padding:10px;border-bottom:1px solid var(--border);">Passeports, NIF, adresses, numéros de téléphone</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Secret commercial</td><td style="padding:10px;border-bottom:1px solid var(--border);">Prix, marges, fournisseurs, clients</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Informations bancaires</td><td style="padding:10px;border-bottom:1px solid var(--border);">Détails, ordres de paiement</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">NDA</td><td style="padding:10px;border-bottom:1px solid var(--border);">Tout est sous NDA</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Données médicales</td><td style="padding:10px;border-bottom:1px solid var(--border);">Diagnostics, antécédents médicaux</td></tr>
+      </table>
+    </div>
+
+    <h3>Comment travailler en toute sécurité avec l'IA</h3>
+    <div class="card card-success">
+      <h4>Niveau 1 : Désidentification</h4>
+      <p>Remplacez les données sensibles avant l’envoi.</p>
+      <div class="example">
+        <div class="example-label">Exemple</div>
+        <pre>Au lieu de : "Romashka LLC, INN 7701234567, prix 500 000 ₽"
+Envoyer: "Société A, numéro d'identification fiscale XXXXXXXXXX, prix X ₽"</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h4>Niveau 2 : Solution locale</h4>
+      <p>Exécutez l'IA sur vos serveurs. Les données ne quittent jamais l'entreprise.</p>
+      <ul>
+        <li>Ollama - exécuter des modèles localement</li>
+        <li>Llama 3, Mistral - modèles open source</li>
+        <li>Obligatoire : serveur avec GPU</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <h4>Niveau 3 : Contrats d'entreprise</h4>
+      <p>Versions entreprise avec garanties de confidentialité.</p>
+      <ul>
+        <li>ChatGPT Enterprise - aucune donnée utilisée pour la formation</li>
+        <li>Microsoft Copilot - dans votre Azure</li>
+        <li>Claude for Work - Ententes corporatives</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMMENT APPLIQUER -->
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Vérifier l'algorithme avant d'envoyer</h3>
+    <div class="card card-accent">
+      <ol>
+        <li>Le texte contient-il des informations personnelles ? (nom complet, numéro d'identification fiscale, passeport)</li>
+        <li>Y a-t-il des secrets commerciaux ? (prix, clients, fournisseurs)</li>
+        <li>Y a-t-il des données sous NDA ?</li>
+        <li>Si oui à une question -> désidentifier ou utiliser une solution locale</li>
+      </ol>
+    </div>
+
+    <h3>Modèle de désidentification</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Avant la désidentification</div>
+        <pre>Accord n°45 du 15 mars 2025
+Partie 1 : TekhnoProm LLC, NIF 7701234567
+Partie 2 : StroyMaks LLC, NIF 7707654321
+Objet : Fourniture d'équipements d'un montant de 2 500 000 RUB</pre>
+      </div>
+      <div class="example">
+        <div class="example-label">Après désidentification</div>
+        <pre>Accord n° [N] en date du [DATE]
+Partie 1 : Société A, numéro d'identification fiscale [XXXXXXXXX]
+Partie 2 : Société B, INN [XXXXXXXXX]
+Objet : Fourniture de matériel d'un montant de [MONTANT]</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMENT DÉLÉGUER -->
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous avons besoin d’un système permettant de travailler en toute sécurité avec l’IA.
+
+Exigences :
+1. Désidentification automatique avant envoi vers le cloud
+2. Solution locale pour les documents sensibles
+3. Politique d’accès : qui peut envoyer quoi
+4. Journalisation de toutes les demandes
+5. Vérifiez les fuites de données
+
+Catégories de données :
+- Rouge (strictement localement) : [liste]
+- Jaune (désidentification) : [liste]
+- Vert (peut être envoyé vers le cloud) : [liste]
+
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Tous les employés savent-ils quoi ne pas envoyer ?</li>
+      <li>Existe-t-il un processus de désidentification ?</li>
+      <li>Votre solution sur site est-elle configurée pour les données sensibles ?</li>
+      <li>La journalisation fonctionne-t-elle ? (vous pouvez consulter l'historique)</li>
+      <li>Existe-t-il un contrôle automatique des fuites ?</li>
+      <li>La politique est-elle signée par tous les employés ?</li>
+    </ul>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Est-il possible d'envoyer un contrat avec des prix au ChatGPT gratuit ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Oui, si vous supprimez le nom de l'entreprise</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Non, les prix sont un secret commercial</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Oui, ChatGPT est sécurisé</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Qu’est-ce que la désidentification ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Remplacement des données confidentielles par des espaces réservés</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Supprimer un document</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Cryptage de fichiers</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Quel niveau de protection est le plus fiable ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Solution locale (les données ne quittent pas l'entreprise)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Version entreprise de l'IA cloud</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Désidentification</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- L'ESSENTIEL -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>La confidentialité n'est pas une option, mais une obligation.</strong>N'envoyez pas de données personnelles, de secrets commerciaux et de NDA au cloud AI sans protection. Utilisez des solutions de désidentification, sur site ou des contrats d'entreprise. Une fuite peut coûter à une entreprise sa réputation et des millions.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../05-scaling/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../06-hallucinations/index.html" class="nav-btn primary">Leçon suivante →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

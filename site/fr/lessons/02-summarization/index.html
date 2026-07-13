@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>2.4 Récapitulatif - IA pour les non-spécialistes en informatique</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .type-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 10px 0; }
+  .type-card h4 { margin: 0 0 8px; color: var(--accent); }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">📄 NIVEAU 2 · DONNÉES ET DOCUMENTS</div>
+    <h1>2.4 · Résumer : compresser les textes sans perdre le sens</h1>
+    <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
+  </div>
+
+  <!-- POURQUOI C'EST IMPORTANT -->
+  <div class="section">
+    <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
+    <p>Les PDG dépensent<strong>30 à 40 % du temps de lecture</strong>: rapports, lettres, protocoles, contrats. La synthèse réduit le volume de 5 à 10 fois tout en préservant les informations clés.</p>
+    <div class="card card-success">
+      <p><strong>Exemple de sauvegarde :</strong></p>
+      <ul>
+        <li>Rapport de 50 pages → 1 page de résultats</li>
+        <li>Procès-verbal de la réunion (10 pages) → liste des décisions et des personnes responsables</li>
+        <li>Accord (20 pages) → 5 points clés</li>
+      </ul>
+      <p><strong>Économie:</strong>2-3 heures par jour</p>
+    </div>
+  </div>
+
+  <!-- CE QUE NOUS ÉTUDIONS -->
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+    
+    <h3>3 types de sommation</h3>
+    
+    <div class="type-card">
+      <h4>📄 Extractif</h4>
+      <p>L'IA sélectionne et copie les phrases les plus importantes du texte.</p>
+      <div class="example">
+        <div class="example-label">Exemple</div>
+        <pre>Texte : « La société annonce le lancement d'un nouveau produit. 
+Le produit est disponible à partir du 1er mars. Le prix est de 5 000 roubles. 
+La livraison est gratuite pour les commandes supérieures à 10 000 roubles.
+
+Résumé : 
+- Lancement d'un nouveau produit
+- Disponible à partir du 1er mars
+- Prix : 5000₽
+- Livraison gratuite à partir de 10 000 ₽</pre>
+      </div>
+    </div>
+
+    <div class="type-card">
+      <h4>🔄 Abstractif (récit)</h4>
+      <p>L'IA réécrit le texte avec ses propres mots, en le compressant et en le résumant.</p>
+      <div class="example">
+        <div class="example-label">Exemple</div>
+        <pre>Texte : [idem]
+
+Résumé :
+"À partir du 1er mars, la société lance un produit pour 5 000 roubles 
+avec livraison gratuite pour les commandes supérieures à 10 000 ₽."</pre>
+      </div>
+    </div>
+
+    <div class="type-card">
+      <h4>🎯 Sur mesure (ciblé)</h4>
+      <p>Résumé pour une tâche ou un public spécifique.</p>
+      <div class="example">
+        <div class="example-label">Exemple</div>
+        <pre>Pour le manager : « Lancement du produit, prix 5000 ₽, à partir de mars »
+Pour un marketeur : « Prix 5 000 ₽, promotion livraison à partir de 10 000 ₽ »
+Pour le logisticien : « La livraison est gratuite à partir de 10 000 ₽, volumes à préciser »</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMENT APPLIQUER -->
+  <div class="section">
+    <h2>🛠️ Comment postuler</h2>
+    
+    <h3>Scénario 1 : Résumé quotidien par e-mail</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Rapide</div>
+        <pre>Vous êtes directeur adjoint.
+Analysez les 15 lettres ci-dessous et créez un résumé.
+
+Format :
+🔴Urgent (besoin d'une réponse aujourd'hui) :
+🟡 Important (réponse d'ici la fin de la semaine) :
+🟢Informations (pour information) :
+
+Pour chaque lettre : expéditeur, essence, nécessité ou non d'une réponse, délai.</pre>
+      </div>
+    </div>
+
+    <h3>Scénario 2 : Récapitulatif de la réunion</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Rapide</div>
+        <pre>Vous êtes le secrétaire du conseil d'administration.
+Créez un procès-verbal basé sur la transcription de la réunion.
+
+Format :
+1. Participants (liste)
+2. Décisions (ce qu'ils ont décidé) :
+   -Solutions | Responsable | Date limite
+3. Questions ouvertes (celles qui n'ont pas été résolues) :
+   -Question | Qui devrait préparer | Date limite
+4. Prochaines étapes (que faire ensuite)</pre>
+      </div>
+    </div>
+
+    <h3>Scénario 3 : Rapport analytique</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Rapide</div>
+        <pre>Vous êtes analyste commercial.
+Analyser le rapport de ventes trimestriel (50 pages).
+
+Créer un résumé pour le manager (1 page) :
+1. Chiffres clés (chiffre d'affaires, bénéfice, croissance)
+2. Top 3 des réalisations
+3. Les 3 principaux problèmes
+4. Recommandations (3 points)
+
+Utilisez des tables et des fusillades. Pas d'eau.</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMENT DÉLÉGUER -->
+  <div class="section">
+    <h2>👨‍💻 Comment déléguer à un développeur</h2>
+    <div class="card card-success">
+      <h3>Modèle de tâche</h3>
+      <pre>« Nous avons besoin d'un système de synthèse automatique des documents.
+
+Exigences :
+1. Formats pris en charge : PDF, DOCX, TXT, e-mail
+2. 3 modes de sommation :
+   - Brief (10% du volume)
+   - Moyen (25% du volume)
+   - Détaillé (50% du volume)
+3. Résumé cible pour les rôles :
+   - Pour un manager (focus sur les chiffres et les solutions)
+   - Pour l'interprète (concentration sur les tâches et les délais)
+   - Pour un avocat (accent sur les risques et les obligations)
+4. Préserver la structure (rubriques, listes)
+5. Exporter au format PDF/Word/e-mail
+
+Exemple de document d'entrée et de sortie (joindre).
+Date limite : [date]"</pre>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section">
+    <h2>✅ Checklist d'acceptation</h2>
+    <ul class="checklist">
+      <li>Le résumé préserve-t-il les informations clés ?</li>
+      <li>Pas de fausses déclarations ? (vérifier les numéros, les dates, les noms)</li>
+      <li>La longueur est-elle conforme à la demande ? (court/moyen/détaillé)</li>
+      <li>La structure est-elle facile à lire ? (titres, listes)</li>
+      <li>Pour la synthèse des objectifs : se concentrer sur les bons aspects ?</li>
+      <li>Puis-je exporter au format requis ?</li>
+    </ul>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Vérification des connaissances</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong>Quel type de résumé réécrit le texte avec ses propres mots ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Excréteur</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Récit (abstrait)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Cible</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong>Combien de temps la synthèse permet-elle de gagner ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 10-15%</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 60-80%</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 20-30%</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong>Qu'est-ce qu'il est important de vérifier en résumé ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Faits, chiffres, dates</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Orthographe uniquement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Rien, l'IA n'a pas tort</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- L'ESSENTIEL -->
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 L'essentiel de la leçon</h3>
+      <p><strong>Récapitulation</strong>est l'un des outils d'IA les plus puissants pour un manager. 50 pages → 1 page de constats. Principal -<strong>vérifie toujours les faits</strong>: nombres, dates, noms. L'IA peut compresser le texte, mais déforme parfois les détails. Économie:<strong>2-3 heures par jour</strong>à la lecture.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../02-long-docs/index.html" class="nav-btn">← Leçon précédente</a>
+    <a href="../../catalog.html" class="nav-btn primary">Vers le catalogue →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · IA pour les non-spécialistes IT</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Correct !</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Pas tout à fait. Essayez une autre option.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>
