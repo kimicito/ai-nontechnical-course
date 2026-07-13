@@ -1,0 +1,25 @@
+name: Humanizer Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  humanizer:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        lang: [en, fr, es, zh]
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Run Humanizer Check (${{ matrix.lang }})
+        run: |
+          python3 scripts/humanizer_check.py ${{ matrix.lang }}
