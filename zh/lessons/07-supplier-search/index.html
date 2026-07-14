@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>7.1 Поиск поставщиков — AI для не ИТ-специалистов</title>
+<title>7.1 供应商搜索 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -62,191 +62,184 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛒 УРОВЕНЬ 7 · AI ДЛЯ ЗАКУПЩИКА</div>
-    <h1>7.1 · Поиск и анализ поставщиков: от поиска до короткого списка</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🛒 级别 7 · 采购AI</div>
+    <h1>7.1 · 搜索与分析供应商：从搜索到候选名单</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Поиск поставщиков — рутинная, но критичная задача. Закупщик тратит часы на ручной поиск по сайтам, ЭТП, каталогам. <strong>AI-агент может делать это автоматически:</strong> ходить по сайтам, извлекать контакты, цены, условия — и формировать короткий список кандидатов.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>搜索供应商是例行但关键的任务。采购员花费数小时在网站、电子交易平台、目录上手动搜索。<strong>AI智能体可以自动完成：</strong> 访问网站、提取联系方式、价格、条件 — 并形成候选名单。</p>
     <div class="card card-success">
-      <p><strong>Экономия:</strong> 8 часов ручного поиска → 30 минут на проверку результатов AI. Освобождается время для переговоров и анализа.</p>
+      <p><strong>节省：</strong> 8小时手动搜索 → 30分钟检查AI结果。腾出时间用于谈判和分析。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Как AI ищет поставщиков</h3>
+    <h3>AI如何搜索供应商</h3>
     <div class="card card-accent">
-      <p>AI-агент может:</p>
+      <p>AI智能体可以：</p>
       <ul>
-        <li>🔍 Искать по сайтам (парсинг каталогов, поисковая выдача)</li>
-        <li>📋 Извлекать: название, контакты, ассортимент, цены, условия доставки</li>
-        <li>🌍 Работать с международными площадками (Alibaba, ThomasNet, Europages)</li>
-        <li>⚡ Фильтровать по критериям (РФ/импорт, MOQ, сертификаты)</li>
-        <li>📊 Формировать сравнительную таблицу</li>
+        <li>🔍 按网站搜索（解析目录、搜索结果）</li>
+        <li>📋 提取：名称、联系方式、产品范围、价格、交货条件</li>
+        <li>🌍 使用国际平台（Alibaba、ThomasNet、Europages）</li>
+        <li>⚡ 按条件筛选（国内/进口、最小起订量、认证）</li>
+        <li>📊 形成对比表</li>
       </ul>
     </div>
 
-    <h3>Источники поиска</h3>
+    <h3>搜索来源</h3>
     <table style="width:100%; border-collapse: collapse;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Тип</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Примеры</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Что извлекает AI</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ЭТП РФ</td><td style="padding:10px;border-bottom:1px solid var(--border);">РТС-тендер, Сбербанк-АСТ, ЕЭТП</td><td style="padding:10px;border-bottom:1px solid var(--border);">История участий, цены, рейтинг</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">B2B-каталоги</td><td style="padding:10px;border-bottom:1px solid var(--border);">Пульс цен, Торговая площадка</td><td style="padding:10px;border-bottom:1px solid var(--border);">Контакты, ассортимент, отзывы</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Международные</td><td style="padding:10px;border-bottom:1px solid var(--border);">Alibaba, ThomasNet, Europages</td><td style="padding:10px;border-bottom:1px solid var(--border);">Цены FOB/CFR, сертификаты</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Сайты компаний</td><td style="padding:10px;border-bottom:1px solid var(--border);">Прямые сайты производителей</td><td style="padding:10px;border-bottom:1px solid var(--border);">Технические характеристики, прайсы</td></tr>
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">类型</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">示例</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">AI提取内容</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">电子交易平台</td><td style="padding:10px;border-bottom:1px solid var(--border);">电子招标平台</td><td style="padding:10px;border-bottom:1px solid var(--border);">参与历史、价格、评级</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">B2B目录</td><td style="padding:10px;border-bottom:1px solid var(--border);">价格平台、交易市场</td><td style="padding:10px;border-bottom:1px solid var(--border);">联系方式、产品范围、评价</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">国际平台</td><td style="padding:10px;border-bottom:1px solid var(--border);">Alibaba、ThomasNet、Europages</td><td style="padding:10px;border-bottom:1px solid var(--border);">FOB/CFR价格、认证</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">公司网站</td><td style="padding:10px;border-bottom:1px solid var(--border);">制造商官网</td><td style="padding:10px;border-bottom:1px solid var(--border);">技术参数、价目表</td></tr>
     </table>
 
-    <h3>Фильтры для AI-агента</h3>
+    <h3>AI智能体的筛选条件</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для агента-поисковика</div>
-        <pre>"Найди поставщиков [наименование товара] со следующими критериями:
+        <div class="example-label">搜索智能体提示词</div>
+        <pre>"搜索[商品名称]供应商，条件如下：
 
-Обязательно:
-- Работают в РФ (или импорт из [страна])
-- MOQ ≤ [количество]
-- Есть сертификат ISO / ГОСТ Р
-- Опыт работы > 2 лет
+必须：
+- 在[地区]运营（或从[国家]进口）
+- 最小起订量 ≤ [数量]
+- 有ISO / 国标认证
+- 从业经验 &gt; 2年
 
-Желательно:
-- Склад в [городе]
-- Отсрочка платежа ≥ 30 дней
-- Положительные отзывы
+优先：
+- 在[城市]有仓库
+- 账期 ≥ 30天
+- 正面评价
 
-Выведи таблицу: Компания | Контакты | Цена | MOQ | Условия | Примечания"</pre>
+输出表格：公司 | 联系方式 | 价格 | 最小起订量 | 条件 | 备注"</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий: поиск поставщика станков</h3>
+    <h3>场景：搜索机床供应商</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Шаг за шагом</div>
-        <pre>1. Отправляем AI-агенту ТЗ на станок (мощность, размеры, точность)
-2. Агент ищет 3 источника: ЭТП, B2B-каталоги, сайты производителей
-3. Агент извлекает данные и формирует таблицу
-4. Закупщик проверяет ТОП-5 кандидатов
-5. Отправляет запросы КП вручную (или через AI-рассылку)
+        <div class="example-label">逐步流程</div>
+        <pre>1. 向AI智能体发送机床技术规格（功率、尺寸、精度）
+2. 智能体搜索3个来源：电子交易平台、B2B目录、制造商网站
+3. 智能体提取数据并形成表格
+4. 采购员检查前5名候选者
+5. 手动发送报价请求（或通过AI群发）
 
-Результат: 3 часа поиска → 15 минут проверки</pre>
+结果：3小时搜索 → 15分钟检查</pre>
       </div>
     </div>
 
-    <h3>Что проверять вручную</h3>
+    <h3>需要手动检查什么</h3>
     <div class="card card-warning">
       <ul>
-        <li>⚠️ Актуальность контактов (AI может найти устаревшие)</li>
-        <li>⚠️ Статус компании (не в процессе ликвидации)</li>
-        <li>⚠️ Реальность цен (иногда на сайтах — "от...")</li>
-        <li>⚠️ Отзывы и репутация</li>
+        <li>⚠️ 联系方式 актуальность（AI可能找到过时的）</li>
+        <li>⚠️ 公司状态（未在清算中）</li>
+        <li>⚠️ 价格真实性（网站上有时是"起价..."）</li>
+        <li>⚠️ 评价和声誉</li>
       </ul>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-агент для поиска поставщиков.
+      <h3>任务模板</h3>
+      <pre>"需要供应商搜索AI智能体。
 
-Входные данные:
-- Наименование товара / ТЗ
-- Критерии отбора (MOQ, география, сертификаты)
-- Источники для поиска: [список]
+输入：
+- 商品名称 / 技术规格
+- 筛选条件（最小起订量、地区、认证）
+- 搜索来源：[列表]
 
-Что должен делать агент:
-1. Искать по заданным источникам
-2. Извлекать: название, контакты, цены, условия
-3. Фильтровать по критериям
-4. Выводить таблицу сравнения
-5. Флагом отмечать "требует проверки"
+智能体功能：
+1. 按指定来源搜索
+2. 提取：名称、联系方式、价格、条件
+3. 按条件筛选
+4. 输出对比表
+5. 标记"需核查"
 
-Интеграции:
-- Выгрузка в Excel / 1С / SAP
-- Сохранение в базу поставщиков
+集成：
+- 导出到Excel / ERP / SAP
+- 保存到供应商数据库
 
-Срок: [дата]"</pre>
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Найдено ≥ 5 релевантных поставщиков?</li>
-      <li>Контакты актуальны? (проверить 2-3)</li>
-      <li>Цены соответствуют рынку? (сверить с аналогами)</li>
-      <li>Фильтры работают корректно?</li>
-      <li>Результат в удобном формате (Excel/таблица)?</li>
-      <li>Есть пометки "требует проверки"?</li>
+      <li>找到 ≥ 5个相关供应商？</li>
+      <li>联系方式 актуальны？（检查2-3个）</li>
+      <li>价格符合市场？（与同类比较）</li>
+      <li>筛选器工作正确？</li>
+      <li>结果格式方便（Excel/表格）？</li>
+      <li>有"需核查"标记？</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Что может делать AI-агент при поиске поставщиков?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Искать по сайтам, извлекать данные, формировать таблицу</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Заключать договоры</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Переводить деньги</div>
+      <p><strong>问题1：</strong> AI智能体在搜索供应商时可以做什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 按网站搜索、提取数据、形成表格</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 签订合同</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 转账付款</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Что обязательно проверять вручную?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Актуальность контактов и статус компании</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Всё — AI не ошибается</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Ничего — доверяем полностью</div>
+      <p><strong>问题2：</strong> 必须手动检查什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 联系方式 актуальность 和公司状态</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 全部 — AI不会出错</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 无需检查 — 完全信任</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Какие источники можно использовать?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>ЭТП, B2B-каталоги, международные площадки, сайты</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Только ЭТП</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Только Google</div>
+      <p><strong>问题3：</strong> 可以使用哪些来源？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 电子交易平台、B2B目录、国际平台、网站</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 只有电子交易平台</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 只有Google</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>AI-агент — ваш разведчик.</strong> Он не заменяет закупщика, но освобождает от рутины поиска. Задаёте критерии — получаете короткий список. Проверяете контакты и репутацию — принимаете решение. Экономия: 80% времени на поиске.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>AI智能体 — 您的侦察兵。</strong>它不能替代采购员，但能从搜索的例行工作中解放出来。设定条件 — 获得候选名单。检查联系方式和声誉 — 做出决策。节省：搜索时间减少80%。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../../catalog.html" class="nav-btn">← Каталог</a>
-    <a href="../07-price-analysis/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../../catalog.html" class="nav-btn">← 目录</a>
+    <a href="../07-price-analysis/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -264,17 +257,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>

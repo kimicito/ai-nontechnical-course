@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>7.3 Проверка договоров — AI для не ИТ-специалистов</title>
+<title>7.3 合同检查 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -66,192 +66,185 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛒 УРОВЕНЬ 7 · AI ДЛЯ ЗАКУПЩИКА</div>
-    <h1>7.3 · Проверка договоров и соответствие ТЗ: выявляйте риски</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🛒 级别 7 · 采购AI</div>
+    <h1>7.3 · 合同检查与技术规格符合性：发现风险</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Ошибка в договоре может стоить миллионы: непрописанные штрафы за просрочку, неясные условия приёмки, отсутствие гарантий. <strong>AI проверяет договоры за минуты</strong>, находит риски, сравнивает с ТЗ — и предупреждает о проблемах.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>合同中的错误可能代价数百万：未明确的延迟罚款、模糊的验收条件、缺少担保。<strong>AI在几分钟内检查合同</strong>，发现风险，与技术规格对比 — 并警告问题。</p>
     <div class="card card-danger">
-      <p><strong>Кейс:</strong> В договоре не было пункта о штрафах за просрочку поставки. Поставщик задержал на 3 месяца. Убыток: простой производства на 8 млн ₽. AI заметил бы отсутствие штрафа за 30 секунд.</p>
+      <p><strong>案例：</strong> 合同中没有延迟交货罚款条款。供应商延迟3个月。损失：停产800万元。AI会在30秒内发现缺少罚款条款。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Что проверяет AI в договоре</h3>
+    <h3>AI检查合同的什么内容</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Проверка</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Что ищет</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Риск</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Сроки</td><td style="padding:10px;border-bottom:1px solid var(--border);">Прописаны ли даты, штрафы за просрочку</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">Высокий</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Цена и условия</td><td style="padding:10px;border-bottom:1px solid var(--border);">Фиксированная? Пересмотр? Валюта?</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-medium">Средний</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Приёмка</td><td style="padding:10px;border-bottom:1px solid var(--border);">Критерии, сроки претензий, акты</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">Высокий</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Гарантии</td><td style="padding:10px;border-bottom:1px solid var(--border);">Срок, условия, кто несёт расходы</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-medium">Средний</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Ответственность</td><td style="padding:10px;border-bottom:1px solid var(--border);">Штрафы, неустойки, ограничения</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">Высокий</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Соответствие ТЗ</td><td style="padding:10px;border-bottom:1px solid var(--border);">Все ли требования ТЗ отражены в договоре</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">Высокий</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">检查项</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">查找内容</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">风险</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">期限</td><td style="padding:10px;border-bottom:1px solid var(--border);">日期是否明确、延迟罚款</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">高</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">价格和条件</td><td style="padding:10px;border-bottom:1px solid var(--border);">固定价？可调整？货币？</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-medium">中</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">验收</td><td style="padding:10px;border-bottom:1px solid var(--border);">标准、索赔期限、单据</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">高</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">担保</td><td style="padding:10px;border-bottom:1px solid var(--border);">期限、条件、谁承担费用</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-medium">中</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">责任</td><td style="padding:10px;border-bottom:1px solid var(--border);">罚款、违约金、限制</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">高</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">符合技术规格</td><td style="padding:10px;border-bottom:1px solid var(--border);">技术规格所有要求是否在合同中体现</td><td style="padding:10px;border-bottom:1px solid var(--border);" class="risk-high">高</td></tr>
       </table>
     </div>
 
-    <h3>Соответствие ТЗ (в процентах)</h3>
+    <h3>技术规格符合性（百分比）</h3>
     <div class="card card-accent">
-      <p>AI сравнивает ТЗ и договор по каждому пункту:</p>
+      <p>AI逐条对比技术规格和合同：</p>
       <div class="example">
-        <div class="example-label">Пример анализа</div>
-        <pre>ТЗ: "Кабель ВВГ 3х2.5, ГОСТ 31996-2012"
-Договор: "Кабель ВВГ 3х2.5"
+        <div class="example-label">分析示例</div>
+        <pre>技术规格："电缆 VVG 3x2.5，国标 GOST 31996-2012"
+合同："电缆 VVG 3x2.5"
 
-⚠️ Риск: Не указан ГОСТ
-Рекомендация: Добавить ссылку на ГОСТ 31996-2012
+⚠️ 风险：未指明国标
+建议：添加国标 GOST 31996-2012 引用
 
-Соответствие ТЗ: 85% (15% — требует уточнения)</pre>
+技术规格符合度：85%（15% 需澄清）</pre>
       </div>
     </div>
 
-    <h3>Чек-лист проверки AI</h3>
+    <h3>AI检查清单</h3>
     <div class="card card-success">
       <ol>
-        <li>✅ Реквизиты сторон (ИНН, КПП, ОГРН)</li>
-        <li>✅ Предмет договора (совпадает с ТЗ)</li>
-        <li>✅ Цена (с НДС/без, порядок оплаты)</li>
-        <li>✅ Сроки поставки (конкретные даты/периоды)</li>
-        <li>✅ Штрафы за просрочку (процент, максимум)</li>
-        <li>✅ Условия приёмки (критерии, сроки)</li>
-        <li>✅ Гарантийный срок (от даты поставки/ввода)</li>
-        <li>✅ Форс-мажор (определение, порядок)</li>
-        <li>✅ Порядок разрешения споров (арбитраж, суд)</li>
-        <li>✅ Соответствие ТЗ (все требования учтены)</li>
+        <li>✅ 双方详细信息（税号、注册号）</li>
+        <li>✅ 合同标的（与技术规格一致）</li>
+        <li>✅ 价格（含/不含增值税、付款方式）</li>
+        <li>✅ 交货期限（具体日期/周期）</li>
+        <li>✅ 延迟罚款（百分比、上限）</li>
+        <li>✅ 验收条件（标准、期限）</li>
+        <li>✅ 保修期（从交货/投入使用起）</li>
+        <li>✅ 不可抗力（定义、程序）</li>
+        <li>✅ 争议解决（仲裁、法院）</li>
+        <li>✅ 符合技术规格（所有要求已考虑）</li>
       </ol>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий: проверка договора</h3>
+    <h3>场景：检查合同</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Процесс</div>
-        <pre>1. Загружаем договор и ТЗ в AI
-2. Запрос: "Проверь договор на риски. 
-   Сравни с ТЗ. Выведи соответствие в %."
-3. AI анализирует и выдаёт отчёт:
-   - Найденные риски (с уровнем)
-   - Пункты, не соответствующие ТЗ
-   - Рекомендации по исправлению
-4. Закупщик проверяет критичные пункты
-5. Отправляет замечания юристу/поставщику</pre>
+        <div class="example-label">流程</div>
+        <pre>1. 将合同和技术规格上传到AI
+2. 请求："检查合同风险。
+   与技术规格对比。输出符合度%。"
+3. AI分析并生成报告：
+   - 发现的风险（带级别）
+   - 不符合技术规格的条款
+   - 修改建议
+4. 采购员检查关键条款
+5. 将意见发给法务/供应商</pre>
       </div>
     </div>
 
-    <h3>Важно: AI не заменяет юриста</h3>
+    <h3>重要：AI不能替代律师</h3>
     <div class="card card-warning">
-      <p><strong>AI находит риски, но не даёт юридических заключений.</strong> Всегда передавайте договор юристу для финальной проверки. AI ускоряет подготовку, но ответственность — на человеке.</p>
+      <p><strong>AI发现风险，但不提供法律意见。</strong>始终将合同交给律师最终审核。AI加速准备，但责任在人。</p>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-инструмент для проверки договоров.
+      <h3>任务模板</h3>
+      <pre>"需要合同检查AI工具。
 
-Входные данные:
-- Договор (PDF, Word, скан)
-- Техническое задание
+输入：
+- 合同（PDF、Word、扫描件）
+- 技术规格
 
-Что должен делать:
-1. Извлекать текст из документа
-2. Проверять по чек-листу (10 пунктов)
-3. Сравнивать с ТЗ (соответствие в %)
-4. Выявлять риски (высокий/средний/низкий)
-5. Генерировать рекомендации
-6. Формировать отчёт
+功能：
+1. 从文档提取文本
+2. 按清单检查（10项）
+3. 与技术规格对比（符合度%）
+4. 发现风险（高/中/低）
+5. 生成建议
+6. 生成报告
 
-Выход:
-- PDF-отчёт с замечаниями
-- Таблица рисков
-- Список рекомендаций
+输出：
+- 带意见的PDF报告
+- 风险表
+- 建议列表
 
-Интеграция: выгрузка в [систему документооборота]
-Срок: [дата]"</pre>
+集成：导出到[文档管理系统]
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Все 10 пунктов проверены?</li>
-      <li>Соответствие ТЗ измерено в %?</li>
-      <li>Риски ранжированы (выс/сред/низ)?</li>
-      <li>Рекомендации конкретны?</li>
-      <li>Критичные риски проверены юристом?</li>
-      <li>Отчёт понятен без объяснений?</li>
+      <li>所有10项已检查？</li>
+      <li>技术规格符合度已测量？</li>
+      <li>风险已分级（高/中/低）？</li>
+      <li>建议具体？</li>
+      <li>关键风险已由律师检查？</li>
+      <li>报告无需解释即可理解？</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Что AI проверяет в договоре?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Риски, соответствие ТЗ, сроки, цены, гарантии</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Только цены</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Ничего — это задача юриста</div>
+      <p><strong>问题1：</strong> AI在合同中检查什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 风险、技术规格符合性、期限、价格、担保</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 只有价格</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 什么都不查 — 这是律师的事</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Может ли AI заменить юриста?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Нет, AI находит риски, юрист даёт заключение</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Да, полностью</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Только для простых договоров</div>
+      <p><strong>问题2：</strong> AI能替代律师吗？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 不能，AI发现风险，律师提供意见</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 能，完全替代</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 只能用于简单合同</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Что такое "соответствие ТЗ"?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Насколько договор отражает требования ТЗ (в %)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Соответствие ГОСТу</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Цена ниже рынка</div>
+      <p><strong>问题3：</strong> "技术规格符合性"是什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 合同反映技术规格要求的程度（%）</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 符合国标</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 价格低于市场</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>AI — ваш первый фильтр.</strong> Он проверяет договор за минуты, находит риски, сравнивает с ТЗ. Но финальное решение — за юристом. Используйте AI для скорости, человека — для ответственности. Экономия: 3-4 часа на каждый договор.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>AI — 您的第一道过滤器。</strong>它在几分钟内检查合同，发现风险，与技术规格对比。但最终决策由律师做出。用AI求速度，用人求责任。节省：每份合同3-4小时。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../07-price-analysis/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../07-selection-docs/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../07-price-analysis/index.html" class="nav-btn">← 上一课</a>
+    <a href="../07-selection-docs/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -269,17 +262,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>
