@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>8.2 AI для проектанта — AI для не ИТ-специалистов</title>
+<title>8.2 项目检查 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -57,182 +57,182 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🏗️ УРОВЕНЬ 8 · AI ДЛЯ СТРОЙКИ</div>
-    <h1>8.2 · Проверка проектов и нормативов: соответствие СНиП и ГОСТ</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🏗️ 级别 8 · 建筑AI</div>
+    <h1>8.2 · 项目与规范检查：符合标准与规范</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Проектная документация — сотни страниц с чертежами, спецификациями, расчётами. <strong>Ошибка в проекте = переделка = срыв сроков и бюджета.</strong> AI проверяет проекты на соответствие нормативам (СНиП, ГОСТ, СП), находит несоответствия, пропуски и коллизии.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>项目文件——数百页图纸、规格、计算。<strong>项目中的错误=返工=工期和预算超支。</strong>AI检查项目是否符合规范（标准、规范、规定），发现不符、遗漏和冲突。</p>
     <div class="card card-success">
-      <p><strong>Кейс:</strong> AI проверил проект 20-этажного здания. Нашёл: несоответствие СП 55 по пожарной безопасности (отсутствие дополнительного выхода), коллизию в ВК (труба проходит через несущую стену), пропуск в спецификации (не указан класс бетона для фундамента). Исправление до начала работ сэкономило 3 млн ₽ на переделках.</p>
+      <p><strong>案例：</strong> AI检查了一个20层建筑项目。发现：防火规范不符（缺少额外出口）、给排水冲突（管道穿承重墙）、规格遗漏（未注明基础混凝土等级）。开工前修正节省了300万元返工费。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Что проверяет AI в проекте</h3>
+    <h3>AI检查项目的什么内容</h3>
     <div class="card card-accent">
       <ul>
-        <li>📋 <strong>Полнота:</strong> Все ли разделы есть (АР, КР, ОВ, ВК, ЭОМ, ТС, ПБ)</li>
-        <li>📏 <strong>Соответствие нормативам:</strong> СНиП, ГОСТ, СП по каждому разделу</li>
-        <li>⚠️ <strong>Коллизии:</strong> Конфликты между разделами (труба vs стена, кабель vs балка)</li>
-        <li>📊 <strong>Спецификации:</strong> Соответствие спецификации чертежам, пропуски позиций</li>
-        <li>🔢 <strong>Расчёты:</strong> Проверка формул, единиц, итогов</li>
-        <li>🏗️ <strong>Увязка:</strong> Соответствие ГП, ЭС, КР, АР</li>
+        <li>📋 <strong>完整性：</strong> 是否所有章节齐全（建筑、结构、暖通、给排水、电气、消防）</li>
+        <li>📏 <strong>规范符合性：</strong> 每个章节是否符合标准/规范/规定</li>
+        <li>⚠️ <strong>冲突：</strong> 章节间冲突（管道vs墙体、电缆vs梁）</li>
+        <li>📊 <strong>规格：</strong> 规格与图纸一致性、条目遗漏</li>
+        <li>🔢 <strong>计算：</strong> 公式、单位、总计检查</li>
+        <li>🏗️ <strong>协调：</strong> 总平面图、电气、结构、建筑的一致性</li>
       </ul>
     </div>
 
-    <h3>Нормативная база для проверки</h3>
+    <h3>检查规范库</h3>
     <div class="card">
       <table>
-        <tr><th>Раздел</th><th>Нормативы</th><th>Что проверяем</th></tr>
-        <tr><td>АР (архитектура)</td><td>СП 118, СП 55</td><td>Высота этажей, ширина коридоров, выходы</td></tr>
-        <tr><td>КР (конструкции)</td><td>СП 63, СП 70, СП 16</td><td>Класс бетона, сечения, армирование</td></tr>
-        <tr><td>ОВ (отопление)</td><td>СП 60, СП 61</td><td>Теплопотери, расход воздуха, диаметры</td></tr>
-        <tr><td>ВК (водоснабжение)</td><td>СП 30, СП 31</td><td>Расход воды, напор, диаметры труб</td></tr>
-        <tr><td>ЭОМ (электрика)</td><td>ПУЭ, ГОСТ Р 50571</td><td>Сечения кабелей, защита, заземление</td></tr>
-        <tr><td>ПБ (пожарная безопасность)</td><td>ФЗ-123, СП 2.13130, СП 4.13130</td><td>Выходы, категории, расстояния</td></tr>
+        <tr><th>章节</th><th>规范</th><th>检查内容</th></tr>
+        <tr><td>建筑</td><td>建筑设计规范</td><td>层高、走廊宽度、出口</td></tr>
+        <tr><td>结构</td><td>混凝土、钢结构规范</td><td>混凝土等级、截面、配筋</td></tr>
+        <tr><td>暖通</td><td>供暖、通风规范</td><td>热损失、风量、管径</td></tr>
+        <tr><td>给排水</td><td>给水排水规范</td><td>用水量、压力、管径</td></tr>
+        <tr><td>电气</td><td>电气安装规范</td><td>电缆截面、保护、接地</td></tr>
+        <tr><td>消防</td><td>消防法规、防火规范</td><td>出口、类别、间距</td></tr>
       </table>
     </div>
 
-    <h3>Пример запроса к AI</h3>
+    <h3>AI检查请求示例</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для проверки проекта</div>
-        <pre>"Проверь проект (файлы приложены) на соответствие нормативам.
+        <div class="example-label">项目检查提示词</div>
+        <pre>"检查项目（附件）是否符合规范。
 
-1. Проверь полноту: есть ли все разделы (АР, КР, ОВ, ВК, ЭОМ, ТС, ПБ)?
-2. Проверь соответствие СНиП / СП:
-   - АР: СП 118 (высота этажей, коридоры, выходы)
-   - КР: СП 63 (класс бетона, защитный слой)
-   - ЭОМ: ПУЭ (сечения кабелей, защита)
-   - ПБ: СП 2.13130 (выходы, категории помещений)
-3. Найди коллизии между разделами (трубы vs стены, кабели vs балки)
-4. Проверь спецификации на соответствие чертежам
-5. Проверь расчёты: формулы, единицы, итоги
+1. 检查完整性：是否所有章节齐全？
+2. 检查标准/规范符合性：
+   - 建筑：设计规范（层高、走廊、出口）
+   - 结构：混凝土规范（等级、保护层）
+   - 电气：电气规范（电缆截面、保护）
+   - 消防：防火规范（出口、房间类别）
+3. 发现章节间冲突（管道vs墙体、电缆vs梁）
+4. 检查规格与图纸一致性
+5. 检查计算：公式、单位、总计
 
-Выведи таблицу: Проблема | Раздел | Норматив | Уровень | Рекомендация
-Уровни: 🔴 Критично (остановка работ) / 🟡 Важно (переделка) / 🟢 Замечание"</pre>
+输出表格：问题 | 章节 | 规范 | 级别 | 建议
+级别：🔴 严重（停工）/ 🟡 重要（返工）/ 🟢 意见"</pre>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий: проверка проекта перед экспертизой</h3>
+    <h3>场景：送审前检查</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Процесс</div>
-        <pre>1. Собираем все разделы проекта (PDF, DWG, сканы)
-2. Загружаем в AI с нормативами (СНиП, СП, ГОСТ)
-3. AI проверяет: полноту, нормативы, коллизии, спецификации
-4. Получаем отчёт с уровнями риска
-5. Проектант исправляет 🔴 и 🟡
-6. Повторная проверка
-7. Отправка в экспертизу
+        <div class="example-label">流程</div>
+        <pre>1. 收集所有项目章节（PDF、图纸、扫描件）
+2. 与规范（标准、规定、国标）一起上传AI
+3. AI检查：完整性、规范、冲突、规格
+4. 获得风险级别报告
+5. 设计师修正🔴和🟡
+6. 再次检查
+7. 送审
 
-Результат: снижение замечаний экспертизы на 70%</pre>
+结果：审查意见减少70%</pre>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-инструмент для проверки проектной документации.
+      <h3>任务模板</h3>
+      <pre>"需要项目文件检查AI工具。
 
-Входные данные:
-- Разделы проекта: АР, КР, ОВ, ВК, ЭОМ, ТС, ПБ (PDF, DWG через OCR, сканы)
-- Нормативная база: СНиП, СП, ГОСТ (PDF, текст)
-- База типовых замечаний экспертизы
+输入：
+- 项目章节：建筑、结构、暖通、给排水、电气、消防（PDF、图纸通过OCR、扫描件）
+- 规范库：标准、规定、国标（PDF、文本）
+- 审查典型意见库
 
-Что должен делать:
-1. Проверять полноту комплекта разделов
-2. Сверять с нормативами (по ключевым параметрам)
-3. Находить коллизии между разделами
-4. Проверять спецификации vs чертежи
-5. Проверять расчёты (формулы, единицы)
-6. Ранжировать замечания: критично/важно/замечание
+功能：
+1. 检查章节完整性
+2. 按关键参数核对规范
+3. 发现章节间冲突
+4. 检查规格vs图纸
+5. 检查计算（公式、单位）
+6. 分级：严重/重要/意见
 
-Выход:
-- PDF-отчёт с таблицей замечаний
-- Разметка на чертежах (если технически возможно)
-- Статистика: количество по разделам и уровням
+输出：
+- 带意见表的PDF报告
+- 图纸标注（如技术可行）
+- 统计：按章节和级别数量
 
-Срок: [дата]"</pre>
+期限：[日期]"</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Все разделы проверены на полноту?</li>
-      <li>Ключевые нормативы учтены? (проверить 3-5 разделов)</li>
-      <li>Коллизии действительно существуют? (проверить на чертежах)</li>
-      <li>Спецификации соответствуют чертежам? (сверить 10 позиций)</li>
-      <li>Расчёты корректны? (проверить 2-3 расчёта)</li>
-      <li>Ранжирование уровней риска адекватно?</li>
+      <li>所有章节检查完整性？</li>
+      <li>关键规范已考虑？（检查3-5个章节）</li>
+      <li>冲突确实存在？（在图纸上检查）</li>
+      <li>规格与图纸一致？（核对10个条目）</li>
+      <li>计算正确？（检查2-3个计算）</li>
+      <li>风险分级合理？</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent" data-quiz="1">
-      <p><strong>Вопрос 1:</strong> Какие разделы проекта проверяет AI?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) АР, КР, ОВ, ВК, ЭОМ, ТС, ПБ и др.</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только АР и КР</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только спецификации</div>
+      <p><strong>问题1：</strong> AI检查哪些项目章节？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 建筑、结构、暖通、给排水、电气、消防等</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 只有建筑和结构</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 只有规格</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent" data-quiz="2">
-      <p><strong>Вопрос 2:</strong> Что такое "коллизия" в проекте?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Конфликт между разделами (например, труба через стену)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Ошибка в расчёте</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Пропуск в спецификации</div>
+      <p><strong>问题2：</strong> 项目中的"冲突"是什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 章节间冲突（如管道穿墙）</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 计算错误</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 规格遗漏</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent" data-quiz="3">
-      <p><strong>Вопрос 3:</strong> Когда лучше проверять проект AI?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) До отправки в экспертизу — чтобы снизить замечания</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) После экспертизы — когда уже есть замечания</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только во время стройки</div>
+      <p><strong>问题3：</strong> 什么时候用AI检查项目最好？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 送审前——减少审查意见</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 审查后——已有意见时</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 只在施工期间</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>AI — незаменимый помощник проектанта.</strong> Он проверяет полноту, нормативы, находит коллизии, сверяет спецификации. Проверка ДО экспертизы снижает замечания на 70% и спасает от переделок. Проектант остаётся ответственным за инженерные решения, но AI освобождает от рутинной проверки.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>AI是设计师不可或缺的助手。</strong>它检查完整性、规范、发现冲突、核对规格。送审前检查可减少70%审查意见，避免返工。设计师仍负责工程决策，但AI从例行检查中解放出来。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../08-estimates/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../08-scheduling/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../08-estimates/index.html" class="nav-btn">← 上一课</a>
+    <a href="../08-scheduling/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -250,14 +250,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>

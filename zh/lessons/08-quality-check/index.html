@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>8.4 AI для приёмщика работ — AI для не ИТ-специалистов</title>
+<title>8.4 质量验收 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -61,206 +61,206 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🏗️ УРОВЕНЬ 8 · AI ДЛЯ СТРОЙКИ</div>
-    <h1>8.4 · Приёмка работ и контроль качества: соответствие проекту и нормам</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🏗️ 级别 8 · 建筑AI</div>
+    <h1>8.4 · 工程验收与质量控制：符合项目与规范</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Приёмка работ — ответственный этап: нужно проверить, что сделано соответствует проекту, нормам, технологии. <strong>Ошибка на приёмке = переделка, претензии, штрафы.</strong> AI помогает систематизировать проверку, сравнить с проектом, найти отклонения, сформировать акты.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>工程验收是关键阶段：需检查是否符合项目、规范、工艺。<strong>验收错误=返工、索赔、罚款。</strong>AI帮助系统化检查、与项目对比、发现偏差、生成单据。</p>
     <div class="card card-danger">
-      <p><strong>Кейс:</strong> На приёмке бетонных работ AI сравнил акт выполненных работ с проектом и обнаружил: класс бетона B25 вместо проектного B30, толщина защитного слоя 25 мм вместо 40 мм. Брак выявлен ДО подписания акта. Претензия к подрядчику — 1.2 млн ₽ на переделку.</p>
+      <p><strong>案例：</strong> 混凝土工程验收时，AI将完工单与项目对比发现：混凝土等级B25而非项目要求的B30，保护层厚度25mm而非40mm。在签字前发现不合格。向承包商索赔120万元返工费。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Что AI проверяет при приёмке</h3>
+    <h3>AI验收时检查什么</h3>
     <div class="card card-accent">
       <ul>
-        <li>📐 <strong>Соответствие проекту:</strong> Размеры, материалы, классы, марки, толщины</li>
-        <li>📋 <strong>Нормы:</strong> СНиП, СП, ГОСТ по виду работ (СП 70, СП 71, СП 126 и др.)</li>
-        <li>📊 <strong>Акты:</strong> Соответствие акта выполненных работ фактическим объёмам</li>
-        <li>🔍 <strong>Дефекты:</strong> Анализ фото/видео с объекта (трещины, неровности, пропуски)</li>
-        <li>📄 <strong>Документы:</strong> Наличие сертификатов, исполнительных схем, лабораторных протоколов</li>
-        <li>⚠️ <strong>Скрытые работы:</strong> Проверка актов скрытых работ (армирование, гидроизоляция, теплоизоляция)</li>
+        <li>📐 <strong>符合项目：</strong> 尺寸、材料、等级、厚度</li>
+        <li>📋 <strong>规范：</strong> 标准、规范、国标（按工程类型）</li>
+        <li>📊 <strong>完工单：</strong> 完工单工程量与实际一致</li>
+        <li>🔍 <strong>缺陷：</strong> 分析现场照片/视频（裂缝、不平整、遗漏）</li>
+        <li>📄 <strong>文件：</strong> 证书、竣工图、检测报告</li>
+        <li>⚠️ <strong>隐蔽工程：</strong> 检查隐蔽工程记录（钢筋、防水、保温）</li>
       </ul>
     </div>
 
-    <h3>Виды работ и нормативы для проверки</h3>
+    <h3>工程类型与验收规范</h3>
     <div class="card">
       <table>
-        <tr><th>Вид работ</th><th>Нормативы</th><th>Что проверяем</th></tr>
-        <tr><td>Земляные работы</td><td>СП 70.13330</td><td>Глубина, откосы, уплотнение, дренаж</td></tr>
-        <tr><td>Бетонные работы</td><td>СП 70.13330, СП 63.13330</td><td>Класс бетона, толщина, защитный слой, вибрирование</td></tr>
-        <tr><td>Кладочные работы</td><td>СП 70.13330, СП 15.13330</td><td>Марка кирпича, толщина швов, армирование</td></tr>
-        <tr><td>Монтаж конструкций</td><td>СП 70.13330, СП 16.13330</td><td>Марка стали, сварка, антикоррозийная защита</td></tr>
-        <tr><td>Отделочные работы</td><td>СП 71.13330</td><td>Ровность, сцепление, цвет, текстура</td></tr>
-        <tr><td>Инженерные сети</td><td>СП 73.13330, СП 124, СП 30, СП 31</td><td>Материалы, уклоны, герметичность, испытания</td></tr>
-        <tr><td>Электротехнические</td><td>ПУЭ, ПТЭЭП, ГОСТ Р 50571</td><td>Сечения, заземление, УЗО, сопротивление изоляции</td></tr>
+        <tr><th>工程类型</th><th>规范</th><th>检查内容</th></tr>
+        <tr><td>土方工程</td><td>土方规范</td><td>深度、边坡、压实、排水</td></tr>
+        <tr><td>混凝土工程</td><td>混凝土、结构规范</td><td>混凝土等级、厚度、保护层、振捣</td></tr>
+        <tr><td>砌筑工程</td><td>砌筑、砖石规范</td><td>砖等级、灰缝厚度、配筋</td></tr>
+        <tr><td>构件安装</td><td>安装、钢结构规范</td><td>钢号、焊接、防腐</td></tr>
+        <tr><td>装修工程</td><td>装修规范</td><td>平整度、粘结、颜色、纹理</td></tr>
+        <tr><td>管网工程</td><td>管道、设备规范</td><td>材料、坡度、密封性、试压</td></tr>
+        <tr><td>电气工程</td><td>电气规范</td><td>截面、接地、漏电保护、绝缘电阻</td></tr>
       </table>
     </div>
 
-    <h3>Пример запроса к AI</h3>
+    <h3>AI验收请求示例</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для приёмки</div>
-        <pre>"Проверь акт выполненных работ №45 (файл приложен).
+        <div class="example-label">验收提示词</div>
+        <pre>"检查第45号完工单（附件）。
 
-1. Сверь с проектом (чертежи приложены):
-   - Класс бетона: проект vs акт
-   - Толщина защитного слоя: проект vs акт
-   - Объём: проект vs акт
+1. 与项目对比（图纸附件）：
+   - 混凝土等级：项目vs完工单
+   - 保护层厚度：项目vs完工单
+   - 工程量：项目vs完工单
    
-2. Проверь соответствие СП 70:
-   - Допуски по толщине, защитному слою
-   - Требования к вибрированию
-   - Температурно-влажностный режим
+2. 检查混凝土规范：
+   - 厚度、保护层允许偏差
+   - 振捣要求
+   - 温湿度养护
    
-3. Проверь документы:
-   - Сертификат на бетон (приложен)
-   - Лабораторный протокол (приложен)
-   - Исполнительная схема (приложена)
+3. 检查文件：
+   - 混凝土合格证（附件）
+   - 检测报告（附件）
+   - 竣工图（附件）
    
-4. Выведи таблицу: Параметр | Проект | Акт | Допуск | Статус | Риск
-   Статусы: ✅ Соответствует / ⚠️ На грани / ❌ Не соответствует
-   Риски: 🔴 Критично / 🟡 Важно / 🟢 Замечание"</pre>
+4. 输出表格：参数 | 项目 | 完工单 | 允许偏差 | 状态 | 风险
+   状态：✅ 符合 / ⚠️ 临界 / ❌ 不符合
+   风险：🔴 严重 / 🟡 重要 / 🟢 意见"</pre>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий: приёмка бетонных работ</h3>
+    <h3>场景：混凝土工程验收</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Процесс</div>
-        <pre>1. Подрядчик подаёт акт выполненных работ + комплект документов
-2. Приёмщик загружает в AI: акт, проект, нормативы, сертификаты, фото
-3. AI проверяет: соответствие проекту, нормам, документы, фото
-4. Получает отчёт с таблицей: параметр vs проект vs допуск
-5. Проверяет 🔴 и 🟡 на объекте (визуально, инструментально)
-6. Подписывает акт или выдаёт замечания с претензией
-7. AI генерирует протокол замечаний с ссылками на нормы
+        <div class="example-label">流程</div>
+        <pre>1. 承包商提交完工单+文件包
+2. 验收员将完工单、项目、规范、证书、照片上传AI
+3. AI检查：符合项目、规范、文件、照片
+4. 获得报告：参数vs项目vs偏差表
+5. 验收员在工地检查🔴和🟡（目视、工具）
+6. 签字或出具带索赔的意见
+7. AI生成带规范引用的缺陷记录
 
-Результат: время приёмки сокращено с 4 часов до 1 часа, 
-качество проверки выросло (не пропущены скрытые параметры)"</pre>
+结果：验收时间从4小时缩短到1小时，
+检查质量提高（未遗漏隐蔽参数）"</pre>
       </div>
     </div>
 
-    <h3>Проверка по фото и видео</h3>
+    <h3>照片与视频检查</h3>
     <div class="card card-accent">
-      <p>AI с компьютерным зрением (или с анализом фото) может:</p>
+      <p>带计算机视觉的AI（或照片分析）可以：</p>
       <ul>
-        <li>🖼️ Сравнить фото с проектом (например, расстановка арматуры)</li>
-        <li>🔍 Найти дефекты: трещины, неровности, пустоты, отклонения</li>
-        <li>📏 Измерить по фото (если есть масштаб/метки): отклонения от проекта</li>
-        <li>📊 Сравнить с фото предыдущих этапов (динамика дефектов)</li>
+        <li>🖼️ 将照片与项目对比（如钢筋布置）</li>
+        <li>🔍 发现缺陷：裂缝、不平整、空洞、偏差</li>
+        <li>📏 按照片测量（如有比例/标记）：与项目偏差</li>
+        <li>📊 与前期照片对比（缺陷动态）</li>
       </ul>
-      <p><strong>Важно:</strong> AI анализирует фото, но не заменяет инструментальный контроль. Всегда проверяйте критичные параметры ручными методами.</p>
+      <p><strong>重要：</strong> AI分析照片，但不替代仪器检测。关键参数始终用手工方法检查。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-инструмент для приёмки строительных работ.
+      <h3>任务模板</h3>
+      <pre>"需要工程验收AI工具。
 
-Входные данные:
-- Акт выполненных работ (PDF, Excel, скан)
-- Проект (чертежи, PDF, DWG через OCR)
-- Нормативы: СП, ГОСТ (PDF, текст)
-- Документы: сертификаты, протоколы, исполнительные схемы (PDF)
-- Фото/видео с объекта (JPG, MP4)
+输入：
+- 完工单（PDF、Excel、扫描件）
+- 项目（图纸、PDF、DWG通过OCR）
+- 规范：标准、规定（PDF、文本）
+- 文件：证书、报告、竣工图（PDF）
+- 现场照片/视频（JPG、MP4）
 
-Что должен делать:
-1. Сверять акт с проектом (ключевые параметры)
-2. Проверять соответствие нормативам (СП, ГОСТ)
-3. Проверять комплект документов (наличие, сроки)
-4. Анализировать фото на дефекты (трещины, отклонения)
-5. Ранжировать риски: критично/важно/замечание
-6. Генерировать протокол замечаний
-7. Формировать акт приёмки (если всё в порядке)
+功能：
+1. 完工单与项目对比（关键参数）
+2. 检查规范符合性（标准、规定）
+3. 检查文件包（完整性、有效期）
+4. 分析照片缺陷（裂缝、偏差）
+5. 风险分级：严重/重要/意见
+6. 生成缺陷记录
+7. 形成验收单（无缺陷时）
 
-Выход:
-- PDF-отчёт с таблицей проверки
-- Протокол замечаний (с ссылками на нормы)
-- Акт приёмки (при отсутствии замечаний)
-- Фото-отчёт с разметкой дефектов
+输出：
+- 检查表PDF报告
+- 带规范引用的缺陷记录
+- 验收单（无缺陷时）
+- 带缺陷标记的照片报告
 
-Срок: [дата]"</pre>
+期限：[日期]"</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Все параметры сверены с проектом? (проверить 5-10 ключевых)</li>
-      <li>Нормативы учтены? (проверить 2-3 СП/ГОСТ)</li>
-      <li>Документы проверены? (сертификаты, протоколы, сроки)</li>
-      <li>Дефекты на фото реальны? (проверить на объекте)</li>
-      <li>Ранжирование рисков адекватно? (🔴 = остановка, 🟡 = переделка)</li>
-      <li>Протокол замечаний содержит ссылки на нормы?</li>
+      <li>所有参数与项目核对？（检查5-10个关键参数）</li>
+      <li>规范已考虑？（检查2-3个标准/规定）</li>
+      <li>文件已检查？（证书、报告、有效期）</li>
+      <li>照片缺陷真实？（在工地检查）</li>
+      <li>风险分级合理？（🔴=停工，🟡=返工）</li>
+      <li>缺陷记录包含规范引用？</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent" data-quiz="1">
-      <p><strong>Вопрос 1:</strong> Что AI проверяет при приёмке работ?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Соответствие проекту, нормам, документы, дефекты на фото</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только объём работ</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только цены</div>
+      <p><strong>问题1：</strong> AI验收时检查什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 符合项目、规范、文件、照片缺陷</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 只有工程量</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 只有价格</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent" data-quiz="2">
-      <p><strong>Вопрос 2:</strong> Может ли AI полностью заменить приёмщика?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Нет, AI анализирует, но приёмщик проверяет критичные параметры на объекте</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Да, полностью</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Нет, AI не нужен для приёмки</div>
+      <p><strong>问题2：</strong> AI能完全替代验收员吗？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 不能，AI分析，但验收员在工地检查关键参数</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 能，完全替代</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 不能，AI不需要验收</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent" data-quiz="3">
-      <p><strong>Вопрос 3:</strong> Что такое "скрытые работы"?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Работы, которые после завершения нельзя проверить без разрушения (армирование, гидроизоляция)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Работы, которые подрядчик скрыл от приёмщика</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Работы, выполненные ночью</div>
+      <p><strong>问题3：</strong> 什么是"隐蔽工程"？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 完成后不破坏就无法检查的工作（钢筋、防水）</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 承包商对验收员隐藏的工作</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 夜间完成的工作</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>AI — система контроля качества.</strong> Он сверяет акт с проектом, проверяет нормативы, анализирует документы, находит дефекты на фото. Приёмщик остаётся ответственным за решение, но AI даёт ему полную картину: что проверено, что соответствует, что нет — с ссылками на нормы. Экономия: 70% времени на приёмке, снижение пропуска дефектов на 80%.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>AI是质量控制系统。</strong>它将完工单与项目对比、检查规范、分析文件、发现照片缺陷。验收员仍对决策负责，但AI提供完整画面：什么已检查、什么符合、什么不符合——带规范引用。节省：验收时间70%，漏检缺陷减少80%。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../08-scheduling/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../../catalog.html" class="nav-btn primary">К каталогу →</a>
+    <a href="../08-scheduling/index.html" class="nav-btn">← 上一课</a>
+    <a href="../../catalog.html" class="nav-btn primary">前往目录 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -278,14 +278,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>

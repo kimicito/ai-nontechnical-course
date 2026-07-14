@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>8.1 AI для сметчика — AI для не ИТ-специалистов</title>
+<title>8.1 估算与计算 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -62,189 +62,189 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🏗️ УРОВЕНЬ 8 · AI ДЛЯ СТРОЙКИ</div>
-    <h1>8.1 · Сметы и расчёты: от локальной сметы до итоговой стоимости</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🏗️ 级别 8 · 建筑AI</div>
+    <h1>8.1 · 估算与计算：从本地估算到总成本</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Сметчик тратит до <strong>60% времени на рутину</strong>: переписывание позиций из локальных смет в сводную, сверка расценок с ГЭСН/ФЕР, проверка коэффициентов, пересчёт при изменении объёмов. AI делает это за минуты.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>估算员将高达<strong>60%的时间花在例行工作上</strong>：将本地估算条目转抄到汇总表、核对单价与定额/指标、检查系数、在工程量变化时重新计算。AI在几分钟内完成这些工作。</p>
     <div class="card card-success">
-      <p><strong>Кейс:</strong> Сметчик на объект из 500 позиций тратил 3 дня на сводку. С AI — 2 часа: AI извлёк позиции из 12 локальных смет, свёл в таблицу, проверил расценки по ГЭСН, нашёл 8 ошибок в коэффициентах, пересчитал итог с учётом НДС и накладных.</p>
+      <p><strong>案例：</strong> 一个500条目的项目，估算员花费3天做汇总。使用AI后只需2小时：AI从12份本地估算中提取条目、汇总成表、按定额核对单价、发现8处系数错误、按增值税和管理费重新计算总价。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Что AI делает для сметчика</h3>
+    <h3>AI为估算员做什么</h3>
     <div class="card card-accent">
       <ul>
-        <li>📄 Извлекает позиции из локальных смет (PDF, Excel, сканы)</li>
-        <li>🔢 Сверяет расценки с ГЭСН / ФЕР / региональными сборниками</li>
-        <li>📊 Сводит множество локальных смет в одну таблицу</li>
-        <li>🧮 Проверяет коэффициенты (поправки, индексы, КП)</li>
-        <li>💰 Пересчитывает итог при изменении объёмов или цен</li>
-        <li>⚠️ Находит дубли, пропуски, расхождения</li>
+        <li>📄 从本地估算（PDF、Excel、扫描件）提取条目</li>
+        <li>🔢 与定额/指标/地区汇编核对单价</li>
+        <li>📊 将多份本地估算汇总成一张表</li>
+        <li>🧮 检查系数（调整系数、指数、系数）</li>
+        <li>💰 在工程量或价格变化时重新计算总价</li>
+        <li>⚠️ 发现重复、遗漏、偏差</li>
       </ul>
     </div>
 
-    <h3>Источники для сверки</h3>
+    <h3>核对来源</h3>
     <div class="card">
       <table>
-        <tr><th>Источник</th><th>Что сверяем</th><th>Формат</th></tr>
-        <tr><td>ГЭСН / ФЕР</td><td>Расценки на работы</td><td>PDF, Excel</td></tr>
-        <tr><td>Региональные сборники</td><td>Поправки к расценкам</td><td>PDF, Excel</td></tr>
-        <tr><td>Территориальные единичные расценки</td><td>Материалы, механизмы</td><td>Excel</td></tr>
-        <tr><td>Коммерческие предложения</td><td>Цены материалов, аренды</td><td>PDF, Excel, email</td></tr>
-        <tr><td>История смет компании</td><td>Аналогичные позиции, коэффициенты</td><td>База данных / Excel</td></tr>
+        <tr><th>来源</th><th>核对内容</th><th>格式</th></tr>
+        <tr><td>定额/指标</td><td>工作单价</td><td>PDF、Excel</td></tr>
+        <tr><td>地区汇编</td><td>单价调整</td><td>PDF、Excel</td></tr>
+        <tr><td>地区单位估价</td><td>材料、机械</td><td>Excel</td></tr>
+        <tr><td>商业报价</td><td>材料价格、租赁费</td><td>PDF、Excel、邮件</td></tr>
+        <tr><td>公司估算历史</td><td>类似条目、系数</td><td>数据库 / Excel</td></tr>
       </table>
     </div>
 
-    <h3>Пример запроса к AI</h3>
+    <h3>AI请求示例</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для сметы</div>
-        <pre>"Проанализируй локальную смету (файл приложен).
+        <div class="example-label">估算提示词</div>
+        <pre>"分析本地估算（附件）。
 
-1. Извлеки все позиции: код, наименование, единица, количество, расценка, итог
-2. Сверь расценки с ГЭСН-2024 (файл ГЭСН приложен)
-3. Проверь коэффициенты: КП, поправки на зиму, индексы
-4. Найди дубли и пропуски
-5. Выведи таблицу: Позиция | Наша расценка | ГЭСН | Расхождение | Рекомендация
+1. 提取所有条目：编码、名称、单位、数量、单价、总价
+2. 与2024定额（附件）核对单价
+3. 检查系数：系数、冬季调整、指数
+4. 发现重复和遗漏
+5. 输出表格：条目 | 我方单价 | 定额 | 偏差 | 建议
 
-Формат: Excel-совместимая таблица."</pre>
+格式：兼容Excel的表格。"</pre>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий: сводка 10 локальных смет</h3>
+    <h3>场景：汇总10份本地估算</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Процесс</div>
-        <pre>1. Собираем все локальные сметы в папку (PDF, Excel, сканы)
-2. Загружаем в AI с запросом:
-   "Сведи все сметы в одну таблицу.
-   Группируй по видам работ (кладка, бетон, отделка).
-   Считай итоги по группам и общий итог.
-   Выдели позиции с расхождениями > 5%."
-3. AI генерирует сводную таблицу
-4. Сметчик проверяет расхождения и ключевые позиции
-5. Экспортирует в Excel / 1С / сметную программу</pre>
+        <div class="example-label">流程</div>
+        <pre>1. 将所有本地估算收集到文件夹（PDF、Excel、扫描件）
+2. 上传到AI并请求：
+   "汇总所有估算到一张表。
+   按工作类型分组（砌筑、混凝土、装修）。
+   计算各组和总计。
+   标出偏差>5%的条目。"
+3. AI生成汇总表
+4. 估算员检查偏差和关键条目
+5. 导出到Excel / ERP / 估算软件</pre>
       </div>
     </div>
 
-    <h3>Расчёт итоговой стоимости</h3>
+    <h3>计算总成本</h3>
     <div class="card card-accent">
-      <p>AI считает полную цепочку:</p>
+      <p>AI计算完整链条：</p>
       <ol>
-        <li>Прямые затраты (работы + материалы + механизмы)</li>
-        <li>Накладные расходы (% от прямых)</li>
-        <li>Сметная прибыль (%)</li>
-        <li>НДС (если применимо)</li>
-        <li>Итог с учётом всех коэффициентов</li>
+        <li>直接成本（人工+材料+机械）</li>
+        <li>管理费用（占直接成本的%）</li>
+        <li>估算利润（%）</li>
+        <li>增值税（如适用）</li>
+        <li>含所有系数的总计</li>
       </ol>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-инструмент для сметчика.
+      <h3>任务模板</h3>
+      <pre>"需要估算员AI工具。
 
-Входные данные:
-- Локальные сметы: PDF, Excel, сканы (через OCR)
-- ГЭСН/ФЕР: справочник расценок (PDF, Excel)
-- Коммерческие предложения: материалы, аренда (PDF, Excel, email)
+输入：
+- 本地估算：PDF、Excel、扫描件（通过OCR）
+- 定额/指标：单价手册（PDF、Excel）
+- 商业报价：材料、租赁（PDF、Excel、邮件）
 
-Что должен делать:
-1. Извлекать позиции из любого формата
-2. Сверять расценки с ГЭСН/ФЕР (по коду работы)
-3. Проверять коэффициенты (КП, поправки, индексы)
-4. Сводить множество смет в одну таблицу
-5. Находить дубли, пропуски, расхождения
-6. Пересчитывать итог при изменении объёмов
+功能：
+1. 从任何格式提取条目
+2. 按编码与定额/指标核对单价
+3. 检查系数（系数、调整、指数）
+4. 将多份估算汇总成一张表
+5. 发现重复、遗漏、偏差
+6. 工程量变化时重新计算总价
 
-Выход:
-- Excel-таблица
-- PDF-отчёт с расхождениями
-- Графики по видам работ
+输出：
+- Excel表格
+- 偏差PDF报告
+- 按工作类型图表
 
-Интеграция: [1С / сметная программа / Excel]
-Срок: [дата]"</pre>
+集成：[ERP / 估算软件 / Excel]
+期限：[日期]"</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Все позиции извлечены? (проверить 5-10 случайных)</li>
-      <li>Расценки сверены с ГЭСН/ФЕР? (проверить 3-5 позиций)</li>
-      <li>Коэффициенты корректны? (КП, поправки, индексы)</li>
-      <li>Дубли и пропуски найдены?</li>
-      <li>Итоговая сумма совпадает с ручным расчётом?</li>
-      <li>Формат удобен для импорта в сметную программу?</li>
+      <li>所有条目已提取？（检查5-10个随机条目）</li>
+      <li>单价与定额/指标核对？（检查3-5个条目）</li>
+      <li>系数正确？（系数、调整、指数）</li>
+      <li>发现重复和遗漏？</li>
+      <li>总价与手工计算一致？</li>
+      <li>格式方便导入估算软件？</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent" data-quiz="1">
-      <p><strong>Вопрос 1:</strong> С чем AI сверяет расценки?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) С ГЭСН / ФЕР / региональными сборниками</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) С ценами на Авито</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) С котировками ЦБ</div>
+      <p><strong>问题1：</strong> AI与什么核对单价？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 与定额/指标/地区汇编</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 与二手市场价格</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 与央行汇率</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent" data-quiz="2">
-      <p><strong>Вопрос 2:</strong> Что проверяет AI в коэффициентах?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) КП, поправки на зиму, индексы, накладные</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только НДС</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Коэффициенты не проверяет</div>
+      <p><strong>问题2：</strong> AI在系数中检查什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 系数、冬季调整、指数、管理费</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 只有增值税</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 不检查系数</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent" data-quiz="3">
-      <p><strong>Вопрос 3:</strong> Какой формат выходных данных удобен для сметчика?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Excel-совместимая таблица</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только PDF-отчёт</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Текстовый файл</div>
+      <p><strong>问题3：</strong> 什么输出格式对估算员最方便？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 兼容Excel的表格</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 只有PDF报告</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 文本文件</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>AI — помощник сметчика, а не замена.</strong> Он извлекает позиции, сверяет расценки, проверяет коэффициенты, находит ошибки. Сметчик остаётся ответственным за проверку и принятие решений. Экономия: 60-70% времени на рутине.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>AI是估算员的助手，不是替代。</strong>它提取条目、核对单价、检查系数、发现错误。估算员仍负责核查和决策。节省：例行工作时间减少60-70%。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../../catalog.html" class="nav-btn">← Каталог</a>
-    <a href="../08-project-check/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../../catalog.html" class="nav-btn">← 目录</a>
+    <a href="../08-project-check/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -262,14 +262,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>

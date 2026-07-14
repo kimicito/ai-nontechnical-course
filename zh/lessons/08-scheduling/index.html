@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>8.3 AI для организатора работ — AI для не ИТ-специалистов</title>
+<title>8.3 进度计划 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -57,194 +57,194 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🏗️ УРОВЕНЬ 8 · AI ДЛЯ СТРОЙКИ</div>
-    <h1>8.3 · Планирование работ и ресурсов: графики, люди, техника</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🏗️ 级别 8 · 建筑AI</div>
+    <h1>8.3 · 工作计划与资源：进度、人员、设备</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Организатор работ (прораб, начальник участка) ежедневно решает: кто работает, на чём, в какой последовательности, что задерживается. <strong>AI помогает строить графики, оптимизировать ресурсы, прогнозировать задержки.</strong></p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>施工组织员（工长、现场主管）每天解决：谁做什么、按什么顺序、什么在延误。<strong>AI帮助构建进度、优化资源、预测延误。</strong></p>
     <div class="card card-success">
-      <p><strong>Кейс:</strong> AI проанализировал 3-месячный график и предупредил: бетонная работа на 5-м этаже начнётся раньше, чем кран освободится с 4-го. Задержка: 2 дня. Организатор перенёс начало на 2 дня — срыва графика не было.</p>
+      <p><strong>案例：</strong> AI分析了3个月进度并预警：5层混凝土工作将在塔吊从4层释放前开始。延误：2天。组织员将开工推迟2天——进度未受影响。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Что AI делает для организатора работ</h3>
+    <h3>AI为施工组织员做什么</h3>
     <div class="card card-accent">
       <ul>
-        <li>📅 <strong>Графики:</strong> Построение / корректировка сетевого графика, критический путь</li>
-        <li>👷 <strong>Ресурсы:</strong> Распределение бригад, техники, материалов по объектам</li>
-        <li>⚠️ <strong>Риски:</strong> Предупреждение о задержках, перегрузках, конфликтах ресурсов</li>
-        <li>📊 <strong>Отчётность:</strong> Журнал работ, акты выполненных работ, сравнение план/факт</li>
-        <li>🔮 <strong>Прогноз:</strong> Когда закончится объект при текущем темпе?</li>
-        <li>📋 <strong>Наряд-задания:</strong> Автоматическая генерация на основе графика</li>
+        <li>📅 <strong>进度：</strong> 构建/调整网络图、关键路径</li>
+        <li>👷 <strong>资源：</strong> 按项目分配班组、设备、材料</li>
+        <li>⚠️ <strong>风险：</strong> 延误、过载、资源冲突预警</li>
+        <li>📊 <strong>报告：</strong> 施工日志、完工单、计划/实际对比</li>
+        <li>🔮 <strong>预测：</strong> 按当前速度何时完工？</li>
+        <li>📋 <strong>派工单：</strong> 基于进度自动生成</li>
       </ul>
     </div>
 
-    <h3>Входные данные для AI</h3>
+    <h3>AI输入数据</h3>
     <div class="card">
       <table>
-        <tr><th>Данные</th><th>Формат</th><th>Что AI анализирует</th></tr>
-        <tr><td>Сетевой график (MS Project, Excel)</td><td>.mpp, Excel</td><td>Критический путь, ресурсы, зависимости</td></tr>
-        <tr><td>Журнал работ (ежедневные отчёты)</td><td>PDF, Excel, текст</td><td>План/факт, % выполнения, задержки</td></tr>
-        <tr><td>Сметы / локальные сметы</td><td>PDF, Excel</td><td>Объёмы, трудоёмкость, длительность</td></tr>
-        <tr><td>Наличие ресурсов (бригады, техника)</td><td>Excel, 1С, SAP</td><td>Загрузка, конфликты, доступность</td></tr>
-        <tr><td>Погода / сезонные ограничения</td><td>API, Excel</td><td>Прогноз погоды для наружных работ</td></tr>
+        <tr><th>数据</th><th>格式</th><th>AI分析内容</th></tr>
+        <tr><td>网络进度（MS Project、Excel）</td><td>.mpp、Excel</td><td>关键路径、资源、依赖关系</td></tr>
+        <tr><td>施工日志（日报）</td><td>PDF、Excel、文本</td><td>计划/实际、完成百分比、延误</td></tr>
+        <tr><td>估算/本地估算</td><td>PDF、Excel</td><td>工程量、工时、工期</td></tr>
+        <tr><td>资源可用性（班组、设备）</td><td>Excel、ERP、SAP</td><td>负载、冲突、可用性</td></tr>
+        <tr><td>天气/季节限制</td><td>API、Excel</td><td>室外作业天气预报</td></tr>
       </table>
     </div>
 
-    <h3>Пример запроса к AI</h3>
+    <h3>AI进度请求示例</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для графика</div>
-        <pre>"Проанализируй график строительства (файл приложен).
+        <div class="example-label">进度提示词</div>
+        <pre>"分析施工进度（附件）。
 
-1. Найди критический путь (работы, которые нельзя задержать)
-2. Проверь загрузку ресурсов: есть ли перегрузки (2 бригады на 1 объект)?
-3. Проверь зависимости: начинается ли работа раньше, чем закончится предыдущая?
-4. Сравни с погодным прогнозом: какие наружные работы попадают на дожди?
-5. Прогноз: дата окончания при текущем темпе?
+1. 找出关键路径（不能延误的工作）
+2. 检查资源负载：是否有过载（2个班组在同一项目）？
+3. 检查依赖：前项工作是否完成后才开始？
+4. 与天气预报对比：哪些室外作业会遇雨？
+5. 预测：按当前速度何时完工？
 
-Выведи:
-- Таблица рисков: Работа | Риск | Уровень | Рекомендация
-- Обновлённый график с корректировками
-- Список наряд-заданий на следующую неделю"</pre>
+输出：
+- 风险表：工作 | 风险 | 级别 | 建议
+- 修正后的更新进度
+- 下周派工单"</pre>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий: еженедельный обзор графика</h3>
+    <h3>场景：每周进度审查</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Процесс</div>
-        <pre>1. Загружаем в AI: график (MS Project/Excel), журнал работ за неделю, ресурсы
-2. Запрос: "Проверь график. Критический путь? Риски? Загрузка ресурсов?"
-3. AI анализирует и выдаёт:
-   - Критический путь (выделен красным)
-   - Риски: перегрузка крана 15.03, бетон придёт позже
-   - Рекомендации: перенести работы, добавить бригаду
-4. Прораб корректирует график
-5. AI генерирует наряд-задания на следующую неделю
-6. Раздаёт бригадирам</pre>
+        <div class="example-label">流程</div>
+        <pre>1. 将进度（MS Project/Excel）、周报、资源上传AI
+2. 请求："检查进度。关键路径？风险？资源负载？"
+3. AI分析并输出：
+   - 关键路径（标红）
+   - 风险：3.15塔吊过载、混凝土延迟到场
+   - 建议：调整工作、增加班组
+4. 工长调整进度
+5. AI生成下周派工单
+6. 发给班组长</pre>
       </div>
     </div>
 
-    <h3>Сравнение план/факт</h3>
+    <h3>计划/实际对比</h3>
     <div class="card card-accent">
-      <p>AI ежедневно сравнивает:</p>
+      <p>AI每日对比：</p>
       <ul>
-        <li>Запланировано объёмов vs выполнено</li>
-        <li>Даты начала/окончания vs факт</li>
-        <li>Расход материалов vs нормы</li>
-        <li>Трудозатраты vs план</li>
+        <li>计划工程量vs实际完成</li>
+        <li>计划开始/完成日期vs实际</li>
+        <li>材料消耗vs定额</li>
+        <li>工时vs计划</li>
       </ul>
-      <p>При отклонении > 10% — предупреждение с рекомендацией.</p>
+      <p>偏差>10%时——预警并建议。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-инструмент для управления строительными графиками.
+      <h3>任务模板</h3>
+      <pre>"需要施工进度管理AI工具。
 
-Входные данные:
-- График: MS Project / Excel (сетевой график)
-- Журнал работ: ежедневные отчёты (PDF, Excel, текст)
-- Ресурсы: бригады, техника, материалы (Excel, 1С, SAP)
-- Сметы: локальные сметы (PDF, Excel)
-- Погода: API (или Excel с прогнозом)
+输入：
+- 进度：MS Project / Excel（网络图）
+- 施工日志：日报（PDF、Excel、文本）
+- 资源：班组、设备、材料（Excel、ERP、SAP）
+- 估算：本地估算（PDF、Excel）
+- 天气：API（或Excel预报）
 
-Что должен делать:
-1. Анализировать критический путь
-2. Проверять загрузку ресурсов (конфликты, перегрузки)
-3. Сравнивать план/факт
-4. Прогнозировать дату окончания
-5. Генерировать наряд-задания
-6. Предупреждать о рисках (задержки, погода, ресурсы)
+功能：
+1. 分析关键路径
+2. 检查资源负载（冲突、过载）
+3. 计划/实际对比
+4. 预测完工日期
+5. 生成派工单
+6. 风险预警（延误、天气、资源）
 
-Выход:
-- PDF-отчёт (еженедельный)
-- Excel-таблица (обновлённый график)
-- Email/SMS-уведомления (критичные риски)
+输出：
+- PDF报告（周报）
+- Excel表（更新进度）
+- 邮件/短信通知（严重风险）
 
-Интеграция: [MS Project / 1С / SAP / Excel]
-Срок: [дата]"</pre>
+集成：[MS Project / ERP / SAP / Excel]
+期限：[日期]"</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Критический путь корректен? (сверить с ручным расчётом)</li>
-      <li>Риски реальны? (проверить 2-3 на графике)</li>
-      <li>Загрузка ресурсов адекватна? (нет перегрузок > 100%)</li>
-      <li>Прогноз даты окончания реалистичен?</li>
-      <li>Наряд-задания соответствуют графику?</li>
-      <li>Формат удобен для ежедневного использования?</li>
+      <li>关键路径正确？（与手工计算核对）</li>
+      <li>风险真实？（在进度上检查2-3个）</li>
+      <li>资源负载合理？（无>100%过载）</li>
+      <li>完工预测现实？</li>
+      <li>派工单与进度一致？</li>
+      <li>格式方便日常使用？</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent" data-quiz="1">
-      <p><strong>Вопрос 1:</strong> Что такое критический путь?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Цепочка работ, которые нельзя задержать без срыва сроков объекта</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Самая длинная дорога на стройку</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Путь от склада до объекта</div>
+      <p><strong>问题1：</strong> 什么是关键路径？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 延误会导致整个项目延期的工序链</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 去工地最长的路</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 从仓库到工地的路线</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent" data-quiz="2">
-      <p><strong>Вопрос 2:</strong> Какие данные нужны AI для анализа графика?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) График, журнал работ, ресурсы, сметы, погода</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только график</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только сметы</div>
+      <p><strong>问题2：</strong> AI分析进度需要什么数据？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 进度、施工日志、资源、估算、天气</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 只有进度</div>
+      <div class="quiz-option"="checkAnswer(this, false)">C) 只有估算</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent" data-quiz="3">
-      <p><strong>Вопрос 3:</strong> Что делает AI при отклонении план/факт > 10%?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Предупреждает с рекомендацией по корректировке</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Игнорирует — это нормально</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Останавливает работы автоматически</div>
+      <p><strong>问题3：</strong> 当计划/实际偏差>10%时AI做什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 预警并建议调整</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 忽略——这很正常</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 自动停工</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>AI — прогнозный аналитик для стройки.</strong> Он видит риски, которые человек пропускает: перегрузку ресурсов, конфликты в графике, погодные задержки. Не заменяет прораба, но даёт ему инструмент для принятия решений на основе данных, а не на ощущениях.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>AI是施工的预测分析师。</strong>它看到人容易忽略的风险：资源过载、进度冲突、天气延误。不替代工长，但提供数据驱动的决策工具，而非凭感觉。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../08-project-check/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../08-quality-check/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../08-project-check/index.html" class="nav-btn">← 上一课</a>
+    <a href="../08-quality-check/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -262,14 +262,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
