@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>6.1 Конфиденциальные данные — AI для не ИТ-специалистов</title>
+<title>6.1 机密数据 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -63,192 +63,185 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛡️ УРОВЕНЬ 6 · ЭТИКА И БЕЗОПАСНОСТЬ</div>
-    <h1>6.1 · Конфиденциальные данные: что нельзя отправлять в AI</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🛡️ 级别 6 · 伦理与安全</div>
+    <h1>6.1 · 机密数据：什么不能发给AI</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Когда вы отправляете документ в ChatGPT, он <strong>может стать частью обучения модели</strong>. Это означает, что ваши конфиденциальные данные могут появиться в ответах другим пользователям.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>当您将文档发送给ChatGPT时，它<strong>可能成为模型训练数据的一部分</strong>。这意味着您的机密数据可能出现在其他用户的回复中。</p>
     <div class="card card-danger">
-      <p><strong>Реальный кейс:</strong> Сотрудник отправил в ChatGPT договор с контрагентом, включая коммерческие условия. Через месяц конкурент получил похожий договор от AI, который "вспомнил" эти данные. Ущерб: утрата конкурентного преимущества.</p>
+      <p><strong>真实案例：</strong> 员工将包含商业条款的合同发给了ChatGPT。一个月后，竞争对手从AI那里收到了类似的合同——AI"记起"了这些数据。损失：竞争优势丧失。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Что нельзя отправлять в облачный AI</h3>
+    <h3>什么不能发给云端AI</h3>
     <div class="card card-danger">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--danger);">Категория</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--danger);">Примеры</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Персональные данные</td><td style="padding:10px;border-bottom:1px solid var(--border);">Паспорта, ИНН, адреса, телефоны</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Коммерческая тайна</td><td style="padding:10px;border-bottom:1px solid var(--border);">Цены, маржи, поставщики, клиенты</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Банковская информация</td><td style="padding:10px;border-bottom:1px solid var(--border);">Реквизиты, платёжные поручения</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Договоры NDA</td><td style="padding:10px;border-bottom:1px solid var(--border);">Всё под NDA</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Медицинские данные</td><td style="padding:10px;border-bottom:1px solid var(--border);">Диагнозы, истории болезней</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--danger);">类别</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--danger);">示例</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">个人数据</td><td style="padding:10px;border-bottom:1px solid var(--border);">护照、身份证号、地址、电话</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">商业秘密</td><td style="padding:10px;border-bottom:1px solid var(--border);">价格、利润率、供应商、客户</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">银行信息</td><td style="padding:10px;border-bottom:1px solid var(--border);">账户信息、付款单据</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">保密协议(NDA)</td><td style="padding:10px;border-bottom:1px solid var(--border);">所有受NDA保护的内容</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">医疗数据</td><td style="padding:10px;border-bottom:1px solid var(--border);">诊断、病史</td></tr>
       </table>
     </div>
 
-    <h3>Как безопасно работать с AI</h3>
+    <h3>如何安全地使用AI</h3>
     <div class="card card-success">
-      <h4>Уровень 1: Деидентификация</h4>
-      <p>Замените конфиденциальные данные перед отправкой.</p>
+      <h4>级别1：去标识化</h4>
+      <p>发送前替换机密数据。</p>
       <div class="example">
-        <div class="example-label">Пример</div>
-        <pre>Вместо: "ООО Ромашка, ИНН 7701234567, цена 500 000 ₽"
-Отправьте: "Компания А, ИНН ХХХХХХХХХХ, цена Х ₽"</pre>
+        <div class="example-label">示例</div>
+        <pre>原文："ABC公司，税号7701234567，价格50万元"
+发送："公司A，税号XXXXXXXXXX，价格X元"</pre>
       </div>
     </div>
 
     <div class="card card-success">
-      <h4>Уровень 2: Локальное решение</h4>
-      <p>Запускайте AI на своих серверах. Данные не покидают компанию.</p>
+      <h4>级别2：本地解决方案</h4>
+      <p>在自己的服务器上运行AI。数据不离开公司。</p>
       <ul>
-        <li>Ollama — запуск моделей локально</li>
-        <li>Llama 3, Mistral — open-source модели</li>
-        <li>Требуется: сервер с GPU</li>
+        <li>Ollama — 本地运行模型</li>
+        <li>Llama 3、Mistral — 开源模型</li>
+        <li>需要：GPU服务器</li>
       </ul>
     </div>
 
     <div class="card card-success">
-      <h4>Уровень 3: Корпоративные контракты</h4>
-      <p>Enterprise-версии с гарантиями конфиденциальности.</p>
+      <h4>级别3：企业版合约</h4>
+      <p>带有保密保证的企业版本。</p>
       <ul>
-        <li>ChatGPT Enterprise — данные не используются для обучения</li>
-        <li>Microsoft Copilot — в рамках вашего Azure</li>
-        <li>Claude for Work — корпоративные соглашения</li>
+        <li>ChatGPT Enterprise — 数据不用于训练</li>
+        <li>Microsoft Copilot — 在您的Azure环境中</li>
+        <li>Claude for Work — 企业协议</li>
       </ul>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Алгоритм проверки перед отправкой</h3>
+    <h3>发送前检查算法</h3>
     <div class="card card-accent">
       <ol>
-        <li>Есть ли в тексте персональные данные? (ФИО, ИНН, паспорта)</li>
-        <li>Есть ли коммерческая тайна? (цены, клиенты, поставщики)</li>
-        <li>Есть ли данные под NDA?</li>
-        <li>Если да на любой вопрос → деидентифицировать или использовать локальное решение</li>
+        <li>文本中是否有个人数据？（姓名、身份证号、护照）</li>
+        <li>是否有商业秘密？（价格、客户、供应商）</li>
+        <li>是否有NDA数据？</li>
+        <li>如果任一回答"是" → 去标识化或使用本地解决方案</li>
       </ol>
     </div>
 
-    <h3>Шаблон деидентификации</h3>
+    <h3>去标识化模板</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">До деидентификации</div>
-        <pre>Договор №45 от 15.03.2025
-Сторона 1: ООО "ТехноПром", ИНН 7701234567
-Сторона 2: ООО "СтройМакс", ИНН 7707654321
-Предмет: Поставка оборудования на сумму 2 500 000 ₽</pre>
+        <div class="example-label">去标识化前</div>
+        <pre>合同编号45，日期2025.03.15
+甲方：ABC科技有限公司，税号7701234567
+乙方：XYZ建筑公司，税号7707654321
+标的：设备供应，金额250万元</pre>
       </div>
       <div class="example">
-        <div class="example-label">После деидентификации</div>
-        <pre>Договор №[N] от [ДАТА]
-Сторона 1: Компания А, ИНН [ХХХХХХХХХХ]
-Сторона 2: Компания Б, ИНН [ХХХХХХХХХХ]
-Предмет: Поставка оборудования на сумму [СУММА]</pre>
+        <div class="example-label">去标识化后</div>
+        <pre>合同编号[N]，日期[日期]
+甲方：公司A，税号[XXXXXXXXXX]
+乙方：公司B，税号[XXXXXXXXXX]
+标的：设备供应，金额[金额]</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система безопасной работы с AI.
+      <h3>任务模板</h3>
+      <pre>"需要建立安全的AI工作系统。
 
-Требования:
-1. Автоматическая деидентификация перед отправкой в облако
-2. Локальное решение для конфиденциальных документов
-3. Политика доступа: кто что может отправлять
-4. Логирование всех запросов
-5. Проверка на утечку данных
+要求：
+1. 发送云端前自动去标识化
+2. 机密文档使用本地解决方案
+3. 访问权限策略：谁可以发送什么
+4. 所有请求记录日志
+5. 数据泄露检查
 
-Категории данных:
-- Красные (строго локально): [перечислить]
-- Жёлтые (деидентификация): [перечислить]
-- Зелёные (можно в облако): [перечислить]
+数据分类：
+- 红色（严格本地）：[列举]
+- 黄色（去标识化）：[列举]
+- 绿色（可发云端）：[列举]
 
-Срок: [дата]"</pre>
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Все сотрудники знают, что нельзя отправлять?</li>
-      <li>Есть процесс деидентификации?</li>
-      <li>Локальное решение настроено для конфиденциальных данных?</li>
-      <li>Логирование работает? (можно проверить историю)</li>
-      <li>Есть автоматическая проверка на утечку?</li>
-      <li>Политика подписана всеми сотрудниками?</li>
+      <li>所有员工知道什么不能发送？</li>
+      <li>有去标识化流程？</li>
+      <li>机密数据已配置本地解决方案？</li>
+      <li>日志记录正常工作？（可查看历史）</li>
+      <li>有自动泄露检查？</li>
+      <li>政策已由所有员工签署？</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Можно ли отправлять договор с ценами в бесплатный ChatGPT?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Да, если удалить название компании</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Нет, цены — коммерческая тайна</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Да, ChatGPT безопасен</div>
+      <p><strong>问题1：</strong> 可以将带价格的合同发给免费版ChatGPT吗？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 可以，如果删除公司名称</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 不可以，价格是商业秘密</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 可以，ChatGPT是安全的</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Что такое деидентификация?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Замена конфиденциальных данных на плейсхолдеры</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Удаление документа</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Шифрование файла</div>
+      <p><strong>问题2：</strong> 什么是去标识化？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 将机密数据替换为占位符</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 删除文档</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 加密文件</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Какой уровень защиты самый надёжный?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Локальное решение (данные не покидают компанию)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Enterprise-версия облачного AI</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Деидентификация</div>
+      <p><strong>问题3：</strong> 哪种保护级别最可靠？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 本地解决方案（数据不离开公司）</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 云端AI的企业版</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 去标识化</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>Конфиденциальность — не опция, а обязательство.</strong> Не отправляйте персональные данные, коммерческую тайну и NDA в облачный AI без защиты. Используйте деидентификацию, локальные решения или Enterprise-контракты. Одна утечка может стоить компании репутации и миллионов.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>保密不是可选项，而是义务。</strong>不要将个人数据、商业秘密和NDA内容未经保护地发送到云端AI。使用去标识化、本地解决方案或企业版合约。一次泄露可能让公司损失声誉和数百万资金。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../05-scaling/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../06-hallucinations/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../05-scaling/index.html" class="nav-btn">← 上一课</a>
+    <a href="../06-hallucinations/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -266,17 +259,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>

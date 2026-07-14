@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>6.2 Галлюцинации — AI для не ИТ-специалистов</title>
+<title>6.2 AI幻觉 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -63,195 +63,188 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛡️ УРОВЕНЬ 6 · ЭТИКА И БЕЗОПАСНОСТЬ</div>
-    <h1>6.2 · Галлюцинации AI: когда машина врёт убедительно</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🛡️ 级别 6 · 伦理与安全</div>
+    <h1>6.2 · AI幻觉：当机器 convincing 地撒谎</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>AI <strong>не знает разницы между фактом и выдумкой</strong>. Он генерирует текст, который звучит правдоподобно, но может быть полностью вымышленным.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>AI<strong>分不清事实与虚构</strong>。它生成的文本听起来可信，但可能完全是编造的。</p>
     <div class="card card-danger">
-      <p><strong>Реальный кейс:</strong> Юрист использовал AI для подготовки судебного дела. AI придумал 6 прецедентов, которые никогда не существовали. Судья проверил — дело проиграно, репутация пострадала.</p>
+      <p><strong>真实案例：</strong> 律师使用AI准备法庭案件。AI编造了6个从未存在的先例。法官核查后 — 案件败诉，声誉受损。</p>
     </div>
     <div class="card card-warning">
-      <p><strong>Опасность:</strong> Галлюцинации особенно опасны в бизнесе, потому что AI звучит уверенно и профессионально. Проверять нужно <strong>всегда</strong>.</p>
+      <p><strong>危险：</strong> 幻觉在商业中特别危险，因为AI听起来自信且专业。<strong>必须始终核查。</strong></p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Что такое галлюцинации</h3>
+    <h3>什么是幻觉</h3>
     <div class="card card-accent">
-      <p><strong>Галлюцинация</strong> — когда AI генерирует информацию, которая выглядит правдоподобно, но является ложной или невыверяемой.</p>
-      <p>Типы галлюцинаций:</p>
+      <p><strong>幻觉</strong> — 当AI生成看起来可信但实际是虚假或无法验证的信息时。</p>
+      <p>幻觉类型：</p>
       <ul>
-        <li><strong>Факты:</strong> "Компания X была основана в 1995" (на самом деле в 2005)</li>
-        <li><strong>Источники:</strong> "Согласно статье в Forbes..." (статьи не существует)</li>
-        <li><strong>Цитаты:</strong> "Как сказал Илон Маск..." (Маск этого не говорил)</li>
-        <li><strong>Статистика:</strong> "Рынок вырос на 150%..." (цифра выдумана)</li>
+        <li><strong>事实：</strong> "X公司成立于1995年"（实际是2005年）</li>
+        <li><strong>来源：</strong> "据《福布斯》文章..."（文章不存在）</li>
+        <li><strong>引语：</strong> "正如马斯克所说..."（马斯克没说过）</li>
+        <li><strong>统计：</strong> "市场增长了150%..."（数字是编造的）</li>
       </ul>
     </div>
 
-    <h3>Почему AI галлюцинирует</h3>
+    <h3>AI为什么会幻觉</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Причина</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Объяснение</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Нет данных</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI не знает ответа, но генерирует "наиболее вероятный"</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Устаревшие данные</td><td style="padding:10px;border-bottom:1px solid var(--border);">Обучение закончилось на определённой дате</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Путаница</td><td style="padding:10px;border-bottom:1px solid var(--border);">Смешались разные факты из разных источников</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Хочет угодить</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI стремится дать "полный" ответ, добавляет детали</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">原因</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">解释</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">没有数据</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI不知道答案，但生成"最可能的"</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">数据过时</td><td style="padding:10px;border-bottom:1px solid var(--border);">训练在特定日期截止</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">混淆</td><td style="padding:10px;border-bottom:1px solid var(--border);">不同来源的事实混在一起</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">想讨好用户</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI倾向于给出"完整"回答，添加细节</td></tr>
       </table>
     </div>
 
-    <h3>Как распознать галлюцинацию</h3>
+    <h3>如何识别幻觉</h3>
     <div class="card card-success">
       <ul>
-        <li>✅ Слишком конкретные детали без источников</li>
-        <li>✅ Ответ звучит "идеально" — без нюансов</li>
-        <li>✅ AI утверждает что-то, что противоречит вашим знаниям</li>
-        <li>✅ Цифры "круглые" или слишком точные</li>
-        <li>✅ Нет ссылок на источники (для фактов)</li>
+        <li>✅ 没有来源的过于具体细节</li>
+        <li>✅ 回答听起来"太完美" — 没有细微差别</li>
+        <li>✅ AI断言与您的知识矛盾的内容</li>
+        <li>✅ 数字是"整数"或过于精确</li>
+        <li>✅ 事实没有来源链接</li>
       </ul>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Методы борьбы с галлюцинациями</h3>
+    <h3>对抗幻觉的方法</h3>
     
     <div class="card card-success">
-      <h4>1. Требуйте источники</h4>
+      <h4>1. 要求来源</h4>
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>"Дай ответ с указанием источников. Если не уверен — скажи 'не знаю'.
-НЕ выдумывай факты."</pre>
+        <div class="example-label">提示词</div>
+        <pre>"给出带来源的回答。如果不确定 — 说'不知道'。
+不要编造事实。"</pre>
       </div>
     </div>
 
     <div class="card card-success">
-      <h4>2. RAG (поиск в ваших документах)</h4>
-      <p>AI отвечает только на основе ваших документов, а не общих знаний.</p>
+      <h4>2. RAG（在您的文档中搜索）</h4>
+      <p>AI仅基于您的文档回答，而非通用知识。</p>
     </div>
 
     <div class="card card-success">
-      <h4>3. Проверка критичных фактов</h4>
-      <p>Цифры, даты, имена, законы — всегда проверяйте вручную.</p>
+      <h4>3. 核查关键事实</h4>
+      <p>数字、日期、姓名、法律 — 始终手动核查。</p>
     </div>
 
     <div class="card card-success">
-      <h4>4. Используйте специализированные модели</h4>
-      <p>Модели, обученные на юридических/медицинских данных, галлюцинируют реже в своей области.</p>
+      <h4>4. 使用专业模型</h4>
+      <p>在法律/医疗数据上训练的模型，在其领域内幻觉更少。</p>
     </div>
 
-    <h3>Сценарий: проверка юридического анализа</h3>
+    <h3>场景：核查法律分析</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Процесс проверки</div>
-        <pre>1. AI проанализировал договор
-2. Проверяем каждый факт:
-   - Статьи закона: сверить с Консультантом/Гарантом
-   - Прецеденты: проверить в судебной базе
-   - Сроки: сверить с календарём
-3. Если AI сказал "согласно ст. 123 ГК РФ" → 
-   открываем ГК РФ, ищем статью
-4. Сомнительные моменты → к юристу</pre>
+        <div class="example-label">核查流程</div>
+        <pre>1. AI分析了合同
+2. 核查每个事实：
+   - 法律条款：与官方法规库核对
+   - 先例：在判例库中检查
+   - 期限：与日历核对
+3. 如果AI说"根据民法第123条" → 
+   打开民法，查找该条款
+4. 可疑之处 → 交给律师</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система проверки фактов для AI-ответов.
+      <h3>任务模板</h3>
+      <pre>"需要为AI回复建立事实核查系统。
 
-Требования:
-1. Для каждого факта AI должен указывать источник
-2. Автоматическая проверка: даты, цифры, ссылки на законы
-3. Если источник не найден — пометить как 'требует проверки'
-4. Интеграция с [база данных / CRM / судебная база]
-5. Дашборд с процентом проверенных фактов
+要求：
+1. AI对每个事实必须标明来源
+2. 自动核查：日期、数字、法律引用
+3. 如果未找到来源 — 标记为'需核查'
+4. 与[数据库/CRM/判例库]集成
+5. 已核查事实百分比的仪表板
 
-Критичные области: [юриспруденция / финансы / медицина]
-Срок: [дата]"</pre>
+关键领域：[法律/财务/医疗]
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Все факты проверены? (особенно цифры, даты, имена)</li>
-      <li>Есть источники для каждого утверждения?</li>
-      <li>AI сказал "не знаю" там, где не уверен?</li>
-      <li>Проверены крайние значения (граничные случаи)? (редкие ситуации)</li>
-      <li>Есть процесс проверки для критичных решений?</li>
-      <li>Пользователи знают, что AI может ошибаться?</li>
+      <li>所有事实都已核查？（特别是数字、日期、姓名）</li>
+      <li>每个论断都有来源？</li>
+      <li>AI在不确定时说了"不知道"？</li>
+      <li>检查了边界情况？（罕见情形）</li>
+      <li>有关键决策的核查流程？</li>
+      <li>用户知道AI可能出错？</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Что такое галлюцинация AI?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>AI генерирует убедительную, но ложную информацию</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>AI работает медленно</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>AI не отвечает на вопросы</div>
+      <p><strong>问题1：</strong> 什么是AI幻觉？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) AI生成令人信服但虚假的信息</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI运行缓慢</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) AI不回答问题</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Как защититься от галлюцинаций?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Требовать источники, проверять факты, использовать RAG</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Доверять AI полностью</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Не использовать AI</div>
+      <p><strong>问题2：</strong> 如何防范幻觉？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 要求来源、核查事实、使用RAG</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 完全信任AI</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 不使用AI</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Что делать, если AI ссылается на закон?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Проверить в официальной базе (Консультант, Гарант)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Поверить на слово</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Игнорировать</div>
+      <p><strong>问题3：</strong> 如果AI引用法律条款怎么办？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 在官方数据库中核查</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 轻信</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 忽略</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>AI врёт убедительно.</strong> Это не баг, а особенность технологии. Галлюцинации неизбежны, но управляемы. Требуйте источники, проверяйте факты, используйте RAG. Никогда не принимайте критичные решения на основе одного ответа AI. Доверяй, но проверяй — это не паранойя, это профессионализм.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>AI convincing 地撒谎。</strong>这不是bug，而是技术特性。幻觉不可避免，但可控。要求来源、核查事实、使用RAG。永远不要仅凭AI的一个回答就做出关键决策。信任但要核查 — 这不是偏执，而是专业素养。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../06-confidential-data/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../06-ai-policy/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../06-confidential-data/index.html" class="nav-btn">← 上一课</a>
+    <a href="../06-ai-policy/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -269,17 +262,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>
