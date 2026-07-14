@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>3.4 Мониторинг — AI для не ИТ-специалистов</title>
+<title>3.4 监控 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -67,188 +67,181 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">⚡ УРОВЕНЬ 3 · АВТОМАТИЗАЦИЯ</div>
-    <h1>3.4 · Мониторинг: следите за AI, как за сотрудником</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">⚡ 级别 3 · 自动化</div>
+    <h1>3.4 · 监控：像管理员工一样监督AI</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>AI — не волшебная палочка. Он <strong>ошибается</strong>: галлюцинирует факты, неправильно интерпретирует, даёт устаревшие данные. Без мониторинга вы узнаете об этом от клиента или при проверке.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>AI不是魔杖。它<strong>会犯错</strong>：产生幻觉、错误解读、提供过时数据。没有监控，您会从客户或检查中才发现问题。</p>
     <div class="card card-warning">
-      <p><strong>Пример проблемы:</strong> AI-агент автоматически отвечал клиентам. Через месяц выяснилось, что 15% ответов содержали неверную информацию о ценах. Компания потеряла доверие клиентов.</p>
-      <p><strong>Решение:</strong> Мониторинг качества ответов AI.</p>
+      <p><strong>问题示例：</strong> AI代理自动回复客户。一个月后发现在15%的回复中包含错误的价格信息。公司失去了客户信任。</p>
+      <p><strong>解决方案：</strong> 监控AI回复质量。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Что мониторить</h3>
+    <h3>需要监控什么</h3>
     <div class="metric-card">
       <div class="metric-item">
         <div class="num">🎯</div>
-        <div class="label">Качество ответов</div>
-        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">Правильные ли факты? Нет ли галлюцинаций?</p>
+        <div class="label">回复质量</div>
+        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">事实是否正确？有无幻觉？</p>
       </div>
       <div class="metric-item">
         <div class="num">⏱️</div>
-        <div class="label">Время отклика</div>
-        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">Сколько секунд/минут ждёт пользователь?</p>
+        <div class="label">响应时间</div>
+        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">用户等待多少秒/分钟？</p>
       </div>
       <div class="metric-item">
         <div class="num">💰</div>
-        <div class="label">Стоимость</div>
-        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">Сколько тратим на API? В пределах бюджета?</p>
+        <div class="label">成本</div>
+        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">API花费多少？在预算内？</p>
       </div>
       <div class="metric-item">
         <div class="num">😊</div>
-        <div class="label">Удовлетворённость</div>
-        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">Довольны ли пользователи ответами AI?</p>
+        <div class="label">满意度</div>
+        <p style="font-size: 0.85rem; color: var(--muted); margin: 4px 0 0;">用户对AI回复满意吗？</p>
       </div>
     </div>
 
-    <h3>Как мониторить качество</h3>
+    <h3>如何监控质量</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Метод</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Как делать</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Частота</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Ручная проверка</td><td style="padding:10px;border-bottom:1px solid var(--border);">Проверять 10-20 случайных ответов</td><td style="padding:10px;border-bottom:1px solid var(--border);">Ежедневно</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Обратная связь</td><td style="padding:10px;border-bottom:1px solid var(--border);">Кнопки "Полезно / Не полезно"</td><td style="padding:10px;border-bottom:1px solid var(--border);">Каждый ответ</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Аналитика</td><td style="padding:10px;border-bottom:1px solid var(--border);">Дашборд с метриками</td><td style="padding:10px;border-bottom:1px solid var(--border);">В реальном времени</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Тестовые кейсы</td><td style="padding:10px;border-bottom:1px solid var(--border);">Проверять на заранее известных вопросах</td><td style="padding:10px;border-bottom:1px solid var(--border);">Еженедельно</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">方法</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">如何操作</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">频率</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">人工检查</td><td style="padding:10px;border-bottom:1px solid var(--border);">抽查10-20个回复</td><td style="padding:10px;border-bottom:1px solid var(--border);">每天</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">反馈</td><td style="padding:10px;border-bottom:1px solid var(--border);">"有用/无用"按钮</td><td style="padding:10px;border-bottom:1px solid var(--border);">每个回复</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">分析</td><td style="padding:10px;border-bottom:1px solid var(--border);">指标仪表板</td><td style="padding:10px;border-bottom:1px solid var(--border);">实时</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">测试用例</td><td style="padding:10px;border-bottom:1px solid var(--border);">用已知问题检查</td><td style="padding:10px;border-bottom:1px solid var(--border);">每周</td></tr>
       </table>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Настройка мониторинга</h3>
+    <h3>设置监控</h3>
     <div class="card card-accent">
       <ol>
-        <li><strong>Определите ключевые метрики:</strong> Качество, время, стоимость, удовлетворённость</li>
-        <li><strong>Выберите инструмент:</strong> Google Analytics, custom дашборд, или встроенная аналитика</li>
-        <li><strong>Настройте алерты:</strong> Если качество < 80% — уведомить ответственного</li>
-        <li><strong>Создайте процесс реагирования:</strong> Кто и как исправляет проблемы?</li>
+        <li><strong>定义关键指标：</strong> 质量、时间、成本、满意度</li>
+        <li><strong>选择工具：</strong> Google Analytics、定制仪表板或内置分析</li>
+        <li><strong>设置告警：</strong> 如果质量 < 80% — 通知负责人</li>
+        <li><strong>创建响应流程：</strong> 谁以及如何修复问题？</li>
       </ol>
     </div>
 
-    <h3>Пример: мониторинг AI-поддержки</h3>
+    <h3>示例：AI客服监控</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Метрики для отслеживания</div>
-        <pre>📊 Дашборд AI-поддержки:
+        <div class="example-label">监控指标</div>
+        <pre>📊 AI客服仪表板：
 
-Сегодня:
-- Запросов: 150
-- Среднее время ответа: 12 сек
-- Удовлетворённость: 87%
-- Ошибок (по оценке): 3 (2%)
+今日：
+- 请求数：150
+- 平均响应时间：12秒
+- 满意度：87%
+- 错误（估计）：3（2%）
 
-⚠️ Алерты:
-- Удовлетворённость < 85% → Уведомить руководителя
-- Ошибок > 5% → Остановить и проверить
-- Время ответа > 30 сек → Проверить нагрузку</pre>
+⚠️ 告警：
+- 满意度 < 85% → 通知负责人
+- 错误 > 5% → 停止并检查
+- 响应时间 > 30秒 → 检查负载</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система мониторинга для AI-агента [название].
+      <h3>任务模板</h3>
+      <pre>"需要为AI代理[名称]创建监控系统。
 
-Метрики для отслеживания:
-1. Качество ответов (оценка по 5-балльной шкале)
-2. Время отклика (мс)
-3. Стоимость API-запросов ($)
-4. Количество ошибок
-5. Удовлетворённость пользователей
+需要监控的指标：
+1. 回复质量（5分制评分）
+2. 响应时间（毫秒）
+3. API请求成本（$）
+4. 错误数量
+5. 用户满意度
 
-Требования:
-- Дашборд в реальном времени
-- Алерты при превышении порогов
-- История метрик (за 90 дней)
-- Экспорт отчётов
+要求：
+- 实时仪表板
+- 超出阈值时告警
+- 90天指标历史
+- 报告导出
 
-Интеграция: [email / Slack / Telegram]
-Срок: [дата]"</pre>
+集成：[邮件 / Slack / Telegram]
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Все ключевые метрики отслеживаются?</li>
-      <li>Дашборд обновляется в реальном времени?</li>
-      <li>Алерты настроены на критичные пороги?</li>
-      <li>Есть процесс реагирования на проблемы?</li>
-      <li>Данные доступны для анализа за 90 дней?</li>
-      <li>Руководитель получает сводку регулярно?</li>
+      <li>所有关键指标都在监控？</li>
+      <li>仪表板实时更新？</li>
+      <li>关键阈值有告警？</li>
+      <li>有问题响应流程？</li>
+      <li>数据可分析90天？</li>
+      <li>负责人定期收到汇总？</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Почему AI нужно мониторить?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) AI может ошибаться и галлюцинировать</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI работает медленно</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) AI дорогой</div>
+      <p><strong>问题1：</strong> 为什么需要监控AI？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) AI可能出错和产生幻觉</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI运行慢</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) AI太贵</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Как часто проверять качество вручную?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Ежедневно, 10-20 случайных ответов</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Раз в месяц</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Никогда, AI сам проверяет</div>
+      <p><strong>问题2：</strong> 多久人工检查一次质量？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 每天，抽查10-20个回复</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 每月一次</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 从不，AI自己检查</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Что делать, если удовлетворённость < 85%?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Уведомить руководителя и проверить AI</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Ничего, это нормально</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Выключить AI</div>
+      <p><strong>问题3：</strong> 如果满意度 < 85% 该做什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 通知负责人并检查AI</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 什么都不做，这是正常的</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 关闭AI</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>Мониторинг = страховка.</strong> AI ошибается, и это нормально. Важно находить ошибки раньше клиентов. Мониторьте качество, время, стоимость, удовлетворённость. Настройте алерты. Создайте процесс реагирования. Доверяй, но проверяй.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>监控 = 保险。</strong>AI会犯错，这很正常。关键是比客户更早发现错误。监控质量、时间、成本、满意度。设置告警。创建响应流程。信任，但要验证。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../03-simple-agents/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../../catalog.html" class="nav-btn primary">К каталогу →</a>
+    <a href="../03-simple-agents/index.html" class="nav-btn">← 上一课</a>
+    <a href="../../catalog.html" class="nav-btn primary">前往目录 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -266,17 +259,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>

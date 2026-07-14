@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>3.1 No-code автоматизация: n8n и Zapier — AI для не ИТ-специалистов</title>
+<title>3.1 无代码自动化：n8n与Zapier — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -68,347 +68,340 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">⚡ УРОВЕНЬ 3 · АВТОМАТИЗАЦИЯ</div>
-    <h1>3.1 · No-code автоматизация: n8n и Zapier</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">⚡ 级别 3 · 自动化</div>
+    <h1>3.1 · 无代码自动化：n8n与Zapier</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Менеджеры тратят <strong>30% времени на рутину</strong>: копирование данных между системами, отправку однотипных писем, заполнение отчётов.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>管理者将<strong>30%时间用于琐事</strong>：在系统间复制数据、发送相同邮件、填写报告。</p>
     <div class="card card-success">
-      <p><strong>No-code платформы</strong> позволяют автоматизировать эти процессы без программирования. Соединяют разные сервисы: email, Excel, CRM, мессенджеры, AI.</p>
-      <p><strong>Пример:</strong> "Когда приходит письмо от поставщика → AI анализирует → если есть изменение цены → отправить уведомление закупщику в Telegram"</p>
+      <p><strong>无代码平台</strong>让您无需编程即可自动化这些流程。连接不同服务：邮件、Excel、CRM、即时通讯、AI。</p>
+      <p><strong>示例：</strong> "当供应商邮件到达 → AI分析 → 如果价格变更 → 发送通知给采购员在Telegram"</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Как работает автоматизация</h3>
+    <h3>自动化工作原理</h3>
     <div class="card card-accent">
-      <p>Любая автоматизация состоит из 3 частей:</p>
+      <p>任何自动化都包含3个部分：</p>
       <ol>
-        <li><strong>Триггер</strong> — что запускает процесс? (письмо, время, кнопка)</li>
-        <li><strong>Действие</strong> — что делать? (отправить письмо, записать в таблицу)</li>
-        <li><strong>Условие</strong> — когда делать? (если цена изменилась > 10%)</li>
+        <li><strong>触发器</strong> — 什么启动流程？（邮件、时间、按钮）</li>
+        <li><strong>动作</strong> — 做什么？（发送邮件、写入表格）</li>
+        <li><strong>条件</strong> — 何时执行？（如果价格变动 > 10%）</li>
       </ol>
     </div>
 
-    <h3>n8n — open-source автоматизация</h3>
+    <h3>n8n — 开源自动化</h3>
     <div class="tool-card">
       <h4>🔗 n8n</h4>
-      <p class="price">💰 Бесплатно (self-hosted), облако от $20/мес</p>
-      <p>n8n — <strong>open-source</strong> платформа с визуальным редактором workflow. Устанавливается на свой сервер или используется в облаке. Код открыт, лицензия <strong>fair-code</strong> (бесплатно для себя, платно для облачных SaaS-провайдеров).</p>
+      <p class="price">💰 免费（自建），云端 $20/月起</p>
+      <p>n8n — <strong>开源</strong>工作流平台，带可视化编辑器。可安装在自己的服务器上或云端使用。开源，采用<strong>fair-code</strong>许可证（个人免费，云SaaS提供商需付费）。</p>
       
       <div class="example">
-        <div class="example-label">Ключевые особенности</div>
+        <div class="example-label">核心特性</div>
         <ul>
-          <li><strong>400+ интеграций</strong> «из коробки» (Google Sheets, Telegram, OpenAI, Notion, CRM)</li>
-          <li><strong>Визуальный редактор</strong> — перетаскиваете узлы, соединяете стрелками</li>
-          <li><strong>Self-hosted</strong> — данные не покидают ваш сервер (конфиденциальность)</li>
-          <li><strong>HTTP Request</strong> — подключение к любому API без программирования</li>
-          <li><strong>JavaScript/Python</strong> — можно встроить код для сложной логики</li>
-          <li><strong>Webhook</strong> — принимает данные из любых систем</li>
-          <li><strong>Schedule</strong> — запуск по расписанию (каждый час, день, крон-выражение)</li>
+          <li><strong>400+集成</strong>（Google Sheets、Telegram、OpenAI、Notion、CRM）</li>
+          <li><strong>可视化编辑器</strong> — 拖拽节点，箭头连接</li>
+          <li><strong>自建部署</strong> — 数据不离开您的服务器（隐私）</li>
+          <li><strong>HTTP请求</strong> — 无需编程即可连接任何API</li>
+          <li><strong>JavaScript/Python</strong> — 可嵌入代码处理复杂逻辑</li>
+          <li><strong>Webhook</strong> — 接收来自任何系统的数据</li>
+          <li><strong>计划任务</strong> — 定时启动（每小时、每天、cron表达式）</li>
         </ul>
       </div>
       
       <div class="example">
-        <div class="example-label">Пример workflow в n8n</div>
+        <div class="example-label">n8n工作流示例</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>Trigger:</strong> Webhook (пришёл новый лид с сайта)</div>
+          <div><strong>触发器：</strong> Webhook（网站新线索到达）</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
-          <div><strong>AI:</strong> OpenAI узел — анализирует запрос, определяет категорию</div>
+          <div><strong>AI：</strong> OpenAI节点 — 分析请求，确定分类</div>
         </div>
         <div class="workflow-step">
           <span class="num">3</span>
-          <div><strong>Condition:</strong> Если категория = "Закупка" → отправить в Telegram закупщику</div>
+          <div><strong>条件：</strong> 如果分类 = "采购" → 发送Telegram给采购员</div>
         </div>
         <div class="workflow-step">
           <span class="num">4</span>
-          <div><strong>Condition:</strong> Если категория = "Продажа" → создать сделку в CRM</div>
+          <div><strong>条件：</strong> 如果分类 = "销售" → 在CRM中创建交易</div>
         </div>
         <div class="workflow-step">
           <span class="num">5</span>
-          <div><strong>Action:</strong> Записать лог в Google Sheets</div>
+          <div><strong>动作：</strong> 在Google Sheets记录日志</div>
         </div>
       </div>
     </div>
 
-    <h3>Zapier — простота и скорость</h3>
+    <h3>Zapier — 简单与速度</h3>
     <div class="tool-card">
       <h4>⚡ Zapier</h4>
-      <p class="price">💰 Бесплатно до 100 задач/мес, далее от $19/мес</p>
-      <p>Zapier — самый зрелый инструмент на рынке. <strong>5000+ интеграций</strong>, работает с 2011 года. Идеален для быстрого старта без настройки серверов.</p>
+      <p class="price">💰 每月100次任务免费，之后 $19/月起</p>
+      <p>Zapier — 市场上最成熟的工具。<strong>5000+集成</strong>，自2011年运营。适合无需配置服务器的快速启动。</p>
       
       <div class="example">
-        <div class="example-label">Ключевые особенности</div>
+        <div class="example-label">核心特性</div>
         <ul>
-          <li><strong>Zaps</strong> — автоматизации, состоящие из триггера и действий</li>
-          <li><strong>Paths</strong> — ветвление логики (if/else внутри одного Zap)</li>
-          <li><strong>Filter</strong> — условия, при которых Zap срабатывает</li>
-          <li><strong>Formatter</strong> — преобразование данных (даты, числа, текст)</li>
-          <li><strong>Schedule</strong> — запуск по времени</li>
-          <li><strong>Webhooks</strong> — приём данных из внешних систем</li>
-          <li><strong>AI Actions</strong> — встроенная интеграция с OpenAI, Anthropic, Cohere</li>
-          <li><strong>Tables</strong> — встроенная база данных (альтернатива Google Sheets)</li>
+          <li><strong>Zaps</strong> — 由触发器和动作组成的自动化</li>
+          <li><strong>Paths</strong> — 逻辑分支（if/else）</li>
+          <li><strong>Filter</strong> — 触发条件</li>
+          <li><strong>Formatter</strong> — 数据转换（日期、数字、文本）</li>
+          <li><strong>Schedule</strong> — 定时启动</li>
+          <li><strong>Webhooks</strong> — 接收外部数据</li>
+          <li><strong>AI Actions</strong> — 内置OpenAI、Anthropic、Cohere集成</li>
+          <li><strong>Tables</strong> — 内置数据库（Google Sheets替代）</li>
         </ul>
       </div>
       
       <div class="example">
-        <div class="example-label">Пример Zap</div>
+        <div class="example-label">Zap示例</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>Trigger:</strong> Gmail — новое письмо с вложением PDF</div>
+          <div><strong>触发器：</strong> Gmail — 新邮件带PDF附件</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
-          <div><strong>AI:</strong> Zapier AI — извлекает ключевые данные из PDF (сумма, дата, контрагент)</div>
+          <div><strong>AI：</strong> Zapier AI — 从PDF提取关键数据（金额、日期、交易方）</div>
         </div>
         <div class="workflow-step">
           <span class="num">3</span>
-          <div><strong>Filter:</strong> Если сумма > 100 000 ₽</div>
+          <div><strong>过滤器：</strong> 如果金额 > 10万元</div>
         </div>
         <div class="workflow-step">
           <span class="num">4</span>
-          <div><strong>Action:</strong> Отправить уведомление в Slack → #закупки</div>
+          <div><strong>动作：</strong> 发送Slack通知 → #采购</div>
         </div>
         <div class="workflow-step">
           <span class="num">5</span>
-          <div><strong>Action:</strong> Сохранить данные в Google Sheets</div>
+          <div><strong>动作：</strong> 保存数据到Google Sheets</div>
         </div>
       </div>
     </div>
 
-    <h3>Сравнение n8n vs Zapier</h3>
-    <table>
-      <tr><th>Критерий</th><th>n8n</th><th>Zapier</th></tr>
-      <tr><td>Сложность</td><td>Средняя (визуальный редактор)</td><td>Низкая (максимально просто)</td></tr>
-      <tr><td>Цена</td><td>Бесплатно (self-hosted) / $20 облако</td><td>От $19/мес</td></tr>
-      <tr><td>Конфиденциальность</td><td>✅ Данные на вашем сервере</td><td>☁️ В облаке Zapier</td></tr>
-      <tr><td>Интеграции</td><td>400+ (растёт быстро)</td><td>5000+ (максимум на рынке)</td></tr>
-      <tr><td>Код</td><td>✅ JS/Python внутри workflow</td><td>❌ Только через внешние сервисы</td></tr>
-      <tr><td>Self-hosted</td><td>✅ Docker, npm, облако</td><td>❌ Только облако</td></tr>
-      <tr><td>Лучше для</td><td>Контроль данных, сложная логика</td><td>Быстрый старт, масса интеграций</td></tr>
+    <h3>n8n vs Zapier 对比</h3>
+    <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">标准</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">n8n</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Zapier</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">复杂度</td><td style="padding:10px;border-bottom:1px solid var(--border);">中等（可视化编辑器）</td><td style="padding:10px;border-bottom:1px solid var(--border);">低（极简）</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">价格</td><td style="padding:10px;border-bottom:1px solid var(--border);">免费（自建）/ $20 云端</td><td style="padding:10px;border-bottom:1px solid var(--border);">$19/月起</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">隐私</td><td style="padding:10px;border-bottom:1px solid var(--border);">✅ 数据在您服务器</td><td style="padding:10px;border-bottom:1px solid var(--border);">☁️ 在Zapier云端</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">集成数量</td><td style="padding:10px;border-bottom:1px solid var(--border);">400+（快速增长）</td><td style="padding:10px;border-bottom:1px solid var(--border);">5000+（市场最多）</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">代码支持</td><td style="padding:10px;border-bottom:1px solid var(--border);">✅ 工作流内JS/Python</td><td style="padding:10px;border-bottom:1px solid var(--border);">❌ 仅通过外部服务</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">自建部署</td><td style="padding:10px;border-bottom:1px solid var(--border);">✅ Docker、npm、云端</td><td style="padding:10px;border-bottom:1px solid var(--border);">❌ 仅云端</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">适用场景</td><td style="padding:10px;border-bottom:1px solid var(--border);">数据控制、复杂逻辑</td><td style="padding:10px;border-bottom:1px solid var(--border);">快速启动、海量集成</td></tr>
     </table>
 
-    <h3>Когда что выбрать</h3>
+    <h3>何时选择什么</h3>
     <div class="card card-accent">
-      <p><span class="tag">n8n</span> если:</p>
+      <p><span class="tag">n8n</span> 如果：</p>
       <ul>
-        <li>Работаете с конфиденциальными данными (договоры, персональные данные)</li>
-        <li>Есть IT-специалист, который может поднять сервер</li>
-        <li>Нужна сложная логика (циклы, условия, код)</li>
-        <li>Хотите сэкономить на подписке (self-hosted = бесплатна лицензия, но нужен сервер и ИТ-специалист)</li>
+        <li>处理敏感数据（合同、个人数据）</li>
+        <li>有IT人员可以部署服务器</li>
+        <li>需要复杂逻辑（循环、条件、代码）</li>
+        <li>想节省订阅费（自建 = 免费，但需服务器和IT人员）</li>
       </ul>
-      <p style="margin-top: 16px;"><span class="tag">Zapier</span> если:</p>
+      <p style="margin-top: 16px;"><span class="tag">Zapier</span> 如果：</p>
       <ul>
-        <li>Нужно запустить за 10 минут без настройки сервера</li>
-        <li>Используете редкие сервисы (нужна максимальная совместимость)</li>
-        <li>Нет IT-ресурсов — всё должно работать «из коробки»</li>
-        <li>Готовы платить за удобство и стабильность</li>
+        <li>需要10分钟内启动，无需配置服务器</li>
+        <li>使用小众服务（需要最大兼容性）</li>
+        <li>没有IT资源 — 一切需要开箱即用</li>
+        <li>愿意为便利和稳定付费</li>
       </ul>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий 1: Автоматическая обработка заявок</h3>
+    <h3>场景1：自动处理申请</h3>
     <div class="card">
-      <p><strong>Проблема:</strong> Заявки от клиентов приходят на email, менеджер вручную переносит их в CRM.</p>
+      <p><strong>问题：</strong> 客户申请通过邮件到达，经理手动转录到CRM。</p>
       <div class="example">
-        <div class="example-label">Автоматизация в n8n</div>
+        <div class="example-label">n8n自动化</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>Email Trigger:</strong> Новое письмо на zakazy@company.ru</div>
+          <div><strong>邮件触发：</strong> 新邮件到 zakazy@company.ru</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
-          <div><strong>OpenAI:</strong> Извлечь: продукт, бюджет, срок, контакт</div>
+          <div><strong>OpenAI：</strong> 提取：产品、预算、期限、联系方式</div>
         </div>
         <div class="workflow-step">
           <span class="num">3</span>
-          <div><strong>Code:</strong> Проверить, все ли поля заполнены</div>
+          <div><strong>代码：</strong> 检查所有字段是否填写</div>
         </div>
         <div class="workflow-step">
           <span class="num">4</span>
-          <div><strong>CRM:</strong> Создать сделку (если поля заполнены)</div>
+          <div><strong>CRM：</strong> 创建交易（如果字段已填写）</div>
         </div>
         <div class="workflow-step">
           <span class="num">5</span>
-          <div><strong>Telegram:</strong> Уведомить менеджера</div>
+          <div><strong>Telegram：</strong> 通知经理</div>
         </div>
         <div class="workflow-step">
           <span class="num">6</span>
-          <div><strong>If:</strong> Бюджет > 100 000 ₽ → уведомить директора</div>
+          <div><strong>If：</strong> 预算 > 10万元 → 通知总监</div>
         </div>
       </div>
-      <p><strong>Экономия:</strong> 2 часа в день на обработку заявок</p>
+      <p><strong>节省：</strong> 每天2小时处理申请</p>
     </div>
 
-    <h3>Сценарий 2: Мониторинг цен поставщиков</h3>
+    <h3>场景2：监控供应商价格</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Автоматизация в Zapier</div>
+        <div class="example-label">Zapier自动化</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>Schedule:</strong> Еженедельно, например по понедельникам 9:00</div>
+          <div><strong>计划：</strong> 每周一 9:00</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
-          <div><strong>HTTP:</strong> Получить прайс-лист с сайта поставщика (API или парсинг)</div>
+          <div><strong>HTTP：</strong> 从供应商网站获取价格表（API或解析）</div>
         </div>
         <div class="workflow-step">
           <span class="num">3</span>
-          <div><strong>AI:</strong> Сравнить с прошлой неделей (Zapier AI или OpenAI)</div>
+          <div><strong>AI：</strong> 与上周对比（Zapier AI或OpenAI）</div>
         </div>
         <div class="workflow-step">
           <span class="num">4</span>
-          <div><strong>Filter:</strong> Если цена изменилась > 5%</div>
+          <div><strong>过滤器：</strong> 如果价格变动 > 5%</div>
         </div>
         <div class="workflow-step">
           <span class="num">5</span>
-          <div><strong>Sheets:</strong> Записать отчёт в Google Sheets</div>
+          <div><strong>表格：</strong> 记录到Google Sheets</div>
         </div>
         <div class="workflow-step">
           <span class="num">6</span>
-          <div><strong>Slack:</strong> Отправить уведомление закупщику</div>
+          <div><strong>Slack：</strong> 发送通知给采购员</div>
         </div>
       </div>
     </div>
 
-    <h3>Сценарий 3: Еженедельный отчёт</h3>
+    <h3>场景3：周报</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Автоматизация в n8n</div>
+        <div class="example-label">n8n自动化</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>По расписанию (cron):</strong> Каждую пятницу 17:00</div>
+          <div><strong>计划（cron）：</strong> 每周五 17:00</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
-          <div><strong>Database:</strong> Собрать данные из 1С / CRM (SQL-запрос или API)</div>
+          <div><strong>数据库：</strong> 从1C/CRM收集数据（SQL查询或API）</div>
         </div>
         <div class="workflow-step">
           <span class="num">3</span>
-          <div><strong>Code:</strong> Агрегировать данные (группировка, суммы)</div>
+          <div><strong>代码：</strong> 聚合数据（分组、汇总）</div>
         </div>
         <div class="workflow-step">
           <span class="num">4</span>
-          <div><strong>OpenAI:</strong> Сформировать текстовый отчёт с выводами</div>
+          <div><strong>OpenAI：</strong> 生成文本报告与结论</div>
         </div>
         <div class="workflow-step">
           <span class="num">5</span>
-          <div><strong>Email:</strong> Отправить руководителю</div>
+          <div><strong>邮件：</strong> 发送给负责人</div>
         </div>
         <div class="workflow-step">
           <span class="num">6</span>
-          <div><strong>Google Drive:</strong> Сохранить PDF в архив</div>
+          <div><strong>网盘：</strong> 将PDF保存到归档</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи для n8n</h3>
-      <pre>"Нужно создать workflow в n8n.
+      <h3>n8n任务模板</h3>
+      <pre>"需要在n8n中创建工作流。
 
-Триггер: [описать событие]
-Действия:
-1. [что делать]
-2. [что делать]
-3. [условие — когда делать]
+触发器：[描述事件]
+动作：
+1. [做什么]
+2. [做什么]
+3. [条件 — 何时执行]
 
-Интеграции: [список сервисов]
-AI-компонент: [да/нет, описание задачи]
-Self-hosted: [да/нет]
+集成：[服务列表]
+AI组件：[是/否，任务描述]
+自建部署：[是/否]
 
-Пример входных данных: [прикрепить]
-Ожидаемый результат: [описать]
+示例输入数据：[附件]
+预期结果：[描述]
 
-Срок: [дата]"</pre>
+期限：[日期]"</pre>
     </div>
 
     <div class="card card-success">
-      <h3>Шаблон задачи для Zapier</h3>
-      <pre>"Нужно создать Zap.
+      <h3>Zapier任务模板</h3>
+      <pre>"需要创建Zap。
 
-Триггер: [сервис + событие]
-Действия:
-1. [сервис + действие]
-2. [сервис + действие]
+触发器：[服务 + 事件]
+动作：
+1. [服务 + 动作]
+2. [服务 + 动作]
 
-Условия (Filter/Paths):
-- [условие 1]
-- [условие 2]
+条件（Filter/Paths）：
+- [条件1]
+- [条件2]
 
-Интеграции: [список сервисов]
-AI-компонент: [Zapier AI / OpenAI / нет]
+集成：[服务列表]
+AI组件：[Zapier AI / OpenAI / 无]
 
-Пример входных данных: [прикрепить]
-Ожидаемый результат: [описать]
+示例输入数据：[附件]
+预期结果：[描述]
 
-Срок: [дата]"</pre>
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Сценарий запускается корректно? (триггер работает)</li>
-      <li>Данные передаются без потерь? (проверьте 3 запуска)</li>
-      <li>Условия срабатывают правильно? (крайние значения (граничные случаи))</li>
-      <li>Есть обработка ошибок? (если сервис недоступен)</li>
-      <li>Логи доступны для проверки? (история запусков в n8n / Zapier Task History)</li>
-      <li>Стоимость операций в пределах бюджета? (Zapier: счётчик задач, n8n: Execution History)</li>
+      <li>场景正确触发？（触发器工作）</li>
+      <li>数据传输无丢失？（检查3次运行）</li>
+      <li>条件正确触发？（边界情况）</li>
+      <li>有错误处理？（如果服务不可用）</li>
+      <li>日志可查看？（n8n中的运行历史 / Zapier任务历史）</li>
+      <li>操作成本在预算内？（Zapier：任务计数器，n8n：执行历史）</li>
     </ul>
   </div>
 
-  <!-- ИНСТРУМЕНТЫ -->
   <div class="section">
-    <h2>🛠️ Инструменты</h2>
-    <table>
-      <tr><th>Платформа</th><th>Лучше для</th><th>Стоимость</th></tr>
-      <tr><td>n8n</td><td>Контроль данных, сложная логика, self-hosted</td><td>Бесплатно / $20</td></tr>
-      <tr><td>Zapier</td><td>Быстрый старт, 5000+ интеграций</td><td>От $19/мес</td></tr>
-      <tr><td>Microsoft Power Automate</td><td>Компании на Microsoft 365</td><td>От $15/мес</td></tr>
+    <h2>🛠️ 工具</h2>
+    <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">平台</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">适用场景</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">成本</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n</td><td style="padding:10px;border-bottom:1px solid var(--border);">数据控制、复杂逻辑、自建部署</td><td style="padding:10px;border-bottom:1px solid var(--border);">免费 / $20</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Zapier</td><td style="padding:10px;border-bottom:1px solid var(--border);">快速启动、5000+集成</td><td style="padding:10px;border-bottom:1px solid var(--border);">$19/月起</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Microsoft Power Automate</td><td style="padding:10px;border-bottom:1px solid var(--border);">Microsoft 365企业</td><td style="padding:10px;border-bottom:1px solid var(--border);">$15/月起</td></tr>
     </table>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Что такое "триггер" в автоматизации?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Событие, которое запускает процесс</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Действие, которое выполняется</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Условие выполнения</div>
+      <p><strong>问题1：</strong> 自动化中的"触发器"是什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 启动流程的事件</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 执行的动作</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 执行条件</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Какая платформа open-source и позволяет self-hosted?</p>
+      <p><strong>问题2：</strong> 哪个平台是开源且支持自建的？</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) Zapier</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) n8n</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Power Automate</div>
@@ -416,32 +409,31 @@ AI-компонент: [Zapier AI / OpenAI / нет]
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Сколько времени экономит автоматизация обработки заявок?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 15 минут</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 2 часа в день</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 30 минут</div>
+      <p><strong>问题3：</strong> 自动化处理申请节省多少时间？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 15分钟</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 每天2小时</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 30分钟</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>No-code автоматизация</strong> — это LEGO для бизнес-процессов. <strong>n8n</strong> — если нужен контроль данных и сложная логика (open-source, self-hosted). <strong>Zapier</strong> — если нужен быстрый старт с максимумом интеграций. Триггер → действие → условие. Экономия: <strong>2-4 часа в день</strong> на рутине.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>无代码自动化</strong>是商业流程的乐高积木。<strong>n8n</strong>适合需要数据控制和复杂逻辑（开源、自建）。<strong>Zapier</strong>适合需要快速启动和海量集成。触发器 → 动作 → 条件。节省：<strong>每天2-4小时</strong>用于琐事。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../02-summarization/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../03-ai-processes/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../02-summarization/index.html" class="nav-btn">← 上一课</a>
+    <a href="../03-ai-processes/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -459,17 +451,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>
