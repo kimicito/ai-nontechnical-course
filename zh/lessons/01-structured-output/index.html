@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.2 Структурированный вывод — AI для не ИТ-специалистов</title>
+<title>1.2 结构化输出 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -68,230 +68,222 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛠️ УРОВЕНЬ 1 · ВЛАДЕНИЕ ИНСТРУМЕНТАМИ</div>
-    <h1>1.2 · Структурированный вывод: JSON, таблицы, чеклисты</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🛠️ 级别 1 · 工具掌握</div>
+    <h1>1.2 · 结构化输出：JSON、表格、检查清单</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>AI может выдавать ответы <strong>в любом формате</strong>. Но по умолчанию — сплошной текст, который приходится перебивать руками в Excel или 1С.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>AI可以以<strong>任何格式</strong>输出结果。但默认是连续文本，需要手动复制到Excel或1C。</p>
     <div class="card card-success">
-      <p><strong>Проблема:</strong> Менеджер получает анализ в виде текста, тратит 15 минут на перенос в таблицу.</p>
-      <p><strong>Решение:</strong> Попросить AI сразу выдать таблицу. Экономия: <strong>15 минут × 20 задач = 5 часов в неделю</strong>.</p>
+      <p><strong>问题：</strong> 经理收到文本格式的分析，花15分钟整理成表格。</p>
+      <p><strong>解决方案：</strong> 直接要求AI输出表格。节省：<strong>15分钟 × 20个任务 = 每周5小时</strong>。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>4 формата вывода</h3>
+    <h3>4种输出格式</h3>
     <div class="format-grid">
       <div class="format-card">
-        <h4>📊 Таблица</h4>
-        <p>Сравнение, анализ, отчёты. Легко копировать в Excel.</p>
+        <h4>📊 表格</h4>
+        <p>对比、分析、报告。易于复制到Excel。</p>
       </div>
       <div class="format-card">
         <h4>📋 JSON</h4>
-        <p>Для программистов и автоматизации. Структурированные данные.</p>
+        <p>面向开发人员和自动化。结构化数据。</p>
       </div>
       <div class="format-card">
-        <h4>☑️ Чеклист</h4>
-        <p>Для проверки, аудита, контроля качества.</p>
+        <h4>☑️ 检查清单</h4>
+        <p>用于检查、审计、质量控制。</p>
       </div>
       <div class="format-card">
         <h4>📝 Markdown</h4>
-        <p>Для документации, инструкций, статей. Читается везде.</p>
+        <p>用于文档、说明、文章。到处可读。</p>
       </div>
     </div>
 
-    <h3>Как попросить таблицу</h3>
+    <h3>如何要求表格</h3>
     <div class="example">
-      <div class="example-label">💡 Пример промпта</div>
-      <pre>Ты — финансовый аналитик.
-Проанализируй 3 инвестиционных проекта (данные ниже).
+      <div class="example-label">💡 示例提示词</div>
+      <pre>你是一位财务分析师。
+分析3个投资项目（数据如下）。
 
-Выведи результат в формате таблицы:
-| Проект | ROI | Срок окупаемости | Риск | Рекомендация |
+以表格格式输出结果：
+| 项目 | 投资回报率 | 回收期 | 风险 | 建议 |
 
-После таблицы — краткое обоснование рекомендации.</pre>
+表格后附简要建议说明。</pre>
     </div>
 
-    <h3>Как попросить чеклист</h3>
+    <h3>如何要求检查清单</h3>
     <div class="example">
-      <div class="example-label">💡 Пример промпта</div>
-      <pre>Ты — аудитор по ISO 9001.
-Проведи аудит процесса закупок по следующим критериям.
+      <div class="example-label">💡 示例提示词</div>
+      <pre>你是一位ISO 9001审计师。
+按以下标准审计采购流程。
 
-Выведи результат в виде чеклиста:
-☐ Критерий 1 — [статус: пройден/не пройден] — [комментарий]
-☐ Критерий 2 — [статус] — [комментарий]
+以检查清单格式输出结果：
+☐ 标准1 — [状态：通过/未通过] — [备注]
+☐ 标准2 — [状态] — [备注]
 
-В конце: общая оценка соответствия (в процентах).</pre>
+最后：总体合规性评估（百分比）。</pre>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий 1: Сравнение поставщиков</h3>
+    <h3>场景1：对比供应商</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Выбрать поставщика упаковки из 3 вариантов.</p>
+      <p><strong>任务：</strong> 从3个选项中选择包装供应商。</p>
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — закупщик FMCG.
-Сравни 3 предложения по критериям и выведи таблицей:
-| Критерий | Поставщик А | Поставщик Б | Поставщик В | Лидер |
-| Цена за ед. | | | | |
-| Мин. заказ | | | | |
-| Срок доставки | | | | |
-| Условия оплаты | | | | |
+        <div class="example-label">提示词</div>
+        <pre>你是FMCG采购员。
+按标准对比3个报价并输出表格：
+| 标准 | 供应商A | 供应商B | 供应商C | 领先者 |
+| 单价 | | | | |
+| 最小订单 | | | | |
+| 交货期 | | | | |
+| 付款条件 | | | | |
 
-Дай рекомендацию: кого выбрать и почему.</pre>
+给出建议：选择谁及原因。</pre>
       </div>
-      <p><strong>Результат:</strong> Готовая таблица для презентации руководству. Копируется в Excel одним кликом.</p>
+      <p><strong>结果：</strong> 可直接复制到演示文稿的现成表格。一键复制到Excel。</p>
     </div>
 
-    <h3>Сценарий 2: Аудит контракта</h3>
+    <h3>场景2：合同审计</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Проверить договор на риски.</p>
+      <p><strong>任务：</strong> 检查合同中的风险。</p>
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — корпоративный юрист.
-Проанализируй договор поставки на риски.
+        <div class="example-label">提示词</div>
+        <pre>你是企业法务。
+分析供货合同中的风险。
 
-Выведи результат чеклистом:
-☐ Риск: [описание] — Уровень: [Высокий/Средний/Низкий] — Рекомендация: [что сделать]
+以检查清单格式输出：
+☐ 风险：[描述] — 级别：[高/中/低] — 建议：[怎么做]
 
-В конце: общий вывод о приемлемости договора.</pre>
+最后：合同总体可接受性结论。</pre>
       </div>
     </div>
 
-    <h3>Сценарий 3: Еженедельный отчёт</h3>
+    <h3>场景3：周报</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Подготовить отчёт о продажах за неделю.</p>
+      <p><strong>任务：</strong> 准备周报。</p>
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — бизнес-аналитик.
-На основе данных ниже подготовь еженедельный отчёт.
+        <div class="example-label">提示词</div>
+        <pre>你是商业分析师。
+根据以下数据准备周报。
 
-Формат:
-1. Ключевые показатели (таблица: Показатель | Значение | Δ к прошлой неделе)
-2. Топ-3 тренда (список)
-3. Рекомендации (список с приоритетами)
-4. Риски (таблица: Риск | Вероятность | Влияние)</pre>
+格式：
+1. 关键指标（表格：指标 | 数值 | 环比变化）
+2. 前3趋势（列表）
+3. 建议（带优先级的列表）
+4. 风险（表格：风险 | 概率 | 影响）</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен парсер ответов AI в стандартизированные форматы.
+      <h3>任务模板</h3>
+      <pre>"需要解析AI回答到标准化格式。
 
-Требования:
-1. Автоматически распознаёт формат (таблица/JSON/чеклист)
-2. Конвертирует таблицы в Excel (.xlsx)
-3. Конвертирует JSON в CSV
-4. Проверяет целостность данных (нет пустых полей)
-5. API endpoint для интеграции
+要求：
+1. 自动识别格式（表格/JSON/检查清单）
+2. 将表格转换为Excel (.xlsx)
+3. 将JSON转换为CSV
+4. 检查数据完整性（无空字段）
+5. 集成API端点
 
-Пример входных данных (прикрепить):
-[вставить пример ответа AI]
+示例输入（附件）：
+[插入AI回答示例]
 
-Ожидаемый результат (прикрепить):
-[вставить желаемый Excel/CSV]
+预期结果（附件）：
+[插入期望的Excel/CSV]
 
-Срок: [дата]"</pre>
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Формат соответствует запросу? (таблица / JSON / чеклист)</li>
-      <li>Все поля заполнены? (нет пропусков)</li>
-      <li>Данные корректны? (проверьте 2-3 случайные ячейки)</li>
-      <li>Можно скопировать в Excel / 1С / CRM?</li>
-      <li>Структура понятна без объяснений?</li>
-      <li>Единицы измерения указаны? (рубли, дни, проценты)</li>
+      <li>格式符合要求？（表格 / JSON / 检查清单）</li>
+      <li>所有字段已填写？（无空缺）</li>
+      <li>数据正确？（随机检查2-3个单元格）</li>
+      <li>可复制到Excel / 1C / CRM？</li>
+      <li>结构无需解释即可理解？</li>
+      <li>注明了计量单位？（元、天、百分比）</li>
     </ul>
   </div>
 
-  <!-- ИНСТРУМЕНТЫ -->
   <div class="section">
-    <h2>🛠️ Инструменты</h2>
+    <h2>🛠️ 工具</h2>
     <table>
-      <tr><th>Инструмент</th><th>Зачем</th><th>Стоимость</th></tr>
-      <tr><td>ChatGPT / Claude</td><td>Генерация в любом формате</td><td>Бесплатно / $20</td></tr>
-      <tr><td>Excel</td><td>Обработка таблиц</td><td>Входит в Office</td></tr>
-      <tr><td>Google Sheets</td><td>Онлайн-таблицы, шеринг</td><td>Бесплатно</td></tr>
-      <tr><td>JSON Formatter</td><td>Проверка JSON</td><td>Бесплатно (онлайн)</td></tr>
-      <tr><td>n8n / Zapier</td><td>Автоматическая конвертация</td><td>От бесплатного</td></tr>
+      <tr><th>工具</th><th>用途</th><th>成本</th></tr>
+      <tr><td>ChatGPT / Claude</td><td>以任何格式生成</td><td>免费 / $20</td></tr>
+      <tr><td>Excel</td><td>处理表格</td><td>含在Office中</td></tr>
+      <tr><td>Google Sheets</td><td>在线表格，共享</td><td>免费</td></tr>
+      <tr><td>JSON Formatter</td><td>JSON校验</td><td>免费（在线）</td></tr>
+      <tr><td>n8n / Zapier</td><td>自动转换</td><td>免费起</td></tr>
     </table>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Какой формат лучше для сравнения 5 поставщиков?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Таблица</div>
+      <p><strong>问题1：</strong> 对比5个供应商最佳用什么格式？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 表格</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">B) JSON</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Свободный текст</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 自由文本</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Зачем указывать формат в промпте?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Чтобы ответ был красивее</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Чтобы сэкономить время на переформатирование</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</div>
+      <p><strong>问题2：</strong> 为什么要在提示词中指定格式？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 为了更好看</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 节省重新排版的时间</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 这是可选的</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Какой формат подходит для автоматизации?</p>
+      <p><strong>问题3：</strong> 哪种格式适合自动化？</p>
       <div class="quiz-option" onclick="checkAnswer(this, true)">A) JSON</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Таблица</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Чеклист</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 表格</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 检查清单</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p>Указывайте формат в промпте. <strong>Таблица</strong> для сравнения, <strong>JSON</strong> для автоматизации, <strong>чеклист</strong> для проверки. Это экономит 5-10 минут на форматирование каждый раз. За месяц — <strong>экономия 5-10 часов</strong>.</p>
+      <h3>🎯 课程要点</h3>
+      <p>在提示词中指定格式。<strong>表格</strong>用于对比，<strong>JSON</strong>用于自动化，<strong>检查清单</strong>用于检查。每次节省5-10分钟排版时间。每月<strong>节省5-10小时</strong>。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../01-prompt-engineering/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../01-chain-prompts/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../01-prompt-engineering/index.html" class="nav-btn">← 上一课</a>
+    <a href="../01-chain-prompts/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -309,17 +301,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>

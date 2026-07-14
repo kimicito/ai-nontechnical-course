@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.3 Цепочки запросов — AI для не ИТ-специалистов</title>
+<title>1.3 提示词链 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -48,6 +48,10 @@
   pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
   ul, ol { padding-left: 20px; }
   li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  tr:hover { background: rgba(255,255,255,0.02); }
   .step-flow { display: flex; align-items: center; gap: 8px; margin: 14px 0; flex-wrap: wrap; }
   .step-box { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 0.9rem; }
   .step-arrow { color: var(--accent); font-size: 1.2rem; }
@@ -64,192 +68,185 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛠️ УРОВЕНЬ 1 · ВЛАДЕНИЕ ИНСТРУМЕНТАМИ</div>
-    <h1>1.3 · Цепочки запросов: от простого к сложному</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🛠️ 级别 1 · 工具掌握</div>
+    <h1>1.3 · 提示词链：从简单到复杂</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Сложные задачи <strong>нельзя решить одним промптом</strong>. Попытка запросить всё сразу приводит к поверхностным ответам.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>复杂任务<strong>无法用一个提示词解决</strong>。试图一次性要求所有内容，会导致肤浅的回答。</p>
     <div class="card card-success">
-      <p><strong>Пример:</strong> Анализ рынка поставщиков включает: поиск → сравнение → оценку рисков → рекомендацию. Каждый шаг строится на предыдущем.</p>
-      <p><strong>Экономия:</strong> Цепочка из 4 промптов = 30 минут. Ручной анализ = 4 часа.</p>
+      <p><strong>示例：</strong> 供应商市场分析包括：搜索 → 对比 → 风险评估 → 推荐。每一步都基于上一步。</p>
+      <p><strong>节省：</strong> 4个提示词链 = 30分钟。手动分析 = 4小时。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Что такое цепочка запросов</h3>
+    <h3>什么是提示词链</h3>
     <div class="card card-accent">
-      <p><strong>Цепочка</strong> — это последовательность промптов, где каждый следующий использует результат предыдущего.</p>
+      <p><strong>提示词链</strong>是提示词的序列，其中每个后续提示词使用前一个的结果。</p>
       <div class="step-flow">
-        <div class="step-box">🔍 Сбор</div>
+        <div class="step-box">🔍 收集</div>
         <div class="step-arrow">→</div>
-        <div class="step-box">📊 Структура</div>
+        <div class="step-box">📊 结构化</div>
         <div class="step-arrow">→</div>
-        <div class="step-box">🔎 Анализ</div>
+        <div class="step-box">🔎 分析</div>
         <div class="step-arrow">→</div>
-        <div class="step-box">✅ Решение</div>
+        <div class="step-box">✅ 决策</div>
       </div>
     </div>
 
-    <h3>Пример: подбор поставщика упаковки</h3>
+    <h3>示例：选择包装供应商</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Шаг 1: Сбор информации</div>
-        <pre>Ты — закупщик FMCG.
-Найди 5 крупнейших производителей картонной упаковки в Москве.
-Для каждого: название, сайт, телефон, минимальный заказ, срок изготовления.</pre>
+        <div class="example-label">步骤1：收集信息</div>
+        <pre>你是FMCG采购员。
+找出莫斯科5大纸板包装制造商。
+每家：名称、网站、电话、最小订单量、生产周期。</pre>
       </div>
       <div class="example">
-        <div class="example-label">Шаг 2: Структурирование</div>
-        <pre>На основе результатов предыдущего шага создай таблицу:
-| Поставщик | Сайт | Телефон | Мин. заказ | Срок | Примечания |
+        <div class="example-label">步骤2：结构化</div>
+        <pre>基于上一步结果创建表格：
+| 供应商 | 网站 | 电话 | 最小订单 | 周期 | 备注 |
 
-Отметь поставщиков с сроком > 14 дней.</pre>
+标记周期 > 14天的供应商。</pre>
       </div>
       <div class="example">
-        <div class="example-label">Шаг 3: Анализ рисков</div>
-        <pre>Проанализируй таблицу:
-1. Какие риски видишь? (сроки, минималки, неизвестные игроки)
-2. Кто лидер по соотношению цена/срок?
-3. Что проверить дополнительно?</pre>
+        <div class="example-label">步骤3：风险分析</div>
+        <pre>分析表格：
+1. 你看到哪些风险？（周期、最小订单、未知玩家）
+2. 谁性价比最高？
+3. 还需要额外检查什么？</pre>
       </div>
       <div class="example">
-        <div class="example-label">Шаг 4: Рекомендация</div>
-        <pre>На основе анализа рекомендуй 2 поставщика для первого контакта.
-Обоснуй выбор. Укажи, какие вопросы задать при звонке.</pre>
+        <div class="example-label">步骤4：推荐</div>
+        <pre>基于分析推荐2个供应商进行首次联系。
+说明选择理由。列出电话时应问的问题。</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Правило: один промпт = одна задача</h3>
+    <h3>规则：一个提示词 = 一个任务</h3>
     <div class="card card-warning">
-      <p><strong>❌ Неправильно:</strong> "Найди поставщиков, сравни их, оцени риски и рекомендуй лучшего"</p>
-      <p><strong>✅ Правильно:</strong> Разбить на 4 отдельных промпта</p>
-      <p><em>Почему: AI даёт поверхностный ответ, когда просят слишком много сразу.</em></p>
+      <p><strong>❌ 错误：</strong> "找到供应商，对比他们，评估风险并推荐最好的"</p>
+      <p><strong>✅ 正确：</strong> 拆分为4个独立提示词</p>
+      <p><em>原因：当被要求一次性做太多时，AI会给出肤浅的回答。</em></p>
     </div>
 
-    <h3>Когда использовать цепочки</h3>
+    <h3>何时使用提示词链</h3>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Признак</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Пример</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Задача требует > 3 действий</td><td style="padding:10px;border-bottom:1px solid var(--border);">Анализ рынка + сравнение + рекомендация</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Каждый шаг зависит от предыдущего</td><td style="padding:10px;border-bottom:1px solid var(--border);">Нельзя сравнить, пока не собрал данные</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Нужен промежуточный результат</td><td style="padding:10px;border-bottom:1px solid var(--border);">Таблица для проверки перед анализом</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Один промпт даёт слишком длинный ответ</td><td style="padding:10px;border-bottom:1px solid var(--border);">Ответ обрезается, теряются детали</td></tr>
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">特征</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">示例</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">任务需要 > 3个动作</td><td style="padding:10px;border-bottom:1px solid var(--border);">市场分析 + 对比 + 推荐</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">每一步依赖上一步</td><td style="padding:10px;border-bottom:1px solid var(--border);">未收集数据前无法对比</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">需要中间结果</td><td style="padding:10px;border-bottom:1px solid var(--border);">分析前可检查的表格</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">单个提示词回答太长</td><td style="padding:10px;border-bottom:1px solid var(--border);">回答被截断，丢失细节</td></tr>
     </table>
 
-    <h3>Шаблоны цепочек для бизнеса</h3>
+    <h3>业务提示词链模板</h3>
     <div class="card">
-      <h4>Цепочка "Тендер"</h4>
+      <h4>链「招标」</h4>
       <ol>
-        <li>Собрать требования к поставщику</li>
-        <li>Составить список критериев оценки</li>
-        <li>Собрать предложения (или найти поставщиков)</li>
-        <li>Сравнить по критериям</li>
-        <li>Оценить риски</li>
-        <li>Сформулировать рекомендацию</li>
+        <li>收集供应商要求</li>
+        <li>制定评估标准列表</li>
+        <li>收集报价（或查找供应商）</li>
+        <li>按标准对比</li>
+        <li>评估风险</li>
+        <li>形成推荐意见</li>
       </ol>
     </div>
     <div class="card">
-      <h4>Цепочка "Отчёт"</h4>
+      <h4>链「报告」</h4>
       <ol>
-        <li>Собрать данные за период</li>
-        <li>Вычислить ключевые метрики</li>
-        <li>Выявить тренды и аномалии</li>
-        <li>Сравнить с прошлым периодом</li>
-        <li>Сформулировать выводы и рекомендации</li>
+        <li>收集周期数据</li>
+        <li>计算关键指标</li>
+        <li>发现趋势和异常</li>
+        <li>与上期对比</li>
+        <li>形成结论和建议</li>
       </ol>
     </div>
     <div class="card">
-      <h4>Цепочка "Договор"</h4>
+      <h4>链「合同」</h4>
       <ol>
-        <li>Проанализировать ключевые условия</li>
-        <li>Найти риски для каждой стороны</li>
-        <li>Сравнить с шаблоном/предыдущими договорами</li>
-        <li>Сформулировать замечания</li>
-        <li>Подготовить список вопросов контрагенту</li>
+        <li>分析关键条款</li>
+        <li>为各方发现风险</li>
+        <li>与公司模板/历史合同对比</li>
+        <li>形成意见</li>
+        <li>准备向对方提出的问题清单</li>
       </ol>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужно автоматизировать цепочку анализа [процесс].
+      <h3>任务模板</h3>
+      <pre>"需要自动化[流程]的分析链。
 
-Текущая цепочка (ручная):
-1. [шаг 1] → [шаг 2] → [шаг 3]
+当前链（手动）：
+1. [步骤1] → [步骤2] → [步骤3]
 
-Требования:
-1. Сохранение промежуточных результатов между шагами
-2. Возможность остановиться и проверить результат после каждого шага
-3. Если результат шага некорректный — возможность повторить
-4. Итоговый отчёт в формате [указать]
-5. Уведомление на email при завершении
+要求：
+1. 步骤间保存中间结果
+2. 每步后可暂停检查结果
+3. 若某步结果不正确 — 可重试
+4. 最终报告格式：[指定]
+5. 完成时邮件通知
 
-Интеграции: [1С / Excel / CRM / email]
-Срок: [дата]"</pre>
+集成：[邮件 / 1C / CRM]
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Каждый шаг имеет чёткую входную и выходную задачу?</li>
-      <li>Можно проверить результат промежуточного шага?</li>
-      <li>Если шаг 2 некорректен — можно перезапустить только его?</li>
-      <li>Итоговый результат строится на всех предыдущих шагах?</li>
-      <li>Нет шагов, которые можно объединить без потери качества?</li>
-      <li>Цепочка покрывает всю задачу от начала до конца?</li>
+      <li>每个步骤都有明确的输入和输出任务？</li>
+      <li>可以检查中间步骤的结果？</li>
+      <li>若步骤2不正确 — 可以只重试它？</li>
+      <li>最终结果基于所有前序步骤？</li>
+      <li>没有可以合并而不损失质量的步骤？</li>
+      <li>链覆盖从起点到终点的完整任务？</li>
     </ul>
   </div>
 
-  <!-- ИНСТРУМЕНТЫ -->
   <div class="section">
-    <h2>🛠️ Инструменты</h2>
+    <h2>🛠️ 工具</h2>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Инструмент</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Зачем</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT / Claude</td><td style="padding:10px;border-bottom:1px solid var(--border);">Ручные цепочки (копируете результат шага в следующий)</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n / Zapier</td><td style="padding:10px;border-bottom:1px solid var(--border);">Автоматические цепочки: шаг A → шаг B → шаг C</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n</td><td style="padding:10px;border-bottom:1px solid var(--border);">Сложные цепочки с условиями и ветвлением</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Notion</td><td style="padding:10px;border-bottom:1px solid var(--border);">Хранение шаблонов цепочек и результатов</td></tr>
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">工具</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">用途</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT / Claude</td><td style="padding:10px;border-bottom:1px solid var(--border);">手动链（复制步骤结果到下一步）</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n / Zapier</td><td style="padding:10px;border-bottom:1px solid var(--border);">自动链：步骤A → 步骤B → 步骤C</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n</td><td style="padding:10px;border-bottom:1px solid var(--border);">带条件和分支的复杂链</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Notion</td><td style="padding:10px;border-bottom:1px solid var(--border);">存储链模板和结果</td></tr>
     </table>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Почему сложную задачу нельзя решить одним промптом?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) AI не умеет решать сложные задачи</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) AI даёт поверхностный ответ, когда просят слишком много</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это дороже по токенам</div>
+      <p><strong>问题1：</strong> 为什么复杂任务不能用一个提示词解决？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) AI不会解决复杂任务</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) AI在要求太多时会给出肤浅回答</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 令牌成本更高</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Сколько шагов в цепочке "Тендер"?</p>
+      <p><strong>问题2：</strong> 链「招标」有多少个步骤？</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) 3</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) 6</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) 4</div>
@@ -257,7 +254,7 @@
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Какой инструмент для автоматических цепочек?</p>
+      <p><strong>问题3：</strong> 哪个工具用于自动链？</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) Excel</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) n8n / Zapier</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Word</div>
@@ -265,24 +262,23 @@
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p>Сложные задачи <strong>разбивайте на цепочку</strong>: сбор → структурирование → анализ → рекомендация. Проверяйте результат каждого шага. Одна задача = один промпт. Это даёт качество, которого невозможно достичь одним запросом.</p>
+      <h3>🎯 课程要点</h3>
+      <p>复杂任务<strong>拆分为链</strong>：收集 → 结构化 → 分析 → 推荐。检查每一步的结果。一个任务 = 一个提示词。这是单条提示无法达到的质量。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../01-structured-output/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../01-documents/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../01-structured-output/index.html" class="nav-btn">← 上一课</a>
+    <a href="../01-documents/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -300,17 +296,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>

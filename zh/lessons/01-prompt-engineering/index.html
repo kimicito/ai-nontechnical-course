@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.1 Промпт-инжиниринг — AI для не ИТ-специалистов</title>
+<title>1.1 提示词工程 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -66,208 +66,200 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛠️ УРОВЕНЬ 1 · ВЛАДЕНИЕ ИНСТРУМЕНТАМИ</div>
-    <h1>1.1 · Промпт-инжиниринг для менеджера</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🛠️ 级别 1 · 工具掌握</div>
+    <h1>1.1 · 面向管理者的提示词工程</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p><span class="highlight">80% результата от AI зависит не от модели, а от того, как вы её спросили.</span></p>
-    <p>Менеджер тратит в среднем <strong>2-3 часа в день</strong> на: написание писем, анализ документов, сравнение предложений, подготовку отчётов. Хороший промпт сокращает это время в 3-5 раз.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p><span class="highlight">AI结果的80%不取决于模型，而取决于您如何提问。</span></p>
+    <p>管理者平均每天花<strong>2-3小时</strong>在：撰写邮件、分析文档、对比提案、准备报告。好的提示词可将这些时间缩短3-5倍。</p>
     <div class="card card-success">
-      <p><strong>Пример экономии:</strong></p>
-      <p>Сравнение 3 коммерческих предложений поставщиков занимает 2 часа вручную. С хорошим промптом — 15 минут. Экономия: <strong>1 час 45 минут × 10 раз в месяц = 17.5 часов</strong>.</p>
+      <p><strong>节省示例：</strong></p>
+      <p>手动对比3个供应商报价需要2小时。用好提示词只需15分钟。节省：<strong>1小时45分钟 × 每月10次 = 17.5小时</strong>。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Формула хорошего промпта: RCOF</h3>
+    <h3>好提示词公式：RCOF</h3>
     <div class="card card-accent">
       <table>
-        <tr><th>Буква</th><th>Значение</th><th>Вопрос</th></tr>
-        <tr><td><strong>R</strong></td><td>Role (Роль)</td><td>Кто отвечает? "Ты опытный закупщик"</td></tr>
-        <tr><td><strong>C</strong></td><td>Context (Контекст)</td><td>Что происходит? "Выбираем упаковку для печенья"</td></tr>
-        <tr><td><strong>O</strong></td><td>Objective (Цель)</td><td>Что получить? "Сравни 3 предложения"</td></tr>
-        <tr><td><strong>F</strong></td><td>Format (Формат)</td><td>В каком виде? "Таблица: Критерий | Поставщик 1 | Поставщик 2"</td></tr>
+        <tr><th>字母</th><th>含义</th><th>问题</th></tr>
+        <tr><td><strong>R</strong></td><td>Role (角色)</td><td>谁来回答？「你是一位资深采购员」</td></tr>
+        <tr><td><strong>C</strong></td><td>Context (上下文)</td><td>发生了什么？「我们在为饼干选择包装」</td></tr>
+        <tr><td><strong>O</strong></td><td>Objective (目标)</td><td>要得到什么？「对比3个报价」</td></tr>
+        <tr><td><strong>F</strong></td><td>Format (格式)</td><td>以什么形式？「表格：标准 | 供应商1 | 供应商2」</td></tr>
       </table>
     </div>
 
-    <h3>Сравнение: плохой vs хороший промпт</h3>
+    <h3>对比：差提示词 vs 好提示词</h3>
     <div class="bad-prompt">
-      <div class="bad-prompt-label">❌ Плохой промпт</div>
-      <pre>"Проанализируй предложения и скажи что лучше"</pre>
-      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 8px;">Результат: общий ответ без конкретики, придётся переспрашивать 3 раза</p>
+      <div class="bad-prompt-label">❌ 差提示词</div>
+      <pre>"分析报价并告诉我哪个更好"</pre>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 8px;">结果：泛泛的回答，没有具体细节，需要追问3次</p>
     </div>
     
     <div class="example">
-      <div class="example-label">✅ Хороший промпт (RCOF)</div>
-      <pre>Ты — опытный закупщик FMCG с 10-летним стажем.
-Мы выбираем поставщика картонной упаковки для печенья.
-Получили 3 предложения во вложениях.
+      <div class="example-label">✅ 好提示词 (RCOF)</div>
+      <pre>你是一位有10年经验的FMCG采购员。
+我们正在为饼干选择纸板包装供应商。
+收到了3个报价（见附件）。
 
-Задача: сравни предложения по критериям и рекомендуй лучшее.
+任务：按标准对比报价并推荐最佳方案。
 
-Критерии:
-1. Цена за единицу (включая доставку)
-2. Минимальный заказ
-3. Срок изготовления
-4. Условия оплаты
-5. Рейтинг поставщика
+标准：
+1. 单价（含运费）
+2. 最小订单量
+3. 生产周期
+4. 付款条件
+5. 供应商评级
 
-Формат: таблица сравнения + однозначная рекомендация с обоснованием.
+格式：对比表格 + 明确推荐及理由。
 
-Ограничение: если срок > 14 дней — отметь как риск.</pre>
+限制：如果周期 > 14天 — 标记为风险。</pre>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Шаг 1: Определите роль</h3>
+    <h3>步骤1：定义角色</h3>
     <div class="card">
-      <p>AI лучше отвечает, когда знает, кем он "притворяется". Роль задаёт экспертизу и тон.</p>
+      <p>AI在知道「扮演谁」时回答更好。角色决定专业性和语气。</p>
       <ul>
-        <li><strong>"Ты юрист"</strong> — правовой анализ, осторожные формулировки</li>
-        <li><strong>"Ты маркетолог"</strong> — креатив, метрики, CTA</li>
-        <li><strong>"Ты финансовый аналитик"</strong> — цифры, ROI, риски</li>
+        <li><strong>「你是律师」</strong> — 法律分析，谨慎措辞</li>
+        <li><strong>「你是营销人员」</strong> — 创意、指标、行动号召</li>
+        <li><strong>「你是财务分析师」</strong> — 数字、投资回报率、风险</li>
       </ul>
     </div>
 
-    <h3>Шаг 2: Дайте контекст</h3>
+    <h3>步骤2：提供上下文</h3>
     <div class="card">
-      <p>Без контекста AI даёт общий ответ. С контекстом — конкретный.</p>
+      <p>没有上下文，AI给出泛泛回答。有上下文，给出具体回答。</p>
       <div class="example">
-        <div class="example-label">💡 Пример</div>
-        <p><strong>Без контекста:</strong> "Как снизить затраты?" → общие советы</p>
-        <p><strong>С контекстом:</strong> "Мы производитель печенья, 50 сотрудников, логистика занимает 30% бюджета. Как снизить затраты?" → конкретные шаги</p>
+        <div class="example-label">💡 示例</div>
+        <p><strong>没有上下文：</strong> "如何降低成本？" → 泛泛建议</p>
+        <p><strong>有上下文：</strong> "我们是饼干制造商，50名员工，物流占预算30%。如何降低成本？" → 具体步骤</p>
       </div>
     </div>
 
-    <h3>Шаг 3: Укажите формат</h3>
+    <h3>步骤3：指定格式</h3>
     <div class="card">
-      <p>Формат экономит время на переформатирование.</p>
+      <p>格式节省重新排版的时间。</p>
       <table>
-        <tr><th>Формат</th><th>Когда использовать</th><th>Пример запроса</th></tr>
-        <tr><td>Таблица</td><td>Сравнение, анализ</td><td>"Выведи в таблице: Критерий | Вариант 1 | Вариант 2"</td></tr>
-        <tr><td>Список</td><td>Пошаговый план</td><td>"Дай 5 шагов в виде нумерованного списка"</td></tr>
-        <tr><td>JSON</td><td>Для программистов/автоматизации</td><td>"Верни результат в JSON с полями..."</td></tr>
-        <tr><td>Email</td><td>Готовое письмо</td><td>"Напиши письмо поставщику в деловом стиле"</td></tr>
+        <tr><th>格式</th><th>何时使用</th><th>示例请求</th></tr>
+        <tr><td>表格</td><td>对比、分析</td><td>"以表格输出：标准 | 方案1 | 方案2"</td></tr>
+        <tr><td>列表</td><td>分步计划</td><td>"给出5个步骤的编号列表"</td></tr>
+        <tr><td>JSON</td><td>开发人员/自动化</td><td>"以JSON格式返回结果..."</td></tr>
+        <tr><td>邮件</td><td>现成邮件</td><td>"以商务风格给供应商写邮件"</td></tr>
       </table>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи для разработчика</h3>
-      <pre>"Нужно создать библиотеку промптов для отдела [НАЗВАНИЕ].
+      <h3>给开发人员的任务模板</h3>
+      <pre>"需要为[部门名称]创建提示词库。
 
-Требования:
-1. Шаблоны для типовых задач: [перечислить]
-2. Система валидации: проверка на полноту RCOF
-3. Хранение в [Notion/Confluence/SharePoint]
-4. Версионирование: история изменений
-5. Доступ: [кто может редактировать]
+要求：
+1. 典型任务模板：[列举]
+2. 验证系统：检查RCOF完整性
+3. 存储在 [Notion/Confluence/SharePoint]
+4. 版本控制：修改历史
+5. 访问权限：[谁可以编辑]
 
-Пример промпта (прикрепить):
-[вставить хороший промпт]
+示例提示词（附件）：
+[插入好提示词]
 
-Срок: [дата]
-Ответственный: [имя]"</pre>
+期限：[日期]
+负责人：[姓名]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ ПРИНЯТИЯ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Промпт содержит все 4 элемента RCOF?</li>
-      <li>Роль соответствует задаче? (не "ты AI", а "ты аналитик")</li>
-      <li>Контекст достаточно конкретный? (есть цифры, сроки, ограничения)</li>
-      <li>Цель однозначная? (одна задача, не 5 сразу)</li>
-      <li>Формат удобен для копирования в Excel/Word/CRM?</li>
-      <li>Есть ограничения? (что исключить, лимиты, крайние случаи)</li>
-      <li>Проверили на 3 реальных примерах? Работает стабильно?</li>
+      <li>提示词包含RCOF全部4个要素？</li>
+      <li>角色符合任务？（不是「你是AI」，而是「你是分析师」）</li>
+      <li>上下文足够具体？（有数字、期限、限制）</li>
+      <li>目标明确？（一个任务，不是5个同时）</li>
+      <li>格式便于复制到Excel/Word/CRM？</li>
+      <li>有限制吗？（排除什么、限制、边界情况）</li>
+      <li>用3个真实例子测试过？稳定工作？</li>
     </ul>
   </div>
 
-  <!-- ИНСТРУМЕНТЫ -->
   <div class="section">
-    <h2>🛠️ Инструменты</h2>
+    <h2>🛠️ 工具</h2>
     <div class="card">
       <table>
-        <tr><th>Инструмент</th><th>Зачем</th><th>Стоимость</th></tr>
-        <tr><td>ChatGPT / Claude</td><td>Базовые промпты, тестирование</td><td>Бесплатно / $20</td></tr>
-        <tr><td>PromptPerfect</td><td>Автоматическая оптимизация промптов</td><td>От $10/мес</td></tr>
-        <tr><td>LangChain Hub</td><td>Библиотека готовых промптов</td><td>Бесплатно</td></tr>
-        <tr><td>Notion</td><td>База знаний с шаблонами промптов</td><td>Бесплатно</td></tr>
+        <tr><th>工具</th><th>用途</th><th>成本</th></tr>
+        <tr><td>ChatGPT / Claude</td><td>基础提示词，测试</td><td>免费 / $20</td></tr>
+        <tr><td>PromptPerfect</td><td>自动优化提示词</td><td>$10/月起</td></tr>
+        <tr><td>LangChain Hub</td><td>现成提示词库</td><td>免费</td></tr>
+        <tr><td>Notion</td><td>带模板的提示词知识库</td><td>免费</td></tr>
       </table>
     </div>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Что означает буква R в формуле RCOF?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Request (Запрос)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Role (Роль)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Result (Результат)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">D) Rule (Правило)</div>
+      <p><strong>问题1：</strong> RCOF公式中字母R代表什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Request (请求)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Role (角色)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Result (结果)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">D) Rule (规则)</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Какой промпт лучше для сравнения поставщиков?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) "Сравни поставщиков и скажи кто лучше"</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) "Ты закупщик. Сравни 3 предложения по цене, срокам, минимальному заказу. Выведи таблицей. Рекомендуй лучшее с обоснованием."</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) "Какой поставщик лучше?"</div>
+      <p><strong>问题2：</strong> 哪个提示词更适合对比供应商？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) "对比供应商并告诉我哪个更好"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) "你是采购员。按价格、交期、最小订单量对比3个供应商。以表格输出。推荐最佳并说明理由。"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) "哪个供应商更好？"</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Зачем указывать формат ответа?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Чтобы красиво выглядело</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Чтобы сэкономить время на переформатирование</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</div>
+      <p><strong>问题3：</strong> 为什么要指定回答格式？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 为了好看</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 节省重新排版的时间</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 这是可选的</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p>Промпт — это <strong>ТЗ для AI</strong>. Используйте формулу <strong>RCOF</strong>: Роль, Контекст, Цель, Формат. Чем конкретнее промпт — тем лучше результат. Плохой промпт тратит ваше время на уточнения. Хороший промпт экономит <strong>2-3 часа в день</strong>.</p>
+      <h3>🎯 课程要点</h3>
+      <p>提示词是<strong>AI的技术任务书</strong>。使用<strong>RCOF</strong>公式：角色、上下文、目标、格式。提示词越具体，结果越好。差提示词浪费您追问的时间。好提示词每天节省<strong>2-3小时</strong>。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../00-pricing/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../01-structured-output/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../00-pricing/index.html" class="nav-btn">← 上一课</a>
+    <a href="../01-structured-output/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -285,17 +277,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>

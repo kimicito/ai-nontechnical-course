@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.4 Работа с документами — AI для не ИТ-специалистов</title>
+<title>1.4 文档处理 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -63,248 +63,240 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🛠️ УРОВЕНЬ 1 · ВЛАДЕНИЕ ИНСТРУМЕНТАМИ</div>
-    <h1>1.4 · Работа с документами: анализ, суммаризация, сравнение</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🛠️ 级别 1 · 工具掌握</div>
+    <h1>1.4 · 文档处理：分析、摘要、对比</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Менеджер читает в среднем <strong>2-3 часа документов в день</strong>: договоры, отчёты, коммерческие предложения, акты, протоколы.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>管理者平均每天阅读<strong>2-3小时文档</strong>：合同、报告、商务提案、验收单、会议纪要。</p>
     <div class="card card-success">
-      <p>AI сокращает это до <strong>15-20 минут</strong>:</p>
+      <p>AI将其缩短到<strong>15-20分钟</strong>：</p>
       <ul>
-        <li>Суммаризация договора: 30 мин → 2 мин</li>
-        <li>Сравнение 2 КП: 1 час → 5 мин</li>
-        <li>Анализ рисков: 2 часа → 10 мин</li>
+        <li>合同摘要：30分钟 → 2分钟</li>
+        <li>对比2份提案：1小时 → 5分钟</li>
+        <li>风险分析：2小时 → 10分钟</li>
       </ul>
-      <p><strong>Итого экономия: 3-4 часа в день</strong></p>
+      <p><strong>总计节省：每天3-4小时</strong></p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>3 типа задач с документами</h3>
+    <h3>3种文档处理任务</h3>
     
     <div class="card card-success">
-      <h4>1. Суммаризация (сжатие)</h4>
-      <p>Пересказать суть документа в нескольких пунктах.</p>
+      <h4>1. 摘要（压缩）</h4>
+      <p>用几个要点概括文档内容。</p>
       <div class="example">
-        <div class="example-label">💡 Пример промпта</div>
-        <pre>Ты — юрист.
-Перескажи договор в 5 пунктах:
-1. Что покупаем
-2. За сколько
-3. Сроки поставки
-4. Условия оплаты
-5. Штрафы и неустойка
+        <div class="example-label">💡 示例提示词</div>
+        <pre>你是律师。
+用5点概括合同：
+1. 采购内容
+2. 价格
+3. 交货期限
+4. 付款条件
+5. 违约金和罚款
 
-Если пункт не указан в договоре — напиши "Не указано".</pre>
+如果某点未在合同中提及 — 写「未注明」。</pre>
       </div>
-      <p><strong>Экономия:</strong> 30 мин → 2 минуты</p>
+      <p><strong>节省：</strong> 30分钟 → 2分钟</p>
     </div>
 
     <div class="card card-success">
-      <h4>2. Сравнение</h4>
-      <p>Сравнить 2 или более документов по заданным критериям.</p>
+      <h4>2. 对比</h4>
+      <p>按指定标准对比2份或更多文档。</p>
       <div class="example">
-        <div class="example-label">💡 Пример промпта</div>
-        <pre>Ты — закупщик.
-Сравни 2 коммерческих предложения по критериям:
-| Критерий | Предложение 1 | Предложение 2 | Лучшее |
-| Цена за ед. | | | |
-| Мин. заказ | | | |
-| Срок доставки | | | |
-| Условия оплаты | | | |
-| Гарантия | | | |
+        <div class="example-label">💡 示例提示词</div>
+        <pre>你是采购员。
+按标准对比2份商务提案：
+| 标准 | 提案1 | 提案2 | 更优 |
+| 单价 | | | |
+| 最小订单 | | | |
+| 交货期 | | | |
+| 付款条件 | | | |
+| 质保 | | | |
 
-Выдели различия жирным. Дай рекомендацию.</pre>
+高亮差异。给出推荐。</pre>
       </div>
-      <p><strong>Экономия:</strong> 1 час → 5 минут</p>
+      <p><strong>节省：</strong> 1小时 → 5分钟</p>
     </div>
 
     <div class="card card-success">
-      <h4>3. Анализ рисков</h4>
-      <p>Найти потенциальные проблемы в документе.</p>
+      <h4>3. 风险分析</h4>
+      <p>在文档中查找潜在问题。</p>
       <div class="example">
-        <div class="example-label">💡 Пример промпта</div>
-        <pre>Ты — корпоративный юрист с 15-летним стажем.
-Проанализируй договор поставки на риски.
+        <div class="example-label">💡 示例提示词</div>
+        <pre>你是有15年经验的公司法务。
+分析供货合同中的风险。
 
-Для каждого риска укажи:
-- Описание
-- Уровень: Высокий / Средний / Низкий
-- Рекомендация по минимизации
+每个风险注明：
+- 描述
+- 级别：高 / 中 / 低
+- 降低建议
 
-Проверь разделы:
-☐ Неустойка
-☐ Форс-мажор
-☐ Расторжение
-☐ Порядок разрешения споров
-☐ Передача прав третьим лицам</pre>
+检查章节：
+☐ 违约金
+☐ 不可抗力
+☐ 终止
+☐ 争议解决程序
+☐ 向第三方转让权利</pre>
       </div>
-      <p><strong>Экономия:</strong> 2 часа → 10 минут</p>
+      <p><strong>节省：</strong> 2小时 → 10分钟</p>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий: анализ договора</h3>
+    <h3>场景：合同分析</h3>
     <div class="card">
-      <p><strong>Шаг 1:</strong> Загрузите договор в AI (ChatGPT Plus, Claude Pro, или Kimi поддерживают файлы)</p>
-      <p><strong>Шаг 2:</strong> Задайте роль и задачу</p>
+      <p><strong>步骤1：</strong> 将合同上传到AI（ChatGPT Plus、Claude Pro或Kimi支持文件上传）</p>
+      <p><strong>步骤2：</strong> 指定角色和任务</p>
       <div class="example">
-        <div class="example-label">Полный промпт</div>
-        <pre>Ты — юрист по корпоративному праву.
-Проанализируй приложенный договор поставки.
+        <div class="example-label">完整提示词</div>
+        <pre>你是公司法务律师。
+分析上传的供货合同。
 
-Задачи:
-1. Выдели ключевые условия (цена, сроки, объём, оплата)
-2. Найди риски для покупателя
-3. Оцени каждый риск: Высокий / Средний / Низкий
-4. Дай рекомендации по минимизации рисков
-5. Укажи, какие пункты необычны или отличаются от стандарта
+任务：
+1. 提炼关键条款（价格、期限、数量、付款）
+2. 找出买方风险
+3. 评估每项风险：高 / 中 / 低
+4. 给出风险降低建议
+5. 指出哪些条款不常见或与标准不同
 
-Формат: таблица рисков + общий вывод о приемлемости договора.</pre>
+格式：风险表格 + 合同总体可接受性结论。</pre>
       </div>
-      <p><strong>Шаг 3:</strong> Проверьте результат (особенно оценки рисков)</p>
-      <p><strong>Шаг 4:</strong> Сохраните шаблон промпта для будущих договоров</p>
+      <p><strong>步骤3：</strong> 检查结果（尤其是风险评估）</p>
+      <p><strong>步骤4：</strong> 保存提示词模板供未来合同使用</p>
     </div>
 
-    <h3>Сценарий: сравнение КП</h3>
+    <h3>场景：对比商务提案</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Выбрать поставщика из 3 коммерческих предложений.</p>
+      <p><strong>任务：</strong> 从3份商务提案中选择供应商。</p>
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — опытный закупщик.
-Сравни 3 коммерческих предложения во вложениях.
+        <div class="example-label">提示词</div>
+        <pre>你是资深采购员。
+对比附件中的3份商务提案。
 
-Критерии сравнения:
-1. Цена за единицу (руб.)
-2. Минимальный заказ (шт.)
-3. Срок изготовления (дней)
-4. Срок доставки (дней)
-5. Условия оплаты
-6. Наличие сертификатов
-7. Гарантийный срок
+对比标准：
+1. 单价（元）
+2. 最小订单（件）
+3. 生产周期（天）
+4. 交货期（天）
+5. 付款条件
+6. 是否有认证
+7. 质保期
 
-Выведи таблицей. Для каждого критерия укажи лидера.
-В конце — однозначную рекомендацию с обоснованием.
+以表格输出。每项标准标明领先者。
+最后 — 明确推荐及理由。
 
-Ограничение: если срок > 14 дней — отметь как риск.</pre>
+限制：如果周期 > 14天 — 标记为风险。</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система автоматического анализа договоров.
+      <h3>任务模板</h3>
+      <pre>"需要自动合同分析系统。
 
-Требования:
-1. Загрузка документов: PDF, DOCX, TXT
-2. Автоматический анализ по шаблонам:
-   - Суммаризация (5 ключевых пунктов)
-   - Сравнение с шаблоном компании
-   - Оценка рисков (таблица)
-3. Сохранение результатов в [Notion/SharePoint/1С]
-4. Уведомление ответственному лицу
-5. История анализов (поиск по контрагенту)
+要求：
+1. 文档上传：PDF、DOCX、TXT
+2. 按模板自动分析：
+   - 摘要（5个关键点）
+   - 与公司模板对比
+   - 风险评估（表格）
+3. 结果保存到 [Notion/SharePoint/1C]
+4. 通知负责人
+5. 分析历史（按交易对手搜索）
 
-Пример входного и выходного документа (прикрепить).
+示例输入和输出文档（附件）。
 
-Интеграции: [email / 1С / CRM]
-Срок: [дата]"</pre>
+集成：[邮件 / 1C / CRM]
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Все ключевые пункты договора учтены?</li>
-      <li>Риски оценены корректно? (проверьте 2-3 пункта)</li>
-      <li>Рекомендации применимы? (можно реализовать)</li>
-      <li>Формат удобен для передачи коллегам?</li>
-      <li>Нет галлюцинаций? (факты соответствуют документу)</li>
-      <li>Для критичных договоров — проверил юрист?</li>
+      <li>合同所有关键条款都已考虑？</li>
+      <li>风险评估正确？（检查2-3个点）</li>
+      <li>建议可执行？（可以实施）</li>
+      <li>格式便于传递给同事？</li>
+      <li>没有幻觉？（事实与文档一致）</li>
+      <li>关键合同 — 已由律师检查？</li>
     </ul>
   </div>
 
-  <!-- ИНСТРУМЕНТЫ -->
   <div class="section">
-    <h2>🛠️ Инструменты</h2>
+    <h2>🛠️ 工具</h2>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Инструмент</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Возможности</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Стоимость</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT Plus</td><td style="padding:10px;border-bottom:1px solid var(--border);">Загрузка PDF, DOCX, анализ</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/мес</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Pro</td><td style="padding:10px;border-bottom:1px solid var(--border);">Большие документы, юридический анализ</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/мес</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Kimi (Moonshot)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Огромный контекст, загрузка файлов</td><td style="padding:10px;border-bottom:1px solid var(--border);">Бесплатно / $8</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Notion AI</td><td style="padding:10px;border-bottom:1px solid var(--border);">Анализ документов в базе знаний</td><td style="padding:10px;border-bottom:1px solid var(--border);">$10/мес</td></tr>
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">工具</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">功能</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">成本</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT Plus</td><td style="padding:10px;border-bottom:1px solid var(--border);">PDF、DOCX上传与分析</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/月</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Pro</td><td style="padding:10px;border-bottom:1px solid var(--border);">大文档、法律分析</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/月</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Kimi（月之暗面）</td><td style="padding:10px;border-bottom:1px solid var(--border);">超大上下文，文件上传</td><td style="padding:10px;border-bottom:1px solid var(--border);">免费 / $8</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Notion AI</td><td style="padding:10px;border-bottom:1px solid var(--border);">知识库文档分析</td><td style="padding:10px;border-bottom:1px solid var(--border);">$10/月</td></tr>
     </table>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Какая задача занимает больше всего времени вручную?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Суммаризация договора</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Анализ рисков</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Сравнение КП</div>
+      <p><strong>问题1：</strong> 哪种任务手动耗时最长？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 合同摘要</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 风险分析</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 对比提案</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Можно ли полностью доверять AI в анализе договоров?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Да, AI не ошибается</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Нет, критичные договоры нужно проверять юристу</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только для простых договоров</div>
+      <p><strong>问题2：</strong> 能否完全信任AI的合同分析？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 可以，AI不会出错</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 不可以，关键合同需要律师复核</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 只适用于简单合同</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Какой инструмент поддерживает загрузку PDF?</p>
+      <p><strong>问题3：</strong> 哪个工具支持PDF上传？</p>
       <div class="quiz-option" onclick="checkAnswer(this, true)">A) ChatGPT Plus</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Бесплатный ChatGPT</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только Claude</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 免费版ChatGPT</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 只有Claude</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p>AI анализирует документы за минуты: <strong>суммирует, сравнивает, находит риски</strong>. Но всегда проверяйте критичные выводы. AI — помощник, не замена юристу. Экономия: <strong>3-4 часа в день</strong> на чтение документов.</p>
+      <h3>🎯 课程要点</h3>
+      <p>AI在几分钟内分析文档：<strong>摘要、对比、发现风险</strong>。但始终要复核关键结论。AI是助手，不是律师的替代品。节省：<strong>每天3-4小时</strong>阅读文档时间。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../01-chain-prompts/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../01-practice-task/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../01-chain-prompts/index.html" class="nav-btn">← 上一课</a>
+    <a href="../01-practice-task/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -322,17 +314,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>
