@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>9.3 Аудит стройки и проектов — AI для не ИТ-специалистов</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🔍 УРОВЕНЬ 9 · АУДИТ, КОНТРОЛЬ И COMPLIANCE</div>
+    <h1>9.3 · Аудит стройки и проектов</h1>
+    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Зачем это бизнесу</h2>
+    <p>Строительные проекты — сложные многоэтапные процессы с массой документов, отклонений и рисков. Ручной контроль пропускает: перерасход материалов, срыв сроков, отклонения от сметы, пропущенные акты.</p>
+    <div class="card card-success">
+      <p><strong>AI-аудит стройки и проектов</strong> — автоматическое сравнение факта с планом (смета, график, проект), выявление отклонений >5% и раннее предупреждение о красных зонах.</p>
+      <p><strong>Пример:</strong> AI сверил 150 актов КС-2 за полгода с сметой и выявил 12 отклонений: 7 — перерасход материалов >10%, 3 — отсутствие соответствующих работ в проекте, 2 — двойная оплата по одному акту.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+
+    <h3>Стройка: что проверяет AI</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Сверка актов КС-2/КС-3 с сметой:</strong> выполненные работы соответствуют сметной документации? не выходят за объёмы?</li>
+        <li><strong>Перерасход материалов:</strong> фактический расход vs сметный с учётом норм ГЭСН/ФЕР. Отклонение >10% — алерт.</li>
+        <li><strong>Соответствие проекту:</strong> выполненные работы заложены в проект? нет ли «левых» позиций?</li>
+        <li><strong>Сроки и график:</strong> отклонение от планового графика, задержки критических путей, риск срыва сдачи</li>
+        <li><strong>Двойные оплаты:</strong> один и тот же акт в разных платёжках, дублирование позиций</li>
+        <li><strong>СНиП/ГОСТ:</strong> соответствие нормам (минимальные толщины, марки материалов, допуски)</li>
+      </ul>
+    </div>
+
+    <h3>Проекты: что проверяет AI</h3>
+    <div class="card card-accent">
+      <ul>
+        <li><strong>Этапы и deliverables:</strong> все ли этапы завершены, все ли согласования получены, все ли документы на месте</li>
+        <li><strong>Бюджет:</strong> факт vs план, отклонение по статьям, прогноз окончательной стоимости</li>
+        <li><strong>Сроки:</strong> отклонение от baseline, тренд (идём на опережение или отстаём), риск срыва</li>
+        <li><strong>Ресурсы:</strong> загрузка команды, перерасход человеко-часов, незапланированные ресурсы</li>
+        <li><strong>Красные зоны:</strong> автоматическое выделение: бюджет >110%, срок срыва >2 недель, ресурсы на 120%</li>
+      </ul>
+    </div>
+
+    <h3>Пороги отклонения: когда AI сигналит</h3>
+    <table>
+      <tr><th>Параметр</th><th>Зелёный</th><th>Жёлтый</th><th>Красный</th></tr>
+      <tr><td>Перерасход материалов</td><td>≤ 5%</td><td>5–10%</td><td>> 10%</td></tr>
+      <tr><td>Отклонение бюджета</td><td>≤ 3%</td><td>3–10%</td><td>> 10%</td></tr>
+      <tr><td>Срыв срока (проект)</td><td>≤ 3 дня</td><td>3–14 дней</td><td>> 14 дней</td></tr>
+      <tr><td>Загрузка ресурсов</td><td>≤ 90%</td><td>90–110%</td><td>> 110%</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+
+    <h3>Сценарий: сверка актов КС-2 с сметой</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Промпт для AI</div>
+        <pre>Сверь акты КС-2 (файл: акты.xlsx) со сметой (файл: смета.xlsx).
+
+Для каждого акта:
+1. Найди соответствующую позицию в смете (по наименованию работ)
+2. Сравни объём выполненных работ с сметным объёмом
+3. Проверь: не превышает ли расход материалов нормы ГЭСН/ФЕР (±10%)
+4. Проверь: есть ли эта работа в проекте (файл: проект.pdf)
+5. Проверь: не оплачен ли этот акт дважды (файл: платежи.xlsx)
+
+Выведи:
+- Акты с отклонением >10% (по объёму или материалам)
+- Акты на работы, отсутствующие в проекте
+- Двойные оплаты
+- Сводка: сколько зелёных, жёлтых, красных</pre>
+      </div>
+      <p><strong>Результат:</strong> Excel-файл с проверкой каждого акта. Прораб и технадзор проверяют только красные.</p>
+    </div>
+
+    <h3>Сценарий: мониторинг проектов на красные зоны</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Промпт для AI</div>
+        <pre>Проанализируй статус проектов (файл: проекты.xlsx).
+
+Для каждого проекта:
+1. Факт vs план бюджета: отклонение % по каждой статье
+2. Факт vs план сроков: отставание/опережение в днях
+3. Загрузка ресурсов: запланировано vs фактически потрачено
+4. Завершение этапов: сколько % выполнено, что просрочено
+
+Примени пороги:
+- Зелёный: бюджет ≤103%, срок ≤3 дней, ресурсы ≤90%
+- Жёлтый: бюджет 103–110%, срок 3–14 дней, ресурсы 90–110%
+- Красный: бюджет >110%, срок >14 дней, ресурсы >110%
+
+Выведи:
+- Дашборд: все проекты с цветовым статусом
+- Красные зоны: детализация по каждому красному проекту
+- Прогноз: какие проекты уйдут в красное через месяц (тренд)</pre>
+      </div>
+      <p><strong>Результат:</strong> Руководитель проектов видит дашборд с 20 проектами: 12 зелёных, 5 жёлтых, 3 красных. Фокус — на 3 красных.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи (стройка)</h3>
+      <pre>"Нужен AI-контроль актов КС-2/КС-3.
+
+Входные данные:
+- Акты КС-2 (Excel / PDF)
+- Смета (Excel: ГЭСН/ФЕР)
+- Проект (PDF)
+- Платёжные поручения (Excel / 1С)
+
+Что проверяем:
+1. Соответствие актов смете (объём, цена)
+2. Перерасход материалов (±10% от нормы)
+3. Наличие работ в проекте
+4. Двойные оплаты
+5. Соответствие СНиП/ГОСТ (проверка по справочнику)
+
+Выход:
+- Excel-отчёт с рейтингом каждого акта
+- Алерты при отклонении >10%
+- Дашборд по объектам
+
+Интеграция: 1С, Telegram
+Срок: [дата]"</pre>
+    </div>
+    <div class="card card-success">
+      <h3>Шаблон задачи (проекты)</h3>
+      <pre>"Нужен AI-мониторинг проектов.
+
+Входные данные:
+- План проектов (Excel: этапы, сроки, бюджет, ресурсы)
+- Факт (CRM / Jira / Excel: выполнение, затраты, трудозатраты)
+
+Что проверяем:
+1. Отклонение бюджета по статьям
+2. Отклонение сроков от baseline
+3. Загрузка ресурсов
+4. Завершение этапов и deliverables
+5. Прогноз окончательной стоимости и срока
+
+Пороги:
+- Зелёный/жёлтый/красный (см. таблицу выше)
+
+Выход:
+- Дашборд проектов с цветовым статусом
+- Алерты при переходе в красное
+- Прогноз рисков (тренд)
+
+Интеграция: Jira / Asana / Monday, Excel, Telegram
+Срок: [дата]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Чеклист принятия результата</h2>
+    <ul class="checklist">
+      <li>Акты сверяются с сметой по объёму и цене?</li>
+      <li>Перерасход материалов считается с учётом норм ГЭСН/ФЕР?</li>
+      <li>Проверка на двойные оплаты работает (не ложные срабатывания)?</li>
+      <li>Цветовой рейтинг понятен без объяснений?</li>
+      <li>Красные зоны приходят в алертах сразу?</li>
+      <li>Прогноз рисков показывает, что случится через месяц?</li>
+      <li>Все три источника (факт, план, проект) подключены?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Проверка понимания</h2>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Какое отклонение материалов — красное?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 3%</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 7%</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">C) 12%</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Что проверяет AI в проектах?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Только бюджет</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Бюджет, сроки, ресурсы, этапы</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только настроение команды</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Как AI находит двойные оплаты?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Спрашивает бухгалтера</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Сравнивает акты с платёжными поручениями</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Угадывает</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Главное из урока</h3>
+      <p><strong>AI не строит, но находит, где строят неправильно.</strong> Сверка актов с сметой, контроль перерасхода, мониторинг красных зон — это то, что AI делает лучше человека: быстро, без усталости, по всем документам. Прораб и руководитель проектов тратят время на решения, а не на просмотр бумаг.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../09-audit-procurement-sales/index.html" class="nav-btn">← Предыдущий урок</a>
+    <a href="../09-compliance-fraud/index.html" class="nav-btn primary">Следующий урок →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

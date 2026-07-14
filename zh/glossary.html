@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>术语表 — 非IT专业人士的AI</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .page-header { padding: 32px 0 16px; }
+  .page-header h1 { margin: 8px 0; font-size: 1.8rem; }
+  .page-header p { color: var(--muted); }
+  .term-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .term-card h3 { color: var(--accent); margin: 0 0 8px; font-size: 1.1rem; }
+  .term-card .simple { color: var(--accent2); font-size: 0.9rem; margin-bottom: 8px; }
+  .term-card p { margin: 0; color: var(--text); }
+  .tag { display: inline-block; padding: 2px 10px; background: rgba(139,92,246,0.15); border-radius: 12px; font-size: 0.75rem; color: var(--accent); margin-right: 6px; }
+  .section-title { color: var(--accent); font-size: 1.2rem; margin: 32px 0 16px; }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); margin-top: 32px; }
+  .desktop-nav { display: flex; align-items: center; gap: 20px; }
+  .desktop-nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+  .desktop-nav a:hover { color: var(--text); }
+  .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; }
+  .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+  .mobile-nav { display: none; position: fixed; top: 57px; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; padding: 20px 16px; }
+  .mobile-nav.show { display: block; }
+  .mobile-nav a { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid var(--border); }
+  @media (max-width: 768px) {
+    .desktop-nav { display: none; }
+    .hamburger { display: flex; }
+    .page-header h1 { font-size: 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <nav class="desktop-nav">
+      <a href="catalog.html">目录</a>
+      <a href="glossary.html" style="color: var(--accent);">📖 术语表</a>
+    </nav>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="catalog.html">目录</a>
+  <a href="glossary.html">📖 术语表</a>
+  <a href="../index.html">← 返回首页</a>
+</div>
+
+<article class="container">
+
+  <div class="page-header">
+    <h1>📖 术语表</h1>
+    <p>用简单的话解释复杂的AI概念。如果您在课程中遇到不认识的词 — 在这里查找。</p>
+  </div>
+
+  <div class="section-title">🔤 关键术语</div>
+
+  <div class="term-card">
+    <h3>API</h3>
+    <div class="simple">「数据插座」— 程序之间互相连接的方式</div>
+    <p>如果网站A想从程序B获取数据，它就使用API。例如，当课程计算器从中央银行网站获取当前汇率。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>开源 (Open-source)</h3>
+    <div class="simple">源代码开放的软件 — 可以免费下载和使用</div>
+    <p>开发者公开了代码。任何人都可以下载、学习和修改。示例：n8n、LibreOffice。但是：支持和培训可能需要付费（如Red Hat）。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>本地部署 (Self-hosted)</h3>
+    <div class="simple">「在您自己的服务器上」— 程序在企业内部运行，不在云端</div>
+    <p>数据永远不会离开办公室。需要服务器和IT专家进行配置。许可证免费，但硬件和维护不是。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>VPN</h3>
+    <div class="simple">虚拟专用网络 — 远程工作的安全隧道</div>
+    <p>允许在家工作的员工安全地连接到企业网络。对于办公室的本地AI，需要局域网；对于远程工作 — 需要VPN。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>防火墙 (Firewall)</h3>
+    <div class="simple">网络屏障 — 防止不受欢迎的连接</div>
+    <p>就像入口处的守卫：只放行获得授权的人。由IT部门配置。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>定时任务 (Cron / Schedule)</h3>
+    <div class="simple">按计划执行任务：每天、每小时等</div>
+    <p>例如：「每周一上午9:00检查供应商价格。」在n8n中这叫Schedule，在编程中叫cron。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>JSON</h3>
+    <div class="simple">程序的数据格式 — 「文本形式的表格」</div>
+    <p>AI经常以JSON格式提供答案，然后转换为Excel/表格。对人类来说，它看起来像带花括号的文本。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>CSV</h3>
+    <div class="simple">表格格式 — 在Excel中打开</div>
+    <p>简单的文本格式，数据用逗号分隔。任何表格都可以保存为CSV格式。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>LLM (大语言模型)</h3>
+    <div class="simple">大语言模型 — 理解并生成文本的「AI大脑」</div>
+    <p>ChatGPT、Claude、Kimi — 都是LLM。通过在大量文本上训练，理解问题并给出相关回答。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Token (令牌)</h3>
+    <div class="simple">AI的文本计量单位 — 大约¾个词</div>
+    <p>AI计算的不是词，而是token。1000个token ≈ 750个词。请求的成本取决于token数量。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>RAG (检索增强生成)</h3>
+    <div class="simple">搜索 + 生成 — AI先找到事实，再回答</div>
+    <p>AI不仅依靠记忆，还在您的文档中搜索信息，然后基于这些信息回答。降低了编造的风险。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>向量数据库</h3>
+    <div class="simple">AI按意义搜索，而不是按确切的词搜索的存储</div>
+    <p>如果您搜索「昂贵的供应商」，它也会找到「价格高」和「不便宜」。它理解上下文，而不仅仅是措辞。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>提示词 (Prompt)</h3>
+    <div class="simple">给AI的请求或指令 — 您在聊天中写的内容</div>
+    <p>提示词越精确，回答越好。好的提示词包含：角色、任务、格式、约束、示例。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>AI代理 (Agent)</h3>
+    <div class="simple">按照给定指令自主执行任务的程序</div>
+    <p>它不只是回答问题，还会行动：搜索、比较、发送邮件、填写文档。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>幻觉 (Hallucination)</h3>
+    <div class="simple">当AI自信地提供编造的信息时</div>
+    <p>可能编造不存在的法律、虚假引用或错误事实。始终验证关键数据。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>微调 (Fine-tuning)</h3>
+    <div class="simple">在您的数据上训练模型以完成特定任务</div>
+    <p>预训练模型被「调整」到您的文档、术语和风格。比正常使用更贵，但更精确。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>边界情况 (Edge cases)</h3>
+    <div class="simple">极端、非标准的情况 — 当一切不如预期时</div>
+    <p>例如：预算=0、空文件、供应商不回复。好的自动化也会考虑这些场景。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>MCP (模型上下文协议)</h3>
+    <div class="simple">AI连接外部系统的标准</div>
+    <p>允许AI代理访问您的数据库、CRM和邮件。就像不同设备的通用连接器。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>本地部署 (On-premise)</h3>
+    <div class="simple">「在现场」— 一切都在企业内部运行，不在云端</div>
+    <p>数据留在您的围墙内。安全，但维护成本更高。适合机密信息。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>工作流 (Workflow)</h3>
+    <div class="simple">自动化步骤序列</div>
+    <p>例如：收到邮件 → 提取数据 → 写入表格 → 发送通知。在n8n和Zapier中，工作流可以可视化创建。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Webhook</h3>
+    <div class="simple">程序之间的「信号」— 即时通知</div>
+    <p>当事件发生时（例如新订单），系统A立即通知系统B。无需不断轮询。</p>
+  </div>
+
+  <div class="section-title">⚙️ 参数、自动化与审计</div>
+
+  <div class="term-card">
+    <h3>上下文窗口</h3>
+    <div class="simple">「模型的记忆」— AI一次能记住多少文本</div>
+    <p>如果文档比窗口长，模型会忘记开头。要分析50页的合同，需要大窗口（200K+ token）或分块技术。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>温度 (Temperature)</h3>
+    <div class="simple">AI的「创意水平」— 从严格到富有想象力</div>
+    <p>0.1 — 可预测，几乎确定性（用于合同、报告）。0.7 — 有创意，生成变体（用于头脑风暴、营销）。1.0+ — 可能开始编造。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>嵌入 (Embedding)</h3>
+    <div class="simple">「意义的数字指纹」— AI如何理解两个文本相似</div>
+    <p>每个文本片段被赋予一组数字（向量）。AI通过「数学距离」找到相关文档，即使用词完全不同。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>分块 (Chunking)</h3>
+    <div class="simple">「切成小块」— 将长文档分成部分</div>
+    <p>100页的合同被切成每块500 token的段落，以便每块都能放入模型内存。然后AI找到需要的块并组装答案。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>解析 (Parsing)</h3>
+    <div class="simple">「从混乱中提取结构」— 将非结构化数据转为表格</div>
+    <p>从供应商PDF目录中提取价格、货号、计量单位到Excel。或从邮件往来中提取日期、金额和地址。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>SaaS (软件即服务)</h3>
+    <div class="simple">通过互联网订阅的软件 — 无需安装，付费即用</div>
+    <p>ChatGPT、n8n Cloud、Zapier — 都是SaaS。通过浏览器访问，数据在供应商服务器上。方便，但对于机密文档需要本地替代方案。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>评分 (Scoring)</h3>
+    <div class="simple">积分评估 — 客观选择供应商或质量控制</div>
+    <p>供应商获得85/100 — 通过，60/100 — 淘汰。标准：价格、交期、声誉、证书、经验。AI可以按给定标准自动计算。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>合规 (Compliance)</h3>
+    <div class="simple">符合规则 — 法律、标准、内部规章</div>
+    <p>检查合同是否违法、估算是否符合标准、采购是否通过了所有审批。AI将文档与需求清单进行交叉核对。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>SLA (服务等级协议)</h3>
+    <div class="simple">服务等级协议 — 响应时间、可用性、罚金</div>
+    <p>「请求响应 — 2小时内，可用性99.9%，停机罚金 — 月费的1%。」AI可以监控SLA遵守情况并报告违规。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>流水线 (Pipeline)</h3>
+    <div class="simple">「传送带」— 数据处理的步骤链</div>
+    <p>步骤1：收到邮件 → 步骤2：提取数据 → 步骤3：写入CRM → 步骤4：发送通知。在n8n和Zapier中，流水线可以可视化构建，无需编程。</p>
+  </div>
+
+  <div class="section-title">🏷️ 课程缩写</div>
+
+  <div class="term-card">
+    <h3>GENAi</h3>
+    <div class="simple">基于OpenWebUI的企业内部服务</div>
+    <p>在您的服务器上运行（本地）。对机密文档安全。使用GENAi处理：合同、报告、个人数据、内部协议。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>NDA (保密协议)</h3>
+    <div class="simple">保密协议 — 不披露合同</div>
+    <p>与AI供应商签署，以确保他们不会使用您的数据训练模型。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>ROI (投资回报率)</h3>
+    <div class="simple">投资回报 — 投资的盈利能力</div>
+    <p>显示AI实施相对于成本能带来多少收益。ROI = (利润 − 成本) / 成本 × 100%。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>CRM (客户关系管理)</h3>
+    <div class="simple">客户关系管理系统</div>
+    <p>存储客户信息、交易、联系方式。示例：amoCRM、Bitrix24、Salesforce。</p>
+  </div>
+
+  <div class="term-card">
+    <h3>ERP (企业资源计划)</h3>
+    <div class="simple">企业资源计划系统</div>
+    <p>统一会计、生产、采购和销售。示例：1C、SAP、Oracle。</p>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
+    <p style="font-size: 0.8rem; margin-top: 8px;"><a href="catalog.html" style="color: var(--accent); text-decoration: none;">← 返回目录</a></p>
+  </div>
+</footer>
+
+<script>
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('show');
+  document.getElementById('hamburger').classList.toggle('active');
+}
+</script>
+
+</body>
+</html>

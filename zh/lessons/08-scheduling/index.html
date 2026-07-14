@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.3 AI для организатора работ — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🏗️ УРОВЕНЬ 8 · AI ДЛЯ СТРОЙКИ</div>
+    <h1>8.3 · Планирование работ и ресурсов: графики, люди, техника</h1>
+    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Зачем это бизнесу</h2>
+    <p>Организатор работ (прораб, начальник участка) ежедневно решает: кто работает, на чём, в какой последовательности, что задерживается. <strong>AI помогает строить графики, оптимизировать ресурсы, прогнозировать задержки.</strong></p>
+    <div class="card card-success">
+      <p><strong>Кейс:</strong> AI проанализировал 3-месячный график и предупредил: бетонная работа на 5-м этаже начнётся раньше, чем кран освободится с 4-го. Задержка: 2 дня. Организатор перенёс начало на 2 дня — срыва графика не было.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📚 Что изучаем</h2>
+    
+    <h3>Что AI делает для организатора работ</h3>
+    <div class="card card-accent">
+      <ul>
+        <li>📅 <strong>Графики:</strong> Построение / корректировка сетевого графика, критический путь</li>
+        <li>👷 <strong>Ресурсы:</strong> Распределение бригад, техники, материалов по объектам</li>
+        <li>⚠️ <strong>Риски:</strong> Предупреждение о задержках, перегрузках, конфликтах ресурсов</li>
+        <li>📊 <strong>Отчётность:</strong> Журнал работ, акты выполненных работ, сравнение план/факт</li>
+        <li>🔮 <strong>Прогноз:</strong> Когда закончится объект при текущем темпе?</li>
+        <li>📋 <strong>Наряд-задания:</strong> Автоматическая генерация на основе графика</li>
+      </ul>
+    </div>
+
+    <h3>Входные данные для AI</h3>
+    <div class="card">
+      <table>
+        <tr><th>Данные</th><th>Формат</th><th>Что AI анализирует</th></tr>
+        <tr><td>Сетевой график (MS Project, Excel)</td><td>.mpp, Excel</td><td>Критический путь, ресурсы, зависимости</td></tr>
+        <tr><td>Журнал работ (ежедневные отчёты)</td><td>PDF, Excel, текст</td><td>План/факт, % выполнения, задержки</td></tr>
+        <tr><td>Сметы / локальные сметы</td><td>PDF, Excel</td><td>Объёмы, трудоёмкость, длительность</td></tr>
+        <tr><td>Наличие ресурсов (бригады, техника)</td><td>Excel, 1С, SAP</td><td>Загрузка, конфликты, доступность</td></tr>
+        <tr><td>Погода / сезонные ограничения</td><td>API, Excel</td><td>Прогноз погоды для наружных работ</td></tr>
+      </table>
+    </div>
+
+    <h3>Пример запроса к AI</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Промпт для графика</div>
+        <pre>"Проанализируй график строительства (файл приложен).
+
+1. Найди критический путь (работы, которые нельзя задержать)
+2. Проверь загрузку ресурсов: есть ли перегрузки (2 бригады на 1 объект)?
+3. Проверь зависимости: начинается ли работа раньше, чем закончится предыдущая?
+4. Сравни с погодным прогнозом: какие наружные работы попадают на дожди?
+5. Прогноз: дата окончания при текущем темпе?
+
+Выведи:
+- Таблица рисков: Работа | Риск | Уровень | Рекомендация
+- Обновлённый график с корректировками
+- Список наряд-заданий на следующую неделю"</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Как применить</h2>
+    
+    <h3>Сценарий: еженедельный обзор графика</h3>
+    <div class="card">
+      <div class="example">
+        <div class="example-label">Процесс</div>
+        <pre>1. Загружаем в AI: график (MS Project/Excel), журнал работ за неделю, ресурсы
+2. Запрос: "Проверь график. Критический путь? Риски? Загрузка ресурсов?"
+3. AI анализирует и выдаёт:
+   - Критический путь (выделен красным)
+   - Риски: перегрузка крана 15.03, бетон придёт позже
+   - Рекомендации: перенести работы, добавить бригаду
+4. Прораб корректирует график
+5. AI генерирует наряд-задания на следующую неделю
+6. Раздаёт бригадирам</pre>
+      </div>
+    </div>
+
+    <h3>Сравнение план/факт</h3>
+    <div class="card card-accent">
+      <p>AI ежедневно сравнивает:</p>
+      <ul>
+        <li>Запланировано объёмов vs выполнено</li>
+        <li>Даты начала/окончания vs факт</li>
+        <li>Расход материалов vs нормы</li>
+        <li>Трудозатраты vs план</li>
+      </ul>
+      <p>При отклонении > 10% — предупреждение с рекомендацией.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <div class="card card-success">
+      <h3>Шаблон задачи</h3>
+      <pre>"Нужен AI-инструмент для управления строительными графиками.
+
+Входные данные:
+- График: MS Project / Excel (сетевой график)
+- Журнал работ: ежедневные отчёты (PDF, Excel, текст)
+- Ресурсы: бригады, техника, материалы (Excel, 1С, SAP)
+- Сметы: локальные сметы (PDF, Excel)
+- Погода: API (или Excel с прогнозом)
+
+Что должен делать:
+1. Анализировать критический путь
+2. Проверять загрузку ресурсов (конфликты, перегрузки)
+3. Сравнивать план/факт
+4. Прогнозировать дату окончания
+5. Генерировать наряд-задания
+6. Предупреждать о рисках (задержки, погода, ресурсы)
+
+Выход:
+- PDF-отчёт (еженедельный)
+- Excel-таблица (обновлённый график)
+- Email/SMS-уведомления (критичные риски)
+
+Интеграция: [MS Project / 1С / SAP / Excel]
+Срок: [дата]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Чеклист принятия результата</h2>
+    <ul class="checklist">
+      <li>Критический путь корректен? (сверить с ручным расчётом)</li>
+      <li>Риски реальны? (проверить 2-3 на графике)</li>
+      <li>Загрузка ресурсов адекватна? (нет перегрузок > 100%)</li>
+      <li>Прогноз даты окончания реалистичен?</li>
+      <li>Наряд-задания соответствуют графику?</li>
+      <li>Формат удобен для ежедневного использования?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Проверка понимания</h2>
+    
+    <div class="card card-accent" data-quiz="1">
+      <p><strong>Вопрос 1:</strong> Что такое критический путь?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Цепочка работ, которые нельзя задержать без срыва сроков объекта</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Самая длинная дорога на стройку</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Путь от склада до объекта</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent" data-quiz="2">
+      <p><strong>Вопрос 2:</strong> Какие данные нужны AI для анализа графика?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) График, журнал работ, ресурсы, сметы, погода</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только график</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только сметы</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent" data-quiz="3">
+      <p><strong>Вопрос 3:</strong> Что делает AI при отклонении план/факт > 10%?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Предупреждает с рекомендацией по корректировке</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Игнорирует — это нормально</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Останавливает работы автоматически</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card card-success">
+      <h3>🎯 Главное из урока</h3>
+      <p><strong>AI — прогнозный аналитик для стройки.</strong> Он видит риски, которые человек пропускает: перегрузку ресурсов, конфликты в графике, погодные задержки. Не заменяет прораба, но даёт ему инструмент для принятия решений на основе данных, а не на ощущениях.</p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-project-check/index.html" class="nav-btn">← Предыдущий урок</a>
+    <a href="../08-quality-check/index.html" class="nav-btn primary">Следующий урок →</a>
+  </div>
+
+</article>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(element, isCorrect) {
+  const card = element.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const resultDiv = card.querySelector('.result');
+  if (isCorrect) {
+    options.forEach(opt => {
+      opt.style.pointerEvents = 'none';
+      if (opt === element) opt.classList.add('correct');
+      else opt.classList.add('disabled');
+    });
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(16,185,129,0.1)';
+    resultDiv.style.border = '1px solid var(--success)';
+    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+  } else {
+    element.classList.add('wrong');
+    element.style.pointerEvents = 'none';
+    resultDiv.classList.add('show');
+    resultDiv.style.background = 'rgba(245,158,11,0.1)';
+    resultDiv.style.border = '1px solid var(--warning)';
+    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+  }
+}
+</script>
+
+</body>
+</html>

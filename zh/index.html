@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>AI для не ИТ-специалистов</title>
-<link rel="stylesheet" href="style.css">
+<title>非IT专业人士的AI课程</title>
+<link rel="stylesheet" href="../style.css">
 <style>
   :root {
     --bg: #0B0F19;
@@ -20,7 +20,6 @@
   body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
   .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 
-  /* Header */
   header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
   header .container { display: flex; justify-content: space-between; align-items: center; }
   .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
@@ -113,21 +112,21 @@
 
 <header>
   <div class="container">
-    <div class="logo"><a href="index.html">🧠 AI для Менеджеров</a></div>
+    <div class="logo"><a href="../index.html">🧠 面向管理者的AI</a></div>
 
     <nav class="desktop-nav">
-      <a href="#levels">Программа</a>
-      <a href="#audience">Для кого</a>
-      <a href="catalog.html">Каталог</a>
-      <a href="glossary.html">📖 Терминология</a>
+      <a href="#levels">课程</a>
+      <a href="#audience">受众</a>
+      <a href="catalog.html">目录</a>
+      <a href="glossary.html">📖 术语表</a>
       <div class="lang-dropdown">
-        <button class="lang-btn" onclick="toggleLang()">🌐 RU ▼</button>
+        <button class="lang-btn" onclick="toggleLang()">🌐 中文 ▼</button>
         <div class="lang-menu" id="langMenu">
-          <a href="index.html" class="active">RU</a>
-          <a href="en/index.html">EN</a>
-          <a href="index-es.html">ES</a>
-          <a href="index-fr.html">FR</a>
-          <a href="zh/index.html">中文</a>
+          <a href="../index.html">RU</a>
+          <a href="../en/index.html">EN</a>
+          <a href="../index-es.html">ES</a>
+          <a href="../index-fr.html">FR</a>
+          <a href="../index.html" class="active">中文</a>
         </div>
       </div>
     </nav>
@@ -141,148 +140,140 @@
 </header>
 
 <div class="mobile-nav" id="mobileNav">
-  <a href="#levels" onclick="toggleMobileNav()">Программа</a>
-  <a href="#audience" onclick="toggleMobileNav()">Для кого</a>
-  <a href="catalog.html">Каталог</a>
-  <a href="glossary.html">📖 Терминология</a>
+  <a href="#levels" onclick="toggleMobileNav()">课程</a>
+  <a href="#audience" onclick="toggleMobileNav()">受众</a>
+  <a href="catalog.html">目录</a>
+  <a href="glossary.html">📖 术语表</a>
   <div class="lang-section">
-    <p>🌐 Язык / Language</p>
-    <a href="index.html" class="active">RU</a>
-    <a href="en/index.html">EN</a>
-    <a href="index-es.html">ES</a>
-    <a href="index-fr.html">FR</a>
-    <a href="zh/index.html">中文</a>
+    <p>🌐 语言 / Language</p>
+    <a href="../index.html">RU</a>
+    <a href="../en/index.html">EN</a>
+    <a href="../index-es.html">ES</a>
+    <a href="../index-fr.html">FR</a>
+    <a href="../index.html" class="active">中文</a>
   </div>
 </div>
 
 <section class="author-note" style="background: rgba(139,92,246,0.05); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 20px auto; max-width: 1100px;">
   <p style="margin: 0 0 16px; color: var(--text); font-size: 1rem; line-height: 1.7;">
-    Возможности генеративного ИИ для B2B постоянно развиваются. Сегодня не стоит игнорировать эту технологию в своей работе, и потому я решил создать данный обучающий курс.
+    生成式AI在B2B领域的能力正在不断发展。今天，不应忽视这项技术在工作中的应用，因此我决定创建这个培训课程。
   </p>
   <p style="margin: 0 0 16px; color: var(--text); font-size: 1rem; line-height: 1.7;">
-    Он включает знания из обучающих курсов от Anthropic (Claude), OpenAI (ChatGPT) и Google (Gemini), а также мой опыт обучения моих коллег работе с Generative AI.
+    课程包含Anthropic（Claude）、OpenAI（ChatGPT）和Google（Gemini）的培训知识，以及我教导同事使用生成式AI的经验。
   </p>
   <p style="margin: 0; color: var(--muted); font-size: 0.95rem; line-height: 1.7;">
-    Я понимаю, что не все владеют навыками программирования, системного анализа, но есть другая не менее ценная экспертиза — доменная, специфическая — и она с появлением ИИ стала ещё ценнее. Юристы, закупщики, аудиторы, финансисты и коллеги других специальностей — этот курс для вас. Мы вместе с моим ИИ-агентом по имени Kimicito составили его и постоянно улучшаем по обратной связи. Можете написать мне напрямую <a href="https://t.me/tagartur" target="_blank" style="color: var(--accent);">@tagartur</a> и вместе мы создадим корпоративный полезный курс по «ИИ для не ИТшников».
+    我理解并非所有人都掌握编程、系统分析技能，但还有另一种同样宝贵的专业知识——领域知识、专业知识——随着AI的出现，它变得更加宝贵。律师、采购员、审计师、财务人员和其他专业同事——这门课程是为你们准备的。我和我的AI代理Kimicito一起编写了这门课程，并根据反馈不断改进。您可以直接写信给我 <a href="https://t.me/tagartur" target="_blank" style="color: var(--accent);">@tagartur</a>，我们将一起创建一个有用的企业课程「非IT人员的AI」。
   </p>
 </section>
 
 <section class="hero">
   <div class="container">
-    <h1>AI без программирования</h1>
-    <p>Научитесь использовать искусственный интеллект в работе: автоматизируйте рутину, делегируйте разработчикам чёткие задачи и принимайте решения на основе данных. Без кода. Без математики. Только практика.</p>
-    <a href="catalog.html" class="cta-btn">Начать обучение</a>
+    <h1>AI无需编程</h1>
+    <p>学习在工作中使用人工智能：自动化日常任务，向开发人员委派明确的任务，并基于数据做出决策。无需代码。无需数学。只有实践。</p>
+    <a href="catalog.html" class="cta-btn">开始学习</a>
   </div>
 </section>
 
 <section class="stats">
   <div class="stat">
     <div class="num">9</div>
-    <div class="label">уровней</div>
+    <div class="label">级别</div>
   </div>
   <div class="stat">
     <div class="num">39</div>
-    <div class="label">уроков</div>
+    <div class="label">课程</div>
   </div>
   <div class="stat">
     <div class="num">3</div>
-    <div class="label">специализации</div>
+    <div class="label">专业方向</div>
   </div>
   <div class="stat">
     <div class="num">5</div>
-    <div class="label">языков</div>
+    <div class="label">语言</div>
   </div>
 </section>
 
 <section class="phases" id="levels">
   <div class="container">
-    <h2>Программа курса</h2>
+    <h2>课程大纲</h2>
     
     <a href="catalog.html#level0" class="phase-card">
-      <h3>🚀 Уровень 0 — Основы AI</h3>
-      <p>Как работают ChatGPT, Claude, Kimi и Qwen. Когда брать облако, когда — локальное решение. Сколько это стоит.</p>
+      <h3>🚀 级别 0 — AI基础</h3>
+      <p>ChatGPT、Claude、Kimi和Qwen的工作原理。何时选择云端，何时选择本地方案。费用是多少。</p>
       <div class="meta">
-        <span class="badge">4 урока</span>
-        
+        <span class="badge">4 课程</span>
       </div>
     </a>
     
     <a href="catalog.html#level1" class="phase-card">
-      <h3>🛠️ Уровень 1 — Владение инструментами</h3>
-      <p>Промпт-инжиниринг для менеджера: писать ТЗ, а не "сделай красиво". Структурированный вывод, цепочки запросов, работа с документами.</p>
+      <h3>🛠️ 级别 1 — 工具掌握</h3>
+      <p>面向管理者的提示工程：编写任务说明，而不是「让它看起来好看」。结构化输出、提示链、文档处理。</p>
       <div class="meta">
-        <span class="badge">5 уроков</span>
-        
+        <span class="badge">5 课程</span>
       </div>
     </a>
     
     <a href="catalog.html#level2" class="phase-card">
-      <h3>📄 Уровень 2 — Данные и документы</h3>
-      <p>RAG простыми словами. Как подключить AI к базе знаний компании. Суммаризация и анализ документов: договоры, отчёты, акты.</p>
+      <h3>📄 级别 2 — 数据与文档</h3>
+      <p>用简单的话解释RAG。如何将AI连接到企业知识库。文档的合成与分析：合同、报告、证书。</p>
       <div class="meta">
-        <span class="badge">4 урока</span>
-        
+        <span class="badge">4 课程</span>
       </div>
     </a>
     
     <a href="catalog.html#level3" class="phase-card">
-      <h3>⚡ Уровень 3 — Автоматизация</h3>
-      <p>No-code автоматизация: Make, n8n, Zapier. Интеграция AI в процессы. Построение простых агентов без кода.</p>
+      <h3>⚡ 级别 3 — 自动化</h3>
+      <p>无代码自动化：Make、n8n、Zapier。将AI集成到流程中。无需代码创建简单代理。</p>
       <div class="meta">
-        <span class="badge">4 урока</span>
-        
+        <span class="badge">4 课程</span>
       </div>
     </a>
     
     <a href="catalog.html#level4" class="phase-card">
-      <h3>🤖 Уровень 4 — Агенты и оркестрация</h3>
-      <p>Что такое AI-агент. Мультиагентные системы. Человек в цикле. MCP и интеграция с корпоративными системами.</p>
+      <h3>🤖 级别 4 — 代理与编排</h3>
+      <p>什么是AI代理。多代理系统。人在回路中。MCP与企业系统集成。</p>
       <div class="meta">
-        <span class="badge">4 урока</span>
-        
+        <span class="badge">4 课程</span>
       </div>
     </a>
     
     <a href="catalog.html#level5" class="phase-card">
-      <h3>🏢 Уровень 5 — Внедрение в бизнес</h3>
-      <p>ROI-калькулятор. Выбор процесса для автоматизации. Пилотный проект. Масштабирование.</p>
+      <h3>🏢 级别 5 — 企业实施</h3>
+      <p>ROI计算器。选择要自动化的流程。试点项目。规模化推广。</p>
       <div class="meta">
-        <span class="badge">3 урока</span>
-        
+        <span class="badge">3 课程</span>
       </div>
     </a>
     
     <a href="catalog.html#level6" class="phase-card">
-      <h3>🛡️ Уровень 6 — Этика, безопасность, комплаенс</h3>
-      <p>Конфиденциальные данные. Галлюцинации и проверка фактов. Правовые риски. AI-политика компании.</p>
+      <h3>🛡️ 级别 6 — 伦理、安全与合规</h3>
+      <p>机密数据。幻觉与事实核查。法律风险。企业AI政策。</p>
       <div class="meta">
-        <span class="badge">3 урока</span>
-        
+        <span class="badge">3 课程</span>
       </div>
     </a>
     
     <a href="catalog.html#level7" class="phase-card">
-      <h3>🛒 Уровень 7 — AI для Закупщика</h3>
-      <p>Поиск поставщиков, сравнение цен, проверка договоров, протоколы отбора. Специализация для профессии закупщика.</p>
+      <h3>🛒 级别 7 — 采购的AI</h3>
+      <p>供应商搜索、价格比较、合同审查、选择协议。采购专业方向。</p>
       <div class="meta">
-        <span class="badge">4 урока</span>
-        
+        <span class="badge">4 课程</span>
       </div>
     </a>
     
     <a href="catalog.html#level8" class="phase-card">
-      <h3>🏗️ Уровень 8 — AI для Стройки</h3>
-      <p>Сметы и расчёты, проверка проектов, планирование работ, приёмка и контроль качества. Специализация для строительной отрасли.</p>
+      <h3>🏗️ 级别 8 — 建筑的AI</h3>
+      <p>估算与计算、项目审查、工期规划、验收与质量控制。建筑行业专业方向。</p>
       <div class="meta">
-        <span class="badge">4 урока</span>
+        <span class="badge">4 课程</span>
       </div>
     </a>
     
     <a href="catalog.html#level9" class="phase-card">
-      <h3>🔍 Уровень 9 — AI для Аудита и Контроля</h3>
-      <p>Проверка документов, аудит закупок и продаж, контроль стройки и проектов, compliance, фрод-мониторинг. Кросс-функциональный аудит.</p>
+      <h3>🔍 级别 9 — 审计与控制的AI</h3>
+      <p>文档核查、采购与销售审计、建筑与项目控制、合规、欺诈监控。跨领域审计。</p>
       <div class="meta">
-        <span class="badge">4 урока</span>
+        <span class="badge">4 课程</span>
       </div>
     </a>
   </div>
@@ -290,59 +281,59 @@
 
 <section class="audience" id="audience">
   <div class="container">
-    <h2>Для кого этот курс</h2>
-    <p>Выберите свою роль — и начните применять AI сразу</p>
+    <h2>本课程适合谁</h2>
+    <p>选择您的角色 — 立即开始应用AI</p>
     
     <div class="audience-grid">
       <div class="audience-card" onclick="window.location.href='catalog.html#level7'" style="cursor:pointer;">
         <div class="icon">🛒</div>
-        <h4>Закупки</h4>
-        <p>Тендеры, анализ поставщиков, сравнение предложений</p>
+        <h4>采购</h4>
+        <p>招标、供应商分析、报价比较</p>
       </div>
       <div class="audience-card" onclick="window.location.href='catalog.html#level8'" style="cursor:pointer;">
         <div class="icon">🏗️</div>
-        <h4>Стройка</h4>
-        <p>Сметы, проекты, графики, приёмка работ</p>
+        <h4>建筑</h4>
+        <p>估算、项目、工期、工程验收</p>
       </div>
       <div class="audience-card" style="opacity:0.6;">
         <div class="icon">📦</div>
-        <h4>Логистика</h4>
-        <p>Маршруты, прогнозирование, оптимизация запасов</p>
+        <h4>物流</h4>
+        <p>路线、预测、库存优化</p>
       </div>
       <div class="audience-card" style="opacity:0.6;">
         <div class="icon">⚖️</div>
-        <h4>Юристы</h4>
-        <p>Анализ договоров, compliance, регуляторика</p>
+        <h4>法务</h4>
+        <p>合同分析、合规、法规</p>
       </div>
       <div class="audience-card" style="opacity:0.6;">
         <div class="icon">✅</div>
-        <h4>Качество</h4>
-        <p>Аудит процессов, контроль дефектов, стандарты</p>
+        <h4>质量</h4>
+        <p>流程审计、缺陷控制、标准</p>
       </div>
       <div class="audience-card" style="opacity:0.6;">
         <div class="icon">🚀</div>
-        <h4>Продакт</h4>
-        <p>Исследования, гипотезы, аналитика, метрики</p>
+        <h4>产品</h4>
+        <p>研究、假设、分析、指标</p>
       </div>
       <div class="audience-card" style="opacity:0.6;">
         <div class="icon">📊</div>
-        <h4>Аналитик</h4>
-        <p>BI, отчёты, прогнозы, визуализация</p>
+        <h4>分析师</h4>
+        <p>BI、报告、预测、可视化</p>
       </div>
       <div class="audience-card" style="opacity:0.6;">
         <div class="icon">⚠️</div>
-        <h4>Риски</h4>
-        <p>Оценка рисков, сценарии, стресс-тесты</p>
+        <h4>风险</h4>
+        <p>风险评估、场景、压力测试</p>
       </div>
       <div class="audience-card" style="opacity:0.6;">
         <div class="icon">🔒</div>
-        <h4>Комплаенс</h4>
-        <p>AML, KYC, проверка регуляторики</p>
+        <h4>合规</h4>
+        <p>AML、KYC、监管核查</p>
       </div>
       <div class="audience-card" onclick="window.location.href='catalog.html#level9'" style="cursor:pointer;">
         <div class="icon">🔍</div>
-        <h4>Аудит</h4>
-        <p>Автоматизация проверок, выборочный контроль</p>
+        <h4>审计</h4>
+        <p>控制自动化、抽样检查</p>
       </div>
     </div>
   </div>
@@ -350,7 +341,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
     <p style="font-size: 0.8rem; margin-top: 8px;">
     </p>
   </div>
