@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>2.4 Суммаризация — AI для не ИТ-специалистов</title>
+<title>2.4 摘要生成 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -64,189 +64,180 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">📄 УРОВЕНЬ 2 · ДАННЫЕ И ДОКУМЕНТЫ</div>
-    <h1>2.4 · Суммаризация: сжимайте тексты без потери смысла</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">📄 级别 2 · 数据与文档</div>
+    <h1>2.4 · 摘要：压缩文本不丢失意义</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Руководители тратят <strong>30-40% времени на чтение</strong>: отчёты, письма, протоколы, договоры. Суммаризация сокращает объём в 5-10 раз, сохраняя ключевую информацию.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>管理者将<strong>30-40%时间用于阅读</strong>：报告、邮件、会议纪要、合同。摘要将体积压缩5-10倍，保留关键信息。</p>
     <div class="card card-success">
-      <p><strong>Пример экономии:</strong></p>
+      <p><strong>节省示例：</strong></p>
       <ul>
-        <li>Отчёт на 50 страниц → 1 страница выводов</li>
-        <li>Протокол совещания (10 страниц) → список решений и ответственных</li>
-        <li>Договор (20 страниц) → 5 ключевых пунктов</li>
+        <li>50页报告 → 1页结论</li>
+        <li>会议纪要（10页）→ 决策清单和负责人</li>
+        <li>合同（20页）→ 5个关键条款</li>
       </ul>
-      <p><strong>Экономия:</strong> 2-3 часа в день</p>
+      <p><strong>节省：</strong> 每天2-3小时</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>3 типа суммаризации</h3>
+    <h3>3种摘要类型</h3>
     
     <div class="type-card">
-      <h4>📄 Extractive (Выделительная)</h4>
-      <p>AI выбирает и копирует самые важные предложения из текста.</p>
+      <h4>📄 提取式（Extractive）</h4>
+      <p>AI选择并复制文本中最重要的句子。</p>
       <div class="example">
-        <div class="example-label">Пример</div>
-        <pre>Текст: "Компания объявляет о запуске нового продукта. 
-Продукт доступен с 1 марта. Цена составляет 5000 рублей. 
-Доставка бесплатная при заказе от 10 000 рублей."
+        <div class="example-label">示例</div>
+        <pre>原文："公司宣布推出新产品。产品3月1日上市。价格为5000元。订单满1万元免运费。"
 
-Суммаризация: 
-- Запуск нового продукта
-- Доступен с 1 марта
-- Цена: 5000 ₽
-- Бесплатная доставка от 10 000 ₽</pre>
+摘要：
+- 推出新产品
+- 3月1日上市
+- 价格：5000元
+- 满1万元免运费</pre>
       </div>
     </div>
 
     <div class="type-card">
-      <h4>🔄 Abstractive (Пересказ)</h4>
-      <p>AI переписывает текст своими словами, сжимая и обобщая.</p>
+      <h4>🔄 生成式（Abstractive）</h4>
+      <p>AI用自己的话重写文本，压缩和概括。</p>
       <div class="example">
-        <div class="example-label">Пример</div>
-        <pre>Текст: [тот же]
+        <div class="example-label">示例</div>
+        <pre>原文：[同上]
 
-Суммаризация:
-"С 1 марта компания запускает продукт за 5000 ₽ 
-с бесплатной доставкой при заказе от 10 000 ₽."</pre>
+摘要：
+"公司将于3月1日推出5000元产品，订单满1万元享免运费。"</pre>
       </div>
     </div>
 
     <div class="type-card">
-      <h4>🎯 Tailored (Целевая)</h4>
-      <p>Суммаризация под конкретную задачу или аудиторию.</p>
+      <h4>🎯 定向式（Tailored）</h4>
+      <p>针对特定任务或受众的摘要。</p>
       <div class="example">
-        <div class="example-label">Пример</div>
-        <pre>Для руководителя: "Запуск продукта, цена 5000 ₽, с марта"
-Для маркетолога: "Цена 5000 ₽, акция на доставку от 10 000 ₽"
-Для логиста: "Доставка бесплатная от 10 000 ₽, объёмы предстоят уточнить"</pre>
+        <div class="example-label">示例</div>
+        <pre>给管理者："产品推出，价格5000元，3月上市"
+给营销："价格5000元，满1万元免运费活动"
+给物流："满1万元免运费，待确认发货量"</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий 1: Ежедневная сводка писем</h3>
+    <h3>场景1：每日邮件汇总</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — ассистент руководителя.
-Проанализируй 15 писем ниже и создай сводку.
+        <div class="example-label">提示词</div>
+        <pre>你是管理者助理。
+分析下方15封邮件并创建汇总。
 
-Формат:
-🔴 Срочно (требуют ответа сегодня):
-🟡 Важно (ответить до конца недели):
-🟢 Информация (для сведения):
+格式：
+🔴 紧急（需今天回复）：
+🟡 重要（本周内回复）：
+🟢 信息（仅供参考）：
 
-Для каждого письма: отправитель, суть, нужен ли ответ, дедлайн.</pre>
+每封邮件：发件人、要点、是否需要回复、截止日期。</pre>
       </div>
     </div>
 
-    <h3>Сценарий 2: Пересказ совещания</h3>
+    <h3>场景2：会议纪要</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — секретарь совета директоров.
-На основе стенограммы совещания создай протокол.
+        <div class="example-label">提示词</div>
+        <pre>你是董事会秘书。
+基于会议记录创建纪要。
 
-Формат:
-1. Участники (список)
-2. Решения (что решили):
-   - Решение | Ответственный | Срок
-3. Открытые вопросы (что не решили):
-   - Вопрос | Кто должен подготовить | Срок
-4. Следующие шаги (что делать дальше)</pre>
+格式：
+1. 参会人员（列表）
+2. 决议（决定了什么）：
+   - 决议 | 负责人 | 期限
+3. 未决问题（未决定的）：
+   - 问题 | 谁应准备 | 期限
+4. 后续步骤（下一步）</pre>
       </div>
     </div>
 
-    <h3>Сценарий 3: Аналитический отчёт</h3>
+    <h3>场景3：分析报告摘要</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт</div>
-        <pre>Ты — бизнес-аналитик.
-Проанализируй отчёт о продажах за квартал (50 страниц).
+        <div class="example-label">提示词</div>
+        <pre>你是商业分析师。
+分析季度销售报告（50页）。
 
-Создай executive summary для руководителя (1 страница):
-1. Ключевые цифры (выручка, прибыль, рост)
-2. Топ-3 достижения
-3. Топ-3 проблемы
-4. Рекомендации (3 пункта)
+为管理者创建执行摘要（1页）：
+1. 关键数字（收入、利润、增长）
+2. 前3成就
+3. 前3问题
+4. 建议（3点）
 
-Используй таблицы и буллиты. Без воды.</pre>
+使用表格和项目符号。无废话。</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система автоматической суммаризации документов.
+      <h3>任务模板</h3>
+      <pre>"需要自动文档摘要系统。
 
-Требования:
-1. Поддержка форматов: PDF, DOCX, TXT, email
-2. 3 режима суммаризации:
-   - Краткий (10% от объёма)
-   - Средний (25% от объёма)
-   - Подробный (50% от объёма)
-3. Целевая суммаризация под роли:
-   - Для руководителя (фокус на цифрах и решениях)
-   - Для исполнителя (фокус на задачах и сроках)
-   - Для юриста (фокус на рисках и обязательствах)
-4. Сохранение структуры (заголовки, списки)
-5. Экспорт в PDF / Word / email
+要求：
+1. 支持格式：PDF、DOCX、TXT、邮件
+2. 3种摘要模式：
+   - 简短（原文10%）
+   - 中等（原文25%）
+   - 详细（原文50%）
+3. 定向摘要按角色：
+   - 给管理者（聚焦数字和决策）
+   - 给执行者（聚焦任务和期限）
+   - 给法务（聚焦风险和责任）
+4. 保留结构（标题、列表）
+5. 导出为PDF / Word / 邮件
 
-Пример входного и выходного документа (прикрепить).
-Срок: [дата]"</pre>
+示例输入和输出文档（附件）。
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Суммаризация сохраняет ключевую информацию?</li>
-      <li>Нет искажений фактов? (проверьте цифры, даты, имена)</li>
-      <li>Длина соответствует запросу? (краткая/средняя/подробная)</li>
-      <li>Структура удобна для чтения? (заголовки, списки)</li>
-      <li>Для целевой суммаризации — фокус на правильных аспектах?</li>
-      <li>Можно экспортировать в нужный формат?</li>
+      <li>摘要保留关键信息？</li>
+      <li>无事实扭曲？（核对数字、日期、姓名）</li>
+      <li>长度符合要求？（短/中/长）</li>
+      <li>结构便于阅读？（标题、列表）</li>
+      <li>定向摘要聚焦正确方面？</li>
+      <li>可导出为所需格式？</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Какой тип суммаризации переписывает текст своими словами?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Выделительная</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Пересказ (Abstractive)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Целевая</div>
+      <p><strong>问题1：</strong> 哪种摘要类型用自己的话重写文本？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 提取式</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 生成式（Abstractive）</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 定向式</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Сколько времени экономит суммаризация?</p>
+      <p><strong>问题2：</strong> 摘要节省多少时间？</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) 10-15%</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) 60-80%</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) 20-30%</div>
@@ -254,32 +245,31 @@
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Что важно проверить в суммаризации?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Факты, цифры, даты</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только орфографию</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Ничего, AI не ошибается</div>
+      <p><strong>问题3：</strong> 摘要中需要检查什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 事实、数字、日期</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 仅拼写</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 无需检查，AI不会出错</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>Суммаризация</strong> — один из самых мощных инструментов AI для менеджера. 50 страниц → 1 страница выводов. Главное — <strong>всегда проверять факты</strong>: цифры, даты, имена. AI может сжать текст, но иногда искажает детали. Экономия: <strong>2-3 часа в день</strong> на чтении.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>摘要</strong>是AI为管理者最强大的工具之一。50页 → 1页结论。关键是<strong>始终检查事实</strong>：数字、日期、姓名。AI可以压缩文本，但有时会扭曲细节。节省：<strong>每天2-3小时</strong>阅读时间。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../02-long-docs/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../../catalog.html" class="nav-btn primary">К каталогу →</a>
+    <a href="../02-long-docs/index.html" class="nav-btn">← 上一课</a>
+    <a href="../../catalog.html" class="nav-btn primary">前往目录 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -297,17 +287,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>

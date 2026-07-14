@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>2.1 RAG — AI для не ИТ-специалистов</title>
+<title>2.1 RAG — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -64,225 +64,217 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">📄 УРОВЕНЬ 2 · ДАННЫЕ И ДОКУМЕНТЫ</div>
-    <h1>2.1 · RAG простыми словами: как AI ищет в ваших документах</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">📄 级别 2 · 数据与文档</div>
+    <h1>2.1 · RAG简单解释：AI如何在你的文档中搜索</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Стандартный ChatGPT <strong>не знает</strong> о ваших внутренних документах: договорах, регламентах, прайс-листах, протоколах. Он отвечает на основе общих знаний.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>标准ChatGPT<strong>不知道</strong>你的内部文档：合同、规章、价目表、会议纪要。它基于通用知识回答。</p>
     <div class="card card-success">
-      <p><strong>RAG (Retrieval-Augmented Generation)</strong> — технология, которая позволяет AI искать ответы <strong>в ваших документах</strong>, а не в общем интернете.</p>
-      <p><strong>Пример:</strong> Сотрудник спрашивает "Какой срок оплаты у поставщика X?" — AI ищет в договорах компании и даёт точный ответ со ссылкой на документ.</p>
+      <p><strong>RAG（检索增强生成）</strong> — 允许AI在<strong>你的文档中</strong>搜索答案，而非在互联网上。</p>
+      <p><strong>示例：</strong> 员工问"供应商X的付款期限是多少？" — AI在公司合同中搜索并给出准确答案，附带文档引用。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Как работает RAG: 4 шага</h3>
+    <h3>RAG工作原理：4个步骤</h3>
     
     <div class="rag-step">
       <div class="num">1</div>
       <div>
-        <strong>Загрузка документов</strong>
-        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">Вы загружаете PDF, DOCX, TXT в систему. AI читает и запоминает содержимое.</p>
+        <strong>上传文档</strong>
+        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">你将PDF、DOCX、TXT上传到系统。AI读取并记住内容。</p>
       </div>
     </div>
     
     <div class="rag-step">
       <div class="num">2</div>
       <div>
-        <strong>Индексация</strong>
-        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">AI разбивает документы на куски и создаёт "карту" — как библиотечный каталог.</p>
+        <strong>索引</strong>
+        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">AI将文档拆分成片段并创建"地图" — 就像图书馆目录。</p>
       </div>
     </div>
     
     <div class="rag-step">
       <div class="num">3</div>
       <div>
-        <strong>Поиск</strong>
-        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">Когда вы задаёте вопрос, AI ищет релевантные куски в ваших документах.</p>
+        <strong>搜索</strong>
+        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">当你提问时，AI在你的文档中搜索相关片段。</p>
       </div>
     </div>
     
     <div class="rag-step">
       <div class="num">4</div>
       <div>
-        <strong>Генерация ответа</strong>
-        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">AI составляет ответ на основе найденных фрагментов + своих знаний.</p>
+        <strong>生成答案</strong>
+        <p style="color: var(--muted); margin: 4px 0 0; font-size: 0.9rem;">AI基于找到的片段 + 自身知识生成答案。</p>
       </div>
     </div>
 
-    <h3>Аналогия для понимания</h3>
+    <h3>理解类比</h3>
     <div class="card card-accent">
-      <p><strong>Без RAG:</strong> Вы спрашиваете совет у человека, который читал много книг, но ничего не знает о вашей компании.</p>
-      <p><strong>С RAG:</strong> Вы спрашиваете совет у секретаря, который имеет доступ ко всем документам компании и мгновенно находит нужную информацию.</p>
+      <p><strong>无RAG：</strong> 你向读过很多书但对你公司一无所知的人请教。</p>
+      <p><strong>有RAG：</strong> 你向能访问公司所有文档并瞬间找到所需信息的秘书请教。</p>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий 1: База знаний компании</h3>
+    <h3>场景1：企业知识库</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Сотрудники тратят время на поиск информации в разных документах.</p>
-      <p><strong>Решение:</strong> Загрузить все регламенты, договоры, инструкции в RAG-систему.</p>
+      <p><strong>任务：</strong> 员工在不同文档中搜索信息耗时。</p>
+      <p><strong>解决方案：</strong> 将所有规章、合同、指南上传到RAG系统。</p>
       <div class="example">
-        <div class="example-label">Пример вопроса сотрудника</div>
-        <pre>"Какой порог для согласования закупки без тендера?"</pre>
+        <div class="example-label">员工提问示例</div>
+        <pre>"无需招标即可批准的采购限额是多少？"</pre>
       </div>
       <div class="example">
-        <div class="example-label">Ответ AI с RAG</div>
-        <pre>Согласно Регламенту закупок (п. 4.2):
-Закупки до 100 000 ₽ — утверждает руководитель отдела.
-От 100 000 ₽ до 500 000 ₽ — требуется согласование директора.
-Свыше 500 000 ₽ — обязательный тендер.
+        <div class="example-label">带RAG的AI回答</div>
+        <pre>根据《采购规章》（第4.2条）：
+采购额 ≤ 10万元 — 部门负责人批准。
+10万-50万元 — 需总经理批准。
+> 50万元 — 必须招标。
 
-Источник: Регламент_закупок_2025.pdf, стр. 12</pre>
-      </div>
-    </div>
-
-    <h3>Сценарий 2: Работа с клиентами</h3>
-    <div class="card">
-      <p><strong>Задача:</strong> Менеджер не помнит детали договора с клиентом во время звонка.</p>
-      <p><strong>Решение:</strong> RAG с загруженными договорами клиентов.</p>
-      <div class="example">
-        <div class="example-label">Пример</div>
-        <pre>"Какие скидки у клиента ООО Ромашка?"</pre>
-        <pre>Ответ: Согласно договору №45 от 15.03.2025:
-- Скидка 10% при заказе от 100 000 ₽
-- Скидка 15% при заказе от 500 000 ₽
-- Отсрочка платежа 30 дней
-
-Источник: Договор_Ромашка_2025.pdf</pre>
+来源：采购规章_2025.pdf，第12页</pre>
       </div>
     </div>
 
-    <h3>Сценарий 3: Юридический анализ</h3>
+    <h3>场景2：客户服务</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Быстро найти прецеденты и условия в архиве договоров.</p>
+      <p><strong>任务：</strong> 经理在通话时记不住客户合同细节。</p>
+      <p><strong>解决方案：</strong> RAG系统加载客户合同。</p>
       <div class="example">
-        <div class="example-label">Пример</div>
-        <pre>"В каких договорах есть неустойка 1% за каждый день просрочки?"</pre>
-        <pre>Ответ: Найдено в 3 договорах:
-1. Договор №12 с ООО СтройМакс (ст. 8.3)
-2. Договор №28 с ИП Иванов (п. 5.2)
-3. Договор №31 с АО ТехноПром (приложение 2)
+        <div class="example-label">示例</div>
+        <pre>"客户ABC公司有哪些折扣？"</pre>
+        <pre>答案：根据第45号合同（2025.03.15）：
+- 订单≥10万元 — 折扣10%
+- 订单≥50万元 — 折扣15%
+- 账期30天
 
-Рекомендация: рассмотреть снижение неустойки в новых договорах.</pre>
+来源：合同_ABC_2025.pdf</pre>
+      </div>
+    </div>
+
+    <h3>场景3：法律分析</h3>
+    <div class="card">
+      <p><strong>任务：</strong> 在合同档案中快速查找先例和条款。</p>
+      <div class="example">
+        <div class="example-label">示例</div>
+        <pre>"哪些合同规定逾期每天违约金1%？"</pre>
+        <pre>答案：在3份合同中找到：
+1. 第12号合同与建设公司（第8.3条）
+2. 第28号合同与个体户张某（第5.2条）
+3. 第31号合同与科技公司（附件2）
+
+建议：在新合同中考虑降低违约金。</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система корпоративного поиска по документам (RAG).
+      <h3>任务模板</h3>
+      <pre>"需要企业文档搜索系统（RAG）。
 
-Требования:
-1. Загрузка документов: PDF, DOCX, TXT, XLSX
-2. Поиск по смыслу (не только по ключевым словам)
-3. Ответ с указанием источника (название документа, страница)
-4. Доступ по ролям (юрист видит договоры, бухгалтер — счета)
-5. Интеграция с корпоративным мессенджером (Telegram / Slack)
+要求：
+1. 文档上传：PDF、DOCX、TXT、XLSX
+2. 语义搜索（不仅关键词）
+3. 回答附带来源（文档名称、页码）
+4. 按角色访问（法务看合同，会计看账单）
+5. 集成企业通讯工具（微信/钉钉/Slack）
 
-Пример запроса: [привести пример]
-Ожидаемый ответ: [привести пример]
+示例查询：[提供示例]
+期望回答：[提供示例]
 
-Объём данных: [N] документов, [N] ГБ
-Пользователей: [N] человек
-Срок: [дата]"</pre>
+数据量：[N]文档，[N] GB
+用户数：[N]人
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>AI отвечает на основе загруженных документов, а не общих знаний?</li>
-      <li>В ответе указан источник (название документа, страница)?</li>
-      <li>Поиск работает по смыслу, не только по точным словам?</li>
-      <li>Результаты релевантны (первые 3 ответа полезны)?</li>
-      <li>Есть разграничение доступа по ролям?</li>
-      <li>Система масштабируется при росте документов?</li>
+      <li>AI基于上传文档回答，而非通用知识？</li>
+      <li>回答中注明来源（文档名称、页码）？</li>
+      <li>搜索按语义工作，不仅精确匹配？</li>
+      <li>结果相关（前3个答案有用）？</li>
+      <li>有按角色权限划分？</li>
+      <li>系统随文档增长可扩展？</li>
     </ul>
   </div>
 
-  <!-- ИНСТРУМЕНТЫ -->
   <div class="section">
-    <h2>🛠️ Инструменты</h2>
+    <h2>🛠️ 工具</h2>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Инструмент</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Для кого</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Стоимость</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT + загрузка файлов</td><td style="padding:10px;border-bottom:1px solid var(--border);">Индивидуальная работа</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/мес</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Projects</td><td style="padding:10px;border-bottom:1px solid var(--border);">Работа с проектами/документами</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/мес</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Microsoft Copilot</td><td style="padding:10px;border-bottom:1px solid var(--border);">Компании на Microsoft 365</td><td style="padding:10px;border-bottom:1px solid var(--border);">От $30/мес</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Glean</td><td style="padding:10px;border-bottom:1px solid var(--border);">Корпоративный поиск</td><td style="padding:10px;border-bottom:1px solid var(--border);">По запросу</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Custom RAG (разработка)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Специфические требования</td><td style="padding:10px;border-bottom:1px solid var(--border);">От $5000</td></tr>
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">工具</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">适用对象</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">成本</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ChatGPT + 文件上传</td><td style="padding:10px;border-bottom:1px solid var(--border);">个人工作</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/月</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Projects</td><td style="padding:10px;border-bottom:1px solid var(--border);">项目/文档工作</td><td style="padding:10px;border-bottom:1px solid var(--border);">$20/月</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Microsoft Copilot</td><td style="padding:10px;border-bottom:1px solid var(--border);">Microsoft 365企业</td><td style="padding:10px;border-bottom:1px solid var(--border);">起$30/月</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Glean</td><td style="padding:10px;border-bottom:1px solid var(--border);">企业搜索</td><td style="padding:10px;border-bottom:1px solid var(--border);">按需报价</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Custom RAG（开发）</td><td style="padding:10px;border-bottom:1px solid var(--border);">特殊需求</td><td style="padding:10px;border-bottom:1px solid var(--border);">起$5000</td></tr>
     </table>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Что делает RAG?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Ускоряет работу AI</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Позволяет AI искать ответы в ваших документах</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Снижает стоимость запросов</div>
+      <p><strong>问题1：</strong> RAG做什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 加速AI工作</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 让AI在你的文档中搜索答案</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 降低查询成本</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Почему в ответе должен быть указан источник?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы проверить, что AI не выдумал ответ</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы красиво выглядело</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</div>
+      <p><strong>问题2：</strong> 为什么回答中应注明来源？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 以验证AI没有编造答案</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 为了好看</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 这不是必需的</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Какой инструмент подходит для индивидуальной работы с документами?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) ChatGPT с загрузкой файлов</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Только custom разработка</div>
+      <p><strong>问题3：</strong> 哪个工具适合个人文档处理？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 带文件上传的ChatGPT</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 只有定制开发</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Excel</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>RAG = AI + ваши документы.</strong> Стандартный ChatGPT не знает о вашей компании. RAG позволяет ему отвечать на основе ваших договоров, регламентов, прайс-листов. Экономия: <strong>часы поиска информации → секунды</strong>.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>RAG = AI + 你的文档。</strong> 标准ChatGPT不了解你的公司。RAG让它基于你的合同、规章、价目表回答。节省：<strong>信息搜索时间从小时到秒</strong>。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../01-practice-task/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../02-vector-db/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../01-practice-task/index.html" class="nav-btn">← 上一课</a>
+    <a href="../02-vector-db/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -300,17 +292,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>2.3 Длинные документы — AI для не ИТ-специалистов</title>
+<title>2.3 长文档处理 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -63,170 +63,164 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">📄 УРОВЕНЬ 2 · ДАННЫЕ И ДОКУМЕНТЫ</div>
-    <h1>2.3 · Работа с длинными документами: ограничения и решения</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">📄 级别 2 · 数据与文档</div>
+    <h1>2.3 · 长文档处理：限制与解决方案</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Договоры, отчёты, тендерная документация — часто <strong>сотни страниц</strong>. AI имеет ограничение на объём текста, который может обработать за раз.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>合同、报告、招标文件 — 通常<strong>数百页</strong>。AI处理文本的容量有限制。</p>
     <div class="limit-box">
-      <p><strong>Проблема:</strong> Если документ слишком длинный, AI "забывает" начало, когда дочитывает до конца. Или просто отказывается обрабатывать.</p>
-      <p><strong>Решение:</strong> Разбивка на части, RAG, специальные модели с большим контекстом.</p>
+      <p><strong>问题：</strong> 如果文档太长，AI读到末尾时"忘记"开头。或者干脆拒绝处理。</p>
+      <p><strong>解决方案：</strong> 分块、RAG、具有大上下文的特殊模型。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Ограничения моделей (контекстное окно)</h3>
+    <h3>模型限制（上下文窗口）</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Модель</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Сколько страниц</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Примерно</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">GPT-4o-mini</td><td style="padding:10px;border-bottom:1px solid var(--border);">~50 страниц</td><td style="padding:10px;border-bottom:1px solid var(--border);">Один небольшой договор</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Sonnet</td><td style="padding:10px;border-bottom:1px solid var(--border);">~200 страниц</td><td style="padding:10px;border-bottom:1px solid var(--border);">Длинный договор + приложения</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Kimi (Moonshot)</td><td style="padding:10px;border-bottom:1px solid var(--border);">~1000+ страниц</td><td style="padding:10px;border-bottom:1px solid var(--border);">Книга, полный архив</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Gemini 1.5 Pro</td><td style="padding:10px;border-bottom:1px solid var(--border);">~1500+ страниц</td><td style="padding:10px;border-bottom:1px solid var(--border);">Несколько книг</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">模型</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">支持页数</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">大致说明</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">GPT-4o-mini</td><td style="padding:10px;border-bottom:1px solid var(--border);">~50页</td><td style="padding:10px;border-bottom:1px solid var(--border);">一个中等合同</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Claude Sonnet</td><td style="padding:10px;border-bottom:1px solid var(--border);">~200页</td><td style="padding:10px;border-bottom:1px solid var(--border);">长合同 + 附件</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Kimi（月之暗面）</td><td style="padding:10px;border-bottom:1px solid var(--border);">~1000+页</td><td style="padding:10px;border-bottom:1px solid var(--border);">书籍、完整档案</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Gemini 1.5 Pro</td><td style="padding:10px;border-bottom:1px solid var(--border);">~1500+页</td><td style="padding:10px;border-bottom:1px solid var(--border);">多本书籍</td></tr>
       </table>
-      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*Ориентировочные цифры. Зависят от плотности текста.</p>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*大致数字。取决于文本密度。</p>
     </div>
 
-    <h3>3 способа работы с длинными документами</h3>
+    <h3>处理长文档的3种方法</h3>
     
     <div class="card card-success">
-      <h4>Способ 1: Выбор модели с большим контекстом</h4>
-      <p>Простое решение: использовать Kimi или Gemini для длинных документов.</p>
+      <h4>方法1：选择大上下文模型</h4>
+      <p>简单方案：使用Kimi或Gemini处理长文档。</p>
       <div class="example">
-        <div class="example-label">💡 Когда использовать</div>
+        <div class="example-label">💡 何时使用</div>
         <ul>
-          <li>Документ < 500 страниц</li>
-          <li>Нужен быстрый анализ без настройки</li>
-          <li>Нет чувствительных данных (облачные сервисы)</li>
+          <li>文档 < 500页</li>
+          <li>需要快速分析无需配置</li>
+          <li>无敏感数据（云服务）</li>
         </ul>
       </div>
     </div>
 
     <div class="card card-success">
-      <h4>Способ 2: Разбивка на части (Chunking)</h4>
-      <p>Делим документ на логические части и анализируем по очереди.</p>
+      <h4>方法2：分块（Chunking）</h4>
+      <p>将文档分成逻辑部分，逐部分分析。</p>
       <div class="example">
-        <div class="example-label">💡 Пример разбивки договора</div>
-        <pre>Часть 1: Преамбула, предмет договора
-Часть 2: Права и обязанности сторон
-Часть 3: Цена и порядок расчётов
-Часть 4: Ответственность и неустойка
-Часть 5: Форс-мажор и порядок разрешения споров
-Часть 6: Заключительные положения</pre>
+        <div class="example-label">💡 合同分块示例</div>
+        <pre>第1部分：前言、合同标的
+第2部分：双方权利义务
+第3部分：价格与结算方式
+第4部分：责任与违约金
+第5部分：不可抗力与争议解决
+第6部分：最终条款</pre>
       </div>
-      <p style="color: var(--muted); font-size: 0.9rem;">Каждая часть анализируется отдельно, затем результаты объединяются.</p>
+      <p style="color: var(--muted); font-size: 0.9rem;">每部分单独分析，然后合并结果。</p>
     </div>
 
     <div class="card card-success">
-      <h4>Способ 3: RAG (Retrieval-Augmented Generation)</h4>
-      <p>Используем векторный поиск: AI находит релевантные фрагменты и анализирует только их.</p>
+      <h4>方法3：RAG（检索增强生成）</h4>
+      <p>使用向量搜索：AI找到相关片段并仅分析它们。</p>
       <div class="example">
-        <div class="example-label">💡 Когда использовать</div>
+        <div class="example-label">💡 何时使用</div>
         <ul>
-          <li>Архив из сотен документов</li>
-          <li>Нужен поиск по смыслу</li>
-          <li>Регулярная работа с документами</li>
+          <li>数百份文档的档案</li>
+          <li>需要语义搜索</li>
+          <li>定期处理文档</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий: Анализ тендерной документации (300 страниц)</h3>
+    <h3>场景：招标文件分析（300页）</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Проанализировать тендерную документацию на соответствие требованиям.</p>
+      <p><strong>任务：</strong> 分析招标文件是否符合要求。</p>
       <div class="example">
-        <div class="example-label">Алгоритм</div>
+        <div class="example-label">算法</div>
         <ol>
-          <li>Загрузить документ в Kimi или Gemini (поддерживают большие файлы)</li>
-          <li>Задать промпт: "Проанализируй тендерную документацию. Выдели ключевые требования к поставщику, критерии оценки, сроки. Выведи таблицей."</li>
-          <li>Если ответ обрезан — уточнить: "Продолжи анализ раздела [название]"</li>
+          <li>将文档上传到Kimi或Gemini（支持大文件）</li>
+          <li>设定提示词："分析招标文件。提取供应商关键要求、评分标准、期限。以表格输出。"</li>
+          <li>如果回答被截断 — 追问："继续分析[章节名称]"</li>
         </ol>
       </div>
     </div>
 
-    <h3>Сценарий: Анализ архива договоров (50 документов)</h3>
+    <h3>场景：合同档案分析（50份文档）</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Найти все договоры с неустойкой выше 1%.</p>
+      <p><strong>任务：</strong> 找出所有违约金高于1%的合同。</p>
       <div class="example">
-        <div class="example-label">Алгоритм</div>
+        <div class="example-label">算法</div>
         <ol>
-          <li>Загрузить все договоры в RAG-систему</li>
-          <li>Задать вопрос: "В каких договорах неустойка превышает 1% за день просрочки?"</li>
-          <li>Проверить ответы (AI укажет источники)</li>
+          <li>将所有合同上传到RAG系统</li>
+          <li>提问："哪些合同规定逾期每天违约金超过1%？"</li>
+          <li>核对答案（AI会注明来源）</li>
         </ol>
       </div>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужна система для работы с длинными документами.
+      <h3>任务模板</h3>
+      <pre>"需要长文档处理系统。
 
-Требования:
-1. Поддержка документов до [N] страниц
-2. Автоматическая разбивка на логические части
-3. Сохранение контекста между частями
-4. Возможность задавать вопросы по всему документу
-5. Указание источника (страница, раздел)
+要求：
+1. 支持文档多达[N]页
+2. 自动分成逻辑部分
+3. 部分间保持上下文
+4. 可对整份文档提问
+5. 注明来源（页码、章节）
 
-Типы документов: [договоры / тендеры / отчёты]
-Количество: [N] документов
-Средний размер: [N] страниц
+文档类型：[合同 / 招标 / 报告]
+数量：[N]份
+平均大小：[N]页
 
-Предпочтительное решение: [указать или оставить на разработчика]
-Срок: [дата]"</pre>
+首选方案：[指定或留给开发人员]
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>AI обрабатывает документ полностью, без обрезки?</li>
-      <li>Сохраняется контекст между разделами?</li>
-      <li>Указаны источники (страницы, разделы)?</li>
-      <li>Можно задать уточняющий вопрос по документу?</li>
-      <li>Время обработки приемлемо? (< 1 минуты на 100 страниц)</li>
-      <li>Работает с форматами PDF, DOCX, TXT?</li>
+      <li>AI完整处理文档，无截断？</li>
+      <li>章节间保持上下文？</li>
+      <li>注明来源（页码、章节）？</li>
+      <li>可对文档提出澄清问题？</li>
+      <li>处理时间可接受？（100页 < 1分钟）</li>
+      <li>支持PDF、DOCX、TXT格式？</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Почему AI "забывает" начало длинного документа?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) У модели есть ограничение на объём обрабатываемого текста</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI плохо читает</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Документ нужно перевести в другой формат</div>
+      <p><strong>问题1：</strong> 为什么AI会"忘记"长文档的开头？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 模型处理文本的容量有限</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI阅读能力差</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 需要转换为其他格式</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Какая модель поддерживает самые длинные документы?</p>
+      <p><strong>问题2：</strong> 哪个模型支持最长文档？</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) GPT-4</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) Gemini 1.5 Pro / Kimi</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Claude Haiku</div>
@@ -234,32 +228,31 @@
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Что такое "разбивка на части" (chunking)?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Деление документа на логические части для поэтапного анализа</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Удаление ненужных страниц</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Сжатие документа</div>
+      <p><strong>问题3：</strong> 什么是"分块"（chunking）？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 将文档分成逻辑部分以便逐步分析</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 删除不需要的页面</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 压缩文档</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p>Длинные документы — не проблема, если знать инструменты. <strong>Kimi и Gemini</strong> обрабатывают тысячи страниц. Для архивов — <strong>RAG</strong>. Для средних документов — <strong>разбивка на части</strong>. Главное: всегда проверяйте, что AI не пропустил важные разделы.</p>
+      <h3>🎯 课程要点</h3>
+      <p>长文档不是问题，只要知道工具。<strong>Kimi和Gemini</strong>处理数千页。档案用<strong>RAG</strong>。中等文档用<strong>分块</strong>。关键是：始终检查AI没有遗漏重要章节。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../02-vector-db/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../02-summarization/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../02-vector-db/index.html" class="nav-btn">← 上一课</a>
+    <a href="../02-summarization/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -277,17 +270,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>

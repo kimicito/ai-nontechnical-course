@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>2.2 Векторные базы — AI для не ИТ-специалистов</title>
+<title>2.2 向量数据库 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -65,187 +65,180 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">📄 УРОВЕНЬ 2 · ДАННЫЕ И ДОКУМЕНТЫ</div>
-    <h1>2.2 · Векторные базы данных: как AI "понимает" смысл</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">📄 级别 2 · 数据与文档</div>
+    <h1>2.2 · 向量数据库：AI如何"理解"语义</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Обычный поиск ищет <strong>точные слова</strong>. Если вы ищете "неустойка", а в договоре написано "штраф за просрочку" — обычный поиск не найдёт.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>普通搜索查找<strong>精确词汇</strong>。如果你搜索"违约金"，而合同写的是"逾期罚款" — 普通搜索找不到。</p>
     <div class="card card-success">
-      <p><strong>Векторный поиск</strong> ищет по <strong>смыслу</strong>. Он понимает, что "неустойка", "штраф", "пеня" — это про одно и то же.</p>
-      <p><strong>Пример:</strong> Сотрудник спрашивает "Как наказать поставщика за опоздание?" — векторный поиск найдёт раздел про неустойку, даже если в документе нет слов "наказать" или "опоздание".</p>
+      <p><strong>向量搜索</strong>按<strong>语义</strong>查找。它理解"违约金"、"罚款"、"滞纳金"是同一个意思。</p>
+      <p><strong>示例：</strong> 员工问"如何处罚逾期供应商？" — 向量搜索会找到关于"违约金"的章节，即使文档中没有"处罚"或"逾期"这个词。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Обычный поиск vs Векторный поиск</h3>
+    <h3>普通搜索 vs 向量搜索</h3>
     <div class="compare-box">
       <div class="compare-item">
-        <h4 style="color: var(--danger); margin: 0 0 10px;">❌ Обычный поиск</h4>
+        <h4 style="color: var(--danger); margin: 0 0 10px;">❌ 普通搜索</h4>
         <ul style="font-size: 0.9rem; color: var(--muted);">
-          <li>Ищет точные слова</li>
-          <li>"Неустойка" ≠ "штраф"</li>
-          <li>Пропускает синонимы</li>
-          <li>Не понимает контекст</li>
-          <li>Требует точных формулировок</li>
+          <li>查找精确词汇</li>
+          <li>"违约金" ≠ "罚款"</li>
+          <li>遗漏同义词</li>
+          <li>不理解上下文</li>
+          <li>需要精确措辞</li>
         </ul>
       </div>
       <div class="compare-item">
-        <h4 style="color: var(--success); margin: 0 0 10px;">✅ Векторный поиск</h4>
+        <h4 style="color: var(--success); margin: 0 0 10px;">✅ 向量搜索</h4>
         <ul style="font-size: 0.9rem; color: var(--muted);">
-          <li>Ищет по смыслу</li>
-          <li>"Неустойка" = "штраф" = "пеня"</li>
-          <li>Находит синонимы</li>
-          <li>Понимает контекст</li>
-          <li>Работает с естественным языком</li>
+          <li>按语义查找</li>
+          <li>"违约金" = "罚款" = "滞纳金"</li>
+          <li>找到同义词</li>
+          <li>理解上下文</li>
+          <li>支持自然语言</li>
         </ul>
       </div>
     </div>
 
-    <h3>Как это работает (без математики)</h3>
+    <h3>工作原理（无数学）</h3>
     <div class="card card-accent">
-      <p><strong>Аналогия:</strong> Представьте, что каждое слово — это точка в пространстве.</p>
+      <p><strong>类比：</strong> 想象每个词都是空间中的一个点。</p>
       <ul>
-        <li>"Король" и "королева" — близкие точки (родственники)</li>
-        <li>"Король" и "автомобиль" — далёкие точки (нет связи)</li>
-        <li>"Неустойка" и "штраф" — близкие точки (синонимы)</li>
+        <li>"国王"和"女王" — 接近的点（亲属）</li>
+        <li>"国王"和"汽车" — 遥远的点（无关联）</li>
+        <li>"违约金"和"罚款" — 接近的点（同义词）</li>
       </ul>
-      <p>AI превращает ваш вопрос в точку и ищет ближайшие к ней фрагменты документов.</p>
+      <p>AI将你的问题转化为点，并在文档片段中寻找最近的点。</p>
     </div>
 
-    <h3>Пример из жизни</h3>
+    <h3>生活示例</h3>
     <div class="example">
-      <div class="example-label">💡 Пример вопроса</div>
-      <pre>"Что делать, если поставщик опаздывает?"</pre>
+      <div class="example-label">💡 问题示例</div>
+      <pre>"如果供应商迟到怎么办？"</pre>
     </div>
     <div class="card">
-      <p><strong>Обычный поиск:</strong> Не найдёт ничего (в договоре нет слов "опаздывает")</p>
-      <p><strong>Векторный поиск:</strong> Найдёт разделы про "неустойка", "просрочка поставки", "штрафные санкции"</p>
+      <p><strong>普通搜索：</strong> 找不到任何内容（合同中没有"迟到"这个词）</p>
+      <p><strong>向量搜索：</strong> 找到关于"违约金"、"交货逾期"、"罚款条款"的章节</p>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Где используется в бизнесе</h3>
+    <h3>商业应用场景</h3>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Сценарий</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Как работает</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Поиск по договорам</td><td style="padding:10px;border-bottom:1px solid var(--border);">Находит релевантные положения даже при другой формулировке</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Поддержка клиентов</td><td style="padding:10px;border-bottom:1px solid var(--border);">Понимает вопросы, сформулированные по-разному</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">База знаний</td><td style="padding:10px;border-bottom:1px solid var(--border);">Сотрудник находит ответ, не зная точной терминологии</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Анализ тендеров</td><td style="padding:10px;border-bottom:1px solid var(--border);">Группирует похожие требования из разных документов</td></tr>
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">场景</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">如何工作</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">合同搜索</td><td style="padding:10px;border-bottom:1px solid var(--border);">即使措辞不同也能找到相关条款</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">客户支持</td><td style="padding:10px;border-bottom:1px solid var(--border);">理解不同表述的问题</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">知识库</td><td style="padding:10px;border-bottom:1px solid var(--border);">员工无需知道精确术语即可找到答案</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">招标分析</td><td style="padding:10px;border-bottom:1px solid var(--border);">将不同文档中的相似需求分组</td></tr>
     </table>
 
-    <h3>Выбор векторной базы</h3>
+    <h3>选择向量数据库</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">База</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Для чего</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Сложность</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Pinecone</td><td style="padding:10px;border-bottom:1px solid var(--border);">Облачное решение, легко масштабировать</td><td style="padding:10px;border-bottom:1px solid var(--border);">Средняя</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Chroma</td><td style="padding:10px;border-bottom:1px solid var(--border);">Локальное решение, быстрое внедрение</td><td style="padding:10px;border-bottom:1px solid var(--border);">Низкая</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Weaviate</td><td style="padding:10px;border-bottom:1px solid var(--border);">Гибкие настройки, фильтрация</td><td style="padding:10px;border-bottom:1px solid var(--border);">Средняя</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Qdrant</td><td style="padding:10px;border-bottom:1px solid var(--border);">Высокая производительность</td><td style="padding:10px;border-bottom:1px solid var(--border);">Средняя</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">数据库</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">用途</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">复杂度</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Pinecone</td><td style="padding:10px;border-bottom:1px solid var(--border);">云端方案，易于扩展</td><td style="padding:10px;border-bottom:1px solid var(--border);">中等</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Chroma</td><td style="padding:10px;border-bottom:1px solid var(--border);">本地方案，快速部署</td><td style="padding:10px;border-bottom:1px solid var(--border);">低</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Weaviate</td><td style="padding:10px;border-bottom:1px solid var(--border);">灵活配置，过滤功能</td><td style="padding:10px;border-bottom:1px solid var(--border);">中等</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Qdrant</td><td style="padding:10px;border-bottom:1px solid var(--border);">高性能</td><td style="padding:10px;border-bottom:1px solid var(--border);">中等</td></tr>
       </table>
-      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*Выбор базы — задача разработчика. Менеджеру достаточно понимать, зачем она нужна.</p>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*选择数据库是开发人员的任务。管理者只需理解为什么需要它。</p>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен корпоративный поиск по документам с векторной базой.
+      <h3>任务模板</h3>
+      <pre>"需要带向量数据库的企业文档搜索系统。
 
-Требования:
-1. Поиск по смыслу (не только точные совпадения)
-2. Поддержка русского и английского языков
-3. Масштабируемость: от 1000 до 100 000 документов
-4. Интеграция с [существующей системой]
-5. Время ответа < 2 секунд
+要求：
+1. 语义搜索（不仅精确匹配）
+2. 支持中英文
+3. 可扩展性：从1000到100000文档
+4. 与[现有系统]集成
+5. 响应时间 < 2秒
 
-Пример запроса: [привести]
-Ожидаемый результат: [привести]
+示例查询：[提供]
+预期结果：[提供]
 
-Предпочтительная база: [Pinecone/Chroma/Weaviate — или оставить выбор разработчику]
-Срок: [дата]"</pre>
+首选数据库：[Pinecone/Chroma/Weaviate — 或留给开发人员选择]
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Поиск находит синонимы? ("неустойка" = "штраф")</li>
-      <li>Поиск понимает контекст? (вопросы разными словами дают одинаковые результаты)</li>
-      <li>Время ответа приемлемо? (< 3 секунд)</li>
-      <li>Результаты релевантны? (первые 3 ответа полезны)</li>
-      <li>Система масштабируется при росте документов?</li>
-      <li>Есть возможность фильтрации по дате/типу документа?</li>
+      <li>搜索能找到同义词？（"违约金" = "罚款"）</li>
+      <li>搜索理解上下文？（不同措辞的问题给出相同结果）</li>
+      <li>响应时间可接受？（< 3秒）</li>
+      <li>结果相关？（前3个答案有用）</li>
+      <li>系统随文档增长可扩展？</li>
+      <li>可按日期/文档类型过滤？</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Чем векторный поиск отличается от обычного?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Он быстрее</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Он ищет по смыслу, а не по точным словам</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Он дешевле</div>
+      <p><strong>问题1：</strong> 向量搜索与普通搜索有何不同？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 更快</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 按语义搜索，而非精确词汇</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 更便宜</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Пример синонимов, которые векторный поиск свяжет:</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) "Неустойка" и "штраф"</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) "Король" и "автомобиль"</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) "Договор" и "печенье"</div>
+      <p><strong>问题2：</strong> 向量搜索会将哪些同义词关联？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) "违约金"和"罚款"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) "国王"和"汽车"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) "合同"和"饼干"</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Кто выбирает конкретную векторную базу?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Менеджер</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Разработчик</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Директор</div>
+      <p><strong>问题3：</strong> 谁选择具体的向量数据库？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 管理者</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 开发人员</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 总监</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>Векторный поиск</strong> позволяет AI понимать смысл, а не искать точные слова. Это критично для работы с документами: сотрудники задают вопросы своими словами, а AI находит правильные ответы. Менеджеру не нужно выбирать базу — это задача разработчика. Нужно понимать <strong>зачем</strong> это нужно и <strong>как проверить результат</strong>.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>向量搜索</strong>让AI理解语义，而非查找精确词汇。这对文档处理至关重要：员工用自己的话提问，AI找到正确答案。管理者不需要选择数据库 — 这是开发人员的任务。需要理解的是<strong>为什么</strong>需要它以及<strong>如何检查结果</strong>。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../02-rag-explained/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../02-long-docs/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../02-rag-explained/index.html" class="nav-btn">← 上一课</a>
+    <a href="../02-long-docs/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -263,17 +256,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>
