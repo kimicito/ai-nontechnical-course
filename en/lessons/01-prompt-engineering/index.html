@@ -94,7 +94,7 @@
   <div class="section">
     <h2>📚 What we are studying</h2>
     
-    <h3>Formula for a good prompt: RCOF</h3>
+    <h3>Formula for a good prompt: RCOFE</h3>
     <div class="card card-accent">
       <table>
         <tr><th>Letter</th><th>Meaning</th><th>Question</th></tr>
@@ -102,6 +102,7 @@
         <tr><td><strong>C</strong></td><td>Context</td><td>What's happening? </td></tr>
         <tr><td><strong>O</strong></td><td>Objective</td><td>What to get? </td></tr>
         <tr><td><strong>F</strong></td><td>Format</td><td>In what form? </td></tr>
+        <tr><td><strong>E</strong></td><td>Eval (Self-Check)</td><td>Verify the result: "Check that all columns are filled, no illogical cost differences"</td></tr>
       </table>
     </div>
 
@@ -154,6 +155,18 @@
         <tr><td>Email</td><td>Ready letter</td><td>"Write a letter to the supplier in a business style"</td></tr>
       </table>
     </div>
+    <h3>Step 4: Add self-check (Eval)</h3>
+    <div class="card">
+      <p>Eval is a request for AI to check its answer before outputting. This reduces errors and hallucinations by 30-50%.</p>
+      <div class="example">
+        <div class="example-label">💡 Examples of Eval</div>
+        <pre>Check that all columns in the table are filled.
+Check that there are no illogical cost differences.
+Check that all numbers add up correctly.
+If any item is not specified in the document — write "Not specified".</pre>
+      </div>
+      <p><strong>Why do it:</strong> AI sometimes "hallucinates" missing data or skips a row in a table. Eval forces it to double-check — like asking a colleague to "check again".</p>
+    </div>
   </div>
 
   <!-- HOW TO DELEGATE -->
@@ -171,7 +184,7 @@
   <div class="section">
     <h2>✅ Checklist for accepting the result</h2>
     <ul class="checklist">
-      <li>Does the prompt contain all 4 RCOF elements?</li>
+      <li>Does the prompt contain all 5 RCOFE elements?</li>
       <li>Is the role appropriate for the task? </li>
       <li>Is the context specific enough? </li>
       <li>Is the goal clear? </li>
@@ -229,7 +242,7 @@
   <div class="section">
     <div class="card card-success">
       <h3>🎯 The main thing from the lesson</h3>
-      <p>Prompt is <strong>TK for AI</strong>. <strong>RCOF</strong>: Role, Context, Purpose, Format. <strong>2-3 hours a day</strong>.</p>
+      <p>Prompt is <strong>TK for AI</strong>. Use the <strong>RCOFE</strong> formula: Role, Context, Purpose, Format, Eval. The more specific the prompt — the better the result. A bad prompt wastes your time on clarification. A good prompt saves <strong>2-3 hours a day</strong>.</p>
     </div>
   </div>
 

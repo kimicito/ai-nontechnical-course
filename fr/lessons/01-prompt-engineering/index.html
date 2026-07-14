@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.1 Ingénierie rapide – IA pour les non-spécialistes en informatique</title>
+<title>1.1 Ingénierie rapide - IA pour les non-spécialistes en informatique</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -82,10 +82,10 @@
   <!-- POURQUOI C'EST IMPORTANT -->
   <div class="section">
     <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
-    <p><span class="highlight">80 % du résultat de l’IA ne dépend pas du modèle, mais de la manière dont vous l’avez posé.</span></p>
+    <p><span class="highlight">80 % du résultat de l'IA ne dépend pas du modèle, mais de la manière dont vous l'avez posé.</span></p>
     <p>Le manager dépense en moyenne<strong>2-3 heures par jour</strong>pour : rédiger des lettres, analyser des documents, comparer des propositions, préparer des rapports. Une bonne invite réduit ce temps de 3 à 5 fois.</p>
     <div class="card card-success">
-      <p><strong>Exemple de sauvegarde :</strong></p>
+      <p><strong>Exemple de sauvegarde :</strong></p>
       <p>La comparaison de 3 devis de fournisseurs prend 2 heures manuellement. Avec une bonne invite - 15 minutes. Économie:<strong>1 heure 45 minutes × 10 fois par mois = 17,5 heures</strong>.</p>
     </div>
   </div>
@@ -93,8 +93,8 @@
   <!-- CE QUE NOUS ÉTUDIONS -->
   <div class="section">
     <h2>📚 Ce que nous étudions</h2>
-    
-    <h3>Formule pour une bonne invite : RCOF</h3>
+
+    <h3>Formule pour une bonne invite : RCOFE</h3>
     <div class="card card-accent">
       <table>
         <tr><th>Lettre</th><th>Signification</th><th>Question</th></tr>
@@ -102,16 +102,17 @@
         <tr><td><strong>C</strong></td><td>Contexte</td><td>Ce qui se passe? "Choisir l'emballage des cookies"</td></tr>
         <tr><td><strong>O</strong></td><td>Objectif</td><td>Que faut-il obtenir ? "Comparez 3 phrases"</td></tr>
         <tr><td><strong>F</strong></td><td>Format</td><td>Sous quelle forme ? "Tableau : Critères | Fournisseur 1 | Fournisseur 2"</td></tr>
+        <tr><td><strong>E</strong></td><td>Eval (Auto-vérification)</td><td>Vérifiez le résultat : "Vérifiez que toutes les colonnes sont remplies, pas de différences illogiques"</td></tr>
       </table>
     </div>
 
-    <h3>Comparaison : mauvaise ou bonne invite</h3>
+    <h3>Comparaison : mauvaise ou bonne invite</h3>
     <div class="bad-prompt">
       <div class="bad-prompt-label">❌ Mauvaise invite</div>
       <pre>"Analysez les propositions et dites-moi laquelle est la meilleure"</pre>
       <p style="color: var(--muted); font-size: 0.85rem; margin-top: 8px;">Résultat : une réponse générale sans précisions, il faudra redemander 3 fois</p>
     </div>
-    
+
     <div class="example">
       <div class="example-label">✅ Bonne invite (RCOF)</div>
       <pre>Vous êtes un acheteur FMCG expérimenté avec 10 ans d'expérience.
@@ -120,7 +121,7 @@ Reçu 3 offres en pièces jointes.
 
 Tâche : comparer les offres selon des critères et recommander la meilleure.
 
-Critères :
+Critères :
 1. Prix unitaire (frais de port compris)
 2. Commande minimale
 3. Délai de production
@@ -136,37 +137,49 @@ Limitation : si la période est > 14 jours, marquez-la comme un risque.</pre>
   <!-- COMMENT APPLIQUER -->
   <div class="section">
     <h2>🛠️ Comment postuler</h2>
-    
-    <h3>Étape 1 : Définir le rôle</h3>
+
+    <h3>Étape 1 : Définir le rôle</h3>
     <div class="card">
-      <p>L’IA réagit mieux lorsqu’elle sait qui elle « fait semblant d’être ». The role sets the expertise and tone.</p>
+      <p>L'IA réagit mieux lorsqu'elle sait qui elle « fait semblant d'être ». The role sets the expertise and tone.</p>
       <ul>
-        <li><strong>"Tu es avocat"</strong>— analyse juridique, formulation soignée</li>
-        <li><strong>"Vous êtes un spécialiste du marketing"</strong>— création, métriques, CTA</li>
-        <li><strong>"Vous êtes analyste financier"</strong>— chiffres, retour sur investissement, risques</li>
+        <li><strong>"Tu es avocat"</strong>- analyse juridique, formulation soignée</li>
+        <li><strong>"Vous êtes un spécialiste du marketing"</strong>- création, métriques, CTA</li>
+        <li><strong>"Vous êtes analyste financier"</strong>- chiffres, retour sur investissement, risques</li>
       </ul>
     </div>
 
-    <h3>Étape 2 : Donnez le contexte</h3>
+    <h3>Étape 2 : Donnez le contexte</h3>
     <div class="card">
-      <p>Sans contexte, l’IA donne une réponse générale. Avec contexte - spécifique.</p>
+      <p>Sans contexte, l'IA donne une réponse générale. Avec contexte - spécifique.</p>
       <div class="example">
         <div class="example-label">💡 Exemple</div>
-        <p><strong>Sans contexte :</strong>« Comment réduire les coûts ? → conseils généraux</p>
-        <p><strong>Avec contexte :</strong>"Nous sommes un fabricant de biscuits, 50 salariés, la logistique représente 30% du budget. Comment réduire les coûts ?" → étapes spécifiques</p>
+        <p><strong>Sans contexte :</strong>« Comment réduire les coûts ? → conseils généraux</p>
+        <p><strong>Avec contexte :</strong>"Nous sommes un fabricant de biscuits, 50 salariés, la logistique représente 30% du budget. Comment réduire les coûts ?" → étapes spécifiques</p>
       </div>
     </div>
 
-    <h3>Étape 3 : Spécifiez le format</h3>
+    <h3>Étape 3 : Spécifiez le format</h3>
     <div class="card">
       <p>Le format permet de gagner du temps lors du reformatage.</p>
       <table>
         <tr><th>Format</th><th>Quand utiliser</th><th>Exemple de demande</th></tr>
-        <tr><td>Tableau</td><td>Comparaison, analyse</td><td>"Résultat dans le tableau : Critère | Option 1 | Option 2"</td></tr>
+        <tr><td>Tableau</td><td>Comparaison, analyse</td><td>"Résultat dans le tableau : Critère | Option 1 | Option 2"</td></tr>
         <tr><td>Liste</td><td>Planifier étape par étape</td><td>"Donnez 5 étapes sous forme de liste numérotée"</td></tr>
         <tr><td>JSON</td><td>Pour les programmeurs/automatisation</td><td>"Renvoyer le résultat en JSON avec des champs..."</td></tr>
         <tr><td>Email</td><td>Lettre prête</td><td>"Écrivez une lettre au fournisseur dans un style commercial"</td></tr>
       </table>
+    </div>
+    <h3>Étape 4 : Ajoutez l'auto-vérification (Eval)</h3>
+    <div class="card">
+      <p>Eval — c'est une demande à l'IA de vérifier sa réponse avant de la sortir. Cela réduit les erreurs et les hallucinations de 30 à 50 %.</p>
+      <div class="example">
+        <div class="example-label">💡 Exemples d'Eval</div>
+        <pre>Vérifiez que toutes les colonnes du tableau sont remplies.
+Vérifiez qu'il n'y a pas de différences de coût illogiques.
+Vérifiez que tous les chiffres s'additionnent correctement.
+Si un élément n'est pas spécifié dans le document — écrivez « Non spécifié ».</pre>
+      </div>
+      <p><strong>Pourquoi le faire :</strong> L'IA "invente" parfois des données manquantes ou saute une ligne dans un tableau. Eval l'oblige à revérifier — comme si vous demandiez à un collègue de "revérifier".</p>
     </div>
   </div>
 
@@ -177,18 +190,18 @@ Limitation : si la période est > 14 jours, marquez-la comme un risque.</pre>
       <h3>Modèle de tâche pour le développeur</h3>
       <pre>"Nous devons créer une bibliothèque d'invites pour le département [NOM].
 
-Exigences :
-1. Modèles pour les tâches typiques : [liste]
-2. Système de validation : contrôle d'exhaustivité du RCOF
+Exigences :
+1. Modèles pour les tâches typiques : [liste]
+2. Système de validation : contrôle d'exhaustivité du RCOF
 3. Stockage dans [Notion/Confluence/SharePoint]
 4. Versioning : historique des modifications
-5. Accès : [qui peut modifier]
+5. Accès : [qui peut modifier]
 
-Exemple d'invite (joindre) :
+Exemple d'invite (joindre) :
 [insérer une bonne invite]
 
-Date limite : [date]
-Responsable : [nom]"</pre>
+Date limite : [date]
+Responsable : [nom]"</pre>
     </div>
   </div>
 
@@ -196,13 +209,13 @@ Responsable : [nom]"</pre>
   <div class="section">
     <h2>✅ Checklist d'acceptation</h2>
     <ul class="checklist">
-      <li>L'invite contient-elle les 4 éléments RCOF ?</li>
-      <li>Le rôle est-il approprié à la tâche ? (pas « vous êtes une IA », mais « vous êtes un analyste »)</li>
+      <li>L'invite contient-elle les 5 éléments RCOFE ?</li>
+      <li>Le rôle est-il approprié à la tâche ? (pas « vous êtes une IA », mais « vous êtes un analyste »)</li>
       <li>Le contexte est-il suffisamment précis ? (il y a des chiffres, des délais, des restrictions)</li>
       <li>L'objectif est-il clair ? (une tâche, pas 5 à la fois)</li>
-      <li>Le format est-il pratique pour la copie vers Excel/Word/CRM ?</li>
+      <li>Le format est-il pratique pour la copie vers Excel/Word/CRM ?</li>
       <li>Y a-t-il des restrictions ? (ce qu'il faut exclure, limites, cas extrêmes)</li>
-      <li>L'avez-vous vérifié avec 3 exemples réels ? Est-ce stable ?</li>
+      <li>L'avez-vous vérifié avec 3 exemples réels ? Est-ce stable ?</li>
     </ul>
   </div>
 
@@ -223,7 +236,7 @@ Responsable : [nom]"</pre>
   <!-- QUIZ -->
   <div class="section">
     <h2>📝 Vérification des connaissances</h2>
-    
+
     <div class="card card-accent">
       <p><strong>Question 1 :</strong>Que signifie la lettre R dans la formule RCOF ?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) Demande</div>
@@ -234,10 +247,10 @@ Responsable : [nom]"</pre>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2 :</strong>Quelle invite est la meilleure pour comparer les fournisseurs ?</p>
+      <p><strong>Question 2 :</strong>Quelle invite est la meilleure pour comparer les fournisseurs ?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) "Comparez les fournisseurs et dites-moi qui est le meilleur"</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) "Vous êtes acheteur. Comparez 3 propositions sur le prix, les conditions, le minimum de commande. Affichez-les dans un tableau. Recommandez la meilleure avec justification."</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) « Quel fournisseur est le meilleur ? »</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) « Quel fournisseur est le meilleur ? »</div>
       <div class="result" id="result2"></div>
     </div>
 
@@ -254,7 +267,7 @@ Responsable : [nom]"</pre>
   <div class="section">
     <div class="card card-success">
       <h3>🎯 L'essentiel de la leçon</h3>
-      <p>L'invite est<strong>Savoirs traditionnels pour l'IA</strong>. Utilisez la formule<strong>RCOF</strong>: Rôle, Contexte, Objectif, Format. Plus l’invite est précise, meilleur est le résultat. Une mauvaise invite vous fait perdre du temps en clarification. Une bonne invite permet d'économiser de l'argent<strong>2-3 heures par jour</strong>.</p>
+      <p>L'invite est<strong>Savoirs traditionnels pour l'IA</strong>. Utilisez la formule<strong>RCOFE</strong> : Rôle, Contexte, Objectif, Format, Eval. Plus l'invite est précise, meilleur est le résultat. Une mauvaise invite vous fait perdre du temps en clarification. Une bonne invite permet d'économiser de l'argent<strong>2-3 heures par jour</strong>.</p>
     </div>
   </div>
 

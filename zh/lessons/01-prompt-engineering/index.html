@@ -92,7 +92,7 @@
   <div class="section">
     <h2>📚 学习内容</h2>
     
-    <h3>好提示词公式：RCOF</h3>
+    <h3>好提示词公式：RCOFE</h3>
     <div class="card card-accent">
       <table>
         <tr><th>字母</th><th>含义</th><th>问题</th></tr>
@@ -100,6 +100,7 @@
         <tr><td><strong>C</strong></td><td>Context (上下文)</td><td>发生了什么？「我们在为饼干选择包装」</td></tr>
         <tr><td><strong>O</strong></td><td>Objective (目标)</td><td>要得到什么？「对比3个报价」</td></tr>
         <tr><td><strong>F</strong></td><td>Format (格式)</td><td>以什么形式？「表格：标准 | 供应商1 | 供应商2」</td></tr>
+        <tr><td><strong>E</strong></td><td>Eval (评估 / 自检)</td><td>检查结果：「检查所有列是否已填写，成本差异是否合理」</td></tr>
       </table>
     </div>
 
@@ -111,7 +112,7 @@
     </div>
     
     <div class="example">
-      <div class="example-label">✅ 好提示词 (RCOF)</div>
+      <div class="example-label">✅ 好提示词 (RCOFE)</div>
       <pre>你是一位有10年经验的FMCG采购员。
 我们正在为饼干选择纸板包装供应商。
 收到了3个报价（见附件）。
@@ -168,6 +169,21 @@
   </div>
 
   <div class="section">
+    <h3>步骤4：添加自检（Eval）</h3>
+    <div class="card">
+      <p>Eval是要求AI在输出前检查自己的回答。这可将错误和幻觉减少30-50%。</p>
+      <div class="example">
+        <div class="example-label">💡 Eval示例</div>
+        <pre>检查表格的所有列是否已填写。
+检查是否存在不合理的成本差异。
+检查所有数字是否正确求和。
+如果文档中未指定某项内容 — 请写「未指定」。</pre>
+      </div>
+      <p><strong>为什么要做：</strong> AI有时会「编造」缺失的数据或跳过表格中的某行。Eval迫使它重新检查 — 就像让同事「再核对一次」。</p>
+    </div>
+  </div>
+
+  <div class="section">
     <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
       <h3>给开发人员的任务模板</h3>
@@ -175,7 +191,7 @@
 
 要求：
 1. 典型任务模板：[列举]
-2. 验证系统：检查RCOF完整性
+2. 验证系统：检查RCOFE完整性
 3. 存储在 [Notion/Confluence/SharePoint]
 4. 版本控制：修改历史
 5. 访问权限：[谁可以编辑]
@@ -191,7 +207,7 @@
   <div class="section">
     <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>提示词包含RCOF全部4个要素？</li>
+      <li>提示词包含RCOFE全部5个要素？</li>
       <li>角色符合任务？（不是「你是AI」，而是「你是分析师」）</li>
       <li>上下文足够具体？（有数字、期限、限制）</li>
       <li>目标明确？（一个任务，不是5个同时）</li>
@@ -218,7 +234,7 @@
     <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>问题1：</strong> RCOF公式中字母R代表什么？</p>
+      <p><strong>问题1：</strong> RCOFE公式中字母R代表什么？</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) Request (请求)</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) Role (角色)</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Result (结果)</div>
@@ -246,7 +262,7 @@
   <div class="section">
     <div class="card card-success">
       <h3>🎯 课程要点</h3>
-      <p>提示词是<strong>AI的技术任务书</strong>。使用<strong>RCOF</strong>公式：角色、上下文、目标、格式。提示词越具体，结果越好。差提示词浪费您追问的时间。好提示词每天节省<strong>2-3小时</strong>。</p>
+      <p>提示词是<strong>AI的技术任务书</strong>。使用<strong>RCOFE</strong>公式：角色、上下文、目标、格式、Eval。提示词越具体，结果越好。差提示词浪费您追问的时间。好提示词每天节省<strong>2-3小时</strong>。</p>
     </div>
   </div>
 
