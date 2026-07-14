@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>0.1 Что такое LLM — AI для не ИТ-специалистов</title>
+<title>0.1 什么是LLM — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root {
@@ -50,184 +50,184 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none;">← Каталог</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none;">← 目录</a>
     <span style="color: var(--border); margin: 0 8px;">|</span>
-    <a href="../../glossary.html" style="color: var(--muted); text-decoration: none;">📖 Термины</a>
+    <a href="../../glossary.html" style="color: var(--muted); text-decoration: none;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🚀 УРОВЕНЬ 0 · ОСНОВЫ AI</div>
-    <h1>0.1 · Что такое LLM и как они работают</h1>
-    <div class="meta">🎯 Без кода · ✅ Квиз в конце</div>
+    <div class="phase">🚀 级别 0 · AI基础</div>
+    <h1>0.1 · 什么是LLM以及它们如何工作</h1>
+    <div class="meta">🎯 无代码 · ✅ 末尾有测验</div>
   </div>
 
   <!-- WHY -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>К 2026 году компании, которые не используют AI, теряют <span class="highlight">20-40% производительности</span> по сравнению с конкурентами. Но большинство руководителей не понимают, что такое LLM, и боятся "сложных технологий".</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>到2026年，不使用AI的公司与竞争对手相比将损失<span class="highlight">20-40%的生产力</span>。但大多数管理者不理解什么是LLM，并且害怕「复杂技术」。</p>
     
     <div class="card card-accent">
-      <strong>После этого урока вы сможете:</strong>
+      <strong>本课后您将能够：</strong>
       <ul>
-        <li>Объяснить директору, почему AI — это не "магия", а предсказуемый инструмент</li>
-        <li>Понять, какие задачи подходят для LLM, а какие — нет</li>
-        <li>Задать правильные вопросы IT-команде при выборе решения</li>
+        <li>向总监解释为什么AI不是「魔法」，而是可预测的工具</li>
+        <li>理解哪些任务适合LLM，哪些不适合</li>
+        <li>在选择解决方案时向IT团队提出正确的问题</li>
       </ul>
     </div>
   </div>
 
   <!-- WHAT -->
   <div class="section">
-    <h2>📚 Что такое LLM простыми словами</h2>
+    <h2>📚 什么是LLM（简单解释）</h2>
     
-    <p><strong>LLM (Large Language Model)</strong> — это программа, которая предсказывает следующее слово в тексте. На этом простом принципе построены ChatGPT, Claude, Kimi и все остальные.</p>
+    <p><strong>LLM（大语言模型 / Large Language Model）</strong>是一种预测文本中下一个词的程序。ChatGPT、Claude、Kimi以及其他所有模型都建立在这个简单原理之上。</p>
 
     <div class="example">
-      <div class="example-label">💡 АНАЛОГИЯ ДЛЯ ПЕРЕГОВОРОВ</div>
-      <p>Представьте, что LLM — это стажёр с феноменальной памятью. Он прочитал <strong>все книги, статьи и документы</strong>, которые создало человечество. Но у него нет собственного мнения — он просто "подбирает" наиболее вероятное продолжение фразы.</p>
-      <p><em>Как у опытного секретаря, который видел тысячи писем и знает, как обычно отвечают на тот или иной запрос.</em></p>
+      <div class="example-label">💡 谈判类比</div>
+      <p>把LLM想象成一位拥有惊人记忆力的实习生。他阅读了<strong>人类创造的所有书籍、文章和文件</strong>。但他没有自己的观点 — 他只是「挑选」最可能的短语延续。</p>
+      <p><em>就像一位经验丰富的秘书，看过数千封邮件，知道通常如何回复特定请求。</em></p>
     </div>
 
-    <h3>Как это работает (без математики)</h3>
+    <h3>它是如何工作的（不涉及数学）</h3>
     
     <div class="card">
       <ol>
-        <li><strong>Обучение:</strong> Модель "читает" миллиарды текстов (книги, статьи, код, диалоги)</li>
-        <li><strong>Паттерны:</strong> Она запоминает, какие слова обычно идут вместе</li>
-        <li><strong>Предсказание:</strong> Когда вы задаёте вопрос, модель предсказывает наиболее вероятный ответ</li>
-        <li><strong>Дообучение (Fine-tuning):</strong> Создатели "подправляют" модель, чтобы ответы были полезными и безопасными</li>
+        <li><strong>训练：</strong>模型「阅读」数十亿文本（书籍、文章、代码、对话）</li>
+        <li><strong>模式：</strong>它记住哪些词通常一起出现</li>
+        <li><strong>预测：</strong>当您提问时，模型预测最可能的答案</li>
+        <li><strong>微调（Fine-tuning）：</strong>创建者「调整」模型，使回答更有用且安全</li>
       </ol>
     </div>
 
     <div class="card card-warning">
-      <strong>⚠️ Важное ограничение</strong>
-      <p>LLM <strong>не понимает</strong> текст так, как человек. Она не "думает" — она <strong>предсказывает</strong>. Это как если бы вы закончили фразу "После дождя на улице..." — скорее всего, вы скажете "мокро", потому что так чаще всего бывает. Но иногда бывает "радуга".</p>
+      <strong>⚠️ 重要限制</strong>
+      <p>LLM <strong>不像人类那样理解</strong>文本。它不会「思考」 — 它只是<strong>预测</strong>。就像您完成「雨后街上...」这个短语 — 您很可能会说「潮湿」，因为通常是这样。但有时是「彩虹」。</p>
     </div>
   </div>
 
   <!-- HOW TO APPLY -->
   <div class="section">
-    <h2>🛠️ Как применить сегодня</h2>
+    <h2>🛠️ 今天如何应用</h2>
     
-    <h3>Чеклист: подходит ли задача для LLM?</h3>
+    <h3>检查清单：任务是否适合LLM？</h3>
     <ul class="checklist">
-      <li>Задача связана с текстом (написание, анализ, суммаризация)?</li>
-      <li>Нужен "творческий" подход (варианты, идеи, формулировки)?</li>
-      <li>Точность не критична (можно проверить результат)?</li>
-      <li>Нет необходимости в реальных данных в реальном времени?</li>
+      <li>任务与文本相关（写作、分析、总结）？</li>
+      <li>需要「创造性」方法（选项、想法、措辞）？</li>
+      <li>精确度不是关键（可以检查结果）？</li>
+      <li>不需要实时真实数据？</li>
     </ul>
 
     <div class="example">
-      <div class="example-label">✅ ПОДХОДИТ ДЛЯ LLM</div>
+      <div class="example-label">✅ 适合LLM</div>
       <ul>
-        <li>Суммаризация отчёта на 50 страниц в 1 страницу</li>
-        <li>Написание 10 вариантов письма поставщику</li>
-        <li>Анализ договора на рисковые пункты</li>
-        <li>Перевод текста на 5 языков</li>
+        <li>将50页报告总结为1页</li>
+        <li>撰写10个给供应商的邮件变体</li>
+        <li>分析合同中的风险条款</li>
+        <li>将文本翻译成5种语言</li>
       </ul>
     </div>
 
     <div class="example">
-      <div class="example-label">❌ НЕ ПОДХОДИТ ДЛЯ LLM</div>
+      <div class="example-label">❌ 不适合LLM</div>
       <ul>
-        <li>Расчёт зарплаты с точностью до копейки</li>
-        <li>Реальные данные о ценах на сегодня (модель "заморожена" во времени)</li>
-        <li>Юридически обязывающие заключения без проверки</li>
-        <li>Диагностика заболеваний</li>
+        <li>精确到分的工资计算</li>
+        <li>今天的实时价格数据（模型被「冻结」在时间中）</li>
+        <li>未经核实的具有法律约束力的结论</li>
+        <li>疾病诊断</li>
       </ul>
     </div>
   </div>
 
   <!-- HOW TO DELEGATE -->
   <div class="section">
-    <h2>👨‍💻 Как поставить задачу разработчику</h2>
+    <h2>👨‍💻 如何向开发人员分配任务</h2>
     
     <div class="card card-success">
-      <strong>Шаблон запроса для IT:</strong>
+      <strong>向IT的提问模板：</strong>
       <pre style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.9rem;">
-"Нам нужно внедрить LLM для [ЗАДАЧА].
+"我们需要为[任务]部署LLM。
 
-Требования:
-- Язык: русский/английский
-- Объём документов: ~[N] страниц в день
-- Конфиденциальность: [да/нет]
-- Интеграция с: [система]
-- Бюджет: ~[сумма] в месяц
+要求：
+- 语言：俄语/英语
+- 文件量：每天约[N]页
+- 保密性：[是/否]
+- 集成系统：[系统名称]
+- 预算：每月约[金额]
 
-Вопросы:
-1. Какую модель рекомендуете?
-2. Облако или on-premise?
-3. Сколько займёт внедрение?
-4. Какие риски видите?"
+问题：
+1. 您推荐哪种模型？
+2. 云端还是本地部署？
+3. 部署需要多长时间？
+4. 您看到哪些风险？"
       </pre>
     </div>
   </div>
 
   <!-- HOW TO CHECK -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Модель справляется с типичными запросами из вашей сферы?</li>
-      <li>Ответы не содержат очевидных ошибок (галлюцинаций)?</li>
-      <li>Скорость ответа приемлема для бизнес-процесса?</li>
-      <li>Стоимость использования вписывается в бюджет?</li>
-      <li>Есть процесс проверки критичных ответов человеком?</li>
+      <li>模型能否处理您领域的典型请求？</li>
+      <li>回答是否不包含明显错误（幻觉）？</li>
+      <li>回答速度是否适合业务流程？</li>
+      <li>使用成本是否在预算内？</li>
+      <li>是否有对关键回答进行人工核查的流程？</li>
     </ul>
   </div>
 
   <!-- TOOLS -->
   <div class="section">
-    <h2>🧰 Инструменты для практики</h2>
+    <h2>🧰 实践工具</h2>
     
     <div class="card">
-      <h3>Бесплатные (для начала)</h3>
+      <h3>免费（入门）</h3>
       <ul>
-        <li><strong>ChatGPT (Free)</strong> — базовая версия GPT-4o, лимит сообщений</li>
-        <li><strong>Claude.ai</strong> — от Anthropic, отлично работает с длинными документами</li>
-        <li><strong>Kimi</strong> — <a href="https://kimi.moonshot.cn" target="_blank" style="color: var(--accent);">kimi.moonshot.cn</a> — от Moonshot AI, хорош для китайского и английского</li>
-        <li><strong>Qwen</strong> — <a href="https://qwen.aliyun.com" target="_blank" style="color: var(--accent);">qwen.aliyun.com</a> — от Alibaba, сильный в мультиязычности</li>
+        <li><strong>ChatGPT (Free)</strong> — GPT-4o基础版，有消息限制</li>
+        <li><strong>Claude.ai</strong> — Anthropic出品，处理长文档效果出色</li>
+        <li><strong>Kimi</strong> — <a href="https://kimi.moonshot.cn" target="_blank" style="color: var(--accent);">kimi.moonshot.cn</a> — Moonshot AI出品，适合中文和英文</li>
+        <li><strong>Qwen</strong> — <a href="https://qwen.aliyun.com" target="_blank" style="color: var(--accent);">qwen.aliyun.com</a> — 阿里巴巴出品，多语言能力强</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3>Платные (для бизнеса)</h3>
+      <h3>付费（商业）</h3>
       <ul>
-        <li><strong>ChatGPT Plus ($20/мес)</strong> — приоритетный доступ, расширенные лимиты</li>
-        <li><strong>Claude Pro ($20/мес)</strong> — больше сообщений, ранняя доступ к новым функциям</li>
-        <li><strong>GENAi (Self-hosted)</strong> — для конфиденциальных данных, требует сервер</li>
+        <li><strong>ChatGPT Plus ($20/月)</strong> — 优先访问，扩展限制</li>
+        <li><strong>Claude Pro ($20/月)</strong> — 更多消息，新功能优先体验</li>
+        <li><strong>GENAi (本地部署)</strong> — 适合机密数据，需要服务器</li>
       </ul>
     </div>
   </div>
 
   <!-- QUIZ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> LLM "понимает" текст так же, как человек?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Нет, LLM предсказывает вероятные слова, не обладает сознанием</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Да, LLM понимает контекст так же, как эксперт</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только если это GPT-4</div>
+      <p><strong>问题1：</strong> LLM是否像人类一样「理解」文本？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 不，LLM预测可能的词，没有意识</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 是的，LLM像专家一样理解上下文</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 只有GPT-4可以</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Можно ли доверить LLM расчёт зарплаты?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Да, LLM отлично считает</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Нет, точные расчёты — слабое место LLM, нужен калькулятор</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только если попросить показать шаги</div>
+      <p><strong>问题2：</strong> 可以委托LLM计算工资吗？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 是的，LLM很擅长计算</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 不，精确计算是LLM的弱点，需要计算器</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 只有要求展示步骤时才可以</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Что лучше для конфиденциальных данных?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) ChatGPT — он самый умный</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) On-premise (GENAi + локальная модель) — данные не покидают компанию</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Любая платная версия</div>
+      <p><strong>问题3：</strong> 什么最适合处理机密数据？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) ChatGPT — 它最聪明</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 本地部署（GENAi + 本地模型）— 数据不离开公司</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 任何付费版本</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -235,22 +235,22 @@
   <!-- KEY TAKEAWAY -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p>LLM — это мощный инструмент для работы с текстом, но не "магический разум". Он предсказывает слова, а не думает. Подходит для творческих и аналитических задач, но не для точных расчёттов и критичных решений без проверки.</p>
-      <p><strong>Следующий шаг:</strong> Научитесь выбирать правильную модель для вашей задачи → Урок 0.2</p>
+      <h3>🎯 课程要点</h3>
+      <p>LLM是处理文本的强大工具，但不是「神奇大脑」。它预测词语，而不是思考。适合创意和分析任务，但不适合精确计算和未经核查的关键决策。</p>
+      <p><strong>下一步：</strong>学习如何为您的任务选择正确的模型 → 课程 0.2</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../../catalog.html" class="nav-btn">← Каталог</a>
-    <a href="../00-choose-model/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../../catalog.html" class="nav-btn">← 目录</a>
+    <a href="../00-choose-model/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -269,14 +269,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
