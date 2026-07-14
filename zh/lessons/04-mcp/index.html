@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>4.4 MCP — AI для не ИТ-специалистов</title>
+<title>4.4 MCP — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -65,192 +65,185 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🤖 УРОВЕНЬ 4 · АГЕНТЫ И ОРКЕСТРАЦИЯ</div>
-    <h1>4.4 · MCP: как AI подключается к вашим системам</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🤖 级别 4 · 代理与编排</div>
+    <h1>4.4 · MCP：AI如何连接您的系统</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>У вас есть CRM, 1С, Excel, email, мессенджеры — <strong>десятки систем</strong>. AI работает изолированно, не имея доступа к вашим данным.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>您有CRM、ERP、Excel、邮件、即时通讯——<strong>数十个系统</strong>。AI孤立工作，无法访问您的数据。</p>
     <div class="card card-success">
-      <p><strong>MCP (Model Context Protocol)</strong> — это "мост" между AI и вашими системами. Позволяет AI читать из 1С, писать в CRM, отправлять email — всё через единый стандарт.</p>
-      <p><strong>Без MCP:</strong> AI отвечает на основе общих знаний.</p>
-      <p><strong>С MCP:</strong> AI отвечает на основе ваших реальных данных из 1С, CRM, Excel.</p>
+      <p><strong>MCP（Model Context Protocol）</strong>是AI与您的系统之间的"桥梁"。让AI读取ERP、写入CRM、发送邮件——全部通过统一标准。</p>
+      <p><strong>无MCP：</strong> AI基于通用知识回答。</p>
+      <p><strong>有MCP：</strong> AI基于ERP、CRM、Excel中的真实数据回答。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Как работает MCP</h3>
+    <h3>MCP如何工作</h3>
     <div class="mcp-diagram">
-      <div class="mcp-box">Ваши системы<br><small style="color:var(--muted)">1С, CRM, Excel</small></div>
+      <div class="mcp-box">您的系统<br><small style="color:var(--muted)">ERP、CRM、Excel</small></div>
       <div class="mcp-arrow">→</div>
-      <div class="mcp-box" style="border-color:var(--accent2);background:rgba(6,182,212,0.1);">MCP Сервер<br><small style="color:var(--muted)">Мост / API</small></div>
+      <div class="mcp-box" style="border-color:var(--accent2);background:rgba(6,182,212,0.1);">MCP服务器<br><small style="color:var(--muted)">桥梁 / API</small></div>
       <div class="mcp-arrow">→</div>
-      <div class="mcp-box" style="border-color:var(--success);background:rgba(16,185,129,0.1);">AI<br><small style="color:var(--muted)">Claude, GPT</small></div>
+      <div class="mcp-box" style="border-color:var(--success);background:rgba(16,185,129,0.1);">AI<br><small style="color:var(--muted)">Claude、GPT</small></div>
     </div>
-    <p style="text-align: center; color: var(--muted); font-size: 0.9rem;">AI запрашивает данные → MCP сервер получает их из ваших систем → AI использует в ответе</p>
+    <p style="text-align: center; color: var(--muted); font-size: 0.9rem;">AI请求数据 → MCP服务器从您的系统获取 → AI在回复中使用</p>
 
-    <h3>Что можно подключить через MCP</h3>
+    <h3>通过MCP可连接什么</h3>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
-      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Система</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Что AI может делать</th></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">1С / Бухгалтерия</td><td style="padding:10px;border-bottom:1px solid var(--border);">Читать остатки, проводки, отчёты</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">CRM (Bitrix, amo)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Читать сделки, клиентов, историю</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Excel / Google Sheets</td><td style="padding:10px;border-bottom:1px solid var(--border);">Читать и записывать данные</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Email</td><td style="padding:10px;border-bottom:1px solid var(--border);">Отправлять и получать письма</td></tr>
-      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Базы данных</td><td style="padding:10px;border-bottom:1px solid var(--border);">Выполнять SQL-запросы</td></tr>
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">系统</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">AI可以做什么</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">ERP / 财务系统</td><td style="padding:10px;border-bottom:1px solid var(--border);">读取库存、过账、报告</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">CRM（Bitrix、amo）</td><td style="padding:10px;border-bottom:1px solid var(--border);">读取交易、客户、历史</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Excel / Google Sheets</td><td style="padding:10px;border-bottom:1px solid var(--border);">读写数据</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">邮件</td><td style="padding:10px;border-bottom:1px solid var(--border);">收发邮件</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">数据库</td><td style="padding:10px;border-bottom:1px solid var(--border);">执行SQL查询</td></tr>
     </table>
 
-    <h3>Пример: AI с доступом к 1С</h3>
+    <h3>示例：AI访问ERP</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Без MCP</div>
-        <pre>Пользователь: "Сколько у нас осталось упаковки на складе?"
-AI: "Я не имею доступа к вашей системе учёта. Проверьте в 1С."</pre>
+        <div class="example-label">无MCP</div>
+        <pre>用户："我们仓库还剩多少包装？"
+AI："我无法访问您的库存系统。请在ERP中查看。"</pre>
       </div>
       <div class="example">
-        <div class="example-label">С MCP</div>
-        <pre>Пользователь: "Сколько у нас осталось упаковки на складе?"
-AI: [запрашивает данные из 1С через MCP]
-Ответ: "На складе МосСклад осталось 1 250 единиц упаковки.
-Последнее поступление: 15.03.2025 (500 ед.)
-Прогноз: хватит на 3 недели при текущем расходе."</pre>
+        <div class="example-label">有MCP</div>
+        <pre>用户："我们仓库还剩多少包装？"
+AI：[通过MCP请求ERP数据]
+回复："Mos仓库剩余1,250件包装。
+最后入库：2025.03.15（500件）
+预测：按当前消耗量可用3周。"</pre>
       </div>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий: умный ассистент закупщика</h3>
+    <h3>场景：智能采购助理</h3>
     <div class="card">
-      <p><strong>Задача:</strong> Закупщик спрашивает: "Нужно ли заказывать упаковку?"</p>
-      <p><strong>С MCP:</strong> AI проверяет остатки в 1С → Анализирует расход → Смотрит график поставок → Даёт рекомендацию.</p>
+      <p><strong>任务：</strong> 采购员问"需要订购包装吗？"</p>
+      <p><strong>有MCP：</strong> AI检查ERP库存 → 分析消耗 → 查看交付计划 → 给出建议。</p>
       <div class="example">
-        <div class="example-label">Ответ AI</div>
-        <pre>"На основании данных из 1С:
-- Остаток: 1 250 ед. (склад МосСклад)
-- Средний расход: 400 ед./неделю
-- До критического остатка (< 500 ед.): 2 недели
-- Срок поставки от текущего поставщика: 3 недели
+        <div class="example-label">AI回复</div>
+        <pre>"基于ERP数据：
+- 库存：1,250件（Mos仓库）
+- 平均消耗：400件/周
+- 距临界库存（< 500件）：2周
+- 当前供应商交付周期：3周
 
-⚠️ Рекомендация: разместить заказ в течение 3 дней.
-Прошлогодний опыт: при заказе позже критической даты 
-были простои производства на 2 дня (потери 180 000 ₽)."</pre>
+⚠️ 建议：3天内下单。
+往年经验：晚于临界日期下单
+导致停产2天（损失18万元）。"</pre>
       </div>
     </div>
 
-    <h3>Готовые MCP-серверы</h3>
+    <h3>现成MCP服务器</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Сервер</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Для чего</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-filesystem</td><td style="padding:10px;border-bottom:1px solid var(--border);">Работа с файлами и папками</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-postgres</td><td style="padding:10px;border-bottom:1px solid var(--border);">Подключение к PostgreSQL</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-slack</td><td style="padding:10px;border-bottom:1px solid var(--border);">Отправка сообщений в Slack</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-github</td><td style="padding:10px;border-bottom:1px solid var(--border);">Работа с репозиториями</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">服务器</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">用途</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-filesystem</td><td style="padding:10px;border-bottom:1px solid var(--border);">文件和文件夹操作</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-postgres</td><td style="padding:10px;border-bottom:1px solid var(--border);">连接PostgreSQL</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-slack</td><td style="padding:10px;border-bottom:1px solid var(--border);">发送Slack消息</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">mcp-server-github</td><td style="padding:10px;border-bottom:1px solid var(--border);">操作代码仓库</td></tr>
       </table>
-      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*Для корпоративных систем (1С, Bitrix) требуется custom разработка MCP-сервера.</p>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*企业系统（ERP、Bitrix）需要定制MCP服务器开发。</p>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен MCP-сервер для интеграции AI с [система].
+      <h3>任务模板</h3>
+      <pre>"需要MCP服务器来集成AI与[系统]。
 
-Система: [1С / CRM / БД / etc.]
-Данные, к которым нужен доступ:
-- [список таблиц/полей]
+系统：[ERP / CRM / 数据库 / 等]
+需要访问的数据：
+- [表/字段列表]
 
-Операции:
-- [чтение / запись / оба]
+操作：
+- [读取 / 写入 / 两者]
 
-Безопасность:
-- [какие данные нельзя показывать AI]
-- [аутентификация]
+安全：
+- [哪些数据不能展示给AI]
+- [认证方式]
 
-Пример запроса: [привести]
-Ожидаемый ответ: [привести]
+示例请求：[提供]
+预期回复：[提供]
 
-Срок: [дата]"</pre>
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>AI корректно читает данные из системы?</li>
-      <li>Ответы содержат актуальные данные (не кэш)?</li>
-      <li>Нет утечки конфиденциальных данных?</li>
-      <li>Доступ только на чтение или и на запись тоже? (проверьте)</li>
-      <li>Скорость ответа приемлема? (< 5 секунд)</li>
-      <li>Есть логирование запросов? (для аудита)</li>
+      <li>AI正确读取系统数据？</li>
+      <li>回复包含 актуальные 数据（非缓存）？</li>
+      <li>无机密数据泄露？</li>
+      <li>访问仅限读取或也可写入？（检查）</li>
+      <li>响应速度可接受？（< 5秒）</li>
+      <li>有请求日志？（用于审计）</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Что такое MCP?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Протокол для подключения AI к корпоративным системам</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Новая модель AI</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Язык программирования</div>
+      <p><strong>问题1：</strong> 什么是MCP？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 连接AI与企业系统的协议</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 新的AI模型</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 编程语言</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Зачем AI доступ к 1С?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы отвечать на основе реальных данных, а не общих знаний</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы AI мог менять данные</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Это необязательно</div>
+      <p><strong>问题2：</strong> 为什么AI需要访问ERP？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 基于真实数据而非通用知识回答</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 让AI能修改数据</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 这不是必须的</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Что важно проверить при внедрении MCP?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A>Безопасность и отсутствие утечки данных</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B>Только скорость</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C>Ничего не нужно проверять</div>
+      <p><strong>问题3：</strong> 实施MCP时需要检查什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 安全性和无数据泄露</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 仅速度</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 无需检查</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>MCP = мост между AI и вашими системами.</strong> Без него AI работает вслепую. С ним — AI знает остатки на складе, статус сделок, историю клиентов. Это превращает AI из игрушки в реальный бизнес-инструмент. Но помните о безопасности: ограничивайте доступ к чувствительным данным.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>MCP = AI与您的系统之间的桥梁。</strong>没有它，AI盲目工作。有了它，AI知道库存、交易状态、客户历史。这将AI从玩具变成真正的商业工具。但记住安全：限制对敏感数据的访问。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../04-human-loop/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../../catalog.html" class="nav-btn primary">К каталогу →</a>
+    <a href="../04-human-loop/index.html" class="nav-btn">← 上一课</a>
+    <a href="../../catalog.html" class="nav-btn primary">前往目录 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -268,17 +261,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>

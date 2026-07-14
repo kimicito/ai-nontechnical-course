@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>4.2 Мультиагенты и Agent Swarm — AI для не ИТ-специалистов</title>
+<title>4.2 多代理与Agent Swarm — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -66,259 +66,252 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🤖 УРОВЕНЬ 4 · АГЕНТЫ И ОРКЕСТРАЦИЯ</div>
-    <h1>4.2 · Мультиагенты и Agent Swarm: команда AI-сотрудников</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🤖 级别 4 · 代理与编排</div>
+    <h1>4.2 · 多代理与Agent Swarm：AI员工团队</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Сложные задачи требуют <strong>разных компетенций</strong>. Один агент не может быть одновременно юристом, аналитиком и закупщиком.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>复杂任务需要<strong>不同能力</strong>。一个代理不能同时是律师、分析师和采购员。</p>
     <div class="card card-success">
-      <p><strong>Мультиагентная система</strong> — это команда AI-агентов, каждый со своей ролью, которые работают вместе над общей задачей.</p>
-      <p><strong>Пример:</strong> Подготовка тендера требует: исследования рынка (аналитик) + проверки договоров (юрист) + расчёта бюджета (финансист). Вместо одного "универсального" агента — три специализированных.</p>
+      <p><strong>多代理系统</strong>是AI代理团队，每个代理有自己的角色，共同协作完成一项任务。</p>
+      <p><strong>示例：</strong> 准备招标需要：市场调研（分析师）+ 合同审查（律师）+ 预算计算（财务）。与其一个"万能"代理，不如三个专业代理。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Как работает команда агентов</h3>
+    <h3>代理团队如何工作</h3>
     <div class="card card-accent">
       <ol>
-        <li><strong>Распределение:</strong> Задача разбивается на подзадачи</li>
-        <li><strong>Специализация:</strong> Каждый агент делает своё дело</li>
-        <li><strong>Координация:</strong> Агенты обмениваются результатами</li>
-        <li><strong>Сборка:</strong> Результаты объединяются в итоговый продукт</li>
+        <li><strong>分配：</strong> 任务拆分为子任务</li>
+        <li><strong>专业化：</strong> 每个代理做自己的事</li>
+        <li><strong>协调：</strong> 代理间交换结果</li>
+        <li><strong>汇总：</strong> 结果合并为最终产品</li>
       </ol>
     </div>
 
-    <h3>Пример: команда для тендера</h3>
+    <h3>示例：招标团队</h3>
     <div class="team-grid">
       <div class="team-card">
-        <h4 style="color: var(--accent);">🔍 Агент-исследователь</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">Ищет поставщиков, собирает КП, сравнивает цены</p>
+        <h4 style="color: var(--accent);">🔍 研究员代理</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">搜索供应商、收集报价、对比价格</p>
       </div>
       <div class="team-card">
-        <h4 style="color: var(--accent2);">⚖️ Агент-юрист</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">Проверяет договоры, находит риски, готовит замечания</p>
+        <h4 style="color: var(--accent2);">⚖️ 律师代理</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">检查合同、发现风险、准备意见</p>
       </div>
       <div class="team-card">
-        <h4 style="color: var(--success);">💰 Агент-финансист</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">Считает бюджет, ROI, оценивает риски</p>
+        <h4 style="color: var(--success);">💰 财务代理</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">计算预算、ROI、评估风险</p>
       </div>
       <div class="team-card">
-        <h4 style="color: var(--warning);">📋 Агент-координатор</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">Собирает результаты, готовит итоговый отчёт</p>
+        <h4 style="color: var(--warning);">📋 协调代理</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">汇总结果、准备最终报告</p>
       </div>
     </div>
 
-    <h3>Сравнение: один агент vs команда</h3>
-    <table>
-      <tr><th>Один агент</th><th>Команда агентов</th></tr>
-      <tr><td>Универсал (но поверхностный)</td><td>Специалисты (глубокий анализ)</td></tr>
-      <tr><td>Один контекст</td><td>Разные контексты</td></tr>
-      <tr><td>Проще настроить</td><td>Сложнее настроить</td></tr>
-      <tr><td>Дешевле (1 API)</td><td>Дороже (несколько API)</td></tr>
-      <tr><td>Ошибка = провал всего</td><td>Один агент заменяется</td></tr>
+    <h3>对比：一个代理 vs 团队</h3>
+    <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">一个代理</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">代理团队</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">通才（但肤浅）</td><td style="padding:10px;border-bottom:1px solid var(--border);">专家（深度分析）</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">单一上下文</td><td style="padding:10px;border-bottom:1px solid var(--border);">不同上下文</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">更容易配置</td><td style="padding:10px;border-bottom:1px solid var(--border);">更复杂配置</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">更便宜（1个API）</td><td style="padding:10px;border-bottom:1px solid var(--border);">更贵（多个API）</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">错误 = 整体失败</td><td style="padding:10px;border-bottom:1px solid var(--border);">一个代理可替换</td></tr>
     </table>
 
-    <h3>Режим роя (Agent Swarm)</h3>
+    <h3>Swarm模式</h3>
     <div class="card card-accent">
-      <p><strong>Agent Swarm</strong> — это когда агенты работают <strong>параллельно</strong>, а не по цепочке. Оркестратор (главный агент) разбивает задачу на независимые куски, запускает их одновременно, а потом собирает результаты.</p>
-      <p><strong>Модельная аналогия:</strong></p>
+      <p><strong>Agent Swarm</strong>是代理<strong>并行</strong>工作而非按链式工作。编排器（主代理）将任务拆分为独立部分，同时启动，然后汇总结果。</p>
+      <p><strong>类比：</strong></p>
       <ul>
-        <li>Один агент = один работник делает всё последовательно: исследование → черновик → редактура → форматирование</li>
-        <li>Swarm = менеджер нанял агентство: исследователь, аналитик, копирайтер, редактор, QA-специалист работают одновременно</li>
+        <li>一个代理 = 一个员工按顺序做所有事：研究 → 草稿 → 编辑 → 排版</li>
+        <li>Swarm = 经理雇佣了代理公司：研究员、分析师、文案、编辑、QA专员同时工作</li>
       </ul>
     </div>
 
-    <h3>Когда Swarm помогает</h3>
+    <h3>何时Swarm有帮助</h3>
     <div class="card card-success">
       <ul>
-        <li>✅ Много независимых подзадач (исследовать 100 поставщиков → 10 агентов по 10 штук)</li>
-        <li>✅ Нужны разные специализации (SEO + копирайтинг + техническая проверка)</li>
-        <li>✅ Нужна скорость без потери качества (параллельно быстрее, чем последовательно)</li>
-        <li>✅ Пакет результатов (отчёт + таблица + чеклист + презентация)</li>
+        <li>✅ 大量独立子任务（研究100家供应商 → 10个代理各研究10家）</li>
+        <li>✅ 需要不同专长（SEO + 文案 + 技术审核）</li>
+        <li>✅ 需要速度不牺牲质量（并行比串行更快）</li>
+        <li>✅ 批量产出（报告 + 表格 + 检查清单 + 演示文稿）</li>
       </ul>
     </div>
 
-    <h3>Когда НЕ нужен Swarm</h3>
+    <h3>何时不需要Swarm</h3>
     <div class="card card-warning">
       <ul>
-        <li>❌ Маленькая задача: "Перепиши этот абзац"</li>
-        <li>❌ Последовательная работа: каждый шаг зависит от предыдущего (отладка бага)</li>
-        <li>❌ Нет чёткого определения "готово" — рой выдаст много текста, но не то, что нужно</li>
+        <li>❌ 小任务："重写这个段落"</li>
+        <li>❌ 串行工作：每一步依赖上一步（调试bug）</li>
+        <li>❌ 没有明确定义"完成" — Swarm会产出大量文本，但可能不是您需要的</li>
       </ul>
     </div>
 
-    <h3>Батчи: как не утонуть в тексте</h3>
-    <p>Ошибка: запустить всех агентов сразу и получить 50 страниц неструктурированного текста.</p>
+    <h3>批处理：如何避免被文本淹没</h3>
+    <p>错误：一次性启动所有代理，得到50页非结构化文本。</p>
     <div class="example">
-      <div class="example-label">Правильный пайплайн (батчи)</div>
-      <pre>Партия A: Карта кластера (какие страницы, как связаны)
-Партия B: Аутлайны всех страниц (проверяем на пересечения)
-Партия C: Черновики (генерируем последовательно, по шаблону)
-Партия D: Редактура и полировка (единый тон, убираем повторы)
-Партия E: QA и финальная сборка (ссылки, факты, форматирование)</pre>
+      <div class="example-label">正确的流水线（批次）</div>
+      <pre>批次A：集群地图（哪些页面、如何关联）
+批次B：所有页面大纲（检查重叠）
+批次C：草稿（按模板顺序生成）
+批次D：编辑与润色（统一语气，去除重复）
+批次E：QA与最终组装（链接、事实、格式）</pre>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий: подготовка годового отчёта</h3>
+    <h3>场景：准备年度报告</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Распределение задач</div>
-        <pre>Агент-аналитик: Собирает данные, строит графики
-Агент-финансист: Считает метрики, прогнозы
-Агент-юрист: Проверяет compliance
-Агент-копирайтер: Пишет текст отчёта
-Агент-координатор: Собирает всё воедино</pre>
+        <div class="example-label">任务分配</div>
+        <pre>分析师代理：收集数据、构建图表
+财务代理：计算指标、预测
+法务代理：检查合规性
+文案代理：撰写报告文本
+协调代理：汇总所有内容</pre>
       </div>
-      <p><strong>Экономия:</strong> 5 дней работы → 1 день</p>
+      <p><strong>节省：</strong> 5天工作 → 1天</p>
     </div>
 
-    <h3>Сценарий: контент-пайплайн (Swarm)</h3>
+    <h3>场景：内容流水线（Swarm）</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Swarm Brief — шаблон ТЗ для оркестратора</div>
-        <pre>Цель: Опубликовать кластер из 6 страниц про AI-инструменты
-Аудитория: новички + продвинутые пользователи
-Тон: дружелюбный, ясный, не роботизированный
-Структура: meta-title, meta-description, H1, хук,
-  4-6 разделов H2, таблица сравнения, 20-30 FAQ,
-  блок CTA с 2 кнопками
-Правила: короткие абзацы, без повторов, без "воды"
-Внутренние ссылки: /tools/, /pricing/, /api/
-Выходной формат: готовые HTML-блоки</pre>
+        <div class="example-label">Swarm Brief — 编排器任务模板</div>
+        <pre>目标：发布6页关于AI工具的集群内容
+受众：新手 + 高级用户
+语气：友好、清晰、非机器人化
+结构：meta-title、meta-description、H1、钩子、
+  4-6个H2段落、对比表格、20-30个FAQ、
+  带2个按钮的CTA块
+规则：短段落、无重复、无"水分"
+内部链接：/tools/、/pricing/、/api/
+输出格式：现成HTML块</pre>
       </div>
-      <p>Оркестратор получает этот бриф и распределяет работу между агентами.</p>
+      <p>编排器收到这个brief并在代理之间分配工作。</p>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи (классическая команда)</h3>
-      <pre>"Нужна мультиагентная система для [задача].
+      <h3>任务模板（经典团队）</h3>
+      <pre>"需要为[任务]创建多代理系统。
 
-Команда агентов:
-1. [Роль 1] — [задача]
-2. [Роль 2] — [задача]
-3. [Роль 3] — [задача]
-4. Координатор — сбор результатов
+代理团队：
+1. [角色1] — [任务]
+2. [角色2] — [任务]
+3. [角色3] — [任务]
+4. 协调器 — 汇总结果
 
-Процесс: [описать, как агенты взаимодействуют]
-Интеграции: [с какими системами работать]
-Формат результата: [что ожидается на выходе]
-Срок: [дата]"</pre>
+流程：[描述代理如何交互]
+集成：[与哪些系统对接]
+结果格式：[预期输出]
+期限：[日期]"</pre>
     </div>
     <div class="card card-success">
-      <h3>Шаблон задачи (Swarm-режим)</h3>
-      <pre>"Нужен Agent Swarm для [большая задача].
+      <h3>任务模板（Swarm模式）</h3>
+      <pre>"需要为[大型任务]创建Agent Swarm。
 
-Swarm Brief:
-- Цель: [что получить]
-- Аудитория: [для кого]
-- Тон: [как писать]
-- Структура: [требования к формату]
-- Правила: [что нельзя]
-- Пакет результатов: [список артефактов]
+Swarm Brief：
+- 目标：[要获得什么]
+- 受众：[面向谁]
+- 语气：[如何写作]
+- 结构：[格式要求]
+- 规则：[禁止事项]
+- 产出包：[产物列表]
 
-Пайплайн: [батчи A → B → C → D → E]
+流水线：[批次A → B → C → D → E]
 
-Контроль качества: [чеклист проверки]
+质量控制：[检查清单]
 
-Срок: [дата]"</pre>
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
-    <h3>Классическая команда</h3>
+    <h2>✅ 结果验收检查清单</h2>
+    <h3>经典团队</h3>
     <ul class="checklist">
-      <li>Каждый агент выполняет свою роль?</li>
-      <li>Агенты корректно обмениваются данными?</li>
-      <li>Координатор собирает полный результат?</li>
-      <li>Нет дублирования работы между агентами?</li>
-      <li>Если один агент "падает" — система продолжает работать?</li>
-      <li>Результат проверен на противоречия?</li>
+      <li>每个代理执行自己的角色？</li>
+      <li>代理间正确交换数据？</li>
+      <li>协调器汇总完整结果？</li>
+      <li>代理间无重复工作？</li>
+      <li>如果一个代理"故障"，系统继续运行？</li>
+      <li>结果已检查矛盾？</li>
     </ul>
     <h3>Agent Swarm</h3>
     <ul class="checklist">
-      <li>Swarm Brief был чётким и полным?</li>
-      <li>Каждый агент получил свою часть, а не всё подряд?</li>
-      <li>Результаты не противоречат друг другу?</li>
-      <li>Терминология единая во всех артефактах?</li>
-      <li>Факты и цифры проверены (не галлюцинации)?</li>
-      <li>Финальная редактура прошла "человеческий" проход?</li>
-      <li>Все ссылки и таблицы актуальны?</li>
+      <li>Swarm Brief清晰完整？</li>
+      <li>每个代理只收到自己的部分，而非全部？</li>
+      <li>结果互不矛盾？</li>
+      <li>所有产物术语统一？</li>
+      <li>事实和数字已验证（非幻觉）？</li>
+      <li>最终编辑经过"人工"审核？</li>
+      <li>所有链接和表格 актуальны？</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Зачем нужна команда агентов вместо одного?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Для глубокой специализации по ролям</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы было дороже</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Один агент всегда лучше</div>
+      <p><strong>问题1：</strong> 为什么需要代理团队而非一个代理？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 按角色深度专业化</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 为了更贵</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 一个代理总是更好</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Какой агент собирает результаты?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Аналитик</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Координатор</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Юрист</div>
+      <p><strong>问题2：</strong> 哪个代理汇总结果？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 分析师</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 协调器</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 律师</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Когда НЕ нужен Agent Swarm?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Для простой задачи: переписать абзац</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Для исследования 100 поставщиков</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Для пакета: отчёт + таблица + чеклист</div>
+      <p><strong>问题3：</strong> 何时不需要Agent Swarm？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 简单任务：重写一个段落</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 研究100家供应商</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 批量：报告 + 表格 + 检查清单</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>Мультиагент = команда специалистов.</strong> Каждый агент — эксперт в своей области. Координатор собирает результаты. Это даёт глубину и надёжность, которых нет у одного универсального агента.</p>
-      <p><strong>Agent Swarm</strong> — это когда агенты работают параллельно, как агентство. Используйте для больших задач с независимыми частями. Не используйте для маленьких или последовательных задач. Не забудьте Swarm Brief и батчи.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>多代理 = 专家团队。</strong>每个代理是自己领域的专家。协调器汇总结果。这提供了单个万能代理无法达到的深度和可靠性。</p>
+      <p><strong>Agent Swarm</strong>是代理并行工作，如代理公司。用于有独立部分的大型任务。不用于小型或串行任务。别忘了Swarm Brief和批次。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../04-what-is-agent/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../04-human-loop/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../04-what-is-agent/index.html" class="nav-btn">← 上一课</a>
+    <a href="../04-human-loop/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -336,17 +329,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>

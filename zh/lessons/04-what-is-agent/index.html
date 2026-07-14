@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>4.1 Что такое агент — AI для не ИТ-специалистов</title>
+<title>4.1 什么是AI代理 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -65,189 +65,182 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🤖 УРОВЕНЬ 4 · АГЕНТЫ И ОРКЕСТРАЦИЯ</div>
-    <h1>4.1 · Что такое AI-агент: от чата к автономности</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🤖 级别 4 · 代理与编排</div>
+    <h1>4.1 · 什么是AI代理：从聊天到自主行动</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Обычный AI ждёт ваших команд. <strong>Агент действует сам</strong>: ставит цели, планирует шаги, выполняет, проверяет результат.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>普通AI等待您的命令。<strong>代理自行行动</strong>：设定目标、规划步骤、执行、检查结果。</p>
     <div class="card card-success">
-      <p><strong>Пример:</strong> Вы говорите агенту "Подготовь отчёт о рынке упаковки". Агент сам:</p>
+      <p><strong>示例：</strong> 您对代理说"准备包装市场报告"。代理自行：</p>
       <ol>
-        <li>Ищет информацию в интернете</li>
-        <li>Анализирует найденное</li>
-        <li>Составляет таблицу сравнения</li>
-        <li>Пишет выводы и рекомендации</li>
-        <li>Отправляет вам готовый документ</li>
+        <li>在网上搜索信息</li>
+        <li>分析找到的内容</li>
+        <li>制作对比表格</li>
+        <li>撰写结论与建议</li>
+        <li>发送完成的文档给您</li>
       </ol>
-      <p><strong>Вы потратили:</strong> 5 минут на постановку задачи. <strong>Агент потратил:</strong> 20 минут на выполнение.</p>
+      <p><strong>您花费：</strong> 5分钟布置任务。<strong>代理花费：</strong> 20分钟执行。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>Чат-бот vs Агент</h3>
+    <h3>聊天机器人 vs 代理</h3>
     <div class="compare-box">
       <div class="compare-item">
-        <h4 style="color: var(--muted); margin: 0 0 10px;">💬 Чат-бот</h4>
+        <h4 style="color: var(--muted); margin: 0 0 10px;">💬 聊天机器人</h4>
         <ul style="font-size: 0.9rem; color: var(--muted);">
-          <li>Ждёт вопроса</li>
-          <li>Отвечает один раз</li>
-          <li>Не запоминает контекст</li>
-          <li>Не выполняет действия</li>
-          <li>Требует постоянного внимания</li>
+          <li>等待问题</li>
+          <li>仅回复一次</li>
+          <li>不记住上下文</li>
+          <li>不执行操作</li>
+          <li>需要持续关注</li>
         </ul>
       </div>
       <div class="compare-item">
-        <h4 style="color: var(--accent); margin: 0 0 10px;">🤖 Агент</h4>
+        <h4 style="color: var(--accent); margin: 0 0 10px;">🤖 代理</h4>
         <ul style="font-size: 0.9rem; color: var(--muted);">
-          <li>Ставит цели сам</li>
-          <li>Выполняет цепочку действий</li>
-          <li>Запоминает состояние</li>
-          <li>Использует инструменты</li>
-          <li>Работает автономно</li>
+          <li>自己设定目标</li>
+          <li>执行一系列操作</li>
+          <li>记住状态</li>
+          <li>使用工具</li>
+          <li>自主工作</li>
         </ul>
       </div>
     </div>
 
-    <h3>Компоненты агента</h3>
+    <h3>代理的组成部分</h3>
     <div class="card">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Компонент</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Что делает</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Аналогия</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Мозг (LLM)</td><td style="padding:10px;border-bottom:1px solid var(--border);">Думает, планирует, принимает решения</td><td style="padding:10px;border-bottom:1px solid var(--border);">Голова сотрудника</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Память</td><td style="padding:10px;border-bottom:1px solid var(--border);">Запоминает контекст, историю, факты</td><td style="padding:10px;border-bottom:1px solid var(--border);">Блокнот сотрудника</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Инструменты</td><td style="padding:10px;border-bottom:1px solid var(--border);">Выполняет действия: поиск, email, Excel</td><td style="padding:10px;border-bottom:1px solid var(--border);">Руки сотрудника</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Планировщик</td><td style="padding:10px;border-bottom:1px solid var(--border);">Решает, что делать следующим шагом</td><td style="padding:10px;border-bottom:1px solid var(--border);">Менеджер проекта</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">组件</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">功能</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">类比</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">大脑（LLM）</td><td style="padding:10px;border-bottom:1px solid var(--border);">思考、规划、决策</td><td style="padding:10px;border-bottom:1px solid var(--border);">员工的大脑</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">记忆</td><td style="padding:10px;border-bottom:1px solid var(--border);">记住上下文、历史、事实</td><td style="padding:10px;border-bottom:1px solid var(--border);">员工的记事本</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">工具</td><td style="padding:10px;border-bottom:1px solid var(--border);">执行操作：搜索、邮件、Excel</td><td style="padding:10px;border-bottom:1px solid var(--border);">员工的双手</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">规划器</td><td style="padding:10px;border-bottom:1px solid var(--border);">决定下一步做什么</td><td style="padding:10px;border-bottom:1px solid var(--border);">项目经理</td></tr>
       </table>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Примеры бизнес-агентов</h3>
+    <h3>商业代理示例</h3>
     <div class="card card-success">
-      <h4>🕵️ Агент-аналитик рынка</h4>
-      <p><strong>Цель:</strong> Еженедельный отчёт о конкурентах</p>
-      <p><strong>Действия:</strong> Ищет цены конкурентов → Анализирует → Составляет таблицу → Отправляет отчёт</p>
-      <p><strong>Экономия:</strong> 4 часа в неделю</p>
+      <h4>🕵️ 市场分析师代理</h4>
+      <p><strong>目标：</strong> 每周竞争对手报告</p>
+      <p><strong>操作：</strong> 搜索竞争对手价格 → 分析 → 制作表格 → 发送报告</p>
+      <p><strong>节省：</strong> 每周4小时</p>
     </div>
 
     <div class="card card-success">
-      <h4>📋 Агент-помощник закупщика</h4>
-      <p><strong>Цель:</strong> Обработка входящих КП</p>
-      <p><strong>Действия:</strong> Получает письмо → Извлекает данные → Сравнивает с базой → Формирует рекомендацию → Отправляет закупщику</p>
-      <p><strong>Экономия:</strong> 2 часа в день</p>
+      <h4>📋 采购助理代理</h4>
+      <p><strong>目标：</strong> 处理 incoming 报价</p>
+      <p><strong>操作：</strong> 接收邮件 → 提取数据 → 与数据库对比 → 生成建议 → 发送给采购员</p>
+      <p><strong>节省：</strong> 每天2小时</p>
     </div>
 
     <div class="card card-success">
-      <h4>🔍 Агент-аудитор</h4>
-      <p><strong>Цель:</strong> Проверка договоров на соответствие стандартам</p>
-      <p><strong>Действия:</strong> Получает договор → Сравнивает с шаблоном → Находит отклонения → Формирует отчёт → Отправляет юристу</p>
-      <p><strong>Экономия:</strong> 3 часа на документ</p>
-    </div>
-  </div>
-
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
-  <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
-    <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-агент для [задача].
-
-Цель агента: [что должен достичь]
-
-Входные данные: [откуда получает информацию]
-Выходные данные: [что должен produce]
-
-Инструменты, которые нужны:
-- [поиск в интернете / email / Excel / API / etc.]
-
-Ограничения:
-- [бюджет на API-запросы]
-- [время выполнения]
-- [что требует подтверждения человека]
-
-Пример задачи и ожидаемого результата: [привести]
-
-Срок: [дата]"</pre>
+      <h4>🔍 审计代理</h4>
+      <p><strong>目标：</strong> 检查合同是否符合标准</p>
+      <p><strong>操作：</strong> 接收合同 → 与模板对比 → 发现偏差 → 生成报告 → 发送给法务</p>
+      <p><strong>节省：</strong> 每份文档3小时</p>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
+    <div class="card card-success">
+      <h3>任务模板</h3>
+      <pre>"需要为[任务]创建AI代理。
+
+代理目标：[应实现什么]
+
+输入数据：[从何处获取信息]
+输出数据：[应生成什么]
+
+所需工具：
+- [上网搜索 / 邮件 / Excel / API / 等]
+
+限制：
+- [API请求预算]
+- [执行时间]
+- [什么需要人工确认]
+
+任务示例和预期结果：[提供]
+
+期限：[日期]"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Агент достигает цели полностью? (от начала до конца)</li>
-      <li>Не зацикливается на одном шаге?</li>
-      <li>Использует инструменты корректно?</li>
-      <li>Запоминает контекст между шагами?</li>
-      <li>Укладывается в бюджет и время?</li>
-      <li>Есть "человек в цикле" для критичных решений?</li>
+      <li>代理完全达成目标？（从头到尾）</li>
+      <li>没有陷入单步循环？</li>
+      <li>正确使用工具？</li>
+      <li>步骤间记住上下文？</li>
+      <li>在预算和时间内完成？</li>
+      <li>关键决策有"人工介入"？</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Чем агент отличается от чат-бота?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Агент сам ставит цели и выполняет действия</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Агент дороже</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Агент быстрее отвечает</div>
+      <p><strong>问题1：</strong> 代理与聊天机器人有何不同？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 代理自己设定目标并执行操作</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 代理更贵</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 代理回复更快</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Что такое "память" агента?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Способность запоминать контекст и историю</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Объём жёсткого диска</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Скорость работы</div>
+      <p><strong>问题2：</strong> 什么是代理的"记忆"？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 记住上下文和历史的能力</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 硬盘容量</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 工作速度</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Зачем агенту "инструменты"?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы выполнять действия: искать, отправлять, записывать</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы выглядеть сложнее</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</div>
+      <p><strong>问题3：</strong> 为什么代理需要"工具"？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 以执行操作：搜索、发送、记录</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 为了看起来更复杂</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 这不是必须的</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>Агент = автономный сотрудник.</strong> У него есть мозг (LLM), память, инструменты и планировщик. Он не просто отвечает на вопросы — он решает задачи от начала до конца. Начните с простых агентов, добавляйте сложность постепенно. Всегда оставляйте "человека в цикле".</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>代理 = 自主员工。</strong>它有大脑（LLM）、记忆、工具和规划器。它不仅回答问题——还从头到尾解决问题。从简单代理开始，逐步增加复杂度。始终保留"人工介入"。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../03-monitoring/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../04-multi-agent/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../03-monitoring/index.html" class="nav-btn">← 上一课</a>
+    <a href="../04-multi-agent/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -265,17 +258,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>

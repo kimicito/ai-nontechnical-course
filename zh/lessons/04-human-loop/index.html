@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>4.3 Человек в цикле — AI для не ИТ-специалистов</title>
+<title>4.3 人工介入 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -66,181 +66,174 @@
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🤖 УРОВЕНЬ 4 · АГЕНТЫ И ОРКЕСТРАЦИЯ</div>
-    <h1>4.3 · Человек в цикле: когда AI должен спрашивать разрешения</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🤖 级别 4 · 代理与编排</div>
+    <h1>4.3 · 人工介入：AI何时应请求许可</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
-  <!-- ЗАЧЕМ БИЗНЕСУ -->
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>AI ошибается. И иногда эти ошибки <strong>дорого стоят</strong>: неверная цена в договоре, неправильное решение о закупке, утечка конфиденциальных данных.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>AI会犯错。有时这些错误<strong>代价高昂</strong>：合同中的错误价格、错误的采购决策、机密数据泄露。</p>
     <div class="card card-danger">
-      <p><strong>Реальный кейс:</strong> AI-агент автоматически согласовал закупку по завышенной цене. Потери: 2 млн рублей. Причина: агент не запросил подтверждение у руководителя при цене > 1 млн.</p>
+      <p><strong>真实案例：</strong> AI代理自动同意了一笔高价采购。损失：200万元。原因：代理在价格超过100万元时未请求负责人确认。</p>
     </div>
     <div class="card card-success">
-      <p><strong>Решение:</strong> "Человек в цикле" (Human-in-the-loop) — AI выполняет задачу, но в критичных точках останавливается и ждёт подтверждения человека.</p>
+      <p><strong>解决方案：</strong> "人工介入"（Human-in-the-loop）— AI执行任务，但在关键点暂停并等待人工确认。</p>
     </div>
   </div>
 
-  <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
     
-    <h3>3 уровня контроля</h3>
+    <h3>3个控制级别</h3>
     <div class="level-box">
       <div class="level-item">
-        <h4 style="color: var(--success); margin: 0 0 10px;">🟢 Полная автономия</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">AI действует без подтверждения</p>
-        <p style="font-size: 0.85rem; margin-top: 8px;">Для: рутинных задач, низкий риск</p>
-        <p style="font-size: 0.85rem;">Пример: ежедневная сводка писем</p>
+        <h4 style="color: var(--success); margin: 0 0 10px;">🟢 完全自主</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">AI无需确认即可行动</p>
+        <p style="font-size: 0.85rem; margin-top: 8px;">适用：日常任务、低风险</p>
+        <p style="font-size: 0.85rem;">示例：每日邮件汇总</p>
       </div>
       <div class="level-item">
-        <h4 style="color: var(--warning); margin: 0 0 10px;">🟡 Частичный контроль</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">AI предлагает, человек подтверждает</p>
-        <p style="font-size: 0.85rem; margin-top: 8px;">Для: важных решений, средний риск</p>
-        <p style="font-size: 0.85rem;">Пример: согласование закупок > 100 000 ₽</p>
+        <h4 style="color: var(--warning); margin: 0 0 10px;">🟡 部分控制</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">AI建议，人工确认</p>
+        <p style="font-size: 0.85rem; margin-top: 8px;">适用：重要决策、中等风险</p>
+        <p style="font-size: 0.85rem;">示例：采购额 > 10万元</p>
       </div>
       <div class="level-item">
-        <h4 style="color: var(--danger); margin: 0 0 10px;">🔴 Полный контроль</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">AI только готовит, человек решает</p>
-        <p style="font-size: 0.85rem; margin-top: 8px;">Для: критичных решений, высокий риск</p>
-        <p style="font-size: 0.85rem;">Пример: подписание договора, увольнение</p>
+        <h4 style="color: var(--danger); margin: 0 0 10px;">🔴 完全控制</h4>
+        <p style="font-size: 0.9rem; color: var(--muted);">AI仅准备，人工决策</p>
+        <p style="font-size: 0.85rem; margin-top: 8px;">适用：关键决策、高风险</p>
+        <p style="font-size: 0.85rem;">示例：签署合同、解雇员工</p>
       </div>
     </div>
 
-    <h3>Когда обязательно нужен человек</h3>
+    <h3>何时必须有人工介入</h3>
     <div class="card card-warning">
       <table style="width:100%; border-collapse: collapse;">
-        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Ситуация</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Почему</th></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Цена > порога</td><td style="padding:10px;border-bottom:1px solid var(--border);">Риск переплаты</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Новый поставщик</td><td style="padding:10px;border-bottom:1px solid var(--border);">Нужна проверка репутации</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Изменение условий договора</td><td style="padding:10px;border-bottom:1px solid var(--border);">Юридические риски</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Конфиденциальные данные</td><td style="padding:10px;border-bottom:1px solid var(--border);">Безопасность</td></tr>
-        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Нестандартная ситуация</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI не обучен на таких кейсах</td></tr>
+        <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">情况</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">原因</th></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">价格 > 阈值</td><td style="padding:10px;border-bottom:1px solid var(--border);">多付风险</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">新供应商</td><td style="padding:10px;border-bottom:1px solid var(--border);">需核查声誉</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">合同条款变更</td><td style="padding:10px;border-bottom:1px solid var(--border);">法律风险</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">机密数据</td><td style="padding:10px;border-bottom:1px solid var(--border);">安全问题</td></tr>
+        <tr><td style="padding:10px;border-bottom:1px solid var(--border);">非标准情况</td><td style="padding:10px;border-bottom:1px solid var(--border);">AI未训练过此类案例</td></tr>
       </table>
     </div>
   </div>
 
-  <!-- КАК ПРИМЕНИТЬ -->
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
     
-    <h3>Сценарий: автоматизация закупок</h3>
+    <h3>场景：采购自动化</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">С контролем человека</div>
-        <pre>AI анализирует КП поставщика:
+        <div class="example-label">带人工控制</div>
+        <pre>AI分析供应商报价：
 ↓
-Если сумма < 50 000 ₽ → Автоматически согласовывает
-Если сумма 50 000 - 500 000 ₽ → Отправляет на подтверждение закупщику
-Если сумма > 500 000 ₽ → Отправляет на подтверждение директору
-Если новый поставщик → Всегда отправляет на проверку</pre>
+如果金额 < 5万元 → 自动同意
+如果金额 5万-50万元 → 发送给采购员确认
+如果金额 > 50万元 → 发送给总监确认
+如果新供应商 → 始终发送检查</pre>
       </div>
-      <p><strong>Результат:</strong> Рутина автоматизирована, важные решения — под контролем.</p>
+      <p><strong>结果：</strong> 日常事务自动化，重要决策受控。</p>
     </div>
 
-    <h3>Как настроить "человека в цикле"</h3>
+    <h3>如何设置"人工介入"</h3>
     <div class="card card-accent">
       <ol>
-        <li><strong>Определите пороги:</strong> При каких условиях нужно подтверждение?</li>
-        <li><strong>Выберите способ уведомления:</strong> Email, Telegram, Slack, задача в CRM</li>
-        <li><strong>Задайте время ответа:</strong> Сколько ждать подтверждения? Что делать при таймауте?</li>
-        <li><strong>Настройте эскалацию:</strong> Если первый человек не ответил — кому перенаправить?</li>
+        <li><strong>定义阈值：</strong> 在什么条件下需要确认？</li>
+        <li><strong>选择通知方式：</strong> 邮件、Telegram、Slack、CRM任务</li>
+        <li><strong>设定响应时间：</strong> 等待确认多久？超时怎么办？</li>
+        <li><strong>设置升级：</strong> 如果第一人未回复——转给谁？</li>
       </ol>
     </div>
   </div>
 
-  <!-- КАК ДЕЛЕГИРОВАТЬ -->
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен механизм 'человек в цикле' для AI-агента [название].
+      <h3>任务模板</h3>
+      <pre>"需要为AI代理[名称]创建'人工介入'机制。
 
-Условия для остановки (требуют подтверждения):
-- [перечислить: сумма > X, новый поставщик, etc.]
+停止条件（需确认）：
+- [列举：金额 > X、新供应商等]
 
-Способ уведомления: [email / Telegram / Slack]
-Время на ответ: [N минут/часов]
-Эскалация: [если не ответил → кому отправить]
+通知方式：[邮件 / Telegram / Slack]
+响应时间：[N分钟/小时]
+升级：如果未回复 → 发送给[谁]
 
-Действие при одобрении: [что делает AI]
-Действие при отклонении: [что делает AI]
+批准时动作：[AI做什么]
+拒绝时动作：[AI做什么]
 
-Пример сценария: [описать]
-Срок: [дата]"</pre>
+场景示例：[描述]
+期限：[日期]"</pre>
     </div>
   </div>
 
-  <!-- ЧЕКЛИСТ -->
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Все критичные операции требуют подтверждения?</li>
-      <li>Уведомления приходят вовремя?</li>
-      <li>Есть чёткие пороги для каждого уровня контроля?</li>
-      <li>Эскалация работает? (если первый не ответил)</li>
-      <li>Таймауты настроены разумно? (не слишком короткие)</li>
-      <li>Есть лог всех решений? (кто и когда одобрил)</li>
+      <li>所有关键操作都需要确认？</li>
+      <li>通知及时送达？</li>
+      <li>每个控制级别有明确阈值？</li>
+      <li>升级机制有效？（如果第一人未回复）</li>
+      <li>超时设置合理？（不太短）</li>
+      <li>有所有决策日志？（谁何时批准）</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Зачем нужен "человек в цикле"?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Чтобы предотвратить дорогие ошибки AI</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы замедлить процесс</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Чтобы уволить сотрудников</div>
+      <p><strong>问题1：</strong> 为什么需要"人工介入"？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 防止AI的昂贵错误</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 为了减慢流程</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 为了解雇员工</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Какой уровень контроля для подписания договора?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Полная автономия</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Полный контроль</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Частичный контроль</div>
+      <p><strong>问题2：</strong> 签署合同需要什么控制级别？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 完全自主</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 完全控制</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 部分控制</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Что делать при таймауте (человек не ответил)?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Эскалировать следующему ответственному</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI сам решает</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Отменить задачу</div>
+      <p><strong>问题3：</strong> 超时（人工未回复）时怎么办？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 升级给下一位负责人</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) AI自行决定</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 取消任务</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>Человек в цикле = страховка.</strong> AI автоматизирует рутину, но человек контролирует важные решения. Настройте пороги: полная автономия для простых задач, частичный контроль для важных, полный контроль для критичных. Это защищает от дорогих ошибок.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>人工介入 = 保险。</strong>AI自动化日常事务，但人工控制重要决策。设置阈值：简单任务完全自主，重要任务部分控制，关键任务完全控制。这能防止昂贵的错误。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../04-multi-agent/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../04-mcp/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../04-multi-agent/index.html" class="nav-btn">← 上一课</a>
+    <a href="../04-mcp/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -258,17 +251,16 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
-
 </body>
 </html>
