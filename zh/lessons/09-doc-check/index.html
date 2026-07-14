@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>9.1 Проверка документов и внутреннего контроля — AI для не ИТ-специалистов</title>
+<title>9.1 文件与内部控制检查 — 非IT专业人士的AI</title>
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,7 +23,6 @@
   .card-accent { border-left: 4px solid var(--accent); }
   .card-success { border-left: 4px solid var(--success); }
   .card-warning { border-left: 4px solid var(--warning); }
-  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
   .checklist { list-style: none; padding: 0; }
   .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
   .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
@@ -50,200 +49,196 @@
   table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
   th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
   th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) {
-    .lesson-header h1 { font-size: 1.4rem; }
-    .nav-footer { flex-direction: column; }
-    .nav-btn { width: 100%; text-align: center; }
-  }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
 </style>
 </head>
 <body>
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🔍 УРОВЕНЬ 9 · АУДИТ, КОНТРОЛЬ И COMPLIANCE</div>
-    <h1>9.1 · Проверка документов и внутреннего контроля</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🔍 级别 9 · 审计、控制与合规</div>
+    <h1>9.1 · 文件与内部控制检查</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Ошибки в документах стоят компании миллионы: двойная оплата, неверный контрагент, пропущенное согласование. Ручная проверка 1000+ документов в месяц невозможна.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>文件错误可能让企业损失数百万：重复付款、错误交易对手、遗漏审批。每月人工检查1000多份文件几乎不可能。</p>
     <div class="card card-success">
-      <p><strong>AI-контроль</strong> — автоматическая сверка документов, поиск аномалий и проверка процессов по чеклистам. Менеджер получает отчёт с найденными рисками, а не копается в бумагах.</p>
-      <p><strong>Пример:</strong> AI сверил 500 счетов за месяц и нашёл 12 расхождений: 3 — неверные реквизиты, 7 — дубли, 2 — пропущенные согласования.</p>
+      <p><strong>AI控制</strong> — 自动核对文件、发现异常、按清单检查流程。管理者获得风险报告，而不是翻纸堆。</p>
+      <p><strong>案例：</strong> AI核对了500张发票，发现12处差异：3处信息错误，7处重复，2处遗漏审批。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
 
-    <h3>Три уровня AI-проверки</h3>
+    <h3>三级AI检查</h3>
     <table>
-      <tr><th>Уровень</th><th>Что делает AI</th><th>Пример</th></tr>
-      <tr><td>Сверка</td><td>Сравнивает документы с данными в системе</td><td>Счёт vs 1С: сумма, контрагент, договор</td></tr>
-      <tr><td>Анализ</td><td>Ищет паттерны и аномалии</td><td>Круглые суммы, дубли, выходные даты</td></tr>
-      <tr><td>Проверка процессов</td><td>Контроль по чеклисту</td><td>Все ли согласования, все ли этапы</td></tr>
+      <tr><th>级别</th><th>AI做什么</th><th>示例</th></tr>
+      <tr><td>核对</td><td>将文件与系统数据比对</td><td>发票vs会计系统：金额、对手方、合同</td></tr>
+      <tr><td>分析</td><td>发现模式和异常</td><td>整数金额、重复、周末日期</td></tr>
+      <tr><td>流程检查</td><td>按清单检查</td><td>所有审批是否完成、所有阶段是否通过</td></tr>
     </table>
 
-    <h3>Что AI может найти</h3>
+    <h3>AI能发现什么</h3>
     <div class="card card-accent">
       <ul>
-        <li><strong>Расхождения:</strong> сумма в счёте ≠ сумме в 1С, неверный ИНН/КПП</li>
-        <li><strong>Дубли:</strong> два счета на одну и ту же поставку, повторная оплата</li>
-        <li><strong>Аномалии:</strong> круглые суммы (100 000, 500 000), платёж в выходной, изменение реквизитов контрагента</li>
-        <li><strong>Пропуски:</strong> отсутствие согласования, пропущенный этап, неподписанный акт</li>
-        <li><strong>Сроки:</strong> просроченная оплата, истекающий договор, незакрытый этап</li>
+        <li><strong>差异：</strong> 发票金额≠会计金额、税号错误</li>
+        <li><strong>重复：</strong> 同一供货两张发票、重复付款</li>
+        <li><strong>异常：</strong> 整数金额（100,000、500,000）、周末付款、交易对手信息变更</li>
+        <li><strong>遗漏：</strong> 缺少审批、跳过阶段、未签字验收单</li>
+        <li><strong>期限：</strong> 逾期付款、即将到期合同、未关闭阶段</li>
       </ul>
     </div>
 
-    <h3>Кросс-проверка между системами</h3>
+    <h3>系统间交叉核对</h3>
     <div class="example">
-      <div class="example-label">Пример: сверка потока</div>
-      <pre>1С (бухгалтерия)    ←→    ЭДО (документооборот)    ←→    Банк (выписка)
-       Сумма 120 000              Сумма 120 000                 Списание 120 000
-       Контрагент ООО "А"         Подписан акт                   10.07.2026
-       Договор №45
+      <div class="example-label">示例：核对流程</div>
+      <pre>会计系统    ←→    电子文档    ←→    银行流水
+金额 120,000       金额 120,000        支出 120,000
+对手方 甲公司       已签字验收单          2026-07-10
+合同 №45
 
-AI проверяет: суммы совпадают? даты совпадают? контрагент одинаковый?
-Если нет → алерт менеджеру</pre>
+AI检查：金额一致？日期一致？对手方相同？
+如不一致 → 向管理者发出预警</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
 
-    <h3>Сценарий: ежемесячная сверка первичных документов</h3>
+    <h3>场景：每月原始凭证核对</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для AI</div>
-        <pre>Сверь счета-фактуры (файл) с данными из 1С (экспорт).
+        <div class="example-label">AI提示词</div>
+        <pre>核对发票（文件）与会计系统数据（导出文件）。
 
-Проверь:
-- Сумма счёта = сумме в 1С
-- Контрагент совпадает (по ИНН)
-- Номер договора указан и существует
-- Дата счёта в пределах действия договора
-- Нет дублей (тот же номер + та же сумма)
+检查：
+- 发票金额 = 会计金额
+- 对手方一致（按税号）
+- 合同号存在且有效
+- 发票日期在合同有效期内
+- 无重复（同编号+同金额）
 
-Выведи:
-- Список расхождений (что не совпало)
-- Список дублей
-- Список просроченных (срок оплаты &lt; сегодня)</pre>
+输出：
+- 差异清单（哪些不匹配）
+- 重复清单
+- 逾期清单（付款截止日 &lt; 今天）</pre>
       </div>
-      <p><strong>Результат:</strong> Excel-файл с тремя вкладками: Расхождения, Дубли, Просроченные. Менеджер проверяет за 30 минут вместо 2 дней.</p>
+      <p><strong>结果：</strong> 三页Excel：差异、重复、逾期。管理者30分钟检查完，而不是2天。</p>
     </div>
 
-    <h3>Сценарий: проверка процесса по чеклисту</h3>
+    <h3>场景：按清单检查流程</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Чеклист закупки</div>
-        <pre>☐ Запрос на потребность (инициатор)
-☐ Согласование бюджета (финансист)
-☐ 3 коммерческих предложения (закупщик)
-☐ Протокол согласования (закупщик)
-☐ Договор (юрист)
-☐ Подписание договора (обе стороны)
-☐ Аванс/оплата (бухгалтерия)
-☐ Акт выполненных работ (ответственный)</pre>
+        <div class="example-label">采购清单</div>
+        <pre>☐ 需求申请（发起人）
+☐ 预算审批（财务）
+☐ 3份商业报价（采购员）
+☐ 评审记录（采购员）
+☐ 合同（法务）
+☐ 双方签署合同
+☐ 预付款/付款（财务）
+☐ 验收单（负责人）</pre>
       </div>
-      <p>AI проверяет журнал согласований и находит: «Закупка №452: пропущен этап — отсутствует протокол согласования». Алерт инициатору.</p>
+      <p>AI检查审批日志并发现："采购#452：缺少评审记录阶段"。向发起人发出预警。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен автоматический контроль документов.
+      <h3>任务模板</h3>
+      <pre>"需要自动文件控制工具。
 
-Входные данные:
-- Счета-фактуры (PDF / Excel)
-- Выгрузка из 1С (Excel)
-- Выписка из банка (Excel / API)
+输入数据：
+- 发票（PDF / Excel）
+- 会计系统导出（Excel）
+- 银行流水（Excel / API）
 
-Что проверяем:
-1. Сверка сумм, контрагентов, договоров
-2. Поиск дублей
-3. Аномалии (круглые суммы, выходные, изменение реквизитов)
-4. Просроченные платежи и согласования
+检查内容：
+1. 金额、对手方、合同核对
+2. 重复查找
+3. 异常（整数金额、周末、信息变更）
+4. 逾期付款和审批
 
-Выход:
-- Отчёт в Excel с расхождениями
-- Алерты в Telegram / email критичным
-- Дашборд с метриками (сколько проверено, сколько найдено)
+输出：
+- Excel差异报告
+- 严重预警（Telegram / 邮件）
+- 指标看板（检查多少、发现多少）
 
-Интеграция: 1С, банк (API), Telegram
-Срок: [дата]"</pre>
+集成：会计系统、银行、Telegram
+期限：[日期]"</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Все три источника (1С, ЭДО, банк) подключены?</li>
-      <li>Сверка работает: суммы, контрагенты, договоры?</li>
-      <li>Дубли находятся корректно (не ложные срабатывания)?</li>
-      <li>Аномалии настроены под бизнес (не все круглые суммы — подозрительные)?</li>
-      <li>Алерты приходят вовремя и по нужным людям?</li>
-      <li>Отчёт понятен без объяснений (сам по себе)?</li>
-      <li>Есть история: можно посмотреть, что было в прошлом месяце?</li>
+      <li>三个来源（会计、电子文档、银行）都已连接？</li>
+      <li>核对有效：金额、对手方、合同？</li>
+      <li>重复查找正确（无误报）？</li>
+      <li>异常已针对业务调整（并非所有整数金额都异常）？</li>
+      <li>预警及时发送给正确人员？</li>
+      <li>报告无需解释即可理解？</li>
+      <li>可查看历史记录（上月数据）？</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Что AI проверяет на уровне «сверки»?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Соответствие документа данным в системе</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Настроение бухгалтера</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Цвет оформления счёта</div>
+      <p><strong>问题1：</strong> AI在"核对"级别检查什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 文件与系统数据的一致性</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 会计的心情</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 发票颜色</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Какой паттерн подозрительный для AI?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Сумма 123 456,78</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Дубль: два счёта на одну поставку</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Платёж в рабочий день</div>
+      <p><strong>问题2：</strong> 哪种模式对AI来说是异常的？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 金额 123,456.78</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 重复：同一供货两张发票</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 工作日付款</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Какой документ нужен для кросс-проверки?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Только счёт</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Счёт + 1С + банковская выписка</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только договор</div>
+      <p><strong>问题3：</strong> 交叉核对需要什么文件？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 只有发票</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 发票 + 会计系统 + 银行流水</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 只有合同</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>AI не заменяет бухгалтера, но делает его работу точнее.</strong> Сверка документов, поиск дублей и аномалий, проверка процессов — всё это рутина, которую AI делает за минуты. Менеджер получает список проблем, а не копается в тысячах строк.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>AI不会替代会计，但会让他的工作更准确。</strong> 文件核对、重复查找、异常发现、流程检查——这些都是AI几分钟就能完成的例行工作。管理者获得问题清单，而不是翻成千上万行数据。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../../catalog.html" class="nav-btn">← К каталогу</a>
-    <a href="../09-audit-procurement-sales/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../../catalog.html" class="nav-btn">← 目录</a>
+    <a href="../09-audit-procurement-sales/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -261,14 +256,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>

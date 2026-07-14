@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>9.3 Аудит стройки и проектов — AI для не ИТ-специалистов</title>
+<title>9.3 施工与项目审计 — 非IT专业人士的AI</title>
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,7 +24,6 @@
   .card-success { border-left: 4px solid var(--success); }
   .card-warning { border-left: 4px solid var(--warning); }
   .card-danger { border-left: 4px solid var(--danger); }
-  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
   .checklist { list-style: none; padding: 0; }
   .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
   .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
@@ -51,199 +50,195 @@
   table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
   th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
   th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) {
-    .lesson-header h1 { font-size: 1.4rem; }
-    .nav-footer { flex-direction: column; }
-    .nav-btn { width: 100%; text-align: center; }
-  }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
 </style>
 </head>
 <body>
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🔍 УРОВЕНЬ 9 · АУДИТ, КОНТРОЛЬ И COMPLIANCE</div>
-    <h1>9.3 · Аудит стройки и проектов</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🔍 级别 9 · 审计、控制与合规</div>
+    <h1>9.3 · 施工与项目审计</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Строительные проекты — сложные многоэтапные процессы с массой документов, отклонений и рисков. Ручной контроль пропускает: перерасход материалов, срыв сроков, отклонения от сметы, пропущенные акты.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>建筑项目是多阶段复杂过程，涉及大量文件、偏差和风险。人工控制会遗漏：材料超耗、工期延误、预算偏差、遗漏验收单。</p>
     <div class="card card-success">
-      <p><strong>AI-аудит стройки и проектов</strong> — автоматическое сравнение факта с планом (смета, график, проект), выявление отклонений >5% и раннее предупреждение о красных зонах.</p>
-      <p><strong>Пример:</strong> AI сверил 150 актов КС-2 за полгода с сметой и выявил 12 отклонений: 7 — перерасход материалов >10%, 3 — отсутствие соответствующих работ в проекте, 2 — двойная оплата по одному акту.</p>
+      <p><strong>AI施工与项目审计</strong> — 自动对比实际与计划（预算、进度、设计），发现>5%的偏差并提前预警红色区域。</p>
+      <p><strong>案例：</strong> AI核对了150份半年期验收单与预算，发现12处偏差：7处材料超耗>10%，3处设计未包含的工作，2处同一张验收单重复付款。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
 
-    <h3>Стройка: что проверяет AI</h3>
+    <h3>施工：AI检查什么</h3>
     <div class="card card-accent">
       <ul>
-        <li><strong>Сверка актов КС-2/КС-3 с сметой:</strong> выполненные работы соответствуют сметной документации? не выходят за объёмы?</li>
-        <li><strong>Перерасход материалов:</strong> фактический расход vs сметный с учётом норм ГЭСН/ФЕР. Отклонение >10% — алерт.</li>
-        <li><strong>Соответствие проекту:</strong> выполненные работы заложены в проект? нет ли «левых» позиций?</li>
-        <li><strong>Сроки и график:</strong> отклонение от планового графика, задержки критических путей, риск срыва сдачи</li>
-        <li><strong>Двойные оплаты:</strong> один и тот же акт в разных платёжках, дублирование позиций</li>
-        <li><strong>СНиП/ГОСТ:</strong> соответствие нормам (минимальные толщины, марки материалов, допуски)</li>
+        <li><strong>验收单与预算核对：</strong> 完成工作是否符合预算文件？是否超量？</li>
+        <li><strong>材料超耗：</strong> 实际消耗vs预算（考虑定额标准）。偏差>10%——预警。</li>
+        <li><strong>符合设计：</strong> 完成工作是否在设计中？有无"非正规"条目？</li>
+        <li><strong>工期与进度：</strong> 偏离计划进度、关键路径延误、竣工风险</li>
+        <li><strong>重复付款：</strong> 同一张验收单出现在多笔付款中，条目重复</li>
+        <li><strong>标准规范：</strong> 是否符合标准（最小厚度、材料等级、公差）</li>
       </ul>
     </div>
 
-    <h3>Проекты: что проверяет AI</h3>
+    <h3>项目：AI检查什么</h3>
     <div class="card card-accent">
       <ul>
-        <li><strong>Этапы и deliverables:</strong> все ли этапы завершены, все ли согласования получены, все ли документы на месте</li>
-        <li><strong>Бюджет:</strong> факт vs план, отклонение по статьям, прогноз окончательной стоимости</li>
-        <li><strong>Сроки:</strong> отклонение от baseline, тренд (идём на опережение или отстаём), риск срыва</li>
-        <li><strong>Ресурсы:</strong> загрузка команды, перерасход человеко-часов, незапланированные ресурсы</li>
-        <li><strong>Красные зоны:</strong> автоматическое выделение: бюджет >110%, срок срыва >2 недель, ресурсы на 120%</li>
+        <li><strong>阶段与交付物：</strong> 所有阶段是否完成，所有审批是否获得，所有文件是否到位</li>
+        <li><strong>预算：</strong> 实际vs计划，按科目偏差，最终成本预测</li>
+        <li><strong>工期：</strong> 偏离基线，趋势（提前或落后），延误风险</li>
+        <li><strong>资源：</strong> 团队负载、工时超耗、非计划资源</li>
+        <li><strong>红色区域：</strong> 自动标出：预算>110%、延误>2周、资源>120%</li>
       </ul>
     </div>
 
-    <h3>Пороги отклонения: когда AI сигналит</h3>
+    <h3>偏差阈值：何时AI发出信号</h3>
     <table>
-      <tr><th>Параметр</th><th>Зелёный</th><th>Жёлтый</th><th>Красный</th></tr>
-      <tr><td>Перерасход материалов</td><td>≤ 5%</td><td>5–10%</td><td>> 10%</td></tr>
-      <tr><td>Отклонение бюджета</td><td>≤ 3%</td><td>3–10%</td><td>> 10%</td></tr>
-      <tr><td>Срыв срока (проект)</td><td>≤ 3 дня</td><td>3–14 дней</td><td>> 14 дней</td></tr>
-      <tr><td>Загрузка ресурсов</td><td>≤ 90%</td><td>90–110%</td><td>> 110%</td></tr>
+      <tr><th>参数</th><th>绿色</th><th>黄色</th><th>红色</th></tr>
+      <tr><td>材料超耗</td><td>≤ 5%</td><td>5–10%</td><td>> 10%</td></tr>
+      <tr><td>预算偏差</td><td>≤ 3%</td><td>3–10%</td><td>> 10%</td></tr>
+      <tr><td>工期延误（项目）</td><td>≤ 3天</td><td>3–14天</td><td>> 14天</td></tr>
+      <tr><td>资源负载</td><td>≤ 90%</td><td>90–110%</td><td>> 110%</td></tr>
     </table>
   </div>
 
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
 
-    <h3>Сценарий: сверка актов КС-2 с сметой</h3>
+    <h3>场景：验收单与预算核对</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для AI</div>
-        <pre>Сверь акты КС-2 (файл: акты.xlsx) со сметой (файл: смета.xlsx).
+        <div class="example-label">AI提示词</div>
+        <pre>核对验收单（文件：验收单.xlsx）与预算（文件：预算.xlsx）。
 
-Для каждого акта:
-1. Найди соответствующую позицию в смете (по наименованию работ)
-2. Сравни объём выполненных работ с сметным объёмом
-3. Проверь: не превышает ли расход материалов нормы ГЭСН/ФЕР (±10%)
-4. Проверь: есть ли эта работа в проекте (файл: проект.pdf)
-5. Проверь: не оплачен ли этот акт дважды (файл: платежи.xlsx)
+每张验收单：
+1. 在预算中找到对应条目（按工作名称）
+2. 比较完成工程量与预算量
+3. 检查：材料消耗是否超定额标准（±10%）
+4. 检查：这项工作是否在设计中（文件：设计.pdf）
+5. 检查：同一张验收单是否重复付款（文件：付款.xlsx）
 
-Выведи:
-- Акты с отклонением >10% (по объёму или материалам)
-- Акты на работы, отсутствующие в проекте
-- Двойные оплаты
-- Сводка: сколько зелёных, жёлтых, красных</pre>
+输出：
+- 偏差>10%的验收单（按工程量或材料）
+- 设计中不存在的验收单
+- 重复付款
+- 汇总：绿色、黄色、红色各多少</pre>
       </div>
-      <p><strong>Результат:</strong> Excel-файл с проверкой каждого акта. Прораб и технадзор проверяют только красные.</p>
+      <p><strong>结果：</strong> 每张验收单检查的Excel文件。工长和技术监督只检查红色。</p>
     </div>
 
-    <h3>Сценарий: мониторинг проектов на красные зоны</h3>
+    <h3>场景：项目红色区域监控</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для AI</div>
-        <pre>Проанализируй статус проектов (файл: проекты.xlsx).
+        <div class="example-label">AI提示词</div>
+        <pre>分析项目状态（文件：项目.xlsx）。
 
-Для каждого проекта:
-1. Факт vs план бюджета: отклонение % по каждой статье
-2. Факт vs план сроков: отставание/опережение в днях
-3. Загрузка ресурсов: запланировано vs фактически потрачено
-4. Завершение этапов: сколько % выполнено, что просрочено
+每个项目：
+1. 实际vs预算：按科目偏差%
+2. 实际vs计划工期：延迟/提前天数
+3. 资源负载：计划vs实际投入
+4. 阶段完成：完成百分比，哪些逾期
 
-Примени пороги:
-- Зелёный: бюджет ≤103%, срок ≤3 дней, ресурсы ≤90%
-- Жёлтый: бюджет 103–110%, срок 3–14 дней, ресурсы 90–110%
-- Красный: бюджет >110%, срок >14 дней, ресурсы >110%
+应用阈值：
+- 绿色：预算≤103%，工期≤3天，资源≤90%
+- 黄色：预算103–110%，工期3–14天，资源90–110%
+- 红色：预算>110%，工期>14天，资源>110%
 
-Выведи:
-- Дашборд: все проекты с цветовым статусом
-- Красные зоны: детализация по каждому красному проекту
-- Прогноз: какие проекты уйдут в красное через месяц (тренд)</pre>
+输出：
+- 看板：所有项目带颜色状态
+- 红色区域：每个红色项目的详情
+- 预测：哪些项目一个月后将变红（趋势）</pre>
       </div>
-      <p><strong>Результат:</strong> Руководитель проектов видит дашборд с 20 проектами: 12 зелёных, 5 жёлтых, 3 красных. Фокус — на 3 красных.</p>
+      <p><strong>结果：</strong> 项目主管看到20个项目看板：12绿、5黄、3红。重点在3个红色。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи (стройка)</h3>
-      <pre>"Нужен AI-контроль актов КС-2/КС-3.
+      <h3>任务模板（施工）</h3>
+      <pre>"需要验收单AI控制工具。
 
-Входные данные:
-- Акты КС-2 (Excel / PDF)
-- Смета (Excel: ГЭСН/ФЕР)
-- Проект (PDF)
-- Платёжные поручения (Excel / 1С)
+输入数据：
+- 验收单（Excel / PDF）
+- 预算（Excel：定额标准）
+- 设计（PDF）
+- 付款凭证（Excel / 会计系统）
 
-Что проверяем:
-1. Соответствие актов смете (объём, цена)
-2. Перерасход материалов (±10% от нормы)
-3. Наличие работ в проекте
-4. Двойные оплаты
-5. Соответствие СНиП/ГОСТ (проверка по справочнику)
+检查内容：
+1. 验收单与预算核对（工程量、价格）
+2. 材料超耗（±10%标准内）
+3. 工作是否在设计中
+4. 重复付款
+5. 标准规范符合性（按标准库检查）
 
-Выход:
-- Excel-отчёт с рейтингом каждого акта
-- Алерты при отклонении >10%
-- Дашборд по объектам
+输出：
+- 带每张验收单评级的Excel报告
+- 偏差>10%预警
+- 按项目看板
 
-Интеграция: 1С, Telegram
-Срок: [дата]"</pre>
+集成：会计系统、Telegram
+期限：[日期]"</pre>
     </div>
     <div class="card card-success">
-      <h3>Шаблон задачи (проекты)</h3>
-      <pre>"Нужен AI-мониторинг проектов.
+      <h3>任务模板（项目）</h3>
+      <pre>"需要项目AI监控工具。
 
-Входные данные:
-- План проектов (Excel: этапы, сроки, бюджет, ресурсы)
-- Факт (CRM / Jira / Excel: выполнение, затраты, трудозатраты)
+输入数据：
+- 项目计划（Excel：阶段、工期、预算、资源）
+- 实际（CRM / Jira / Excel：完成、成本、工时）
 
-Что проверяем:
-1. Отклонение бюджета по статьям
-2. Отклонение сроков от baseline
-3. Загрузка ресурсов
-4. Завершение этапов и deliverables
-5. Прогноз окончательной стоимости и срока
+检查内容：
+1. 按科目预算偏差
+2. 偏离基线工期
+3. 资源负载
+4. 阶段和交付物完成度
+5. 最终成本和工期预测
 
-Пороги:
-- Зелёный/жёлтый/красный (см. таблицу выше)
+阈值：
+- 绿/黄/红（见上表）
 
-Выход:
-- Дашборд проектов с цветовым статусом
-- Алерты при переходе в красное
-- Прогноз рисков (тренд)
+输出：
+- 带颜色状态的项目看板
+- 变红时预警
+- 风险预测（趋势）
 
-Интеграция: Jira / Asana / Monday, Excel, Telegram
-Срок: [дата]"</pre>
+集成：Jira / Asana / Monday、Excel、Telegram
+期限：[日期]"</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Акты сверяются с сметой по объёму и цене?</li>
-      <li>Перерасход материалов считается с учётом норм ГЭСН/ФЕР?</li>
-      <li>Проверка на двойные оплаты работает (не ложные срабатывания)?</li>
-      <li>Цветовой рейтинг понятен без объяснений?</li>
-      <li>Красные зоны приходят в алертах сразу?</li>
-      <li>Прогноз рисков показывает, что случится через месяц?</li>
-      <li>Все три источника (факт, план, проект) подключены?</li>
+      <li>验收单按工程量和价格与预算核对？</li>
+      <li>材料超耗考虑定额标准？</li>
+      <li>重复付款查找有效（无误报）？</li>
+      <li>颜色评级无需解释即可理解？</li>
+      <li>红色区域预警即时到达？</li>
+      <li>风险预测显示一个月后会发生什么？</li>
+      <li>三个来源（实际、计划、设计）都已连接？</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Какое отклонение материалов — красное?</p>
+      <p><strong>问题1：</strong> 材料超耗多少算红色？</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) 3%</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">B) 7%</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">C) 12%</div>
@@ -251,39 +246,39 @@
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Что проверяет AI в проектах?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Только бюджет</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Бюджет, сроки, ресурсы, этапы</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только настроение команды</div>
+      <p><strong>问题2：</strong> AI在项目中检查什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 只有预算</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 预算、工期、资源、阶段</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 只有团队心情</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Как AI находит двойные оплаты?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Спрашивает бухгалтера</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Сравнивает акты с платёжными поручениями</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Угадывает</div>
+      <p><strong>问题3：</strong> AI如何发现重复付款？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 问会计</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 将验收单与付款凭证对比</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 猜测</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>AI не строит, но находит, где строят неправильно.</strong> Сверка актов с сметой, контроль перерасхода, мониторинг красных зон — это то, что AI делает лучше человека: быстро, без усталости, по всем документам. Прораб и руководитель проектов тратят время на решения, а не на просмотр бумаг.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>AI不会施工，但会发现哪里施工不当。</strong> 验收单与预算核对、超耗控制、红色区域监控——这些AI比人做得更好：快速、不知疲倦、覆盖所有文件。工长和项目主管将时间花在决策上，而不是翻纸堆。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../09-audit-procurement-sales/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../09-compliance-fraud/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../09-audit-procurement-sales/index.html" class="nav-btn">← 上一课</a>
+    <a href="../09-compliance-fraud/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -301,14 +296,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>

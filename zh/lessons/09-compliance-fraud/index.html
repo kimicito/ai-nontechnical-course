@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>9.4 Compliance, фрод-мониторинг и отчёты аудита — AI для не ИТ-специалистов</title>
+<title>9.4 合规、欺诈监控与审计报告 — 非IT专业人士的AI</title>
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,7 +24,6 @@
   .card-success { border-left: 4px solid var(--success); }
   .card-warning { border-left: 4px solid var(--warning); }
   .card-danger { border-left: 4px solid var(--danger); }
-  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
   .checklist { list-style: none; padding: 0; }
   .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
   .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
@@ -51,245 +50,241 @@
   table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
   th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
   th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) {
-    .lesson-header h1 { font-size: 1.4rem; }
-    .nav-footer { flex-direction: column; }
-    .nav-btn { width: 100%; text-align: center; }
-  }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
 </style>
 </head>
 <body>
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🔍 УРОВЕНЬ 9 · АУДИТ, КОНТРОЛЬ И COMPLIANCE</div>
-    <h1>9.4 · Compliance, фрод-мониторинг и отчёты аудита</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🔍 级别 9 · 审计、控制与合规</div>
+    <h1>9.4 · 合规、欺诈监控与审计报告</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Регуляторика меняется постоянно, а проверки приходят неожиданно. Фрод может проявляться как подозрительные платежи, связанные контрагенты, круговые схемы. Подготовка к проверке занимает недели, а отчёт аудита — месяцы.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>法规不断变化，检查随时可能到来。欺诈可能表现为可疑付款、关联对手方、循环交易。检查准备需要数周，审计报告需要数月。</p>
     <div class="card card-success">
-      <p><strong>AI для compliance и фрод-мониторинга</strong> — автоматический трекинг изменений в законах, мониторинг транзакций на аномалии, подготовка доказательной базы и генерация отчётов аудита за часы, а не недели.</p>
-      <p><strong>Пример:</strong> AI ежедневно проверяет 10 000 транзакций и за месяц выявил 23 подозрительных: 7 — выходные платежи, 12 — смена реквизитов контрагента, 4 — круговые схемы (платёшь A → A платит B → B платит тебе).</p>
+      <p><strong>AI合规与欺诈监控</strong> — 自动追踪法律变化、监控交易异常、准备证据库、几小时而非数周生成审计报告。</p>
+      <p><strong>案例：</strong> AI每日检查10,000笔交易，每月发现23笔可疑：7笔周末付款、12笔对手方信息变更、4笔循环交易（A付B→B付C→C付A）。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
 
-    <h3>Трекинг изменений в регуляторике</h3>
+    <h3>法规变化追踪</h3>
     <div class="card card-accent">
       <ul>
-        <li><strong>Мониторинг законов:</strong> AI следит за изменениями в налоговом, трудовом, строительном законодательстве, ГОСТ, СНиП, 44-ФЗ/223-ФЗ</li>
-        <li><strong>Проверка внутренних политик:</strong> соответствуют ли внутренние регламенты новым требованиям? что нужно обновить?</li>
-        <li><strong>Алерты:</strong> уведомление ответственным, когда изменение требует действия (новый отчёт, новый порог, новая процедура)</li>
+        <li><strong>法律监控：</strong> AI追踪税法、劳动法、建筑法、标准规范、采购法变化</li>
+        <li><strong>内部政策检查：</strong> 内部规章是否符合新要求？哪些需要更新？</li>
+        <li><strong>预警：</strong> 变化需要行动时（新报告、新阈值、新程序）通知负责人</li>
       </ul>
     </div>
 
-    <h3>Фрод-мониторинг: сигналы рисков</h3>
+    <h3>欺诈监控：风险信号</h3>
     <div class="card card-accent">
       <ul>
-        <li><strong>Выходные и праздники:</strong> платежи в субботу/воскресенье — редко, но бывает. Пакет выходных платежей — сигнал.</li>
-        <li><strong>Смена реквизитов:</strong> контрагент вдруг сменил банк, ИНН, адрес — требует проверки.</li>
-        <li><strong>Круговые схемы:</strong> A платит B, B платит C, C платит A — AI строит граф связей и находит циклы.</li>
-        <li><strong>Подозрительные контрагенты:</strong> новые (зарегистрированы < 3 месяцев), массовые адреса, связанные учредители, статус «в процессе ликвидации».</li>
-        <li><strong>Аномалии сумм:</strong> круглые (500 000, 1 000 000), дробные с копейками (123 456,78), резкое отклонение от среднего.</li>
+        <li><strong>周末和假日：</strong> 周六/周日付款很少见。一批周末付款——信号。</li>
+        <li><strong>信息变更：</strong> 对手方突然更换银行、税号、地址——需要检查。</li>
+        <li><strong>循环交易：</strong> A付B、B付C、C付A——AI构建关系图发现循环。</li>
+        <li><strong>可疑对手方：</strong> 新注册（<3个月）、集群地址、关联股东、"正在清算"状态。</li>
+        <li><strong>金额异常：</strong> 整数（500,000、1,000,000）、精确到分（123,456.78）、与平均值偏差大。</li>
       </ul>
     </div>
 
-    <h3>Подготовка к проверкам и отчёты аудита</h3>
+    <h3>检查准备与审计报告</h3>
     <div class="card card-accent">
       <ul>
-        <li><strong>Сборка доказательной базы:</strong> по запросу контролирующего органа AI собирает: реестр договоров, акты, платежи, переписку — в один пакет</li>
-        <li><strong>Структурирование ответов:</strong> формирование ответа на запрос по шаблону, с нумерацией, ссылками на документы</li>
-        <li><strong>Генерация аудиторского отчёта:</strong> из заключений специалистов AI собирает сводный отчёт с ранжированием рисков (высокий/средний/низкий) и рекомендациями</li>
-        <li><strong>Презентация для совета директоров:</strong> ключевые цифры, тренды, 3 главных риска, рекомендации — на 5 слайдах</li>
+        <li><strong>证据库收集：</strong> 按监管机构要求，AI收集：合同登记簿、验收单、付款、往来邮件——打包成一套</li>
+        <li><strong>回复结构化：</strong> 按模板形成回复函，带编号、文档引用</li>
+        <li><strong>审计报告生成：</strong> 从专家结论中，AI汇总报告，风险排序（高/中/低）和建议</li>
+        <li><strong>董事会演示：</strong> 关键数字、趋势、3大主要风险、建议——5页幻灯片</li>
       </ul>
     </div>
 
-    <h3>Примеры фрод-сигналов</h3>
+    <h3>欺诈信号示例</h3>
     <table>
-      <tr><th>Сигнал</th><th>Что нашёл AI</th><th>Действие</th></tr>
-      <tr><td>🔴 Выходные платежи</td><td>15 платежей в субботу на одного контрагента</td><td>Проверить, подтвердить срочность, документировать</td></tr>
-      <tr><td>🔴 Смена реквизитов</td><td>Контрагент сменил банк за 3 дня до платежа 2 млн</td><td>Проверить по телефону, подписать дополнение</td></tr>
-      <tr><td>🔴 Круговая схема</td><td>A→B→C→A, суммы 1 млн каждый, за 2 дня</td><td>Аудит, проверка связанности, документирование</td></tr>
-      <tr><td>🟡 Новый контрагент</td><td>ООО зарегистрировано 2 недели назад, массовый адрес</td><td>Усиленная проверка, аванс только после поставки</td></tr>
+      <tr><th>信号</th><th>AI发现什么</th><th>行动</th></tr>
+      <tr><td>🔴 周末付款</td><td>周六向同一对手方15笔付款</td><td>检查、确认紧急性、记录</td></tr>
+      <tr><td>🔴 信息变更</td><td>对手方在200万付款前3天更换银行</td><td>电话确认、签署补充协议</td></tr>
+      <tr><td>🔴 循环交易</td><td>A→B→C→A，每笔100万，2天内</td><td>审计、检查关联性、记录</td></tr>
+      <tr><td>🟡 新对手方</td><td>公司2周前注册，集群地址</td><td>加强检查、供货后才预付款</td></tr>
     </table>
   </div>
 
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
 
-    <h3>Сценарий: фрод-мониторинг транзакций</h3>
+    <h3>场景：交易欺诈监控</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для AI</div>
-        <pre>Проанализируй выписку из банка (файл) за месяц.
+        <div class="example-label">AI提示词</div>
+        <pre>分析银行流水（文件）一个月。
 
-Для каждой транзакции проверь:
-1. Дата: выходной или праздник? (если да — флаг)
-2. Контрагент: новый? сменил реквизиты за 30 дней? в чёрном списке?
-3. Сумма: круглая? резко отличается от средней по этому контрагенту?
-4. Граф связей: входит ли транзакция в круговую схему (A→B→C→A)?
-5. Частота: более 5 платежей одному контрагенту за день?
+每笔交易检查：
+1. 日期：周末或假日？（是——标记）
+2. 对手方：新？30天内变更信息？黑名单？
+3. 金额：整数？与该对手方平均值偏差大？
+4. 关系图：交易是否属于循环（A→B→C→A）？
+5. 频率：一天内向同一对手方超过5笔付款？
 
-Выведи:
-- Список подозрительных транзакций (с обоснованием)
-- Топ-5 контрагентов по риску
-- Сводка: сколько красных, жёлтых, зелёных</pre>
+输出：
+- 可疑交易清单（附依据）
+- 风险最高的5个对手方
+- 汇总：红色、黄色、绿色各多少</pre>
       </div>
-      <p><strong>Результат:</strong> Руководитель финансового мониторинга получает ежедневный отчёт с 23 подозрительными транзакциями из 10 000. Время реакции — часы, а не недели.</p>
+      <p><strong>结果：</strong> 财务监控负责人每日收到10,000笔中23笔可疑报告。反应时间——小时而非周。</p>
     </div>
 
-    <h3>Сценарий: подготовка к налоговой проверке</h3>
+    <h3>场景：税务检查准备</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для AI</div>
-        <pre>Пришёл запрос из налоговой: "Предоставьте документы по контрагенту ООО 'Альфа' за 2025 год".
+        <div class="example-label">AI提示词</div>
+        <pre>收到税务局要求："提供2025年与甲公司的所有文件"。
 
-Собери пакет:
-1. Найди все договоры с ООО "Альфа" (файл: договоры/)
-2. Найди все акты выполненных работ (файл: акты/)
-3. Найди все платежи (файл: выписка 2025.xlsx)
-4. Собери переписку по email с доменом alfa.ru (файл: email/)
-5. Сформируй реестр: №, дата, тип документа, сумма, описание
-6. Сформируй сопроводительное письмо по шаблону
+打包：
+1. 查找与甲公司的所有合同（文件：合同/）
+2. 查找所有验收单（文件：验收单/）
+3. 查找所有付款（文件：2025流水.xlsx）
+4. 收集alafa.ru域名邮件往来（文件：邮件/）
+5. 形成登记簿：编号、日期、文件类型、金额、说明
+6. 按模板形成说明函
 
-Выведи:
-- ZIP-архив с документами (пронумерованными)
-- Реестр в Excel
-- Сопроводительное письмо в Word</pre>
+输出：
+- 编号文档ZIP压缩包
+- Excel登记簿
+- Word说明函</pre>
       </div>
-      <p><strong>Результат:</strong> Вместо 2 недель поиска — 2 часа. Пакет собран, пронумерован, с реестром и письмом.</p>
+      <p><strong>结果：</strong> 2周搜索→2小时。包已收集、编号、带登记簿和说明函。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи (фрод-мониторинг)</h3>
-      <pre>"Нужен AI-фрод-мониторинг транзакций.
+      <h3>任务模板（欺诈监控）</h3>
+      <pre>"需要AI交易欺诈监控工具。
 
-Входные данные:
-- Банковские выписки (Excel / API банка)
-- Справочник контрагентов (Excel: ИНН, адрес, учредители, дата регистрации)
-- Чёрный список (Excel)
+输入数据：
+- 银行流水（Excel / 银行API）
+- 对手方目录（Excel：税号、地址、股东、注册日期）
+- 黑名单（Excel）
 
-Что проверяем:
-1. Выходные/праздничные платежи
-2. Смена реквизитов контрагента
-3. Круговые схемы (граф связей)
-4. Новые/подозрительные контрагенты
-5. Аномалии сумм (круглые, резкие отклонения)
-6. Частота платежей одному контрагенту
+检查内容：
+1. 周末/假日付款
+2. 对手方信息变更
+3. 循环交易（关系图）
+4. 新/可疑对手方
+5. 金额异常（整数、偏差）
+6. 向同一对手方付款频率
 
-Выход:
-- Дашборд с рейтингом транзакций (красный/жёлтый/зелёный)
-- Алерты в Telegram/SMS при красных
-- Ежедневный отчёт в Excel
-- Граф связей (визуализация круговых схем)
+输出：
+- 交易评级看板（红/黄/绿）
+- 红色信号Telegram/SMS预警
+- 每日Excel报告
+- 关系图（循环可视化）
 
-Интеграция: банк (API), Telegram
-Срок: [дата]"</pre>
+集成：银行（API）、Telegram
+期限：[日期]"</pre>
     </div>
     <div class="card card-success">
-      <h3>Шаблон задачи (подготовка к проверке)</h3>
-      <pre>"Нужен AI-сборщик документов для проверок.
+      <h3>任务模板（检查准备）</h3>
+      <pre>"需要AI文档收集器应对检查。
 
-Входные данные:
-- Запрос от контролирующего органа (PDF / текст)
-- Договоры (папка / база)
-- Акты (папка / база)
-- Платежи (Excel / 1С)
-- Переписка (email / архив)
+输入数据：
+- 监管机构要求（PDF / 文本）
+- 合同（文件夹 / 数据库）
+- 验收单（文件夹 / 数据库）
+- 付款（Excel / 会计系统）
+- 往来邮件（邮件 / 存档）
 
-Что делает:
-1. Распознаёт запрос: какой контрагент, какой период, какие документы
-2. Собирает документы из всех источников
-3. Формирует реестр (№, дата, тип, сумма, описание)
-4. Генерирует сопроводительное письмо по шаблону
-5. Упаковывает в ZIP с нумерацией
+功能：
+1. 识别要求：哪个对手方、哪个期间、哪些文件
+2. 从所有来源收集文件
+3. 形成登记簿（编号、日期、类型、金额、说明）
+4. 按模板生成说明函
+5. 打包为带编号的ZIP
 
-Выход:
-- ZIP-архив с пронумерованными документами
-- Реестр в Excel
-- Сопроводительное письмо в Word
-- Время сборки: < 2 часов
+输出：
+- 带编号文档的ZIP压缩包
+- Excel登记簿
+- Word说明函
+- 收集时间：< 2小时
 
-Интеграция: 1С, файловое хранилище, email
-Срок: [дата]"</pre>
+集成：会计系统、文件存储、邮件
+期限：[日期]"</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Все 6 типов фрод-сигналов проверяются?</li>
-      <li>Круговые схемы находятся (не ложные срабатывания)?</li>
-      <li>Алерты приходят мгновенно (не через день)?</li>
-      <li>Трекинг регуляторики охватывает все нужные законы?</li>
-      <li>Сбор документов для проверки работает за < 2 часов?</li>
-      <li>Реестр понятен без объяснений (сам по себе)?</li>
-      <li>Аудиторский отчёт ранжирует риски (высокий/средний/низкий)?</li>
-      <li>Презентация для совета директоров — 5 слайдов, не 50?</li>
+      <li>6类欺诈信号都检查？</li>
+      <li>循环交易能发现（无误报）？</li>
+      <li>预警即时到达（非次日）？</li>
+      <li>法规追踪覆盖所有必要法律？</li>
+      <li>检查文档收集能在2小时内完成？</li>
+      <li>登记簿无需解释即可理解？</li>
+      <li>审计报告风险排序（高/中/低）？</li>
+      <li>董事会演示是5页而非50页？</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Что такое круговая схема?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Платёж по кругу на карусель</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) A платит B, B платит C, C платит A — замыкается цикл</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Оплата круглой суммой</div>
+      <p><strong>问题1：</strong> 什么是循环交易？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 在旋转木马上付款</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) A付B，B付C，C付A——形成闭环</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 整数金额付款</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Какой платёж — фрод-сигнал?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Платёж в рабочий день по договору</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 15 платежей в субботу одному контрагенту</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Оплата по согласованной смете</div>
+      <p><strong>问题2：</strong> 哪种付款是欺诈信号？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 工作日按合同付款</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 周六向同一对手方15笔付款</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 按批准预算付款</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Зачем нужен AI при подготовке к проверке?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Чтобы заменить аудитора</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Чтобы собрать документы за 2 часа вместо 2 недель</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Чтобы написать письмо в налоговую без документов</div>
+      <p><strong>问题3：</strong> 为什么检查准备需要AI？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 替代审计师</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 2小时而非2周收集文档</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 无文档向税务局写信</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>AI не предотвращает фрод, но находит его в часах, а не в месяцах.</strong> Трекинг регуляторики, мониторинг транзакций, сборка документов для проверок, генерация отчётов аудита — всё это рутина, которую AI делает системно и без усталости. Менеджер получает список того, что требует внимания, а не копается в тысячах строк.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>AI不会阻止欺诈，但会在数小时而非数月内发现它。</strong> 法规追踪、交易监控、检查文档收集、审计报告生成——这些都是AI系统性、不知疲倦完成的例行工作。管理者获得需要关注的事项清单，而不是翻成千上万行数据。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../09-audit-construction-projects/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../../catalog.html" class="nav-btn primary">К каталогу →</a>
+    <a href="../09-audit-construction-projects/index.html" class="nav-btn">← 上一课</a>
+    <a href="../../catalog.html" class="nav-btn primary">前往目录 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -307,14 +302,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>

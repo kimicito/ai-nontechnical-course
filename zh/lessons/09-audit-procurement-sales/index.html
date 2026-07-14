@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>9.2 Аудит закупок и продаж — AI для не ИТ-специалистов</title>
+<title>9.2 采购与销售审计 — 非IT专业人士的AI</title>
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,7 +24,6 @@
   .card-success { border-left: 4px solid var(--success); }
   .card-warning { border-left: 4px solid var(--warning); }
   .card-danger { border-left: 4px solid var(--danger); }
-  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
   .checklist { list-style: none; padding: 0; }
   .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
   .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
@@ -51,209 +50,205 @@
   table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
   th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
   th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) {
-    .lesson-header h1 { font-size: 1.4rem; }
-    .nav-footer { flex-direction: column; }
-    .nav-btn { width: 100%; text-align: center; }
-  }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
 </style>
 </head>
 <body>
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
-    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Каталог</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Термины</a>
+    <a href="../../index.html" class="logo">🧠 非IT专业人士的AI</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← 目录</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 术语</a>
   </div>
 </header>
 
 <article class="container">
 
   <div class="lesson-header">
-    <div class="phase">🔍 УРОВЕНЬ 9 · АУДИТ, КОНТРОЛЬ И COMPLIANCE</div>
-    <h1>9.2 · Аудит закупок и продаж</h1>
-    <div class="meta">🎯 Без кода · ✅ Интерактивный квиз</div>
+    <div class="phase">🔍 级别 9 · 审计、控制与合规</div>
+    <h1>9.2 · 采购与销售审计</h1>
+    <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
   <div class="section">
-    <h2>🎯 Зачем это бизнесу</h2>
-    <p>Закупки и продажи — точки максимального риска: переплаты, скидки без согласования, фиктивные поставщики, необоснованные отступные. Ручная проверка каждой сделки невозможна при объёмах.</p>
+    <h2>🎯 为什么企业需要这个</h2>
+    <p>采购和销售是风险最高的环节：多付、未经审批的折扣、虚假供应商、不当让步。在业务量大的情况下，人工检查每笔交易是不可能的。</p>
     <div class="card card-success">
-      <p><strong>AI-аудит закупок и продаж</strong> — автоматический анализ всех сделок на соответствие политикам, поиск аномалий и выявление рисков. Менеджер получает рейтинг сделок: зелёные, жёлтые, красные.</p>
-      <p><strong>Пример:</strong> AI проанализировал 200 закупок за квартал и выявил 8 сделок с рисками: 3 — единственщики без обоснования, 2 — изменение реквизитов поставщика, 3 — скидки выше лимита.</p>
+      <p><strong>AI采购与销售审计</strong> — 自动分析所有交易是否符合政策、发现异常、识别风险。管理者获得交易评级：绿色、黄色、红色。</p>
+      <p><strong>案例：</strong> AI分析了200笔季度采购，发现8笔有风险：3笔单一来源无依据，2笔供应商信息变更，3笔折扣超限。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>📚 Что изучаем</h2>
+    <h2>📚 学习内容</h2>
 
-    <h3>Закупки: что проверяет AI</h3>
+    <h3>采购：AI检查什么</h3>
     <div class="card card-accent">
       <ul>
-        <li><strong>Наличие 3 КП:</strong> есть ли три коммерческих предложения, соответствуют ли требованиям закона/политики</li>
-        <li><strong>Лимиты:</strong> не превышен ли лимит на закупку, правильно ли выбрана процедура (конкурс, аукцион, единственщик)</li>
-        <li><strong>Обоснование единственщика:</strong> есть ли меморандум, соответствует ли критериям (авторский надзор, технологическая уникальность, срочность)</li>
-        <li><strong>Связанные лица:</strong> проверка поставщиков на связанность (учредители, адреса, телефоны)</li>
-        <li><strong>История поставщика:</strong> новый контрагент, частые смены реквизитов, массовый адрес</li>
+        <li><strong>3份报价：</strong> 是否有三份报价，是否符合法律/政策要求</li>
+        <li><strong>限额：</strong> 是否超出采购限额，是否选择了正确程序（招标、拍卖、单一来源）</li>
+        <li><strong>单一来源依据：</strong> 是否有备忘录，是否符合条件（设计监理、技术唯一性、紧急）</li>
+        <li><strong>关联关系：</strong> 检查供应商关联性（股东、地址、电话）</li>
+        <li><strong>供应商历史：</strong> 新对手方、频繁变更信息、集群地址</li>
       </ul>
     </div>
 
-    <h3>Продажи: что проверяет AI</h3>
+    <h3>销售：AI检查什么</h3>
     <div class="card card-accent">
       <ul>
-        <li><strong>Сверка отгрузки и оплаты:</strong> отгружено — оплачено, есть ли просрочки</li>
-        <li><strong>Скидки и отступные:</strong> не превышают ли лимит, есть ли согласование, кто одобрил</li>
-        <li><strong>Возвраты:</strong> аномальная частота возвратов по клиенту, причины (брак, передумал, ошибка менеджера)</li>
-        <li><strong>Дебиторка:</strong> просроченные платежи, динамика долга, клиенты с ростом задолженности</li>
-        <li><strong>Ценовые аномалии:</strong> резкое изменение цен, скидки в выходные, нетипичные условия</li>
+        <li><strong>发货与付款核对：</strong> 发货=付款，是否有逾期</li>
+        <li><strong>折扣与让步：</strong> 是否超限，是否有审批，谁批准的</li>
+        <li><strong>退货：</strong> 客户退货频率异常，原因（缺陷、反悔、经理错误）</li>
+        <li><strong>应收账款：</strong> 逾期付款、债务动态、欠款增长客户</li>
+        <li><strong>价格异常：</strong> 价格突变、周末折扣、非典型条件</li>
       </ul>
     </div>
 
-    <h3>Сигналы рисков: красные, жёлтые, зелёные</h3>
+    <h3>风险信号：红、黄、绿</h3>
     <table>
-      <tr><th>Сигнал</th><th>Закупки</th><th>Продажи</th></tr>
-      <tr><td>🔴 Красный</td><td>Связанный поставщик, поддельные КП, смена реквизитов</td><td>Возврат >30%, клиент-банкрот, скидка 50% без одобрения</td></tr>
-      <tr><td>🟡 Жёлтый</td><td>Единственщик без меморандума, новый поставщик, круглая сумма</td><td>Просрочка 15 дней, частые возвраты, цена ниже себестоимости</td></tr>
-      <tr><td>🟢 Зелёный</td><td>3 КП, проверенный поставщик, всё по процедуре</td><td>Оплата в срок, типичные скидки, стабильный клиент</td></tr>
+      <tr><th>信号</th><th>采购</th><th>销售</th></tr>
+      <tr><td>🔴 红色</td><td>关联供应商、虚假报价、信息变更</td><td>退货>30%、客户破产、50%折扣无审批</td></tr>
+      <tr><td>🟡 黄色</td><td>单一来源无备忘录、新供应商、整数金额</td><td>逾期15天、频繁退货、价格低于成本</td></tr>
+      <tr><td>🟢 绿色</td><td>3份报价、已审核供应商、按程序执行</td><td>按时付款、典型折扣、稳定客户</td></tr>
     </table>
   </div>
 
   <div class="section">
-    <h2>🛠️ Как применить</h2>
+    <h2>🛠️ 如何应用</h2>
 
-    <h3>Сценарий: ежемесячный аудит закупок</h3>
+    <h3>场景：月度采购审计</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для AI</div>
-        <pre>Проанализируй реестр закупок за месяц (файл).
+        <div class="example-label">AI提示词</div>
+        <pre>分析月度采购登记簿（文件）。
 
-Для каждой сделки проверь:
-1. Процедура: конкурс / аукцион / единственщик — соответствует сумме?
-2. Единственщик: есть ли обоснование (меморандум)?
-3. КП: есть ли 3 предложения (если не единственщик)?
-4. Поставщик: проверенный или новый? есть ли в чёрном списке?
-5. Связанность: совпадают ли учредители/адреса с другими поставщиками?
-6. Сумма: круглая? резко отличается от рыночной?
+每笔交易检查：
+1. 程序：招标/拍卖/单一来源——金额是否匹配？
+2. 单一来源：是否有依据（备忘录）？
+3. 报价：是否有3份报价（如非单一来源）？
+4. 供应商：已审核还是新？是否在黑名单？
+5. 关联性：股东/地址是否与其他供应商重合？
+6. 金额：整数？与市价偏差大？
 
-Выведи:
-- Топ-10 рисковых сделок (с обоснованием)
-- Сводка: сколько красных, жёлтых, зелёных
-- Рекомендации: что проверить вручную</pre>
+输出：
+- 十大风险交易（附依据）
+- 汇总：红色、黄色、绿色各多少
+- 建议：哪些需要人工检查</pre>
       </div>
-      <p><strong>Результат:</strong> Excel-таблица с рейтингом каждой сделки. Руководитель видит, на чём сосредоточить внимание аудитора.</p>
+      <p><strong>结果：</strong> 带每笔交易评级的Excel表。负责人知道审计员应关注哪里。</p>
     </div>
 
-    <h3>Сценарий: мониторинг продаж на аномалии</h3>
+    <h3>场景：销售异常监控</h3>
     <div class="card">
       <div class="example">
-        <div class="example-label">Промпт для AI</div>
-        <pre>Проанализируй реестр продаж за квартал.
+        <div class="example-label">AI提示词</div>
+        <pre>分析季度销售登记簿。
 
-Для каждой сделки проверь:
-1. Скидка: не превышает ли лимит? есть ли одобрение?
-2. Возврат: частота по клиенту, причины, сумма
-3. Дебиторка: сроки оплаты, просрочки, тренд
-4. Отступные: обоснованы? согласованы?
-5. Цена: не ниже себестоимости? аномально низкая?
+每笔交易检查：
+1. 折扣：是否超限？是否有审批？
+2. 退货：客户频率、原因、金额
+3. 应收账款：付款期限、逾期、趋势
+4. 让步：是否合理？是否审批？
+5. 价格：是否低于成本？异常偏低？
 
-Выведи:
-- Клиенты с аномальными возвратами
-- Менеджеры с частыми скидками выше лимита
-- Сделки с ценой ниже себестоимости
-- Рекомендации по дебиторке</pre>
+输出：
+- 退货异常客户清单
+- 频繁超限额折扣经理清单
+- 低于成本价交易清单
+- 应收账款建议</pre>
       </div>
-      <p><strong>Результат:</strong> Менеджер по продажам получает список клиентов, требующих внимания, и сделок, которые нужно пересмотреть.</p>
+      <p><strong>结果：</strong> 销售经理获得需要关注的客户清单和需复核的交易清单。</p>
     </div>
   </div>
 
   <div class="section">
-    <h2>👨‍💻 Как делегировать разработчику</h2>
+    <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
-      <h3>Шаблон задачи</h3>
-      <pre>"Нужен AI-аудит закупок и продаж.
+      <h3>任务模板</h3>
+      <pre>"需要采购与销售AI审计工具。
 
-Закупки — проверяем:
-- 3 КП, процедура, лимиты
-- Обоснование единственщика
-- Связанные лица (по учредителям, адресам)
-- История поставщика (новый, чёрный список, смена реквизитов)
-- Аномалии сумм
+采购——检查：
+- 3份报价、程序、限额
+- 单一来源依据
+- 关联关系（按股东、地址）
+- 供应商历史（新、黑名单、信息变更）
+- 金额异常
 
-Продажи — проверяем:
-- Сверка отгрузки и оплаты
-- Скидки и отступные (лимиты, одобрения)
-- Возвраты (частота, причины)
-- Дебиторка (просрочки, тренды)
-- Ценовые аномалии
+销售——检查：
+- 发货与付款核对
+- 折扣与让步（限额、审批）
+- 退货（频率、原因）
+- 应收账款（逾期、趋势）
+- 价格异常
 
-Выход:
-- Дашборд с рейтингом сделок (красный/жёлтый/зелёный)
-- Excel-отчёт с топ-рисками
-- Алерты в Telegram при красных сигналах
+输出：
+- 交易评级看板（红/黄/绿）
+- 主要风险Excel报告
+- 红色信号Telegram预警
 
-Интеграция: 1С, ЭДО, банк, Telegram
-Срок: [дата]"</pre>
+集成：会计系统、电子文档、银行、Telegram
+期限：[日期]"</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>✅ Чеклист принятия результата</h2>
+    <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>Все сделки имеют рейтинг (красный/жёлтый/зелёный)?</li>
-      <li>Проверка 3 КП работает корректно?</li>
-      <li>Связанные лица находятся (не ложные срабатывания)?</li>
-      <li>Скидки сравниваются с утверждёнными лимитами?</li>
-      <li>Дебиторка обновляется в реальном времени?</li>
-      <li>Красные сигналы приходят мгновенно (а не через неделю)?</li>
-      <li>Отчёт понятен директору (не только аудитору)?</li>
+      <li>所有交易都有评级（红/黄/绿）？</li>
+      <li>3份报价检查有效？</li>
+      <li>关联关系查找准确（无误报）？</li>
+      <li>折扣与已审批限额对比？</li>
+      <li>应收账款实时更新？</li>
+      <li>红色信号即时到达（非一周后）？</li>
+      <li>报告能被负责人理解（不仅审计员）？</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>📝 Проверка понимания</h2>
+    <h2>📝 理解测验</h2>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Какой сигнал — красный в закупках?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Новый поставщик без истории</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Связанный поставщик с поддельными КП</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 3 КП от разных поставщиков</div>
+      <p><strong>问题1：</strong> 采购中的红色信号是什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 新供应商无历史</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 关联供应商、虚假报价</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 3份不同供应商报价</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 2:</strong> Что проверяет AI в продажах?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Только количество заказов</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Скидки, возвраты, дебиторку, цены</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Только настроение клиентов</div>
+      <p><strong>问题2：</strong> AI在销售中检查什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 只有订单数量</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) 折扣、退货、应收账款、价格</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 只有客户心情</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Вопрос 3:</strong> Почему важен меморандум единственщика?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Это доказательство законности процедуры</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Это красивая обложка</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это не важно, AI сам разберётся</div>
+      <p><strong>问题3：</strong> 为什么单一来源备忘录很重要？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 这是程序合法性的证明</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 这是漂亮的封面</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 这不重要，AI自己会处理</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 Главное из урока</h3>
-      <p><strong>AI превращает аудит из «проверь всё» в «проверь красное».</strong> Автоматический рейтинг сделок, поиск связанных лиц, проверка лимитов — это не замена аудитору, а его инструмент. Менеджер тратит время на решения, а не на просмотр тысяч строк.</p>
+      <h3>🎯 课程要点</h3>
+      <p><strong>AI将审计从"检查所有"变为"只查红色"。</strong> 自动交易评级、关联关系查找、限额检查——这不是替代审计师，而是他的工具。管理者将时间花在决策上，而不是翻阅成千上万行数据。</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../09-doc-check/index.html" class="nav-btn">← Предыдущий урок</a>
-    <a href="../09-audit-construction-projects/index.html" class="nav-btn primary">Следующий урок →</a>
+    <a href="../09-doc-check/index.html" class="nav-btn">← 上一课</a>
+    <a href="../09-audit-construction-projects/index.html" class="nav-btn primary">下一课 →</a>
   </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
+    <p>© 2026 Artur A. · 非IT专业人士的AI</p>
   </div>
 </footer>
 
@@ -271,14 +266,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ Правильно!</strong>';
+    resultDiv.innerHTML = '<strong>✅ 正确！</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Не совсем. Попробуйте другой вариант.</strong>';
+    resultDiv.innerHTML = '<strong>⚠️ 不太对。请尝试其他选项。</strong>';
   }
 }
 </script>
