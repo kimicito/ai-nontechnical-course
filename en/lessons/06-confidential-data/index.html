@@ -58,12 +58,47 @@
     .nav-btn { width: 100%; text-align: center; }
   }
 </style>
+<script>
+(function() {
+    const parts = window.location.pathname.split('/').filter(Boolean);
+    if (parts.length > 0 && parts[parts.length-1].includes('.')) parts.pop();
+    const base = '../'.repeat(parts.length) + 'pagefind/';
+    
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = base + 'pagefind-ui.css';
+    document.head.appendChild(link);
+    
+    const script = document.createElement('script');
+    script.src = base + 'pagefind-ui.js';
+    script.onload = function() {
+        new PagefindUI({ 
+            element: "#search", 
+            showSubResults: true,
+            bundlePath: base,
+            resetStyles: false
+        });
+    };
+    document.head.appendChild(script);
+})();
+</script>
+<style>
+  /* Pagefind search integration */
+  .pagefind-ui__search-input { background: var(--bg2) !important; color: var(--fg) !important; border: 1px solid var(--line) !important; border-radius: 6px !important; padding: 8px 12px !important; font-size: 14px !important; }
+  .pagefind-ui__search-input::placeholder { color: var(--muted) !important; }
+  .pagefind-ui__results-area { background: var(--bg) !important; border: 1px solid var(--line) !important; border-radius: 8px !important; margin-top: 8px !important; max-height: 400px !important; overflow-y: auto !important; }
+  .pagefind-ui__result { border-bottom: 1px solid var(--line) !important; padding: 12px !important; }
+  .pagefind-ui__result-title { color: var(--accent) !important; font-weight: 600 !important; }
+  .pagefind-ui__result-excerpt { color: var(--muted) !important; font-size: 13px !important; }
+  .pagefind-ui__button { background: var(--accent) !important; color: var(--btn-fg) !important; border: none !important; border-radius: 6px !important; }
+</style>
 </head>
 <body>
 
 <header>
   <div class="container">
     <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <div id="search" style="flex:1;max-width:400px;margin:0 16px;"></div>
     <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
   </div>
 </header>
