@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>4.2 Systèmes d'agents pour l'IA d'entreprise — IA pour les non-informaticiens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .compare-box { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  .compare-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .compare-box { grid-template-columns: 1fr; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../catalog.html#level4" style="color:var(--muted); text-decoration:none; font-size:0.9rem;">← Vers le catalogue</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">Niveau 4 — Agents</div>
+    <h1>4.2 Systèmes d'agents pour l'IA d'entreprise</h1>
+    <p class="meta">15 minutes · Comment fonctionne un collaborateur numérique de l'intérieur</p>
+  </div>
+
+  <!-- INTRODUCTION -->
+  <div class="section">
+    <p>Jusqu'à 90 % des tâches dans une entreprise industrielle peuvent être résolues en interne — avec des modèles propres, sans envoyer de données dans le cloud. Pour cela, il existe des <strong>systèmes d'agents</strong> — des frameworks qui exécutent des agents IA sur des serveurs d'entreprise.</p>
+    <p>Cette leçon ne parle pas d'installation ni de code. Elle explique <strong>comment fonctionne un collaborateur numérique</strong> et de quels « documents » il est constitué — pour que vous puissiez donner des tâches au service informatique et vérifier le résultat.</p>
+  </div>
+
+  <!-- POURQUOI L'ENTREPRISE -->
+  <div class="section">
+    <h2>🎯 Pourquoi l'entreprise en a besoin</h2>
+    <div class="card card-success">
+      <p><strong>On-premise = les données ne quittent pas l'entreprise.</strong> Les journaux d'incidents, les paramètres de fusion, les plans d'extraction, les prévisions commerciales — tout reste en interne.</p>
+      <p><strong>Système d'agents = collaborateur numérique avec mémoire.</strong> Il ne se contente pas de répondre aux questions — il mémorise, apprend, agit selon un planning et s'intègre à vos systèmes (1C, SAP, système de contrôle de processus (SCADA)).</p>
+    </div>
+  </div>
+
+  <!-- CE QU'ON ÉTUDIE -->
+  <div class="section">
+    <h2>📚 Ce que nous étudions</h2>
+
+    <h3>Trois types de systèmes d'agents</h3>
+    <div class="card">
+      <table style="width:100%; border-collapse: collapse;">
+        <tr>
+          <th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Système</th>
+          <th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">À quoi ça sert</th>
+          <th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Analogie</th>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><strong>OpenClaw</strong></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Agent universel avec messageries (Telegram, messagerie d'entreprise, Email). Fonctionne sur votre serveur.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Assistant personnel sur tous les canaux de communication</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><strong>Hermes Agent</strong></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Agent auto-apprenant. Crée des compétences à partir de l'expérience et mémorise les préférences de l'utilisateur.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Employé expérimenté qui apprend au fil des tâches</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><strong>GoClaw</strong></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Plateforme enterprise pour des équipes d'agents avec isolation des données entre les services.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Système de gestion des ressources humaines d'entreprise</td>
+        </tr>
+      </table>
+    </div>
+
+    <h3>Fichiers clés de l'agent</h3>
+    <p>L'agent n'est pas une « boîte noire ». Il est constitué de documents, comme un employé l'est de fiches de poste et de dossiers personnels. Voici ce que signifie chaque fichier :</p>
+
+    <div class="card">
+      <table style="width:100%; border-collapse: collapse;">
+        <tr>
+          <th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Fichier</th>
+          <th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Qu'est-ce que c'est</th>
+          <th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Analogie métier</th>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>SOUL.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">« L'âme » de l'agent — son caractère, son style de communication, son rôle. Exemple : « Tu es un ingénieur technologue expérimenté, tu parles brièvement et à propos ».</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Fiche de poste + culture d'entreprise</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>SKILL.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Compétence — instruction étape par étape pour une tâche typique. Exemple : « Comment analyser un journal d'incidents ».</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Règlement / procédure opérationnelle standard</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>HEARTBEAT.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Planning des vérifications périodiques. Exemple : chaque matin à 8h00 — vérifier le plan d'extraction.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Planning des astreintes et réunions</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>MEMORY.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Mémoire à long terme — faits, décisions, leçons. Exemple : « Le four n°3 produit du rebut lorsque la température dépasse 1200° ».</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Base de connaissances / journal d'observations</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>AGENTS.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Règles communes pour tous les agents du système — ce qui est permis, ce qui est interdit, les lignes rouges.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Code de conduite de l'entreprise</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>USER.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Profil de l'utilisateur — qui vous êtes, ce que vous faites, ce qui peut être fait sans demander.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Dossier personnel de l'employé + pouvoirs</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>TOOLS.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Liste des outils auxquels l'agent a accès : SAP, 1C, Grafana, Email, messagerie d'entreprise.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Liste des programmes et systèmes disponibles</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- COMMENT APPLIQUER -->
+  <div class="section">
+    <h2>🛠️ Comment appliquer</h2>
+
+    <h3>Exemple : Agent pour le contrôle de l'extraction</h3>
+    <div class="card card-success">
+      <div class="example">
+        <div class="example-label">Configuration de l'agent</div>
+        <p><strong>SOUL.md :</strong> « Tu es analyste d'extraction. Tu parles brièvement, tu utilises les données du système de contrôle de processus (SCADA). Tu ne fais pas d'hypothèses sans faits. »</p>
+        <p><strong>HEARTBEAT.md :</strong> Chaque jour à 7h30 — vérifier l'extraction réelle par rapport au plan, identifier les écarts > 5 %, envoyer le résumé.</p>
+        <p><strong>SKILL.md :</strong> « Analyse du journal d'extraction : 1) Charger les données du système de contrôle de processus (SCADA), 2) Comparer avec le plan de forage, 3) Identifier les écarts, 4) Donner des recommandations, 5) Envoyer dans la messagerie d'entreprise. »</p>
+        <p><strong>MEMORY.md :</strong> « Le puits n°47 a un débit instable lorsque la pression est < 15 atm. En mars 2026, il y a eu une rupture de tige. »</p>
+      </div>
+      <p><strong>Résultat :</strong> L'ingénieur en chef reçoit le résumé dans la messagerie d'entreprise avant le début du poste — avec des faits, des écarts et des recommandations. Le temps de vérification manuelle est réduit de 2 heures à 5 minutes.</p>
+    </div>
+
+    <h3>Exemple : Agent pour le contrôle qualité</h3>
+    <div class="card card-success">
+      <div class="example">
+        <div class="example-label">Configuration de l'agent</div>
+        <p><strong>SOUL.md :</strong> « Tu es ingénieur qualité. Tu vérifies la conformité des paramètres de fusion avec la norme. Tu n'indiques que les écarts. »</p>
+        <p><strong>HEARTBEAT.md :</strong> Toutes les 4 heures — vérifier la température, la pression, la composition chimique du dernier lot. En cas d'écart — notification immédiate.</p>
+        <p><strong>TOOLS.md :</strong> Accès à la base du système de contrôle de processus (SCADA), messagerie d'entreprise pour les alertes, Excel pour les rapports.</p>
+      </div>
+      <p><strong>Résultat :</strong> Le rebut est détecté en temps réel, et non pas à l'expédition. Économie sur les retours et le refonte.</p>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section">
+    <h2>✅ Checklist d'acceptation du résultat</h2>
+    <ul class="checklist">
+      <li>L'agent fonctionne sur un serveur d'entreprise (on-prem) ?</li>
+      <li>Les données ne partent pas vers des clouds externes ?</li>
+      <li>SOUL.md reflète le rôle et le style nécessaires au métier ?</li>
+      <li>HEARTBEAT.md couvre les vérifications clés (pas trop fréquentes) ?</li>
+      <li>SKILL.md décrit les tâches étape par étape, comme un règlement ?</li>
+      <li>MEMORY.md accumule des faits utiles (pas du bruit) ?</li>
+      <li>TOOLS.md est limité aux systèmes nécessaires (principe du moindre privilège) ?</li>
+      <li>Il y a un « humain dans la boucle » pour les décisions critiques ?</li>
+    </ul>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Vérification de compréhension</h2>
+
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong> Que définit le fichier SOUL.md ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">La liste des outils auxquels l'agent a accès</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Le caractère, le style de communication et le rôle de l'agent</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Le planning des vérifications périodiques</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong> À quoi sert HEARTBEAT.md ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Stocker la mémoire à long terme de l'agent</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Définir le planning des tâches périodiques de l'agent</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Décrire les instructions étape par étape pour les compétences</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong> Pourquoi est-il critique d'utiliser des agents on-prem pour les données industrielles ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Les agents on-prem sont plus rapides que les agents cloud</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Les données (paramètres d'extraction, plans, incidents) ne quittent pas le périmètre de l'entreprise</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Les agents on-prem sont moins chers à maintenir</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- RÉSUMÉ -->
+  <div class="section">
+    <h2>💡 En résumé</h2>
+    <div class="card card-success">
+      <p><strong>Le système d'agents</strong> n'est pas de la magie, c'est un ensemble de documents (SOUL, SKILL, HEARTBEAT, MEMORY) qui définissent le comportement d'un collaborateur numérique.</p>
+      <p><strong>L'on-prem</strong> garantit que vos données industrielles restent en interne.</p>
+      <p><strong>Compétence clé du manager :</strong> savoir formuler le contenu de ces documents — comme des fiches de poste pour un humain, mais pour un agent.</p>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <div class="nav-footer">
+    <a href="../04-what-is-agent/index.html" class="nav-btn">← 4.1 Qu'est-ce qu'un agent</a>
+    <a href="../04-multi-agent/index.html" class="nav-btn primary">4.3 Multi-agents et Agent Swarm →</a>
+  </div>
+
+</article>
+
+<footer>
+  <p>IA pour les non-informaticiens · Cours auteur</p>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card-accent');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(opt => opt.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct !';
+    result.className = 'result show';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.border = '1px solid var(--success)';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Réfléchissez encore. La bonne réponse est mise en évidence.';
+    result.className = 'result show';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.border = '1px solid var(--danger)';
+    options.forEach(opt => { if(opt.onclick.toString().includes('true')) opt.classList.add('correct'); });
+  }
+}
+</script>
+
+</body>
+</html>

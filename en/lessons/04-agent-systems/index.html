@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>4.2 Agent Systems - AI for non-IT specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .compare-box { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  .compare-item { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .compare-box { grid-template-columns: 1fr; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+    <a href="../../index.html" class="logo">🧠 AI for Non-IT Professionals</a>
+    <a href="../../catalog.html#level4" style="color:var(--muted); text-decoration:none; font-size:0.9rem;">← Catalog</a>
+  </div>
+</header>
+
+<article class="container">
+
+  <div class="lesson-header">
+    <div class="phase">🤖 LEVEL 4 · AGENTS AND ORCHESTRATION</div>
+    <h1>4.2 · Agent Systems for Corporate AI</h1>
+    <p class="meta">15 min · How a digital employee is built from the inside</p>
+  </div>
+
+  <!-- INTRO -->
+  <div class="section">
+    <p>Up to 90% of tasks in a manufacturing company can be solved inside the perimeter — with own models, without sending data to the cloud. For this, <strong>agent systems</strong> exist — frameworks that run AI agents on corporate servers.</p>
+    <p>This lesson is not about installation and code. It is about <strong>how a digital employee is built</strong> and what "documents" it consists of — so you can set tasks for the IT department and verify the result.</p>
+  </div>
+
+  <!-- WHY FOR BUSINESS -->
+  <div class="section">
+    <h2>🎯 Why does business need this?</h2>
+    <div class="card card-success">
+      <p><strong>On-premise = data never leaves the company.</strong> Failure logs, smelting parameters, mining plans, commercial forecasts — everything stays inside.</p>
+      <p><strong>Agent system = digital employee with memory.</strong> It doesn't just answer questions — it remembers, learns, acts on schedule, and integrates with your systems (1C, SAP, process control system (SCADA)).</p>
+    </div>
+  </div>
+
+  <!-- WHAT WE STUDY -->
+  <div class="section">
+    <h2>📚 What we are studying</h2>
+
+    <h3>Three types of agent systems</h3>
+    <div class="card">
+      <table style="width:100%; border-collapse: collapse;">
+        <tr>
+          <th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">System</th>
+          <th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Purpose</th>
+          <th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Analogy</th>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><strong>OpenClaw</strong></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Universal agent with messengers (Telegram, corporate messenger, Email). Runs on your server.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Personal assistant on all communication channels</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><strong>Hermes Agent</strong></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Self-learning agent. Creates skills from experience and remembers user preferences.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Experienced employee who learns from tasks</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><strong>GoClaw</strong></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Enterprise platform for agent teams with data isolation between departments.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Corporate personnel management system</td>
+        </tr>
+      </table>
+    </div>
+
+    <h3>Key agent files</h3>
+    <p>An agent is not a "black box". It consists of documents, just as an employee consists of instructions and a personal file. Here is what each file means:</p>
+
+    <div class="card">
+      <table style="width:100%; border-collapse: collapse;">
+        <tr>
+          <th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">File</th>
+          <th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">What it is</th>
+          <th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Business analogy</th>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>SOUL.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">The "soul" of the agent — its character, communication style, role. Example: "You are an experienced process engineer, speak briefly and to the point".</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Job description + corporate culture</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>SKILL.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Skill — step-by-step instruction for a typical task. Example: "How to analyze the failure log".</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Regulation / standard operating procedure</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>HEARTBEAT.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Schedule of periodic checks. Example: every morning at 8:00 — check mining plan.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Duty schedule and planning meetings</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>MEMORY.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Long-term memory — facts, decisions, lessons. Example: "Furnace #3 gives defects at temperature >1200°".</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Knowledge base / observation journal</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>AGENTS.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">General rules for all agents in the system — what is allowed, what is not, red lines.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Company code of conduct</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>USER.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">User profile — who you are, what you do, what can be done without asking.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">Employee personal file + authority</td>
+        </tr>
+        <tr>
+          <td style="padding:10px;border-bottom:1px solid var(--border);"><code>TOOLS.md</code></td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">List of tools the agent has access to: SAP, 1C, Grafana, Email, corporate messenger.</td>
+          <td style="padding:10px;border-bottom:1px solid var(--border);">List of available programs and systems</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- HOW TO APPLY -->
+  <div class="section">
+    <h2>🛠️ How to apply</h2>
+
+    <h3>Example: Mining control agent</h3>
+    <div class="card card-success">
+      <div class="example">
+        <div class="example-label">Agent configuration</div>
+        <p><strong>SOUL.md:</strong> "You are a mining analyst. Speak briefly, use data from the process control system (SCADA). Do not make assumptions without facts."</p>
+        <p><strong>HEARTBEAT.md:</strong> Every day at 7:30 — check actual mining against plan, identify deviations >5%, send summary.</p>
+        <p><strong>SKILL.md:</strong> "Analysis of mining log: 1) Load data from process control system (SCADA), 2) Compare with plan by drills, 3) Identify deviations, 4) Give recommendations, 5) Send to corporate messenger."</p>
+        <p><strong>MEMORY.md:</strong> "Well #47 gives unstable flow rate at pressure <15 atm. In March 2026 there was a rod break."</p>
+      </div>
+      <p><strong>Result:</strong> The chief engineer receives a summary in the corporate messenger before the shift starts — with facts, deviations, and recommendations. Manual reconciliation time is reduced from 2 hours to 5 minutes.</p>
+    </div>
+
+    <h3>Example: Quality control agent</h3>
+    <div class="card card-success">
+      <div class="example">
+        <div class="example-label">Agent configuration</div>
+        <p><strong>SOUL.md:</strong> "You are a quality engineer. Check smelting parameters against the standard. Point out only deviations."</p>
+        <p><strong>HEARTBEAT.md:</strong> Every 4 hours — check temperature, pressure, chemical composition of the last batch. On deviation — immediate notification.</p>
+        <p><strong>TOOLS.md:</strong> Access to process control system (SCADA) database, corporate messenger for alerts, Excel for reports.</p>
+      </div>
+      <p><strong>Result:</strong> Defects are detected in real time, not at shipment. Savings on returns and re-melting.</p>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section">
+    <h2>✅ Checklist for accepting the result</h2>
+    <ul class="checklist">
+      <li>Does the agent run on a corporate server (on-prem)?</li>
+      <li>Does data not go to external clouds?</li>
+      <li>Does SOUL.md reflect the role and style needed by the business?</li>
+      <li>Does HEARTBEAT.md cover key checks (not too frequent)?</li>
+      <li>Does SKILL.md describe tasks step by step, like a regulation?</li>
+      <li>Does MEMORY.md accumulate useful facts (not garbage)?</li>
+      <li>Is TOOLS.md limited to necessary systems (principle of least privilege)?</li>
+      <li>Is there a "human in the loop" for critical decisions?</li>
+    </ul>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section">
+    <h2>📝 Checking understanding</h2>
+
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> What does the SOUL.md file define?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">List of tools the agent has access to</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Character, communication style and role of the agent</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Schedule of periodic checks</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> What is HEARTBEAT.md for?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Store the agent's long-term memory</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Set the schedule of periodic agent tasks</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Describe step-by-step instructions for skills</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Why is it critical to use on-prem agents for production data?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">On-prem agents work faster than cloud ones</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Data (mining parameters, plans, failures) does not leave the company perimeter</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">On-prem agents are cheaper to maintain</div>
+      <div class="result" id="result3"></div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <h2>💡 Summary</h2>
+    <div class="card card-success">
+      <p><strong>Agent system</strong> is not magic, but a set of documents (SOUL, SKILL, HEARTBEAT, MEMORY) that define the behavior of a digital employee.</p>
+      <p><strong>On-prem</strong> guarantees that your production data stays inside the company.</p>
+      <p><strong>Key manager skill:</strong> being able to formulate the content of these documents — like job descriptions for a human, but for an agent.</p>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <div class="nav-footer">
+    <a href="../04-what-is-agent/index.html" class="nav-btn">← 4.1 What is an Agent</a>
+    <a href="../04-multi-agent/index.html" class="nav-btn primary">4.3 Multi-Agent Systems →</a>
+  </div>
+
+</article>
+
+<footer>
+  <p>AI for Non-IT Professionals · Author Course</p>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card-accent');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(opt => opt.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.className = 'result show';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.border = '1px solid var(--success)';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Think again. The correct answer is highlighted.';
+    result.className = 'result show';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.border = '1px solid var(--danger)';
+    options.forEach(opt => { if(opt.onclick.toString().includes('true')) opt.classList.add('correct'); });
+  }
+}
+</script>
+
+</body>
+</html>

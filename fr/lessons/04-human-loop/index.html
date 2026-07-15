@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>4.3 Human in the loop - IA pour les non-spécialistes en informatique</title>
+<title>4.4 Human in the loop - IA pour les non-spécialistes en informatique</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -75,7 +75,7 @@
 
   <div class="lesson-header">
     <div class="phase">🤖 NIVEAU 4 · AGENTS ET ORCHESTRATION</div>
-    <h1>4.3 · L'humain au courant : quand l'IA doit-elle demander la permission</h1>
+    <h1>4.4 · L'humain au courant : quand l'IA doit-elle demander la permission</h1>
     <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
   </div>
 
@@ -87,32 +87,32 @@
       <p><strong>Cas réel :</strong>L'agent IA a automatiquement approuvé l'achat à un prix gonflé. Pertes : 2 millions de roubles. Raison : l'agent n'a pas demandé de confirmation au gérant pour un prix > 1 million.</p>
     </div>
     <div class="card card-success">
-      <p><strong>Solution:</strong>« Human-in-the-loop » : l'IA effectue la tâche, mais aux points critiques, elle s'arrête et attend la confirmation humaine.</p>
+      <p><strong>Solution:</strong>« Human-in-the-loop » : l'IA effectue la tâche, mais aux points critiques, elle s'arrête et attend la confirmation humaine.</p>
     </div>
   </div>
 
   <!-- CE QUE NOUS ÉTUDIONS -->
   <div class="section">
     <h2>📚 Ce que nous étudions</h2>
-    
+
     <h3>3 niveaux de contrôle</h3>
     <div class="level-box">
       <div class="level-item">
         <h4 style="color: var(--success); margin: 0 0 10px;">🟢 Autonomie totale</h4>
         <p style="font-size: 0.9rem; color: var(--muted);">L'IA agit sans confirmation</p>
-        <p style="font-size: 0.85rem; margin-top: 8px;">Pour : tâches courantes, faible risque</p>
-        <p style="font-size: 0.85rem;">Exemple : résumé quotidien par e-mail</p>
+        <p style="font-size: 0.85rem; margin-top: 8px;">Pour : tâches courantes, faible risque</p>
+        <p style="font-size: 0.85rem;">Exemple : résumé quotidien par e-mail</p>
       </div>
       <div class="level-item">
         <h4 style="color: var(--warning); margin: 0 0 10px;">🟡 Contrôle partiel</h4>
-        <p style="font-size: 0.9rem; color: var(--muted);">L’IA suggère, l’humain confirme</p>
+        <p style="font-size: 0.9rem; color: var(--muted);">L'IA suggère, l'humain confirme</p>
         <p style="font-size: 0.85rem; margin-top: 8px;">Pour : décisions importantes, risque moyen</p>
         <p style="font-size: 0.85rem;">Exemple : approbation des achats > 100 000 ₽</p>
       </div>
       <div class="level-item">
         <h4 style="color: var(--danger); margin: 0 0 10px;">🔴 Contrôle total</h4>
         <p style="font-size: 0.9rem; color: var(--muted);">L'IA ne fait que cuisiner, les humains décident</p>
-        <p style="font-size: 0.85rem; margin-top: 8px;">Pour : décisions critiques, risque élevé</p>
+        <p style="font-size: 0.85rem; margin-top: 8px;">Pour : décisions critiques, risque élevé</p>
         <p style="font-size: 0.85rem;">Exemple : signature d'un contrat, licenciement</p>
       </div>
     </div>
@@ -133,12 +133,12 @@
   <!-- COMMENT APPLIQUER -->
   <div class="section">
     <h2>🛠️ Comment postuler</h2>
-    
-    <h3>Scénario : automatisation des achats</h3>
+
+    <h3>Scénario : automatisation des achats</h3>
     <div class="card">
       <div class="example">
         <div class="example-label">Avec contrôle humain</div>
-        <pre>L’IA analyse le CP du fournisseur :
+        <pre>L'IA analyse le CP du fournisseur :
 ↓
 Si le montant< 50 000 ₽ → Approuve automatiquement
 Si le montant 50 000 - 500 000 ₽ → Envoie pour confirmation à l'acheteur
@@ -151,10 +151,10 @@ Si un nouveau fournisseur → Envoie toujours pour vérification</pre>
     <h3>Comment créer un « homme au courant »</h3>
     <div class="card card-accent">
       <ol>
-        <li><strong>Définir des seuils :</strong>Dans quelles conditions une confirmation est-elle requise ?</li>
-        <li><strong>Sélectionnez la méthode de notification :</strong>E-mail, télégramme, Slack, tâche dans CRM</li>
-        <li><strong>Définir le temps de réponse :</strong>Combien de temps dois-je attendre la confirmation ? Que faire en cas de timeout ?</li>
-        <li><strong>Configurer l'escalade :</strong>Si la première personne n’a pas répondu, vers qui dois-je rediriger ?</li>
+        <li><strong>Définir des seuils :</strong>Dans quelles conditions une confirmation est-elle requise ?</li>
+        <li><strong>Sélectionnez la méthode de notification :</strong>E-mail, télégramme, messagerie d'entreprise, tâche dans CRM</li>
+        <li><strong>Définir le temps de réponse :</strong>Combien de temps dois-je attendre la confirmation ? Que faire en cas de timeout ?</li>
+        <li><strong>Configurer l'escalade :</strong>Si la première personne n'a pas répondu, vers qui dois-je rediriger ?</li>
       </ol>
     </div>
   </div>
@@ -164,20 +164,20 @@ Si un nouveau fournisseur → Envoie toujours pour vérification</pre>
     <h2>👨‍💻 Comment déléguer à un développeur</h2>
     <div class="card card-success">
       <h3>Modèle de tâche</h3>
-      <pre>« Nous avons besoin d'un mécanisme « homme dans la boucle » pour l'agent IA [nom].
+      <pre>« Nous avons besoin d'un mécanisme « homme dans la boucle » pour l'agent IA [nom].
 
-Conditions d'arrêt (nécessite confirmation) :
+Conditions d'arrêt (nécessite confirmation) :
 - [liste : montant > X, nouveau fournisseur, etc.]
 
-Méthode de notification : [e-mail/Télégramme/Slack]
-Temps de réponse : [N minutes/heures]
-Escalade : [si aucune réponse → à qui envoyer]
+Méthode de notification : [e-mail/Télégramme/messagerie d'entreprise]
+Temps de réponse : [N minutes/heures]
+Escalade : [si aucune réponse → à qui envoyer]
 
-Action en cas d'approbation : [ce que fait l'IA]
-Action en cas de rejet : [ce que fait l'IA]
+Action en cas d'approbation : [ce que fait l'IA]
+Action en cas de rejet : [ce que fait l'IA]
 
-Exemple de script : [décrire]
-Date limite : [date]"</pre>
+Exemple de script : [décrire]
+Date limite : [date]"</pre>
     </div>
   </div>
 
@@ -185,21 +185,21 @@ Date limite : [date]"</pre>
   <div class="section">
     <h2>✅ Checklist d'acceptation</h2>
     <ul class="checklist">
-      <li>Toutes les opérations critiques nécessitent-elles une confirmation ?</li>
+      <li>Toutes les opérations critiques nécessitent-elles une confirmation ?</li>
       <li>Les notifications arrivent-elles à temps ?</li>
-      <li>Existe-t-il des seuils clairs pour chaque niveau de contrôle ?</li>
+      <li>Existe-t-il des seuils clairs pour chaque niveau de contrôle ?</li>
       <li>L'escalade fonctionne-t-elle ? (si le premier n'a pas répondu)</li>
-      <li>Les délais d'attente sont-ils fixés judicieusement ? (Pas trop court)</li>
-      <li>Existe-t-il un journal de toutes les décisions ? (qui a approuvé et quand)</li>
+      <li>Les délais d'attente sont-ils fixés judicieusement ? (Pas trop court)</li>
+      <li>Existe-t-il un journal de toutes les décisions ? (qui a approuvé et quand)</li>
     </ul>
   </div>
 
   <!-- QUIZ -->
   <div class="section">
     <h2>📝 Vérification des connaissances</h2>
-    
+
     <div class="card card-accent">
-      <p><strong>Question 1 :</strong>Pourquoi avons-nous besoin d’un « homme au courant » ?</p>
+      <p><strong>Question 1 :</strong>Pourquoi avons-nous besoin d'un « homme au courant » ?</p>
       <div class="quiz-option" onclick="checkAnswer(this, true)">A) Pour éviter des erreurs coûteuses en IA</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">B) Pour ralentir le processus</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Pour licencier des employés</div>
@@ -207,7 +207,7 @@ Date limite : [date]"</pre>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2 :</strong>Quel est le niveau de contrôle pour la signature d’un contrat ?</p>
+      <p><strong>Question 2 :</strong>Quel est le niveau de contrôle pour la signature d'un contrat ?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) Autonomie totale</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) Contrôle total</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Contrôle partiel</div>
@@ -227,13 +227,13 @@ Date limite : [date]"</pre>
   <div class="section">
     <div class="card card-success">
       <h3>🎯 L'essentiel de la leçon</h3>
-      <p><strong>Homme au courant = assurance.</strong>L’IA automatise la routine, mais les humains contrôlent les décisions importantes. Fixez des seuils : autonomie totale pour les tâches simples, contrôle partiel pour les tâches importantes, contrôle total pour les tâches critiques. Cela protège contre des erreurs coûteuses.</p>
+      <p><strong>Homme au courant = assurance.</strong>L'IA automatise la routine, mais les humains contrôlent les décisions importantes. Fixez des seuils : autonomie totale pour les tâches simples, contrôle partiel pour les tâches importantes, contrôle total pour les tâches critiques. Cela protège contre des erreurs coûteuses.</p>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../04-multi-agent/index.html" class="nav-btn">← Leçon précédente</a>
-    <a href="../04-mcp/index.html" class="nav-btn primary">Leçon suivante →</a>
+    <a href="../04-multi-agent/index.html" class="nav-btn">← 4.3 Multi-agents et Agent Swarm</a>
+    <a href="../04-mcp/index.html" class="nav-btn primary">4.5 MCP →</a>
   </div>
 
 </article>

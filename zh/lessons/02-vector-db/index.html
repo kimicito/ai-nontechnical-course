@@ -125,14 +125,55 @@
       <p>AI将你的问题转化为点，并在文档片段中寻找最近的点。</p>
     </div>
 
-    <h3>生活示例</h3>
-    <div class="example">
-      <div class="example-label">💡 问题示例</div>
-      <pre>"如果供应商迟到怎么办？"</pre>
+    <h3>❓ 常见问题：是否应该在提示词中写「使用向量搜索」？</h3>
+    <div class="card card-warning">
+      <p><strong>不，这不会起作用。</strong>当你在ChatGPT、Claude或Kimi中输入时，向量搜索已经发生了（或未发生）<strong>在你按下回车之前</strong>。AI没有「打开向量搜索」的开关，你无法通过文本命令来操控它。</p>
+      <div class="example">
+        <div class="example-label">实际工作原理</div>
+        <table style="width:100%; border-collapse: collapse; margin: 10px 0; font-size: 0.9rem;">
+          <tr><td style="padding:8px; border-bottom:1px solid var(--border); width: 40%;"><strong>你的操作</strong></td><td style="padding:8px; border-bottom:1px solid var(--border);"><strong>实际发生</strong></td></tr>
+          <tr><td style="padding:8px; border-bottom:1px solid var(--border);">写「使用向量搜索」</td><td style="padding:8px; border-bottom:1px solid var(--border);">AI将其视为无意义指令忽略 — 它没有这样的开关</td></tr>
+          <tr><td style="padding:8px; border-bottom:1px solid var(--border);">上传PDF并提问</td><td style="padding:8px; border-bottom:1px solid var(--border);"><strong>自动</strong>系统通过向量搜索找到相关片段</td></tr>
+          <tr><td style="padding:8px; border-bottom:1px solid var(--border);">写「上网搜索」</td><td style="padding:8px; border-bottom:1px solid var(--border);">这是<strong>网络搜索</strong> — 另一种机制，不是文档向量搜索</td></tr>
+        </table>
+      </div>
     </div>
+
+    <h3>✅ 非IT专业人士如何实际使用向量搜索</h3>
+    <div class="card card-success">
+      <p><strong>方案1：在云端聊天中使用（ChatGPT、Claude、Kimi + 文档上传）</strong></p>
+      <p>只需上传文档并提出具体问题。系统<strong>自动</strong>使用向量搜索找到相关片段。你的提示词应该具体 — 不是关于「打开搜索」，而是关于「指出页码并引用文本」。</p>
+      <div class="example">
+        <div class="example-label">处理文档的有效提示词</div>
+        <pre>角色：你是供应合同律师。
+任务：检查此合同中的违约金条款。
+格式：表格 — 条款、风险、建议。
+
+重要：指出页码并逐字引用文本。</pre>
+      </div>
+      <p style="color: var(--muted); font-size: 0.9rem;">此处向量搜索<strong>自动</strong>工作 — 系统找到关于「违约金」、「罚款」、「滞纳金」的片段并传递给AI。</p>
+    </div>
+
+    <div class="card card-success">
+      <p><strong>方案2：在企业系统中（OpenWebUI / GENAI / 代理）</strong></p>
+      <p>当你将任务委派给IT部门时 — 正确使用术语。这是<strong>技术任务</strong>，而非聊天命令：</p>
+      <div class="example">
+        <div class="example-label">IT任务的正确表述</div>
+        <pre>「需要让代理在回答员工问题时
+<strong>首先通过向量搜索查找相关文档</strong>，
+然后基于这些文档生成答案。不要凭空生成。」</pre>
+      </div>
+      <p style="color: var(--muted); font-size: 0.9rem;">IT会理解：需要连接RAG（检索增强生成）—— 向量搜索 + 答案生成协同工作的系统。</p>
+    </div>
+
     <div class="card">
-      <p><strong>普通搜索：</strong> 找不到任何内容（合同中没有"迟到"这个词）</p>
-      <p><strong>向量搜索：</strong> 找到关于"违约金"、"交货逾期"、"罚款条款"的章节</p>
+      <p><strong>方案3：何时不适合使用向量搜索</strong></p>
+      <p>不要在以下情况使用它（也不要在提示词中提及）：</p>
+      <ul>
+        <li><strong>需要精确事实</strong> — 「2026年7月15日美元汇率是多少？」 → 最好使用央行API或网络搜索。</li>
+        <li><strong>需要计算</strong> — 「计算该项目的NPV」 → 最好使用Excel + 公式。</li>
+        <li><strong>问题很通用</strong> — 「什么是向量搜索？」 → AI已经从通用知识中知道，不需要文档。</li>
+      </ul>
     </div>
   </div>
 
