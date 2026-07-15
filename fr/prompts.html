@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Exemples Промптов — AI для не ИТ-специалистов</title>
+<title>Exemples de Prompts — IA pour non-spécialistes IT</title>
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --code-bg: #1F2937; }
   * { box-sizing: border-box; }
@@ -54,7 +54,7 @@
 
 <header>
   <div class="container">
-    <a href="index.html" class="logo">🧠 L'IA pour les non-spécialistes IT</a>
+    <a href="index.html" class="logo">🧠 IA pour non-spécialistes IT</a>
     <nav class="desktop-nav">
       <a href="catalog.html">Catalogue</a>
       <a href="glossary.html">📖 Glossaire</a>
@@ -72,999 +72,1000 @@
   <a href="catalog.html">Catalogue</a>
   <a href="glossary.html">📖 Glossaire</a>
   <a href="prompts.html">🎯 Exemples</a>
-  <a href="index.html">← Accueil</a>
+  <a href="index.html">← Retour à l'accueil</a>
 </div>
 
 <article class="container">
 
   <div class="page-header">
-    <p>Готовые шаблоны для реальных задач. Скопируйте, вставьте в GENAi (или другой ИИ-чат), замените <span class="placeholder">[текст в скобках]</span> на свои данные.</p>
+    <h1>🎯 Exemples de Prompts pour différentes professions</h1>
+    <p>Modèles prêts à l'emploi pour des tâches réelles. Copiez, collez dans GENAi (ou un autre chat IA), remplacez <span class="placeholder">[texte entre crochets]</span> par vos données.</p>
   </div>
 
   <div class="intro-box">
-    <h3>📋 Как использовать эти примеры</h3>
-    <p>Каждый промпт построен по формуле RCOFE (Роль-Контекст-Задача-Формат-Оценка) и адаптирован для on-premise решений вроде GENAi:</p>
+    <h3>📋 Comment utiliser ces exemples</h3>
+    <p>Chaque prompt est construit selon la formule RCOFE (Rôle-Contexte-Objet-Format-Évaluation) et adapté pour des solutions on-premise comme GENAi :</p>
     <ul>
-      <li>Не требует API, программирования или JSON</li>
-      <li>Работает в любом чат-интерфейсе (OpenWebUI, ChatGPT, Claude)</li>
-      <li>Для конфиденциальных документов используйте <strong>GENAi</strong> внутри компании</li>
-      <li>Всегда проверяйте вывод перед отправкой клиенту / в суд / в отчётность</li>
+      <li>Aucun besoin d'API, de programmation ou de JSON</li>
+      <li>Fonctionne dans n'importe quelle interface de chat (OpenWebUI, ChatGPT, Claude)</li>
+      <li>Pour les documents confidentiels, utilisez <strong>GENAi</strong> en interne</li>
+      <li>Vérifiez toujours le résultat avant de l'envoyer au client / au tribunal / en reporting</li>
     </ul>
   </div>
 
-  <!-- HR-МЕНЕДЖЕР -->
+  <!-- HR-MANAGER -->
   <div class="profession-card">
     <div class="profession-header">
       <div class="profession-icon">👥</div>
       <div>
-        <div class="profession-title">HR-менеджер</div>
-        <div class="profession-area">Подбор, адаптация, HR-бренд</div>
+        <div class="profession-title">Responsable RH</div>
+        <div class="profession-area">Recrutement, intégration, marque employeur</div>
       </div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Составить план онбординга нового сотрудника</div>
-      <div class="prompt-text">Роль: Ты — HR-менеджер с опытом адаптации сотрудников в IT-компании.
+      <div class="prompt-task">Rédiger un plan d'intégration (onboarding) d'un nouveau collaborateur</div>
+      <div class="prompt-text">Rôle : Tu es un responsable RH expérimenté dans l'intégration de collaborateurs dans une entreprise IT.
 
-Задача: Составь 5-дневный план онбординга для [должность, например: "менеджера по продажам"].
+Tâche : Élabore un plan d'intégration de 5 jours pour [poste, par exemple : "chargé de clientèle"].
 
-Контекст:
-- Компания: [название/описание]
-- Формат работы: [офис/гибрид/удалёнка]
-- Ключевые инструменты: [список: CRM, корпоративный чат и т.д.]
-- Наставник: [имя/должность]
+Contexte :
+- Entreprise : [nom/description]
+- Format de travail : [bureau/hybride/télétravail]
+- Outils clés : [liste : CRM, chat d'entreprise, etc.]
+- Parrain : [nom/poste]
 
-Формат: Таблица с колонками: День | Время | Активность | Ответственный | Цель | Результат
+Format : Tableau avec colonnes : Jour | Heure | Activité | Responsable | Objectif | Résultat
 
-Оценка: Проверь, что все ключевые процессы (доступы, знакомство с командой, первые задачи) распределены по дням логично.</div>
+Évaluation : Vérifie que tous les processus clés (accès, rencontre avec l'équipe, premières tâches) sont répartis logiquement sur les jours.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Подготовить FAQ по новой политике для сотрудников</div>
-      <div class="prompt-text">Роль: Ты — HR-коммуникатор. Умеешь объяснять сложные политики простым языком.
+      <div class="prompt-task">Préparer une FAQ sur une nouvelle politique pour les collaborateurs</div>
+      <div class="prompt-text">Rôle : Tu es un communicant RH. Tu sais expliquer des politiques complexes en langage simple.
 
-Задача: Напиши FAQ для сотрудников по теме: [тема, например: "новая политика удалённой работы"].
+Tâche : Rédige une FAQ pour les collaborateurs sur le thème : [thème, par exemple : "nouvelle politique de télétravail"].
 
-Контекст:
-- Что изменилось: [краткое описание изменений]
-- Топ-5 вопросов от сотрудников: [список]
-- Тон: тёплый, поддерживающий, без бюрократического жаргона
+Contexte :
+- Ce qui a changé : [brève description des changements]
+- Top 5 des questions des collaborateurs : [liste]
+- Ton : chaleureux, bienveillant, sans jargon bureaucratique
 
-Формат: 7-10 вопросов с ответами. Каждый ответ — не более 3 предложений. В конце — куда обращаться с дополнительными вопросами.
+Format : 7-10 questions avec réponses. Chaque réponse — 3 phrases maximum. À la fin — où s'adresser pour des questions complémentaires.
 
-Оценка: Проверь, что ответы не противоречат друг другу и покрывают основные сценарии.</div>
+Évaluation : Vérifie que les réponses ne se contredisent pas et couvrent les scénarios principaux.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Написать объявление о внутренней вакансии</div>
-      <div class="prompt-text">Роль: Ты — HR-бренд менеджер. Пишешь вакансии, на которые хочется откликнуться.
+      <div class="prompt-task">Rédiger une annonce de poste interne</div>
+      <div class="prompt-text">Rôle : Tu es un responsable de marque employeur. Tu rédiges des annonces pour lesquelles on a envie de postuler.
 
-Задача: Составь описание внутренней вакансии на позицию [должность].
+Tâche : Rédige une description de poste interne pour le poste de [poste].
 
-Контекст:
-- Отдел: [название]
-- Ключевые задачи: [3-5 пунктов]
-- Требования: [обязательные и желательные]
-- Почему это круто: [2-3 уникальные фишки роли/проекта]
+Contexte :
+- Département : [nom]
+- Tâches clés : [3-5 points]
+- Prérequis : [obligatoires et souhaités]
+- Pourquoi c'est génial : [2-3 atouts uniques du poste/projet]
 
-Формат: Краткое вступление (1 абзац) → Обязанности (список) → Требования (список) → Что предлагаем (список) → Как откликнуться.
+Format : Brève introduction (1 paragraphe) → Responsabilités (liste) → Prérequis (liste) → Ce que nous offrons (liste) → Comment postuler.
 
-Оценка: Проверь, что текст звучит живо, без штампов "динамично развивающаяся компания".</div>
+Évaluation : Vérifie que le texte sonne vivant, sans clichés du type "entreprise dynamique en pleine croissance".</div>
     </div>
   </div>
 
-  <!-- ЮРИСТ -->
+  <!-- JURISTE -->
   <div class="profession-card">
     <div class="profession-header">
       <div class="profession-icon">⚖️</div>
       <div>
-        <div class="profession-title">Юрист</div>
-        <div class="profession-area">Договоры, риски, compliance</div>
+        <div class="profession-title">Juriste</div>
+        <div class="profession-area">Contrats, risques, conformité</div>
       </div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Провести первичную проверку договора на риски</div>
-      <div class="prompt-text">Роль: Ты — корпоративный юрист с опытом в [отрасль, например: "IT/телеком"].
+      <div class="prompt-task">Réaliser une première vérification des risques d'un contrat</div>
+      <div class="prompt-text">Rôle : Tu es un juriste d'entreprise avec de l'expérience dans [secteur, par exemple : "IT/télécoms"].
 
-Задача: Проведи первичный анализ приложенного договора. Выяви риски для [сторона: "заказчика" или "исполнителя"].
+Tâche : Effectue une analyse préliminaire du contrat ci-joint. Identifie les risques pour [partie : "client" ou "prestataire"].
 
-Формат: Таблица с колонками:
-- Пункт договора (цитируй текст)
-- Риск (кратко)
-- Уровень риска (Высокий/Средний/Низкий)
-- Рекомендация (как смягчить)
+Format : Tableau avec colonnes :
+- Clause du contrat (citer le texte)
+- Risque (bref)
+- Niveau de risque (Élevé/Moyen/Faible)
+- Recommandation (comment atténuer)
 
-Ограничения:
-- Не давай юридических консультаций — только флаги для внимания
-- Если не уверен в трактовке — явно укажи "Требует проверки специалиста"
-- Укажи, какие стандартные пункты отсутствуют (force majeure, порядок изменений и т.д.)
+Limites :
+- Ne donne pas de conseils juridiques — seulement des signaux d'alerte
+- Si tu n'es pas sûr de l'interprétation — indique explicitement "Nécessite une vérification par un spécialiste"
+- Indique quelles clauses standard sont absentes (force majeure, modalité de modification, etc.)
 
-Оценка: Перепроверь, что все цитаты точно соответствуют тексту договора.</div>
+Évaluation : Revérifie que toutes les citations correspondent exactement au texte du contrat.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Составить протокол разногласий к договору</div>
-      <div class="prompt-text">Роль: Ты — юрист по договорному праву. Готовишь документы для переговоров.
+      <div class="prompt-task">Rédiger un protocole de désaccord pour un contrat</div>
+      <div class="prompt-text">Rôle : Tu es un juriste en droit des contrats. Tu prépares des documents pour des négociations.
 
-Задача: На основе приложенного договора составь протокол разногласий.
+Tâche : Sur la base du contrat ci-joint, rédige un protocole de désaccord.
 
-Контекст:
-- Наша позиция: [краткое описание, чего хотим добиться]
-- Ключевые спорные пункты: [список номеров пунктов или тем]
-- Правопреемство: [например, "ГК РФ"]
+Contexte :
+- Notre position : [brève description de ce que nous cherchons à obtenir]
+- Points de litige clés : [liste des numéros de clauses ou des thèmes]
+- Droit applicable : [par exemple, "Code civil français"]
 
-Формат: Таблица — Строка договора (как есть) | Наша позиция | Обоснование | Предлагаемая редакция
+Format : Tableau — Clause du contrat (telle quelle) | Notre position | Justification | Proposition de rédaction
 
-Введение: 1-2 абзаца о цели протокола и общем подходе к переговорам.
+Introduction : 1-2 paragraphes sur l'objectif du protocole et l'approche générale des négociations.
 
-Оценка: Проверь, что предлагаемые формулировки юридически корректны и не создают новых рисков.</div>
+Évaluation : Vérifie que les formulations proposées sont juridiquement correctes et ne créent pas de nouveaux risques.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Подготовить памятку по NDA для сотрудников</div>
-      <div class="prompt-text">Роль: Ты — юрист по интеллектуальной собственности. Объясняешь сложное просто.
+      <div class="prompt-task">Préparer un guide sur les CND pour les collaborateurs</div>
+      <div class="prompt-text">Rôle : Tu es un juriste en propriété intellectuelle. Tu expliques le complexe de manière simple.
 
-Задача: Напиши памятку для сотрудников: "Что нельзя разглашать по NDA".
+Tâche : Rédige un guide pour les collaborateurs : "Ce qu'il ne faut pas divulguer selon la CND".
 
-Контекст:
-- Тип компании: [IT-продукт / консалтинг / производство]
-- Основные активы: [код/клиентская база/ноу-хау/финансовые данные]
-- Тон: дружелюбный, но чёткий. Без паники, но с пониманием последствий
+Contexte :
+- Type d'entreprise : [produit IT / conseil / fabrication]
+- Actifs principaux : [code/base clients/savoir-faire/données financières]
+- Ton : amical mais clair. Sans panique, mais avec conscience des conséquences
 
-Формат: 
-1. Что такое NDA (2 предложения)
-2. Что считается конфиденциальным (список с примерами)
-3. Что можно делать (зелёный список)
-4. Что нельзя делать (красный список)
-5. Что делать, если не уверен (алгоритм действий)
-6. Куда обращаться с вопросами
+Format : 
+1. Qu'est-ce qu'une CND (2 phrases)
+2. Ce qui est considéré comme confidentiel (liste avec exemples)
+3. Ce qu'on peut faire (liste verte)
+4. Ce qu'on ne peut pas faire (liste rouge)
+5. Que faire en cas de doute (algorithme d'action)
+6. À qui s'adresser pour des questions
 
-Оценка: Проверь, что текст не противоречит действующему законодательству [указать страну].</div>
+Évaluation : Vérifie que le texte ne contredit pas la législation en vigueur [indiquer le pays].</div>
     </div>
   </div>
 
-  <!-- МАРКЕТОЛОГ -->
+  <!-- MARKETING -->
   <div class="profession-card">
     <div class="profession-header">
       <div class="profession-icon">📢</div>
       <div>
-        <div class="profession-title">Маркетолог</div>
-        <div class="profession-area">Контент, SMM, email-маркетинг</div>
+        <div class="profession-title">Responsable marketing</div>
+        <div class="profession-area">Contenu, SMM, email marketing</div>
       </div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Написать пост для LinkedIn по готовому материалу</div>
-      <div class="prompt-text">Роль: Ты — контент-маркетолог в B2B. Пишешь посты, которые собирают engagement и лиды.
+      <div class="prompt-task">Rédiger un post LinkedIn à partir d'un contenu existant</div>
+      <div class="prompt-text">Rôle : Tu es un content marketer en B2B. Tu rédiges des posts qui génèrent de l'engagement et des leads.
 
-Задача: Создай пост для LinkedIn на основе следующего материала: [вставить текст кейса/статьи/новости].
+Tâche : Crée un post LinkedIn à partir du contenu suivant : [insérer le texte du cas/artcile/actualité].
 
-Контекст:
-- Целевая аудитория: [например: "HR-директора средних компаний"]
-- Тон: экспертный, но разговорный. Без канцелярита
-- Цель поста: [информировать / привлечь лиды / объявить о продукте]
-- Хештеги: не более 5, релевантных теме
+Contexte :
+- Cible : [par exemple : "DRH de PME"]
+- Ton : expert mais conversationnel. Sans jargon administratif
+- Objectif du post : [informer / attirer des leads / annoncer un produit]
+- Hashtags : maximum 5, pertinents pour le sujet
 
-Формат:
-- Хук (первое предложение — цепляющее)
-- Основная мысль (2-3 коротких абзаца)
-- Вывод / призыв к действию
-- Хештеги
+Format :
+- Accroche (première phrase — captivante)
+- Idée principale (2-3 paragraphes courts)
+- Conclusion / appel à l'action
+- Hashtags
 
-Ограничение: Максимум 150 слов. Пост должен быть сканируемым — используй абзацы по 1-2 предложения.
+Contrainte : Maximum 150 mots. Le post doit être lisible en diagonal — utilise des paragraphes de 1-2 phrases.
 
-Оценка: Проверь, что пост не звучит как реклама, а даёт ценность читателю.</div>
+Évaluation : Vérifie que le post ne sonne pas comme une publicité, mais apporte de la valeur au lecteur.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Создать email-рассылку для сегмента клиентов</div>
-      <div class="prompt-text">Роль: Ты — email-маркетолог. Твои письма открывают и кликают.
+      <div class="prompt-task">Créer une campagne d'emailing pour un segment de clients</div>
+      <div class="prompt-text">Rôle : Tu es un email marketer. Tes emails sont ouverts et cliqués.
 
-Задача: Напиши цепочку из 3 писем для сегмента: [описание сегмента, например: "клиенты, не активные 90 дней"].
+Tâche : Rédige une séquence de 3 emails pour le segment : [description du segment, par exemple : "clients inactifs depuis 90 jours"].
 
-Контекст:
-- Продукт: [краткое описание]
-- Предложение: [что предлагаем]
-- Тон: [теплый/деловой/игривый]
-- Длина: каждое письмо — до 150 слов
+Contexte :
+- Produit : [brève description]
+- Offre : [ce que nous proposons]
+- Ton : [chaleureux/formel/ludique]
+- Longueur : chaque email — 150 mots maximum
 
-Формат для каждого письма:
-- Тема письма (3 варианта на выбор)
-- Предпросмотр (preview text)
-- Тело письма
-- CTA (кнопка/ссылка с текстом)
+Format pour chaque email :
+- Objet de l'email (3 variantes au choix)
+- Aperçu (preview text)
+- Corps de l'email
+- CTA (bouton/lien avec texte)
 
-Ограничения:
-- Письмо 1: напоминание о ценности
-- Письмо 2: социальное доказательство или кейс
-- Письмо 3: последний шанс + предложение
+Contraintes :
+- Email 1 : rappel de la valeur
+- Email 2 : preuve sociale ou cas d'usage
+- Email 3 : dernière chance + offre
 
-Оценка: Проверь, что темы не попадают в спам (нет слов "БЕСПЛАТНО", "СРОЧНО" капсом).</div>
+Évaluation : Vérifie que les objets ne partent pas dans les spams (pas de "GRATUIT", "URGENT" en majuscules).</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Разработать план контент-календаря на месяц</div>
-      <div class="prompt-text">Роль: Ты — контент-стратег. Планируешь календари, которые работают на воронку.
+      <div class="prompt-task">Élaborer un plan de calendrier éditorial pour un mois</div>
+      <div class="prompt-text">Rôle : Tu es un stratège de contenu. Tu planifies des calendriers qui nourrissent l'entonnoir.
 
-Задача: Составь контент-план на [месяц] для [канал: LinkedIn / блог / Telegram].
+Tâche : Établis un plan de contenu pour [mois] pour [canal : LinkedIn / blog / Telegram].
 
-Контекст:
-- Тематика: [например: "AI для бизнеса"]
-- Целевая аудитория: [описание]
-- Частота публикаций: [например: "3 раза в неделю"]
-- Форматы: [посты/кейсы/опросы/видео]
+Contexte :
+- Thématique : [par exemple : "IA pour les entreprises"]
+- Cible : [description]
+- Fréquence de publication : [par exemple : "3 fois par semaine"]
+- Formats : [posts/cas d'usage/sondages/vidéos]
 
-Формат: Таблица — Дата | Тема | Формат | Цель (awareness/leads/engagement) | Призыв к действию | Статус
+Format : Tableau — Date | Thème | Format | Objectif (notoriété/leads/engagement) | Appel à l'action | Statut
 
-Дополнительно:
-- 3 идеи для "вирусных" постов
-- 2 темы для коллабораций с экспертами
-- 1 предложение по репурпозингу (как один контент использовать в 3 форматах)
+En complément :
+- 3 idées de posts "viraux"
+- 2 thèmes pour des collaborations avec des experts
+- 1 proposition de repurposing (comment utiliser un même contenu dans 3 formats)
 
-Оценка: Проверь, что темы покрывают разные этапы воронки (не только продажа).</div>
+Évaluation : Vérifie que les thèmes couvrent les différentes étapes de l'entonnoir (pas seulement la vente).</div>
     </div>
   </div>
 
-  <!-- ФИНАНСИСТ / FP&A -->
+  <!-- FINANCIER / FP&A -->
   <div class="profession-card">
     <div class="profession-header">
       <div class="profession-icon">💰</div>
       <div>
-        <div class="profession-title">Финансист / FP&A</div>
-        <div class="profession-area">Анализ, отчётность, прогнозирование</div>
+        <div class="profession-title">Responsable financier / FP&A</div>
+        <div class="profession-area">Analyse, reporting, prévision</div>
       </div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Сделать executive summary из длинного отчёта</div>
-      <div class="prompt-text">Роль: Ты — финансовый аналитик. Готовишь summary для CEO, у которого 5 минут.
+      <div class="prompt-task">Rédiger un executive summary à partir d'un long rapport</div>
+      <div class="prompt-text">Rôle : Tu es un analyste financier. Tu prépares des summaries pour le PDG, qui n'a que 5 minutes.
 
-Задача: Преврати приложенный отчёт в 1-страничный executive summary.
+Tâche : Transforme le rapport ci-joint en un executive summary d'une page.
 
-Контекст:
-- Аудитория: [CEO / инвесторы / банк]
-- Что важно: [ключевая метрика/событие]
-- Тон: прямой, без воды, цифры в первом абзаце
+Contexte :
+- Audience : [PDG / investisseurs / banque]
+- Ce qui est important : [métrique clé/événement]
+- Ton : direct, sans flou, chiffres dans le premier paragraphe
 
-Формат:
-1. Главный вывод (1-2 предложения, с ключевой цифрой)
-2. 3 ключевых метрики (факт vs план vs прогноз)
-3. Что пошло хорошо (2-3 пункта)
-4. Что требует внимания (2-3 пункта с рекомендациями)
-5. Следующие шаги (3 действия с ответственными и сроками)
+Format :
+1. Conclusion principale (1-2 phrases, avec le chiffre clé)
+2. 3 métriques clés (réalisé vs plan vs prévision)
+3. Ce qui a bien marché (2-3 points)
+4. Ce qui nécessite attention (2-3 points avec recommandations)
+5. Prochaines étapes (3 actions avec responsables et délais)
 
-Ограничение: Не более 400 слов. Каждый пункт — максимум 2 предложения.
+Contrainte : Maximum 400 mots. Chaque point — 2 phrases maximum.
 
-Оценка: Проверь, что все цифры точно соответствуют исходному отчёту. Не округляй без пометки.</div>
+Évaluation : Vérifie que tous les chiffres correspondent exactement au rapport source. N'arrondis pas sans le mentionner.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Проанализировать отклонения бюджета (variance analysis)</div>
-      <div class="prompt-text">Роль: Ты — FP&A-аналитик. Ищешь причины отклонений и предлагаешь действия.
+      <div class="prompt-task">Analyser les écarts budgétaires (variance analysis)</div>
+      <div class="prompt-text">Rôle : Tu es un analyste FP&A. Tu identifies les causes des écarts et proposes des actions.
 
-Задача: Проанализируй отклонения факта от бюджета за [период].
+Tâche : Analyse les écarts entre le réalisé et le budget pour [période].
 
-Данные: [вставить таблицу: статья | бюджет | факт | отклонение | отклонение %]
+Données : [insérer le tableau : rubrique | budget | réalisé | écart | écart %]
 
-Формат: Таблица — Статья | Отклонение | Вероятная причина | Рекомендация | Ответственный
+Format : Tableau — Rubrique | Écart | Cause probable | Recommandation | Responsable
 
-Требования:
-- Фокус на отклонениях > [порог, например: 10% или 500K руб.]
-- Для каждой статьи — не более 1 предполагаемой причины
-- Рекомендация должна быть конкретной (не "разобраться", а "провести переговоры с поставщиком X до [дата]")
+Exigences :
+- Focus sur les écarts > [seuil, par exemple : 10% ou 500K €]
+- Pour chaque rubrique — 1 cause supposée maximum
+- La recommandation doit être concrète (pas "analyser", mais "négocier avec le fournisseur X avant le [date]")
 
-Оценка: Проверь, что отклонения посчитаны верно и причины логичны.</div>
+Évaluation : Vérifie que les écarts sont calculés correctement et que les causes sont logiques.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Подготовить комментарий к прогнозу выручки</div>
-      <div class="prompt-text">Роль: Ты — финансовый директор. Объясняешь цифры так, чтобы бизнес понял.
+      <div class="prompt-task">Préparer un commentaire sur la prévision de chiffre d'affaires</div>
+      <div class="prompt-text">Rôle : Tu es un directeur financier. Tu expliques les chiffres de manière à ce que le business comprenne.
 
-Задача: Напиши комментарий к прогнозу выручки на [квартал/год].
+Tâche : Rédige un commentaire sur la prévision de chiffre d'affaires pour [trimestre/année].
 
-Контекст:
-- Прогноз: [сумма]
-- Базовый сценарий: [предположения]
-- Оптимистичный сценарий: [предположения]
-- Пессимистичный сценарий: [предположения]
-- Ключевые драйверы: [факторы роста]
-- Риски: [основные]
+Contexte :
+- Prévision : [montant]
+- Scénario de base : [hypothèses]
+- Scénario optimiste : [hypothèses]
+- Scénario pessimiste : [hypothèses]
+- Drivers clés : [facteurs de croissance]
+- Risques : [principaux]
 
-Формат:
-1. Общий вывод (2 предложения)
-2. Базовый сценарий: логика и ключевые драйверы
-3. Чувствительность: как изменится результат, если [фактор] изменится на ±10%
-4. Риски и mitigations
-5. Что нужно от бизнеса (запросы данных/решений)
+Format :
+1. Conclusion générale (2 phrases)
+2. Scénario de base : logique et drivers clés
+3. Sensibilité : comment évolue le résultat si [facteur] change de ±10%
+4. Risques et atténuations
+5. Ce qui est attendu du business (demandes de données/décisions)
 
-Тон: аналитический, но доступный. Без финансового жаргона.
+Ton : analytique mais accessible. Sans jargon financier.
 
-Оценка: Проверь, что сценарии внутренне согласованы и драйверы логично ведут к результату.</div>
+Évaluation : Vérifie que les scénarios sont cohérents entre eux et que les drivers mènent logiquement au résultat.</div>
     </div>
   </div>
 
-  <!-- БУХГАЛТЕР -->
+  <!-- COMPTABLE -->
   <div class="profession-card">
     <div class="profession-header">
       <div class="profession-icon">📊</div>
       <div>
-        <div class="profession-title">Бухгалтер</div>
-        <div class="profession-area">Учёт, отчётность, month-end close</div>
+        <div class="profession-title">Comptable</div>
+        <div class="profession-area">Comptabilité, reporting, clôture mensuelle</div>
       </div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Составить чеклист month-end close</div>
-      <div class="prompt-text">Роль: Ты — главный бухгалтер. Знаешь все шаги закрытия месяца в сонове.
+      <div class="prompt-task">Établir une checklist de clôture mensuelle</div>
+      <div class="prompt-text">Rôle : Tu es un chef comptable. Tu connais toutes les étapes de la clôture mensuelle.
 
-Задача: Составь чеклист закрытия месяца для [тип компании, например: "торговой компании на ОСНО"].
+Tâche : Établis une checklist de clôture mensuelle pour [type d'entreprise, par exemple : "société commerciale en IS"].
 
-Контекст:
-- Система учёта: [1С / SAP / другая]
-- Особенности: [есть импорт / экспорт / много контрагентов / сложная себестоимость]
-- Срок закрытия: [например: "5 рабочих дней"]
+Contexte :
+- Système de comptabilité : [ERP / SAP / autre]
+- Spécificités : [import/export / nombreux fournisseurs / coût de revient complexe]
+- Délai de clôture : [par exemple : "5 jours ouvrés"]
 
-Формат: Таблица — День | Процедура | Ответственный | Контрольный признак (что проверяем) | Частые ошибки
+Format : Tableau — Jour | Procédure | Responsable | Point de contrôle (quoi vérifier) | Erreurs fréquentes
 
-Требования:
-- Укажи последовательность (что раньше: амортизация или переоценка валюты?)
-- Выдели критические шаги, от которых зависит всё остальное
-- Добавь столбец "Если не сходится — что делать"
+Exigences :
+- Indique la séquence (quoi d'abord : amortissement ou réévaluation devises ?)
+- Mets en évidence les étapes critiques dont dépend le reste
+- Ajoute une colonne "Si ça ne concorde pas — que faire"
 
-Оценка: Проверь, что последовательность логична и ничего не упущено.</div>
+Évaluation : Vérifie que la séquence est logique et que rien n'est oublié.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Проанализировать флуктуации в отчёте</div>
-      <div class="prompt-text">Роль: Ты — бухгалтер-аналитик. Находишь аномалии в цифрах.
+      <div class="prompt-task">Analyser les fluctuations dans un rapport</div>
+      <div class="prompt-text">Rôle : Tu es un comptable analyste. Tu détectes les anomalies dans les chiffres.
 
-Задача: Проанализируй приложенный отчёт и найди значимые отклонения.
+Tâche : Analyse le rapport ci-joint et trouve les écarts significatifs.
 
-Контекст:
-- Тип отчёта: [ОСВ / оборотка / ведомость]
-- Периоды сравнения: [текущий месяц vs прошлый / текущий vs аналогичный прошлого года]
-- Материальность: [порог, например: "100 тыс. руб. или 10%"]
+Contexte :
+- Type de rapport : [balance / grand livre / état]
+- Périodes de comparaison : [mois en cours vs précédent / mois en cours vs même mois N-1]
+- Matérialité : [seuil, par exemple : "100K € ou 10%"]
 
-Формат: Таблица — Статья | Текущий период | Прошлый период | Отклонение | % | Вероятная причина | Нужна проверка?
+Format : Tableau — Rubrique | Période en cours | Période précédente | Écart | % | Cause probable | Vérification nécessaire ?
 
-Требования:
-- Сначала отсортируй по абсолютному отклонению (самые большие сверху)
-- Для каждой статьи >порога — предположи причину
-- Явно отметь: "Требует уточнения у ответственного" или "Нормальное колебание"
+Exigences :
+- Trie d'abord par écart absolu (les plus grands en haut)
+- Pour chaque rubrique > seuil — propose une cause
+- Indique explicitement : "Nécessite un complément d'information auprès du responsable" ou "Variation normale"
 
-Оценка: Проверь, что расчёты отклонений верны.</div>
+Évaluation : Vérifie que les calculs d'écarts sont corrects.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Проверить соответствие проводок стандарту</div>
-      <div class="prompt-text">Роль: Ты — бухгалтер-методолог. Знаешь [стандарт: РСБУ / IFRS / US GAAP].
+      <div class="prompt-task">Vérifier la conformité des écritures à la norme</div>
+      <div class="prompt-text">Rôle : Tu es un comptable méthodologue. Tu connais [norme : PCG / IFRS / US GAAP].
 
-Задача: Проверь, соответствуют ли приложенные проводки требованиям стандарта.
+Tâche : Vérifie si les écritures ci-jointes respectent les exigences de la norme.
 
-Контекст:
-- Стандарт: [указать]
-- Операция: [описание хозяйственной операции]
-- Проводки: [Дебет | Кредит | Сумма | Комментарий]
+Contexte :
+- Norme : [préciser]
+- Opération : [description de l'opération économique]
+- Écritures : [Débit | Crédit | Montant | Commentaire]
 
-Формат: Таблица — Проводка | Верно/Ошибка | Если ошибка — что неверно | Правильный вариант | Ссылка на стандарт (пункт/статья)
+Format : Tableau — Écriture | Correct/Erreur | Si erreur — quoi est incorrect | Variante correcte | Référence à la norme (point/article)
 
-Ограничения:
-- Если не уверен — напиши "Требует консультации методолога"
-- Не давай юридических консультаций
-- Укажи, какие документы должны подтверждать операцию
+Contraintes :
+- Si tu n'es pas sûr — écris "Nécessite consultation du méthodologue"
+- Ne donne pas de conseils juridiques
+- Indique quels documents doivent justifier l'opération
 
-Оценка: Проверь, что ссылки на стандарт актуальны (если ссылаешься на конкретный пункт).</div>
+Évaluation : Vérifie que les références à la norme sont à jour (si tu cites un point précis).</div>
     </div>
   </div>
 
-  <!-- МЕНЕДЖЕР ПО ПРОДАЖАМ -->
+  <!-- RESPONSABLE COMMERCIAL -->
   <div class="profession-card">
     <div class="profession-header">
       <div class="profession-icon">🤝</div>
       <div>
-        <div class="profession-title">Менеджер по продажам</div>
-        <div class="profession-area">Предложения, переговоры, CRM</div>
+        <div class="profession-title">Responsable commercial</div>
+        <div class="profession-area">Propositions, négociations, CRM</div>
       </div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Подготовить коммерческое предложение</div>
-      <div class="prompt-text">Роль: Ты — менеджер по продажам B2B. Пишешь КП, которые закрывают сделки.
+      <div class="prompt-task">Préparer une proposition commerciale</div>
+      <div class="prompt-text">Rôle : Tu es un responsable commercial B2B. Tu rédiges des propositions qui concluent des affaires.
 
-Задача: Составь коммерческое предложение для [компания клиента].
+Tâche : Rédige une proposition commerciale pour [société client].
 
-Контекст:
-- Наш продукт: [описание]
-- Потребность клиента: [из переписки/разговора]
-- Бюджет клиента: [диапазон, если известен]
-- Сроки: [если известны]
-- Конкуренты: [кого рассматривает клиент, если известно]
+Contexte :
+- Notre produit : [description]
+- Besoin du client : [déduit de la correspondance/entretien]
+- Budget client : [fourchette, si connu]
+- Délais : [si connus]
+- Concurrents : [ceux que le client étudie, si connu]
 
-Формат:
-1. Обращение (персонализированное)
-2. Понимание задачи клиента (покажи, что слушал)
-3. Решение (как наш продукт решает задачу)
-4. Состав предложения (перечень + цены)
-5. Сроки внедрения
-6. Следующий шаг (конкретный CTA)
+Format :
+1. Salutation (personnalisée)
+2. Compréhension de la problématique du client (montre que tu as écouté)
+3. Solution (comment notre produit résout le problème)
+4. Contenu de la proposition (liste + prix)
+5. Délais de déploiement
+6. Prochaine étape (CTA concret)
 
-Тон: уверенный, но не навязчивый. Фокус на ценности, а не на функциях.
+Ton : confiant mais pas intrusif. Focus sur la valeur, pas sur les fonctionnalités.
 
-Оценка: Проверь, что КП адресовано конкретной боли клиента, а не шаблонное.</div>
+Évaluation : Vérifie que la proposition s'adresse à une douleur spécifique du client, et n'est pas un modèle générique.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Написать follow-up письмо после встречи</div>
-      <div class="prompt-text">Роль: Ты — менеджер по продажам. Твои письма получают ответы.
+      <div class="prompt-task">Rédiger un email de suivi après un rendez-vous</div>
+      <div class="prompt-text">Rôle : Tu es un responsable commercial. Tes emails reçoivent des réponses.
 
-Задача: Напиши follow-up после встречи с [имя/должность клиента].
+Tâche : Rédige un follow-up après un rendez-vous avec [nom/poste du client].
 
-Контекст:
-- Тема встречи: [о чём говорили]
-- Ключевые моменты: [3-5 пунктов]
-- Обещания с нашей стороны: [что обещали прислать/сделать]
-- Обязательства клиента: [что обещал клиент]
-- Следующий шаг: [конкретно]
-- Тон: [деловой/дружелюбный]
+Contexte :
+- Sujet du rendez-vous : [de quoi on a parlé]
+- Points clés : [3-5 points]
+- Promesses de notre part : [ce qu'on s'est engagés à envoyer/faire]
+- Engagements du client : [ce que le client s'est engagé à faire]
+- Prochaine étape : [concrètement]
+- Ton : [formel/amicable]
 
-Формат:
-- Благодарность за время (1 предложение)
-- Краткое резюме встречи (3-4 пункта)
-- Что делаем мы (с датами)
-- Что ждём от клиента (с датами)
-- Предложение следующего контакта
+Format :
+- Remerciement pour le temps (1 phrase)
+- Bref résumé du rendez-vous (3-4 points)
+- Ce que nous faisons (avec dates)
+- Ce qu'on attend du client (avec dates)
+- Proposition de prochain contact
 
-Ограничение: Не более 200 слов. Клиенты не читают длинные письма.
+Contrainte : Maximum 200 mots. Les clients ne lisent pas les longs emails.
 
-Оценка: Проверь, что все даты и обещания согласованы с протоколом встречи.</div>
+Évaluation : Vérifie que toutes les dates et promesses sont alignées avec le compte-rendu du rendez-vous.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Проанализировать воронку продаж</div>
-      <div class="prompt-text">Роль: Ты — sales-аналитик. Находишь узкие места в воронке.
+      <div class="prompt-task">Analyser un entonnoir de vente</div>
+      <div class="prompt-text">Rôle : Tu es un analyste commercial. Tu identifies les goulots d'étranglement dans l'entonnoir.
 
-Задача: Проанализируй воронку продаж за [период].
+Tâche : Analyse l'entonnoir de vente pour [période].
 
-Данные: [вставить таблицу: этап | количество | конверсия | средний чек | цикл]
+Données : [insérer le tableau : étape | quantité | taux de conversion | panier moyen | cycle]
 
-Формат:
-1. Общая картина (2-3 предложения)
-2. Таблица — Этап | Конверсия | Проблема (да/нет) | Гипотеза причины | Рекомендация
-3. Топ-3 приоритета для улучшения
-4. Прогноз: что будет, если улучшить конверсию на [X]% на каждом этапе
+Format :
+1. Vue d'ensemble (2-3 phrases)
+2. Tableau — Étape | Conversion | Problème (oui/non) | Hypothèse de cause | Recommandation
+3. Top 3 priorités d'amélioration
+4. Prévision : que se passe-t-il si on améliore le taux de conversion de [X]% à chaque étape
 
-Требования:
-- Сравни с прошлым периодом (если данные есть)
-- Укажи, на каком этапе теряется больше всего денег
-- Рекомендации — конкретные, а не "нужно больше лидов"
+Exigences :
+- Compare avec la période précédente (si les données existent)
+- Indique à quelle étape on perd le plus d'argent
+- Les recommandations — concrètes, pas "il faut plus de leads"
 
-Оценка: Проверь, что расчёты конверсий верны и приоритеты обоснованы финансово.</div>
+Évaluation : Vérifie que les calculs de conversion sont corrects et que les priorités sont financièrement justifiées.</div>
     </div>
   </div>
 
-  <!-- РУКОВОДИТЕЛЬ ПРОЕКТОВ -->
+  <!-- CHEF DE PROJET -->
   <div class="profession-card">
     <div class="profession-header">
       <div class="profession-icon">🚀</div>
       <div>
-        <div class="profession-title">Руководитель проектов</div>
-        <div class="profession-area">Планирование, риски, коммуникации</div>
+        <div class="profession-title">Chef de projet</div>
+        <div class="profession-area">Planification, risques, communication</div>
       </div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Составить план проекта с ресурсами и рисками</div>
-      <div class="prompt-text">Роль: Ты — проектный менеджер с опытом в [отрасль: IT/стройка/маркетинг].
+      <div class="prompt-task">Établir un plan de projet avec ressources et risques</div>
+      <div class="prompt-text">Rôle : Tu es un chef de projet avec de l'expérience dans [secteur : IT/construction/marketing].
 
-Задача: Составь план проекта: [название проекта].
+Tâche : Établis un plan de projet : [nom du projet].
 
-Контекст:
-- Цель проекта: [SMART-цель]
-- Бюджет: [сумма]
-- Срок: [дата старт — дата финиш]
-- Команда: [роли и количество]
-- Ключевые ограничения: [например: "нельзя останавливать текущие продажи"]
+Contexte :
+- Objectif du projet : [objectif SMART]
+- Budget : [montant]
+- Délais : [date début — date fin]
+- Équipe : [rôles et nombre]
+- Contraintes clés : [par exemple : "ne pas interrompre les ventes en cours"]
 
-Формат:
-1. WBS (структура работ) — список этапов с подзадачами
-2. Таблица — Задача | Ответственный | Срок | Зависимости | Статус
-3. Риски — таблица: Риск | Вероятность | Влияние | Митигация | Владелец риска
-4. Критический путь (3-5 задач, от которых зависит срок)
-5. Чекпоинты (что проверяем на каждом этапе)
+Format :
+1. WBS (structure de découpage du travail) — liste des phases avec sous-tâches
+2. Tableau — Tâche | Responsable | Délais | Dépendances | Statut
+3. Risques — tableau : Risque | Probabilité | Impact | Atténuation | Propriétaire du risque
+4. Chemin critique (3-5 tâches dont dépend le délai)
+5. Points de contrôle (quoi vérifier à chaque étape)
 
-Оценка: Проверь, что план реалистичен (не 3 задачи на 1 день у одного человека).</div>
+Évaluation : Vérifie que le plan est réaliste (pas 3 tâches en 1 jour pour une seule personne).</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Провести ретроспективу спринта/проекта</div>
-      <div class="prompt-text">Роль: Ты — Scrum-мастер. Проводишь ретро, после которого команда растёт.
+      <div class="prompt-task">Conduire une rétrospective de sprint/projet</div>
+      <div class="prompt-text">Rôle : Tu es un Scrum Master. Tu conduis des rétrospectives après lesquelles l'équipe progresse.
 
-Задача: Подготовь шаблон ретроспективы для [команда/проект] за [период].
+Tâche : Prépare un modèle de rétrospective pour [équipe/projet] sur [période].
 
-Контекст:
-- Что планировали: [цели/обязательства]
-- Что получилось: [факты, метрики]
-- Что не получилось: [проблемы]
-- Состав команды: [роли]
+Contexte :
+- Ce qui était prévu : [objectifs/engagements]
+- Ce qui a réussi : [faits, métriques]
+- Ce qui n'a pas réussi : [problèmes]
+- Composition de l'équipe : [rôles]
 
-Формат:
-1. Дашборд спринта (3-4 цифры: запланировано/выполнено, velocity, баги)
-2. Что хорошо (3 пункта с конкретикой, не "команда молодец")
-3. Что можно улучшить (3 пункта с корневой причиной)
-4. Эксперименты на следующий спринт (2-3 действия с владельцами и метриками успеха)
-5. Благодарности (место для коллег)
+Format :
+1. Tableau de bord du sprint (3-4 chiffres : prévu/réalisé, vélocité, bugs)
+2. Ce qui a bien fonctionné (3 points avec précision, pas "l'équipe est géniale")
+3. Ce qui peut être amélioré (3 points avec cause racine)
+4. Expérimentations pour le prochain sprint (2-3 actions avec propriétaires et métriques de succès)
+5. Remerciements (espace pour les collègues)
 
-Тон: конструктивный, без поиска виноватых.
+Ton : constructif, sans recherche de coupables.
 
-Оценка: Проверь, что действия из пункта 4 измеримы и назначены на конкретных людей.</div>
+Évaluation : Vérifie que les actions du point 4 sont mesurables et assignées à des personnes concrètes.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Составить отчёт о статусе проекта (status update)</div>
-      <div class="prompt-text">Роль: Ты — проектный менеджер. Пишешь status update, который читают.
+      <div class="prompt-task">Rédiger un rapport de statut de projet (status update)</div>
+      <div class="prompt-text">Rôle : Tu es un chef de projet. Tu rédiges des status updates qui sont lus.
 
-Задача: Подготовь weekly status update для [аудитория: заказчик/руководство/команда].
+Tâche : Prépare un status update hebdomadaire pour [audience : client/direction/équipe].
 
-Контекст:
-- Проект: [название]
-- Текущий этап: [название]
-- Прогресс: [% выполнения]
-- Бюджет: [потрачено/всего]
-- Главные достижения недели: [2-3 пункта]
-- Блокеры: [что мешает]
-- Помощь нужна: [от кого и по чему]
+Contexte :
+- Projet : [nom]
+- Phase actuelle : [nom]
+- Avancement : [% réalisé]
+- Budget : [dépensé/total]
+- Principales réalisations de la semaine : [2-3 points]
+- Bloqueurs : [ce qui bloque]
+- Besoin d'aide : [de qui et sur quoi]
 
-Формат:
-1. Светофор (🟢/🟡/🔴) по 4 измерениям: срок, бюджет, качество, риски
-2. Что сделано (3-5 пунктов)
-3. Что планируется (3-5 пунктов со сроками)
-4. Блокеры и помощь
-5. Ключевые решения, которые нужно принять
+Format :
+1. Feu tricolore (🟢/🟡/🔴) sur 4 dimensions : délai, budget, qualité, risques
+2. Ce qui a été fait (3-5 points)
+3. Ce qui est prévu (3-5 points avec délais)
+4. Bloqueurs et besoin d'aide
+5. Décisions clés à prendre
 
-Ограничение: Не более 1 страницы. Руководство не читает длинные отчёты.
+Contrainte : Maximum 1 page. La direction ne lit pas les rapports longs.
 
-Оценка: Проверь, что статус объективен — нет скрытых проблем за зелёным светофором.</div>
+Évaluation : Vérifie que le statut est objectif — pas de problèmes cachés derrière un feu vert.</div>
     </div>
   </div>
 
-  <!-- РЕКРУТЕР -->
+  <!-- RECRUTEUR -->
   <div class="profession-card">
     <div class="profession-header">
       <div class="profession-icon">🔍</div>
       <div>
-        <div class="profession-title">Рекрутер</div>
-        <div class="profession-area">Поиск, интервью, оценка кандидатов</div>
+        <div class="profession-title">Recruteur</div>
+        <div class="profession-area">Recherche, entretiens, évaluation de candidats</div>
       </div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Составить поведенческие вопросы для интервью</div>
-      <div class="prompt-text">Роль: Ты — IT-рекрутер. Составляешь вопросы, которые предсказывают успех на работе.
+      <div class="prompt-task">Élaborer des questions comportementales pour un entretien</div>
+      <div class="prompt-text">Rôle : Tu es un recruteur IT. Tu conçois des questions qui prédisent la réussite sur le poste.
 
-Задача: Создай 8 поведенческих вопросов для интервью на позицию [должность].
+Tâche : Crée 8 questions comportementales pour un entretien sur le poste de [poste].
 
-Контекст:
-- Ключевые компетенции: [список: например, "управление конфликтами", "декомпозиция задач", "работа в неопределённости"]
-- Уровень: [junior/middle/senior/lead]
-- Формат интервью: [45 минут / 1 час]
-- Компания: [краткое описание культуры]
+Contexte :
+- Compétences clés : [liste : par exemple, "gestion de conflits", "décomposition des tâches", "travail dans l'incertitude"]
+- Niveau : [junior/intermédiaire/senior/lead]
+- Format de l'entretien : [45 minutes / 1 heure]
+- Entreprise : [brève description de la culture]
 
-Формат: Таблица — Компетенция | Вопрос | Что слушаем в ответе | Красные флаги
+Format : Tableau — Compétence | Question | Ce qu'on écoute dans la réponse | Signaux d'alerte
 
-Требования:
-- Вопросы по методике STAR (Situation-Task-Action-Result)
-- Для каждой компетенции — 1-2 вопроса
-- Добавь 1-2 вопроса на культурную совместимость
+Exigences :
+- Questions selon la méthode STAR (Situation-Tâche-Action-Résultat)
+- Pour chaque compétence — 1-2 questions
+- Ajoute 1-2 questions sur l'adéquation culturelle
 
-Оценка: Проверь, что вопросы открытые (не "да/нет") и измеряют то, что важно для роли.</div>
+Évaluation : Vérifie que les questions sont ouvertes (pas "oui/non") et mesurent ce qui est important pour le poste.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Проанализировать резюме кандидата</div>
-      <div class="prompt-text">Роль: Ты — рекрутер. Анализируешь резюме на соответствие вакансии.
+      <div class="prompt-task">Analyser le CV d'un candidat</div>
+      <div class="prompt-text">Rôle : Tu es un recruteur. Tu analyses les CV pour leur adéquation au poste.
 
-Задача: Сравни резюме кандидата с требованиями вакансии.
+Tâche : Compare le CV du candidat avec les exigences du poste.
 
-Контекст:
-- Вакансия: [должность, ключевые требования]
-- Резюме: [вставить текст резюме или ключевые пункты]
+Contexte :
+- Poste : [poste, exigences clés]
+- CV : [insérer le texte du CV ou les points clés]
 
-Формат: Таблица — Требование | Соответствие (Да/Нет/Частично) | Подтверждение из резюме | Вопросы для интервью
+Format : Tableau — Exigence | Adéquation (Oui/Non/Partiel) | Confirmation dans le CV | Questions pour l'entretien
 
-Дополнительно:
-- Общая оценка соответствия (%)
-- Сильные стороны кандидата (2-3 пункта)
-- Потенциальные риски (2-3 пункта)
-- Рекомендация: "Пригласить" / "Пригласить с оговорками" / "Отказать"
+En complément :
+- Évaluation globale de l'adéquation (%)
+- Points forts du candidat (2-3 points)
+- Risques potentiels (2-3 points)
+- Recommandation : "Inviter" / "Inviter avec réserves" / "Refuser"
 
-Оценка: Проверь, что оценка объективна и основана только на данных резюме (не домыслах).</div>
+Évaluation : Vérifie que l'évaluation est objective et basée uniquement sur les données du CV (pas de suppositions).</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Написать отказ кандидату (с сохранением репутации)</div>
-      <div class="prompt-text">Роль: Ты — HR-менеджер. Умеешь говорить "нет" так, что человек уважает компанию.
+      <div class="prompt-task">Rédiger un refus à un candidat (en préservant la réputation)</div>
+      <div class="prompt-text">Rôle : Tu es un responsable RH. Tu sais dire "non" de manière à ce que la personne respecte l'entreprise.
 
-Задача: Напиши письмо об отказе кандидату [имя].
+Tâche : Rédige un email de refus au candidat [nom].
 
-Контекст:
-- Позиция: [название]
-- Этап: [на каком этапе отказ — после резюме/интервью/тестового]
-- Причина: [не хватает опыта в X / выбрали другого / решение заказчика]
-- Кандидат: [краткое описание, почему он хороший, даже если не прошёл]
+Contexte :
+- Poste : [nom]
+- Étape : [à quelle étape le refus — après le CV/entretien/test]
+- Raison : [manque d'expérience en X / un autre candidat a été choisi / décision du client]
+- Candidat : [brève description, pourquoi il est bon, même s'il n'a pas été sélectionné]
 
-Формат:
-- Благодарность за интерес (1 предложение)
-- Решение (честно, но тактично)
-- Что ценили в кандидате (конкретика — не общие фразы)
-- Обратная связь, если уместна (1 конструктивный пункт)
-- Приглашение оставаться на связи (если кандидат сильный)
+Format :
+- Remerciement pour l'intérêt (1 phrase)
+- Décision (honnête mais tactique)
+- Ce qu'on a apprécié chez le candidat (concret — pas de généralités)
+- Retour d'expérience, si pertinent (1 point constructif)
+- Invitation à rester en contact (si le candidat est fort)
 
-Тон: уважительный, тёплый. Без шаблонов "мы сохраним ваше резюме".
+Ton : respectueux, chaleureux. Sans modèles "nous conserverons votre CV".
 
-Оценка: Прочитай от имени кандидата. Если бы тебе пришло такое письмо — какие чувства вызвало бы?</div>
+Évaluation : Lis du point de vue du candidat. Si tu recevais un tel email — quel sentiment ça provoquerait ?</div>
     </div>
   </div>
 
-  <!-- PR-МЕНЕДЖЕР -->
+  <!-- RESPONSABLE RP -->
   <div class="profession-card">
     <div class="profession-header">
       <div class="profession-icon">📰</div>
       <div>
-        <div class="profession-title">PR-менеджер</div>
-        <div class="profession-area">Пресс-релизы, кризисные коммуникации, медиа</div>
+        <div class="profession-title">Responsable RP</div>
+        <div class="profession-area">Communiqués de presse, gestion de crise, médias</div>
       </div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Написать пресс-релиз о событии</div>
-      <div class="prompt-text">Роль: Ты — PR-менеджер. Пишешь пресс-релизы, которые публикуют СМИ.
+      <div class="prompt-task">Rédiger un communiqué de presse sur un événement</div>
+      <div class="prompt-text">Rôle : Tu es un responsable RP. Tu rédiges des communiqués de presse que les médias publient.
 
-Задача: Составь пресс-релиз на тему: [событие, например: "запуск нового продукта / привлечение инвестиций / партнёрство"].
+Tâche : Rédige un communiqué de presse sur le thème : [événement, par exemple : "lancement d'un nouveau produit / levée de fonds / partenariat"].
 
-Контекст:
-- Компания: [название, описание деятельности]
-- Новость: [что произошло, факты, цифры]
-- Цитата руководителя: [ключевая мысль, если есть]
-- Целевые СМИ: [бизнес/тех/массовые]
+Contexte :
+- Entreprise : [nom, description de l'activité]
+- Actualité : [ce qui s'est passé, faits, chiffres]
+- Citation du dirigeant : [idée clé, si disponible]
+- Médias cibles : [affaires/tech/grand public]
 
-Формат (стандартный пресс-релиз):
-1. Заголовок (информативный, без хайпа)
-2. Лид (кто, что, когда, где, почему — 1 абзац)
-3. Основной текст (2-3 абзаца с фактами)
-4. Цитата (1 абзац)
-5. О компании (боилерплейт)
-6. Контакты для прессы
+Format (communiqué de presse standard) :
+1. Titre (informatif, sans hyperbole)
+2. Lead (qui, quoi, quand, où, pourquoi — 1 paragraphe)
+3. Texte principal (2-3 paragraphes avec faits)
+4. Citation (1 paragraphe)
+5. À propos de l'entreprise (boilerplate)
+6. Contacts presse
 
-Ограничения:
-- Не более 500 слов
-- Без суперлативов ("лучший", "первый", "революционный") — если нет доказательств
-- Все цифры и факты проверяемы
+Contraintes :
+- Maximum 500 mots
+- Sans superlatifs ("meilleur", "premier", "révolutionnaire") — sauf preuve
+- Tous les chiffres et faits vérifiables
 
-Оценка: Проверь, что лид отвечает на 5W1H и содержит главную новость.</div>
+Évaluation : Vérifie que le lead répond aux 5W1H et contient l'actualité principale.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Подготовить ответ на негатив в соцсетях/СМИ</div>
-      <div class="prompt-text">Роль: Ты — PR-менеджер кризисных коммуникаций. Работаешь быстро и точно.
+      <div class="prompt-task">Préparer une réponse à un retour négatif sur les réseaux/dans les médias</div>
+      <div class="prompt-text">Rôle : Tu es un responsable RP en gestion de crise. Tu travailles vite et juste.
 
-Задача: Подготовь ответ на публикацию/комментарий.
+Tâche : Prépare une réponse à une publication/commentaire.
 
-Контекст:
-- Источник: [где опубликовано, авторитетность]
-- Суть претензии: [кратко]
-- Факты: [что действительно произошло]
-- Наша позиция: [что готовы признать/что оспариваем]
-- Аудитория: [клиенты/партнёры/широкая публика]
+Contexte :
+- Source : [où c'est publié, crédibilité]
+- Fond de la réclamation : [bref]
+- Faits : [ce qui s'est réellement passé]
+- Notre position : [ce qu'on est prêts à reconnaître/ce qu'on conteste]
+- Audience : [clients/partenaires/grand public]
 
-Формат:
-1. Быстрая оценка: уровень угрозы (низкий/средний/высокий) и почему
-2. 3 варианта ответа:
-   - Вариант А: дипломатичный, мягкий
-   - Вариант Б: прямой, с фактами
-   - Вариант В: краткий, без эмоций
-3. Рекомендация: какой вариант выбрать и почему
-4. Следующие шаги (что делаем после публикации ответа)
+Format :
+1. Évaluation rapide : niveau de menace (faible/moyen/élevé) et pourquoi
+2. 3 variantes de réponse :
+   - Variante A : diplomatique, douce
+   - Variante B : directe, factuelle
+   - Variante C : brève, sans émotions
+3. Recommandation : quelle variante choisir et pourquoi
+4. Prochaines étapes (quoi faire après publication de la réponse)
 
-Ограничение: Не более 150 слов на ответ. В кризисе краткость — сестра таланта.
+Contrainte : Maximum 150 mots par réponse. En crise, la brièveté est la sœur du talent.
 
-Оценка: Проверь, что ответ не звучит оправдательно и не добавляет масла в огонь.</div>
+Évaluation : Vérifie que la réponse ne sonne pas comme une excuse et n'ajoute pas d'huile sur le feu.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Составить план коммуникаций для запуска</div>
-      <div class="prompt-text">Роль: Ты — PR-стратег. Планируешь коммуникации, которые достигают целей.
+      <div class="prompt-task">Établir un plan de communication pour un lancement</div>
+      <div class="prompt-text">Rôle : Tu es un stratège RP. Tu planifies des communications qui atteignent les objectifs.
 
-Задача: Составь коммуникационный план для запуска [продукт/событие].
+Tâche : Établis un plan de communication pour le lancement de [produit/événement].
 
-Контекст:
-- Дата запуска: [когда]
-- Целевая аудитория: [кто]
-- Ключевое сообщение: [1 предложение]
-- Каналы: [какие используем]
-- Бюджет: [если ограничен]
+Contexte :
+- Date de lancement : [quand]
+- Cible : [qui]
+- Message clé : [1 phrase]
+- Canaux : [lesquels on utilise]
+- Budget : [si limité]
 
-Формат: Таблица — Этап | Дата | Канал | Формат | Сообщение | Ответственный | KPI
+Format : Tableau — Phase | Date | Canal | Format | Message | Responsable | KPI
 
-Этапы:
-- Pre-launch (за 2 недели): тизеры, анонс
-- Launch day: пресс-релиз, посты, рассылка
-- Post-launch (1-2 недели): кейсы, отзывы, итоги
+Phases :
+- Pré-lancement (2 semaines avant) : teasers, annonce
+- Jour J : communiqué de presse, posts, newsletter
+- Post-lancement (1-2 semaines) : cas d'usage, témoignages, bilan
 
-Дополнительно:
-- Матрица сообщений: что говорим разным аудиториям
-- План Б: что делать, если запуск откладывается
+En complément :
+- Matrice de messages : quoi dire aux différentes audiences
+- Plan B : quoi faire si le lancement est reporté
 
-Оценка: Проверь, что план реалистичен по срокам и ресурсам.</div>
+Évaluation : Vérifie que le plan est réaliste en délais et en ressources.</div>
     </div>
   </div>
 
-  <!-- БИЗНЕС-АНАЛИТИК -->
+  <!-- ANALYSTE BUSINESS -->
   <div class="profession-card">
     <div class="profession-header">
       <div class="profession-icon">📈</div>
       <div>
-        <div class="profession-title">Бизнес-аналитик</div>
-        <div class="profession-area">Анализ рынка, процессов, требований</div>
+        <div class="profession-title">Analyste business</div>
+        <div class="profession-area">Analyse de marché, processus, exigences</div>
       </div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Провести SWOT-анализ компании/продукта</div>
-      <div class="prompt-text">Роль: Ты — бизнес-аналитик. Делаешь SWOT, на основе которого принимают решения.
+      <div class="prompt-task">Réaliser une analyse SWOT d'une entreprise/d'un produit</div>
+      <div class="prompt-text">Rôle : Tu es un analyste business. Tu fais des SWOT sur lesquels on prend des décisions.
 
-Задача: Составь SWOT-анализ для [компания/продукт/направление].
+Tâche : Établis une analyse SWOT pour [entreprise/produit/direction].
 
-Контекст:
-- Отрасль: [название]
-- Размер: [оборот, сотрудники, география]
-- Ключевые продукты: [список]
-- Конкуренты: [3-5 главных]
-- Рынок: [тренды, динамика]
+Contexte :
+- Secteur : [nom]
+- Taille : [chiffre d'affaires, employés, zone géographique]
+- Produits clés : [liste]
+- Concurrents : [3-5 principaux]
+- Marché : [tendances, dynamique]
 
-Формат: Таблица 2×2 — Strengths | Weaknesses | Opportunities | Threats
+Format : Tableau 2×2 — Forces | Faiblesses | Opportunités | Menaces
 
-Требования:
-- В каждой клетке — 4-5 пунктов, отсортированных по влиянию
-- Каждый пункт — конкретный, с объяснением "почему"
-- Strengths и Weaknesses — внутренние факторы
-- Opportunities и Threats — внешние факторы
+Exigences :
+- Dans chaque case — 4-5 points, triés par impact
+- Chaque point — concret, avec explication "pourquoi"
+- Forces et Faiblesses — facteurs internes
+- Opportunités et Menaces — facteurs externes
 
-Дополнительно:
-- 2 стратегии SO (используем сильные стороны для возможностей)
-- 2 стратегии WT (как нейтрализовать слабости и угрозы)
+En complément :
+- 2 stratégies SO (on utilise nos forces pour les opportunités)
+- 2 stratégies WT (comment neutraliser les faiblesses et les menaces)
 
-Оценка: Проверь, что факторы объективны и основаны на данных, а не предположениях.</div>
+Évaluation : Vérifie que les facteurs sont objectifs et basés sur des données, pas des suppositions.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Составить бизнес-требования к функционалу (BRD)</div>
-      <div class="prompt-text">Роль: Ты — бизнес-аналитик. Пишешь требования, которые разработчики реализуют без вопросов.
+      <div class="prompt-task">Rédiger des exigences fonctionnelles (BRD)</div>
+      <div class="prompt-text">Rôle : Tu es un analyste business. Tu rédiges des exigences que les développeurs implémentent sans questions.
 
-Задача: Составь документ бизнес-требований для функции: [название функции].
+Tâche : Établis un document d'exigences fonctionnelles pour la fonctionnalité : [nom de la fonctionnalité].
 
-Контекст:
-- Продукт: [название]
-- Пользователь: [кто будет использовать]
-- Проблема: [что не так сейчас]
-- Ожидаемый результат: [как будет после реализации]
-- Ограничения: [сроки, бюджет, интеграции]
+Contexte :
+- Produit : [nom]
+- Utilisateur : [qui va l'utiliser]
+- Problème : [ce qui ne va pas actuellement]
+- Résultat attendu : [ce que ça donnera après implémentation]
+- Contraintes : [délais, budget, intégrations]
 
-Формат:
-1. Общее описание (2-3 абзаца)
-2. Бизнес-цели (SMART)
-3. Пользовательские сценарии (2-3 сценария в формате "Как [роль], я хочу [действие], чтобы [цель]")
-4. Функциональные требования (список с приоритетами: Must/Should/Could)
-5. Нефункциональные требования (производительность, безопасность, масштабируемость)
-6. Критерии приёмки (когда считаем задачу выполненной)
-7. Открытые вопросы
+Format :
+1. Description générale (2-3 paragraphes)
+2. Objectifs business (SMART)
+3. Scénarios utilisateurs (2-3 scénarios au format "En tant que [rôle], je veux [action], afin de [objectif]")
+4. Exigences fonctionnelles (liste avec priorités : Must/Should/Could)
+5. Exigences non fonctionnelles (performance, sécurité, scalabilité)
+6. Critères d'acceptation (quand considère-t-on la tâche comme terminée)
+7. Questions ouvertes
 
-Оценка: Проверь, что требования однозначны и проверяемы (нет слов "удобный", "быстрый" без цифр).</div>
+Évaluation : Vérifie que les exigences sont uniques et vérifiables (pas de mots "pratique", "rapide" sans chiffres).</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Проанализировать рынок поставщиков/конкурентов</div>
-      <div class="prompt-text">Роль: Ты — аналитик рынка. Собираешь данные и структурируешь для принятия решений.
+      <div class="prompt-task">Analyser le marché des fournisseurs/concurrents</div>
+      <div class="prompt-text">Rôle : Tu es un analyste de marché. Tu collectes et structures les données pour la prise de décision.
 
-Задача: Сравни [поставщиков / конкурентов / решения] для [задача компании].
+Tâche : Compare [fournisseurs / concurrents / solutions] pour [besoin de l'entreprise].
 
-Контекст:
-- Что ищем: [например: "CRM-систему для B2B-компании 100 человек"]
-- Критерии: [список: цена, функционал, интеграции, поддержка, срок внедрения]
-- Веса критериев: [если есть]
-- Бюджет: [диапазон]
+Contexte :
+- Ce qu'on cherche : [par exemple : "un CRM pour une entreprise B2B de 100 personnes"]
+- Critères : [liste : prix, fonctionnalités, intégrations, support, délai de déploiement]
+- Pondération des critères : [si disponible]
+- Budget : [fourchette]
 
-Формат:
-1. Таблица сравнения — Критерий | Вариант А | Вариант Б | Вариант В | Победитель
-2. Детальный разбор по каждому критерию (2-3 предложения)
-3. Скрытые риски (что может пойти не так с каждым вариантом)
-4. Рекомендация с обоснованием
-5. Следующие шаги (что делать для принятия решения)
+Format :
+1. Tableau comparatif — Critère | Option A | Option B | Option C | Vainqueur
+2. Analyse détaillée par critère (2-3 phrases)
+3. Risques cachés (ce qui peut mal tourner avec chaque option)
+4. Recommandation avec justification
+5. Prochaines étapes (quoi faire pour prendre la décision)
 
-Ограничения:
-- Не используй данные старше [год], если речь о ценах
-- Если не уверен в цифре — укажи "Требует уточнения"
-- Укажи источники, если есть
+Contraintes :
+- N'utilise pas de données de plus de [année] si on parle de prix
+- Si tu n'es pas sûr d'un chiffre — indique "Nécessite un complément d'information"
+- Cite les sources, si disponibles
 
-Оценка: Проверь, что сравнение объективно и по всем критериям.</div>
+Évaluation : Vérifie que la comparaison est objective et couvre tous les critères.</div>
     </div>
   </div>
 
-  <!-- ЗАКУПЩИК / PROCUREMENT -->
+  <!-- ACHETEUR / PROCUREMENT -->
   <div class="profession-card">
     <div class="profession-header">
       <div class="profession-icon">🛒</div>
       <div>
-        <div class="profession-title">Закупщик / Procurement</div>
-        <div class="profession-area">Тендеры, переговоры, контракты</div>
+        <div class="profession-title">Responsable achats / Procurement</div>
+        <div class="profession-area">Appels d'offres, négociations, contrats</div>
       </div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Сравнить коммерческие предложения поставщиков</div>
-      <div class="prompt-text">Роль: Ты — специалист по закупкам. Анализируешь КП, чтобы выбрать лучшее предложение.
+      <div class="prompt-task">Comparer les propositions commerciales de fournisseurs</div>
+      <div class="prompt-text">Rôle : Tu es un spécialiste des achats. Tu analyses les propositions pour choisir la meilleure offre.
 
-Задача: Сравни коммерческие предложения от [количество] поставщиков.
+Tâche : Compare les propositions commerciales de [nombre] fournisseurs.
 
-Данные: [вставить таблицу: поставщик | цена | срок | условия оплаты | гарантии | доп. услуги]
+Données : [insérer le tableau : fournisseur | prix | délai | conditions de paiement | garanties | services supplémentaires]
 
-Контекст:
-- Что закупаем: [описание]
-- Критические факторы: [например: "срок поставки важнее цены на 20%"]
-- Ограничения: [бюджет, обязательная сертификация и т.д.]
+Contexte :
+- Ce qu'on achète : [description]
+- Facteurs critiques : [par exemple : "le délai de livraison est 20% plus important que le prix"]
+- Contraintes : [budget, certification obligatoire, etc.]
 
-Формат: Таблица — Критерий | Вес | Поставщик А | Поставщик Б | Поставщик В | Победитель
+Format : Tableau — Critère | Poids | Fournisseur A | Fournisseur B | Fournisseur C | Vainqueur
 
-Итог:
-- 1-2-3 место с обоснованием
-- Рекомендация: с кем вести переговоры
-- Что ещё нужно уточнить у победителя
+Bilan :
+- 1er-2e-3e place avec justification
+- Recommandation : avec qui négocier
+- Ce qu'il faut encore clarifier avec le vainqueur
 
-Оценка: Проверь, что сравнение по всем критериям и веса применены корректно.</div>
+Évaluation : Vérifie que la comparaison couvre tous les critères et que les poids sont appliqués correctement.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Проверить условия договора поставки</div>
-      <div class="prompt-text">Роль: Ты — закупщик с юридическим чутьём. Проверяешь договоры до подписания.
+      <div class="prompt-task">Vérifier les conditions d'un contrat de fourniture</div>
+      <div class="prompt-text">Rôle : Tu es un acheteur avec un sens juridique. Tu vérifies les contrats avant signature.
 
-Задача: Проанализируй условия договора поставки.
+Tâche : Analyse les conditions du contrat de fourniture.
 
-Контекст:
-- Наша роль: [покупатель / продавец]
-- Товар/услуга: [описание]
-- Типичные риски: [например: "просрочка поставки", "некачественный товар", "изменение цены"]
+Contexte :
+- Notre rôle : [acheteur / vendeur]
+- Produit/service : [description]
+- Risques typiques : [par exemple : "retard de livraison", "produit défectueux", "modification de prix"]
 
-Формат: Таблица — Условие | Что написано | Норма/Риск | Рекомендация
+Format : Tableau — Condition | Ce qui est écrit | Norme/Risque | Recommandation
 
-Ключевые пункты для проверки:
-- Цена и порядок изменения
-- Сроки поставки и ответственность за просрочку
-- Условия оплаты (предоплата/постоплата/аккредитив)
-- Переход риска (Инкотермс)
-- Гарантии и претензионный порядок
-- Форс-мажор и порядок разрешения споров
+Points clés à vérifier :
+- Prix et modalité de modification
+- Délais de livraison et responsabilité en cas de retard
+- Conditions de paiement (acompte/post-paiement/accord de crédit)
+- Transfert de risque (Incoterms)
+- Garanties et procédure de réclamation
+- Force majeure et mode de résolution des litiges
 
-Оценка: Проверь, что нет непропорциональных рисков для нашей стороны.</div>
+Évaluation : Vérifie qu'il n'y a pas de risques disproportionnés pour notre partie.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Составить заявку на закупку (ТЗ для поставщика)</div>
-      <div class="prompt-text">Роль: Ты — инженер по закупкам. Пишешь ТЗ, по которым поставщики дают точные цены.
+      <div class="prompt-task">Rédiger un cahier des charges (TDR pour le fournisseur)</div>
+      <div class="prompt-text">Rôle : Tu es un ingénieur d'affaires. Tu rédiges des TDR sur lesquels les fournisseurs donnent des prix précis.
 
-Задача: Составь техническое задание для закупки [товар/услуга].
+Tâche : Rédige un cahier des charges pour l'achat de [produit/service].
 
-Контекст:
-- Что закупаем: [подробное описание]
-- Объём: [количество, периодичность]
-- Требования: [технические/качественные/логистические]
-- Стандарты: [ГОСТ/ISO/спецификации]
+Contexte :
+- Ce qu'on achète : [description détaillée]
+- Volume : [quantité, périodicité]
+- Exigences : [techniques/qualité/logistique]
+- Normes : [ISO/spécifications]
 
-Формат:
-1. Общие сведения (о компании, о закупке)
-2. Технические требования (список с допусками)
-3. Требования к упаковке и маркировке
-4. Логистика (условия поставки, сроки, адрес)
-5. Документация (какие документы нужны: сертификаты, паспорта)
-6. Порядок приёмки и претензий
-7. Форма ответа поставщика (что должен указать в ответе)
+Format :
+1. Informations générales (sur l'entreprise, sur l'achat)
+2. Exigences techniques (liste avec tolérances)
+3. Exigences d'emballage et d'étiquetage
+4. Logistique (conditions de livraison, délais, adresse)
+5. Documentation (quels documents sont nécessaires : certificats, fiches techniques)
+6. Procédure de réception et de réclamation
+7. Forme de réponse du fournisseur (ce qu'il doit indiquer dans sa réponse)
 
-Ограничения:
-- Не указывай конкретных брендов (если не критично)
-- Используй измеримые требования (не "высокое качество", а "содержание X не менее 99%")
+Contraintes :
+- Ne mentionne pas de marques spécifiques (sauf si critique)
+- Utilise des exigences mesurables (pas "haute qualité", mais "teneur en X ≥ 99%")
 
-Оценка: Проверь, что ТЗ не содержит противоречий и все требования проверяемы.</div>
+Évaluation : Vérifie que le TDR ne contient pas de contradictions et que toutes les exigences sont vérifiables.</div>
     </div>
   </div>
 
-  <!-- ПРОДАВЕЦ / КЛИЕНТСКИЙ МЕНЕДЖЕР -->
+  <!-- RESPONSABLE CLIENTÈLE -->
   <div class="profession-card">
     <div class="profession-header">
       <div class="profession-icon">💼</div>
       <div>
-        <div class="profession-title">Клиентский менеджер</div>
-        <div class="profession-area">Сопровождение клиентов, ретеншн, upsell</div>
+        <div class="profession-title">Responsable clientèle</div>
+        <div class="profession-area">Accompagnement clients, rétention, upsell</div>
       </div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Подготовить план встречи с ключевым клиентом</div>
-      <div class="prompt-text">Роль: Ты — клиентский менеджер. Готовишь встречи, после которых клиент хочет продолжать работать.
+      <div class="prompt-task">Préparer un plan de rendez-vous avec un client clé</div>
+      <div class="prompt-text">Rôle : Tu es un responsable clientèle. Tu prépares des rendez-vous après lesquels le client veut continuer à travailler avec nous.
 
-Задача: Составь план встречи с клиентом [название компании].
+Tâche : Établis un plan de rendez-vous avec le client [nom de l'entreprise].
 
-Контекст:
-- Тип встречи: [регулярная / QBR / по проблеме / по расширению]
-- История: [сколько работаем, что купили, обращения в поддержку]
-- Участники со стороны клиента: [роли]
-- Цель встречи: [чего хотим добиться]
+Contexte :
+- Type de rendez-vous : [régulier / QBR / sur un problème / sur une extension]
+- Historique : [depuis combien de temps on travaille ensemble, ce qui a été acheté, tickets support]
+- Participants côté client : [rôles]
+- Objectif du rendez-vous : [ce qu'on veut obtenir]
 
-Формат:
-1. Повестка (тайминг по пунктам)
-2. Для каждого пункта: цель, ключевые вопросы, какую информацию нужно подготовить
-3. Материалы к встрече (какие отчёты/презентации взять)
-4. Предполагаемые возражения и ответы на них
-5. Следующий шаг (к чему ведём встречу)
+Format :
+1. Ordre du jour (timing par point)
+2. Pour chaque point : objectif, questions clés, quelles informations préparer
+3. Documents pour le rendez-vous (quels rapports/présentations apporter)
+4. Objections anticipées et réponses
+5. Prochaine étape (vers quoi on mène le rendez-vous)
 
-Ограничение: Встреча до 60 минут. Повестка должна умещаться.
+Contrainte : Rendez-vous de 60 minutes maximum. L'ordre du jour doit tenir dans ce temps.
 
-Оценка: Проверь, что повестка ориентирована на ценность для клиента, а не только на нашу выгоду.</div>
+Évaluation : Vérifie que l'ordre du jour est orienté vers la valeur pour le client, pas seulement notre intérêt.</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Написать письмо с предложением расширения сотрудничества</div>
-      <div class="prompt-text">Роль: Ты — account manager. Умеешь предлагать больше так, что клиент благодарит.
+      <div class="prompt-task">Rédiger un email proposant d'élargir la collaboration</div>
+      <div class="prompt-text">Rôle : Tu es un account manager. Tu sais proposer plus de manière à ce que le client te remercie.
 
-Задача: Напиши письмо клиенту [название] с предложением расширить сотрудничество.
+Tâche : Rédige un email au client [nom] proposant d'élargir la collaboration.
 
-Контекст:
-- Что уже использует клиент: [продукт/услуга]
-- Результаты: [конкретные цифры, если есть]
-- Что предлагаем: [новый продукт/модуль/объём]
-- Выгода для клиента: [экономия/рост/снижение рисков]
+Contexte :
+- Ce que le client utilise déjà : [produit/service]
+- Résultats : [chiffres concrets, si disponibles]
+- Ce qu'on propose : [nouveau produit/module/volume]
+- Bénéfice pour le client : [économie/croissance/réduction des risques]
 
-Формат:
-- Напоминание о текущих результатах (1 абзац с цифрами)
-- Наблюдение/инсайт ("Мы заметили, что...")
-- Предложение (кратко, с выгодой)
-- Социальное доказательство ("Клиент X уже использует и получил...")
-- Призыв к действию (конкретный следующий шаг)
+Format :
+- Rappel des résultats actuels (1 paragraphe avec chiffres)
+- Observation/insight ("Nous avons remarqué que...")
+- Proposition (bref, avec le bénéfice)
+- Preuve sociale ("Le client X l'utilise déjà et obtient...")
+- Appel à l'action (prochaine étape concrète)
 
-Тон: партнёрский, не навязчивый. Клиент уже с нами — не нужно "продавать".
+Ton : partenarial, pas intrusif. Le client est déjà avec nous — pas besoin de "vendre".
 
-Оценка: Прочитай от лица клиента. Выглядит ли это как забота о его бизнесе или как продажа?</div>
+Évaluation : Lis du point de vue du client. Est-ce que ça ressemble à une préoccupation pour son business ou à une vente ?</div>
     </div>
 
     <div class="prompt-block">
-      <div class="prompt-task">Проанализировать удовлетворённость клиента (по данным)</div>
-      <div class="prompt-text">Роль: Ты — аналитик клиентского опыта. Находишь паттерны в данных о клиентах.
+      <div class="prompt-task">Analyser la satisfaction du client (sur la base de données)</div>
+      <div class="prompt-text">Rôle : Tu es un analyste de l'expérience client. Tu trouves des patterns dans les données clients.
 
-Задача: Проанализируй данные по клиенту [название].
+Tâche : Analyse les données du client [nom].
 
-Данные: [вставить: NPS, обращения в поддержку, использование функций, расширения/сокращения, даты]
+Données : [insérer : NPS, tickets support, utilisation des fonctionnalités, extensions/réductions, dates]
 
-Формат:
-1. Общая оценка здоровья клиента (🟢/🟡/🔴)
-2. Таблица — Метрика | Текущее | Динамика | Оценка
-3. Сигналы (2-3 наблюдения, которые могут указывать на риск или возможность)
-4. Рекомендации:
-   - Что сделать в ближайшие 30 дней
-   - Что предложить (upsell/обучение/встреча)
-5. Кто из команды должен взять в работу
+Format :
+1. Évaluation globale de la santé du client (🟢/🟡/🔴)
+2. Tableau — Métrique | Actuel | Tendance | Évaluation
+3. Signaux (2-3 observations qui peuvent indiquer un risque ou une opportunité)
+4. Recommandations :
+   - Quoi faire dans les 30 prochains jours
+   - Quoi proposer (upsell/formation/rendez-vous)
+5. Qui de l'équipe doit prendre en charge
 
-Оценка: Проверь, что выводы основаны на данных, а не интуиции.</div>
+Évaluation : Vérifie que les conclusions sont basées sur les données, pas sur l'intuition.</div>
     </div>
   </div>
 
-  <!-- ИТОГОВЫЙ БЛОК -->
+  <!-- BLOC FINAL -->
   <div class="intro-box" style="margin-top: 40px;">
-    <h3>⚡ Как адаптировать под свою задачу</h3>
-    <p>Каждый промпт выше — шаблон. Чтобы получить лучший результат:</p>
+    <h3>⚡ Comment adapter à votre propre tâche</h3>
+    <p>Chaque prompt ci-dessus est un modèle. Pour obtenir le meilleur résultat :</p>
     <ul>
-      <li><strong>Заменяйте</strong> всё в квадратных скобках [такое] на свои данные</li>
-      <li><strong>Добавляйте контекст</strong> — чем больше деталей о вашей компании/ситуации, тем точнее ответ</li>
-      <li><strong>Используйте few-shot</strong> — прикрепите 1-2 примера того, как вы хотите, чтобы выглядел результат</li>
-      <li><strong>Просите переформулировать</strong> — если результат не идеален, попросите "сделать короче", "добавить цифры", "переписать для [аудитория]"</li>
-      <li><strong>Всегда проверяйте</strong> — ИИ помогает готовить, но ответственность за результат остаётся на вас</li>
+      <li><strong>Remplacez</strong> tout ce qui est entre crochets [comme ceci] par vos données</li>
+      <li><strong>Ajoutez du contexte</strong> — plus de détails sur votre entreprise/situation, plus la réponse sera précise</li>
+      <li><strong>Utilisez le few-shot</strong> — joignez 1-2 exemples du résultat attendu</li>
+      <li><strong>Demandez une reformulation</strong> — si le résultat n'est pas idéal, demandez "plus court", "ajouter des chiffres", "réécrire pour [audience]"</li>
+      <li><strong>Vérifiez toujours</strong> — l'IA aide à préparer, mais la responsabilité du résultat reste sur vous</li>
     </ul>
   </div>
 
@@ -1072,8 +1073,8 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI для не ИТ-специалистов</p>
-    <p style="font-size: 0.8rem; margin-top: 8px;"><a href="catalog.html" style="color: var(--accent); text-decoration: none;">← Вернуться к каталогу</a></p>
+    <p>© 2026 Artur A. · IA pour non-spécialistes IT</p>
+    <p style="font-size: 0.8rem; margin-top: 8px;"><a href="catalog.html" style="color: var(--accent); text-decoration: none;">← Retour au catalogue</a></p>
   </div>
 </footer>
 
