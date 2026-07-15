@@ -323,32 +323,33 @@
 
     <h3>场景4：早间设备停机汇总</h3>
     <div class="card">
-      <p><strong>问题：</strong> 工程师每天早上手动检查设备停机日志——花费30分钟。</p>
       <div class="example">
-        <div class="example-label">n8n自动化</div>
+        <div class="example-label">生产自动化</div>
         <div class="workflow-step">
           <span class="num">1</span>
-          <div><strong>触发器：</strong> Webhook（过程控制系统 (SCADA)）</div>
+          <div><strong>定时任务（cron）：</strong> 每天 07:30</div>
         </div>
         <div class="workflow-step">
           <span class="num">2</span>
-          <div><strong>条件：</strong> 如果停机 > 15分钟</div>
+          <div><strong>数据库 / 过程控制系统 (SCADA)：</strong> 导出过去24小时停机日志</div>
         </div>
         <div class="workflow-step">
           <span class="num">3</span>
-          <div><strong>动作：</strong> 收集停机数据（设备编号、时长、原因）</div>
+          <div><strong>代码：</strong> 按车间和设备分组，计算总时长</div>
         </div>
         <div class="workflow-step">
           <span class="num">4</span>
-          <div><strong>动作：</strong> 发送到Telegram/企业通讯工具</div>
+          <div><strong>GENAI（本地部署）：</strong> 分析原因，找出重复故障，给出备件建议</div>
         </div>
         <div class="workflow-step">
           <span class="num">5</span>
-          <div><strong>动作：</strong> 记录到日志（Excel/数据库）</div>
+          <div><strong>企业通讯工具：</strong> 发送汇总给车间主任和总工</div>
+        </div>
+        <div class="workflow-step">
+          <span class="num">6</span>
+          <div><strong>表格：</strong> 添加一行到表格以积累统计数据</div>
         </div>
       </div>
-      <p><strong>结果：</strong> 机械师在早上8:00收到汇总——哪些设备停机了、停机多少分钟、原因。</p>
-      <p><strong>节省：</strong> 每天30分钟</p>
     </div>
   </div>
 

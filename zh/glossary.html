@@ -296,74 +296,74 @@
 
   <div class="term-card">
     <h3>OpenClaw</h3>
-    <div class="simple">开源企业级AI代理框架</div>
-    <p>支持本地部署和多种通讯渠道集成（Telegram、企业通讯工具、Email）。在您的服务器上运行，数据不离开公司。</p>
+    <div class="simple">开源框架，用于在自有服务器上运行AI代理</div>
+    <p>可创建数字员工，在Telegram、邮件或企业通讯工具中工作。数据不离开公司——代理在本地运行。使用配置文件（SOUL.md、SKILL.md、HEARTBEAT.md）定义行为。</p>
   </div>
 
   <div class="term-card">
     <h3>Hermes Agent</h3>
-    <div class="simple">自学习AI代理</div>
-    <p>能从经验中创建技能并记住用户偏好。随着使用越来越「聪明」，像一位在任务中学习的资深员工。</p>
+    <div class="simple">自学习AI代理，来自Nous Research</div>
+    <p>能从经验中创建新技能（SKILL.md）并记住用户偏好。像资深员工一样，每完成一个任务就变得更「聪明」。</p>
   </div>
 
   <div class="term-card">
     <h3>GoClaw</h3>
-    <div class="simple">企业级多代理平台</div>
-    <p>支持部门间数据隔离。多个代理在同一系统内协作，但各部门数据相互独立，如企业人力资源管理系统。</p>
+    <div class="simple">企业级多代理平台，支持数据隔离</div>
+    <p>允许不同部门拥有不同权限的代理。例如，财务代理看不到工程师的数据。适合大型制造企业。</p>
   </div>
 
   <div class="term-card">
     <h3>SOUL.md</h3>
-    <div class="simple">代理的「灵魂」文件</div>
-    <p>定义代理的性格、沟通风格和角色。例如：「你是一位经验丰富的工艺工程师，说话简洁、切中要害」。</p>
+    <div class="simple">代理的「灵魂」文件——定义其性格和角色</div>
+    <p>例如：「你是一位经验丰富的工艺工程师。说话简洁，使用过程控制系统数据。没有事实不做假设」。这就像数字员工的岗位说明书。</p>
   </div>
 
   <div class="term-card">
     <h3>SKILL.md</h3>
-    <div class="simple">代理的技能文件</div>
-    <p>包含典型任务的分步说明。例如：「如何分析故障日志」——像规章制度或标准作业程序。</p>
+    <div class="simple">代理的技能文件——典型任务的分步指南</div>
+    <p>例如：「如何分析故障日志：1）从过程控制系统加载数据，2）按设备分组，3）找出重复故障，4）给出建议」。代理执行此类技能，如同执行规章制度。</p>
   </div>
 
   <div class="term-card">
     <h3>HEARTBEAT.md</h3>
-    <div class="simple">代理的心跳文件</div>
-    <p>定义周期性检查的时间表。例如：每天早上8:00检查开采计划。类比值班表和例会安排。</p>
+    <div class="simple">代理的周期性检查时间表</div>
+    <p>定义代理自动执行什么以及何时执行。例如：每天早上7:30检查开采计划与实际对比，偏差>5%时发送汇总。类似于值班表和例会安排。</p>
   </div>
 
   <div class="term-card">
     <h3>MEMORY.md</h3>
-    <div class="simple">代理的长期记忆文件</div>
-    <p>存储事实、决策和经验教训。例如：「3号炉在温度>1200°时产生次品」。类比知识库和观察日志。</p>
+    <div class="simple">代理的长期记忆——存储事实、决策和经验教训</div>
+    <p>代理将重要事实记录在此，以免会话间遗忘。例如：「3号炉在温度>1200°时产生次品」或「47号井在压力<15大气压时不稳定」。这就像资深员工的知识库。</p>
   </div>
 
   <div class="term-card">
     <h3>AGENTS.md / USER.md / TOOLS.md</h3>
-    <div class="simple">代理系统的配置文档</div>
-    <p>AGENTS.md — 全局规则（公司行为准则）；USER.md — 用户档案（员工档案+权限）；TOOLS.md — 可用工具清单（SAP、1C、Grafana等）。</p>
+    <div class="simple">代理系统的配置文件——规则、用户档案和工具</div>
+    <p><strong>AGENTS.md</strong> — 所有代理的通用规则（行为准则）。<strong>USER.md</strong> — 用户档案：他是谁、做什么、哪些操作无需请示。<strong>TOOLS.md</strong> — 可用工具清单：SAP、1C、Grafana、企业通讯工具、邮件。</p>
   </div>
 
   <div class="term-card">
     <h3>企业通讯工具</h3>
     <div class="simple">企业内部的即时通讯平台</div>
-    <p>如钉钉、企业微信、飞书等。用于团队沟通、通知推送和AI代理的消息收发。</p>
+    <p>如钉钉、企业微信、飞书等。用于团队沟通、通知推送和AI代理的消息收发。数据不离开公司网络。</p>
   </div>
 
   <div class="term-card">
     <h3>过程控制系统 (SCADA)</h3>
     <div class="simple">工业自动化中的数据采集与监控系统</div>
-    <p>实时监控生产设备状态、温度、压力等参数。AI代理可从SCADA获取数据进行分析，如检查实际产量与计划对比。</p>
+    <p>实时收集传感器和设备数据：温度、压力、流量、设备状态。是分析代理和预测性维护的数据来源。</p>
   </div>
 
   <div class="term-card">
     <h3>本地部署 (On-premise)</h3>
-    <div class="simple">在企业自有服务器上运行软件，数据不离开公司</div>
-    <p>数据留在您的围墙内。安全，但维护成本更高。适合机密信息。与云端方案相对。</p>
+    <div class="simple">「在现场」— 程序和数据在企业内部运行，不在云端</div>
+    <p>对生产数据至关重要：冶炼参数、开采计划、故障日志。本地代理和模型运行在企业服务器上——数据不会传输给外部提供商。</p>
   </div>
 
   <div class="term-card">
     <h3>向量搜索</h3>
-    <div class="simple">按语义而非精确词汇进行搜索的技术</div>
-    <p>理解「违约金」和「罚款」是同一个意思。即使问题措辞不同，也能找到相关文档。与向量数据库配合使用。</p>
+    <div class="simple">按语义而非精确词汇进行搜索</div>
+    <p>AI将文本转化为多维空间中的「点」。意义相近的词语（「违约金」「罚款」「滞纳金」）在空间中靠近。当您提问时，AI寻找最近的点——即使表述不同也能找到相关文档。<strong>重要：</strong>不能通过在提示词中「开启」向量搜索——它在文档上传时自动工作，或需要IT部门配置RAG系统。</p>
   </div>
 
 </article>

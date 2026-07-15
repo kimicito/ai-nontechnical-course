@@ -294,6 +294,80 @@
     <p>Unifie la comptabilité, la production, les achats et les ventes. Exemples : 1C, SAP, Oracle.</p>
   </div>
 
+  <div class="section-title">🤖 Systèmes d'agents et outils d'entreprise</div>
+
+  <div class="term-card">
+    <h3>OpenClaw</h3>
+    <div class="simple">Framework open-source pour exécuter des agents IA sur son propre serveur</div>
+    <p>Permet de créer un employé numérique qui fonctionne dans Telegram, Email ou la messagerie d'entreprise. Les données ne quittent pas l'entreprise — l'agent fonctionne on-premise. Utilise des fichiers de configuration (SOUL.md, SKILL.md, HEARTBEAT.md) pour définir son comportement.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Hermes Agent</h3>
+    <div class="simple">Agent IA auto-apprenant de Nous Research</div>
+    <p>Un agent qui crée de nouvelles compétences (SKILL.md) à partir de son expérience et mémorise les préférences de l'utilisateur. S'améliore à chaque tâche, comme un employé expérimenté.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>GoClaw</h3>
+    <div class="simple">Plateforme enterprise pour les équipes d'agents avec isolation des données</div>
+    <p>Permet à différents départements d'avoir leurs propres agents avec des droits d'accès différents. Par exemple, l'agent de la comptabilité ne voit pas les données des ingénieurs. Adaptée aux grandes entreprises industrielles.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>SOUL.md</h3>
+    <div class="simple">« L'âme » de l'agent — fichier définissant son caractère et son rôle</div>
+    <p>Par exemple : « Tu es un ingénieur technologue expérimenté. Tu parles brièvement, tu utilises les données du SCADA. Tu ne fais pas d'hypothèses sans faits ». C'est comme une fiche de poste pour un employé numérique.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>SKILL.md</h3>
+    <div class="simple">Fichier-compétence — instruction étape par étape pour une tâche type de l'agent</div>
+    <p>Par exemple : « Comment analyser le journal des pannes : 1) Charger les données du SCADA, 2) Regrouper par équipement, 3) Identifier les pannes récurrentes, 4) Donner des recommandations ». L'agent exécute cette compétence comme un règlement.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>HEARTBEAT.md</h3>
+    <div class="simple">Planning des vérifications périodiques de l'agent</div>
+    <p>Définit ce que l'agent fait automatiquement et selon quel planning. Par exemple : chaque jour à 7h30 vérifier le plan d'extraction contre les données réelles, en cas d'écart >5% — envoyer un résumé. Analogue d'un planning de permanences et de réunions.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>MEMORY.md</h3>
+    <div class="simple">Mémoire à long terme de l'agent — faits, décisions, leçons</div>
+    <p>L'agent y consigne les faits importants pour ne pas oublier entre les sessions. Par exemple : « Le four n°3 produit du rebut à température >1200° » ou « Le puits n°47 est instable à pression <15 atm ». C'est comme une base de connaissances d'un employé expérimenté.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>AGENTS.md / USER.md / TOOLS.md</h3>
+    <div class="simple">Fichiers système de l'agent — règles, profil utilisateur et outils</div>
+    <p><strong>AGENTS.md</strong> — règles générales pour tous les agents (code de conduite). <strong>USER.md</strong> — profil de l'utilisateur : qui il est, ce qu'il fait, ce qu'on peut faire sans demander. <strong>TOOLS.md</strong> — liste des outils disponibles : SAP, 1C, Grafana, messagerie d'entreprise, Email.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Messagerie d'entreprise</h3>
+    <div class="simple">Messagerie d'entreprise pour la communication interne</div>
+    <p>Analogue de Telegram/Slack, mais déployé à l'intérieur de l'entreprise. Les agents peuvent envoyer des notifications, des rapports et des alertes dans les canaux de la messagerie d'entreprise — les données ne quittent pas le périmètre.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Système de contrôle de processus (SCADA)</h3>
+    <div class="simple">Système automatisé de gestion des processus technologiques</div>
+    <p>Système qui collecte les données des capteurs et de l'équipement en temps réel : température, pression, débit, état des équipements. Source de données pour les agents d'analyse et de maintenance prédictive.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>On-premise (on-prem)</h3>
+    <div class="simple">« Sur site » — programmes et données à l'intérieur de l'entreprise, pas dans le cloud</div>
+    <p>Critique pour les données de production : paramètres de fusion, plans d'extraction, journaux de pannes. Les agents et modèles on-prem fonctionnent sur les serveurs d'entreprise — les données ne sont pas transmises à des fournisseurs externes.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Recherche vectorielle</h3>
+    <div class="simple">Recherche par sens, et non par mots exacts</div>
+    <p>L'IA transforme le texte en « points » dans un espace multidimensionnel. Les mots de sens proche (« pénalité », « amende », « pénalisation ») se retrouvent proches. Quand vous posez une question, l'IA recherche les points les plus proches — même si la formulation diffère. <strong>Important :</strong> on ne peut pas « activer » la recherche vectorielle par une commande dans le prompt — elle fonctionne automatiquement lors du chargement des documents, ou nécessite la configuration d'un système RAG par le département IT.</p>
+  </div>
+
 </article>
 
 <footer>

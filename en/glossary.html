@@ -294,6 +294,80 @@
     <p>Unifies accounting, production, procurement, and sales. Examples: 1C, SAP, Oracle.</p>
   </div>
 
+  <div class="section-title">🤖 Agent Systems and Corporate Tools</div>
+
+  <div class="term-card">
+    <h3>OpenClaw</h3>
+    <div class="simple">Open-source framework for running AI agents on your own server</div>
+    <p>Allows you to create a digital employee that works in Telegram, Email, or a corporate messenger. Data never leaves the company — the agent works on-premise. Uses configuration files (SOUL.md, SKILL.md, HEARTBEAT.md) to define behavior.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Hermes Agent</h3>
+    <div class="simple">Self-learning AI agent from Nous Research</div>
+    <p>An agent that creates new skills (SKILL.md) from its own experience and remembers user preferences. Improves with every task, like an experienced employee.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>GoClaw</h3>
+    <div class="simple">Enterprise platform for agent teams with data isolation</div>
+    <p>Allows different departments to have their own agents with different access rights. For example, the accounting agent cannot see engineering data. Suitable for large manufacturing companies.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>SOUL.md</h3>
+    <div class="simple">The "soul" of the agent — a file defining its character and role</div>
+    <p>For example: "You are an experienced process engineer. Speak concisely, use SCADA data. Don't make assumptions without facts." This is like a job description for a digital employee.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>SKILL.md</h3>
+    <div class="simple">Skill file — a step-by-step instruction for a typical agent task</div>
+    <p>For example: "How to analyze a failure log: 1) Load data from SCADA, 2) Group by equipment, 3) Identify recurring failures, 4) Provide recommendations." The agent executes such a skill like a standard operating procedure.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>HEARTBEAT.md</h3>
+    <div class="simple">Schedule of periodic agent checks</div>
+    <p>Defines what the agent does automatically and on what schedule. For example: every day at 7:30 check the mining plan vs actual, and if deviation &gt;5% — send a summary. Similar to a duty roster and morning briefing.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>MEMORY.md</h3>
+    <div class="simple">The agent's long-term memory — facts, decisions, lessons</div>
+    <p>The agent writes important facts here so it doesn't forget between sessions. For example: "Furnace #3 produces defects at temperatures &gt;1200°" or "Well #47 is unstable at pressure &lt;15 atm." This is like the knowledge base of an experienced employee.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>AGENTS.md / USER.md / TOOLS.md</h3>
+    <div class="simple">System agent files — rules, user profile, and tools</div>
+    <p><strong>AGENTS.md</strong> — general rules for all agents (code of conduct). <strong>USER.md</strong> — user profile: who they are, what they do, what can be done without asking. <strong>TOOLS.md</strong> — list of available tools: SAP, 1C, Grafana, Email.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Corporate messenger</h3>
+    <div class="simple">Internal communication tool for the company</div>
+    <p>Analogous to Telegram/Slack, but deployed inside the company. Agents can send notifications, reports, and alerts to corporate messenger channels — data never leaves the perimeter.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Process control system (SCADA)</h3>
+    <div class="simple">Automated system for managing technological processes</div>
+    <p>A system that collects data from sensors and equipment in real time: temperature, pressure, flow rate, equipment status. A data source for analytics agents and predictive maintenance.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>On-premise</h3>
+    <div class="simple">«On premises» — programs and data inside the company, not in the cloud</div>
+    <p>Critical for production data: smelting parameters, mining plans, failure logs. On-prem agents and models run on corporate servers — data is not transmitted to external providers.</p>
+  </div>
+
+  <div class="term-card">
+    <h3>Vector Search</h3>
+    <div class="simple">Search by meaning, not by exact words</div>
+    <p>AI turns text into "points" in multi-dimensional space. Words with similar meanings ("penalty", "fine", "forfeit") end up close together. When you ask a question, AI finds the nearest points — even if the wording differs. <strong>Important:</strong> you cannot "enable" vector search with a prompt command — it works automatically when documents are uploaded, or requires RAG system setup by the IT department.</p>
+  </div>
+
 </article>
 
 <footer>

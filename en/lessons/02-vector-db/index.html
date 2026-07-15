@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -74,7 +74,7 @@
 
   <div class="lesson-header">
     <div class="phase">📄 LEVEL 2 DATA AND DOCUMENTS</div>
-    <h1>2.2 · Vector databases: how AI “understands” meaning</h1>
+    <h1>2.2 · Vector databases: how AI "understands" meaning</h1>
     <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
@@ -84,14 +84,14 @@
     <p>Regular search looks for <strong>exact words</strong>. </p>
     <div class="card card-success">
       <p><strong>Vector search</strong> searches by <strong>meaning</strong>. </p>
-      <p><strong>Example:</strong> An employee asks “How to punish a supplier for being late?” </p>
+      <p><strong>Example:</strong> An employee asks "How to punish a supplier for being late?" </p>
     </div>
   </div>
 
   <!-- WHAT WE STUDY -->
   <div class="section">
     <h2>📚 What we are studying</h2>
-    
+
     <h3>Regular search vs Vector search</h3>
     <div class="compare-box">
       <div class="compare-item">
@@ -120,28 +120,69 @@
     <div class="card card-accent">
       <p><strong>Analogy:</strong> Imagine that each word is a point in space.</p>
       <ul>
-        <li>“King” and “queen” are close points (relatives)</li>
+        <li>"King" and "queen" are close points (relatives)</li>
         <li>"King" and "car" are distant points (no connection)</li>
-        <li>“Forfeit” and “fine” are close points (synonyms)</li>
+        <li>"Forfeit" and "fine" are close points (synonyms)</li>
       </ul>
       <p>AI turns your question into a point and looks for the closest document fragments to it.</p>
     </div>
 
-    <h3>Example from life</h3>
-    <div class="example">
-      <div class="example-label">💡 Example question</div>
-      <pre>"What to do if the supplier is late?"</pre>
+    <h3>❓ FAQ: Should I write "use vector search" in the prompt?</h3>
+    <div class="card card-warning">
+      <p><strong>No, it won't help.</strong> When you write in ChatGPT, Claude, or Kimi — vector search has already happened (or hasn't happened) <strong>before you hit Enter</strong>. The AI has no "toggle vector search on" lever that responds to text commands.</p>
+      <div class="example">
+        <div class="example-label">How it actually works</div>
+        <table style="width:100%; border-collapse: collapse; margin: 10px 0; font-size: 0.9rem;">
+          <tr><td style="padding:8px; border-bottom:1px solid var(--border); width: 40%;"><strong>What you do</strong></td><td style="padding:8px; border-bottom:1px solid var(--border);"><strong>What happens</strong></td></tr>
+          <tr><td style="padding:8px; border-bottom:1px solid var(--border);">Write "use vector search"</td><td style="padding:8px; border-bottom:1px solid var(--border);">AI ignores it as a meaningless instruction — there's no such switch</td></tr>
+          <tr><td style="padding:8px; border-bottom:1px solid var(--border);">Upload a PDF and ask a question</td><td style="padding:8px; border-bottom:1px solid var(--border);"><strong>Automatically</strong> the system finds relevant chunks via vector search</td></tr>
+          <tr><td style="padding:8px; border-bottom:1px solid var(--border);">Write "search the internet"</td><td style="padding:8px; border-bottom:1px solid var(--border);">That's <strong>web search</strong> — a different mechanism, not document vector search</td></tr>
+        </table>
+      </div>
     </div>
+
+    <h3>✅ How a non-IT specialist can actually use vector search</h3>
+    <div class="card card-success">
+      <p><strong>Variant 1: In a cloud chat (ChatGPT, Claude, Kimi + document upload)</strong></p>
+      <p>Simply upload documents and ask specific questions. The system <strong>automatically</strong> uses vector search to find relevant fragments. Your prompt should be specific — not about "turn on search", but about "cite the page and quote the text".</p>
+      <div class="example">
+        <div class="example-label">Useful prompt for working with a document</div>
+        <pre>Role: You are a supply contract lawyer.
+Task: Check this contract for penalty clauses.
+Format: Table — clause, risk, recommendation.
+
+Important: indicate the page number and quote the text verbatim.</pre>
+      </div>
+      <p style="color: var(--muted); font-size: 0.9rem;">Vector search works here <strong>automatically</strong> — the system finds chunks about "penalty", "fines", "forfeits" and passes them to the AI.</p>
+    </div>
+
+    <div class="card card-success">
+      <p><strong>Variant 2: In a corporate system (OpenWebUI / GENAI / agent)</strong></p>
+      <p>When delegating to the IT department — use the term correctly. This is a <strong>technical specification</strong>, not a chat command:</p>
+      <div class="example">
+        <div class="example-label">Correct wording for an IT task</div>
+        <pre>"We need the agent, when answering employee questions,
+<strong>to first search for relevant documents via vector search</strong>,
+then form an answer based on them. Do not hallucinate."</pre>
+      </div>
+      <p style="color: var(--muted); font-size: 0.9rem;">IT will understand: RAG (Retrieval-Augmented Generation) is needed — a system where vector search + answer generation work together.</p>
+    </div>
+
     <div class="card">
-      <p><strong>General search:</strong> Will not find anything (there is no word “late” in the contract)</p>
-      <p><strong>Vector search:</strong> Find sections about “penalty”, “late delivery”, “penalties”</p>
+      <p><strong>Variant 3: When vector search is NOT suitable</strong></p>
+      <p>Don't use it (and don't write about it in prompts) when:</p>
+      <ul>
+        <li><strong>You need an exact fact</strong> — "What is the USD exchange rate on July 15, 2026?" → Better use a central bank API or web search.</li>
+        <li><strong>You need a calculation</strong> — "Calculate the NPV of this project" → Better use Excel + formulas.</li>
+        <li><strong>The question is general</strong> — "What is vector search?" → The AI already knows from general knowledge, no documents needed.</li>
+      </ul>
     </div>
   </div>
 
   <!-- HOW TO APPLY -->
   <div class="section">
     <h2>🛠️ How to apply</h2>
-    
+
     <h3>Where is it used in business?</h3>
     <table style="width:100%; border-collapse: collapse; margin: 14px 0;">
       <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">Scenario</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);">How it works</th></tr>
@@ -160,7 +201,7 @@
         <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Weaviate</td><td style="padding:10px;border-bottom:1px solid var(--border);">Flexible settings, filtering</td><td style="padding:10px;border-bottom:1px solid var(--border);">Average</td></tr>
         <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Qdrant</td><td style="padding:10px;border-bottom:1px solid var(--border);">High performance</td><td style="padding:10px;border-bottom:1px solid var(--border);">Average</td></tr>
       </table>
-      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*Choosing a base is the developer’s task. </p>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 10px;">*Choosing a base is the developer's task. </p>
     </div>
   </div>
 
@@ -171,13 +212,13 @@
       <h3>Task template</h3>
       <pre>"We need a corporate search for documents with a vector database.
 
-< 2 секунд
+< 2 seconds
 
-Пример запроса: [привести]
-Ожидаемый результат: [привести]
+Example query: [provide]
+Expected result: [provide]
 
-Предпочтительная база: [Pinecone/Chroma/Weaviate — или оставить выбор разработчику]
-Срок: [дата]"</pre>
+Preferred database: [Pinecone/Chroma/Weaviate - or leave choice to developer]
+Deadline: [date]"</pre>
     </div>
   </div>
 
@@ -187,17 +228,17 @@
     <ul class="checklist">
       <li>Does the search find synonyms? </li>
       <li>Does search understand context? </li>
-      <li>Is the response time acceptable? < 3 секунд)</li>
+      <li>Is the response time acceptable? < 3 seconds)</li>
       <li>Are the results relevant? </li>
       <li>Does the system scale as documents grow?</li>
       <li>Is it possible to filter by date/document type?</li>
     </ul>
   </div>
 
-  <!-- КВИЗ -->
+  <!-- QUIZ -->
   <div class="section">
     <h2>📝Checking understanding</h2>
-    
+
     <div class="card card-accent">
       <p><strong>Question 1:</strong> How is vector search different from regular search?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) He's faster</div>
@@ -223,7 +264,7 @@
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
+  <!-- MAIN -->
   <div class="section">
     <div class="card card-success">
       <h3>🎯 The main thing from the lesson</h3>
