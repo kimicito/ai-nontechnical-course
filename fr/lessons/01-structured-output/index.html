@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.2 Inférence structurée – IA pour les non-professionnels de l'informatique</title>
+<title>1.2 Format de réponse — IA pour les non-spécialistes IT</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -77,208 +77,224 @@
 
   <div class="lesson-header">
     <div class="phase">🛠️ NIVEAU 1 · MAÎTRISE DES OUTILS</div>
-    <h1>1.2 · Sortie structurée : JSON, tableaux, listes de contrôle</h1>
+    <h1>1.2 · Comment obtenir des réponses IA dans le bon format</h1>
     <div class="meta">🎯 Sans code · ✅ Quiz interactif</div>
   </div>
 
-  <!-- POURQUOI C'EST IMPORTANT -->
   <div class="section">
     <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
-    <p>L'IA peut apporter des réponses<strong>sous n'importe quel format</strong>. Mais la valeur par défaut est un texte solide que vous devez interrompre manuellement dans Excel ou 1C.</p>
+    <p>Par défaut, l'IA répond en <strong>texte brut</strong>. Vous obtenez un paragraphe qu'il faut retaper manuellement dans Excel ou Word.</p>
     <div class="card card-success">
-      <p><strong>Problème:</strong>Le manager reçoit l'analyse sous forme de texte et passe 15 minutes à la transférer sur la table.</p>
-      <p><strong>Solution:</strong>Demandez à l'IA de produire immédiatement un tableau. Économie:<strong>15 minutes × 20 tâches = 5 heures par semaine</strong>.</p>
+      <p><strong>Problème :</strong> Un manager reçoit une analyse de fournisseurs sous forme de texte et passe 15 minutes à la transférer dans un tableau.</p>
+      <p><strong>Solution :</strong> Demandez à l'IA de sortir le résultat sous forme de tableau immédiatement. Économie : <strong>15 minutes × 20 tâches = 5 heures par semaine</strong>.</p>
     </div>
   </div>
 
-  <!-- CE QUE NOUS ÉTUDIONS -->
   <div class="section">
     <h2>📚 Ce que nous étudions</h2>
     
-    <h3>4 formats de sortie</h3>
+    <h3>4 formats de réponse pour les managers</h3>
     <div class="format-grid">
       <div class="format-card">
         <h4>📊 Tableau</h4>
-        <p>Comparaison, analyse, rapports. Facile à copier vers Excel.</p>
-      </div>
-      <div class="format-card">
-        <h4>📋 JSON</h4>
-        <p>Pour les programmeurs et l'automatisation. Données structurées.</p>
+        <p>Pour les comparaisons, analyses, rapports. Copie dans Excel en un clic.</p>
       </div>
       <div class="format-card">
         <h4>☑️ Liste de contrôle</h4>
-        <p>Pour inspection, audit, contrôle qualité.</p>
+        <p>Pour les audits, inspections, plans d'action. Clair et visuel.</p>
       </div>
       <div class="format-card">
-        <h4>📝 Markdown</h4>
-        <p>Pour la documentation, les instructions, les articles. Lisible partout.</p>
+        <h4>📧 Email prêt</h4>
+        <p>L'IA écrit immédiatement un email au fournisseur, client ou direction.</p>
+      </div>
+      <div class="format-card">
+        <h4>📋 Plan étape par étape</h4>
+        <p>Séquence claire d'actions avec dates et responsables.</p>
       </div>
     </div>
 
-    <h3>Comment demander une table</h3>
+    <h3>Comment demander un tableau</h3>
     <div class="example">
-      <div class="example-label">💡 Exemple rapide</div>
+      <div class="example-label">💡 Exemple d'invite</div>
       <pre>Vous êtes analyste financier.
-Analyser 3 projets d'investissement (données ci-dessous).
+Analysez 3 projets d'investissement (données ci-dessous).
 
-Affichez le résultat sous forme de tableau :
-| Projet | Retour sur investissement | Période de récupération | Risque | Recommandation |
+Sortez le résultat sous forme de tableau :
+| Projet | Rentabilité | Risque | Recommandation |
 
-Le tableau suit une brève justification de la recommandation.</pre>
+Après le tableau — justification brève.</pre>
     </div>
 
     <h3>Comment demander une liste de contrôle</h3>
     <div class="example">
-      <div class="example-label">💡 Exemple rapide</div>
-      <pre>Vous êtes auditeur ISO 9001.
-Effectuer un audit du processus d’approvisionnement en utilisant les critères suivants.
+      <div class="example-label">💡 Exemple d'invite</div>
+      <pre>Vous êtes auditeur.
+Vérifiez le contrat de fourniture pour les risques.
 
-Affichez le résultat sous forme de liste de contrôle :
-☐ Critère 1 - [statut : réussi/échec] - [commentaire]
-☐ Critère 2 - [statut] - [commentaire]
+Sortez le résultat sous forme de liste :
+☐ Risque : [description] — Niveau : [Élevé/Moyen/Faible] — Action : [recommandation]
 
-A la fin : score global de conformité (en pourcentage).</pre>
+À la fin : conclusion générale — signer ou ne pas signer.</pre>
     </div>
   </div>
 
-  <!-- COMMENT APPLIQUER -->
   <div class="section">
     <h2>🛠️ Comment postuler</h2>
     
-    <h3>Scénario 1 : Comparaison des fournisseurs</h3>
+    <h3>Scénario 1 : Comparaison de fournisseurs</h3>
     <div class="card">
-      <p><strong>Tâche:</strong>Sélectionnez un fournisseur d'emballage parmi 3 options.</p>
+      <p><strong>Tâche :</strong> Choisir un fournisseur d'emballage parmi 3 options.</p>
       <div class="example">
-        <div class="example-label">Rapide</div>
-        <pre>Vous êtes un acheteur FMCG.
-Comparez 3 phrases selon les critères et affichez-les dans un tableau :
-| Critère | Fournisseur A | Fournisseur B | Fournisseur B | Chef |
-| Prix ​​par unité | | | | |
-| Min. commander | | | | |
-| Délai de livraison | | | | |
-| Conditions de paiement | | | | |
+        <div class="example-label">Invite</div>
+        <pre>Vous êtes acheteur FMCG.
+Comparez 3 propositions selon des critères et sortez-les en tableau :
+| Critère | Fournisseur A | Fournisseur B | Fournisseur C | Leader |
+| Prix unitaire | | | | |
+| Commande min. | | | | |
+| Délai livraison | | | | |
+| Conditions paiement | | | | |
 
 Donnez une recommandation : qui choisir et pourquoi.</pre>
       </div>
-      <p><strong>Résultat:</strong>Table prête à être présentée à la direction. Copié sur Excel en un seul clic.</p>
+      <p><strong>Résultat :</strong> Tableau prêt pour la présentation à la direction. Copie dans Excel en un clic.</p>
     </div>
 
-    <h3>Scénario 2 : Audit du contrat</h3>
+    <h3>Scénario 2 : Audit de contrat</h3>
     <div class="card">
-      <p><strong>Tâche:</strong>Vérifiez le contrat pour les risques.</p>
+      <p><strong>Tâche :</strong> Vérifier un contrat pour les risques avant signature.</p>
       <div class="example">
-        <div class="example-label">Rapide</div>
+        <div class="example-label">Invite</div>
         <pre>Vous êtes avocat d'entreprise.
-Analyser le contrat de fourniture pour les risques.
+Analysez le contrat de fourniture pour les risques.
 
-Affichez le résultat à l'aide d'une liste de contrôle :
-☐ Risque : [description] - Niveau : [Élevé/Moyen/Faible] - Recommandation : [que faire]
+Sortez le résultat sous forme de liste :
+☐ Risque : [description] — Niveau : [Élevé/Moyen/Faible] — Recommandation : [quoi faire]
 
-A la fin : une conclusion générale sur l'acceptabilité du contrat.</pre>
+À la fin : conclusion générale — le contrat est-il acceptable.</pre>
       </div>
     </div>
 
-    <h3>Scénario 3 : rapport hebdomadaire</h3>
+    <h3>Scénario 3 : Rédaction d'un email</h3>
     <div class="card">
-      <p><strong>Tâche:</strong>Préparer un rapport de ventes hebdomadaire.</p>
+      <p><strong>Tâche :</strong> Écrire un email au fournisseur avec une réclamation qualité.</p>
       <div class="example">
-        <div class="example-label">Rapide</div>
-        <pre>Vous êtes analyste commercial.
-Préparez un rapport hebdomadaire basé sur les données ci-dessous.
+        <div class="example-label">Invite</div>
+        <pre>Vous êtes responsable des achats.
+Écrivez un email professionnel au fournisseur.
 
-Format :
-1. Indicateurs clés (tableau : Indicateur | Valeur | Δ à la semaine dernière)
-2. Top 3 des tendances (liste)
-3. Recommandations (liste avec priorités)
-4. Risques (tableau : Risque | Probabilité | Impact)</pre>
+Contexte : le dernier lot a 15% de défauts, dépassant les 3% acceptables.
+
+Format : email prêt en style professionnel.
+Structure :
+1. Référence au contrat et pourcentage de défauts acceptable
+2. Faits (lot, date, quantité, photos en pièce jointe)
+3. Exigence : remplacement ou remboursement
+4. Délai de réponse : 5 jours ouvrés
+
+Ton : ferme mais correct. Sans menaces.</pre>
       </div>
+      <p><strong>Résultat :</strong> Email prêt à être envoyé immédiatement. Il reste juste à insérer les coordonnées.</p>
+    </div>
+
+    <h3>Scénario 4 : Plan d'action</h3>
+    <div class="card">
+      <p><strong>Tâche :</strong> Créer un plan de mise en œuvre d'un nouveau processus.</p>
+      <div class="example">
+        <div class="example-label">Invite</div>
+        <pre>Vous êtes chef de projet.
+Créez un plan de mise en œuvre du système CRM.
+
+Format : plan étape par étape avec dates :
+1. Étape — Échéance — Responsable — Résultat
+2. Étape — Échéance — Responsable — Résultat
+...
+
+Total : 8-10 étapes.
+Période de réalisation : 3 mois.
+Budget : jusqu'à 5 000 €.</pre>
+      </div>
+      <p><strong>Résultat :</strong> Plan prêt pour approbation par la direction. Copie dans Word ou Excel.</p>
     </div>
   </div>
 
-  <!-- COMMENT DÉLÉGUER -->
   <div class="section">
     <h2>👨‍💻 Comment déléguer à un développeur</h2>
     <div class="card card-success">
       <h3>Modèle de tâche</h3>
-      <pre>« Nous avons besoin d’un analyseur de réponses IA dans des formats standardisés.
+      <pre>"Nous avons besoin d'un outil qui transforme automatiquement les réponses IA en tableaux Excel.
 
-Exigences :
-1. Reconnaît automatiquement le format (table/JSON/liste de contrôle)
-2. Convertit les tableaux en Excel (.xlsx)
-3. Convertit JSON en CSV
-4. Vérifie l'intégrité des données (pas de champs vides)
-5. Point de terminaison de l'API pour l'intégration
+Exigences :
+1. Coller le texte IA — obtenir un tableau .xlsx prêt
+2. Fonctionne avec tous les tableaux (comparaison fournisseurs, rapports, plans)
+3. Conserve la mise en forme (en-têtes en gras, couleurs)
+4. Interface simple : copier-coller — terminé
+5. Aucune programmation requise de l'utilisateur
 
-Exemple de données d'entrée (joindre) :
-[insérer un exemple de réponse de l'IA]
+Exemple d'entrée (joindre) :
+[insérer exemple de réponse IA]
 
-Résultat attendu (joindre) :
-[insérer Excel/CSV souhaité]
+Résultat attendu (joindre) :
+[insérer Excel souhaité]
 
-Date limite : [date]"</pre>
+Délai : [date]"</pre>
     </div>
   </div>
 
-  <!-- CHECKLIST -->
   <div class="section">
     <h2>✅ Checklist d'acceptation</h2>
     <ul class="checklist">
-      <li>Le format correspond-il à la demande ? (tableau/JSON/liste de contrôle)</li>
-      <li>Tous les champs sont-ils remplis ? (pas de laissez-passer)</li>
-      <li>Les données sont-elles correctes ? (cochez 2-3 cellules aléatoires)</li>
-      <li>Puis-je le copier sur Excel / 1C / CRM ?</li>
-      <li>La structure est-elle claire sans explication ?</li>
-      <li>Les unités de mesure sont-elles précisées ? (roubles, jours, intérêts)</li>
+      <li>Le format correspond à la tâche ? (tableau / liste / email / plan)</li>
+      <li>Toutes les données sont présentes ? (pas de lacunes)</li>
+      <li>Peut être copié dans Excel / Word / Outlook ?</li>
+      <li>La structure est claire sans explications ?</li>
+      <li>Les unités de mesure sont indiquées ? (devise, jours, pourcentages)</li>
+      <li>Vérifié 2-3 points aléatoires pour l'exactitude ?</li>
     </ul>
   </div>
 
-  <!-- OUTILS -->
   <div class="section">
-    <h2>🛠️Outils</h2>
+    <h2>🛠️ Outils</h2>
     <table>
       <tr><th>Outil</th><th>Pour quoi</th><th>Prix</th></tr>
-      <tr><td>ChatGPT / Claude</td><td>Génération dans n'importe quel format</td><td>Gratuit / 20$</td></tr>
-      <tr><td>Excel</td><td>Traitement des tableaux</td><td>Inclus dans le bureau</td></tr>
-      <tr><td>Google Sheets</td><td>Tables en ligne, partage</td><td>Gratuitement</td></tr>
-      <tr><td>JSON Formatter</td><td>Validation JSON</td><td>Gratuit (en ligne)</td></tr>
-      <tr><td>n8n / Zapier</td><td>Conversion automatique</td><td>De gratuit</td></tr>
+      <tr><td>ChatGPT / Claude / Kimi</td><td>Demander une réponse dans n'importe quel format</td><td>Gratuit / à partir de 20 $</td></tr>
+      <tr><td>Excel</td><td>Traitement des tableaux, graphiques</td><td>Inclus dans Office</td></tr>
+      <tr><td>Google Sheets</td><td>Tableaux en ligne, collaboration</td><td>Gratuit</td></tr>
+      <tr><td>Word / Google Docs</td><td>Mise en forme des emails et rapports</td><td>Inclus dans Office / gratuit</td></tr>
     </table>
   </div>
 
-  <!-- QUIZ -->
   <div class="section">
     <h2>📝 Vérification des connaissances</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1 :</strong>Quel est le meilleur format pour comparer 5 fournisseurs ?</p>
+      <p><strong>Question 1 :</strong> Quel format est le mieux pour comparer 5 fournisseurs ?</p>
       <div class="quiz-option" onclick="checkAnswer(this, true)">A) Tableau</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) JSON</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Texte libre</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Texte libre</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Email</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2 :</strong>Pourquoi spécifier le format dans l'invite ?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Pour rendre la réponse plus belle</div>
+      <p><strong>Question 2 :</strong> Pourquoi préciser le format de réponse dans l'invite ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Pour que la réponse soit plus belle</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) Pour gagner du temps sur le reformatage</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Ceci est facultatif</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) C'est facultatif</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3 :</strong>Quel format est adapté à l’automatisation ?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) JSON</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Tableau</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Liste de contrôle</div>
+      <p><strong>Question 3 :</strong> Quel format convient à un plan d'action ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Plan étape par étape avec dates et responsables</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Texte libre</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Email</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- L'ESSENTIEL -->
   <div class="section">
     <div class="card card-success">
       <h3>🎯 L'essentiel de la leçon</h3>
-      <p>Spécifiez le format dans l'invite.<strong>Tableau</strong>à titre de comparaison,<strong>JSON</strong>pour l'automatisation,<strong>liste de contrôle</strong>pour vérification. Cela permet d'économiser 5 à 10 minutes de temps de formatage à chaque fois. Pendant un mois -<strong>gagner 5 à 10 heures</strong>.</p>
+      <p>Précisez toujours le format de réponse dans votre invite. <strong>Tableau</strong> pour la comparaison, <strong>liste</strong> pour les audits, <strong>email</strong> pour la communication, <strong>plan</strong> pour les actions. Cela économise 10-15 minutes par tâche. Par mois — <strong>économie de 5-10 heures</strong>.</p>
     </div>
   </div>
 

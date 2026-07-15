@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.2 结构化输出 — 非IT专业人士的AI</title>
+<title>1.2 AI回答格式 — 非IT专业人士的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -77,65 +77,64 @@
 
   <div class="lesson-header">
     <div class="phase">🛠️ 级别 1 · 工具掌握</div>
-    <h1>1.2 · 结构化输出：JSON、表格、检查清单</h1>
+    <h1>1.2 · 如何让AI以您需要的格式回答</h1>
     <div class="meta">🎯 无代码 · ✅ 交互式测验</div>
   </div>
 
   <div class="section">
     <h2>🎯 为什么企业需要这个</h2>
-    <p>AI可以以<strong>任何格式</strong>输出结果。但默认是连续文本，需要手动复制到Excel或1C。</p>
+    <p>AI默认以<strong>纯文本</strong>回答。您会得到一段文字，需要手动重新输入到Excel或Word中。</p>
     <div class="card card-success">
-      <p><strong>问题：</strong> 经理收到文本格式的分析，花15分钟整理成表格。</p>
-      <p><strong>解决方案：</strong> 直接要求AI输出表格。节省：<strong>15分钟 × 20个任务 = 每周5小时</strong>。</p>
+      <p><strong>问题：</strong> 经理收到文本形式的供应商分析，花15分钟将其转移到表格中。</p>
+      <p><strong>解决方案：</strong> 直接要求AI以表格形式输出结果。节省：<strong>15分钟 × 20个任务 = 每周5小时</strong>。</p>
     </div>
   </div>
 
   <div class="section">
     <h2>📚 学习内容</h2>
     
-    <h3>4种输出格式</h3>
+    <h3>管理者使用的4种回答格式</h3>
     <div class="format-grid">
       <div class="format-card">
         <h4>📊 表格</h4>
-        <p>对比、分析、报告。易于复制到Excel。</p>
+        <p>用于对比、分析、报告。一键复制到Excel。</p>
       </div>
       <div class="format-card">
-        <h4>📋 JSON</h4>
-        <p>面向开发人员和自动化。结构化数据。</p>
+        <h4>☑️ 勾选清单</h4>
+        <p>用于检查、审计、行动计划。清晰直观。</p>
       </div>
       <div class="format-card">
-        <h4>☑️ 检查清单</h4>
-        <p>用于检查、审计、质量控制。</p>
+        <h4>📧 现成邮件</h4>
+        <p>AI直接为供应商、客户或管理层写邮件。</p>
       </div>
       <div class="format-card">
-        <h4>📝 Markdown</h4>
-        <p>用于文档、说明、文章。到处可读。</p>
+        <h4>📋 分步计划</h4>
+        <p>明确的行动顺序，包含日期和负责人。</p>
       </div>
     </div>
 
     <h3>如何要求表格</h3>
     <div class="example">
-      <div class="example-label">💡 示例提示词</div>
+      <div class="example-label">💡 提示词示例</div>
       <pre>你是一位财务分析师。
 分析3个投资项目（数据如下）。
 
-以表格格式输出结果：
-| 项目 | 投资回报率 | 回收期 | 风险 | 建议 |
+以表格形式输出结果：
+| 项目 | 回报期 | 风险 | 建议 |
 
-表格后附简要建议说明。</pre>
+表格后附简要说明。</pre>
     </div>
 
-    <h3>如何要求检查清单</h3>
+    <h3>如何要求勾选清单</h3>
     <div class="example">
-      <div class="example-label">💡 示例提示词</div>
-      <pre>你是一位ISO 9001审计师。
-按以下标准审计采购流程。
+      <div class="example-label">💡 提示词示例</div>
+      <pre>你是一位审计师。
+检查供应合同的风险。
 
-以检查清单格式输出结果：
-☐ 标准1 — [状态：通过/未通过] — [备注]
-☐ 标准2 — [状态] — [备注]
+以清单形式输出结果：
+☐ 风险：[描述] — 级别：[高/中/低] — 措施：[建议]
 
-最后：总体合规性评估（百分比）。</pre>
+最后：总体结论 — 是否签署合同。</pre>
     </div>
   </div>
 
@@ -144,51 +143,77 @@
     
     <h3>场景1：对比供应商</h3>
     <div class="card">
-      <p><strong>任务：</strong> 从3个选项中选择包装供应商。</p>
+      <p><strong>任务：</strong> 从3个方案中选择包装供应商。</p>
       <div class="example">
         <div class="example-label">提示词</div>
-        <pre>你是FMCG采购员。
-按标准对比3个报价并输出表格：
+        <pre>你是一位FMCG采购员。
+按标准对比3个供应商并以表格输出：
 | 标准 | 供应商A | 供应商B | 供应商C | 领先者 |
 | 单价 | | | | |
 | 最小订单 | | | | |
 | 交货期 | | | | |
 | 付款条件 | | | | |
 
-给出建议：选择谁及原因。</pre>
+给出建议：选择谁以及原因。</pre>
       </div>
-      <p><strong>结果：</strong> 可直接复制到演示文稿的现成表格。一键复制到Excel。</p>
+      <p><strong>结果：</strong> 可直接用于管理层汇报的现成表格。一键复制到Excel。</p>
     </div>
 
     <h3>场景2：合同审计</h3>
     <div class="card">
-      <p><strong>任务：</strong> 检查合同中的风险。</p>
+      <p><strong>任务：</strong> 签署前检查合同风险。</p>
       <div class="example">
         <div class="example-label">提示词</div>
-        <pre>你是企业法务。
-分析供货合同中的风险。
+        <pre>你是一位企业律师。
+分析供应合同的风险。
 
-以检查清单格式输出：
-☐ 风险：[描述] — 级别：[高/中/低] — 建议：[怎么做]
+以清单形式输出结果：
+☐ 风险：[描述] — 级别：[高/中/低] — 建议：[措施]
 
-最后：合同总体可接受性结论。</pre>
+最后：总体结论 — 合同是否可接受。</pre>
       </div>
     </div>
 
-    <h3>场景3：周报</h3>
+    <h3>场景3：撰写邮件</h3>
     <div class="card">
-      <p><strong>任务：</strong> 准备周报。</p>
+      <p><strong>任务：</strong> 向供应商写质量投诉邮件。</p>
       <div class="example">
         <div class="example-label">提示词</div>
-        <pre>你是商业分析师。
-根据以下数据准备周报。
+        <pre>你是一位采购经理。
+以商务风格写一封给供应商的邮件。
 
-格式：
-1. 关键指标（表格：指标 | 数值 | 环比变化）
-2. 前3趋势（列表）
-3. 建议（带优先级的列表）
-4. 风险（表格：风险 | 概率 | 影响）</pre>
+背景：最近一批次次品率15%，超过可接受的3%。
+
+格式：现成的商务风格邮件。
+结构：
+1. 引用合同和可接受的次品率
+2. 事实（批次、日期、数量、附件照片）
+3. 要求：更换或退款
+4. 回复期限：5个工作日
+
+语气：坚定但礼貌。不含威胁。</pre>
       </div>
+      <p><strong>结果：</strong> 可立即发送的现成邮件。只需插入具体信息即可。</p>
+    </div>
+
+    <h3>场景4：行动计划</h3>
+    <div class="card">
+      <p><strong>任务：</strong> 制定新流程实施计划。</p>
+      <div class="example">
+        <div class="example-label">提示词</div>
+        <pre>你是一位项目经理。
+制定CRM系统实施计划。
+
+格式：带日期的分步计划：
+1. 步骤 — 期限 — 负责人 — 结果
+2. 步骤 — 期限 — 负责人 — 结果
+...
+
+总共8-10个步骤。
+实施周期：3个月。
+预算：不超过50万元。</pre>
+      </div>
+      <p><strong>结果：</strong> 可提交管理层审批的现成计划。可复制到Word或Excel。</p>
     </div>
   </div>
 
@@ -196,20 +221,20 @@
     <h2>👨‍💻 如何委派给开发人员</h2>
     <div class="card card-success">
       <h3>任务模板</h3>
-      <pre>"需要解析AI回答到标准化格式。
+      <pre>"需要一个工具，自动将AI的回答转换为Excel表格。
 
 要求：
-1. 自动识别格式（表格/JSON/检查清单）
-2. 将表格转换为Excel (.xlsx)
-3. 将JSON转换为CSV
-4. 检查数据完整性（无空字段）
-5. 集成API端点
+1. 粘贴AI文本 — 获得现成的.xlsx表格
+2. 适用于任何表格（供应商对比、报告、计划）
+3. 保留格式（粗体标题、颜色）
+4. 简单界面：复制粘贴 — 完成
+5. 用户无需编程
 
-示例输入（附件）：
+输入示例（附件）：
 [插入AI回答示例]
 
 预期结果（附件）：
-[插入期望的Excel/CSV]
+[插入期望的Excel]
 
 期限：[日期]"</pre>
     </div>
@@ -218,12 +243,12 @@
   <div class="section">
     <h2>✅ 结果验收检查清单</h2>
     <ul class="checklist">
-      <li>格式符合要求？（表格 / JSON / 检查清单）</li>
-      <li>所有字段已填写？（无空缺）</li>
-      <li>数据正确？（随机检查2-3个单元格）</li>
-      <li>可复制到Excel / 1C / CRM？</li>
-      <li>结构无需解释即可理解？</li>
-      <li>注明了计量单位？（元、天、百分比）</li>
+      <li>格式符合任务要求？（表格 / 清单 / 邮件 / 计划）</li>
+      <li>所有数据都在？（无遗漏）</li>
+      <li>可复制到Excel / Word / Outlook？</li>
+      <li>结构清晰无需解释？</li>
+      <li>计量单位已注明？（货币、天数、百分比）</li>
+      <li>抽查2-3项验证正确性？</li>
     </ul>
   </div>
 
@@ -231,11 +256,10 @@
     <h2>🛠️ 工具</h2>
     <table>
       <tr><th>工具</th><th>用途</th><th>成本</th></tr>
-      <tr><td>ChatGPT / Claude</td><td>以任何格式生成</td><td>免费 / $20</td></tr>
-      <tr><td>Excel</td><td>处理表格</td><td>含在Office中</td></tr>
-      <tr><td>Google Sheets</td><td>在线表格，共享</td><td>免费</td></tr>
-      <tr><td>JSON Formatter</td><td>JSON校验</td><td>免费（在线）</td></tr>
-      <tr><td>n8n / Zapier</td><td>自动转换</td><td>免费起</td></tr>
+      <tr><td>ChatGPT / Claude / Kimi</td><td>要求以任何格式回答</td><td>免费 / $20起</td></tr>
+      <tr><td>Excel</td><td>表格处理、图表</td><td>包含在Office中</td></tr>
+      <tr><td>Google Sheets</td><td>在线表格、协作</td><td>免费</td></tr>
+      <tr><td>Word / Google Docs</td><td>邮件和报告排版</td><td>包含在Office / 免费</td></tr>
     </table>
   </div>
 
@@ -243,26 +267,26 @@
     <h2>📝 理解测验</h2>
     
     <div class="card card-accent">
-      <p><strong>问题1：</strong> 对比5个供应商最佳用什么格式？</p>
+      <p><strong>问题1：</strong> 对比5个供应商最适合哪种格式？</p>
       <div class="quiz-option" onclick="checkAnswer(this, true)">A) 表格</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) JSON</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 自由文本</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 自由文本</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 邮件</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>问题2：</strong> 为什么要在提示词中指定格式？</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 为了更好看</div>
+      <p><strong>问题2：</strong> 为什么要在提示词中指定回答格式？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) 让回答更美观</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) 节省重新排版的时间</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) 这是可选的</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>问题3：</strong> 哪种格式适合自动化？</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) JSON</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 表格</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 检查清单</div>
+      <p><strong>问题3：</strong> 行动计划适合哪种格式？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) 带日期和负责人的分步计划</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) 自由文本</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) 邮件</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
@@ -270,7 +294,7 @@
   <div class="section">
     <div class="card card-success">
       <h3>🎯 课程要点</h3>
-      <p>在提示词中指定格式。<strong>表格</strong>用于对比，<strong>JSON</strong>用于自动化，<strong>检查清单</strong>用于检查。每次节省5-10分钟排版时间。每月<strong>节省5-10小时</strong>。</p>
+      <p>始终在提示词中指定回答格式。<strong>表格</strong>用于对比，<strong>清单</strong>用于检查，<strong>邮件</strong>用于沟通，<strong>计划</strong>用于行动。每个任务节省10-15分钟。每月节省<strong>5-10小时</strong>。</p>
     </div>
   </div>
 
@@ -312,5 +336,6 @@ function checkAnswer(element, isCorrect) {
   }
 }
 </script>
+
 </body>
 </html>

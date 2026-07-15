@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>1.2 Structured inference - AI for non-IT professionals</title>
+<title>1.2 Response Format — AI for non-IT professionals</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -77,41 +77,39 @@
 
   <div class="lesson-header">
     <div class="phase">🛠️ LEVEL 1 · TOOL PROFICIENCY</div>
-    <h1>1.2 · Structured output: JSON, tables, checklists</h1>
+    <h1>1.2 · How to get AI responses in the right format</h1>
     <div class="meta">🎯 No code · ✅ Interactive quiz</div>
   </div>
 
-  <!-- WHY FOR BUSINESS -->
   <div class="section">
-    <h2>🎯 Why does business need this?</h2>
-    <p>AI can provide answers <strong>in any format</strong>. </p>
+    <h2>🎯 Why business needs this</h2>
+    <p>By default, AI responds with <strong>plain text</strong>. You get a paragraph that you have to manually retype into Excel or Word.</p>
     <div class="card card-success">
-      <p><strong>Problem:</strong> The manager receives the analysis in text form and spends 15 minutes transferring it to the table.</p>
-      <p><strong>Solution:</strong> Ask the AI ​​to immediately produce a table. <strong>15 minutes × 20 tasks = 5 hours per week</strong>.</p>
+      <p><strong>Problem:</strong> A manager receives supplier analysis as text and spends 15 minutes transferring it to a table.</p>
+      <p><strong>Solution:</strong> Ask AI to output the result as a table right away. Savings: <strong>15 minutes × 20 tasks = 5 hours per week</strong>.</p>
     </div>
   </div>
 
-  <!-- WHAT WE STUDY -->
   <div class="section">
-    <h2>📚 What we are studying</h2>
+    <h2>📚 What we learn</h2>
     
-    <h3>4 output formats</h3>
+    <h3>4 response formats for managers</h3>
     <div class="format-grid">
       <div class="format-card">
         <h4>📊 Table</h4>
-        <p>Comparison, analysis, reports. </p>
-      </div>
-      <div class="format-card">
-        <h4>📋 JSON</h4>
-        <p>For programmers and automation. </p>
+        <p>For comparisons, analysis, reports. Copies to Excel in one click.</p>
       </div>
       <div class="format-card">
         <h4>☑️ Checklist</h4>
-        <p>For inspection, audit, quality control.</p>
+        <p>For audits, inspections, action plans. Clear and visual.</p>
       </div>
       <div class="format-card">
-        <h4>📝 Markdown</h4>
-        <p>For documentation, instructions, articles. </p>
+        <h4>📧 Ready Email</h4>
+        <p>AI writes an email to a supplier, client, or management immediately.</p>
+      </div>
+      <div class="format-card">
+        <h4>📋 Step-by-Step Plan</h4>
+        <p>Clear sequence of actions with dates and responsible persons.</p>
       </div>
     </div>
 
@@ -119,124 +117,184 @@
     <div class="example">
       <div class="example-label">💡 Prompt example</div>
       <pre>You are a financial analyst.
-</pre>
+Analyze 3 investment projects (data below).
+
+Output the result as a table:
+| Project | Payback | Risk | Recommendation |
+
+After the table — brief justification.</pre>
     </div>
 
     <h3>How to ask for a checklist</h3>
     <div class="example">
       <div class="example-label">💡 Prompt example</div>
-      <pre>You are an ISO 9001 auditor.
-</pre>
+      <pre>You are an auditor.
+Check the supply contract for risks.
+
+Output the result as a checklist:
+☐ Risk: [description] — Level: [High/Medium/Low] — Action: [recommendation]
+
+At the end: overall conclusion — sign or not sign.</pre>
     </div>
   </div>
 
-  <!-- HOW TO APPLY -->
   <div class="section">
     <h2>🛠️ How to apply</h2>
     
-    <h3>Scenario 1: Comparison of suppliers</h3>
+    <h3>Scenario 1: Supplier comparison</h3>
     <div class="card">
-      <p><strong>Task:</strong> Select a packaging supplier from 3 options.</p>
+      <p><strong>Task:</strong> Choose a packaging supplier from 3 options.</p>
       <div class="example">
         <div class="example-label">Prompt</div>
         <pre>You are an FMCG buyer.
-</pre>
+Compare 3 proposals by criteria and output as a table:
+| Criterion | Supplier A | Supplier B | Supplier C | Leader |
+| Unit price | | | | |
+| Min. order | | | | |
+| Delivery time | | | | |
+| Payment terms | | | | |
+
+Give a recommendation: whom to choose and why.</pre>
       </div>
-      <p><strong>Result:</strong> Ready table for presentation to management. </p>
+      <p><strong>Result:</strong> Ready table for management presentation. Copies to Excel in one click.</p>
     </div>
 
-    <h3>Scenario 2: Contract Audit</h3>
+    <h3>Scenario 2: Contract audit</h3>
     <div class="card">
-      <p><strong>Task:</strong> Check the contract for risks.</p>
+      <p><strong>Task:</strong> Check a contract for risks before signing.</p>
       <div class="example">
         <div class="example-label">Prompt</div>
         <pre>You are a corporate lawyer.
-</pre>
+Analyze the supply contract for risks.
+
+Output the result as a checklist:
+☐ Risk: [description] — Level: [High/Medium/Low] — Recommendation: [what to do]
+
+At the end: overall conclusion — is the contract acceptable.</pre>
       </div>
     </div>
 
-    <h3>Scenario 3: Weekly report</h3>
+    <h3>Scenario 3: Writing an email</h3>
     <div class="card">
-      <p><strong>Task:</strong> Prepare a weekly sales report.</p>
+      <p><strong>Task:</strong> Write an email to a supplier with a quality complaint.</p>
       <div class="example">
         <div class="example-label">Prompt</div>
-        <pre>You are a business analyst.
-</pre>
+        <pre>You are a procurement manager.
+Write a business email to the supplier.
+
+Context: the latest batch has 15% defects, exceeding the acceptable 3%.
+
+Format: ready email in business style.
+Structure:
+1. Reference to contract and acceptable defect percentage
+2. Facts (batch, date, quantity, photos attached)
+3. Demand: replacement or refund
+4. Response deadline: 5 business days
+
+Tone: firm but polite. No threats.</pre>
       </div>
+      <p><strong>Result:</strong> Ready email that can be sent immediately. Just insert the details.</p>
+    </div>
+
+    <h3>Scenario 4: Action plan</h3>
+    <div class="card">
+      <p><strong>Task:</strong> Create an implementation plan for a new process.</p>
+      <div class="example">
+        <div class="example-label">Prompt</div>
+        <pre>You are a project manager.
+Create a CRM system implementation plan.
+
+Format: step-by-step plan with dates:
+1. Step — Deadline — Responsible — Result
+2. Step — Deadline — Responsible — Result
+...
+
+Total: 8-10 steps.
+Implementation period: 3 months.
+Budget: up to $5,000.</pre>
+      </div>
+      <p><strong>Result:</strong> Ready plan for management approval. Copies to Word or Excel.</p>
     </div>
   </div>
 
-  <!-- HOW TO DELEGATE -->
   <div class="section">
     <h2>👨‍💻 How to delegate to a developer</h2>
     <div class="card card-success">
       <h3>Task template</h3>
-      <pre>“We need an AI response parser into standardized formats.
+      <pre>"We need a tool that automatically turns AI responses into Excel tables.
 
-</pre>
+Requirements:
+1. Paste AI text — get a ready .xlsx table
+2. Works with any tables (supplier comparison, reports, plans)
+3. Preserves formatting (bold headers, colors)
+4. Simple interface: copy-paste — done
+5. No programming required from the user
+
+Example input (attach):
+[insert AI response example]
+
+Expected result (attach):
+[insert desired Excel]
+
+Deadline: [date]"</pre>
     </div>
   </div>
 
-  <!-- CHECKLIST -->
   <div class="section">
-    <h2>✅ Checklist for accepting the result</h2>
+    <h2>✅ Acceptance checklist</h2>
     <ul class="checklist">
-      <li>Does the format match the request? </li>
-      <li>Are all fields filled in? </li>
-      <li>Is the data correct? </li>
-      <li>Can I copy it to Excel / 1C / CRM?</li>
-      <li>Is the structure clear without explanation?</li>
-      <li>Are the units of measurement specified? </li>
+      <li>Format matches the task? (table / list / email / plan)</li>
+      <li>All data present? (no gaps)</li>
+      <li>Can be copied to Excel / Word / Outlook?</li>
+      <li>Structure clear without explanations?</li>
+      <li>Units of measurement specified? (currency, days, percentages)</li>
+      <li>Checked 2-3 random items for accuracy?</li>
     </ul>
   </div>
 
-  <!-- TOOLS -->
   <div class="section">
-    <h2>🛠️Tools</h2>
+    <h2>🛠️ Tools</h2>
     <table>
       <tr><th>Tool</th><th>For what</th><th>Price</th></tr>
-      <tr><td>ChatGPT / Claude</td><td>Generation in any format</td><td>Free / $20</td></tr>
-      <tr><td>Excel</td><td>Table Processing</td><td>Included in Office</td></tr>
-      <tr><td>Google Sheets</td><td>Online tables, sharing</td><td>For free</td></tr>
-      <tr><td>JSON Formatter</td><td>JSON Validation</td><td>Free (online)</td></tr>
-      <tr><td>n8n / Zapier</td><td>Automatic conversion</td><td>From free</td></tr>
+      <tr><td>ChatGPT / Claude / Kimi</td><td>Ask for response in any format</td><td>Free / from $20</td></tr>
+      <tr><td>Excel</td><td>Table processing, charts</td><td>Included in Office</td></tr>
+      <tr><td>Google Sheets</td><td>Online tables, collaboration</td><td>Free</td></tr>
+      <tr><td>Word / Google Docs</td><td>Email and report formatting</td><td>Included in Office / free</td></tr>
     </table>
   </div>
 
-  <!-- КВИЗ -->
   <div class="section">
-    <h2>📝Checking understanding</h2>
+    <h2>📝 Knowledge check</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> What is the best format for comparing 5 suppliers?</p>
+      <p><strong>Question 1:</strong> Which format is best for comparing 5 suppliers?</p>
       <div class="quiz-option" onclick="checkAnswer(this, true)">A) Table</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) JSON</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Free text</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Plain text</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Email</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Why specify the format in the prompt?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">A) To make the answer more beautiful</div>
+      <p><strong>Question 2:</strong> Why specify the response format in the prompt?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) To make the answer look nicer</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) To save time on reformatting</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) This is optional</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) It's optional</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Which format is suitable for automation?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">A) JSON</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Table</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Checklist</div>
+      <p><strong>Question 3:</strong> Which format suits an action plan?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A) Step-by-step plan with dates and responsible persons</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">B) Plain text</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Email</div>
       <div class="result" id="result3"></div>
     </div>
   </div>
 
-  <!-- ГЛАВНОЕ -->
   <div class="section">
     <div class="card card-success">
-      <h3>🎯 The main thing from the lesson</h3>
-      <p>Specify the format in the prompt.<strong>Table</strong> for comparison,<strong>JSON</strong> for automation,<strong>checklist</strong> for checking. <strong>saving 5-10 hours</strong>.</p>
+      <h3>🎯 Key takeaway</h3>
+      <p>Always specify the response format in your prompt. <strong>Table</strong> for comparison, <strong>checklist</strong> for audits, <strong>email</strong> for communication, <strong>plan</strong> for actions. This saves 10-15 minutes per task. Per month — <strong>savings of 5-10 hours</strong>.</p>
     </div>
   </div>
 
@@ -249,7 +307,7 @@
 
 <footer>
   <div class="container">
-    <p>© 2026 Artur A. · AI for non-IT specialists</p>
+    <p>© 2026 Artur A. · AI for non-IT professionals</p>
   </div>
 </footer>
 
@@ -267,14 +325,14 @@ function checkAnswer(element, isCorrect) {
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(16,185,129,0.1)';
     resultDiv.style.border = '1px solid var(--success)';
-    resultDiv.innerHTML = '<strong>✅ That's right!</strong>';
+    resultDiv.innerHTML = '<strong>✅ Correct!</strong>';
   } else {
     element.classList.add('wrong');
     element.style.pointerEvents = 'none';
     resultDiv.classList.add('show');
     resultDiv.style.background = 'rgba(245,158,11,0.1)';
     resultDiv.style.border = '1px solid var(--warning)';
-    resultDiv.innerHTML = '<strong>⚠️ Not quite. </strong>';
+    resultDiv.innerHTML = '<strong>⚠️ Not quite. Try another option.</strong>';
   }
 }
 </script>
