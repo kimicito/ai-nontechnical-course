@@ -127,14 +127,55 @@
       <p>AI превращает ваш вопрос в точку и ищет ближайшие к ней фрагменты документов.</p>
     </div>
 
-    <h3>Пример из жизни</h3>
-    <div class="example">
-      <div class="example-label">💡 Пример вопроса</div>
-      <pre>"Что делать, если поставщик опаздывает?"</pre>
+    <h3>❓ Частый вопрос: стоит ли писать в промпте «используй векторный поиск»?</h3>
+    <div class="card card-warning">
+      <p><strong>Нет, это не поможет.</strong> Когда вы пишете в ChatGPT, Claude или Kimi — векторный поиск уже произошёл (или не произошёл) <strong>до того, как вы нажали Enter</strong>. У AI нет рычага «включить векторный поиск» по команде в тексте.</p>
+      <div class="example">
+        <div class="example-label">Как это работает на самом деле</div>
+        <table style="width:100%; border-collapse: collapse; margin: 10px 0; font-size: 0.9rem;">
+          <tr><td style="padding:8px; border-bottom:1px solid var(--border); width: 40%;"><strong>Вы делаете</strong></td><td style="padding:8px; border-bottom:1px solid var(--border);"><strong>Что происходит</strong></td></tr>
+          <tr><td style="padding:8px; border-bottom:1px solid var(--border);">Пишете «используй векторный поиск»</td><td style="padding:8px; border-bottom:1px solid var(--border);">AI игнорирует как бессмысленную инструкцию — у него нет такого переключателя</td></tr>
+          <tr><td style="padding:8px; border-bottom:1px solid var(--border);">Загружаете PDF и задаёте вопрос</td><td style="padding:8px; border-bottom:1px solid var(--border);"><strong>Автоматически</strong> система ищет релевантные куски через векторный поиск</td></tr>
+          <tr><td style="padding:8px; border-bottom:1px solid var(--border);">Пишете «ищи в интернете»</td><td style="padding:8px; border-bottom:1px solid var(--border);">Это <strong>web search</strong> — другой механизм, не векторный поиск по документам</td></tr>
+        </table>
+      </div>
     </div>
+
+    <h3>✅ Как не-ИТ специалисту реально использовать векторный поиск</h3>
+    <div class="card card-success">
+      <p><strong>Вариант 1: В облачном чате (ChatGPT, Claude, Kimi + загрузка документов)</strong></p>
+      <p>Просто загружайте документы и задавайте конкретные вопросы. Система <strong>сама</strong> использует векторный поиск, чтобы найти релевантные фрагменты. Ваш промпт должен быть конкретным — не про «включи поиск», а про «укажи страницу и цитируй текст».</p>
+      <div class="example">
+        <div class="example-label">Полезный промпт для работы с документом</div>
+        <pre>Роль: Ты юрист по договору поставки.
+Задача: Проверь этот договор на пункты о неустойке.
+Формат: Таблица — пункт, риск, рекомендация.
+
+Важно: укажи номер страницы и цитируй текст дословно.</pre>
+      </div>
+      <p style="color: var(--muted); font-size: 0.9rem;">Векторный поиск здесь работает <strong>автоматически</strong> — система находит куски про «неустойку», «штрафы», «пени» и передаёт их AI.</p>
+    </div>
+
+    <div class="card card-success">
+      <p><strong>Вариант 2: В корпоративной системе (OpenWebUI / GENAI / агент)</strong></p>
+      <p>Когда делегируете задачу ИТ-отделу — используйте термин правильно. Это <strong>техническое задание</strong>, а не команда в чате:</p>
+      <div class="example">
+        <div class="example-label">Правильная формулировка для ИТ-задачи</div>
+        <pre>«Нужно, чтобы агент при ответе на вопросы сотрудников
+<strong>сначала искал релевантные документы через векторный поиск</strong>,
+а потом формировал ответ на их основе. Не генерировать из головы.»</pre>
+      </div>
+      <p style="color: var(--muted); font-size: 0.9rem;">ИТ поймёт: нужно подключить RAG (Retrieval-Augmented Generation) — систему, где векторный поиск + генерация ответа работают вместе.</p>
+    </div>
+
     <div class="card">
-      <p><strong>Обычный поиск:</strong> Не найдёт ничего (в договоре нет слов "опаздывает")</p>
-      <p><strong>Векторный поиск:</strong> Найдёт разделы про "неустойка", "просрочка поставки", "штрафные санкции"</p>
+      <p><strong>Вариант 3: Когда векторный поиск НЕ подходит</strong></p>
+      <p>Не используйте его (и не пишите про него в промпте), когда:</p>
+      <ul>
+        <li><strong>Нужен точный факт</strong> — «Какой курс USD на 15 июля 2026?» → Лучше API ЦБР или web search.</li>
+        <li><strong>Нужен расчёт</strong> — «Посчитай NPV этого проекта» → Лучше Excel + формулы.</li>
+        <li><strong>Вопрос общий</strong> — «Что такое векторный поиск?» → AI и так знает из общих знаний, документы не нужны.</li>
+      </ul>
     </div>
   </div>
 
