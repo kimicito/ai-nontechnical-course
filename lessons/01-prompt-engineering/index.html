@@ -114,7 +114,7 @@
     </div>
     
     <div class="example">
-      <div class="example-label">✅ Хороший промпт (RCOF)</div>
+      <div class="example-label">✅ Хороший промпт (RCOFE)</div>
       <pre>Ты — опытный закупщик FMCG с 10-летним стажем.
 Мы выбираем поставщика картонной упаковки для печенья.
 Получили 3 предложения во вложениях.
@@ -130,7 +130,9 @@
 
 Формат: таблица сравнения + однозначная рекомендация с обоснованием.
 
-Ограничение: если срок > 14 дней — отметь как риск.</pre>
+Ограничение: если срок > 14 дней — отметь как риск.
+
+Eval: проверь, что заполнены все столбцы таблицы, нет нелогичных различий в цене, и все цифры корректно суммируются.</pre>
     </div>
   </div>
 
@@ -238,7 +240,7 @@
     <h2>📝 Проверка понимания</h2>
     
     <div class="card card-accent">
-      <p><strong>Вопрос 1:</strong> Что означает буква R в формуле RCOF?</p>
+      <p><strong>Вопрос 1:</strong> Что означает буква R в формуле RCOFE?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) Request (Запрос)</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) Role (Роль)</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Result (Результат)</div>
@@ -260,6 +262,14 @@
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) Чтобы сэкономить время на переформатирование</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</div>
       <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 4:</strong> Зачем нужен Eval в промпте?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Чтобы AI дал более длинный ответ</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Чтобы AI проверил свой ответ на ошибки и галлюцинации перед выдачей</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Чтобы AI переписал ответ на другом языке</div>
+      <div class="result" id="result4"></div>
     </div>
   </div>
 

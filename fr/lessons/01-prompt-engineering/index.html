@@ -114,7 +114,7 @@
     </div>
 
     <div class="example">
-      <div class="example-label">✅ Bonne invite (RCOF)</div>
+      <div class="example-label">✅ Bonne invite (RCOFE)</div>
       <pre>Vous êtes un acheteur FMCG expérimenté avec 10 ans d'expérience.
 Nous sélectionnons un fournisseur d'emballages en carton pour cookies.
 Reçu 3 offres en pièces jointes.
@@ -130,7 +130,9 @@ Critères :
 
 Format : tableau comparatif + recommandation claire et justifiée.
 
-Limitation : si la période est > 14 jours, marquez-la comme un risque.</pre>
+Limitation : si la période est > 14 jours, marquez-la comme un risque.
+
+Eval : vérifiez que toutes les colonnes du tableau sont remplies, qu'il n'y a pas de différences de prix illogiques et que tous les chiffres s'additionnent correctement.</pre>
     </div>
   </div>
 
@@ -238,7 +240,7 @@ Responsable : [nom]"</pre>
     <h2>📝 Vérification des connaissances</h2>
 
     <div class="card card-accent">
-      <p><strong>Question 1 :</strong>Que signifie la lettre R dans la formule RCOF ?</p>
+      <p><strong>Question 1 :</strong>Que signifie la lettre R dans la formule RCOFE ?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">A) Demande</div>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) Rôle</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Résultat</div>
@@ -260,6 +262,14 @@ Responsable : [nom]"</pre>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) Pour gagner du temps sur le reformatage</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Ceci est facultatif</div>
       <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4 :</strong> À quoi sert Eval dans une invite ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Pour que l'IA donne une réponse plus longue</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Pour que l'IA vérifie sa réponse pour les erreurs et les hallucinations avant de la sortir</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Pour que l'IA réécrive la réponse dans une autre langue</div>
+      <div class="result" id="result4"></div>
     </div>
   </div>
 
