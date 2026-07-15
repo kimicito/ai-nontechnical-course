@@ -421,6 +421,11 @@ document.addEventListener('click', function(e) {
     if (menu) menu.classList.remove('show');
   }
 });
+
+function toggleSearch() {
+  const search = document.getElementById('search');
+  if (search) search.classList.toggle('active');
+}
 </script>
 
 </body>

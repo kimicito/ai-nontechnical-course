@@ -80,7 +80,12 @@
     const script = document.createElement('script');
     script.src = base + 'pagefind-ui.js';
     script.onload = function() {
-        new PagefindUI({ 
+        function toggleSearch() {
+  const search = document.getElementById('search');
+  if (search) search.classList.toggle('active');
+}
+
+new PagefindUI({ 
             element: "#search", 
             showSubResults: true,
             bundlePath: base,
