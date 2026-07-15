@@ -58,9 +58,9 @@
 </style>
 <script>
 (function() {
-    const parts = window.location.pathname.split('/').filter(Boolean);
-    if (parts.length > 0 && parts[parts.length-1].includes('.')) parts.pop();
-    const base = '../'.repeat(parts.length) + 'pagefind/';
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const repoName = pathParts[0] || '';
+    const base = '/' + repoName + '/pagefind/';
     
     const link = document.createElement('link');
     link.rel = 'stylesheet';
