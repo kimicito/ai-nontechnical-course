@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.2 External Procurement Tasks: Cloud — AI for Non-IT Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 7 — Procurement</div>
+    <h1>7.2 External Tasks: Cloud</h1>
+    <div class="meta">15 min · for procurement specialists · open data</div>
+  </div>
+
+  <div class="section">
+    <p>In this lesson — tasks where the procurement specialist works with public information: searching for suppliers, price benchmarking, preparing anonymized documents. This data does not contain trade secrets — it can be sent to cloud models.</p>
+    <p><strong>Solution:</strong> cloud APIs: Claude, ChatGPT, Kimi, Qwen API. Web search is needed — so the model must be connected to the internet.</p>
+  </div>
+
+  <div class="section">
+    <h2>When Cloud Beats On-Prem</h2>
+    <div class="card card-success">
+      <strong>Cloud models win when you need:</strong>
+      <ul>
+        <li><strong>Web search:</strong> find new suppliers, check market prices</li>
+        <li><strong>Translation:</strong> work with foreign documents</li>
+        <li><strong>Generation:</strong> create template text from scratch</li>
+        <li><strong>Analysis of public data:</strong> raw material indices, exchange rates, customs codes</li>
+      </ul>
+    </div>
+    <div class="card card-warning">
+      <strong>Important:</strong> before sending to the cloud — check that the request does not contain specific prices, supplier names, or volumes. If it does — anonymize it or send to on-prem.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Finding Analogs and Alternative Suppliers</h2>
+    <p>The procurement specialist knows 2–3 suppliers for a position. Need to find more — for competition or backup. On-prem has no internet access, cloud — does.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example (Claude with web search)</div>
+      <pre>Find manufacturers of industrial centrifugal pumps 
+series 32-160 in Russia and neighboring countries (Kazakhstan, Belarus).
+
+Specify:
+- Company name and website
+- Where production is located (city)
+- Whether there are certificates (GOST, ISO)
+- Approximate price range (if publicly available)
+- Procurement contacts (sales department)
+
+Make a comparison table.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Result:</strong> a table of potential suppliers with contacts. The procurement specialist spends 10 minutes instead of 2 hours of manual searching.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Benchmarking Market Prices and Raw Material Indices</h2>
+    <p>The procurement specialist is negotiating a price but doesn't know where the market is right now. LLM with web search finds current indices.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>What are the current (2024-2025) market prices for:
+1. Steel rebar A500C (wholesale, per ton)
+2. Portland cement M500 (wholesale, per ton)
+3. Copper cathodes (LME + premium)
+
+Also specify:
+- Dynamics over the last 6 months (increase/decrease %)
+- Forecast for the next quarter (if available)
+- Main factors affecting the price</pre>
+    </div>
+
+    <div class="card card-warning">
+      <strong>Important:</strong> the request does not contain specific prices of your suppliers — only market benchmarks. This is safe for the cloud.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Preparing an Anonymized Technical Specification (Draft)</h2>
+    <p>Technical specification with specific numbers — goes to on-prem. But a draft structure of the TS, general requirements, typical parameters — can be done in the cloud, then finalized internally.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare a structure for a technical specification for the procurement 
+of industrial pump equipment for chemical production.
+
+Without specific numbers (volumes, prices, deadlines). 
+Only typical parameters and requirements.
+
+Structure:
+1. General requirements
+2. Technical parameters (power, capacity, materials)
+3. Quality and certification requirements
+4. Delivery conditions (standard)
+5. Documentation requirements
+6. Acceptance criteria
+
+Specify which items will need to be supplemented with specific data inside the company.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Tender Documentation (General Sections)</h2>
+    <p>Instructions for participants, evaluation criteria, application form — all of this is template-based and does not contain data about a specific deal.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Create a tender documentation template for the procurement 
+of industrial equipment by open competition method.
+
+Include:
+1. Instructions for participants (submission rules, deadlines)
+2. Application form (general fields)
+3. Evaluation criteria (price, deadlines, experience) — without weighting coefficients
+4. Contract form (standard conditions)
+5. List of documents for the application
+
+Specify which sections need to be coordinated with the lawyer and the customer.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Auto-Responses to Clients and Platforms</h2>
+    <p>Shipment status, delivery deadlines, requests for quotes — often template-based. LLM generates a response based on ERP status, but without specific numbers.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Write a template email response to a shipment status inquiry.
+
+Conditions:
+- Order is in transit
+- Supplier reported a delay
+- Need to apologize, explain the reason, state the new deadline
+- Offer compensation (standard)
+
+Without specific dates, amounts, or supplier names. 
+Recipient: internal customer within the company.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Translation and Localization of Documents</h2>
+    <p>Foreign suppliers send instructions, specifications, and contracts in English, Chinese, and German. Cloud translation is faster and more accurate than standard translators for technical texts.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Translate from English to Russian a technical specification 
+for an industrial pump (file Spec.pdf).
+
+Requirements:
+- Preserve structure and section numbering
+- Technical terms — per GOST/ISO
+- Units of measurement — in SI (m³/h, bar, kW)
+- Preserve tables in markdown format
+- Mark unclear parts for clarification with the supplier</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. Checking Customs Requirements (General Regulations)</h2>
+    <p>HS code, certification requirements, duties — this is public information. LLM finds current requirements for a product category.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>What customs requirements and certificates are needed 
+for importing industrial centrifugal pumps into the Russian Federation (HS code 8413 70)?
+
+Specify:
+- Mandatory certification (GOST-R, TR CU)
+- Whether SBKTS is needed
+- Customs duty (rate)
+- VAT on import
+- Requirements for supplier documents (invoice, packing list)
+- Specifics for certain countries (China, Germany, Italy)
+
+Without specific cargo and amounts — only general regulations.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: External Tasks</h2>
+    <table>
+      <tr><th>Task</th><th>Model</th><th>Why Cloud</th><th>Time Savings</th></tr>
+      <tr><td>Supplier search</td><td>Claude, ChatGPT, Kimi</td><td>Web search needed</td><td>2 hours → 10 min</td></tr>
+      <tr><td>Price benchmarking</td><td>Claude, ChatGPT</td><td>Current market data</td><td>1 hour → 5 min</td></tr>
+      <tr><td>TS draft (anonymized)</td><td>ChatGPT, Kimi, Qwen API</td><td>Generation from scratch</td><td>3 hours → 15 min</td></tr>
+      <tr><td>Tender documentation</td><td>ChatGPT, Kimi</td><td>Templates without data</td><td>4 hours → 20 min</td></tr>
+      <tr><td>Auto-responses</td><td>Any cloud model</td><td>Template generation</td><td>15 min → 1 min</td></tr>
+      <tr><td>Translations</td><td>Claude, GPT-4, Kimi</td><td>Technical texts</td><td>2 hours → 10 min</td></tr>
+      <tr><td>Customs regulations</td><td>Claude with web search</td><td>Current codes and rates</td><td>1 hour → 5 min</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Why is it better to search for new suppliers in the cloud rather than on-prem?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because on-prem has no internet access for searching</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because on-prem works slower</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because the cloud is free</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Which model should NOT be used for price benchmarking?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Claude with web search</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">On-prem LLM without internet</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT with browsing</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Which query is safe for the cloud?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">"Compare prices of my 3 suppliers: A, B, C" (with specific amounts)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">"What are the market prices for rebar A500C in 2025?"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">"Check the contract with supplier X against the template"</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> Which task can be done in the cloud if the TS contains specific volumes?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Send the full TS with volumes to ChatGPT</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Create a draft TS structure without numbers, then add volumes in on-prem</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">You cannot use AI for TS at all</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 5:</strong> Which model is best for translating technical specifications?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Claude or GPT-4 — they handle technical terms better</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Any free model — translation is a simple task</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Only on-prem model, because specifications may contain prices</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-1-on-prem/index.html" class="nav-btn">← 7.1 Internal Tasks</a>
+    <a href="../07-3-hybrid/index.html" class="nav-btn primary">7.3 Hybrid Tasks →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

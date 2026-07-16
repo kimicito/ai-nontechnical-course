@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.1 Tâches internes : On-Prem — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">IA pour non-spécialistes IT</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 7 — Achats</div>
+    <h1>7.1 Tâches internes : On-Prem</h1>
+    <div class="meta">15 min · pour les spécialistes des achats · boucle fermée</div>
+  </div>
+
+  <div class="section">
+    <p>Cette leçon couvre les tâches qu'un spécialiste des achats effectue à l'intérieur de l'entreprise, avec des données qui ne peuvent pas être envoyées sur Internet. Les prix, les conditions, la position de négociation — tout cela constitue un secret commercial.</p>
+    <p><strong>Solution :</strong> un LLM on-prem (par exemple, Qwen) dans le périmètre fermé de l'entreprise. Les données ne quittent jamais le périmètre.</p>
+  </div>
+
+  <div class="section">
+    <h2>Pourquoi On-Prem pour les Achats</h2>
+    <div class="card card-danger">
+      <strong>Ce qui ne peut pas être envoyé sur le cloud :</strong>
+      <ul>
+        <li>Les prix spécifiques des fournisseurs issus des devis</li>
+        <li>Les conditions contractuelles et les pénalités</li>
+        <li>La position de négociation (BATNA, levier)</li>
+        <li>Les volumes d'achat par article</li>
+        <li>Les données historiques des fournisseurs</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Ce qui peut être fait en on-prem :</strong>
+      <ul>
+        <li>Comparer 5 devis selon le prix, le délai de livraison et les conditions — en 2 minutes</li>
+        <li>Vérifier si une proposition correspond au cahier des charges technique</li>
+        <li>Préparer des arguments pour les négociations</li>
+        <li>Trouver des écarts dans un contrat par rapport au modèle</li>
+        <li>Analyser les tendances d'achat sur 2 ans</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Analyse comparative des devis</h2>
+    <p>Un spécialiste des achats reçoit 3 à 5 devis commerciaux. Avant : compiler manuellement dans Excel, comparer le prix, le délai de livraison, les conditions de paiement, les garanties. Maintenant : télécharger sur le LLM on-prem et poser une question.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>J'ai 3 devis commerciaux pour la fourniture de pompes.
+Les fichiers Q1, Q2, Q3 sont joints.
+
+Créez un tableau comparatif :
+- Prix unitaire
+- Délai de livraison
+- Conditions de paiement
+- Durée de garantie
+- Coût d'expédition
+
+Mettez en évidence la meilleure offre pour chaque critère et le gagnant global.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Résultat :</strong> tableau comparatif + mise en évidence visuelle des meilleures options. Le spécialiste des achats économise 20 à 30 minutes de travail de routine.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Vérification Proposition vs. Cahier des Charges Technique</h2>
+    <p>Souvent, un fournisseur répond à un cahier des charges technique, mais avec des réserves ou des écarts. Un LLM peut trouver ces écarts plus rapidement qu'un humain.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Comparez le cahier des charges technique (fichier TS.docx) et la réponse du fournisseur (fichier Response.docx).
+
+Trouvez :
+1. Les écarts complets par rapport au CDT (ce qui ne correspond pas)
+2. Les écarts partiels (ce qui correspond avec réserves)
+3. Les éléments manquants (ce que le fournisseur n'a pas traité)
+
+Faites une liste avec référence aux clauses spécifiques du CDT.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Préparation aux Négociations</h2>
+    <p>C'est la tâche la plus sensible. Le BATNA (meilleure alternative à un accord négocié), le levier, les faiblesses du fournisseur — rien de tout cela ne peut être exposé sur le cloud. L'on-prem résout le problème.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Je prépare des négociations avec le fournisseur X pour l'approvisionnement en équipements.
+
+Voici mes données :
+- Il y a 2 fournisseurs alternatifs avec des prix inférieurs de 15 %
+- Le fournisseur actuel a retardé la livraison de 2 semaines le trimestre dernier
+- J'ai besoin d'une livraison dans 3 semaines, mais leur standard est de 6 semaines
+- Le volume de commande est de 50 unités, ce qui est une commande importante pour leur catégorie
+
+Préparez :
+1. Mes arguments pour une réduction de prix
+2. Les points de levier (polis mais convaincants)
+3. Le BATNA — quoi faire si nous ne nous mettons pas d'accord
+4. Scénario de négociation (étape par étape)</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Examen des Contrats</h2>
+    <p>Un avocat examine un contrat pendant une semaine. Un LLM trouve les écarts par rapport au modèle en quelques minutes — l'avocat valide ensuite les résultats.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Comparez le contrat du fournisseur (fichier Contract.docx) et notre modèle standard (fichier Template.docx).
+
+Trouvez les écarts concernant :
+- Responsabilité des parties
+- Pénalités
+- Conditions de livraison
+- Conditions de paiement
+- Procédure de résolution des litiges
+
+Pour chaque écart, indiquez : où dans le modèle, où dans le contrat, le risque pour nous.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Normalisation des SKU / Nomenclature</h2>
+    <p>Dans une entreprise, 5 départements appellent le même produit différemment : « pompe Grundfos 32-160 », « pompe Gründfos 32-160 », « GRUNDFOS 32-160 ». Un LLM les ramène à une forme unifiée.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Voici une liste de nomenclature de 3 départements (fichier Nomenclature.xlsx).
+
+Rendez-la sous une forme unifiée :
+- Standardisez les noms de marque (latin)
+- Standardisez les unités de mesure
+- Supprimez les doublons
+- Créez un tableau de correspondance : ancien nom → nouveau nom
+
+Enregistrez le résultat dans Excel.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Analyse de l'Historique des Achats</h2>
+    <p>Un spécialiste des achats veut comprendre : les prix augmentent-ils avec un fournisseur régulier ? Y a-t-il une saisonnalité ? Quels articles deviennent plus chers le plus rapidement ?</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>J'ai 2 ans d'historique des achats (fichier History.xlsx).
+
+Analysez :
+1. La dynamique des prix pour les 10 principaux fournisseurs (tendance à la hausse/baisse)
+2. La saisonnalité (quels mois sont plus chers)
+3. Les 5 articles avec la plus forte augmentation de prix
+4. Le temps moyen entre la commande et la livraison par fournisseur
+5. Recommandations : où il y a un risque d'augmentation des prix, quoi surveiller</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. Évaluation du Risque Fournisseur</h2>
+    <p>Une combinaison de données internes sur le fournisseur + modèle d'évaluation des risques. Le LLM calcule un score et explique pourquoi.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Évaluez le risque du fournisseur « PromTekhSnab » sur la base des données suivantes :
+
+- Collaboration depuis 3 ans
+- 2 retards de livraison au cours de la dernière année (5 et 12 jours)
+- 1 réclamation qualité (défaut de 3 %, réparé à leurs frais)
+- Le prix est inférieur de 8 % au marché
+- Données financières : chiffre d'affaires en croissance, pas de contentieux
+- Contrat jusqu'à la fin de l'année, puis nouvel appel d'offres
+
+Sur une échelle de 1 à 10 :
+1. Profil de risque global
+2. Risque opérationnel (non-respect des délais)
+3. Risque financier
+4. Risque qualité
+
+Donnez une recommandation : renouveler, lancer un nouvel appel d'offres, ou trouver une solution de secours.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. Traitement des Documents de Transport</h2>
+    <p>Les bons de livraison, les factures, les CMR — un LLM extrait les données et les vérifie par rapport à la commande. Tout à l'intérieur du périmètre.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Fichier Waybill.pdf — analysez le contenu :
+
+- Numéro de bon de livraison, date
+- Expéditeur et destinataire
+- Liste des marchandises avec quantité et poids
+- Valeur des marchandises
+- Date d'expédition et date de livraison (réelle vs. prévue)
+
+Vérifiez par rapport à la commande (fichier Order.xlsx) et identifiez :
+- Les pénuries
+- Les articles incorrects
+- Les écarts dans les délais de livraison
+</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>9. Rapports de Direction</h2>
+    <p>Un spécialiste des achats passe la soirée sur PowerPoint. Un LLM rédige un rapport en 10 minutes — il ne reste qu'à vérifier les chiffres.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Sur la base des données du fichier Purchases_Q3.xlsx, préparez un rapport préliminaire pour le conseil d'administration :
+
+1. Volume total des achats (montant, croissance par rapport au T2)
+2. Top 5 des catégories par montant
+3. Statut des projets clés (à l'heure / à risque / en retard)
+4. Recommandations pour 2 à 3 domaines problématiques
+5. Plan du T4 (bref)
+
+Format : texte structuré, prêt à être collé dans une présentation.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif : Tâches internes</h2>
+    <table>
+      <tr><th>Tâche</th><th>Format d'entrée</th><th>Format de sortie</th><th>Temps économisé</th></tr>
+      <tr><td>Comparaison des devis</td><td>3 à 5 fichiers de devis</td><td>Tableau comparatif + gagnant</td><td>30 min → 2 min</td></tr>
+      <tr><td>Vérification CDT</td><td>CDT + réponse du fournisseur</td><td>Liste des écarts</td><td>45 min → 5 min</td></tr>
+      <tr><td>Négociations</td><td>Données pour le BATNA</td><td>Scénario + arguments</td><td>2 h → 15 min</td></tr>
+      <tr><td>Examen des contrats</td><td>Contrat + modèle</td><td>Liste des écarts + risques</td><td>4 h → 10 min</td></tr>
+      <tr><td>Normalisation des SKU</td><td>Excel avec nomenclature</td><td>Tableau unifié</td><td>3 h → 10 min</td></tr>
+      <tr><td>Analyse historique</td><td>Excel avec achats</td><td>Tendances + recommandations</td><td>1 jour → 10 min</td></tr>
+      <tr><td>Évaluation des risques</td><td>Données fournisseur</td><td>Évaluation du risque 1–10 + recommandation</td><td>2 h → 5 min</td></tr>
+      <tr><td>Documents de transport</td><td>Bon de livraison, facture (PDF)</td><td>Vérification par rapport à la commande</td><td>30 min → 3 min</td></tr>
+      <tr><td>Rapport de direction</td><td>Données d'achat</td><td>Brouillon de rapport</td><td>3 h → 10 min</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong> Pourquoi la comparaison des devis ne peut-elle pas être envoyée au ChatGPT dans le cloud ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que ChatGPT fonctionne lentement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Parce que les prix des fournisseurs sont un secret commercial</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que ChatGPT ne peut pas lire Excel</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong> Quel outil faut-il utiliser pour préparer des négociations avec un BATNA ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Google Docs</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">LLM on-prem en boucle fermée</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT avec suppression des données après</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong> Combien de temps un LLM économise-t-il pour comparer 5 devis ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Ça n'économise pas, le manuel est plus rapide</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">30 minutes → 2 minutes</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">5 minutes → 4 minutes</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4 :</strong> Qu'est-ce que l'évaluation du risque fournisseur ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Évaluation du risque sur une échelle de 1 à 10 basée sur des données internes</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Vérification de l'historique de crédit auprès d'une banque</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Recherche en ligne des avis sur le fournisseur</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 5 :</strong> Lequel de ces documents doit définitivement rester en on-prem ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Brouillon de CDT sans prix</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Contrat avec des pénalités et des conditions spécifiques</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Traduction d'une instruction de l'anglais</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../06-hallucinations/index.html" class="nav-btn">← 6.3 Hallucinations</a>
+    <a href="../07-2-cloud/index.html" class="nav-btn primary">7.2 Tâches externes →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>IA pour non-spécialistes IT · Entreprise industrielle</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct !';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Réfléchissez encore.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

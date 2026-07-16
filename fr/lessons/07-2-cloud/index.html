@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.2 Tâches externes : Cloud — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">IA pour non-spécialistes IT</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 7 — Achats</div>
+    <h1>7.2 Tâches externes : Cloud</h1>
+    <div class="meta">15 min · pour les spécialistes des achats · données ouvertes</div>
+  </div>
+
+  <div class="section">
+    <p>Dans cette leçon — des tâches où le spécialiste des achats travaille avec des informations publiques : recherche de fournisseurs, benchmarking des prix, préparation de documents anonymisés. Ces données ne contiennent pas de secrets commerciaux — elles peuvent être envoyées aux modèles cloud.</p>
+    <p><strong>Solution :</strong> APIs cloud : Claude, ChatGPT, Kimi, API Qwen. La recherche web est nécessaire — le modèle doit donc être connecté à Internet.</p>
+  </div>
+
+  <div class="section">
+    <h2>Quand le Cloud l'emporte sur l'On-Prem</h2>
+    <div class="card card-success">
+      <strong>Les modèles cloud gagnent quand vous avez besoin de :</strong>
+      <ul>
+        <li><strong>Recherche web :</strong> trouver de nouveaux fournisseurs, vérifier les prix du marché</li>
+        <li><strong>Traduction :</strong> travailler avec des documents étrangers</li>
+        <li><strong>Génération :</strong> créer des textes de modèle à partir de zéro</li>
+        <li><strong>Analyse de données publiques :</strong> indices de matières premières, taux de change, codes douaniers</li>
+      </ul>
+    </div>
+    <div class="card card-warning">
+      <strong>Important :</strong> avant d'envoyer vers le cloud — vérifiez que la demande ne contient pas de prix spécifiques, de noms de fournisseurs ou de volumes. Si c'est le cas — anonymisez-la ou envoyez-la vers l'on-prem.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Recherche d'analogues et de fournisseurs alternatifs</h2>
+    <p>Le spécialiste des achats connaît 2 à 3 fournisseurs pour une position. Il faut en trouver davantage — pour la concurrence ou en secours. L'on-prem n'a pas accès à Internet, le cloud — oui.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt (Claude avec recherche web)</div>
+      <pre>Trouver des fabricants de pompes centrifuges industrielles 
+ série 32-160 en Russie et dans les pays voisins (Kazakhstan, Biélorussie).
+
+ Préciser :
+ - Nom de l'entreprise et site web
+ - Où se trouve la production (ville)
+ - S'il existe des certificats (GOST, ISO)
+ - Fourchette de prix approximative (si publiquement disponible)
+ - Contacts de l'approvisionnement (service commercial)
+
+ Faire un tableau comparatif.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Résultat :</strong> un tableau de fournisseurs potentiels avec leurs contacts. Le spécialiste des achats passe 10 minutes au lieu de 2 heures de recherche manuelle.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Benchmarking des prix du marché et des indices de matières premières</h2>
+    <p>Le spécialiste des achats négocie un prix mais ne sait pas où se trouve le marché actuellement. Le LLM avec recherche web trouve les indices actuels.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Quels sont les prix actuels du marché (2024-2025) pour :
+ 1. Armature en acier A500C (gros, par tonne)
+ 2. Ciment Portland M500 (gros, par tonne)
+ 3. Cathodes de cuivre (LME + prime)
+
+ Préciser également :
+ - La dynamique au cours des 6 derniers mois (augmentation/diminution en %)
+ - Les prévisions pour le trimestre prochain (si disponibles)
+ - Les principaux facteurs affectant le prix</pre>
+    </div>
+
+    <div class="card card-warning">
+      <strong>Important :</strong> la demande ne contient pas de prix spécifiques de vos fournisseurs — seulement des benchmarks du marché. C'est sans danger pour le cloud.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Préparation d'un cahier des charges anonymisé (brouillon)</h2>
+    <p>Le cahier des charges avec des chiffres spécifiques — va vers l'on-prem. Mais une structure brouillon du CdC, des exigences générales, des paramètres typiques — peut être faite dans le cloud, puis finalisée en interne.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Préparer une structure pour un cahier des charges pour l'approvisionnement 
+ en équipement de pompes industrielles pour la production chimique.
+
+ Sans chiffres spécifiques (volumes, prix, délais). 
+ Seulement les paramètres et exigences typiques.
+
+ Structure :
+ 1. Exigences générales
+ 2. Paramètres techniques (puissance, capacité, matériaux)
+ 3. Exigences de qualité et de certification
+ 4. Conditions de livraison (standard)
+ 5. Exigences de documentation
+ 6. Critères d'acceptation
+
+ Préciser quels éléments devront être complétés par des données spécifiques à l'intérieur de l'entreprise.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Documentation d'appel d'offres (sections générales)</h2>
+    <p>Instructions pour les participants, critères d'évaluation, formulaire de candidature — tout cela est basé sur des modèles et ne contient pas de données sur une transaction spécifique.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Créer un modèle de documentation d'appel d'offres pour l'approvisionnement 
+ en équipement industriel par méthode de concours ouvert.
+
+ Inclure :
+ 1. Instructions pour les participants (règles de soumission, délais)
+ 2. Formulaire de candidature (champs généraux)
+ 3. Critères d'évaluation (prix, délais, expérience) — sans coefficients de pondération
+ 4. Formulaire de contrat (conditions standard)
+ 5. Liste des documents pour la candidature
+
+ Préciser quelles sections doivent être coordonnées avec l'avocat et le demandeur.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Réponses automatiques aux clients et aux plateformes</h2>
+    <p>Le statut de l'expédition, les délais de livraison, les demandes de devis — souvent basés sur des modèles. Le LLM génère une réponse basée sur le statut ERP, mais sans chiffres spécifiques.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Rédiger un modèle d'e-mail de réponse à une demande de statut d'expédition.
+
+ Conditions :
+ - La commande est en transit
+ - Le fournisseur a signalé un retard
+ - Il faut s'excuser, expliquer la raison, indiquer le nouveau délai
+ - Proposer une compensation (standard)
+
+ Sans dates spécifiques, montants ou noms de fournisseurs. 
+ Destinataire : client interne au sein de l'entreprise.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Traduction et localisation de documents</h2>
+    <p>Les fournisseurs étrangers envoient des instructions, des spécifications et des contrats en anglais, chinois et allemand. La traduction cloud est plus rapide et plus précise que les traducteurs standard pour les textes techniques.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Traduire de l'anglais vers le russe une spécification technique 
+ pour une pompe industrielle (fichier Spec.pdf).
+
+ Exigences :
+ - Préserver la structure et la numérotation des sections
+ - Termes techniques — selon GOST/ISO
+ - Unités de mesure — en SI (m³/h, bar, kW)
+ - Préserver les tableaux au format markdown
+ - Marquer les parties peu claires pour clarification avec le fournisseur</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. Vérification des exigences douanières (réglementations générales)</h2>
+    <p>Code SH, exigences de certification, droits — ce sont des informations publiques. Le LLM trouve les exigences actuelles pour une catégorie de produits.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Quelles sont les exigences douanières et les certificats nécessaires 
+ pour l'importation de pompes centrifuges industrielles en Fédération de Russie (code SH 8413 70) ?
+
+ Préciser :
+ - Certification obligatoire (GOST-R, TR CU)
+ - Si le SBKTS est nécessaire
+ - Droit de douane (taux)
+ - TVA à l'importation
+ - Exigences pour les documents du fournisseur (facture, liste de colisage)
+ - Spécificités pour certains pays (Chine, Allemagne, Italie)
+
+ Sans cargaison spécifique ni montants — seulement des réglementations générales.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif : Tâches externes</h2>
+    <table>
+      <tr><th>Tâche</th><th>Modèle</th><th>Pourquoi le Cloud</th><th>Gain de temps</th></tr>
+      <tr><td>Recherche de fournisseurs</td><td>Claude, ChatGPT, Kimi</td><td>Recherche web nécessaire</td><td>2 heures → 10 min</td></tr>
+      <tr><td>Benchmarking des prix</td><td>Claude, ChatGPT</td><td>Données de marché actuelles</td><td>1 heure → 5 min</td></tr>
+      <tr><td>Brouillon de CdC (anonymisé)</td><td>ChatGPT, Kimi, API Qwen</td><td>Génération à partir de zéro</td><td>3 heures → 15 min</td></tr>
+      <tr><td>Documentation d'appel d'offres</td><td>ChatGPT, Kimi</td><td>Modèles sans données</td><td>4 heures → 20 min</td></tr>
+      <tr><td>Réponses automatiques</td><td>Tout modèle cloud</td><td>Génération de modèles</td><td>15 min → 1 min</td></tr>
+      <tr><td>Traductions</td><td>Claude, GPT-4, Kimi</td><td>Textes techniques</td><td>2 heures → 10 min</td></tr>
+      <tr><td>Réglementations douanières</td><td>Claude avec recherche web</td><td>Codes et taux actuels</td><td>1 heure → 5 min</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong> Pourquoi vaut-il mieux rechercher de nouveaux fournisseurs dans le cloud plutôt que sur l'on-prem ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Parce que l'on-prem n'a pas accès à Internet pour la recherche</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que l'on-prem fonctionne plus lentement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que le cloud est gratuit</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong> Quel modèle ne devrait PAS être utilisé pour le benchmarking des prix ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Claude avec recherche web</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">LLM on-prem sans Internet</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT avec navigation</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong> Quelle requête est sûre pour le cloud ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">« Comparez les prix de mes 3 fournisseurs : A, B, C » (avec montants spécifiques)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">« Quels sont les prix du marché pour l'armature A500C en 2025 ? »</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">« Vérifiez le contrat avec le fournisseur X par rapport au modèle »</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4 :</strong> Quelle tâche peut être réalisée dans le cloud si le CdC contient des volumes spécifiques ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Envoyer le CdC complet avec volumes à ChatGPT</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Créer une structure brouillon de CdC sans chiffres, puis ajouter les volumes en on-prem</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">On ne peut pas utiliser l'IA pour le CdC du tout</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 5 :</strong> Quel modèle est le meilleur pour traduire des spécifications techniques ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Claude ou GPT-4 — ils gèrent mieux les termes techniques</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">N'importe quel modèle gratuit — la traduction est une tâche simple</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Seulement le modèle on-prem, car les spécifications peuvent contenir des prix</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-1-on-prem/index.html" class="nav-btn">← 7.1 Tâches internes</a>
+    <a href="../07-3-hybrid/index.html" class="nav-btn primary">7.3 Tâches hybrides →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>IA pour non-spécialistes IT · Entreprise industrielle</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct !';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Réfléchissez encore.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

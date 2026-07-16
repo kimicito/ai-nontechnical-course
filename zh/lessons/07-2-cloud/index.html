@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.2 外部任务：云端 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">非IT人员的AI</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">第7级 — 采购</div>
+    <h1>7.2 外部任务：云端</h1>
+    <div class="meta">15分钟 · 面向采购专员 · 公开数据</div>
+  </div>
+
+  <div class="section">
+    <p>本节课介绍采购专员处理公开信息的任务：搜索供应商、价格对标、准备匿名化文档。这些数据不包含商业机密——可以发送到云端模型。</p>
+    <p><strong>解决方案：</strong>云端API：Claude、ChatGPT、Kimi、通义千问API。需要网络搜索——因此模型必须联网。</p>
+  </div>
+
+  <div class="section">
+    <h2>云端优于本地的场景</h2>
+    <div class="card card-success">
+      <strong>云端模型在以下场景具有优势：</strong>
+      <ul>
+        <li><strong>网络搜索：</strong>寻找新的供应商、查看市场价格</li>
+        <li><strong>翻译：</strong>处理外文文件</li>
+        <li><strong>生成：</strong>从零开始创建模板文本</li>
+        <li><strong>公开数据分析：</strong>原材料指数、汇率、海关编码</li>
+      </ul>
+    </div>
+    <div class="card card-warning">
+      <strong>重要提示：</strong>发送到云端之前——请检查请求中是否包含具体价格、供应商名称或数量。如果包含——请将其匿名化或发送到本地模型。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. 寻找类似产品和替代供应商</h2>
+    <p>采购专员了解某个品类有2-3家供应商。需要寻找更多——用于竞争或备选。本地模型没有网络访问权限，而云端模型有。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例（Claude联网搜索）</div>
+      <pre>查找俄罗斯及邻国（哈萨克斯坦、白俄罗斯）
+生产工业离心泵系列32-160的制造商。
+
+请提供：
+- 公司名称和网站
+- 生产地点（城市）
+- 是否拥有认证（GOST、ISO）
+- 大概价格范围（如公开可得）
+- 采购联系人（销售部门）
+
+制作对比表格。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>结果：</strong>潜在供应商及其联系方式的表格。采购专员花费10分钟，而不是2小时的手动搜索。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. 市场价格对标与原材料指数</h2>
+    <p>采购专员正在谈判价格，但不清楚当前市场行情。具有网络搜索功能的LLM可以找到最新指数。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>目前（2024-2025年）的市场价格是多少：
+1. 螺纹钢A500C（批发，每吨）
+2. 波特兰水泥M500（批发，每吨）
+3. 铜阴极（LME+溢价）
+
+还请说明：
+- 近6个月动态（涨跌百分比）
+- 下季度预测（如可得）
+- 影响价格的主要因素</pre>
+    </div>
+
+    <div class="card card-warning">
+      <strong>重要提示：</strong>请求中不包含您供应商的具体价格——仅涉及市场基准。这对云端是安全的。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. 准备匿名化技术规格书（草案）</h2>
+    <p>包含具体数字的技术规格书——发送到本地模型。但技术规格书的结构草案、通用要求、典型参数——可以在云端完成，然后在内部定稿。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>为化工生产用工业泵设备采购
+准备技术规格书的结构。
+
+不包含具体数字（数量、价格、期限）。
+仅包含典型参数和要求。
+
+结构：
+1. 一般要求
+2. 技术参数（功率、容量、材料）
+3. 质量和认证要求
+4. 交付条件（标准）
+5. 文件要求
+6. 验收标准
+
+请指出哪些项目需要在公司内部补充具体数据。</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. 招标文件（通用章节）</h2>
+    <p>参与者须知、评审标准、申请表——这些都是模板化的，不包含特定交易的数据。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>创建工业设备采购
+公开招标方式的招标文件模板。
+
+包括：
+1. 参与者须知（提交规则、截止日期）
+2. 申请表（通用字段）
+3. 评审标准（价格、期限、经验）——不含权重系数
+4. 合同模板（标准条件）
+5. 申请文件清单
+
+请指出哪些章节需要与法务和客户协商。</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. 自动回复客户和平台</h2>
+    <p>发货状态、交货期限、询价请求——通常都是模板化的。LLM根据ERP状态生成回复，但不含具体数字。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>撰写发货状态查询的邮件回复模板。
+
+条件：
+- 订单在运输中
+- 供应商报告了延误
+- 需要道歉、解释原因、说明新期限
+- 提供补偿（标准）
+
+不包含具体日期、金额或供应商名称。
+收件人：公司内部客户。</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. 文件翻译和本地化</h2>
+    <p>国外供应商发送英文、中文和德文的说明书、规格书和合同。对于技术文本，云端翻译比标准翻译工具更快、更准确。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>将工业泵技术规格书
+从英文翻译成中文（文件Spec.pdf）。
+
+要求：
+- 保持结构和章节编号
+- 技术术语——按GOST/ISO标准
+- 计量单位——使用SI制（m³/h、bar、kW）
+- 以markdown格式保留表格
+- 标记不清楚的部分以便与供应商确认</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. 检查海关要求（通用法规）</h2>
+    <p>HS编码、认证要求、关税——这些都是公开信息。LLM可以找到产品类别的当前要求。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>工业离心泵进口到俄罗斯联邦（HS编码8413 70）
+需要哪些海关要求和证书？
+
+请说明：
+- 强制认证（GOST-R、TR CU）
+- 是否需要SBKTS
+- 海关关税（税率）
+- 进口增值税
+- 供应商文件要求（发票、装箱单）
+- 某些国家的特殊性（中国、德国、意大利）
+
+不包含具体货物和金额——仅涉及通用法规。</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>汇总表：外部任务</h2>
+    <table>
+      <tr><th>任务</th><th>模型</th><th>为何使用云端</th><th>节省时间</th></tr>
+      <tr><td>供应商搜索</td><td>Claude、ChatGPT、Kimi</td><td>需要网络搜索</td><td>2小时 → 10分钟</td></tr>
+      <tr><td>价格对标</td><td>Claude、ChatGPT</td><td>当前市场数据</td><td>1小时 → 5分钟</td></tr>
+      <tr><td>技术规格书草案（匿名化）</td><td>ChatGPT、Kimi、通义千问API</td><td>从零开始生成</td><td>3小时 → 15分钟</td></tr>
+      <tr><td>招标文件</td><td>ChatGPT、Kimi</td><td>无数据的模板</td><td>4小时 → 20分钟</td></tr>
+      <tr><td>自动回复</td><td>任何云端模型</td><td>模板生成</td><td>15分钟 → 1分钟</td></tr>
+      <tr><td>翻译</td><td>Claude、GPT-4、Kimi</td><td>技术文本</td><td>2小时 → 10分钟</td></tr>
+      <tr><td>海关法规</td><td>Claude联网搜索</td><td>当前编码和税率</td><td>1小时 → 5分钟</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识检测</h2>
+    <div class="card card-accent">
+      <p><strong>问题1：</strong>为什么搜索新供应商时云端比本地更好？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">因为本地模型没有网络搜索功能</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为本地模型运行更慢</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为云端是免费的</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题2：</strong>价格对标不应该使用哪个模型？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Claude联网搜索</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">无网络连接的本地LLM</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT浏览版</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题3：</strong>哪个查询对云端是安全的？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">"比较我的3家供应商A、B、C的价格"（含具体金额）</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">"2025年螺纹钢A500C的市场价格是多少？"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">"根据模板检查与供应商X的合同"</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题4：</strong>如果技术规格书包含具体数量，哪个任务可以在云端完成？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">将含数量的完整技术规格书发送到ChatGPT</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">创建无数字的技术规格书结构草案，然后在本地添加数量</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">根本不能使用AI处理技术规格书</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题5：</strong>翻译技术规格书最适合使用哪个模型？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Claude或GPT-4——它们更擅长处理技术术语</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">任何免费模型——翻译是简单任务</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">只能使用本地模型，因为规格书可能包含价格</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-1-on-prem/index.html" class="nav-btn">← 7.1 内部任务</a>
+    <a href="../07-3-hybrid/index.html" class="nav-btn primary">7.3 混合任务 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>非IT人员的AI · 制造企业</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ 正确！';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ 错误。再想一想。';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

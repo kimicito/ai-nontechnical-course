@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.3 Hybrid Tasks: Data Anonymization — AI for Non-IT Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 7 — Procurement</div>
+    <h1>7.3 Hybrid Tasks: Data Anonymization</h1>
+    <div class="meta">15 min · for procurement specialists · boundary of contours</div>
+  </div>
+
+  <div class="section">
+    <p>Some tasks are on the boundary: they can be done in the cloud, but only if the data is anonymized. Replace the supplier name with "Supplier A," remove specific prices — and the task becomes safe for an external model.</p>
+    <p>In this lesson: how to anonymize data, which tasks are allowed in hybrid mode, and how to prepare a request for developers for automation.</p>
+  </div>
+
+  <div class="section">
+    <h2>Rule: Anonymize Before Cloud</h2>
+    <div class="card card-danger">
+      <strong>What MUST NOT be sent to the cloud (even partially):</strong>
+      <ul>
+        <li>Specific prices from quotations</li>
+        <li>Supplier names (unless they are giants like Siemens)</li>
+        <li>Purchase volumes for specific items</li>
+        <li>Contract terms (penalties, discounts, payment deferrals)</li>
+        <li>Negotiation position, BATNA, supplier weaknesses</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>What CAN be sent after anonymization:</strong>
+      <ul>
+        <li>Comparison of quotation structure (without prices) — "Supplier A vs Supplier B"</li>
+        <li>Analysis of completeness of response to TOR (without names)</li>
+        <li>Role-play negotiation rehearsal (anonymous scenario)</li>
+        <li>Preparation of general arguments (without specific figures)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Anonymization Checklist (5 Steps)</h2>
+    <div class="card">
+      <ol>
+        <li><strong>Replace names:</strong> "LLC PromTechSnab" → "Supplier A"</li>
+        <li><strong>Replace prices with relative ones:</strong> "1,200,000 ₽" → "base price +20%" or "Price X"</li>
+        <li><strong>Remove volumes:</strong> "50 units" → "medium-sized batch"</li>
+        <li><strong>Remove contract dates:</strong> "until 31.12.2025" → "contract until end of year"</li>
+        <li><strong>Check:</strong> if you send the anonymized text to a colleague — will they understand what it's about, but not know the supplier? If yes — it can go to the cloud.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Role-Play Negotiation Rehearsal</h2>
+    <p>A procurement specialist is preparing for complex negotiations. They need to rehearse a scenario. Data can be anonymized and a cloud model can be used as the "opponent."</p>
+    
+    <div class="example">
+      <div class="example-label">Example prompt (anonymized)</div>
+      <pre>Conduct a role-play negotiation rehearsal with me.
+
+Scenario (anonymized):
+- I am a procurement specialist at an industrial company
+- I need to reduce the price for equipment supply
+- I have 2 alternative suppliers with prices 15% lower
+- The current supplier (Supplier A) delayed delivery last time
+- I need a 3-week lead time, their standard is 6 weeks
+- I am willing to discuss volume, but not disclose specific figures
+
+You play the role of Supplier A. Your goal is to maintain price and lead times.
+My goal is to reduce price and accelerate lead time.
+
+Start negotiations. Respond like a real supplier — 
+with objections, counterarguments, attempts to deflect.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Result:</strong> 15–20 minutes of rehearsal with a "live" opponent. The procurement specialist practices arguments, learns to deflect objections, and prepares for the real conversation.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Comparison of Quotation Structure (Without Prices)</h2>
+    <p>You need to understand which supplier responded more completely to the TOR, not who is cheaper. Prices are removed, only structure and completeness are compared.</p>
+    
+    <div class="example">
+      <div class="example-label">Example prompt (anonymized)</div>
+      <pre>Compare 3 commercial quotations by structure and completeness of response.
+
+Data anonymized:
+- Supplier A, Supplier B, Supplier C
+- Prices removed, only relative: "below market", "market", "above market"
+
+Compare by criteria:
+1. Completeness of response to TOR (are all points covered)
+2. Presence of technical descriptions (yes/no, quality)
+3. Presence of certificates (list)
+4. Warranty terms (duration, scope)
+5. Additional services (installation, training, service)
+
+Do not name specific prices. Give a recommendation on completeness.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Preparation of General Arguments</h2>
+    <p>A procurement specialist needs a list of arguments for negotiations in general terms — not tied to a specific deal. A cloud model generates the base, then on-prem adds specifics.</p>
+    
+    <div class="example">
+      <div class="example-label">Example prompt (anonymized)</div>
+      <pre>I am preparing for negotiations on the procurement of industrial equipment.
+
+Context (anonymized):
+- Market: 3–4 large suppliers, high competition
+- My position: large customer, regular purchases
+- Problem: supplier wants to increase price and lead times
+
+Prepare general arguments for negotiations:
+1. Arguments for price reduction (market, volumes, competition)
+2. Arguments for accelerating lead times (planning, reserves, penalties)
+3. Counterarguments to typical supplier objections
+4. Polite formulations for a firm position
+
+Without specific prices, names, or volumes. 
+Only templates that I will then adapt.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Request to Developers for Anonymization Automation</h2>
+    <p>If procurement specialists often anonymize documents manually — this can be automated. Here is a request template for the IT team.</p>
+    
+    <div class="card card-accent">
+      <div class="example-label">Request template for developers</div>
+      <pre>Task: create a script/application for anonymizing 
+procurement documents before sending to cloud LLMs.
+
+Input: file (PDF, Word, Excel) with a commercial quotation.
+Output: the same file with replaced data.
+
+Replacement rules:
+1. Company names → "Supplier A", "Supplier B", etc.
+2. Amounts → relative ("base price", "+15%", "-20%")
+3. Volumes → "small/medium/large batch"
+4. Dates → relative ("in current quarter", "until end of year")
+5. Contact details → remove completely
+6. Contract numbers → "Contract N"
+
+Additional: check — that the output file 
+contains no original data (search by keywords).
+
+Integration: drag-and-drop file → receive anonymized version 
+in 5 seconds. Save anonymization history.
+
+Priority: high (used daily by 5–10 procurement specialists).</pre>
+    </div>
+    
+    <div class="card card-warning">
+      <strong>💡 Tip:</strong> even if IT cannot build a full-fledged application, you can start with a simple Python script. It will replace 80% of manual work. Then refine it.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: Hybrid Tasks</h2>
+    <table>
+      <tr><th>Task</th><th>What to Anonymize</th><th>Where to Execute</th><th>Time Saved</th></tr>
+      <tr><td>Role-play rehearsal</td><td>Names, prices, volumes</td><td>Cloud (ChatGPT, Claude)</td><td>2 hours → 20 min</td></tr>
+      <tr><td>Comparison of quotation structure</td><td>Prices, names, volumes</td><td>Cloud</td><td>1 hour → 10 min</td></tr>
+      <tr><td>General arguments</td><td>All specific data</td><td>Cloud → refinement on-prem</td><td>3 hours → 20 min</td></tr>
+      <tr><td>Document anonymization</td><td>Auto-replacement by rules</td><td>Script (on-prem) → cloud</td><td>30 min → 5 sec</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Which of the following MUST NOT be sent to the cloud even after anonymization?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Supplier name → "Supplier A"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Specific penalty clauses from an active contract</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">"Price 10% above market"</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> What is the first step of the anonymization checklist?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Remove all dates</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Replace company names with "Supplier A", "Supplier B"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Remove all numbers from the document</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> How do you check if a document is sufficiently anonymized?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Send to the cloud and see if the system blocks it</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Show it to a colleague — they understand the gist, but don't know the supplier?</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Delete all numbers and names — that's enough</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> Which of the following is a hybrid task (anonymization + cloud)?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Checking a contract for deviations from a template</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Role-play negotiation rehearsal with an anonymous scenario</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Searching for new suppliers on the internet</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 5:</strong> What should you do if procurement specialists constantly anonymize documents manually?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Prepare a request to developers for script automation</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Continue manually — it's more reliable</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Send originals to the cloud — it's faster</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-2-cloud/index.html" class="nav-btn">← 7.2 External Tasks</a>
+    <a href="../08-scheduling/index.html" class="nav-btn primary">8.1 Estimates →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

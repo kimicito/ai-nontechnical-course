@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.1 内部任务：本地部署 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">非IT人员的AI</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">第7级 — 采购</div>
+    <h1>7.1 内部任务：本地部署</h1>
+    <div class="meta">15分钟 · 面向采购专员 · 闭环</div>
+  </div>
+
+  <div class="section">
+    <p>本课程涵盖采购专员在公司内部执行的任务，涉及无法发送到互联网的数据。价格、条款、谈判立场——所有这些都是商业秘密。</p>
+    <p><strong>解决方案：</strong> 在公司封闭边界内部署本地大语言模型（如通义千问）。数据永远不会离开边界。</p>
+  </div>
+
+  <div class="section">
+    <h2>为什么采购需要本地部署</h2>
+    <div class="card card-danger">
+      <strong>不能发送到云端的内容：</strong>
+      <ul>
+        <li>报价中的具体供应商价格</li>
+        <li>合同条款和违约金</li>
+        <li>谈判立场（BATNA、筹码）</li>
+        <li>各品类的采购量</li>
+        <li>历史供应商数据</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>可以在本地完成的内容：</strong>
+      <ul>
+        <li>在2分钟内比较5份报价的价格、交期和条款</li>
+        <li>检查供应商的提案是否符合技术规格</li>
+        <li>准备谈判论据</li>
+        <li>发现合同与模板的偏差</li>
+        <li>分析2年的采购模式</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. 报价对比分析</h2>
+    <p>采购专员收到3到5份商业报价。以前：在Excel中手动汇总，比较价格、交货时间、付款条件、保修期。现在：上传到本地大语言模型并提问。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>我有3份水泵供应的商业报价。
+文件Q1、Q2、Q3已附。
+
+创建对比表：
+- 单价
+- 交货时间
+- 付款条件
+- 保修期
+- 运费
+
+突出每个标准中的最佳报价和总体最优方案。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>结果：</strong> 对比表 + 最佳方案的可视化高亮。采购专员在常规工作上节省20到30分钟。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. 提案与技术规格核对</h2>
+    <p>供应商经常回应技术规格，但带有附带条件或偏差。大语言模型可以比人工更快地找到这些偏差。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>对比技术规格（文件TS.docx）和供应商的回应（文件Response.docx）。
+
+查找：
+1. 与技术规格的完全偏差（不匹配的内容）
+2. 部分偏差（有附带条件的匹配内容）
+3. 遗漏项（供应商未处理的内容）
+
+列出具体的技术规格条款作为参考。</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. 谈判准备</h2>
+    <p>这是最敏感的任务。BATNA（谈判协议的最佳替代方案）、筹码、供应商弱点——这些都不能暴露在云端。本地部署解决了这个问题。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>我正在准备与供应商X就设备采购进行谈判。
+
+以下是我的数据：
+- 有2家替代供应商，价格低15%
+- 该供应商上季度延迟交货2周
+- 我需要在3周内交货，但他们的标准周期是6周
+- 订单量是50件，这在该品类中是大订单
+
+准备：
+1. 我降价的论据
+2. 筹码点（礼貌但有说服力）
+3. BATNA——如果我们无法达成协议该怎么做
+4. 谈判方案（分步进行）</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. 合同审查</h2>
+    <p>律师审查合同需要一周。大语言模型在几分钟内就能发现与模板的偏差——然后律师验证这些发现。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>对比供应商的合同（文件Contract.docx）和我们的标准模板（文件Template.docx）。
+
+查找以下方面的偏差：
+- 双方责任
+- 违约金
+- 交货条款
+- 付款条件
+- 争议解决程序
+
+对于每项偏差，请注明：在模板中的位置、在合同中的位置、对我们的风险。</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. 物料编码/品名标准化</h2>
+    <p>在公司中，5个部门对同一种产品的叫法不同："格兰富水泵32-160"、"Gründfos水泵32-160"、"GRUNDFOS 32-160"。大语言模型将它们统一为标准化格式。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>以下是3个部门的品名清单（文件Nomenclature.xlsx）。
+
+统一为标准化格式：
+- 标准化品牌名称（拉丁字母）
+- 标准化计量单位
+- 删除重复项
+- 创建映射表：旧名称 → 新名称
+
+将结果保存为Excel。</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. 采购历史分析</h2>
+    <p>采购专员想弄清楚：固定供应商的价格在上涨吗？有季节性吗？哪些品类的涨价速度最快？</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>我有2年的采购历史数据（文件History.xlsx）。
+
+分析：
+1. 前10大供应商的价格走势（上涨/下跌）
+2. 季节性（哪些月份更贵）
+3. 涨价幅度最大的前5个品类
+4. 各供应商从下单到交货的平均时间
+5. 建议：哪些地方有涨价风险，需要关注什么</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. 供应商风险评分</h2>
+    <p>内部供应商数据 + 风险评估模板的组合。大语言模型计算评分并解释原因。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>根据以下数据评估供应商"PromTekhSnab"的风险：
+
+- 合作3年
+- 去年有2次交货延迟（5天和12天）
+- 1次质量投诉（缺陷率3%，由他们承担费用）
+- 价格低于市场8%
+- 财务状况：收入增长，无诉讼
+- 合同年底到期，之后重新招标
+
+在1到10的评分范围内：
+1. 总体风险概况
+2. 运营风险（交期违约）
+3. 财务风险
+4. 质量风险
+
+给出建议：续约、重新招标，还是寻找备用供应商。</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. 运输单据处理</h2>
+    <p>运单、发票、CMR——大语言模型提取数据并与订单交叉核对。全部在边界内部完成。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>文件Waybill.pdf——解析内容：
+
+- 运单编号、日期
+- 发货人和收货人
+- 商品清单及数量、重量
+- 货物价值
+- 发货日期和交货日期（实际与计划）
+
+与订单（文件Order.xlsx）交叉核对，并识别：
+- 短缺
+- 错误品类
+- 交货时间偏差</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>9. 管理层报告</h2>
+    <p>采购专员经常花整晚做PPT。大语言模型在10分钟内起草报告——只需核对数字。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>根据文件Purchases_Q3.xlsx的数据，为董事会准备报告草稿：
+
+1. 总采购量（金额、与第二季度相比的增长）
+2. 按金额排名前5的品类
+3. 关键项目的状态（按时 / 有风险 / 逾期）
+4. 针对2到3个问题的建议
+5. 第四季度计划（简要）
+
+格式：结构化文本，可直接粘贴到演示文稿中。</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>汇总表：内部任务</h2>
+    <table>
+      <tr><th>任务</th><th>输入格式</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>报价对比</td><td>3到5份报价文件</td><td>对比表 + 最优方案</td><td>30分钟 → 2分钟</td></tr>
+      <tr><td>技术规格核对</td><td>技术规格 + 供应商回应</td><td>偏差清单</td><td>45分钟 → 5分钟</td></tr>
+      <tr><td>谈判准备</td><td>BATNA相关数据</td><td>方案 + 论据</td><td>2小时 → 15分钟</td></tr>
+      <tr><td>合同审查</td><td>合同 + 模板</td><td>偏差清单 + 风险</td><td>4小时 → 10分钟</td></tr>
+      <tr><td>物料编码标准化</td><td>含品名的Excel</td><td>统一表格</td><td>3小时 → 10分钟</td></tr>
+      <tr><td>历史分析</td><td>含采购数据的Excel</td><td>趋势 + 建议</td><td>1天 → 10分钟</td></tr>
+      <tr><td>风险评分</td><td>供应商数据</td><td>风险评估1到10 + 建议</td><td>2小时 → 5分钟</td></tr>
+      <tr><td>运输单据</td><td>运单、发票（PDF）</td><td>与订单交叉核对</td><td>30分钟 → 3分钟</td></tr>
+      <tr><td>管理层报告</td><td>采购数据</td><td>报告草稿</td><td>3小时 → 10分钟</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识检测</h2>
+    <div class="card card-accent">
+      <p><strong>问题1：</strong> 为什么报价对比不能发送到云端ChatGPT？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为ChatGPT运行缓慢</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">因为供应商价格是商业秘密</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为ChatGPT无法读取Excel</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题2：</strong> 准备包含BATNA的谈判应该使用什么工具？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Google文档</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">闭环内的本地大语言模型</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">数据删除后的ChatGPT</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题3：</strong> 大语言模型在对比5份报价时节省多少时间？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">没有节省时间，手动更快</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">30分钟 → 2分钟</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">5分钟 → 4分钟</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题4：</strong> 什么是供应商风险评分？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">基于内部数据的1到10分风险评估</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">银行信用记录查询</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">在线搜索供应商评价</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题5：</strong> 以下哪份文件 definitely 属于本地部署范围？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">无价格的技术规格草案</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">包含具体违约金和条款的合同</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">从英文翻译的说明书</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../06-hallucinations/index.html" class="nav-btn">← 6.3 幻觉</a>
+    <a href="../07-2-cloud/index.html" class="nav-btn primary">7.2 外部任务 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>非IT人员的AI · 制造企业</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ 正确！';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ 错误。再想一想。';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

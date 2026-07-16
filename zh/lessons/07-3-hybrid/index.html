@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.3 混合任务：数据匿名化 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">非IT人员的AI</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">第7级 — 采购</div>
+    <h1>7.3 混合任务：数据匿名化</h1>
+    <div class="meta">15分钟 · 面向采购专员 · 边界轮廓</div>
+  </div>
+
+  <div class="section">
+    <p>有些任务处于边界状态：它们可以在云端完成，但前提是数据必须经过匿名化处理。将供应商名称替换为"供应商A"，删除具体价格——这样任务对外部模型来说就变得安全了。</p>
+    <p>在本课中：如何匿名化数据、哪些任务允许以混合模式执行，以及如何为开发人员准备自动化请求。</p>
+  </div>
+
+  <div class="section">
+    <h2>规则：先匿名化，再上云端</h2>
+    <div class="card card-danger">
+      <strong>绝不能发送到云端的内容（即使部分信息）：</strong>
+      <ul>
+        <li>报价单中的具体价格</li>
+        <li>供应商名称（除非是西门子等巨头）</li>
+        <li>特定物品的采购量</li>
+        <li>合同条款（违约金、折扣、付款延期）</li>
+        <li>谈判立场、BATNA、供应商弱点</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>匿名化后可以发送到云端的内容：</strong>
+      <ul>
+        <li>报价结构比较（不含价格）——"供应商A vs 供应商B"</li>
+        <li>对技术任务书响应完整性的分析（不含名称）</li>
+        <li>角色扮演谈判排练（匿名场景）</li>
+        <li>准备一般性论据（不含具体数字）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>匿名化检查清单（5个步骤）</h2>
+    <div class="card">
+      <ol>
+        <li><strong>替换名称：</strong>"PromTechSnab有限责任公司" → "供应商A"</li>
+        <li><strong>将价格替换为相对值：</strong>"1,200,000 ₽" → "基础价格+20%"或"价格X"</li>
+        <li><strong>删除数量：</strong>"50件" → "中等批量"</li>
+        <li><strong>删除合同日期：</strong>"至2025年12月31日" → "合同至年底"</li>
+        <li><strong>检查：</strong>如果你将匿名化后的文本发送给同事——他们能理解内容，但不知道供应商是谁？如果是——就可以发送到云端。</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. 角色扮演谈判排练</h2>
+    <p>采购专员正在准备复杂的谈判。他们需要排练场景。数据可以匿名化，云端模型可以作为"对手"使用。</p>
+    
+    <div class="example">
+      <div class="example-label">示例提示（匿名化）</div>
+      <pre>与我进行一次角色扮演谈判排练。
+
+场景（匿名化）：
+- 我是工业公司的采购专员
+- 我需要降低设备供应的价格
+- 我有2个替代供应商，价格低15%
+- 当前供应商（供应商A）上次延迟了交货
+- 我需要3周的交货期，他们的标准是6周
+- 我愿意讨论数量，但不透露具体数字
+
+你扮演供应商A的角色。你的目标是维持价格和交货期。
+我的目标是降低价格并加快交货期。
+
+开始谈判。像真正的供应商一样回应——
+提出异议、反驳、试图转移话题。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>结果：</strong>与"真实"对手进行15-20分钟的排练。采购专员练习论据，学习反驳异议，为实际对话做准备。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. 报价结构比较（不含价格）</h2>
+    <p>你需要了解哪个供应商对技术任务书的响应更完整，而不是谁更便宜。删除价格，只比较结构和完整性。</p>
+    
+    <div class="example">
+      <div class="example-label">示例提示（匿名化）</div>
+      <pre>按结构和响应完整性比较3份商业报价。
+
+数据匿名化：
+- 供应商A、供应商B、供应商C
+- 价格已删除，仅保留相对值："低于市场"、"市场"、"高于市场"
+
+按标准比较：
+1. 对技术任务书的响应完整性（是否涵盖所有要点）
+2. 技术描述的存在（是/否，质量）
+3. 证书的存在（列表）
+4. 保修条款（期限、范围）
+5. 附加服务（安装、培训、维修）
+
+不提及具体价格。给出完整性建议。</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. 准备一般性论据</h2>
+    <p>采购专员需要一份一般性的谈判论据清单——不针对特定交易。云端模型生成基础内容，然后本地模型补充具体细节。</p>
+    
+    <div class="example">
+      <div class="example-label">示例提示（匿名化）</div>
+      <pre>我正在准备工业设备采购的谈判。
+
+背景（匿名化）：
+- 市场：3-4家大型供应商，竞争激烈
+- 我的立场：大客户，定期采购
+- 问题：供应商想提高价格和交货期
+
+准备谈判的一般性论据：
+1. 降价论据（市场、数量、竞争）
+2. 加快交货期论据（计划、储备、违约金）
+3. 对典型供应商异议的反驳
+4. 坚定立场的礼貌表述
+
+不含具体价格、名称或数量。
+只提供模板，我会自行调整。</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>向开发人员请求匿名化自动化</h2>
+    <p>如果采购专员经常手动匿名化文档——这可以自动化。以下是向IT团队请求的任务模板。</p>
+    
+    <div class="card card-accent">
+      <div class="example-label">开发人员请求模板</div>
+      <pre>任务：创建一个脚本/应用程序，用于在发送到云端LLM之前匿名化采购文档。
+
+输入：商业报价文件（PDF、Word、Excel）。
+输出：相同文件，但数据已替换。
+
+替换规则：
+1. 公司名称 → "供应商A"、"供应商B"等
+2. 金额 → 相对值（"基础价格"、"+15%"、"-20%"）
+3. 数量 → "小/中/大批量"
+4. 日期 → 相对值（"本季度"、"至年底"）
+5. 联系方式 → 完全删除
+6. 合同编号 → "合同N"
+
+附加：检查——输出文件不包含原始数据（按关键词搜索）。
+
+集成：拖放文件 → 5秒内获得匿名化版本。
+保存匿名化历史。
+
+优先级：高（每天5-10名采购专员使用）。</pre>
+    </div>
+    
+    <div class="card card-warning">
+      <strong>💡 提示：</strong>即使IT无法构建完整的应用程序，你也可以从简单的Python脚本开始。它将替代80%的手工工作。然后逐步完善。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>汇总表：混合任务</h2>
+    <table>
+      <tr><th>任务</th><th>需要匿名化</th><th>执行位置</th><th>节省时间</th></tr>
+      <tr><td>角色扮演排练</td><td>名称、价格、数量</td><td>云端（ChatGPT、Claude）</td><td>2小时 → 20分钟</td></tr>
+      <tr><td>报价结构比较</td><td>价格、名称、数量</td><td>云端</td><td>1小时 → 10分钟</td></tr>
+      <tr><td>一般性论据</td><td>所有具体数据</td><td>云端 → 本地完善</td><td>3小时 → 20分钟</td></tr>
+      <tr><td>文档匿名化</td><td>按规则自动替换</td><td>脚本（本地）→ 云端</td><td>30分钟 → 5秒</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识检测</h2>
+    <div class="card card-accent">
+      <p><strong>问题1：</strong>以下哪项即使在匿名化后也不能发送到云端？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">供应商名称 → "供应商A"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">有效合同中的具体违约金条款</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">"价格高于市场10%"</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题2：</strong>匿名化检查清单的第一步是什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">删除所有日期</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">将公司名称替换为"供应商A"、"供应商B"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">删除文档中的所有数字</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题3：</strong>如何检查文档是否充分匿名化？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">发送到云端，看系统是否阻止</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">给同事看——他们理解大意，但不知道供应商是谁？</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">删除所有数字和名称——这就够了</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题4：</strong>以下哪项是混合任务（匿名化 + 云端）？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">检查合同与模板的偏差</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">使用匿名场景进行角色扮演谈判排练</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">在互联网上搜索新供应商</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题5：</strong>如果采购专员经常手动匿名化文档，应该怎么做？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">准备向开发人员请求脚本自动化</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">继续手动操作——更可靠</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">将原始文件发送到云端——更快</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-2-cloud/index.html" class="nav-btn">← 7.2 外部任务</a>
+    <a href="../08-scheduling/index.html" class="nav-btn primary">8.1 估算 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>非IT人员的AI · 制造企业</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ 正确！';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ 错误。再想一想。';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

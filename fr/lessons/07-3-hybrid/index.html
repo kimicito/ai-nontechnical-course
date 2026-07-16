@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.3 Tâches hybrides : Anonymisation des données — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">IA pour non-spécialistes IT</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 7 — Achats</div>
+    <h1>7.3 Tâches hybrides : Anonymisation des données</h1>
+    <div class="meta">15 min · pour spécialistes des achats · frontière des contours</div>
+  </div>
+
+  <div class="section">
+    <p>Certaines tâches se situent à la frontière : elles peuvent être réalisées dans le cloud, mais uniquement si les données sont anonymisées. Remplacez le nom du fournisseur par « Fournisseur A », supprimez les prix spécifiques — et la tâche devient sûre pour un modèle externe.</p>
+    <p>Dans cette leçon : comment anonymiser les données, quelles tâches sont autorisées en mode hybride, et comment préparer une demande pour les développeurs pour l'automatisation.</p>
+  </div>
+
+  <div class="section">
+    <h2>Règle : Anonymiser avant le cloud</h2>
+    <div class="card card-danger">
+      <strong>Ce qui NE DOIT PAS être envoyé dans le cloud (même partiellement) :</strong>
+      <ul>
+        <li>Prix spécifiques des devis</li>
+        <li>Noms de fournisseurs (sauf s'il s'agit de géants comme Siemens)</li>
+        <li>Volumes d'achat pour des articles spécifiques</li>
+        <li>Conditions contractuelles (pénalités, remises, délais de paiement)</li>
+        <li>Position de négociation, BATNA, faiblesses du fournisseur</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Ce qui PEUT être envoyé après anonymisation :</strong>
+      <ul>
+        <li>Comparaison de la structure des devis (sans prix) — « Fournisseur A vs Fournisseur B »</li>
+        <li>Analyse de l'exhaustivité de la réponse au CDC (sans noms)</li>
+        <li>Répétition de négociation en jeu de rôle (scénario anonymisé)</li>
+        <li>Préparation d'arguments généraux (sans chiffres spécifiques)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Checklist d'anonymisation (5 étapes)</h2>
+    <div class="card">
+      <ol>
+        <li><strong>Remplacer les noms :</strong> « LLC PromTechSnab » → « Fournisseur A »</li>
+        <li><strong>Remplacer les prix par des prix relatifs :</strong> « 1 200 000 ₽ » → « prix de base +20 % » ou « Prix X »</li>
+        <li><strong>Supprimer les volumes :</strong> « 50 unités » → « lot de taille moyenne »</li>
+        <li><strong>Supprimer les dates de contrat :</strong> « jusqu'au 31.12.2025 » → « contrat jusqu'à la fin de l'année »</li>
+        <li><strong>Vérifier :</strong> si vous envoyez le texte anonymisé à un collègue — comprendra-t-il de quoi il s'agit, sans connaître le fournisseur ? Si oui — il peut aller dans le cloud.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Répétition de négociation en jeu de rôle</h2>
+    <p>Un spécialiste des achats se prépare pour des négociations complexes. Il a besoin de répéter un scénario. Les données peuvent être anonymisées et un modèle cloud peut être utilisé comme « adversaire. »</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt (anonymisé)</div>
+      <pre>Effectuez une répétition de négociation en jeu de rôle avec moi.
+
+Scénario (anonymisé) :
+- Je suis un spécialiste des achats dans une entreprise industrielle
+- Je dois réduire le prix pour la fourniture d'équipement
+- J'ai 2 fournisseurs alternatifs avec des prix inférieurs de 15 %
+- Le fournisseur actuel (Fournisseur A) a retardé la livraison la dernière fois
+- J'ai besoin d'un délai de 3 semaines, leur standard est de 6 semaines
+- Je suis prêt à discuter du volume, mais pas à divulguer de chiffres spécifiques
+
+Vous jouez le rôle du Fournisseur A. Votre objectif est de maintenir le prix et les délais.
+Mon objectif est de réduire le prix et d'accélérer les délais.
+
+Commencez les négociations. Répondez comme un vrai fournisseur — 
+avec des objections, des contre-arguments, des tentatives d'évitement.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Résultat :</strong> 15 à 20 minutes de répétition avec un adversaire « vivant. » Le spécialiste des achats pratique les arguments, apprend à dévier les objections et se prépare pour la vraie conversation.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Comparaison de la structure des devis (sans prix)</h2>
+    <p>Vous devez comprendre quel fournisseur a répondu plus complètement au CDC, pas qui est moins cher. Les prix sont supprimés, seule la structure et l'exhaustivité sont comparées.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt (anonymisé)</div>
+      <pre>Comparez 3 devis commerciaux par structure et exhaustivité de réponse.
+
+Données anonymisées :
+- Fournisseur A, Fournisseur B, Fournisseur C
+- Prix supprimés, seulement relatifs : « sous le marché », « marché », « au-dessus du marché »
+
+Comparez selon les critères :
+1. Exhaustivité de la réponse au CDC (tous les points sont-ils couverts)
+2. Présence de descriptions techniques (oui/non, qualité)
+3. Présence de certificats (liste)
+4. Conditions de garantie (durée, portée)
+5. Services supplémentaires (installation, formation, service)
+
+Ne citez pas de prix spécifiques. Donnez une recommandation sur l'exhaustivité.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Préparation d'arguments généraux</h2>
+    <p>Un spécialiste des achats a besoin d'une liste d'arguments pour les négociations en termes généraux — non liés à une affaire spécifique. Un modèle cloud génère la base, puis le système local ajoute les spécificités.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt (anonymisé)</div>
+      <pre>Je me prépare pour des négociations sur l'achat d'équipement industriel.
+
+Contexte (anonymisé) :
+- Marché : 3 à 4 grands fournisseurs, forte concurrence
+- Ma position : grand client, achats réguliers
+- Problème : le fournisseur veut augmenter le prix et les délais
+
+Préparez des arguments généraux pour les négociations :
+1. Arguments pour la réduction de prix (marché, volumes, concurrence)
+2. Arguments pour l'accélération des délais (planification, réserves, pénalités)
+3. Contre-arguments aux objections typiques des fournisseurs
+4. Formulations polies pour une position ferme
+
+Sans prix, noms ou volumes spécifiques. 
+Uniquement des modèles que j'adapterai ensuite.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Demande aux développeurs pour l'automatisation de l'anonymisation</h2>
+    <p>Si les spécialistes des achats anonymisent souvent des documents manuellement — cela peut être automatisé. Voici un modèle de demande pour l'équipe informatique.</p>
+    
+    <div class="card card-accent">
+      <div class="example-label">Modèle de demande pour les développeurs</div>
+      <pre>Tâche : créer un script/application pour anonymiser 
+des documents d'achat avant envoi aux LLM cloud.
+
+Entrée : fichier (PDF, Word, Excel) avec un devis commercial.
+Sortie : le même fichier avec des données remplacées.
+
+Règles de remplacement :
+1. Noms d'entreprises → « Fournisseur A », « Fournisseur B », etc.
+2. Montants → relatifs (« prix de base », « +15 % », « -20 % »)
+3. Volumes → « petit/moyen/gros lot »
+4. Dates → relatives (« au cours du trimestre en cours », « jusqu'à la fin de l'année »)
+5. Coordonnées de contact → supprimer complètement
+6. Numéros de contrat → « Contrat N »
+
+Supplément : vérifier — que le fichier de sortie 
+ne contient aucune donnée originale (recherche par mots-clés).
+
+Intégration : glisser-déposer le fichier → recevoir la version anonymisée 
+en 5 secondes. Sauvegarder l'historique d'anonymisation.
+
+Priorité : élevée (utilisée quotidiennement par 5 à 10 spécialistes des achats).</pre>
+    </div>
+    
+    <div class="card card-warning">
+      <strong>💡 Astuce :</strong> même si l'informatique ne peut pas construire une application complète, vous pouvez commencer par un simple script Python. Il remplacera 80 % du travail manuel. Puis affinez-le.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif : Tâches hybrides</h2>
+    <table>
+      <tr><th>Tâche</th><th>Quoi anonymiser</th><th>Où exécuter</th><th>Temps économisé</th></tr>
+      <tr><td>Répétition en jeu de rôle</td><td>Noms, prix, volumes</td><td>Cloud (ChatGPT, Claude)</td><td>2 heures → 20 min</td></tr>
+      <tr><td>Comparaison de structure de devis</td><td>Prix, noms, volumes</td><td>Cloud</td><td>1 heure → 10 min</td></tr>
+      <tr><td>Arguments généraux</td><td>Toutes les données spécifiques</td><td>Cloud → affinage local</td><td>3 heures → 20 min</td></tr>
+      <tr><td>Anonymisation de documents</td><td>Remplacement automatique selon règles</td><td>Script (local) → cloud</td><td>30 min → 5 sec</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong> Lequel des éléments suivants NE DOIT PAS être envoyé dans le cloud même après anonymisation ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Nom du fournisseur → « Fournisseur A »</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Clauses de pénalité spécifiques d'un contrat actif</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">« Prix 10 % au-dessus du marché »</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong> Quelle est la première étape de la checklist d'anonymisation ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Supprimer toutes les dates</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Remplacer les noms d'entreprises par « Fournisseur A », « Fournisseur B »</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Supprimer tous les chiffres du document</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong> Comment vérifiez-vous si un document est suffisamment anonymisé ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">L'envoyer dans le cloud et voir si le système le bloque</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Le montrer à un collègue — il comprend l'essentiel, mais ne connaît pas le fournisseur ?</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Supprimer tous les chiffres et noms — cela suffit</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4 :</strong> Laquelle des suivantes est une tâche hybride (anonymisation + cloud) ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Vérifier un contrat pour des écarts par rapport à un modèle</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Répétition de négociation en jeu de rôle avec un scénario anonymisé</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Rechercher de nouveaux fournisseurs sur internet</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 5 :</strong> Que devez-vous faire si les spécialistes des achats anonymisent constamment des documents manuellement ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Préparer une demande aux développeurs pour l'automatisation par script</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Continuer manuellement — c'est plus fiable</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Envoyer les originaux dans le cloud — c'est plus rapide</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-2-cloud/index.html" class="nav-btn">← 7.2 Tâches externes</a>
+    <a href="../08-scheduling/index.html" class="nav-btn primary">8.1 Devis →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>IA pour non-spécialistes IT · Entreprise industrielle</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct !';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Réfléchissez encore.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
