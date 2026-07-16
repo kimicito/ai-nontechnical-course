@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.4 Разработка и агенты — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI для не ИТ-специалистов</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ Уровень 8 · AI для стройки</div>
+    <h1>8.4 Разработка и агенты</h1>
+    <div class="meta">15 мин · для руководителей проектов и сметчиков · когда нужна команда</div>
+  </div>
+
+  <div class="section">
+    <p>В строительстве AI — это не только промпты в ChatGPT. Настоящая эффективность появляется там, где модель интегрируется с вашими системами: сметными программами, BIM, ERP, базой чертежей. Это требует команды разработки или готовых агентных решений.</p>
+    <p><strong>В этом уроке:</strong> три корзины сложности — от задач, которые решает подрядчик, до задач, где нужна своя команда разработки или агентная система.</p>
+  </div>
+
+  <div class="section">
+    <h2>1. Где нужна команда разработки</h2>
+    <p>Некоторые задачи в строительстве невозможно решить готовыми AI-инструментами. Нужна интеграция с внутренними системами, точные расчёты и юридическая ответственность.</p>
+
+    <div class="card card-accent">
+      <table>
+        <tr>
+          <th>Задача</th>
+          <th>Почему нужна разработка</th>
+          <th>Что строить</th>
+        </tr>
+        <tr>
+          <td><strong>Сметы по ГЭСН/ФЕР</strong></td>
+          <td>Гранд-Смета и аналоги — закрытые форматы, нужен расчётный движок</td>
+          <td>Интеграция с Гранд-Смета через API или плагин + собственный расчётный движок для проверки</td>
+        </tr>
+        <tr>
+          <td><strong>Актуализация под индексы Минстроя</strong></td>
+          <td>Индексы меняются ежеквартально, ручное обновление — риск ошибки</td>
+          <td>Парсер индексов Минстроя + авто-обновление сметных нормативов</td>
+        </tr>
+        <tr>
+          <td><strong>Расчёт НМЦК</strong></td>
+          <td>Начальная максимальная цена контракта — юридически чувствительна, ошибка = перетендер</td>
+          <td>Модуль расчёта с трассировкой источников, экспортом обоснования и аудит-логом</td>
+        </tr>
+        <tr>
+          <td><strong>Извлечение спецификаций из чертежей</strong></td>
+          <td>Vision-модели дают черновик, для продакшена нужен пайплайн верификации</td>
+          <td>Vision-модель (Qwen/GPT-4V) → структурирование → ручная проверка → экспорт в смету</td>
+        </tr>
+        <tr>
+          <td><strong>ВОР из BIM</strong></td>
+          <td>BIM — источник истины, но ведомость объёмов работ нужна в сметной программе</td>
+          <td>Коннектор BIM → извлечение ВОР → форматирование под Гранд-Смета</td>
+        </tr>
+        <tr>
+          <td><strong>Сверка с ERP/складом</strong></td>
+          <td>Материалы на складе ≠ материалы в смете, нужна двусторонняя синхронизация</td>
+          <td>Интеграция с ERP (1С, SAP) для сверки остатков и заказов</td>
+        </tr>
+        <tr>
+          <td><strong>Коллизии</strong></td>
+          <td>Navisworks и Tekla находят коллизии, но интеграция отчётов в workflow — своя задача</td>
+          <td>API Navisworks → извлечение отчётов → автоматическое назначение ответственных → дашборд</td>
+        </tr>
+        <tr>
+          <td><strong>3D-рендеры</strong></td>
+          <td>Генеративные инструменты (Stable Diffusion, DALL-E) нуждаются в интеграции с BIM-моделями</td>
+          <td>Pipeline: BIM → экспорт видов → generative render → сравнение с исходной геометрией</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card card-warning">
+      <strong>Ключевой принцип:</strong> если задача требует интеграции с двумя и более внутренними системами — это работа для команды разработки, не для «подрядчика за 2 недели».
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Где нужны агенты</h2>
+    <p>Агентные системы — это не просто LLM, а автономные процессы, которые могут ходить в системы, собирать данные, принимать решения и докладывать человеку.</p>
+
+    <div class="card card-success">
+      <h3>Анализ рисков проекта</h3>
+      <p>Агент анализирует смету, график, погоду, поставщиков и выдаёт risk-score по каждому риску с рекомендациями.</p>
+      <div class="example">
+        <div class="example-label">Работа агента</div>
+        <pre>1. Получил смету и график
+2. Проверил индексы Минстроя — актуальны
+3. Проверил прогноз погоды на период фундамента — риск дождей
+4. Проверил поставщиков — 2 из 5 с задержками в прошлом квартале
+5. Результат: отчёт с 3 критичными рисками + рекомендации</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h3>Актуализация смет под индексы</h3>
+      <p>Агентный процесс: раз в квартал агент проверяет индексы Минстроя, сравнивает с текущими сметами, предлагает корректировки.</p>
+      <div class="example">
+        <div class="example-label">Работа агента</div>
+        <pre>1. Загрузил актуальные индексы с сайта Минстроя
+2. Сравнил с 15 активными сметами
+3. Нашёл 3 сметы с устаревшими индексами
+4. Рассчитал дельту (смета завышена на 8%)
+5. Отправил сметчику на согласование</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h3>Сверка ВОР с закупками и остатками</h3>
+      <p>Агент ходит в ERP, проверяет: заказаны ли материалы по ВОР? Есть ли на складе? Когда поставка?</p>
+      <div class="example">
+        <div class="example-label">Работа агента</div>
+        <pre>1. Получил ВОР на следующий месяц
+2. Зашёл в ERP — проверил остатки: цемента не хватает
+3. Проверил заказы: поставка цемента через 2 недели
+4. ВОР требует цемент через 1 неделю
+5. Результат: уведомление о риске срыва сроков</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h3>Проверка смет подрядчика</h3>
+      <p>Агент достаёт рыночные цены из открытых источников (или вашей базы) и сверяет со сметой подрядчика.</p>
+      <div class="example">
+        <div class="example-label">Работа агента</div>
+        <pre>1. Получил смету подрядчика на 45 млн
+2. Проверил 120 позиций по базе рыночных цен
+3. Нашёл 15 позиций завышенными на 12-30%
+4. Сформировал отчёт с рекомендациями по переговорам</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Пилотирование: с чего начать</h2>
+    <p>Не пытайтесь автоматизировать всё сразу. Стройка — консервативная отрасль, и ошибка в смете стоит дороже, чем задержка на месяц.</p>
+
+    <div class="card card-accent">
+      <h3>Корзина 1: Быстрый эффект, низкий риск</h3>
+      <ul>
+        <li><strong>Извлечение спецификаций из чертежей</strong> — Vision-модель + ручная проверка. Через 2-3 итерации точность 90%+.</li>
+        <li><strong>Анализ рисков проекта</strong> — агент на основе открытых данных + ваших смет. Не трогает системы.</li>
+        <li><strong>3D-рендеры для презентаций</strong> — generative AI, не влияет на расчёты.</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>Корзина 2: Средний риск, нужна интеграция</h3>
+      <ul>
+        <li><strong>Актуализация смет под индексы</strong> — нужен парсер Минстроя + доступ к сметам. Human-in-the-loop обязателен.</li>
+        <li><strong>Сверка ВОР с закупками</strong> — агент ходит в ERP, нужны права доступа и аудит-лог.</li>
+        <li><strong>Коллизии из Navisworks</strong> — интеграция с BIM, но результат — отчёт, не изменение модели.</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <h3>Корзина 3: Высокий риск, нужна команда</h3>
+      <ul>
+        <li><strong>Сметы по ГЭСН/ФЕР с авто-расчётом</strong> — ошибка = некорректный тендер или срыв сроков.</li>
+        <li><strong>Расчёт НМЦК</strong> — юридическая ответственность, нужна трассировка и экспертиза.</li>
+        <li><strong>Проверка смет подрядчика с автоматическим формированием претензий</strong> — последствия для контракта.</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <strong>Human-in-the-loop обязателен для корзин 2 и 3.</strong> AI предлагает, человек подтверждает. Это не замедление — это страховка. В стройке ошибка в смете на 5% может стоить десятков миллионов.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Какая задача точно требует команды разработки, а не готового AI-инструмента?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Сравнение 3 КП по цене</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Интеграция с Гранд-Смета и расчётный движок</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Генерация 3D-рендера для презентации</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Почему расчёт НМЦК относится к корзине 3 (высокий риск)?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Ошибка в НМЦК может привести к перетендеру и юридическим последствиям</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">НМЦК сложно считать в Excel</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">НМЦК требует доступа к интернету</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Что такое «human-in-the-loop» в контексте агентов для стройки?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Нанимать больше людей для контроля</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">AI предлагает решение, человек подтверждает перед выполнением</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Обучать людей работе с AI</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 4:</strong> Какая задача из списка лучше всего подходит для пилота (корзина 1)?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Извлечение спецификаций из чертежей с ручной проверкой</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Автоматический расчёт НМЦК</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Формирование претензий к подрядчику</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-3-external-ai/index.html" class="nav-btn">← 8.3 Внешние ИИ</a>
+    <a href="../09-1-procurement-audit/index.html" class="nav-btn primary">9.1 Аудит закупок →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI для не ИТ-специалистов · Производственная компания</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Верно!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Неверно. Подумай ещё раз.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

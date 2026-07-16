@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.1 Реальность: что ИИ умеет в стройке — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI для не ИТ-специалистов</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ Уровень 8 · AI для стройки</div>
+    <h1>8.1 Реальность: что ИИ умеет в стройке</h1>
+    <div class="meta">15 мин · для сметчиков, прорабов, инженеров · капстроительство</div>
+  </div>
+
+  <div class="section">
+    <p><strong>Главный тезис этого урока:</strong> смета — это не текст. LLM не считает по ГЭСН/ФЕР, не знает коэффициентов и не понимает ресурсный метод. Если вы скармливаете нейросети смету как текст и ждёте точного расчёта — вы обречены на галлюцинации.</p>
+    <p>Но это не значит, что ИИ бесполезен в стройке. Он полезен — но в задачах, где не нужен точный расчёт по нормативам. Разберём, где он работает сейчас, а где — пока нет.</p>
+  </div>
+
+  <div class="section">
+    <h2>Почему стройка сложнее закупок</h2>
+    <p>В закупках есть конкретные числа: цена, срок, количество. LLM сравнивает 5 КП — и делает это хорошо. В стройке всё иначе:</p>
+
+    <div class="card card-danger">
+      <strong>Что делает стройку сложной для LLM:</strong>
+      <ul>
+        <li><strong>Нормативные базы:</strong> ГЭСН, ФЕР, ТСН, ФССЦ — десятки тысяч позиций с коэффициентами</li>
+        <li><strong>Ресурсный метод:</strong> стоимость = норма × цена ресурса × коэффициенты. LLM не знает текущие цены ресурсов</li>
+        <li><strong>Коэффициенты:</strong> Кп (прибыль), Кнр (налоги), Кпз (погрузка), индексы пересчёта — они меняются по регионам и годам</li>
+        <li><strong>Локальные сметы:</strong> каждый объект уникален, нет двух одинаковых смет</li>
+        <li><strong>Сметные нормы ≠ рыночные цены:</strong> ГЭСН даёт норму труда и машин, а цены материалов — по рынку</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <strong>Пример ошибки:</strong> Вы загружаете PDF-смету в ChatGPT и просите «проверь расчёт». LLM видит текст, но не видит за таблицей: какие нормы применены, какие коэффициенты, какие индексы. Он может сказать «всё верно» или найти очевидную арифметическую ошибку — но пропустит сметную ошибку на 30%.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Три корзины задач</h2>
+    <p>Разделим задачи строительного подразделения на три группы — по готовности ИИ к их решению.</p>
+
+    <div class="card card-success">
+      <h3>🟢 Корзина 1: Быстро сами — прямо сейчас</h3>
+      <p><em>LLM справляется без доработки. ROI за дни и недели.</em></p>
+      <ul>
+        <li><strong>Поиск по нормативам:</strong> «В каком сборнике ГЭСН найти устройство буронабивных свай?»</li>
+        <li><strong>Расшифровка сметных позиций:</strong> «Что означает позиция ФЕРм 01-01-001-01?»</li>
+        <li><strong>Перевод ВОР в текст:</strong> «По ведомости объёмов работ составь технологическую карту»</li>
+        <li><strong>Генерация текстовых документов:</strong> пояснительные записки, технологические карты, письма</li>
+        <li><strong>Сравнение локальных смет по тексту:</strong> «Смета А и смета Б — в чём разница в подходе?»</li>
+        <li><strong>Проверка логики (не расчёта!):</strong> «В смете на фундамент есть работы по кровле — это ошибка?»</li>
+        <li><strong>Извлечение данных из чертежей (OCR):</strong> распознать размеры, марки, количества</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>🟡 Корзина 2: Нужна разработка — месяцы</h3>
+      <p><em>Требуется интеграция с сметным софтом, базами нормативов или кастомная логика.</em></p>
+      <ul>
+        <li><strong>Автоматический расчёт сметы по ВОР:</strong> связать объёмы работ с ГЭСН/ФЕР, применить коэффициенты</li>
+        <li><strong>Проверка сметы по нормам:</strong> автоматическая валидация: правильно ли подобраны расценки, не пропущены ли работы</li>
+        <li><strong>Прогнозирование стоимости:</strong> модель на исторических данных предсказывает итоговую смету по черновому ВОР</li>
+        <li><strong>Сопоставление чертежа и сметы:</strong> проверить, что все элементы на чертеже учтены в смете</li>
+        <li><strong>Извлечение ВОР из BIM-модели:</strong> автоматический подсчёт объёмов из 3D-модели</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <h3>🔴 Корзина 3: Нужны агенты — годы</h3>
+      <p><em>Требуется мультиагентная система с доступом к внешним данным и автономным принятием решений.</em></p>
+      <ul>
+        <li><strong>Полная автоматизация сметного дела:</strong> от чертежа до утверждённой сметы без человека</li>
+        <li><strong>Автоматический контроль цен ресурсов:</strong> агент мониторит рынок и обновляет смету в реальном времени</li>
+        <li><strong>Прогнозирование рисков строительства:</strong> агент анализирует погоду, поставщиков, субподрядчиков и предупреждает о срывах</li>
+        <li><strong>Автоматическое управление изменениями:</strong> при изменении проекта агент пересчитывает всё: смету, график, ресурсы</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>С чего пилотировать: корзина 1</h2>
+    <p>Не начинайте с автоматического расчёта сметы — это корзина 2, нужна разработка. Начните с задач, которые дают результат за неделю.</p>
+
+    <h3>Шаг 1: Поиск по нормативам</h3>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Мне нужно найти норму на устройство монолитного железобетонного фундамента ленточного.
+
+Вопросы:
+1. В каком сборнике ГЭСН или ФЕР искать?
+2. Какие расценки подходят для фундамента глубиной 1.5 м, шириной 0.4 м?
+3. Какие ресурсы входят в норму (бетон, арматура, опалубка, трудозатраты)?
+4. Какие коэффициенты обычно применяют к этой норме?</pre>
+    </div>
+    <p>LLM не даст точный расчёт, но укажет направление — сэкономит 30 минут на поиске по сборникам.</p>
+
+    <h3>Шаг 2: Расшифровка сметных позиций</h3>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Вот список позиций из локальной сметы:
+- ФЕРм 08-02-001-01
+- ГЭСНм 81-05-001-01
+- ТСН-2001-08-02-001
+
+Расшифруй каждую позицию:
+1. Полное наименование работы
+2. Единица измерения
+3. Основные ресурсы (материалы, труд, машины)
+4. Типовая область применения</pre>
+    </div>
+
+    <h3>Шаг 3: Проверка логики сметы</h3>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Я загрузил PDF локальной сметы на капитальный ремонт здания.
+
+Проверь логику (НЕ считай суммы):
+1. Все ли разделы сметы соответствуют видам работ в пояснительной записке?
+2. Нет ли работ, которые не должны быть в этом виде ремонта?
+3. Есть ли пропущенные работы, типичные для капремонта?
+4. Соответствует ли последовательность работ технологии?
+
+Выдай список подозрительных мест с пояснениями.</pre>
+    </div>
+
+    <h3>Шаг 4: Генерация пояснительных записок</h3>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>На основе локальной сметы (PDF во вложении) составь пояснительную записку:
+
+1. Общие положения (объект, заказчик, подрядчик)
+2. Основание для составления сметы
+3. Перечень принятых расценок и норм
+4. Особенности применения коэффициентов
+5. Итоговая стоимость и сроки работ
+
+Формат: официальный, по ГОСТ Р 21.1101-2013.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>ROI корзины 1:</strong>
+      <table>
+        <tr><th>Задача</th><th>Было</th><th>Стало</th><th>Экономия</th></tr>
+        <tr><td>Поиск по нормативам</td><td>30–60 мин</td><td>2–5 мин</td><td>90%</td></tr>
+        <tr><td>Расшифровка позиций</td><td>20–40 мин</td><td>2–3 мин</td><td>90%</td></tr>
+        <tr><td>Проверка логики сметы</td><td>1–2 часа</td><td>5–10 мин</td><td>85%</td></tr>
+        <tr><td>Пояснительная записка</td><td>2–4 часа</td><td>10–15 мин</td><td>90%</td></tr>
+        <tr><td>Технологическая карта</td><td>4–8 часов</td><td>20–30 мин</td><td>90%</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Что НЕ делать с LLM в стройке</h2>
+    <div class="card card-danger">
+      <strong>Красные флаги — задачи, где LLM обманет:</strong>
+      <ul>
+        <li><strong>Считать смету «с нуля» по тексту:</strong> LLM не знает текущие цены ресурсов, индексы и коэффициенты</li>
+        <li><strong>Проверять арифметику сложных смет:</strong> может пропустить ошибку в коэффициенте, но «подтвердить» сумму</li>
+        <li><strong>Подбирать нормы по описанию работ:</strong> LLM может предложить похожую, но неправильную расценку</li>
+        <li><strong>Использовать для обоснования сметы в суде или экспертизе:</strong> выводы LLM не имеют юридической силы</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Правило безопасности:</strong> LLM — помощник сметчика, не замена сметчику. Он ускоряет рутину (поиск, текст, проверка логики), но точный расчёт — всё ещё за человеком и сметным ПО (ГРАНД-Смета, А0, Смета.ру).
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Дорожная карта: от корзины 1 к корзине 2</h2>
+    <p>Когда корзина 1 приносит результат, можно двигаться дальше:</p>
+    <ol>
+      <li><strong>Месяц 1–2:</strong> все сметчики используют LLM для поиска норм, расшифровки позиций, генерации текстов</li>
+      <li><strong>Месяц 3–4:</strong> интеграция с API ГРАНД-Сметы или A0 для автоматической выгрузки позиций</li>
+      <li><strong>Месяц 5–6:</strong> кастомный инструмент: загрузка ВОР → автоподбор норм → черновая смета (требует разработки)</li>
+      <li><strong>Месяц 7–12:</strong> обучение модели на исторических сметах компании для прогнозирования стоимости</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Почему LLM не может точно посчитать смету по ГЭСН/ФЕР?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что ГЭСН запрещает использование ИИ</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Потому что LLM не знает текущие цены ресурсов, коэффициенты и индексы</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что сметы слишком длинные для контекста</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> К какой корзине относится задача «проверить, нет ли в смете работ, не подходящих для капремонта»?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Корзина 1 — быстро сами</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Корзина 2 — нужна разработка</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Корзина 3 — нужны агенты</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Что из списка относится к корзине 2 (нужна разработка)?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Расшифровка сметной позиции ФЕРм 08-02-001-01</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Автоматический расчёт сметы по ВОР с подбором норм и коэффициентов</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Генерация пояснительной записки по шаблону</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 4:</strong> Какое правило безопасности при использовании LLM в стройке?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">LLM заменяет сметчика полностью</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">LLM — помощник сметчика, точный расчёт остаётся за человеком</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">LLM можно использовать для обоснования сметы в суде</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-hybrid/index.html" class="nav-btn">← 7.3 Гибридные задачи</a>
+    <a href="../08-2-genai/index.html" class="nav-btn primary">8.2 Внутри GENAi →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI для не ИТ-специалистов · Производственная компания</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Верно!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Неверно. Подумай ещё раз.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

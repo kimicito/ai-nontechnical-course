@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.2 Задачи внутри GENAi: on-prem — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI для не ИТ-специалистов</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ Уровень 8 · AI для стройки</div>
+    <h1>8.2 Задачи внутри GENAi: on-prem</h1>
+    <div class="meta">15 мин · для инженеров-строителей · закрытый контур</div>
+  </div>
+
+  <div class="section">
+    <p>В этом уроке — задачи, которые строительная компания решает внутри себя, с данными, которые нельзя отправлять в интернет. Сметы, акты, переписка с подрядчиками, претензии — всё это содержит коммерческую тайну и конфиденциальную информацию.</p>
+    <p><strong>Решение:</strong> on-prem LLM (например, Qwen, GigaChat, YandexGPT Enterprise) в закрытом контуре компании. Данные не покидают периметр, но вы получаете всю мощь генеративного ИИ.</p>
+  </div>
+
+  <div class="section">
+    <h2>Зачем on-prem для стройки</h2>
+    <div class="card card-danger">
+      <strong>Что нельзя отправлять в облако:</strong>
+      <ul>
+        <li>Сметы, КС-2, КС-3 с ценами и объёмами</li>
+        <li>Претензии и претензионная переписка с подрядчиками</li>
+        <li>Исполнительная документация и скрытые работы</li>
+        <li>Протоколы совещаний с коммерческими условиями</li>
+        <li>ТЗ на проектирование с ограничениями по бюджету</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Что можно сделать в on-prem:</strong>
+      <ul>
+        <li>Подготовить черновик претензии с аргументацией — за 10 минут</li>
+        <li>Проверить исполнительную документацию на комплектность</li>
+        <li>Составить протокол совещания из аудиозаписи или заметок</li>
+        <li>Проверить КС-2/КС-3 на соответствие фактическим объёмам</li>
+        <li>Написать ТЗ на проектирование и строительный контроль</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Претензионная работа — черновики аргументации</h2>
+    <p>Инженер ПТО или прораб готовит претензию подрядчику за срыв сроков, некачественные работы или недостачу материалов. Раньше: часовой разбор документов + консультация с юристом. Сейчас: LLM готовит черновик, юрист валидирует.</p>
+
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Я готовлю претензию подрядчику ООО «СтройМонтаж».
+
+Исходные данные:
+- Договор подряда № 45 от 15.02.2026, срок окончания: 30.06.2026
+- Фактическое окончание: 15.08.2026 (задержка 46 дней)
+- Причины задержки по моей версии: задержка поставки арматуры подрядчиком (10 дней), нехватка рабочих (остальные 36 дней)
+- Неустойка по договору: 0,1% от цены договора за каждый день просрочки
+- Цена договора: 15 000 000 ₽
+- Я направлял уведомление о риске срыва сроков 15.05.2026
+
+Подготовь:
+1. Аргументацию претензии со ссылками на пункты типового договора подряда
+2. Расчёт неустойки
+3. Требования: устранить недостатки + уплатить неустойку
+4. Срок ответа: 10 рабочих дней
+5. Ссылки на ФЗ-44 или ГК РФ (по применимости)
+
+Формат: готовый черновик письма для валидации юристом.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Результат:</strong> структурированный черновик претензии с расчётом неустойки, ссылками на законодательство и договор. Инженер экономит 2–3 часа, юрист тратит 15 минут на проверку вместо 2 часов на написание с нуля.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Проверка исполнительной документации на комплектность</h2>
+    <p>Перед сдачей объекта заказчику или перед актом выполненных работ инженер проверяет, вся ли исполнительная документация собрана. Листы ОКС, акты скрытых работ, сертификаты на материалы, журналы — десятки позиций.</p>
+
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Проверь комплектность исполнительной документации на объект «Торговый центр, корпус А».
+
+Вот перечень документов, которые я собрал (файл ОКС_список.xlsx):
+- Исполнительные схемы (листы 1–45)
+- Акты скрытых работ (листы 1–120)
+- Сертификаты на материалы (папка /certs/)
+- Журнал работ (журнал_2026.docx)
+- Журнал входного контроля
+- Исполнительный геодезический журнал
+- Протоколы испытаний
+
+Требования по комплектности:
+- По каждому виду работ должен быть акт скрытых работ
+- Каждый материал должен иметь сертификат сроком действия на дату использования
+- Геодезическая съёмка должна быть на всех этапах
+
+Проверь:
+1. Каких документов не хватает по сравнению с требованиями
+2. Какие сертификаты просрочены
+3. Какие акты скрытых работ не имеют соответствующих схем
+4. Список недостающего с указанием приоритета</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Результат:</strong> список недостающих документов с приоритетами. Инженер ПТО экономит 3–4 часа на ручной проверке папок.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Переписка с подрядчиками, протоколы совещаний</h2>
+    <p>После совещания на объекте прораб или инженер должен оформить протокол. Раньше: вспоминать, что говорили, переслушивать аудио, писать вручную. С on-prem LLM: загрузить аудиозапись или заметки — получить готовый протокол.</p>
+
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Оформи протокол рабочего совещания на стройплощадке.
+
+Исходные данные:
+Дата: 14.07.2026
+Место: стройплощадка, офис прораба
+Участники:
+- Иванов А.П. (представитель заказчика)
+- Петров С.В. (главный инженер проекта, ГИП)
+- Сидоров К.М. (прораб, подрядчик ООО «СтройМонтаж»)
+- Кузнецова Л.В. (инженер ПТО, генподрядчик)
+
+Темы обсуждения (заметки):
+1. Отставание по монолитным работам на 12 дней. Причина: задержка поставки опалубки. Решение: привлечь вторую бригаду, работать в 2 смены с 20.07.
+2. Претензия по качеству штукатурки на 3-м этаже. Необходимо частичное демонтаж и переделка. Срок: до 25.07.
+3. Согласована замена поставщика плитки с «Керама» на «ГранитСтрой» — цена ниже на 8%, срок поставки 14 дней.
+4. Следующее совещание: 28.07.2026.
+
+Оформи:
+- Стандартный протокол с фиксацией решений
+- Поручения с ответственными и сроками
+- Отдельно: список рисков, которые нужно довести до руководства</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Результат:</strong> готовый протокол с поручениями, сроками и ответственными. Прораб экономит 1–1,5 часа на оформлении.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Анализ КС-2/КС-3 на соответствие факту</h2>
+    <p>Подрядчик сдаёт КС-2 (акт выполненных работ) и КС-3 (смета). Инженер должен проверить, соответствуют ли объёмы в актах фактическим. Раньше: сверять вручную по журналам, планам, фото. С on-prem: загрузить документы и задать вопрос.</p>
+
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Проверь соответствие КС-2 и КС-3 фактическим объёмам работ.
+
+Входные данные:
+- КС-2 за июнь 2026 (файл КС2_июнь.pdf)
+- КС-3 за июнь 2026 (файл КС3_июнь.pdf)
+- Журнал учёта выполненных работ (файл журнал_июнь.xlsx)
+- Фотоотчёт с объекта (папка /фото/июнь/)
+
+Проверь:
+1. Объёмы бетонирования по КС-2 vs факт по журналу (разница в м³)
+2. Объёмы арматуры: принятая по КС-3 vs фактически смонтированная
+3. Наличие работ, которые не подтверждены фотоотчётом
+4. Соответствие единичных расценок КС-3 смете договора
+5. Сверхурочные работы: есть ли подтверждение приказом
+
+Выведи:
+- Список расхождений с указанием сумм
+- Рекомендации: что принять, что отклонить
+- Какие документы нужно запросить у подрядчика для устранения</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Результат:</strong> таблица расхождений с суммами и рекомендациями. Инженер ПТО экономит 4–6 часов на сверке.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. ТЗ на проектирование, ТЗ на строительный контроль</h2>
+    <p>Заказчик готовит техническое задание для проектировщика или для организации, которая будет осуществлять строительный контроль. Раньше: искать шаблоны, адаптировать, проверять на полноту. С on-prem LLM: описать задачу — получить структурированное ТЗ.</p>
+
+    <div class="example">
+      <div class="example-label">Пример промпта — ТЗ на проектирование</div>
+      <pre>Подготовь техническое задание на проектирование торгового центра.
+
+Исходные данные:
+- Площадь земельного участка: 1,2 га
+- Площадь застройки: 8 500 м²
+- Этажность: 2 этажа + подвал
+- Назначение: торговые площади, склад, парковка
+- Климатический район: III-B (средняя полоса России)
+- Сейсмичность: 6 баллов
+- Требуемая энергоэффективность: класс B
+- Бюджет проектирования: до 5 000 000 ₽
+- Срок: 4 месяца
+- Этапы: эскизный проект → ПД → РД
+
+ТЗ должно включать:
+1. Общие положения
+2. Исходные данные (градостроительный план, геологические изыскания)
+3. Состав проектной документации по перечню
+4. Требования к конструктивным решениям
+5. Требования к инженерным системам
+6. Требования к энергоэффективности
+7. Требования к благоустройству и озеленению
+8. Сроки и этапы
+9. Порядок согласования и приёмки
+10. Ограничения и запреты</pre>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Пример промпта — ТЗ на строительный контроль</div>
+      <pre>Подготовь техническое задание на осуществление строительного контроля.
+
+Исходные данные:
+- Объект: торговый центр, корпус А, 8 500 м²
+- Застройщик: ООО «ДевелопПроект»
+- Генподрядчик: ООО «СтройГранд»
+- Срок строительства: 18 месяцев
+- Класс конструктивной пожарной опасности: С0
+- Ответственность: повышенная
+
+ТЗ должно включать:
+1. Объём и содержание строительного контроля
+2. Перечень контролируемых параметров (геометрия, материалы, технологии)
+3. Частота проверок по этапам
+4. Требования к составу отчётности
+5. Порядок фиксации нарушений и выдачи предписаний
+6. Взаимодействие с заказчиком, генподрядчиком, надзорными органами
+7. Требования к квалификации персонала контролирующей организации
+8. Сроки и этапы контроля
+9. Ответственность сторон</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Результат:</strong> структурированное ТЗ по ГОСТ и типовым требованиям. Инженер экономит 4–6 часов на подготовке документа с нуля.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица: задачи в закрытом контуре</h2>
+    <table>
+      <tr><th>Задача</th><th>Формат входа</th><th>Формат выхода</th><th>Экономия времени</th></tr>
+      <tr><td>Претензионная работа</td><td>Данные по договору, факты нарушения</td><td>Черновик претензии с расчётом</td><td>3 ч → 15 мин</td></tr>
+      <tr><td>Проверка исполнительной документации</td><td>Список собранных документов + требования</td><td>Список недостающего с приоритетами</td><td>4 ч → 20 мин</td></tr>
+      <tr><td>Протоколы совещаний</td><td>Аудио/заметки с совещания</td><td>Готовый протокол с поручениями</td><td>1,5 ч → 10 мин</td></tr>
+      <tr><td>Анализ КС-2/КС-3</td><td>Акты, журналы, фотоотчёт</td><td>Таблица расхождений + рекомендации</td><td>6 ч → 30 мин</td></tr>
+      <tr><td>ТЗ на проектирование / стройконтроль</td><td>Описание объекта и требований</td><td>Структурированное ТЗ по ГОСТ</td><td>6 ч → 20 мин</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Почему претензии и КС-2/КС-3 нельзя отправлять в облачный ChatGPT?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что ChatGPT не умеет читать PDF</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Потому что это коммерческая тайна и конфиденциальные данные</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что строительные документы слишком большие</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Какую роль играет юрист при подготовке претензии через on-prem LLM?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Юрист пишет претензию с нуля, LLM только форматирует</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">LLM готовит черновик, юрист валидирует и дорабатывает</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Юрист не участвует, LLM делает всё сам</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Что проверяется при анализе КС-2/КС-3 через LLM?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Соответствие объёмов в актах фактическим данным и фотоотчёту</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Правописание и оформление документов</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Наличие подписей всех участников</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 4:</strong> Какой формат входных данных нужен для генерации протокола совещания?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Только аудиозапись совещания</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Аудиозапись или текстовые заметки с ключевыми решениями</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Только видеозапись с камер наблюдения</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-1-reality/index.html" class="nav-btn">← 8.1 Реальность</a>
+    <a href="../08-3-external-ai/index.html" class="nav-btn primary">8.3 Внешние ИИ →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI для не ИТ-специалистов · Производственная компания</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Верно!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Неверно. Подумай ещё раз.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

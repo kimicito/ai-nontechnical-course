@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.3 Задачи во внешних ИИ: cloud — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI для не ИТ-специалистов</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ Уровень 8 · AI для стройки</div>
+    <h1>8.3 Задачи во внешних ИИ: cloud</h1>
+    <div class="meta">15 мин · для инженеров ПТО, прорабов, сметчиков · открытый контур</div>
+  </div>
+
+  <div class="section">
+    <p>В этом уроке — задачи, которые строительный специалист решает во внешних облачных ИИ: Claude, ChatGPT, Kimi, Qwen. Это данные, которые можно отправлять в интернет: общие описания, публичные нормативы, рыночные ориентиры, внешние визуализации.</p>
+    <p><strong>Главное правило:</strong> не отправляйте в облако проектные чертежи с координатами, сметы с закупочными ценами, договоры субподряда и внутренние коммерческие данные. Всё остальное — можно.</p>
+  </div>
+
+  <div class="section">
+    <h2>Зачем внешние ИИ для строителя</h2>
+    <div class="card card-success">
+      <strong>Что можно отправлять в облако:</strong>
+      <ul>
+        <li>Описание оборудования (без заводских номеров и цен закупки)</li>
+        <li>Публичные тексты СП, СНиП, ГОСТ (из открытых источников)</li>
+        <li>Общие описания дизайн-концепций и фасадных решений</li>
+        <li>Фото/скан фасада или помещения для визуализации</li>
+        <li>Рыночные запросы на аналоги и бенчмаркинг</li>
+      </ul>
+    </div>
+    <div class="card card-danger">
+      <strong>Что нельзя отправлять в облако:</strong>
+      <ul>
+        <li>Рабочие чертежи с геодезическими координатами и отметками</li>
+        <li>Сметы с закупочными ценами и наценками</li>
+        <li>Договоры субподряда с штрафами и условиями</li>
+        <li>Акты выполненных работ с реальными объёмами</li>
+        <li>Фото с объекта, где видны охранные зоны или стратегические объекты</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Поиск аналогов оборудования и поставщиков</h2>
+    <p>На объекте вышел из строя насос, клапан или привод. Маркировка стёртая, поставщик давно не поставляет. Нужно найти аналог с такими же параметрами.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>У меня на объекте установлен циркуляционный насос Grundfos UPS 32-60 180.
+Он вышел из строя, Grundfos больше не поставляет эту модель в РФ.
+
+Найди аналоги российского производства с такими же параметрами:
+- Производительность: до 8 м³/ч
+- Напор: до 6 м
+- Монтажная длина: 180 мм
+- Тип ротора: мокрый
+- Питание: 1×230 В
+
+Для каждого аналога укажи:
+- Производитель и модель
+- Где купить (официальные дилеры в Москве/СПб)
+- Рыночная цена (ориентировочно)
+- Отличия от оригинала (габариты, резьба, крепления)</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Формат входа:</strong> описание оборудования (марка, параметры, фото, если есть)<br>
+      <strong>Формат выхода:</strong> список аналогов с характеристиками, контакты дилеров, ориентировочные цены<br>
+      <strong>Экономия времени:</strong> 2–3 часа ручного поиска → 5 минут
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Бенчмаркинг рыночных цен на СМР</h2>
+    <p>Нужно быстро понять: адекватна ли цена субподрядчика? Не просит ли он в 2 раза больше рынка? Внешний ИИ даёт ориентир — не основание для сметы, но повод задать вопрос.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Я получил КП на монтаж вентиляции в офисном здании 2000 м².
+Субподрядчик назвал цену 4 500 000 руб. (без материалов, только монтаж).
+
+Сделай рыночный бенчмаркинг по Московскому региону, 2025 год:
+- Монтаж приточно-вытяжной системы с рекуперацией
+- Площадь 2000 м², 4 этажа
+- Примерно 8000 м² воздуховодов
+- 20 вентиляционных установок
+- Автоматика и диспетчеризация
+
+Укажи:
+1. Диапазон рыночных цен (нижняя/средняя/верхняя граница)
+2. На чём экономят дешёвые подрядчики
+3. На чём переплачивают дорогие
+4. На какие статьи обратить внимание при сверке
+
+Важно: это ориентир, не основание для сметы. Не используй как официальную цену.</pre>
+    </div>
+
+    <div class="card card-warning">
+      <strong>⚠️ Предупреждение:</strong> цены из облачного ИИ — это ориентировочные данные из открытых источников. Они не заменяют смету по ГЭСН/ФЕР и не являются основанием для претензии. Используйте как «повод задать вопрос», а не как «доказательство».
+    </div>
+
+    <div class="card card-accent">
+      <strong>Формат входа:</strong> описание вида работ, объёмы, регион, год<br>
+      <strong>Формат выхода:</strong> диапазон рыночных цен, разбивка по статьям, рекомендации<br>
+      <strong>Экономия времени:</strong> 1–2 дня сбора КП от 3 подрядчиков → 10 минут
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Вариативность дизайн-решений — текстовая проработка</h2>
+    <p>Заказчик хочет «что-то современное» для фасада. Нужно сформулировать 3–5 текстовых концепций, чтобы потом показать архитектору. Внешний ИИ генерирует описания, которые потом превращаются в эскизы.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Здание: 5-этажный офисный центр, 60×30 м, фасад на юго-запад.
+Регион: Казань, климат умеренно-континентальный.
+Бюджет: средний (не премиум, не эконом).
+
+Придумай 4 текстовые концепции фасадного решения:
+
+1. Концепция "Техно"
+   - Описание: материалы, цвета, текстуры, тип остекления
+   - Плюсы: стоимость, долговечность, ремонтопригодность
+   - Минусы: риски, ограничения
+
+2. Концепция "Био"
+   - С зелёными стенами, террасами, деревянными элементами
+   - Те же пункты
+
+3. Концепция "Лофт"
+   - Кирпич, сталь, большие окна
+   - Те же пункты
+
+4. Концепция "Классика"
+   - Вентилируемый фасад, керамогранит, строгая геометрия
+   - Те же пункты
+
+Для каждой концепции укажи примерную стоимость фасада за м² (ориентир) и сроки монтажа.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Формат входа:</strong> описание объекта, бюджет, регион, предпочтения заказчика<br>
+      <strong>Формат выхода:</strong> 3–5 текстовых концепций с материалами, плюсами/минусами, ориентировочной стоимостью<br>
+      <strong>Экономия времени:</strong> 1–2 дня работы дизайнера на черновике → 10 минут
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Генерация 3D-визуализаций через специализированные инструменты</h2>
+    <p>Claude и ChatGPT не умеют генерировать 3D-модели. Но есть специализированные облачные инструменты: <strong>SketchUp + AI-плагины, Midjourney для референсов, Tripo3D, Spline, Looka</strong>. ИИ помогает подготовить промпт для этих инструментов.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта для подготовки визуализации</div>
+      <pre>Мне нужна 3D-визуализация интерьера холла офисного здания.
+
+Параметры помещения:
+- Площадь: 120 м², высота потолков 4.2 м
+- Форма: прямоугольник 15×8 м
+- Окна: панорамное остекление на южную сторону, 12 м
+- Пол: полированный бетон с тёплыми вставками из дерева
+- Стены: бетонные, частично окрашенные в тёмно-зелёный (RAL 6005)
+- Потолок: открытые коммуникации, светильники трековые, чёрный цвет
+
+Мебель:
+- Ресепшен 4 м, белый искусственный камень
+- Диванная группа: модульный диван серый, 2 кресла
+- Столы для встреч: 2 шт., стеклянные
+- Растения: 3 крупных фикуса в кашпо
+
+Сгенерируй промпт для Midjourney / SketchUp AI / DALL-E, который даст максимально реалистичный результат. Укажи, какой инструмент лучше выбрать и почему.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Формат входа:</strong> описание помещения, материалы, мебель, стиль, желаемый результат<br>
+      <strong>Формат выхода:</strong> готовый промпт для генератора + рекомендация по инструменту<br>
+      <strong>Экономия времени:</strong> 3–4 часа подбора референсов и настройки → 10 минут на промпт + 5 минут на генерацию
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Проверка чертежей по СП/СНиП (предварительная)</h2>
+    <p>Перед сдачей в экспертизу или согласованием в администрации можно проверить чертежи на соответствие публичным нормативам. Внешний ИИ знает тексты СП и СНиП, но не заменяет эксперта. Это — «предварительная причёска».</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Я проектирую лестничную клетку в жилом доме 9 этажей.
+
+Проверь мои параметры по СП 118.13330.2012 (СНиП 31-01-2003) и СП 55.13330.2016:
+
+Мои данные:
+- Ширина маршевой лестницы: 1.2 м
+- Ширина площадки: 1.5 м
+- Высота ступени: 170 мм
+- Глубина ступени (проступь): 280 мм
+- Перепад высот между этажами: 3.0 м
+- Количество ступеней в марше: 18 шт.
+- Ограждение высотой: 900 мм
+- Нет лестницы для эвакуации МГН (маломобильных групп населения)
+
+Проверь:
+1. Соответствие ширины лестницы требованиям эвакуации
+2. Соответствие размеров ступеней (формула 2h + b = 620–640 мм)
+3. Наличие и параметры лестницы для МГН (если требуется)
+4. Высота ограждения и промежуточного поручня
+5. Необходимость противопожарных дверей и их параметры
+
+Дай список нарушений (если есть) с указанием конкретных пунктов СП.</pre>
+    </div>
+
+    <div class="card card-warning">
+      <strong>⚠️ Важно:</strong> ИИ работает с публичными текстами нормативов и может ошибаться. Это не заменяет экспертизу ГАУ или проверку проектировщиком. Используйте как «предварительную проверку» перед сдачей в экспертизу.
+    </div>
+
+    <div class="card card-accent">
+      <strong>Формат входа:</strong> описание элемента конструкции с размерами, тип здания, этажность<br>
+      <strong>Формат выхода:</strong> список проверок по нормативам, найденные нарушения с пунктами СП/СНиП<br>
+      <strong>Экономия времени:</strong> 2–3 часа ручной проверки нормативов → 5 минут
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица: задачи во внешних ИИ</h2>
+    <table>
+      <tr><th>Задача</th><th>Формат входа</th><th>Формат выхода</th><th>Экономия времени</th></tr>
+      <tr><td>Поиск аналогов оборудования</td><td>Описание/марка/параметры</td><td>Список аналогов + дилеры + цены</td><td>2–3 ч → 5 мин</td></tr>
+      <tr><td>Бенчмаркинг цен СМР</td><td>Описание работ, объёмы, регион</td><td>Диапазон цен + разбивка</td><td>1–2 дня → 10 мин</td></tr>
+      <tr><td>Текстовая проработка концепций</td><td>Описание объекта, бюджет, регион</td><td>3–5 концепций с материалами и ценами</td><td>1–2 дня → 10 мин</td></tr>
+      <tr><td>Генерация 3D-визуализаций</td><td>Описание помещения, материалы, мебель</td><td>Промпт для генератора + инструмент</td><td>3–4 ч → 10 мин</td></tr>
+      <tr><td>Проверка по СП/СНиП</td><td>Размеры конструкции, тип здания</td><td>Список проверок + нарушения</td><td>2–3 ч → 5 мин</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Можно ли отправить в облачный ChatGPT рабочий чертёж с геодезическими координатами объекта?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Да, ChatGPT умеет читать чертежи</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Нет, это конфиденциальные данные объекта</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Да, но только если удалить после</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Цены на СМР из облачного ИИ можно использовать как:</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Официальное основание для сметы и претензий</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Ориентир для разговора и повод задать вопрос</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Замену смете по ГЭСН/ФЕР</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Какой инструмент лучше использовать для 3D-визуализации интерьера?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Claude — он генерирует 3D-модели</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Специализированные инструменты (Midjourney, Tripo3D, Spline)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT — он умеет в 3D</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 4:</strong> Проверка чертежей по СП/СНиП в облачном ИИ — это:</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Предварительная проверка, не заменяющая экспертизу</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Официальное заключение, пригодное для сдачи в ГАУ</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Полная замена проверки проектировщиком</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-2-on-prem/index.html" class="nav-btn">← 8.2 Внутри GENAi</a>
+    <a href="../08-4-dev/index.html" class="nav-btn primary">8.4 Разработка и агенты →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI для не ИТ-специалистов · Строительная компания</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Верно!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Неверно. Подумай ещё раз.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
