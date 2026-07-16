@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.1 Reality: What AI Can Do in Construction Today — AI for Non-IT Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ Level 8 · AI for Construction</div>
+    <h1>8.1 Reality: What AI Can Do in Construction Today</h1>
+    <div class="meta">15 min · for estimators, site supervisors, engineers · capital construction</div>
+  </div>
+
+  <div class="section">
+    <p><strong>The main thesis of this lesson:</strong> an estimate is not text. LLMs don't calculate according to GESN/FER, don't know coefficients, and don't understand the resource method. If you feed a neural network an estimate as text and expect an accurate calculation — you're doomed to hallucinations.</p>
+    <p>But that doesn't mean AI is useless in construction. It is useful — but for tasks where precise normative calculation isn't needed. Let's break down where it works now and where it doesn't yet.</p>
+  </div>
+
+  <div class="section">
+    <h2>Why Construction Is Harder Than Procurement</h2>
+    <p>In procurement, there are concrete numbers: price, lead time, quantity. An LLM compares 5 quotations — and does it well. In construction, everything is different:</p>
+
+    <div class="card card-danger">
+      <strong>What makes construction difficult for LLMs:</strong>
+      <ul>
+        <li><strong>Normative databases:</strong> GESN, FER, TSN, FSSC — tens of thousands of items with coefficients</li>
+        <li><strong>Resource method:</strong> cost = norm × resource price × coefficients. LLMs don't know current resource prices</li>
+        <li><strong>Coefficients:</strong> Kp (profit), Knr (overhead), Kpz (loading), conversion indices — they vary by region and year</li>
+        <li><strong>Local estimates:</strong> every project is unique, no two estimates are identical</li>
+        <li><strong>Estimate norms ≠ market prices:</strong> GESN provides labor and machinery norms, but material prices come from the market</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <strong>Example of a mistake:</strong> You upload a PDF estimate to ChatGPT and ask "check the calculation." The LLM sees text, but not what's behind the tables: which norms were applied, which coefficients, which indices. It may say "everything is correct" or find an obvious arithmetic error — but miss an estimating error of 30%.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Three Buckets of Tasks</h2>
+    <p>Let's divide the construction department's tasks into three groups — by AI readiness to solve them.</p>
+
+    <div class="card card-success">
+      <h3>🟢 Bucket 1: Quick Wins — Right Now</h3>
+      <p><em>LLMs handle these without customization. ROI in days and weeks.</em></p>
+      <ul>
+        <li><strong>Normative database search:</strong> "In which GESN collection can I find bored pile construction?"</li>
+        <li><strong>Decoding estimate items:</strong> "What does item FERm 01-01-001-01 mean?"</li>
+        <li><strong>VOR to text conversion:</strong> "Based on the Bill of Quantities, write a method statement"</li>
+        <li><strong>Text document generation:</strong> explanatory notes, method statements, letters</li>
+        <li><strong>Comparing local estimates by text:</strong> "Estimate A and Estimate B — what's the difference in approach?"</li>
+        <li><strong>Logic check (not calculation!):</strong> "The foundation estimate includes roofing work — is this an error?"</li>
+        <li><strong>Data extraction from drawings (OCR):</strong> recognize dimensions, marks, quantities</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>🟡 Bucket 2: Needs Development — Months</h3>
+      <p><em>Requires integration with estimating software, normative databases, or custom logic.</em></p>
+      <ul>
+        <li><strong>Automatic estimate calculation from VOR:</strong> link work volumes to GESN/FER, apply coefficients</li>
+        <li><strong>Norm-based estimate validation:</strong> automatic verification: are rates selected correctly, are any works missing</li>
+        <li><strong>Cost forecasting:</strong> model trained on historical data predicts final estimate from draft VOR</li>
+        <li><strong>Drawing-to-estimate matching:</strong> verify that all elements on the drawing are accounted for in the estimate</li>
+        <li><strong>VOR extraction from BIM models:</strong> automatic quantity takeoff from 3D models</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <h3>🔴 Bucket 3: Needs Agents — Years</h3>
+      <p><em>Requires a multi-agent system with access to external data and autonomous decision-making.</em></p>
+      <ul>
+        <li><strong>Full estimating automation:</strong> from drawing to approved estimate without human intervention</li>
+        <li><strong>Automatic resource price monitoring:</strong> an agent monitors the market and updates the estimate in real time</li>
+        <li><strong>Construction risk forecasting:</strong> an agent analyzes weather, suppliers, subcontractors, and warns of delays</li>
+        <li><strong>Automatic change management:</strong> when the project changes, an agent recalculates everything: estimate, schedule, resources</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Where to Pilot: Bucket 1</h2>
+    <p>Don't start with automatic estimate calculation — that's Bucket 2, it needs development. Start with tasks that deliver results within a week.</p>
+
+    <h3>Step 1: Normative Database Search</h3>
+    <div class="example">
+      <div class="example-label">Example Prompt</div>
+      <pre>I need to find a norm for constructing a monolithic reinforced concrete strip foundation.
+
+Questions:
+1. In which GESN or FER collection should I look?
+2. Which rates are suitable for a foundation 1.5 m deep and 0.4 m wide?
+3. What resources are included in the norm (concrete, rebar, formwork, labor)?
+4. What coefficients are typically applied to this norm?</pre>
+    </div>
+    <p>The LLM won't give an exact calculation, but it will point you in the right direction — saving 30 minutes of searching through collections.</p>
+
+    <h3>Step 2: Decoding Estimate Items</h3>
+    <div class="example">
+      <div class="example-label">Example Prompt</div>
+      <pre>Here is a list of items from a local estimate:
+- FERm 08-02-001-01
+- GESNm 81-05-001-01
+- TSN-2001-08-02-001
+
+Decode each item:
+1. Full work name
+2. Unit of measurement
+3. Main resources (materials, labor, machinery)
+4. Typical area of application</pre>
+    </div>
+
+    <h3>Step 3: Logic Check of an Estimate</h3>
+    <div class="example">
+      <div class="example-label">Example Prompt</div>
+      <pre>I have uploaded a PDF of a local estimate for building capital repairs.
+
+Check the logic (DO NOT calculate sums):
+1. Do all estimate sections match the types of work in the explanatory note?
+2. Are there any works that shouldn't be in this type of repair?
+3. Are there any missing works typical for capital repairs?
+4. Does the sequence of works match the technology?
+
+Provide a list of suspicious items with explanations.</pre>
+    </div>
+
+    <h3>Step 4: Generating Explanatory Notes</h3>
+    <div class="example">
+      <div class="example-label">Example Prompt</div>
+      <pre>Based on the local estimate (PDF attached), draft an explanatory note:
+
+1. General provisions (object, client, contractor)
+2. Basis for estimate preparation
+3. List of applied rates and norms
+4. Features of coefficient application
+5. Total cost and work duration
+
+Format: official, per GOST R 21.1101-2013.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Bucket 1 ROI:</strong>
+      <table>
+        <tr><th>Task</th><th>Before</th><th>After</th><th>Savings</th></tr>
+        <tr><td>Normative database search</td><td>30–60 min</td><td>2–5 min</td><td>90%</td></tr>
+        <tr><td>Decoding items</td><td>20–40 min</td><td>2–3 min</td><td>90%</td></tr>
+        <tr><td>Logic check of estimate</td><td>1–2 hours</td><td>5–10 min</td><td>85%</td></tr>
+        <tr><td>Explanatory note</td><td>2–4 hours</td><td>10–15 min</td><td>90%</td></tr>
+        <tr><td>Method statement</td><td>4–8 hours</td><td>20–30 min</td><td>90%</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What NOT to Do with LLMs in Construction</h2>
+    <div class="card card-danger">
+      <strong>Red Flags — Tasks Where LLMs Will Mislead You:</strong>
+      <ul>
+        <li><strong>Calculating an estimate "from scratch" from text:</strong> LLMs don't know current resource prices, indices, and coefficients</li>
+        <li><strong>Checking arithmetic in complex estimates:</strong> may miss an error in a coefficient but "confirm" the total</li>
+        <li><strong>Selecting norms by work description:</strong> LLM may suggest a similar but incorrect rate</li>
+        <li><strong>Using for estimate justification in court or expertise:</strong> LLM conclusions have no legal force</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Safety Rule:</strong> An LLM is an estimator's assistant, not a replacement. It speeds up routine (search, text, logic checking), but accurate calculation still belongs to humans and estimating software (GRAND-Estimate, A0, Smeta.ru).
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Roadmap: From Bucket 1 to Bucket 2</h2>
+    <p>When Bucket 1 starts delivering results, you can move further:</p>
+    <ol>
+      <li><strong>Month 1–2:</strong> all estimators use LLMs for norm search, item decoding, text generation</li>
+      <li><strong>Month 3–4:</strong> integration with GRAND-Estimate or A0 API for automatic item export</li>
+      <li><strong>Month 5–6:</strong> custom tool: upload VOR → auto-select norms → draft estimate (requires development)</li>
+      <li><strong>Month 7–12:</strong> train a model on company historical estimates for cost forecasting</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Why can't an LLM accurately calculate an estimate according to GESN/FER?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because GESN prohibits the use of AI</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because LLMs don't know current resource prices, coefficients, and indices</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because estimates are too long for the context window</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Which bucket does the task "check if the estimate contains works unsuitable for capital repairs" belong to?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Bucket 1 — Quick Wins</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Bucket 2 — Needs Development</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Bucket 3 — Needs Agents</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Which of the following belongs to Bucket 2 (needs development)?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Decoding estimate item FERm 08-02-001-01</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Automatic estimate calculation from VOR with norm and coefficient selection</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Generating an explanatory note from a template</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> What is the safety rule when using LLMs in construction?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">LLM fully replaces the estimator</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">LLM is an estimator's assistant; accurate calculation remains with humans</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">LLM can be used for estimate justification in court</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-hybrid/index.html" class="nav-btn">← 7.3 Hybrid Tasks</a>
+    <a href="../08-2-genai/index.html" class="nav-btn primary">8.2 Inside GENAi →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

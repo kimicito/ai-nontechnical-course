@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.2 Tasks Inside GENAi: On-Prem — AI for Non-IT Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ Level 8 · AI for Construction</div>
+    <h1>8.2 Tasks Inside GENAi: On-Prem</h1>
+    <div class="meta">15 min · for civil engineers · closed-loop</div>
+  </div>
+
+  <div class="section">
+    <p>This lesson covers tasks that a construction company solves internally, with data that cannot be sent to the internet. Estimates, certificates, correspondence with subcontractors, claims — all of this contains trade secrets and confidential information.</p>
+    <p><strong>Solution:</strong> on-prem LLM (e.g., Qwen, GigaChat, YandexGPT Enterprise) within the company's closed perimeter. Data never leaves the perimeter, but you get all the power of generative AI.</p>
+  </div>
+
+  <div class="section">
+    <h2>Why On-Prem for Construction</h2>
+    <div class="card card-danger">
+      <strong>What cannot be sent to the cloud:</strong>
+      <ul>
+        <li>Estimates, KS-2, KS-3 with prices and volumes</li>
+        <li>Claims and claim correspondence with subcontractors</li>
+        <li>As-built documentation and concealed works</li>
+        <li>Meeting minutes with commercial terms</li>
+        <li>Design briefs with budget constraints</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>What can be done on-prem:</strong>
+      <ul>
+        <li>Draft a claim with argumentation — in 10 minutes</li>
+        <li>Check as-built documentation for completeness</li>
+        <li>Compose meeting minutes from audio recording or notes</li>
+        <li>Verify KS-2/KS-3 against actual volumes</li>
+        <li>Write a design brief and construction supervision terms</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Claims — Drafting Argumentation</h2>
+    <p>A PTO engineer or site supervisor prepares a claim to a subcontractor for missed deadlines, poor quality work, or material shortages. Previously: hours of document review + legal consultation. Now: the LLM prepares a draft, the lawyer validates it.</p>
+
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>I am preparing a claim to the subcontractor LLC "StroyMontazh".
+
+Input data:
+- Contract No. 45 dated 15.02.2026, completion deadline: 30.06.2026
+- Actual completion: 15.08.2026 (46 days delay)
+- Causes of delay per my version: delayed rebar delivery by subcontractor (10 days), worker shortage (remaining 36 days)
+- Penalty per contract: 0.1% of contract price for each day of delay
+- Contract price: 15,000,000 ₽
+- I sent a risk notification of deadline breach on 15.05.2026
+
+Prepare:
+1. Claim argumentation with references to standard contract clauses
+2. Penalty calculation
+3. Demands: rectify defects + pay the penalty
+4. Response deadline: 10 business days
+5. References to Federal Law 44 or Civil Code of the Russian Federation (as applicable)
+
+Format: ready draft letter for lawyer validation.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Result:</strong> a structured claim draft with penalty calculation, references to legislation and contract. The engineer saves 2–3 hours, the lawyer spends 15 minutes on review instead of 2 hours writing from scratch.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Checking As-Built Documentation for Completeness</h2>
+    <p>Before handing over the facility to the client or before the certificate of completed works, the engineer checks whether all as-built documentation is collected. OKS sheets, concealed works certificates, material certificates, logs — dozens of items.</p>
+
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Check the completeness of as-built documentation for the facility "Shopping Center, Building A".
+
+Here is the list of documents I have collected (file OKS_list.xlsx):
+- As-built drawings (sheets 1–45)
+- Concealed works certificates (sheets 1–120)
+- Material certificates (folder /certs/)
+- Works log (log_2026.docx)
+- Incoming control log
+- As-built geodetic log
+- Test protocols
+
+Completeness requirements:
+- Each type of work must have a concealed works certificate
+- Each material must have a certificate valid on the date of use
+- Geodetic survey must be present at all stages
+
+Check:
+1. Which documents are missing compared to requirements
+2. Which certificates are expired
+3. Which concealed works certificates lack corresponding drawings
+4. List of missing items with priority</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Result:</strong> a list of missing documents with priorities. The PTO engineer saves 3–4 hours on manual folder review.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Correspondence with Subcontractors, Meeting Minutes</h2>
+    <p>After a site meeting, the supervisor or engineer must prepare minutes. Previously: recall what was said, re-listen to audio, write manually. With on-prem LLM: upload the audio recording or notes — get ready minutes.</p>
+
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare minutes of a working meeting at the construction site.
+
+Input data:
+Date: 14.07.2026
+Location: construction site, supervisor's office
+Attendees:
+- Ivanov A.P. (client representative)
+- Petrov S.V. (chief project engineer, CPE)
+- Sidorov K.M. (site supervisor, subcontractor LLC "StroyMontazh")
+- Kuznetsova L.V. (PTO engineer, general contractor)
+
+Discussion topics (notes):
+1. Delay in monolithic works by 12 days. Cause: delayed formwork delivery. Decision: engage a second crew, work in 2 shifts starting 20.07.
+2. Claim on plaster quality on the 3rd floor. Partial dismantling and rework required. Deadline: by 25.07.
+3. Approved replacement of tile supplier from "Kerama" to "GranitStroy" — price 8% lower, delivery in 14 days.
+4. Next meeting: 28.07.2026.
+
+Prepare:
+- Standard minutes with decisions recorded
+- Action items with responsible persons and deadlines
+- Separate: list of risks to be escalated to management</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Result:</strong> ready minutes with action items, deadlines, and responsible persons. The supervisor saves 1–1.5 hours on preparation.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Analyzing KS-2/KS-3 Against Actual Data</h2>
+    <p>The subcontractor submits KS-2 (certificate of completed works) and KS-3 (estimate). The engineer must check whether the volumes in the certificates match the actual ones. Previously: manually cross-check against logs, plans, photos. With on-prem: upload documents and ask.</p>
+
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Check whether KS-2 and KS-3 match actual work volumes.
+
+Input data:
+- KS-2 for June 2026 (file KS2_june.pdf)
+- KS-3 for June 2026 (file KS3_june.pdf)
+- Works accounting log (file log_june.xlsx)
+- Site photo report (folder /photos/june/)
+
+Check:
+1. Concrete volumes per KS-2 vs. actual per log (difference in m³)
+2. Rebar volumes: accepted per KS-3 vs. actually installed
+3. Presence of works not confirmed by photo report
+4. Consistency of unit prices in KS-3 with contract estimate
+5. Overtime works: whether confirmed by order
+
+Output:
+- List of discrepancies with amounts
+- Recommendations: what to accept, what to reject
+- Which documents to request from the subcontractor to resolve</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Result:</strong> a discrepancy table with amounts and recommendations. The PTO engineer saves 4–6 hours on cross-checking.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Design Brief, Construction Supervision Brief</h2>
+    <p>The client prepares a technical specification for the designer or for the organization that will perform construction supervision. Previously: search for templates, adapt, check for completeness. With on-prem LLM: describe the task — get a structured brief.</p>
+
+    <div class="example">
+      <div class="example-label">Prompt Example — Design Brief</div>
+      <pre>Prepare a technical specification for the design of a shopping center.
+
+Input data:
+- Land area: 1.2 ha
+- Building footprint: 8,500 m²
+- Number of floors: 2 floors + basement
+- Purpose: retail spaces, warehouse, parking
+- Climate zone: III-B (central Russia)
+- Seismicity: 6 points
+- Required energy efficiency class: B
+- Design budget: up to 5,000,000 ₽
+- Timeline: 4 months
+- Stages: sketch design → DD → WD
+
+The brief must include:
+1. General provisions
+2. Input data (urban development plan, geological surveys)
+3. Design documentation composition per list
+4. Requirements for structural solutions
+5. Requirements for engineering systems
+6. Requirements for energy efficiency
+7. Requirements for landscaping and greening
+8. Timelines and stages
+9. Approval and acceptance procedure
+10. Restrictions and prohibitions</pre>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Prompt Example — Construction Supervision Brief</div>
+      <pre>Prepare a technical specification for construction supervision.
+
+Input data:
+- Facility: shopping center, Building A, 8,500 m²
+- Developer: LLC "DevelopProject"
+- General contractor: LLC "StroyGrand"
+- Construction period: 18 months
+- Structural fire hazard class: C0
+- Responsibility level: elevated
+
+The brief must include:
+1. Scope and content of construction supervision
+2. List of controlled parameters (geometry, materials, technologies)
+3. Inspection frequency by stage
+4. Reporting requirements
+5. Procedure for documenting violations and issuing orders
+6. Interaction with client, general contractor, supervisory authorities
+7. Requirements for qualifications of supervisory organization personnel
+8. Supervision timelines and stages
+9. Parties' responsibilities</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Result:</strong> a structured brief per GOST and standard requirements. The engineer saves 4–6 hours on preparing the document from scratch.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: Tasks in a Closed Loop</h2>
+    <table>
+      <tr><th>Task</th><th>Input Format</th><th>Output Format</th><th>Time Saved</th></tr>
+      <tr><td>Claims work</td><td>Contract data, violation facts</td><td>Claim draft with calculation</td><td>3 h → 15 min</td></tr>
+      <tr><td>As-built documentation check</td><td>Collected documents list + requirements</td><td>Missing items list with priorities</td><td>4 h → 20 min</td></tr>
+      <tr><td>Meeting minutes</td><td>Audio/notes from meeting</td><td>Ready minutes with action items</td><td>1.5 h → 10 min</td></tr>
+      <tr><td>KS-2/KS-3 analysis</td><td>Certificates, logs, photo report</td><td>Discrepancy table + recommendations</td><td>6 h → 30 min</td></tr>
+      <tr><td>Design / supervision brief</td><td>Facility description and requirements</td><td>Structured brief per GOST</td><td>6 h → 20 min</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Why can't claims and KS-2/KS-3 be sent to cloud ChatGPT?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because ChatGPT cannot read PDFs</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because this is trade secret and confidential data</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because construction documents are too large</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> What role does the lawyer play when preparing a claim via on-prem LLM?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">The lawyer writes the claim from scratch, the LLM only formats it</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">The LLM prepares a draft, the lawyer validates and refines it</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">The lawyer does not participate, the LLM does everything alone</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> What is checked when analyzing KS-2/KS-3 via LLM?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Consistency of volumes in certificates against actual data and photo report</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Spelling and document formatting</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Presence of signatures from all parties</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> What input format is needed to generate meeting minutes?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Only audio recording of the meeting</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Audio recording or text notes with key decisions</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Only video recording from surveillance cameras</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-1-reality/index.html" class="nav-btn">← 8.1 Reality</a>
+    <a href="../08-3-external-ai/index.html" class="nav-btn primary">8.3 External AI →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

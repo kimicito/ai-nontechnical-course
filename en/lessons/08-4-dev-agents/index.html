@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.4 Development and Agents — AI for Non-IT Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ Level 8 · AI for Construction</div>
+    <h1>8.4 Development and Agents</h1>
+    <div class="meta">15 min · for project managers and estimators · when a team is needed</div>
+  </div>
+
+  <div class="section">
+    <p>In construction, AI is not just about prompts in ChatGPT. Real efficiency appears where the model integrates with your systems: estimation software, BIM, ERP, drawing databases. This requires a development team or ready-made agent solutions.</p>
+    <p><strong>In this lesson:</strong> three complexity baskets — from tasks handled by a contractor to tasks requiring your own development team or agent system.</p>
+  </div>
+
+  <div class="section">
+    <h2>1. Where a Development Team is Needed</h2>
+    <p>Some tasks in construction cannot be solved with off-the-shelf AI tools. Integration with internal systems, precise calculations, and legal liability are required.</p>
+
+    <div class="card card-accent">
+      <table>
+        <tr>
+          <th>Task</th>
+          <th>Why Development is Needed</th>
+          <th>What to Build</th>
+        </tr>
+        <tr>
+          <td><strong>Estimates by GESN/FER</strong></td>
+          <td>Grand-Estimate and analogs use closed formats; a calculation engine is needed</td>
+          <td>Integration with Grand-Estimate via API or plugin + custom calculation engine for verification</td>
+        </tr>
+        <tr>
+          <td><strong>Index Updates per Minstroy</strong></td>
+          <td>Indices change quarterly; manual updates risk errors</td>
+          <td>Minstroy index parser + auto-update of estimate norms</td>
+        </tr>
+        <tr>
+          <td><strong>NMCC Calculation</strong></td>
+          <td>Initial maximum contract price is legally sensitive; an error = retendering</td>
+          <td>Calculation module with source traceability, justification export, and audit log</td>
+        </tr>
+        <tr>
+          <td><strong>Specification Extraction from Drawings</strong></td>
+          <td>Vision models produce a draft; production requires a verification pipeline</td>
+          <td>Vision model (Qwen/GPT-4V) → structuring → manual check → export to estimate</td>
+        </tr>
+        <tr>
+          <td><strong>BOR from BIM</strong></td>
+          <td>BIM is the single source of truth, but the bill of quantities is needed in estimation software</td>
+          <td>BIM connector → BOR extraction → formatting for Grand-Estimate</td>
+        </tr>
+        <tr>
+          <td><strong>ERP/Warehouse Reconciliation</strong></td>
+          <td>Warehouse materials ≠ estimate materials; two-way synchronization is needed</td>
+          <td>ERP integration (1C, SAP) for reconciliation of balances and orders</td>
+        </tr>
+        <tr>
+          <td><strong>Clash Detection</strong></td>
+          <td>Navisworks and Tekla find clashes, but integrating reports into workflow is a separate task</td>
+          <td>Navisworks API → report extraction → automatic assignment of responsible parties → dashboard</td>
+        </tr>
+        <tr>
+          <td><strong>3D Renders</strong></td>
+          <td>Generative tools (Stable Diffusion, DALL-E) need integration with BIM models</td>
+          <td>Pipeline: BIM → view export → generative render → comparison with original geometry</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card card-warning">
+      <strong>Key Principle:</strong> if a task requires integration with two or more internal systems — this is work for a development team, not a "contractor in 2 weeks."
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Where Agents are Needed</h2>
+    <p>Agent systems are not just LLMs, but autonomous processes that can access systems, collect data, make decisions, and report to humans.</p>
+
+    <div class="card card-success">
+      <h3>Project Risk Analysis</h3>
+      <p>The agent analyzes the estimate, schedule, weather, and suppliers, and outputs a risk score for each risk with recommendations.</p>
+      <div class="example">
+        <div class="example-label">Agent at Work</div>
+        <pre>1. Received estimate and schedule
+2. Checked Minstroy indices — up to date
+3. Checked weather forecast for foundation period — rain risk
+4. Checked suppliers — 2 out of 5 had delays last quarter
+5. Result: report with 3 critical risks + recommendations</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h3>Estimate Index Updates</h3>
+      <p>Agent process: quarterly, the agent checks Minstroy indices, compares with current estimates, and suggests adjustments.</p>
+      <div class="example">
+        <div class="example-label">Agent at Work</div>
+        <pre>1. Loaded current indices from Minstroy website
+2. Compared with 15 active estimates
+3. Found 3 estimates with outdated indices
+4. Calculated delta (estimate is overstated by 8%)
+5. Sent to estimator for approval</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h3>BOR Reconciliation with Procurement and Balances</h3>
+      <p>The agent goes into ERP and checks: are materials ordered per BOR? Are they in stock? When is delivery?</p>
+      <div class="example">
+        <div class="example-label">Agent at Work</div>
+        <pre>1. Received BOR for next month
+2. Checked ERP — balances: cement shortage
+3. Checked orders: cement delivery in 2 weeks
+4. BOR requires cement in 1 week
+5. Result: delay risk notification</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h3>Contractor Estimate Verification</h3>
+      <p>The agent pulls market prices from open sources (or your database) and cross-checks with the contractor's estimate.</p>
+      <div class="example">
+        <div class="example-label">Agent at Work</div>
+        <pre>1. Received contractor estimate for 45 million
+2. Checked 120 positions against market price database
+3. Found 15 positions inflated by 12-30%
+4. Generated report with negotiation recommendations</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Piloting: Where to Start</h2>
+    <p>Don't try to automate everything at once. Construction is a conservative industry, and an error in an estimate costs more than a one-month delay.</p>
+
+    <div class="card card-accent">
+      <h3>Basket 1: Quick Effect, Low Risk</h3>
+      <ul>
+        <li><strong>Specification extraction from drawings</strong> — Vision model + manual check. After 2-3 iterations, accuracy is 90%+.</li>
+        <li><strong>Project risk analysis</strong> — agent based on open data + your estimates. Does not touch systems.</li>
+        <li><strong>3D renders for presentations</strong> — generative AI, does not affect calculations.</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>Basket 2: Medium Risk, Integration Required</h3>
+      <ul>
+        <li><strong>Estimate index updates</strong> — needs Minstroy parser + access to estimates. Human-in-the-loop is mandatory.</li>
+        <li><strong>BOR reconciliation with procurement</strong> — agent goes into ERP, needs access rights and audit log.</li>
+        <li><strong>Clashes from Navisworks</strong> — BIM integration, but result is a report, not model changes.</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <h3>Basket 3: High Risk, Team Required</h3>
+      <ul>
+        <li><strong>GESN/FER estimates with auto-calculation</strong> — error = incorrect tender or schedule slip.</li>
+        <li><strong>NMCC calculation</strong> — legal liability, needs traceability and expertise.</li>
+        <li><strong>Contractor estimate verification with automatic claim generation</strong> — contract consequences.</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <strong>Human-in-the-loop is mandatory for baskets 2 and 3.</strong> AI proposes, human confirms before execution. This is not a slowdown — it's insurance. In construction, a 5% estimate error can cost tens of millions.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Which task definitely requires a development team rather than an off-the-shelf AI tool?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Comparing 3 commercial proposals by price</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Integration with Grand-Estimate and a calculation engine</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Generating a 3D render for a presentation</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Why is NMCC calculation in basket 3 (high risk)?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">An error in NMCC can lead to retendering and legal consequences</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">NMCC is difficult to calculate in Excel</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">NMCC requires internet access</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> What is "human-in-the-loop" in the context of agents for construction?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Hiring more people for oversight</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">AI proposes a solution, human confirms before execution</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Training people to work with AI</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> Which task from the list is best suited for a pilot (basket 1)?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Specification extraction from drawings with manual verification</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Automatic NMCC calculation</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Generating claims against a contractor</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-3-external-ai/index.html" class="nav-btn">← 8.3 External AI</a>
+    <a href="../09-1-procurement-audit/index.html" class="nav-btn primary">9.1 Audit Procurement →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

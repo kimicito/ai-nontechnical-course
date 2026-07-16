@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.3 Tasks in External AI: Cloud — AI for Non-IT Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ Level 8 · AI for Construction</div>
+    <h1>8.3 Tasks in External AI: Cloud</h1>
+    <div class="meta">15 min · for PTO engineers, foremen, estimators · open loop</div>
+  </div>
+
+  <div class="section">
+    <p>In this lesson — tasks that a construction professional solves in external cloud-based AI: Claude, ChatGPT, Kimi, Qwen. This is data that can be sent over the internet: general descriptions, public regulations, market benchmarks, external visualizations.</p>
+    <p><strong>Main rule:</strong> do not send project drawings with coordinates, estimates with procurement prices, subcontractor agreements, or internal commercial data to the cloud. Everything else is fine.</p>
+  </div>
+
+  <div class="section">
+    <h2>Why External AI for Construction</h2>
+    <div class="card card-success">
+      <strong>What can be sent to the cloud:</strong>
+      <ul>
+        <li>Equipment descriptions (without serial numbers and procurement prices)</li>
+        <li>Public texts of SP, SNiP, GOST (from open sources)</li>
+        <li>General descriptions of design concepts and facade solutions</li>
+        <li>Photos/scans of facades or rooms for visualization</li>
+        <li>Market requests for analogs and benchmarking</li>
+      </ul>
+    </div>
+    <div class="card card-danger">
+      <strong>What cannot be sent to the cloud:</strong>
+      <ul>
+        <li>Working drawings with geodetic coordinates and elevations</li>
+        <li>Estimates with procurement prices and markups</li>
+        <li>Subcontractor agreements with penalties and terms</li>
+        <li>Work completion certificates with actual volumes</li>
+        <li>Photos from the site showing security zones or strategic facilities</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Finding Equipment Analogs and Suppliers</h2>
+    <p>A pump, valve, or actuator has failed on site. The marking is worn off, the supplier no longer delivers. You need to find an analog with the same parameters.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>I have a circulation pump Grundfos UPS 32-60 180 installed on site.
+It has failed, Grundfos no longer supplies this model to Russia.
+
+Find Russian-made analogs with the same parameters:
+- Capacity: up to 8 m³/h
+- Head: up to 6 m
+- Mounting length: 180 mm
+- Rotor type: wet
+- Power supply: 1×230 V
+
+For each analog, specify:
+- Manufacturer and model
+- Where to buy (official dealers in Moscow/St. Petersburg)
+- Market price (approximately)
+- Differences from the original (dimensions, thread, mounting)</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input format:</strong> equipment description (brand, parameters, photo if available)<br>
+      <strong>Output format:</strong> list of analogs with specifications, dealer contacts, approximate prices<br>
+      <strong>Time saved:</strong> 2–3 hours of manual search → 5 minutes
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Benchmarking Market Prices for Construction Works</h2>
+    <p>You need to quickly understand: is the subcontractor's price adequate? Are they asking twice the market rate? External AI provides a reference — not a basis for the estimate, but a reason to ask questions.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>I received a quote for ventilation installation in a 2000 m² office building.
+The subcontractor quoted 4,500,000 rubles (without materials, installation only).
+
+Do a market benchmark for the Moscow region, 2025:
+- Supply and exhaust system with heat recovery
+- Area 2000 m², 4 floors
+- Approximately 8000 m² of ducts
+- 20 ventilation units
+- Automation and dispatching
+
+Specify:
+1. Range of market prices (lower/median/upper bound)
+2. Where cheap contractors cut corners
+3. Where expensive contractors overcharge
+4. Which line items to check during reconciliation
+
+Important: this is a reference, not a basis for an estimate. Do not use as an official price.</pre>
+    </div>
+
+    <div class="card card-warning">
+      <strong>⚠️ Warning:</strong> prices from cloud AI are approximate data from open sources. They do not replace estimates based on GESN/FER and are not grounds for a claim. Use as a "reason to ask questions," not as "evidence."
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input format:</strong> description of work type, volumes, region, year<br>
+      <strong>Output format:</strong> range of market prices, breakdown by line items, recommendations<br>
+      <strong>Time saved:</strong> 1–2 days collecting quotes from 3 contractors → 10 minutes
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Design Solution Variations — Textual Development</h2>
+    <p>The client wants "something modern" for the facade. You need to formulate 3–5 text concepts to later show the architect. External AI generates descriptions that are then turned into sketches.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Building: 5-story office center, 60×30 m, southwest-facing facade.
+Region: Kazan, moderate continental climate.
+Budget: mid-range (not premium, not economy).
+
+Come up with 4 facade solution concepts:
+
+1. Concept "Techno"
+   - Description: materials, colors, textures, glazing type
+   - Pros: cost, durability, maintainability
+   - Cons: risks, limitations
+
+2. Concept "Bio"
+   - With green walls, terraces, wooden elements
+   - Same items
+
+3. Concept "Loft"
+   - Brick, steel, large windows
+   - Same items
+
+4. Concept "Classic"
+   - Ventilated facade, porcelain stoneware, strict geometry
+   - Same items
+
+For each concept, indicate approximate facade cost per m² (reference) and installation timelines.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input format:</strong> building description, budget, region, client preferences<br>
+      <strong>Output format:</strong> 3–5 text concepts with materials, pros/cons, approximate cost<br>
+      <strong>Time saved:</strong> 1–2 days of designer work on a draft → 10 minutes
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Generating 3D Visualizations via Specialized Tools</h2>
+    <p>Claude and ChatGPT cannot generate 3D models. But there are specialized cloud tools: <strong>SketchUp + AI plugins, Midjourney for references, Tripo3D, Spline, Looka</strong>. AI helps prepare the prompt for these tools.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example for Visualization Preparation</div>
+      <pre>I need a 3D visualization of an office building lobby interior.
+
+Room parameters:
+- Area: 120 m², ceiling height 4.2 m
+- Shape: rectangle 15×8 m
+- Windows: panoramic glazing on the south side, 12 m
+- Floor: polished concrete with warm wood inserts
+- Walls: concrete, partially painted dark green (RAL 6005)
+- Ceiling: exposed utilities, track lighting, black color
+
+Furniture:
+- Reception desk 4 m, white artificial stone
+- Sofa area: modular gray sofa, 2 armchairs
+- Meeting tables: 2 pcs., glass
+- Plants: 3 large ficus in planters
+
+Generate a prompt for Midjourney / SketchUp AI / DALL-E that will give the most realistic result. Indicate which tool is best to choose and why.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input format:</strong> room description, materials, furniture, style, desired result<br>
+      <strong>Output format:</strong> ready prompt for the generator + tool recommendation<br>
+      <strong>Time saved:</strong> 3–4 hours of reference selection and setup → 10 minutes for prompt + 5 minutes for generation
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Drawing Check Against SP/SNiP (Preliminary)</h2>
+    <p>Before submitting for expertise or approval by the administration, you can check drawings for compliance with public regulations. External AI knows SP and SNiP texts but does not replace an expert. This is a "preliminary grooming."</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>I am designing a stairwell in a 9-story residential building.
+
+Check my parameters against SP 118.13330.2012 (SNiP 31-01-2003) and SP 55.13330.2016:
+
+My data:
+- Stair flight width: 1.2 m
+- Landing width: 1.5 m
+- Step height: 170 mm
+- Step depth (tread): 280 mm
+- Height difference between floors: 3.0 m
+- Number of steps in a flight: 18 pcs.
+- Railing height: 900 mm
+- No stairs for MGN (people with limited mobility)
+
+Check:
+1. Stair width compliance with evacuation requirements
+2. Step size compliance (formula 2h + b = 620–640 mm)
+3. Availability and parameters of stairs for MGN (if required)
+4. Railing height and intermediate handrail
+5. Need for fire doors and their parameters
+
+Give a list of violations (if any) with specific clauses of SP.</pre>
+    </div>
+
+    <div class="card card-warning">
+      <strong>⚠️ Important:</strong> AI works with public regulatory texts and may make mistakes. This does not replace GAU expertise or designer verification. Use as a "preliminary check" before submitting for expertise.
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input format:</strong> structural element description with dimensions, building type, number of floors<br>
+      <strong>Output format:</strong> list of checks against regulations, found violations with SP/SNiP clauses<br>
+      <strong>Time saved:</strong> 2–3 hours of manual regulation checking → 5 minutes
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: Tasks in External AI</h2>
+    <table>
+      <tr><th>Task</th><th>Input Format</th><th>Output Format</th><th>Time Saved</th></tr>
+      <tr><td>Finding equipment analogs</td><td>Description/brand/parameters</td><td>List of analogs + dealers + prices</td><td>2–3 h → 5 min</td></tr>
+      <tr><td>Construction works price benchmarking</td><td>Work description, volumes, region</td><td>Price range + breakdown</td><td>1–2 days → 10 min</td></tr>
+      <tr><td>Textual concept development</td><td>Building description, budget, region</td><td>3–5 concepts with materials and prices</td><td>1–2 days → 10 min</td></tr>
+      <tr><td>3D visualization generation</td><td>Room description, materials, furniture</td><td>Prompt for generator + tool</td><td>3–4 h → 10 min</td></tr>
+      <tr><td>SP/SNiP compliance check</td><td>Structure dimensions, building type</td><td>Check list + violations</td><td>2–3 h → 5 min</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Can you send a working drawing with geodetic coordinates of the object to cloud ChatGPT?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Yes, ChatGPT can read drawings</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">No, this is confidential object data</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Yes, but only if deleted afterwards</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Construction works prices from cloud AI can be used as:</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Official basis for estimates and claims</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Reference for discussion and reason to ask questions</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Replacement for estimates based on GESN/FER</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Which tool is best for 3D interior visualization?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Claude — it generates 3D models</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Specialized tools (Midjourney, Tripo3D, Spline)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT — it knows 3D</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> Drawing check against SP/SNiP in cloud AI is:</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Preliminary check, not replacing expertise</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Official conclusion suitable for submission to GAU</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Complete replacement for designer verification</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-2-on-prem/index.html" class="nav-btn">← 8.2 Inside GENAi</a>
+    <a href="../08-4-dev/index.html" class="nav-btn primary">8.4 Development & Agents →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
