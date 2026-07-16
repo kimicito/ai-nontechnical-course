@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.4 Développement et agents — L'IA pour les non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">L'IA pour les non-spécialistes IT</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ Niveau 8 · IA pour la Construction</div>
+    <h1>8.4 Développement et agents</h1>
+    <div class="meta">15 min · pour chefs de projet et estimateurs · quand une équipe est nécessaire</div>
+  </div>
+
+  <div class="section">
+    <p>Dans la construction, l'IA ne se limite pas aux invites dans ChatGPT. La véritable efficacité apparaît là où le modèle s'intègre à vos systèmes : logiciels d'estimation, BIM, ERP, bases de données de dessins. Cela nécessite une équipe de développement ou des solutions d'agents prêtes à l'emploi.</p>
+    <p><strong>Dans cette leçon :</strong> trois catégories de complexité — des tâches gérées par un sous-traitant aux tâches nécessitant votre propre équipe de développement ou système d'agents.</p>
+  </div>
+
+  <div class="section">
+    <h2>1. Où une équipe de développement est nécessaire</h2>
+    <p>Certaines tâches dans la construction ne peuvent pas être résolues avec des outils d'IA standard. Une intégration avec les systèmes internes, des calculs précis et une responsabilité juridique sont requis.</p>
+
+    <div class="card card-accent">
+      <table>
+        <tr>
+          <th>Tâche</th>
+          <th>Pourquoi le développement est nécessaire</th>
+          <th>Quoi construire</th>
+        </tr>
+        <tr>
+          <td><strong>Estimations selon GESN/FER</strong></td>
+          <td>Grand-Estimate et analogues utilisent des formats fermés ; un moteur de calcul est nécessaire</td>
+          <td>Intégration avec Grand-Estimate via API ou plugin + moteur de calcul personnalisé pour vérification</td>
+        </tr>
+        <tr>
+          <td><strong>Mises à jour d'indices selon Minstroy</strong></td>
+          <td>Les indices changent trimestriellement ; les mises à jour manuelles risquent des erreurs</td>
+          <td>Analyseur d'indices Minstroy + mise à jour automatique des normes d'estimation</td>
+        </tr>
+        <tr>
+          <td><strong>Calcul du NMCC</strong></td>
+          <td>Le prix maximal initial du contrat est juridiquement sensible ; une erreur = nouvel appel d'offres</td>
+          <td>Module de calcul avec traçabilité des sources, export de justification et journal d'audit</td>
+        </tr>
+        <tr>
+          <td><strong>Extraction de spécifications depuis les dessins</strong></td>
+          <td>Les modèles de vision produisent un brouillon ; la production nécessite un pipeline de vérification</td>
+          <td>Modèle de vision (Qwen/GPT-4V) → structuration → vérification manuelle → export vers l'estimation</td>
+        </tr>
+        <tr>
+          <td><strong>BOR depuis le BIM</strong></td>
+          <td>Le BIM est la seule source de vérité, mais le métré est nécessaire dans le logiciel d'estimation</td>
+          <td>Connecteur BIM → extraction BOR → formatage pour Grand-Estimate</td>
+        </tr>
+        <tr>
+          <td><strong>Rapprochement ERP/Entrepôt</strong></td>
+          <td>Matériaux d'entrepôt ≠ matériaux d'estimation ; une synchronisation bidirectionnelle est nécessaire</td>
+          <td>Intégration ERP (1C, SAP) pour rapprochement des soldes et commandes</td>
+        </tr>
+        <tr>
+          <td><strong>Détection de collisions</strong></td>
+          <td>Navisworks et Tekla trouvent des collisions, mais intégrer les rapports dans le flux de travail est une tâche distincte</td>
+          <td>API Navisworks → extraction de rapports → attribution automatique des responsables → tableau de bord</td>
+        </tr>
+        <tr>
+          <td><strong>Rendus 3D</strong></td>
+          <td>Les outils génératifs (Stable Diffusion, DALL-E) nécessitent une intégration avec les modèles BIM</td>
+          <td>Pipeline : BIM → export de vues → rendu génératif → comparaison avec la géométrie originale</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card card-warning">
+      <strong>Principe clé :</strong> si une tâche nécessite l'intégration avec deux ou plusieurs systèmes internes — c'est du travail pour une équipe de développement, pas pour un "sous-traitant en 2 semaines."
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Où des agents sont nécessaires</h2>
+    <p>Les systèmes d'agents ne sont pas que des LLM, mais des processus autonomes qui peuvent accéder aux systèmes, collecter des données, prendre des décisions et rendre compte aux humains.</p>
+
+    <div class="card card-success">
+      <h3>Analyse des risques de projet</h3>
+      <p>L'agent analyse l'estimation, le calendrier, la météo et les fournisseurs, et produit un score de risque pour chaque risque avec des recommandations.</p>
+      <div class="example">
+        <div class="example-label">Agent au travail</div>
+        <pre>1. Reçu l'estimation et le calendrier
+2. Vérifié les indices Minstroy — à jour
+3. Vérifié la prévision météo pour la période de fondation — risque de pluie
+4. Vérifié les fournisseurs — 2 sur 5 ont eu des retards le trimestre dernier
+5. Résultat : rapport avec 3 risques critiques + recommandations</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h3>Mises à jour d'indices d'estimation</h3>
+      <p>Processus d'agent : chaque trimestre, l'agent vérifie les indices Minstroy, les compare avec les estimations actuelles et suggère des ajustements.</p>
+      <div class="example">
+        <div class="example-label">Agent au travail</div>
+        <pre>1. Chargé les indices actuels depuis le site de Minstroy
+2. Comparé avec 15 estimations actives
+3. Trouvé 3 estimations avec des indices obsolètes
+4. Calculé le delta (l'estimation est surévaluée de 8%)
+5. Envoyé à l'estimateur pour approbation</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h3>Rapprochement BOR avec l'approvisionnement et les soldes</h3>
+      <p>L'agent accède à l'ERP et vérifie : les matériaux sont-ils commandés selon le BOR ? Sont-ils en stock ? Quand est la livraison ?</p>
+      <div class="example">
+        <div class="example-label">Agent au travail</div>
+        <pre>1. Reçu le BOR pour le mois prochain
+2. Vérifié l'ERP — soldes : pénurie de ciment
+3. Vérifié les commandes : livraison de ciment dans 2 semaines
+4. Le BOR nécessite du ciment dans 1 semaine
+5. Résultat : notification de risque de retard</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h3>Vérification de l'estimation du sous-traitant</h3>
+      <p>L'agent extrait les prix du marché depuis des sources ouvertes (ou votre base de données) et les vérifie par rapport à l'estimation du sous-traitant.</p>
+      <div class="example">
+        <div class="example-label">Agent au travail</div>
+        <pre>1. Reçu l'estimation du sous-traitant pour 45 millions
+2. Vérifié 120 positions par rapport à la base de données de prix du marché
+3. Trouvé 15 positions surévaluées de 12 à 30%
+4. Généré un rapport avec recommandations de négociation</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Pilotage : par où commencer</h2>
+    <p>N'essayez pas d'automatiser tout d'un coup. La construction est une industrie conservatrice, et une erreur dans une estimation coûte plus cher qu'un retard d'un mois.</p>
+
+    <div class="card card-accent">
+      <h3>Panier 1 : Effet rapide, risque faible</h3>
+      <ul>
+        <li><strong>Extraction de spécifications depuis les dessins</strong> — modèle de vision + vérification manuelle. Après 2-3 itérations, la précision est de 90%+.</li>
+        <li><strong>Analyse des risques de projet</strong> — agent basé sur des données ouvertes + vos estimations. Ne touche pas aux systèmes.</li>
+        <li><strong>Rendus 3D pour les présentations</strong> — IA générative, n'affecte pas les calculs.</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>Panier 2 : Risque moyen, intégration requise</h3>
+      <ul>
+        <li><strong>Mises à jour d'indices d'estimation</strong> — nécessite un analyseur Minstroy + accès aux estimations. L'intervention humaine est obligatoire.</li>
+        <li><strong>Rapprochement BOR avec l'approvisionnement</strong> — l'agent accède à l'ERP, nécessite des droits d'accès et un journal d'audit.</li>
+        <li><strong>Collisions depuis Navisworks</strong> — intégration BIM, mais le résultat est un rapport, pas des modifications de modèle.</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <h3>Panier 3 : Risque élevé, équipe requise</h3>
+      <ul>
+        <li><strong>Estimations GESN/FER avec calcul automatique</strong> — une erreur = appel d'offres incorrect ou retard de planning.</li>
+        <li><strong>Calcul du NMCC</strong> — responsabilité juridique, nécessite traçabilité et expertise.</li>
+        <li><strong>Vérification de l'estimation du sous-traitant avec génération automatique de réclamations</strong> — conséquences contractuelles.</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <strong>L'intervention humaine est obligatoire pour les paniers 2 et 3.</strong> L'IA propose, l'humain confirme avant l'exécution. Ce n'est pas un ralentissement — c'est une assurance. Dans la construction, une erreur de 5% dans une estimation peut coûter des dizaines de millions.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong> Quelle tâche nécessite définitivement une équipe de développement plutôt qu'un outil d'IA standard ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Comparer 3 propositions commerciales par prix</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Intégration avec Grand-Estimate et un moteur de calcul</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Générer un rendu 3D pour une présentation</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong> Pourquoi le calcul du NMCC est-il dans le panier 3 (risque élevé) ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Une erreur dans le NMCC peut entraîner un nouvel appel d'offres et des conséquences juridiques</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Le NMCC est difficile à calculer dans Excel</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Le NMCC nécessite un accès Internet</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong> Qu'est-ce que "human-in-the-loop" dans le contexte des agents pour la construction ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Embaucher plus de personnes pour la surveillance</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">L'IA propose une solution, l'humain confirme avant l'exécution</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Former les gens à travailler avec l'IA</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4 :</strong> Quelle tâche de la liste est la mieux adaptée pour un pilote (panier 1) ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Extraction de spécifications depuis les dessins avec vérification manuelle</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Calcul automatique du NMCC</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Générer des réclamations contre un sous-traitant</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-3-external-ai/index.html" class="nav-btn">← 8.3 IA externe</a>
+    <a href="../09-1-procurement-audit/index.html" class="nav-btn primary">9.1 Audit des achats →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>L'IA pour les non-spécialistes IT · Entreprise industrielle</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct !';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Réfléchissez encore.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

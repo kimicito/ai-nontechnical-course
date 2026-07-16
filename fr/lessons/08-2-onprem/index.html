@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.2 Tâches en interne GENAi : on-prem — L'IA pour les non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">L'IA pour les non-spécialistes IT</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ Niveau 8 · IA pour la Construction</div>
+    <h1>8.2 Tâches en interne GENAi : on-prem</h1>
+    <div class="meta">15 min · pour ingénieurs civils · boucle fermée</div>
+  </div>
+
+  <div class="section">
+    <p>Cette leçon traite des tâches qu'une entreprise de construction résout en interne, avec des données qui ne peuvent pas être envoyées sur Internet. Les devis, les certificats, la correspondance avec les sous-traitants, les réclamations — tout cela contient des secrets commerciaux et des informations confidentielles.</p>
+    <p><strong>Solution :</strong> LLM on-prem (par exemple, Qwen, GigaChat, YandexGPT Enterprise) dans le périmètre fermé de l'entreprise. Les données ne quittent jamais le périmètre, mais vous disposez de toute la puissance de l'IA générative.</p>
+  </div>
+
+  <div class="section">
+    <h2>Pourquoi le On-Prem pour la Construction</h2>
+    <div class="card card-danger">
+      <strong>Ce qui ne peut pas être envoyé dans le cloud :</strong>
+      <ul>
+        <li>Devis, KS-2, KS-3 avec prix et volumes</li>
+        <li>Réclamations et correspondance réclamatoire avec les sous-traitants</li>
+        <li>Documentation d'as-built et certificats d'ouvrages dissimulés</li>
+        <li>Comptes rendus de réunion avec conditions commerciales</li>
+        <li>Cahiers des charges avec contraintes budgétaires</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Ce qui peut être fait en on-prem :</strong>
+      <ul>
+        <li>Rédiger une réclamation avec argumentation — en 10 minutes</li>
+        <li>Vérifier la documentation d'as-built pour son exhaustivité</li>
+        <li>Rédiger des comptes rendus de réunion à partir d'un enregistrement audio ou de notes</li>
+        <li>Vérifier les KS-2/KS-3 par rapport aux volumes réels</li>
+        <li>Rédiger un cahier des charges de conception et les termes de surveillance de construction</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Réclamations — Rédaction de l'argumentation</h2>
+    <p>Un ingénieur PTO ou un superviseur de chantier prépare une réclamation à un sous-traitant pour des retards, une mauvaise qualité d'exécution ou un manque de matériaux. Auparavant : des heures de révision de documents + consultation juridique. Maintenant : le LLM prépare un projet, l'avocat le valide.</p>
+
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Je prépare une réclamation au sous-traitant LLC "StroyMontazh".
+
+Données d'entrée :
+- Contrat n° 45 du 15.02.2026, délai d'achèvement : 30.06.2026
+- Achèvement réel : 15.08.2026 (46 jours de retard)
+- Causes du retard selon ma version : livraison retardée d'armatures par le sous-traitant (10 jours), manque d'ouvriers (36 jours restants)
+- Pénalité selon le contrat : 0,1 % du prix du contrat pour chaque jour de retard
+- Prix du contrat : 15 000 000 ₽
+- J'ai envoyé une notification de risque de non-respect du délai le 15.05.2026
+
+Préparez :
+1. L'argumentation de la réclamation avec références aux clauses types du contrat
+2. Calcul de la pénalité
+3. Exigences : rectifier les défauts + payer la pénalité
+4. Délai de réponse : 10 jours ouvrables
+5. Références à la Loi fédérale 44 ou au Code civil de la Fédération de Russie (selon applicabilité)
+
+Format : projet de lettre prêt pour validation par l'avocat.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Résultat :</strong> un projet de réclamation structuré avec calcul de pénalité, références à la législation et au contrat. L'ingénieur gagne 2 à 3 heures, l'avocat passe 15 minutes à la révision au lieu de 2 heures à rédiger de zéro.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Vérification de l'exhaustivité de la documentation d'as-built</h2>
+    <p>Avant de remettre l'installation au client ou avant le certificat d'ouvrages exécutés, l'ingénieur vérifie si toute la documentation d'as-built est collectée. Fiches OKS, certificats d'ouvrages dissimulés, certificats de matériaux, registres — des dizaines d'éléments.</p>
+
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Vérifiez l'exhaustivité de la documentation d'as-built pour l'installation "Centre commercial, Bâtiment A".
+
+Voici la liste des documents que j'ai collectés (fichier OKS_list.xlsx) :
+- Dessins d'as-built (fiches 1–45)
+- Certificats d'ouvrages dissimulés (fiches 1–120)
+- Certificats de matériaux (dossier /certs/)
+- Registre des travaux (log_2026.docx)
+- Registre de contrôle entrant
+- Registre géodésique d'as-built
+- Protocoles d'essai
+
+Exigences d'exhaustivité :
+- Chaque type de travail doit avoir un certificat d'ouvrages dissimulés
+- Chaque matériau doit avoir un certificat valide à la date d'utilisation
+- Le levé géodésique doit être présent à toutes les étapes
+
+Vérifiez :
+1. Quels documents sont manquants par rapport aux exigences
+2. Quels certificats sont expirés
+3. Quels certificats d'ouvrages dissimulés n'ont pas de dessins correspondants
+4. Liste des éléments manquants avec priorité</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Résultat :</strong> une liste de documents manquants avec priorités. L'ingénieur PTO gagne 3 à 4 heures sur la révision manuelle des dossiers.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Correspondance avec les sous-traitants, comptes rendus de réunion</h2>
+    <p>Après une réunion de chantier, le superviseur ou l'ingénieur doit préparer un compte rendu. Auparavant : se souvenir de ce qui a été dit, réécouter l'audio, rédiger manuellement. Avec un LLM on-prem : téléchargez l'enregistrement audio ou les notes — obtenez un compte rendu prêt.</p>
+
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Préparez le compte rendu d'une réunion de travail sur le chantier.
+
+Données d'entrée :
+Date : 14.07.2026
+Lieu : chantier, bureau du superviseur
+Participants :
+- Ivanov A.P. (représentant du client)
+- Petrov S.V. (ingénieur en chef du projet, ICP)
+- Sidorov K.M. (superviseur de chantier, sous-traitant LLC "StroyMontazh")
+- Kuznetsova L.V. (ingénieur PTO, maître d'œuvre)
+
+Sujets de discussion (notes) :
+1. Retard de 12 jours dans les travaux monolithiques. Cause : livraison retardée du coffrage. Décision : engager une deuxième équipe, travailler en 2 postes à partir du 20.07.
+2. Réclamation sur la qualité du plâtre au 3ème étage. Démontage partiel et reprise nécessaires. Délai : avant le 25.07.
+3. Approbation du remplacement du fournisseur de carreaux de "Kerama" à "GranitStroy" — prix 8 % inférieur, livraison en 14 jours.
+4. Prochaine réunion : 28.07.2026.
+
+Préparez :
+- Compte rendu standard avec décisions consignées
+- Actions à mener avec responsables et délais
+- Séparément : liste des risques à remonter à la direction</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Résultat :</strong> compte rendu prêt avec actions à mener, délais et responsables. Le superviseur gagne 1 à 1,5 heure sur la préparation.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Analyse des KS-2/KS-3 par rapport aux données réelles</h2>
+    <p>Le sous-traitant soumet le KS-2 (certificat d'ouvrages exécutés) et le KS-3 (devis). L'ingénieur doit vérifier si les volumes dans les certificats correspondent aux volumes réels. Auparavant : contre-vérification manuelle par rapport aux registres, plans, photos. Avec on-prem : téléchargez les documents et demandez.</p>
+
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Vérifiez si les KS-2 et KS-3 correspondent aux volumes réels de travaux.
+
+Données d'entrée :
+- KS-2 pour juin 2026 (fichier KS2_june.pdf)
+- KS-3 pour juin 2026 (fichier KS3_june.pdf)
+- Registre de comptabilité des travaux (fichier log_june.xlsx)
+- Rapport photo du chantier (dossier /photos/june/)
+
+Vérifiez :
+1. Volumes de béton selon KS-2 vs. réels selon le registre (différence en m³)
+2. Volumes d'armatures : acceptés selon KS-3 vs. réellement installés
+3. Présence de travaux non confirmés par le rapport photo
+4. Cohérence des prix unitaires dans KS-3 avec le devis du contrat
+5. Travaux supplémentaires : s'ils sont confirmés par ordre
+
+Sortie :
+- Liste des écarts avec montants
+- Recommandations : quoi accepter, quoi refuser
+- Quels documents demander au sous-traitant pour résoudre</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Résultat :</strong> un tableau d'écarts avec montants et recommandations. L'ingénieur PTO gagne 4 à 6 heures sur la contre-vérification.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Cahier des charges de conception, cahier des charges de surveillance de construction</h2>
+    <p>Le client prépare un cahier des charges pour le bureau d'études ou pour l'organisation qui assurera la surveillance de construction. Auparavant : recherche de modèles, adaptation, vérification de l'exhaustivité. Avec un LLM on-prem : décrivez la tâche — obtenez un cahier des charges structuré.</p>
+
+    <div class="example">
+      <div class="example-label">Exemple de prompt — Cahier des charges de conception</div>
+      <pre>Préparez un cahier des charges pour la conception d'un centre commercial.
+
+Données d'entrée :
+- Surface du terrain : 1,2 ha
+- Emprise au sol du bâtiment : 8 500 m²
+- Nombre d'étages : 2 étages + sous-sol
+- Usage : espaces commerciaux, entrepôt, parking
+- Zone climatique : III-B (Russie centrale)
+- Sismicité : 6 points
+- Classe d'efficacité énergétique requise : B
+- Budget de conception : jusqu'à 5 000 000 ₽
+- Délai : 4 mois
+- Étapes : esquisse → APD → DOE
+
+Le cahier des charges doit inclure :
+1. Dispositions générales
+2. Données d'entrée (plan d'urbanisme, études géologiques)
+3. Composition de la documentation de conception selon la liste
+4. Exigences pour les solutions structurelles
+5. Exigences pour les systèmes d'ingénierie
+6. Exigences pour l'efficacité énergétique
+7. Exigences pour l'aménagement paysager et le verdissement
+8. Délais et étapes
+9. Procédure d'approbation et d'acceptation
+10. Restrictions et interdictions</pre>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Exemple de prompt — Cahier des charges de surveillance de construction</div>
+      <pre>Préparez un cahier des charges pour la surveillance de construction.
+
+Données d'entrée :
+- Installation : centre commercial, Bâtiment A, 8 500 m²
+- Maître d'ouvrage : LLC "DevelopProject"
+- Maître d'œuvre : LLC "StroyGrand"
+- Durée de construction : 18 mois
+- Classe de risque structurel incendie : C0
+- Niveau de responsabilité : élevé
+
+Le cahier des charges doit inclure :
+1. Champ et contenu de la surveillance de construction
+2. Liste des paramètres contrôlés (géométrie, matériaux, technologies)
+3. Fréquence des inspections par étape
+4. Exigences de reporting
+5. Procédure de documentation des violations et d'émission des ordres
+6. Interaction avec le maître d'ouvrage, le maître d'œuvre, les autorités de surveillance
+7. Exigences pour les qualifications du personnel de l'organisme de surveillance
+8. Délais et étapes de la surveillance
+9. Responsabilités des parties</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Résultat :</strong> un cahier des charges structuré selon les GOST et exigences standards. L'ingénieur gagne 4 à 6 heures sur la préparation du document de zéro.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif : Tâches en boucle fermée</h2>
+    <table>
+      <tr><th>Tâche</th><th>Format d'entrée</th><th>Format de sortie</th><th>Temps économisé</th></tr>
+      <tr><td>Travail réclamatoire</td><td>Données du contrat, faits de violation</td><td>Projet de réclamation avec calcul</td><td>3 h → 15 min</td></tr>
+      <tr><td>Vérification de la documentation d'as-built</td><td>Liste des documents collectés + exigences</td><td>Liste des éléments manquants avec priorités</td><td>4 h → 20 min</td></tr>
+      <tr><td>Comptes rendus de réunion</td><td>Audio/notes de la réunion</td><td>Compte rendu prêt avec actions à mener</td><td>1,5 h → 10 min</td></tr>
+      <tr><td>Analyse KS-2/KS-3</td><td>Certificats, registres, rapport photo</td><td>Tableau d'écarts + recommandations</td><td>6 h → 30 min</td></tr>
+      <tr><td>Cahier des charges de conception / surveillance</td><td>Description de l'installation et exigences</td><td>Cahier des charges structuré selon GOST</td><td>6 h → 20 min</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong> Pourquoi les réclamations et les KS-2/KS-3 ne peuvent pas être envoyés à ChatGPT dans le cloud ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que ChatGPT ne peut pas lire les PDF</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Parce que ce sont des données commerciales secrètes et confidentielles</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que les documents de construction sont trop volumineux</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong> Quel rôle joue l'avocat lors de la préparation d'une réclamation via un LLM on-prem ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">L'avocat rédige la réclamation de zéro, le LLM ne fait que la formater</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Le LLM prépare un projet, l'avocat le valide et le peaufine</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">L'avocat ne participe pas, le LLM fait tout seul</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong> Que vérifie-t-on lors de l'analyse des KS-2/KS-3 via un LLM ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Cohérence des volumes dans les certificats par rapport aux données réelles et au rapport photo</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Orthographe et mise en forme du document</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Présence des signatures de toutes les parties</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4 :</strong> Quel format d'entrée est nécessaire pour générer un compte rendu de réunion ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Uniquement l'enregistrement audio de la réunion</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Enregistrement audio ou notes textuelles avec les décisions clés</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Uniquement l'enregistrement vidéo des caméras de surveillance</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-1-reality/index.html" class="nav-btn">← 8.1 Réalité</a>
+    <a href="../08-3-external-ai/index.html" class="nav-btn primary">8.3 IA externe →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>L'IA pour les non-spécialistes IT · Entreprise industrielle</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct !';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Réfléchissez encore.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

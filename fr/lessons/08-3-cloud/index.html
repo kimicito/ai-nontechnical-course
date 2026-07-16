@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.3 Tâches en IA externe : cloud — L'IA pour les non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">L'IA pour les non-spécialistes IT</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ Niveau 8 · IA pour la Construction</div>
+    <h1>8.3 Tâches en IA externe : cloud</h1>
+    <div class="meta">15 min · pour ingénieurs PTO, chefs de chantier, estimateurs · boucle ouverte</div>
+  </div>
+
+  <div class="section">
+    <p>Dans cette leçon — les tâches qu'un professionnel de la construction résout en IA externe basée sur le cloud : Claude, ChatGPT, Kimi, Qwen. Il s'agit de données pouvant être envoyées via Internet : descriptions générales, réglementations publiques, benchmarks de marché, visualisations externes.</p>
+    <p><strong>Règle principale :</strong> n'envoyez pas au cloud les plans de projet avec coordonnées, les estimations avec prix d'achat, les contrats de sous-traitance ou les données commerciales internes. Tout le reste est autorisé.</p>
+  </div>
+
+  <div class="section">
+    <h2>Pourquoi l'IA externe pour la construction</h2>
+    <div class="card card-success">
+      <strong>Ce qui peut être envoyé au cloud :</strong>
+      <ul>
+        <li>Descriptions d'équipements (sans numéros de série et prix d'achat)</li>
+        <li>Textes publics des SP, SNiP, GOST (de sources ouvertes)</li>
+        <li>Descriptions générales de concepts de conception et de solutions de façade</li>
+        <li>Photos/scans de façades ou de pièces pour visualisation</li>
+        <li>Demandes de marché pour des analogues et benchmarking</li>
+      </ul>
+    </div>
+    <div class="card card-danger">
+      <strong>Ce qui ne peut pas être envoyé au cloud :</strong>
+      <ul>
+        <li>Plans d'exécution avec coordonnées géodésiques et altitudes</li>
+        <li>Estimations avec prix d'achat et marges</li>
+        <li>Contrats de sous-traitance avec pénalités et conditions</li>
+        <li>Certificats d'achèvement des travaux avec volumes réels</li>
+        <li>Photos du chantier montrant des zones de sécurité ou des installations stratégiques</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Recherche d'analogues d'équipements et de fournisseurs</h2>
+    <p>Une pompe, une vanne ou un actionneur est tombé en panne sur le chantier. Le marquage est effacé, le fournisseur ne livre plus. Il faut trouver un analogue avec les mêmes paramètres.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>J'ai une pompe de circulation Grundfos UPS 32-60 180 installée sur le chantier.
+Elle est tombée en panne, Grundfos n'approvisionne plus ce modèle en Russie.
+
+Trouvez des analogues fabriqués en Russie avec les mêmes paramètres :
+- Débit : jusqu'à 8 m³/h
+- Hauteur : jusqu'à 6 m
+- Longueur de montage : 180 mm
+- Type de rotor : humide
+- Alimentation : 1×230 V
+
+Pour chaque analogue, précisez :
+- Fabricant et modèle
+- Où acheter (concessionnaires officiels à Moscou/Saint-Pétersbourg)
+- Prix du marché (approximatif)
+- Différences par rapport à l'original (dimensions, filetage, montage)</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Format d'entrée :</strong> description d'équipement (marque, paramètres, photo si disponible)<br>
+      <strong>Format de sortie :</strong> liste d'analogues avec spécifications, contacts des concessionnaires, prix approximatifs<br>
+      <strong>Temps économisé :</strong> 2–3 heures de recherche manuelle → 5 minutes
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Benchmarking des prix du marché pour les travaux de construction</h2>
+    <p>Vous devez rapidement comprendre : le prix du sous-traitant est-il adéquat ? Demande-t-il le double du tarif du marché ? L'IA externe fournit une référence — pas une base pour l'estimation, mais une raison de poser des questions.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>J'ai reçu un devis pour l'installation de ventilation dans un immeuble de bureaux de 2000 m².
+Le sous-traitant a proposé 4 500 000 roubles (sans matériaux, installation uniquement).
+
+Faites un benchmarking du marché pour la région de Moscou, 2025 :
+- Système d'approvisionnement et d'évacuation avec récupération de chaleur
+- Surface 2000 m², 4 étages
+- Environ 8000 m² de conduits
+- 20 unités de ventilation
+- Automatisation et dispatching
+
+Précisez :
+1. Fourchette de prix du marché (borne inférieure/médiane/borne supérieure)
+2. Où les entrepreneurs bon marché font des économies
+3. Où les entrepreneurs chers surfacturent
+4. Quelles lignes de postes vérifier lors de la réconciliation
+
+Important : c'est une référence, pas une base pour une estimation. Ne pas utiliser comme prix officiel.</pre>
+    </div>
+
+    <div class="card card-warning">
+      <strong>⚠️ Avertissement :</strong> les prix de l'IA cloud sont des données approximatives de sources ouvertes. Ils ne remplacent pas les estimations basées sur GESN/FER et ne constituent pas un fondement de réclamation. Utilisez-les comme une "raison de poser des questions", pas comme une "preuve".
+    </div>
+
+    <div class="card card-accent">
+      <strong>Format d'entrée :</strong> description du type de travaux, volumes, région, année<br>
+      <strong>Format de sortie :</strong> fourchette de prix du marché, détail par postes, recommandations<br>
+      <strong>Temps économisé :</strong> 1–2 jours de collecte de devis auprès de 3 entrepreneurs → 10 minutes
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Variations de solutions de conception — Développement textuel</h2>
+    <p>Le client veut "quelque chose de moderne" pour la façade. Vous devez formuler 3 à 5 concepts textuels pour les présenter ensuite à l'architecte. L'IA externe génère des descriptions qui seront ensuite transformées en esquisses.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Bâtiment : centre de bureaux de 5 étages, 60×30 m, façade orientée sud-ouest.
+Région : Kazan, climat continental modéré.
+Budget : milieu de gamme (ni premium, ni économique).
+
+Proposez 4 concepts de solutions de façade :
+
+1. Concept "Techno"
+   - Description : matériaux, couleurs, textures, type de vitrage
+   - Avantages : coût, durabilité, maintenabilité
+   - Inconvénients : risques, limitations
+
+2. Concept "Bio"
+   - Avec murs végétaux, terrasses, éléments en bois
+   - Mêmes éléments
+
+3. Concept "Loft"
+   - Brique, acier, grandes fenêtres
+   - Mêmes éléments
+
+4. Concept "Classique"
+   - Façade ventilée, grès cérame, géométrie stricte
+   - Mêmes éléments
+
+Pour chaque concept, indiquez le coût approximatif de la façade au m² (référence) et les délais d'installation.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Format d'entrée :</strong> description du bâtiment, budget, région, préférences du client<br>
+      <strong>Format de sortie :</strong> 3 à 5 concepts textuels avec matériaux, avantages/inconvénients, coût approximatif<br>
+      <strong>Temps économisé :</strong> 1–2 jours de travail de designer sur un brouillon → 10 minutes
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Génération de visualisations 3D via des outils spécialisés</h2>
+    <p>Claude et ChatGPT ne peuvent pas générer de modèles 3D. Mais il existe des outils cloud spécialisés : <strong>SketchUp + plugins IA, Midjourney pour les références, Tripo3D, Spline, Looka</strong>. L'IA aide à préparer le prompt pour ces outils.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt pour la préparation de visualisation</div>
+      <pre>J'ai besoin d'une visualisation 3D de l'intérieur d'un hall d'immeuble de bureaux.
+
+Paramètres de la pièce :
+- Surface : 120 m², hauteur sous plafond 4,2 m
+- Forme : rectangle 15×8 m
+- Fenêtres : vitrage panoramique côté sud, 12 m
+- Sol : béton poli avec inserts en bois chaud
+- Murs : béton, partiellement peint en vert foncé (RAL 6005)
+- Plafond : installations apparentes, éclairage sur rail, couleur noire
+
+Mobilier :
+- Bureau d'accueil 4 m, pierre artificielle blanche
+- Espace canapé : canapé modulaire gris, 2 fauteuils
+- Tables de réunion : 2 pièces, en verre
+- Plantes : 3 grands ficus dans des jardinières
+
+Générez un prompt pour Midjourney / SketchUp AI / DALL-E qui donnera le résultat le plus réaliste. Indiquez quel outil est le mieux adapté et pourquoi.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Format d'entrée :</strong> description de la pièce, matériaux, mobilier, style, résultat souhaité<br>
+      <strong>Format de sortie :</strong> prompt prêt pour le générateur + recommandation d'outil<br>
+      <strong>Temps économisé :</strong> 3–4 heures de sélection de références et de configuration → 10 minutes pour le prompt + 5 minutes pour la génération
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Vérification des plans contre les SP/SNiP (Préliminaire)</h2>
+    <p>Avant de soumettre pour expertise ou approbation par l'administration, vous pouvez vérifier les plans pour leur conformité avec les réglementations publiques. L'IA externe connaît les textes des SP et SNiP mais ne remplace pas un expert. Il s'agit d'un "nettoyage préliminaire".</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Je conçois un escalier dans un immeuble résidentiel de 9 étages.
+
+Vérifiez mes paramètres par rapport au SP 118.13330.2012 (SNiP 31-01-2003) et au SP 55.13330.2016 :
+
+Mes données :
+- Largeur de la volée d'escalier : 1,2 m
+- Largeur du palier : 1,5 m
+- Hauteur de marche : 170 mm
+- Profondeur de marche (giron) : 280 mm
+- Hauteur entre étages : 3,0 m
+- Nombre de marches dans une volée : 18 pièces
+- Hauteur de garde-corps : 900 mm
+- Pas d'escalier pour PMR (personnes à mobilité réduite)
+
+Vérifiez :
+1. Conformité de la largeur de l'escalier aux exigences d'évacuation
+2. Conformité des dimensions des marches (formule 2h + b = 620–640 mm)
+3. Disponibilité et paramètres des escaliers pour PMR (si requis)
+4. Hauteur du garde-corps et main courante intermédiaire
+5. Besoin de portes coupe-feu et leurs paramètres
+
+Donnez une liste de violations (s'il y en a) avec les clauses spécifiques du SP.</pre>
+    </div>
+
+    <div class="card card-warning">
+      <strong>⚠️ Important :</strong> l'IA travaille avec des textes réglementaires publics et peut commettre des erreurs. Cela ne remplace pas l'expertise du GAU ou la vérification du concepteur. Utilisez comme une "vérification préliminaire" avant de soumettre pour expertise.
+    </div>
+
+    <div class="card card-accent">
+      <strong>Format d'entrée :</strong> description d'un élément structurel avec dimensions, type de bâtiment, nombre d'étages<br>
+      <strong>Format de sortie :</strong> liste de vérifications par rapport aux réglementations, violations trouvées avec clauses SP/SNiP<br>
+      <strong>Temps économisé :</strong> 2–3 heures de vérification manuelle des réglementations → 5 minutes
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif : Tâches en IA externe</h2>
+    <table>
+      <tr><th>Tâche</th><th>Format d'entrée</th><th>Format de sortie</th><th>Temps économisé</th></tr>
+      <tr><td>Recherche d'analogues d'équipements</td><td>Description/marque/paramètres</td><td>Liste d'analogues + concessionnaires + prix</td><td>2–3 h → 5 min</td></tr>
+      <tr><td>Benchmarking des prix de travaux de construction</td><td>Description des travaux, volumes, région</td><td>Fourchette de prix + détail</td><td>1–2 jours → 10 min</td></tr>
+      <tr><td>Développement textuel de concepts</td><td>Description du bâtiment, budget, région</td><td>3–5 concepts avec matériaux et prix</td><td>1–2 jours → 10 min</td></tr>
+      <tr><td>Génération de visualisation 3D</td><td>Description de la pièce, matériaux, mobilier</td><td>Prompt pour le générateur + outil</td><td>3–4 h → 10 min</td></tr>
+      <tr><td>Vérification de conformité SP/SNiP</td><td>Dimensions de la structure, type de bâtiment</td><td>Liste de vérification + violations</td><td>2–3 h → 5 min</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong> Pouvez-vous envoyer un plan d'exécution avec les coordonnées géodésiques de l'objet à ChatGPT cloud ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Oui, ChatGPT peut lire les plans</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Non, ce sont des données confidentielles de l'objet</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Oui, mais seulement s'il est supprimé ensuite</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong> Les prix des travaux de construction de l'IA cloud peuvent être utilisés comme :</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Base officielle pour les estimations et réclamations</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Référence pour discussion et raison de poser des questions</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Remplacement des estimations basées sur GESN/FER</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong> Quel outil est le mieux adapté pour la visualisation 3D d'intérieur ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Claude — il génère des modèles 3D</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Outils spécialisés (Midjourney, Tripo3D, Spline)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT — il connaît la 3D</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4 :</strong> La vérification des plans contre les SP/SNiP en IA cloud est :</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Une vérification préliminaire, ne remplaçant pas l'expertise</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Une conclusion officielle apte à être soumise au GAU</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Un remplacement complet de la vérification du concepteur</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-2-on-prem/index.html" class="nav-btn">← 8.2 En interne GENAi</a>
+    <a href="../08-4-dev/index.html" class="nav-btn primary">8.4 Développement et agents →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>L'IA pour les non-spécialistes IT · Entreprise industrielle</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct !';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Réfléchissez encore.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

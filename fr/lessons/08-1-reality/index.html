@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.1 Réalité : ce que l'IA peut faire dans la construction aujourd'hui — L'IA pour les non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">L'IA pour les non-spécialistes IT</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ Niveau 8 · IA pour la Construction</div>
+    <h1>8.1 Réalité : ce que l'IA peut faire dans la construction aujourd'hui</h1>
+    <div class="meta">15 min · pour estimateurs, chefs de chantier, ingénieurs · construction de capitaux</div>
+  </div>
+
+  <div class="section">
+    <p><strong>La thèse principale de cette leçon :</strong> un devis n'est pas du texte. Les LLM ne calculent pas selon la GESN/FER, ne connaissent pas les coefficients et ne comprennent pas la méthode des ressources. Si vous donnez à un réseau de neurones un devis sous forme de texte et que vous attendez un calcul précis — vous êtes condamné aux hallucinations.</p>
+    <p>Mais cela ne signifie pas que l'IA est inutile dans la construction. Elle est utile — mais pour les tâches où un calcul normatif précis n'est pas nécessaire. Décomposons où elle fonctionne maintenant et où elle ne fonctionne pas encore.</p>
+  </div>
+
+  <div class="section">
+    <h2>Pourquoi la construction est plus difficile que les achats</h2>
+    <p>Dans les achats, il y a des chiffres concrets : prix, délai de livraison, quantité. Un LLM compare 5 devis — et le fait bien. Dans la construction, tout est différent :</p>
+
+    <div class="card card-danger">
+      <strong>Ce qui rend la construction difficile pour les LLM :</strong>
+      <ul>
+        <li><strong>Bases de données normatives :</strong> GESN, FER, TSN, FSSC — des dizaines de milliers d'éléments avec coefficients</li>
+        <li><strong>Méthode des ressources :</strong> coût = norme × prix de la ressource × coefficients. Les LLM ne connaissent pas les prix actuels des ressources</li>
+        <li><strong>Coefficients :</strong> Kp (profit), Knr (frais généraux), Kpz (chargement), indices de conversion — ils varient selon la région et l'année</li>
+        <li><strong>Devis locaux :</strong> chaque projet est unique, aucun devis n'est identique à un autre</li>
+        <li><strong>Normes de devis ≠ prix du marché :</strong> la GESN fournit les normes de main-d'œuvre et de machinerie, mais les prix des matériaux viennent du marché</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <strong>Exemple d'erreur :</strong> Vous téléchargez un devis PDF sur ChatGPT et demandez "vérifiez le calcul". Le LLM voit du texte, mais pas ce qui se cache derrière les tableaux : quelles normes ont été appliquées, quels coefficients, quels indices. Il peut dire "tout est correct" ou trouver une erreur arithmétique évidente — mais manquer une erreur de devis de 30 %.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Trois catégories de tâches</h2>
+    <p>Divisons les tâches du service construction en trois groupes — selon la préparation de l'IA à les résoudre.</p>
+
+    <div class="card card-success">
+      <h3>🟢 Catégorie 1 : Victoires rapides — Maintenant</h3>
+      <p><em>Les LLM gèrent cela sans personnalisation. ROI en jours et semaines.</em></p>
+      <ul>
+        <li><strong>Recherche dans la base de données normative :</strong> "Dans quelle collection GESN puis-je trouver la construction de pieux forés ?"</li>
+        <li><strong>Décodage des éléments de devis :</strong> "Que signifie l'élément FERm 01-01-001-01 ?"</li>
+        <li><strong>Conversion VOR en texte :</strong> "Sur la base du DCE, rédigez un plan de méthode"</li>
+        <li><strong>Génération de documents textuels :</strong> notes explicatives, plans de méthode, lettres</li>
+        <li><strong>Comparaison de devis locaux par texte :</strong> "Devis A et Devis B — quelle est la différence d'approche ?"</li>
+        <li><strong>Vérification logique (pas de calcul !) :</strong> "Le devis de fondation comprend des travaux de toiture — est-ce une erreur ?"</li>
+        <li><strong>Extraction de données des dessins (OCR) :</strong> reconnaître les dimensions, repères, quantités</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>🟡 Catégorie 2 : Nécessite un développement — Mois</h3>
+      <p><em>Nécessite l'intégration avec un logiciel de devis, des bases de données normatives ou une logique personnalisée.</em></p>
+      <ul>
+        <li><strong>Calcul automatique de devis à partir du VOR :</strong> lier les volumes de travaux à la GESN/FER, appliquer les coefficients</li>
+        <li><strong>Validation de devis basée sur les normes :</strong> vérification automatique : les taux sont-ils correctement sélectionnés, des travaux manquent-ils</li>
+        <li><strong>Prévision de coûts :</strong> modèle entraîné sur des données historiques prédit le devis final à partir de l'ébauche du VOR</li>
+        <li><strong>Correspondance dessin-devis :</strong> vérifier que tous les éléments du dessin sont pris en compte dans le devis</li>
+        <li><strong>Extraction de VOR à partir de modèles BIM :</strong> quantification automatique à partir de modèles 3D</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <h3>🔴 Catégorie 3 : Nécessite des agents — Années</h3>
+      <p><em>Nécessite un système multi-agents avec accès aux données externes et prise de décision autonome.</em></p>
+      <ul>
+        <li><strong>Automatisation complète du devis :</strong> du dessin au devis approuvé sans intervention humaine</li>
+        <li><strong>Surveillance automatique des prix des ressources :</strong> un agent surveille le marché et met à jour le devis en temps réel</li>
+        <li><strong>Prévision des risques de construction :</strong> un agent analyse la météo, les fournisseurs, les sous-traitants et avertit des retards</li>
+        <li><strong>Gestion automatique des modifications :</strong> quand le projet change, un agent recalcule tout : devis, planning, ressources</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Où faire un pilote : Catégorie 1</h2>
+    <p>Ne commencez pas par le calcul automatique de devis — c'est la Catégorie 2, cela nécessite un développement. Commencez par des tâches qui produisent des résultats en une semaine.</p>
+
+    <h3>Étape 1 : Recherche dans la base de données normative</h3>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Je dois trouver une norme pour la construction d'une fondation à semelle filante en béton armé monolithique.
+
+Questions :
+1. Dans quelle collection GESN ou FER dois-je chercher ?
+2. Quels taux sont adaptés pour une fondation de 1,5 m de profondeur et 0,4 m de large ?
+3. Quelles ressources sont incluses dans la norme (béton, armatures, coffrage, main-d'œuvre) ?
+4. Quels coefficients sont généralement appliqués à cette norme ?</pre>
+    </div>
+    <p>Le LLM ne donnera pas un calcul exact, mais il vous orientera dans la bonne direction — ce qui fera gagner 30 minutes de recherche dans les collections.</p>
+
+    <h3>Étape 2 : Décodage des éléments de devis</h3>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Voici une liste d'éléments d'un devis local :
+- FERm 08-02-001-01
+- GESNm 81-05-001-01
+- TSN-2001-08-02-001
+
+Décodez chaque élément :
+1. Nom complet des travaux
+2. Unité de mesure
+3. Ressources principales (matériaux, main-d'œuvre, machinerie)
+4. Domaine d'application typique</pre>
+    </div>
+
+    <h3>Étape 3 : Vérification logique d'un devis</h3>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>J'ai téléchargé un PDF d'un devis local pour des travaux de réparation capitale.
+
+Vérifiez la logique (NE PAS calculer les sommes) :
+1. Toutes les sections du devis correspondent-elles aux types de travaux dans la note explicative ?
+2. Y a-t-il des travaux qui ne devraient pas figurer dans ce type de réparation ?
+3. Y a-t-il des travaux manquants typiques pour une réparation capitale ?
+4. La séquence des travaux correspond-elle à la technologie ?
+
+Fournissez une liste des éléments suspects avec explications.</pre>
+    </div>
+
+    <h3>Étape 4 : Génération de notes explicatives</h3>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Sur la base du devis local (PDF joint), rédigez une note explicative :
+
+1. Dispositions générales (objet, client, entrepreneur)
+2. Base d'élaboration du devis
+3. Liste des taux et normes appliqués
+4. Particularités d'application des coefficients
+5. Coût total et durée des travaux
+
+Format : officiel, selon la GOST R 21.1101-2013.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>ROI de la Catégorie 1 :</strong>
+      <table>
+        <tr><th>Tâche</th><th>Avant</th><th>Après</th><th>Gain</th></tr>
+        <tr><td>Recherche dans la base de données normative</td><td>30–60 min</td><td>2–5 min</td><td>90 %</td></tr>
+        <tr><td>Décodage des éléments</td><td>20–40 min</td><td>2–3 min</td><td>90 %</td></tr>
+        <tr><td>Vérification logique du devis</td><td>1–2 heures</td><td>5–10 min</td><td>85 %</td></tr>
+        <tr><td>Note explicative</td><td>2–4 heures</td><td>10–15 min</td><td>90 %</td></tr>
+        <tr><td>Plan de méthode</td><td>4–8 heures</td><td>20–30 min</td><td>90 %</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Ce qu'il NE FAUT PAS faire avec les LLM dans la construction</h2>
+    <div class="card card-danger">
+      <strong>Signaux d'alerte — Tâches où les LLM vont vous induire en erreur :</strong>
+      <ul>
+        <li><strong>Calculer un devis "à partir de zéro" à partir de texte :</strong> les LLM ne connaissent pas les prix actuels des ressources, les indices et les coefficients</li>
+        <li><strong>Vérifier l'arithmétique dans les devis complexes :</strong> peuvent manquer une erreur dans un coefficient mais "confirmer" le total</li>
+        <li><strong>Sélectionner des normes par description des travaux :</strong> le LLM peut suggérer un taux similaire mais incorrect</li>
+        <li><strong>Utiliser pour la justification de devis devant un tribunal ou une expertise :</strong> les conclusions du LLM n'ont pas de force juridique</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Règle de sécurité :</strong> Un LLM est un assistant de l'estimateur, pas un remplaçant. Il accélère les tâches routinières (recherche, texte, vérification logique), mais le calcul précis reste l'affaire des humains et des logiciels de devis (GRAND-Estimate, A0, Smeta.ru).
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong> Pourquoi un LLM ne peut-il pas calculer précisément un devis selon la GESN/FER ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que la GESN interdit l'utilisation de l'IA</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Parce que les LLM ne connaissent pas les prix actuels des ressources, les coefficients et les indices</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que les devis sont trop longs pour la fenêtre de contexte</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong> À quelle catégorie appartient la tâche "vérifier si le devis contient des travaux inadaptés à une réparation capitale" ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Catégorie 1 — Victoires rapides</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Catégorie 2 — Nécessite un développement</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Catégorie 3 — Nécessite des agents</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong> Laquelle des propositions suivantes appartient à la Catégorie 2 (nécessite un développement) ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Décodage de l'élément de devis FERm 08-02-001-01</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Calcul automatique de devis à partir du VOR avec sélection des normes et coefficients</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Génération d'une note explicative à partir d'un modèle</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4 :</strong> Quelle est la règle de sécurité lors de l'utilisation des LLM dans la construction ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Le LLM remplace entièrement l'estimateur</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Le LLM est un assistant de l'estimateur ; le calcul précis reste l'affaire des humains</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Le LLM peut être utilisé pour la justification de devis devant un tribunal</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-hybrid/index.html" class="nav-btn">← 7.3 Tâches hybrides</a>
+    <a href="../08-2-onprem/index.html" class="nav-btn primary">8.2 En interne GENAi →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>L'IA pour les non-spécialistes IT · Entreprise industrielle</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct !';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Réfléchissez encore.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
