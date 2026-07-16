@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.4 开发与智能体 — AI 用于公关 — AI 非 IT 专业人员</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI 非 IT 专业人员</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 第 10 级 · AI 用于公关</div>
+    <h1>10.4 开发与智能体</h1>
+    <div class="meta">15 分钟 · 面向公关总监和传播团队</div>
+  </div>
+
+  <div class="section">
+    <p>本节课涵盖无法简单交由云端处理的公关任务。部分工作由外部 AI 完成，部分只能在内部完成。而在某些地方，你需要开发团队和智能体系统。</p>
+    <p><strong>核心原则：</strong>混合方法。草稿可以外发，立场对齐必须内控。公开内容可以上云，运营数据必须闭环。</p>
+  </div>
+
+  <div class="section">
+    <h2>1. 混合公关任务：外部与内部</h2>
+    <p>公关处理不同敏感度的信息。部分材料可以在云端生成，其他只能在闭环内处理。</p>
+
+    <div class="card card-accent">
+      <h3>对记者的评论</h3>
+      <p><strong>外部（云端）：</strong>起草关于一般事实的评论——市场情况、一般趋势、中立立场。</p>
+      <p><strong>内部（本地）：</strong>最终立场对齐，考虑内部战略、数字调整、合规性检查。</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>演讲者问答</h3>
+      <p><strong>外部（云端）：</strong>一般性问题——公司战略、产品线、市场计划。</p>
+      <p><strong>内部（本地）：</strong>敏感话题——制裁、诉讼、紧急情况、人事决策、与监管机构的谈判。这些问答在任何情况下都不得离开安全边界。</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>ESG 报告</h3>
+      <p><strong>外部（云端）：</strong>公开部分——使命、可持续发展战略、总体目标。</p>
+      <p><strong>内部（本地）：</strong>包含真实运营和环境数据的部分——排放、能耗、事故、罚款。最终报告汇编也在内部完成。</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>事件复盘</h3>
+      <p><strong>外部（云端）：</strong>匿名案例的分析结构——方法论、模板、典型错误。</p>
+      <p><strong>内部（本地）：</strong>真实分析，包含姓名、具体流程、内部数据以及关于人员的结论。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. 何时需要开发团队</h2>
+    <p>部分公关任务不仅需要大语言模型，还需要完整的开发工作：集成、流水线、仪表盘。</p>
+
+    <div class="card card-success">
+      <h3>媒体监测集成</h3>
+      <p>连接 Mention、Brand Analytics、SCAN、Medialogia。开发连接器、处理 API 响应、统一数据格式。</p>
+      <p><strong>没有开发：</strong>分析师手动从 3-4 个系统下载报告。<strong>有开发：</strong>统一的实时数据流。</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>自动生成新闻稿</h3>
+      <p>流水线：内部系统数据 → 草稿新闻稿 → 在本地大语言模型中对齐 → 发布。</p>
+      <p>示例：季度报告、人事任命、产品发布——全部使用内部数据从模板生成。</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>利益相关方沟通 CRM 集成</h3>
+      <p>在与记者或监管者会面前，系统自动汇编档案：互动历史、发表文章、情感倾向、最新评论。</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>声誉指标仪表盘</h3>
+      <p>实时显示：提及情感、覆盖范围、声量份额、话题趋势。每 15 分钟更新一次。</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>自动复盘分析</h3>
+      <p>事件发生后，系统结构化收集数据：时间线、谁做了什么、发送了什么沟通内容、做了什么决策。形成分析框架。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. 何时需要智能体系统</h2>
+    <p>智能体不只是聊天机器人。它们是 24/7 自主运行的进程，能做决策并无需人工干预地采取行动。</p>
+
+    <div class="card card-warning">
+      <h3>监测智能体</h3>
+      <p><strong>任务：</strong>全天候扫描媒体、社交网络、论坛、即时通讯工具。</p>
+      <p><strong>触发条件：</strong>负面情绪急剧上升、提及关键人物、信息泄露、竞争攻击。</p>
+      <p><strong>行动：</strong>在 Telegram/Slack 中自动向公关总监发送警报，包含威胁等级和链接。</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>分析师智能体</h3>
+      <p><strong>任务：</strong>每周收集声誉指标。</p>
+      <p><strong>输出：</strong>提交给董事会的周报——情感动态、前 5 个危机话题、传播策略建议。</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>政府关系智能体</h3>
+      <p><strong>任务：</strong>监测立法倡议。</p>
+      <p><strong>输出：</strong>自动为政府关系部门生成简报——提出了哪些法案、对业务的威胁、截止日期、建议行动。</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>危机智能体</h3>
+      <p><strong>任务：</strong>当负面情绪达到阈值时触发场景。</p>
+      <p><strong>行动：</strong>自动形成立场草稿（基于已批准模板），准备问答，通知公关总监。</p>
+      <p><strong>重要：</strong>智能体不会未经人工批准就发布——它为快速决策准备一切。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. 试点：从何开始</h2>
+    <p>你不需要一次性启动所有功能。将实施分成篮子——从简单到复杂，从快速见效到长期项目。</p>
+
+    <table>
+      <tr><th>篮子</th><th>包含内容</th><th>基础设施</th><th>投资回报率</th></tr>
+      <tr>
+        <td><strong>篮子 1</strong></td>
+        <td>监测、新闻稿生成、社交媒体</td>
+        <td>云端 API（ChatGPT、Claude）</td>
+        <td>数周</td>
+      </tr>
+      <tr>
+        <td><strong>篮子 2</strong></td>
+        <td>危机计划、内部沟通、立场对齐</td>
+        <td>本地大语言模型</td>
+        <td>数月</td>
+      </tr>
+      <tr>
+        <td><strong>篮子 3</strong></td>
+        <td>媒体监测集成、仪表盘、CRM</td>
+        <td>开发团队 + 服务器基础设施</td>
+        <td>数个季度</td>
+      </tr>
+      <tr>
+        <td><strong>篮子 4</strong></td>
+        <td>全面自动化：智能体、触发器、自动简报</td>
+        <td>智能体平台 + 开发</td>
+        <td>12-18 个月</td>
+      </tr>
+    </table>
+
+    <div class="card card-accent">
+      <strong>提示：</strong>从篮子 1 开始。启动云端监测和草稿生成——在 2-3 周内获得首批成果。同时为篮子 2 准备本地系统。不要试图一开始就构建完整的智能体系统。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>知识测验</h2>
+    <div class="card card-accent">
+      <p><strong>问题 1：</strong>演讲者问答准备的哪个部分应该只在本地完成？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">关于公司战略的一般问题</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">敏感话题：制裁、诉讼、紧急情况</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">将问答翻译成英语</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题 2：</strong>当负面情绪达到阈值时，危机智能体会做什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">自动在社交媒体上发布反驳</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">形成立场草稿并通知公关总监</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">阻止记者访问公司网站</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题 3：</strong>哪个试点篮子能在数周内带来回报？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">篮子 1：云端监测、新闻稿、社交媒体</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">篮子 3：媒体监测集成和仪表盘</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">篮子 4：智能体全面自动化</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题 4：</strong>为什么 ESG 报告的最终汇编应该在公司内部完成？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为云端大语言模型无法处理 PDF</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">因为报告包含真实的运营和环境数据</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为 ESG 报告不受审计</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../10-3-external-ai/index.html" class="nav-btn">← 10.3 外部 AI</a>
+    <a href="../../index.html" class="nav-btn primary">下一级 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI 非 IT 专业人员 · 制造公司</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ 正确！';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ 错误。请再想一想。';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

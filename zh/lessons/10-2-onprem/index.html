@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.2 GENAi 内部任务：本地部署</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI 非 IT 专业人员</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 第 10 级 · AI 用于公关</div>
+    <h1>10.2 GENAi 内部任务：本地部署</h1>
+    <div class="meta">20 分钟 · 公关部门 · 封闭环境</div>
+  </div>
+
+  <div class="section">
+    <p>公关部门处理的信息通常不对外公开：危机情景、内部沟通、监管立场、利益相关者数据、发布前的声明草案。任何信息泄露都可能导致声誉或法律损害。</p>
+    <p><strong>解决方案：</strong> 在公司封闭环境内部署本地大语言模型（如 Qwen、GigaChat Enterprise）。数据永远不会离开封闭环境，但大语言模型可以将材料准备速度提高 5–20 倍。</p>
+  </div>
+
+  <div class="section">
+    <h2>为什么公关部门需要本地部署</h2>
+    <div class="card card-danger">
+      <strong>不能发送到云端的内容：</strong>
+      <ul>
+        <li>发布前的危机情景和计划</li>
+        <li>事件发生时的声明草案</li>
+        <li>利益相关者、监管机构和互动历史数据</li>
+        <li>关于裁员、重组、制裁的内部管理邮件</li>
+        <li>按地区和细分的声誉风险评估</li>
+        <li>包含敏感指标的董事会报告</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>可以在本地完成的工作：</strong>
+      <ul>
+        <li>生成"如果 X 发生"的危机情景</li>
+        <li>在发布前几分钟准备声明草案</li>
+        <li>使用内部数据进行事件的事后分析</li>
+        <li>用正确的语气撰写内部管理邮件</li>
+        <li>针对敏感话题编写员工常见问题解答</li>
+        <li>基于内部文件准备监管立场</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. 危机计划准备</h2>
+    <p>公关专家准备"如果"情景。以前，这需要编剧和律师花费数天工作。使用本地大语言模型——系统化生成情景、检查遗漏风险并构建响应计划。</p>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>我们公司在 [地区] 的 [行业] 运营。
+
+为以下 10 种情景准备危机计划：
+1. 客户数据泄露
+2. 造成人员伤亡的生产事故
+3. 高层管理人员腐败指控
+4. 关键地区运营受到制裁/禁令
+5. 大规模裁员（在官方宣布前泄露给媒体）
+6. 因道德原因抵制产品
+7. 导致运营中断的网络攻击
+8. 因安全原因召回产品
+9. 与关键合作伙伴的公开冲突
+10. 关于破产的虚假新闻
+
+对于每个情景：
+- 情景发展（最佳和最坏情况）
+- 负责人（角色）
+- 响应时间表（第一分钟、第一小时、第一天）
+- 关键信息（临时声明）
+- 沟通渠道（内部和外部）</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>输入格式：</strong> 业务描述、地区、行业、风险登记文件（可选）。<br>
+      <strong>输出格式：</strong> 包含情景表和临时声明的结构化危机计划。<br>
+      <strong>节省时间：</strong> 3–5 天 → 30 分钟完成草案。<br>
+      <strong>为什么只能在内部：</strong> 危机计划是公司应对威胁的操作指令。泄露会给竞争对手和恶意行为者提供弱点路线图。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. 危机时刻的声明准备</h2>
+    <p>在危机最初的几分钟，速度至关重要。需要一份声明：承认事实、不急于确认责任、不升级事态并保持声誉。本地大语言模型基于事实在几秒钟内准备草案。</p>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>发生了以下事件：[简要描述]。
+
+已知事实：
+- 日期和时间
+- 发生了什么（无推测）
+- 规模（如果已知）
+- 已采取的措施
+- 仍然未知的内容
+
+准备 3 个版本的官方声明：
+1. 克制版——用于首次发布（网站、社交媒体）
+2. 详细版——用于媒体，如果已经开始询问
+3. 内部版——用于员工，在官方发布前
+
+要求：
+- 承认事实，不急于确认责任
+- 表明调查正在进行中
+- 提供媒体联系方式
+- 不情绪化、不道歉、无法律风险的措辞</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>输入格式：</strong> 事件事实（简短简报、文本或语音记录）。<br>
+      <strong>输出格式：</strong> 3 份准备好的声明草案 + 渠道和时间建议。<br>
+      <strong>节省时间：</strong> 1–2 小时 → 5 分钟。<br>
+      <strong>为什么只能在内部：</strong> 任何发布前的声明都是未经批准的立场。草案泄露会制造虚假叙述，并可能成为法庭证据。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. 事件事后分析</h2>
+    <p>危机结束后，重要的是理解：什么有效、什么无效、犯了什么沟通错误、吸取了什么教训。内部评估不对外公开——它用于改进流程。</p>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>事件已结束。以下是内部数据：
+- 时间线（文件 Chronology.xlsx）
+- 所有外部沟通（文件 Communications.pdf）
+- 媒体报道（文件 Monitoring.docx）
+- 内部通信（匿名化）
+
+进行事后分析：
+1. 响应时间线：何时做了什么，什么被延迟了
+2. 临时声明是否有效？哪些需要调整？
+3. 哪些渠道有效，哪些无效
+4. 沟通错误（错误的语气、不准确、遗漏）
+5. 实际行动与计划的符合程度（如果有计划）
+6. 建议：危机计划中需要改变什么
+
+格式：内部文件，不引用外部来源。</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>输入格式：</strong> 时间线、沟通、媒体监控、内部通信（在封闭环境内）。<br>
+      <strong>输出格式：</strong> 包含时间线和建议的结构化事后分析。<br>
+      <strong>节省时间：</strong> 1 天 → 15 分钟。<br>
+      <strong>为什么只能在内部：</strong> 内部通信和错误承认是诉讼和监管检查的材料。任何泄露到云端都可能成为对手的有利发现。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. 内部邮件和管理信函</h2>
+    <p>首席执行官撰写关于重组、制裁或战略变更的员工信函。语气、结构、法律措辞——一切都至关重要。大语言模型帮助准备草案，然后由律师和人力资源部门审查。</p>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>[X] 部门负责人正在向 [Y] 部门员工（N 人）写信。
+
+主题：[裁员 / 战略变更 / 退出地区 / 制裁限制]
+
+关键信息：
+- [事实 1]
+- [事实 2]
+- [这对员工意味着什么]
+- [下一步]
+
+语气：诚实、不恐慌、尊重、不用企业行话。
+
+准备 3 个版本的信函：
+1. 温和版——用于高参与度团队
+2. 商务版——用于职能部门
+3. 简洁版——用于广泛分发（关键事实，链接到详细信息）
+
+添加：在发送前需要人力资源和法律部门批准的内容清单。</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>输入格式：</strong> 主题、关键信息、受众（人数、部门类型）。<br>
+      <strong>输出格式：</strong> 3 个信函版本 + 批准清单。<br>
+      <strong>节省时间：</strong> 2–3 小时 → 10 分钟。<br>
+      <strong>为什么只能在内部：</strong> 关于裁员、重组或制裁的内部邮件是内部信息。在官方宣布前泄露会引发恐慌、扭曲市场并可能导致法律后果。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. 敏感话题的员工常见问题解答</h2>
+    <p>重大变更后，员工会问相同的问题。人力资源和公关部门准备常见问题解答，但这需要时间。大语言模型加速准备，然后由人力资源和法律部门验证。</p>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>公司 [名称] 正在进行 [重组 / 裁员 / 退出地区 / 应对制裁]。
+
+为员工编写 15 个问题的常见问题解答：
+- 5 个关于个人后果的问题（工作、补偿、搬迁）
+- 5 个关于流程的问题（时间线、标准、谁做决定）
+- 5 个关于公司未来的问题（战略、新市场、支持）
+
+要求：
+- 答案诚实但不引发恐慌
+- 如果答案尚不清楚——诚实地说明流程正在进行中
+- 不做公司无法保证的承诺
+- 链接到内部资源（人力资源、热线、门户）
+
+格式：问题——简要回答——联系谁获取详细信息。</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>输入格式：</strong> 变更描述、已知事实列表、内部规定（可选）。<br>
+      <strong>输出格式：</strong> 15 个问题的常见问题解答，附简短回答和指引。<br>
+      <strong>节省时间：</strong> 4–6 小时 → 10 分钟。<br>
+      <strong>为什么只能在内部：</strong> 常见问题解答包含重组、补偿、裁员时间线的详细信息——这是机密的人力资源信息。进入云端 = 在官方宣布前泄露的风险。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. 监管互动立场准备</h2>
+    <p>监管机构要求就某个问题提供立场。回应必须准确、合法，但保护公司利益。立场准备涉及内部文件工作和监管实践分析。</p>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>监管机构 [名称] 已要求就以下问题提供立场：[请求要点]。
+
+输入数据：
+- 关于该主题的内部文件（文件）
+- 公司之前对类似请求的回应
+- 监管实践（内部数据库）
+- 法律备忘录（文件）
+
+准备：
+1. 简要立场（1 页）——主要论点、3 个论据、向监管机构的请求
+2. 详细立场（5 页）——引用文件、参考实践
+3. 风险清单：什么不能说，哪些措辞危险
+
+语气：建设性、尊重，但在捍卫公司立场时坚定。</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>输入格式：</strong> 监管机构请求文本、内部文件、法律备忘录、之前的回应。<br>
+      <strong>输出格式：</strong> 简要立场和详细立场 + 风险清单。<br>
+      <strong>节省时间：</strong> 1–2 天 → 30 分钟。<br>
+      <strong>为什么只能在内部：</strong> 监管立场建立在内部文件、法律评估和战略优先事项之上。这可能在司法或监管程序中使用。泄露会破坏谈判地位。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. 利益相关者简报</h2>
+    <p>在重要会议或投资者会议之前，需要快速了解：这是谁、互动历史、敏感话题、之前的公开声明。本地大语言模型分析内部客户关系管理和通信档案。</p>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>准备关于利益相关者的简报：[名称 / 组织]。
+
+输入数据：
+- 互动历史（文件 CRM_history.xlsx）
+- 之前的会议和通信（文件）
+- 公开声明（内部监控数据库）
+- 已知偏好、风险、利益冲突
+
+简报应包括：
+1. 简介（角色、影响力、利益）
+2. 互动历史（关键事件时间线）
+3. 敏感话题（什么不能触及）
+4. 潜在盟友和对手
+5. 接近建议（语气、论据、会议形式）
+6. 红旗（需要最小化的风险）</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>输入格式：</strong> 客户关系管理数据、通信、内部会议记录、监控数据库。<br>
+      <strong>输出格式：</strong> 包含时间线、风险和建议的利益相关者简介。<br>
+      <strong>节省时间：</strong> 2–3 小时 → 10 分钟。<br>
+      <strong>为什么只能在内部：</strong> 利益相关者简报包含个人评估、利益冲突、内部谈判策略。这是公司的战略情报，在云端会成为把柄材料。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. 按业务地区的声誉风险分析</h2>
+    <p>公司在 10 多个国家运营。每个地区都有自己的风险：政治、监管、文化、竞争。大语言模型分析内部地区数据并生成风险地图。</p>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>公司在以下地区开展业务：[列表]。
+
+输入数据：
+- 内部地区报告（文件）
+- 事件和索赔历史（文件）
+- 地区媒体监控（文件）
+- 监管检查数据（文件）
+
+对每个地区进行声誉风险分析：
+1. 政治风险（权力更迭、制裁、保护主义）
+2. 监管风险（新法律、检查、罚款）
+3. 文化风险（品牌、产品、沟通——哪里有问题）
+4. 竞争风险（竞争对手攻击、价格战）
+5. 媒体风险（已经出现的话题、媒体基调）
+
+对于每个地区：
+- 风险评估（高 / 中 / 低）
+- 关键指标（关注什么）
+- 缓解建议
+- 升级情景（如果风险成为现实怎么办）</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>输入格式：</strong> 内部地区报告、事件历史、媒体监控、监管检查数据。<br>
+      <strong>输出格式：</strong> 包含评估、指标和情景的地区风险地图。<br>
+      <strong>节省时间：</strong> 1 周 → 30 分钟。<br>
+      <strong>为什么只能在内部：</strong> 地区风险评估基于关于问题、事件和监管检查的内部数据。这是可能影响投资决策和与合作伙伴谈判的信息。泄露会打击商业地位。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>9. 董事会声誉指标报告</h2>
+    <p>每季度，公关部门为董事会准备报告：基调、覆盖面、关键话题、动态。以前，这需要分析师花费数天工作。使用本地大语言模型——从内部监控数据自动生成。</p>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>基于本季度的监控数据（文件 Monitoring_Q3.xlsx），为董事会准备报告：
+
+1. 执行摘要（1 页）：主要变化、3 个论点
+2. 声誉指标：
+   - 覆盖面（按渠道）
+   - 基调（正面 / 中性 / 负面）
+   - 相对于竞争对手的声音份额
+   - 前 10 个话题
+3. 关键事件：发生了什么、我们如何回应、结果
+4. 与上一季度的动态对比（趋势）
+5. 潜在风险（第四季度可能爆发什么）
+6. 建议（3 点关于该做什么）
+
+语气：专业、数据驱动、不废话。每个论点都有数字或示例支持。</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>输入格式：</strong> 内部监控（Excel、CSV）、覆盖面数据、基调、话题。<br>
+      <strong>输出格式：</strong> 包含摘要、指标、风险和建议的结构化董事会报告。<br>
+      <strong>节省时间：</strong> 2–3 天 → 20 分钟。<br>
+      <strong>为什么只能在内部：</strong> 董事会报告包含风险评估、事件提及和战略建议。这是面向投资者和监管机构的内部信息。泄露 = 市场操纵或声誉损害。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>10. 敏感话题采访发言人准备</h2>
+    <p>发言人就敏感话题接受采访。需要准备问答、识别脆弱点并练习措辞。本地大语言模型模拟攻击性提问并准备不会损害公司的回答。</p>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>发言人：[姓名、职位]。
+采访：[媒体名称、形式——直播 / 录制 / 辩论]。
+主题：[敏感话题]。
+
+已知脆弱点：
+- [可能被用来对付我们的事实 1]
+- [需要措辞谨慎的事实 2]
+- [我们想避免的话题]
+
+准备：
+1. 可能被问到的 20 个问题（包括 5 个"刁钻"问题——攻击性、挑衅性）
+2. 每个问题的建议回答（2 个版本：简短和详细）
+3. 陷阱短语：什么不能说（附原因解释）
+4. 夺取主动权策略：如何将对话带回关键信息
+5. 准备清单（手头需要什么、可以提到谁、避免什么）
+6. 采访后：在发布前需要注意录音中的什么</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>输入格式：</strong> 发言人简介、采访主题、已知脆弱点列表、内部数据（可选）。<br>
+      <strong>输出格式：</strong> 包含 20 个问题的问答、回答、陷阱、策略和清单。<br>
+      <strong>节省时间：</strong> 4–6 小时 → 15 分钟。<br>
+      <strong>为什么只能在内部：</strong> 采访准备包含明确的脆弱点、需要避免的短语和接管策略。泄露这些材料是给记者的礼物：他知道在哪里攻击以及公司害怕说什么。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>总结表：公关部门内部任务</h2>
+    <table>
+      <tr><th>任务</th><th>输入格式</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>危机计划</td><td>业务描述、风险登记</td><td>包含临时声明的 10 个情景</td><td>3–5 天 → 30 分钟</td></tr>
+      <tr><td>危机时刻声明</td><td>事件事实（简报）</td><td>3 份声明草案</td><td>1–2 小时 → 5 分钟</td></tr>
+      <tr><td>事后分析</td><td>时间线、通信、监控</td><td>结构化事后分析</td><td>1 天 → 15 分钟</td></tr>
+      <tr><td>内部邮件</td><td>主题、信息、受众</td><td>3 个信函版本 + 清单</td><td>2–3 小时 → 10 分钟</td></tr>
+      <tr><td>敏感话题常见问题</td><td>变更描述、事实</td><td>15 个问题的常见问题</td><td>4–6 小时 → 10 分钟</td></tr>
+      <tr><td>监管立场</td><td>监管请求、内部文件</td><td>简要 + 详细立场 + 风险</td><td>1–2 天 → 30 分钟</td></tr>
+      <tr><td>利益相关者简报</td><td>客户关系管理、通信、内部记录</td><td>包含时间线和建议的简介</td><td>2–3 小时 → 10 分钟</td></tr>
+      <tr><td>按地区声誉风险分析</td><td>地区报告、监控、事件</td><td>地区风险地图</td><td>1 周 → 30 分钟</td></tr>
+      <tr><td>董事会报告</td><td>监控（Excel/CSV）</td><td>包含指标和建议的报告</td><td>2–3 天 → 20 分钟</td></tr>
+      <tr><td>发言人采访准备</td><td>简介、主题、脆弱点</td><td>问答、陷阱、策略、清单</td><td>4–6 小时 → 15 分钟</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识测验</h2>
+    <div class="card card-accent">
+      <p><strong>问题 1：</strong> 为什么危机计划不能发送到云端 ChatGPT？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为 ChatGPT 无法处理表格</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">因为它是公司弱点的路线图，对竞争对手和恶意行为者有用</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为 ChatGPT 运行太慢</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题 2：</strong> 危机时刻准备声明应该使用什么工具？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">带有模板的 Google Docs</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">封闭环境中的本地大语言模型</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">删除请求后的 ChatGPT</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题 3：</strong> 为什么敏感话题采访发言人准备是只能在本地完成的任务？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">因为材料包含明确的脆弱点和需要避免的短语——如果泄露，这是给记者的礼物</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为发言人不知道如何使用云服务</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为采访总是秘密的</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题 4：</strong> 使用本地大语言模型准备董事会报告可以节省多少时间？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">1 天 → 2 小时</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">2–3 天 → 20 分钟</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">30 分钟 → 10 分钟</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../10-1-reality/index.html" class="nav-btn">← 10.1 现实</a>
+    <a href="../10-3-external/index.html" class="nav-btn primary">10.3 外部 AI →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI 非 IT 专业人员 · 制造公司</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ 正确！';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ 错误。请再想一想。';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

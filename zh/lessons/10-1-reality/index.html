@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.1 现实：AI 在公关与传播领域今天能做什么 — AI 非 IT 专业人员</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI 非 IT 专业人员</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 第 10 级 · AI 用于公关</div>
+    <h1>10.1 现实：AI 在公关与传播领域今天能做什么</h1>
+    <div class="meta">20 分钟 · 面向公关总监、政府关系、传播专业人员 · 边界最重要</div>
+  </div>
+
+  <div class="section">
+    <p><strong>主要论点：</strong>AI 不会取代公关总监，但它能将日常工作加速 10 倍。声誉是一种无形资产，可能因一份草稿而被摧毁。这就是为什么在公关领域，"内部 / 外部"边界比采购领域更为关键。</p>
+    <p>在采购中，泄密意味着价格和条款。在公关中，泄密意味着公司在批准前的立场——这会在原有危机之上叠加第二个危机。</p>
+  </div>
+
+  <div class="section">
+    <h2>为什么公关比采购更难</h2>
+    <div class="card card-danger">
+      <strong>公关失误的代价是国际头条新闻：</strong>
+      <ul>
+        <li>未经核实的新闻稿 → 数小时内引发声誉危机</li>
+        <li>内部立场泄露 → 对手利用它对付你</li>
+        <li>危机中的语气不当 → 受众认为你在嘲笑他们</li>
+        <li>ESG 报告中的错误 → 制裁和指数排除</li>
+        <li>政府关系演讲中的不当玩笑 → 许可证撤销或外交风波</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>声誉 = 无形资产：</strong>
+      <ul>
+        <li>大公司的品牌价值——数十亿美元</li>
+        <li>声誉恢复需要数年；失去只需数小时</li>
+        <li>ESG 评级影响融资成本和市场准入</li>
+        <li>政府关系立场决定许可证、配额、政府合同</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>公关任务的三类篮子</h2>
+    <p>公关所做的所有工作按 AI 实施速度分为三类：</p>
+
+    <div class="card card-success">
+      <h3>🟢 第一类：快速见效（明天）</h3>
+      <ul>
+        <li><strong>新闻稿起草</strong> — 结构、事实、引语。AI 写初稿，人做编辑。</li>
+        <li><strong>媒体和社交媒体监测</strong> — 自动收集提及、情感、主题聚类。AI 分析信息流。</li>
+        <li><strong>面向国际媒体的翻译</strong> — 英语、中文、阿拉伯语的新闻稿。公开内容可以外部准备。</li>
+        <li><strong>演讲者准备</strong> — 问答、记者问题预测、培训环节。</li>
+        <li><strong>ESG 报告：形式</strong> — 结构、与 GRI/ESRS 对齐、披露完整性检查。</li>
+        <li><strong>竞争对手分析</strong> — 他们写些什么、他们提出什么话题、他们如何应对危机。</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>🟡 第二类：需要开发（一个月至一个季度）</h3>
+      <ul>
+        <li><strong>危机机器人</strong> — 响应方案、升级、团队协调。需要基于真实案例进行调优。</li>
+        <li><strong>政府关系分析</strong> — 监管监测、变化预测、商业影响评估。需要与法律数据库整合。</li>
+        <li><strong>自动生成社交媒体内容</strong> — 轮播图、帖子、符合品牌手册的故事。需要视觉审批。</li>
+        <li><strong>内部公关知识库</strong> — 所有过往新闻稿、回应、立场。语义搜索，而非关键词搜索。</li>
+        <li><strong>ESG 报告：内容</strong> — 从 15 个部门收集数据、指标验证、碳足迹计算。</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <h3>🔴 第三类：需要智能体（半年至一年）</h3>
+      <ul>
+        <li><strong>自主危机管理者</strong> — AI 追踪、评估、提出策略、与律师协调并发布回应。需要访问内部数据和授权。</li>
+        <li><strong>预测性声誉分析</strong> — 在危机出现在媒体之前预测危机。基于历史数据 + 社交网络建模。</li>
+        <li><strong>自动化游说</strong> — 生成法案立场、提交给当局、跟踪回应。在伦理和法律上复杂。</li>
+        <li><strong>个性化传播</strong> — 针对不同受众的不同实时信息。需要细分数据。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>内部 / 外部边界：比采购领域更关键</h2>
+    <p>在公关中，这个边界不仅重要——它决定了公司在危机中的生死存亡。</p>
+
+    <div class="card card-danger">
+      <strong>🔒 内部 — 绝不出边界：</strong>
+      <ul>
+        <li>公司批准前的立场（草稿、内部备忘录）</li>
+        <li>危机场景和响应计划</li>
+        <li>政府关系策略和与监管机构的谈判立场</li>
+        <li>审计前的 ESG 数据（可能包含内幕信息）</li>
+        <li>竞争对手弱点分析（法律风险）</li>
+        <li>记者和网红的个人信息</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <strong>🌍 外部 — 可以在外部准备：</strong>
+      <ul>
+        <li>已批准的新闻稿和声明</li>
+        <li>公开的 ESG 报告（审计后）</li>
+        <li>公开材料的翻译</li>
+        <li>公共媒体和社交网络分析</li>
+        <li>演讲稿（不含内部立场）</li>
+        <li>一般市场和行业趋势</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <div class="example-label">边界示例</div>
+      <pre><strong>绝不上云：</strong>
+"我们对工厂事件的立场：我们部分承认错误，
+愿意赔偿，但请求不要炒作。
+BATNA：如果施压继续——我们将通过
+赞助当地基金会来平息此事。"
+
+<strong>可以上云：</strong>
+"写一份关于新生产设施启动的新闻稿。
+事实：7 月 15 日投产，产能 10 万吨/年，
+新增 200 个工作岗位，投资 50 亿卢布。"</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>AI 在公关中已在何处工作：提示示例</h2>
+
+    <h3>1. 新闻稿起草</h3>
+    <div class="example">
+      <div class="example-label">提示示例（外部）</div>
+      <pre>写一份关于新氧化铝生产车间启动的新闻稿。事实：
+- 启动日期：2026 年 7 月 15 日
+- 产能：10 万吨/年
+- 投资：50 亿卢布
+- 新增 200 个工作岗位
+- 技术：自主研发，15 项专利
+- 环保：排放量比同类产品低 30%
+
+语气：专业、事实。长度：400 词。
+目标受众：商业媒体、投资者。</pre>
+    </div>
+
+    <h3>2. 媒体情感监测</h3>
+    <div class="example">
+      <div class="example-label">提示示例（外部 — 公开数据）</div>
+      <pre>以下是本周 50 条公司提及（文件 mentions.xlsx）。
+
+分析：
+1. 按情感分布（正面 / 中性 / 负面）
+2. 前 5 个主题
+3. 按影响力排名前 5 的媒体
+4. 关键引语（每个主题一条）
+5. 建议：哪些话题需要回应，哪些可以忽略</pre>
+    </div>
+
+    <h3>3. 演讲者准备（问答）</h3>
+    <div class="example">
+      <div class="example-label">提示示例（内部 — 本地部署）</div>
+      <pre>为 CEO 准备年终新闻发布会。
+
+内部数据（不公开发布）：
+- 收入：+12%，但 EBITDA 下降 3%
+- 原因：物流成本上升
+- Q4 退出欧盟市场的风险
+- 与亚洲合作伙伴的谈判——处于保密阶段
+
+生成：
+1. 记者肯定会问的 20 个问题
+2. 建议答案（该说什么 / 不该说什么）
+3. 触发问题：无论如何都不回答的问题
+4. 关键信息（3 个论点，重复 3 次）</pre>
+    </div>
+
+    <h3>4. 危机沟通：首次回应</h3>
+    <div class="example">
+      <div class="example-label">提示示例（内部 — 本地部署）</div>
+      <pre>情况：工厂发生化学品泄漏。
+无人员伤亡，无民众威胁。
+当地媒体已在报道。
+
+内部立场（不公开发布）：
+- 原因：人为因素，违反程序
+- 调查：内部调查，结果 2 周后公布
+- 赔偿：正在与区政府讨论
+
+撰写：
+1. 首次运营性评论（2-3 句话）
+2. 官方声明草稿（5-7 句话）
+3. 员工内部备忘录：该说什么、不该说什么
+4. 未来 24 小时行动清单</pre>
+    </div>
+
+    <h3>5. ESG 报告：完整性检查</h3>
+    <div class="example">
+      <div class="example-label">提示示例（内部 — 本地部署）</div>
+      <pre>这是一份 ESG 报告草稿（文件 ESG_draft.pdf）。
+
+检查是否符合 GRI 和 ESRS 标准：
+1. 哪些强制性披露缺失？
+2. 哪些指标不符合方法学？
+3. 哪里需要额外数据？
+4. 有哪些"漂绿"风险？
+
+提供表格：标准项目 → 状态 → 建议。</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>受制裁公司的实践要点</h2>
+    <p>像俄铝、En+、诺里尔斯克镍业这样的公司处于特殊模式：任何一句话都可能成为新制裁、指数排除或许可证撤销的理由。</p>
+
+    <div class="card card-warning">
+      <strong>制裁模式下的公关特殊性：</strong>
+      <ul>
+        <li><strong>每一句话都是政治。</strong>关于生产的新闻稿被解读为对制裁的立场。</li>
+        <li><strong>ESG 是生存工具。</strong>良好的 ESG 评级 = 亚洲和中东的资本准入。</li>
+        <li><strong>政府关系和公关已融合。</strong>任何公开传播都会影响监管决策。</li>
+        <li><strong>连锁危机。</strong>制裁 → 物流问题 → 事故 → 媒体 → 新制裁。链条必须被打破。</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <strong>AI 对这些特定公司的帮助：</strong>
+      <ul>
+        <li><strong>24/7 监测</strong> — 追踪 50+ 个国家的提及，自动翻译、情感分析。人无法处理。</li>
+        <li><strong>预测分析</strong> — 哪些话题正在升温，哪些媒体在同步（信息战的迹象）。</li>
+        <li><strong>快速本地化</strong> — 数小时内完成 10 种语言的新闻稿，而不是数周。对亚洲和中东市场至关重要。</li>
+        <li><strong>立场对齐</strong> — AI 检查是否符合内部立场，在发布前标记风险。</li>
+        <li><strong>ESG 合规</strong> — 自动对照国际标准检查报告，在审计前发现问题。</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <strong>制裁模式下无法自动化的内容：</strong>
+      <ul>
+        <li>战略传播决策（AI 不承担责任）</li>
+        <li>与监管机构和游说者的直接联系（需要人际信任）</li>
+        <li>与投资者的关键谈判（保密协议、内幕信息）</li>
+        <li>危机声明的最终编辑（语气就是战略）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>表格：明天做什么，半年做什么</h2>
+    <table>
+      <tr><th>任务</th><th>在哪里执行</th><th>复杂度</th><th>影响</th></tr>
+      <tr><td>新闻稿起草</td><td>云（公开事实）</td><td>低</td><td>节省 2-3 小时</td></tr>
+      <tr><td>媒体监测</td><td>云（公开数据）</td><td>低</td><td>覆盖 50+ 来源</td></tr>
+      <tr><td>新闻稿翻译</td><td>云</td><td>低</td><td>数小时内完成 10 种语言</td></tr>
+      <tr><td>演讲准备（问答）</td><td>本地部署（内部立场）</td><td>中</td><td>将"失误"风险降低 70%</td></tr>
+      <tr><td>危机场景</td><td>本地部署</td><td>中</td><td>反应速度：从天到小时</td></tr>
+      <tr><td>ESG 完整性检查</td><td>本地部署（审计前）</td><td>中</td><td>数据遗漏 → 0</td></tr>
+      <tr><td>政府关系法案分析</td><td>混合</td><td>高</td><td>3-6 个月预测</td></tr>
+      <tr><td>危机机器人协调员</td><td>本地部署</td><td>高</td><td>自动升级、清单</td></tr>
+      <tr><td>预测分析</td><td>本地部署</td><td>非常高</td><td>危机预测</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>总结：公关总监使用 AI 的规则</h2>
+    <div class="card card-accent">
+      <ol>
+        <li><strong>AI 是助手，不是替代品。</strong>最终发布决定始终由人做出。语气、语境、政治——这些不是算法的事。</li>
+        <li><strong>边界是神圣的。</strong>草稿、立场、危机计划——本地部署。公开事实——可以上云。</li>
+        <li><strong>速度 ≠ 质量。</strong>AI 写得快，但可能在事实、语气、语境上出错。一切由人检查。</li>
+        <li><strong>ESG 是新的前沿。</strong>自动化 ESG 报告和合规是竞争优势，尤其是在制裁下。</li>
+        <li><strong>政府关系和公关是一体。</strong>任何传播都会影响监管风险。AI 帮助追踪这种关联。</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>知识测验</h2>
+    <div class="card card-accent">
+      <p><strong>问题 1：</strong>为什么"内部 / 外部"边界在公关中比采购中更关键？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为公关总监更偏执</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">因为立场在批准前的泄露会制造第二个危机</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为采购人员不懂如何使用本地部署</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题 2：</strong>以下哪项任务可以在云 AI 而不是本地部署中完成？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">包含公司 BATNA 的危机场景</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">将已批准的新闻稿翻译成英文</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">法案的政府关系策略</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题 3：</strong>为什么 AI 不能取代公关总监？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为 AI 不会写新闻稿</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">因为声誉是需要人类判断的无形资产</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为公关总监比服务器便宜</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题 4：</strong>以下哪项属于"第三类：需要智能体"？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">具有内部数据访问权限的自主危机管理者</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">新闻稿起草</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">每周媒体监测</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../09-4-compliance/index.html" class="nav-btn">← 9.4 合规</a>
+    <a href="../10-2-inside-gena/index.html" class="nav-btn primary">10.2 GENAi 内部 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI 非 IT 专业人员 · 制造公司</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ 正确！';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ 错误。请再想一想。';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

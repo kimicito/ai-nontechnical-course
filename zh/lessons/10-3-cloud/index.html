@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.3 外部 AI 任务：云端 — AI 用于公关 — AI 非 IT 专业人员</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 6px; }
+  .tag-cloud { background: rgba(6,182,212,0.15); color: #06B6D4; }
+  .tag-public { background: rgba(16,185,129,0.15); color: #10B981; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI 非 IT 专业人员</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 第 10 级 · AI 用于公关</div>
+    <h1>10.3 外部 AI 任务：云端</h1>
+    <div class="meta">20 分钟 · 面向公关专员 · 公共内容与开放数据</div>
+  </div>
+
+  <div class="section">
+    <p>在本课中，我们将介绍可以在外部云端 AI 中解决的公关任务：<strong>Claude、ChatGPT、Kimi、Qwen</strong> 等。我们在这里处理公开信息：媒体、社交网络、法律法规、ESG 评级、待发布内容。不涉及内部数据、战略或商业机密。</p>
+    <p><strong>原则：</strong>如果数据已经公开或用于发布——请放心使用云端 AI。它们在理解语气、风格、语言和趋势方面表现更好。</p>
+  </div>
+
+  <div class="section">
+    <h2>云端可以做什么</h2>
+    <div class="card card-success">
+      <strong><span class="tag tag-public">公开</span> 公开内容：</strong>
+      <ul>
+        <li>媒体和社交媒体出版物（已发布的）</li>
+        <li>新闻稿（准备发布的）</li>
+        <li>法律法规文本（公开来源）</li>
+        <li>ESG 评级和竞争对手报告（公开披露的）</li>
+        <li>社交媒体帖子（公开内容）</li>
+      </ul>
+    </div>
+    <div class="card card-warning">
+      <strong><span class="tag tag-cloud">云端</span> 为什么适合使用云端：</strong>
+      <ul>
+        <li>更好的文本生成和编辑质量</li>
+        <li>获取关于趋势和事件的最新知识</li>
+        <li>处理多语言内容</li>
+        <li>快速处理大量公开数据</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. 监控媒体和社交网络中的公司提及</h2>
+    <p>收集出版物链接，复制文本，或给 AI 一个 URL 列表进行分析。AI 将提取要点、估算覆盖范围并编制摘要。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>以下是上周关于我公司"AlphaStroy"的 15 篇出版物（链接和文本如下）。
+
+分析每篇出版物：
+1. 媒体/平台
+2. 发布日期
+3. 要点（3-5 项）
+4. 覆盖范围/受众（如有说明）
+5. 是否有公司管理层引述
+6. 是否有负面指控
+
+创建汇总表并简要结论：哪些话题主导了信息场。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入：</strong>文章链接、复制的文本、带 OCR 的截图。<br>
+      <strong>输出：</strong>提及表格 + 分析摘要。<br>
+      <strong>节省时间：</strong>3-4 小时人工审阅 → 10 分钟。<br>
+      <strong>为什么在外部：</strong>出版物已经公开，没有机密数据。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. 出版物情感分析</h2>
+    <p>判断媒体对贵公司的报道是正面、负面还是中性。AI 可以识别隐藏的讽刺、隐含的负面性和客观事实。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>以下是本月关于我公司的 8 篇出版物（文本如下）。
+
+按以下标准评估每篇出版物的情感：
+- 正面 (+1)
+- 中性 (0)
+- 负面 (−1)
+- 隐含负面/讽刺（单独标注）
+
+对于每篇出版物：
+1. 说明情感
+2. 解释为什么这样判断（引用关键短语）
+3. 评估对声誉的影响（高/中/低）
+
+结果：月度总体情感指数和趋势（改善/恶化/稳定）。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入：</strong>出版物文本、文章链接。<br>
+      <strong>输出：</strong>每篇出版物的情感评估 + 综合指数。<br>
+      <strong>节省时间：</strong>2-3 小时分析 → 5 分钟。<br>
+      <strong>为什么在外部：</strong>处理公开文本，不需要内部数据。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. 准备新闻稿</h2>
+    <p>写出事实、数据和引述——AI 将按照新闻标准格式化一份完整的新闻稿。然后编辑并发布。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>根据以下事实用俄语撰写新闻稿：
+
+- 公司：有限责任公司"BetaLogistika"
+- 事件：新配送中心开业
+- 城市：喀山
+- 面积：25,000 平方米
+- 投资额：12 亿卢布
+- 创造就业岗位：350 个
+- 启动时间：2026 年 8 月
+- 首席执行官伊万诺夫引述："这是伏尔加地区覆盖战略的重要一步"
+- 附加：物流综合体获得 LEED 金级认证
+
+要求：
+- 标题（信息丰富但吸引人）
+- 导语（1-2 句话概括关键新闻）
+- 正文（事实、数据、背景）
+- 引述（直接引语格式）
+-"关于公司"板块（2-3 句话）
+- 媒体联系方式
+
+风格：商业、新闻式，不用官僚语言。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入：</strong>事实、数据、引述、事件背景。<br>
+      <strong>输出：</strong>符合标准的完整新闻稿。<br>
+      <strong>节省时间：</strong>2-3 小时写作 → 10 分钟。<br>
+      <strong>为什么在外部：</strong>新闻稿是用于发布的公开文件。云端 AI 写作质量更好。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. 社交媒体管理——帖子生成、内容计划</h2>
+    <p>为不同平台生成帖子，创建周/月度内容计划。考虑每个平台受众的特点。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>我公司是环保包装制造商"GreenPack"。目标受众：B2B 买家、零售商、ESG 总监。
+
+为以下平台创建周内容计划：
+1. 公司 Telegram 频道（商务语气，长文）
+2. LinkedIn（国际受众，英文）
+3. VK（轻松语气，视觉帖子）
+
+本周主题：可堆肥包装系列发布。
+
+每篇帖子请说明：
+- 发布日期
+- 平台
+- 主题
+- 语气
+- 帖子文本（可直接发布）
+- 3-5 个话题标签
+
+额外：为同一主题撰写 2 个电子邮件通讯标题变体。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入：</strong>主题、公司描述、目标受众、平台。<br>
+      <strong>输出：</strong>完整帖子 + 内容计划。<br>
+      <strong>节省时间：</strong>1 天文案工作 → 15 分钟。<br>
+      <strong>为什么在外部：</strong>社交媒体是公开平台，内容面向广大受众。云端 AI 能很好地适应每个平台的风格。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. 信息场中的竞争对手监控</h2>
+    <p>跟踪竞争对手出版物：新产品、并购交易、管理层变动、危机。AI 汇总并结构化信息。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>以下是上季度关于我们 3 个竞争对手的出版物精选（文本和链接如下）：
+
+竞争对手 1："StroyMontazh"
+竞争对手 2："TeknoProm"
+竞争对手 3："InzhStroy"
+
+对每个竞争对手分析：
+1. 媒体提及次数
+2. 主要话题（新项目、丑闻、奖项）
+3. 出版物情感（正面/中性/负面）
+4. 公司推广的关键信息
+5. 管理层或战略变动（如有）
+
+创建对比表并突出：
+- 哪个竞争对手在媒体中最活跃
+- 他们推广什么话题
+- 他们的弱点在哪里（负面、投诉）</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入：</strong>竞争对手出版物、链接、截图。<br>
+      <strong>输出：</strong>对比表 + 竞争对手活动分析。<br>
+      <strong>节省时间：</strong>4-5 小时监控 → 10 分钟。<br>
+      <strong>为什么在外部：</strong>竞争对手信息来自公开来源——公共媒体、新闻稿。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. 管理层媒体摘要</h2>
+    <p>每日或每周为高层管理层准备关键行业新闻精选。AI 过滤掉噪音，只保留重要内容。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>以下是建材行业本周的 25 条新闻（文本如下）。
+
+为公司管理层编制摘要（格式：1 页 A4）：
+
+1. 最重要的 5 条新闻（按市场影响力评估）
+   - 标题
+   - 2-3 句话概括要点
+   - 为什么对我们重要
+2. 监管变化（法律、法规）
+3. 原材料价格波动（如有提及）
+4. 竞争对手活动（如有）
+5. ESG/可持续发展（生态、认证新闻）
+
+语气：商业，无多余细节。只有 CEO 和 CFO 需要知道的内容。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入：</strong>新闻精选、RSS 订阅、复制的文本。<br>
+      <strong>输出：</strong>1 页结构化摘要。<br>
+      <strong>节省时间：</strong>2-3 小时阅读和总结 → 10 分钟。<br>
+      <strong>为什么在外部：</strong>新闻来自公开来源，摘要虽然是内部文件，但由公开数据编制。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. 立法倡议分析</h2>
+    <p>分析法律草案、法规、监管变化。AI 将突出关键变化、截止日期和商业风险。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>以下是联邦法律草案第 12345 号（关于环境监管）的文本和说明性注释。
+
+分析：
+1. 法案简要要点（面向非专业人士）
+2. 与现行法律相比的关键变化
+3. 生效日期（如有说明）
+4. 这将如何影响我们的业务（建材、制造业）
+   - 将产生的义务
+   - 罚款风险
+   - 可能的合规成本
+5. 在法律生效前需要做什么
+
+格式：面向管理层的 1 页商业备忘录。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入：</strong>法案文本、说明性注释、regulation.gov.ru 或国家杜马的链接。<br>
+      <strong>输出：</strong>包含风险和建议的商业备忘录。<br>
+      <strong>节省时间：</strong>4-6 小时法律分析 → 15 分钟。<br>
+      <strong>为什么在外部：</strong>法律文本是开放数据。云端 AI 擅长法律语言，并能将其"翻译"为商业语言。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. 监控 ESG 评级和披露要求</h2>
+    <p>跟踪 ESG 评级变化、披露要求、GRI、SASB、TCFD 标准。AI 汇总来自公开来源的变化。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>以下是本季度 ESG 监管变化材料精选：
+- GRI 标准 2024 年更新
+- 俄罗斯央行新的 ESG 披露要求
+- RAEX 评级方法变化
+- 欧盟分类法更新（绿色分类）
+
+分析：
+1. 具体发生了什么变化（简要，逐项）
+2. 生效日期
+3. 如何影响我们的披露义务
+4. 如果尚未开始，我们需要收集哪些数据
+5. 建议：未来 3 个月需要做什么
+
+格式：带 ESG 总监检查清单的列表。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入：</strong>标准文本、监管者要求、评级机构方法。<br>
+      <strong>输出：</strong>变化检查清单 + 建议。<br>
+      <strong>节省时间：</strong>1-2 天研究标准 → 15 分钟。<br>
+      <strong>为什么在外部：</strong>ESG 标准和方法论是公开可用的。云端 AI 对国际标准非常熟悉。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>9. 竞争对手和行业公关活动基准测试</h2>
+    <p>将您的公关活动与竞争对手进行比较：发布频率、话题、渠道、情感。AI 将处理公开数据并建立对比。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>以下是 5 家行业公司半年来的公关活动数据（从公开来源收集）：
+
+我公司"AlphaStroy" + 4 个竞争对手。
+
+数据包括：出版物数量、平台、话题、情感。
+
+进行基准测试：
+1. 发布频率（每月）——对比表
+2. 每家公司的前 3 个话题
+3. 分发渠道（媒体、社交网络、自有平台）
+4. 平均出版物情感
+5. ESG/可持续发展活动（提及次数）
+6. 我们在哪些方面落后于领导者，哪些方面领先
+
+结论：加强公关地位的 3 条建议。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入：</strong>竞争对手出版物数据（公开来源）。<br>
+      <strong>输出：</strong>对比公关活动分析 + 建议。<br>
+      <strong>节省时间：</strong>2-3 天人工收集和分析 → 20 分钟。<br>
+      <strong>为什么在外部：</strong>所有数据来自公开来源。基准测试是对公开活动的比较。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>10. 起草 ESG 报告章节（不含内部运营数据）</h2>
+    <p>撰写结构、引言、方法描述、方法论。内部数据（排放、能耗）稍后从内部系统添加。</p>
+    
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>为制造业公司"AlphaStroy"（建材）撰写 ESG 报告草案章节。
+
+章节：
+1. 首席执行官引言（2-3 段关于可持续发展优先事项）
+2. ESG 方法描述（我们使用什么标准：GRI、SASB）
+3. 环境政策（一般原则，无具体数据）
+4. 社会责任（人员、安全、培训方法）
+5. 公司治理（结构、委员会、道德）
+6. 数据收集方法论（我们如何计算排放、能源、事故）
+7. 明年计划（改进方向）
+
+规则：
+- 不要使用具体的运营数据（留下占位符如[插入：CO2 排放量]）
+- 风格：正式但易懂
+- 符合 GRI 通用标准 2021
+- 长度：5-7 页成品文本</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入：</strong>公司描述、应用标准、一般原则。<br>
+      <strong>输出：</strong>带数据占位符的 ESG 报告草案。<br>
+      <strong>节省时间：</strong>3-5 天文案工作 → 20 分钟。<br>
+      <strong>为什么在外部：</strong>结构、引言和方法论不包含机密数据。内部数据在封闭环境中稍后添加。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>汇总表：云端 AI 中的公关任务</h2>
+    <table>
+      <tr><th>任务</th><th>输入格式</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>提及监控</td><td>链接、出版物文本</td><td>表格 + 分析摘要</td><td>3-4 小时 → 10 分钟</td></tr>
+      <tr><td>情感分析</td><td>出版物文本</td><td>评估 + 综合指数</td><td>2-3 小时 → 5 分钟</td></tr>
+      <tr><td>新闻稿</td><td>事实、数据、引述</td><td>完整新闻稿</td><td>2-3 小时 → 10 分钟</td></tr>
+      <tr><td>社交媒体 + 内容计划</td><td>主题、受众、平台</td><td>帖子 + 周计划</td><td>1 天 → 15 分钟</td></tr>
+      <tr><td>竞争对手监控</td><td>竞争对手出版物</td><td>对比表</td><td>4-5 小时 → 10 分钟</td></tr>
+      <tr><td>媒体摘要</td><td>行业新闻</td><td>1 页摘要</td><td>2-3 小时 → 10 分钟</td></tr>
+      <tr><td>法案分析</td><td>法律文本、说明性注释</td><td>商业备忘录</td><td>4-6 小时 → 15 分钟</td></tr>
+      <tr><td>ESG 评级监控</td><td>标准、监管者要求</td><td>检查清单 + 建议</td><td>1-2 天 → 15 分钟</td></tr>
+      <tr><td>公关基准测试</td><td>竞争对手出版物数据</td><td>对比分析</td><td>2-3 天 → 20 分钟</td></tr>
+      <tr><td>ESG 报告草案</td><td>公司描述、标准</td><td>带占位符的草案</td><td>3-5 天 → 20 分钟</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>分离规则：什么放在云端，什么留在内部</h2>
+    <div class="card card-success">
+      <strong><span class="tag tag-cloud">云端</span> 在云端 AI 中做：</strong>
+      <ul>
+        <li>所有已经发布或准备发布的内容</li>
+        <li>公开数据分析（媒体、法律、评级）</li>
+        <li>面向广大受众的文本生成</li>
+        <li>不同市场的翻译和内容适配</li>
+      </ul>
+    </div>
+    <div class="card card-danger">
+      <strong><span class="tag tag-public">本地</span> 保留在内部：</strong>
+      <ul>
+        <li>内部通信和官方信函</li>
+        <li>战略计划和危机预案</li>
+        <li>报告的具体运营数据（排放、事故）</li>
+        <li>争议问题的谈判立场</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>知识测验</h2>
+    <div class="card card-accent">
+      <p><strong>问题 1：</strong>为什么新闻稿准备工作可以在云端 AI 中进行？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为新闻稿包含商业机密</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">因为新闻稿是用于发布的公开文件</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为 AI 无法处理内部数据</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题 2：</strong>以下哪个任务不适合云端 AI？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">媒体出版物情感分析</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">制定带具体方案的危机沟通策略</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">监控竞争对手 ESG 评级</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题 3：</strong>为什么可以在云端开始 ESG 报告草案？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为所有 ESG 报告数据按定义都是公开的</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">因为结构、引言和方法论不包含机密运营数据</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为 ESG 标准禁止使用内部系统</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题 4：</strong>以下哪项可以发送到云端 ChatGPT？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">关于声誉危机行动计划的公司内部备忘录</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">与公司诉讼相关的律师信函</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">已发布媒体文章的情感分析文本</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../10-2-on-prem/index.html" class="nav-btn">← 10.2 GENAi 内部</a>
+    <a href="../10-4-agents/index.html" class="nav-btn primary">10.4 开发与智能体 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI 非 IT 专业人员 · 制造公司</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ 正确！';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ 错误。请再想一想。';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
