@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.4 Development and Agents — AI for PR — AI for Non-IT Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 Level 10 · AI for PR</div>
+    <h1>10.4 Development and Agents</h1>
+    <div class="meta">15 min · for PR Directors and Communications Teams</div>
+  </div>
+
+  <div class="section">
+    <p>This lesson covers PR tasks that cannot simply be handed off to the cloud. Some work is done by external AI, some only internally. And somewhere you need a development team and agent systems.</p>
+    <p><strong>Key principle:</strong> hybrid approach. Drafts go outside, position alignment goes inside. Public sections go in the cloud, operational numbers stay in a closed loop.</p>
+  </div>
+
+  <div class="section">
+    <h2>1. Hybrid PR Tasks: Outside and Inside</h2>
+    <p>PR works with information of varying sensitivity. Some materials can be generated in the cloud, others only in a closed loop.</p>
+
+    <div class="card card-accent">
+      <h3>Comments for Journalists</h3>
+      <p><strong>Outside (cloud):</strong> draft comments on general facts — market situation, general trends, neutral position.</p>
+      <p><strong>Inside (on-prem):</strong> final position alignment, accounting for internal strategy, number adjustments, compliance check with legal restrictions.</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>Q&A for Speakers</h3>
+      <p><strong>Outside (cloud):</strong> general questions — company strategy, product lineup, market plans.</p>
+      <p><strong>Inside (on-prem):</strong> sensitive topics — sanctions, litigation, emergencies, personnel decisions, negotiations with regulators. These Q&As must never leave the perimeter under any circumstances.</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>ESG Reporting</h3>
+      <p><strong>Outside (cloud):</strong> public sections — mission, sustainable development strategy, general goals.</p>
+      <p><strong>Inside (on-prem):</strong> sections with real operational and environmental data — emissions, energy consumption, incidents, fines. Final report assembly is also done internally.</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>Incident Postmortem</h3>
+      <p><strong>Outside (cloud):</strong> analysis structure on an anonymized case — methodology, template, typical mistakes.</p>
+      <p><strong>Inside (on-prem):</strong> real analysis with names, specific processes, internal data, and conclusions about personnel.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Where a Development Team is Needed</h2>
+    <p>Some PR tasks require not just LLMs, but full-fledged development: integrations, pipelines, dashboards.</p>
+
+    <div class="card card-success">
+      <h3>Media Monitoring Integration</h3>
+      <p>Connecting to Mention, Brand Analytics, SCAN, Medialogia. Developing connectors, processing API responses, unified data format.</p>
+      <p><strong>Without development:</strong> analysts manually download reports from 3–4 systems. <strong>With development:</strong> unified real-time data stream.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Automatic Press Release Generation</h3>
+      <p>Pipeline: data from internal systems → draft release → alignment in on-prem LLM → publication.</p>
+      <p>Example: quarterly reports, personnel appointments, product launches — all generated from templates using internal data.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>CRM Integration for Stakeholder Briefings</h3>
+      <p>Before a meeting with a journalist or regulator, the system automatically compiles a dossier: interaction history, publications, sentiment, latest comments.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Reputation Metrics Dashboard</h3>
+      <p>In real time: mention sentiment, reach, Share of Voice, topic trends. Updates every 15 minutes.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Automatic Postmortem Analysis</h3>
+      <p>After an incident, the system structuredly collects data: timeline, who did what, what communications were sent, what decisions were made. Forms a framework for analysis.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Where Agent Systems are Needed</h2>
+    <p>Agents are not just chatbots. These are autonomous processes that work 24/7, make decisions, and act without human involvement.</p>
+
+    <div class="card card-warning">
+      <h3>Monitoring Agent</h3>
+      <p><strong>Task:</strong> 24/7 scanning of media, social networks, forums, messengers.</p>
+      <p><strong>Triggers:</strong> sharp rise in negativity, mentions of key persons, information leaks, competitive attacks.</p>
+      <p><strong>Action:</strong> automatic alerts in Telegram/Slack to the PR Director with threat level and links.</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>Analyst Agent</h3>
+      <p><strong>Task:</strong> collecting reputation metrics for the week.</p>
+      <p><strong>Output:</strong> weekly report for the board of directors — sentiment dynamics, top 5 crisis topics, recommendations for communication strategy.</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>GR Agent</h3>
+      <p><strong>Task:</strong> monitoring legislative initiatives.</p>
+      <p><strong>Output:</strong> automatic briefing for the government relations department — what bills have been introduced, what threatens business, deadlines, recommended actions.</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>Crisis Agent</h3>
+      <p><strong>Task:</strong> trigger scenarios when negativity threshold is reached.</p>
+      <p><strong>Action:</strong> automatically forms a position draft (based on approved templates), prepares Q&A, notifies the PR Director.</p>
+      <p><strong>Important:</strong> the agent does not publish without a human — prepares everything for quick decision-making.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Piloting: Where to Start</h2>
+    <p>You don't need to launch everything at once. Break implementation into baskets — from simple to complex, from quick ROI to long-term projects.</p>
+
+    <table>
+      <tr><th>Basket</th><th>What's Inside</th><th>Infrastructure</th><th>ROI</th></tr>
+      <tr>
+        <td><strong>Basket 1</strong></td>
+        <td>Monitoring, press release generation, social media</td>
+        <td>Cloud API (ChatGPT, Claude)</td>
+        <td>Weeks</td>
+      </tr>
+      <tr>
+        <td><strong>Basket 2</strong></td>
+        <td>Crisis plans, internal communications, position alignment</td>
+        <td>On-prem LLM</td>
+        <td>Months</td>
+      </tr>
+      <tr>
+        <td><strong>Basket 3</strong></td>
+        <td>Media monitoring integration, dashboards, CRM</td>
+        <td>Development team + server infrastructure</td>
+        <td>Quarters</td>
+      </tr>
+      <tr>
+        <td><strong>Basket 4</strong></td>
+        <td>Full automation: agents, triggers, automatic briefings</td>
+        <td>Agent platform + development</td>
+        <td>12–18 months</td>
+      </tr>
+    </table>
+
+    <div class="card card-accent">
+      <strong>Tip:</strong> start with Basket 1. Launch cloud monitoring and draft generation — get your first ROI in 2–3 weeks. Simultaneously prepare on-prem for Basket 2. Don't try to build a full agent system right away.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Which part of speaker Q&A preparation should only be done on-prem?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">General questions about company strategy</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Sensitive topics: sanctions, litigation, emergencies</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Translating Q&A into English</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> What does the crisis agent do when negativity threshold is reached?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Automatically publishes a rebuttal on social media</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Forms a position draft and notifies the PR Director</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Blocks journalist access to the company website</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Which piloting basket delivers ROI in weeks?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Basket 1: monitoring, press releases, social media in the cloud</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Basket 3: media monitoring integration and dashboards</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Basket 4: full automation with agents</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> Why should ESG report final assembly be done inside the company?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because cloud LLMs cannot work with PDFs</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because the report contains real operational and environmental data</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because ESG reports are not subject to audit</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../10-3-external-ai/index.html" class="nav-btn">← 10.3 External AI</a>
+    <a href="../../index.html" class="nav-btn primary">Next Level →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

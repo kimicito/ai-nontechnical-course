@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.1 Reality: What AI Can Do in PR and Communications Today — AI for Non-IT Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 Level 10 · AI for PR</div>
+    <h1>10.1 Reality: What AI Can Do in PR and Communications Today</h1>
+    <div class="meta">20 min · for PR directors, GR, communications professionals · boundaries matter most</div>
+  </div>
+
+  <div class="section">
+    <p><strong>Main thesis:</strong> AI doesn't replace the PR director, but it accelerates routine work 10×. Reputation is an intangible asset that can be destroyed by a single draft. That's why in PR, the "internal / external" boundary is more critical than in procurement.</p>
+    <p>In procurement, a leak means prices and terms. In PR, a leak means the company's position before approval — which becomes a second crisis on top of the first.</p>
+  </div>
+
+  <div class="section">
+    <h2>Why PR Is Harder Than Procurement</h2>
+    <div class="card card-danger">
+      <strong>The cost of a PR mistake is international headlines:</strong>
+      <ul>
+        <li>Unverified press release → reputational crisis within hours</li>
+        <li>Leaked internal position → opponents use it against you</li>
+        <li>Wrong tone in a crisis → audience perceives it as mockery</li>
+        <li>Error in ESG report → sanctions and exclusion from indices</li>
+        <li>Inappropriate joke in a GR speech → license revocation or protocol</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Reputation = intangible asset:</strong>
+      <ul>
+        <li>Brand value of a major company — billions of dollars</li>
+        <li>Reputation recovery takes years; loss takes hours</li>
+        <li>ESG rating affects cost of capital and market access</li>
+        <li>GR position determines licenses, quotas, government contracts</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Three Baskets of PR Tasks</h2>
+    <p>Everything PR does falls into three baskets by AI implementation speed:</p>
+
+    <div class="card card-success">
+      <h3>🟢 Basket 1: Quick Wins (Tomorrow)</h3>
+      <ul>
+        <li><strong>Press release drafts</strong> — structure, facts, quotes. AI writes the first version, human edits.</li>
+        <li><strong>Media and social media monitoring</strong> — auto-collection of mentions, sentiment, topic clustering. AI analyzes streams.</li>
+        <li><strong>Translations for international media</strong> — releases in English, Chinese, Arabic. Public content can be prepared externally.</li>
+        <li><strong>Speaker preparation</strong> — Q&A, journalist question forecasting, training sessions.</li>
+        <li><strong>ESG reports: form</strong> — structure, alignment with GRI/ESRS, completeness check of disclosures.</li>
+        <li><strong>Competitor analysis</strong> — what they write about them, what topics they raise, how they respond to crises.</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>🟡 Basket 2: Needs Development (Month–Quarter)</h3>
+      <ul>
+        <li><strong>Crisis bot</strong> — response scenarios, escalation, team coordination. Requires tuning on real cases.</li>
+        <li><strong>GR analytics</strong> — regulatory monitoring, change forecasting, business impact assessment. Needs integration with law databases.</li>
+        <li><strong>Auto-generated social media content</strong> — carousels, posts, stories with brand book compliance. Requires visual approval.</li>
+        <li><strong>Internal PR knowledge base</strong> — all past releases, responses, positions. Semantic search, not keyword search.</li>
+        <li><strong>ESG reports: content</strong> — data collection from 15 departments, metric validation, carbon footprint calculation.</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <h3>🔴 Basket 3: Needs Agents (Half a Year–Year)</h3>
+      <ul>
+        <li><strong>Autonomous crisis manager</strong> — AI tracks, assesses, proposes strategy, coordinates with lawyers, and issues response. Requires access to internal data and authority.</li>
+        <li><strong>Predictive reputation analytics</strong> — predicting crises before they appear in media. Model on historical data + social networks.</li>
+        <li><strong>Automated lobbying</strong> — generating positions on bills, sending to authorities, tracking response. Ethically and legally complex.</li>
+        <li><strong>Personalized communications</strong> — different messages for different audiences in real-time. Requires segment data.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>The Internal / External Boundary: More Critical Than in Procurement</h2>
+    <p>In PR, this boundary isn't just important — it determines company survival in a crisis.</p>
+
+    <div class="card card-danger">
+      <strong>🔒 Internal — never leaves the perimeter:</strong>
+      <ul>
+        <li>Company position before approval (drafts, internal memos)</li>
+        <li>Crisis scenarios and response plans</li>
+        <li>GR strategy and negotiating positions with regulators</li>
+        <li>ESG data before audit (may contain insider information)</li>
+        <li>Competitor weakness analysis (legally risky)</li>
+        <li>Personal data of journalists and influencers</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <strong>🌍 External — can be prepared outside:</strong>
+      <ul>
+        <li>Approved press releases and statements</li>
+        <li>Public ESG reports (after audit)</li>
+        <li>Translations of public materials</li>
+        <li>Analysis of public media and social networks</li>
+        <li>Speech drafts (without internal position)</li>
+        <li>General market and industry trends</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Boundary Example</div>
+      <pre><strong>Never in the cloud:</strong>
+"Our position on the plant incident: we partially admit fault,
+are ready to compensate, but ask not to blow it up.
+BATNA: if pressure continues — we'll close the topic
+through sponsorship of a local foundation."
+
+<strong>OK in the cloud:</strong>
+"Write a press release about the launch of a new production facility.
+Facts: commissioned on July 15, capacity 100 t/year,
+200 new jobs, investment 5 billion rubles."</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Where AI Already Works in PR: Prompt Examples</h2>
+
+    <h3>1. Press Release Draft</h3>
+    <div class="example">
+      <div class="example-label">Prompt Example (External)</div>
+      <pre>Write a press release about the launch of a new alumina production shop. Facts:
+- Launch: July 15, 2026
+- Capacity: 100 thousand tons per year
+- Investment: 5 billion rubles
+- 200 new jobs
+- Technology: proprietary development, 15 patents
+- Ecology: emissions reduced by 30% vs analogs
+
+Tone: professional, factual. Length: 400 words.
+Target audience: business media, investors.</pre>
+    </div>
+
+    <h3>2. Media Sentiment Monitoring</h3>
+    <div class="example">
+      <div class="example-label">Prompt Example (External — Public Data)</div>
+      <pre>Here are 50 mentions of the company this week (file mentions.xlsx).
+
+Analyze:
+1. Distribution by sentiment (positive / neutral / negative)
+2. Top 5 topics
+3. Top 5 media by reach
+4. Key quotes (one per topic)
+5. Recommendations: which topics to respond to, what to ignore</pre>
+    </div>
+
+    <h3>3. Speaker Preparation (Q&A)</h3>
+    <div class="example">
+      <div class="example-label">Prompt Example (Internal — On-Prem)</div>
+      <pre>Preparing the CEO for a year-end press conference.
+
+Internal data (not for publication):
+- Revenue: +12%, but EBITDA down 3%
+- Reason: rising logistics costs
+- Risk of leaving the EU market in Q4
+- Negotiations with Asian partners — at NDA stage
+
+Generate:
+1. 20 questions journalists will definitely ask
+2. Recommended answers (what to say / what not to say)
+3. Trigger questions: what not to answer under any circumstances
+4. Key messages (3 theses to repeat 3 times)</pre>
+    </div>
+
+    <h3>4. Crisis Communication: First Response</h3>
+    <div class="example">
+      <div class="example-label">Prompt Example (Internal — On-Prem)</div>
+      <pre>Situation: chemical spill at a plant.
+No casualties, no threat to the population.
+Local media is already writing.
+
+Internal position (not for publication):
+- Cause: human factor, procedure violation
+- Investigation: internal, results in 2 weeks
+- Compensation: discussing with district administration
+
+Write:
+1. First operational comment (2–3 sentences)
+2. Draft official statement (5–7 sentences)
+3. Internal memo for employees: what to say, what not to say
+4. Action checklist for the next 24 hours</pre>
+    </div>
+
+    <h3>5. ESG Report: Completeness Check</h3>
+    <div class="example">
+      <div class="example-label">Prompt Example (Internal — On-Prem)</div>
+      <pre>Here is a draft ESG report (file ESG_draft.pdf).
+
+Check compliance with GRI and ESRS standards:
+1. Which mandatory disclosures are missing?
+2. Which metrics don't match the methodology?
+3. Where is additional data needed?
+4. What are the "greenwashing" risks?
+
+Provide a table: standard item → status → recommendation.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Practical Takeaway for Sanctioned Companies</h2>
+    <p>Companies like RUSAL, En+, Norilsk Nickel live in a special mode: any word can become a reason for new sanctions, exclusion from indices, or license revocation.</p>
+
+    <div class="card card-warning">
+      <strong>PR Specifics in Sanctions Mode:</strong>
+      <ul>
+        <li><strong>Every statement is political.</strong> A press release about production is read as a position on sanctions.</li>
+        <li><strong>ESG is a survival tool.</strong> Good ESG rating = access to capital in Asia and the Middle East.</li>
+        <li><strong>GR and PR have merged.</strong> Any public communication affects regulatory decisions.</li>
+        <li><strong>Cascading crises.</strong> Sanctions → logistics problems → incidents → media → new sanctions. The chain must be broken.</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <strong>Where AI Helps These Specific Companies:</strong>
+      <ul>
+        <li><strong>24/7 Monitoring</strong> — tracking mentions in 50+ countries, auto-translation, sentiment. A human can't handle it.</li>
+        <li><strong>Predictive analytics</strong> — which topics are gaining momentum, which media are synchronizing (sign of an information campaign).</li>
+        <li><strong>Fast localization</strong> — releases in 10 languages in hours, not weeks. Critical for Asian and Middle Eastern markets.</li>
+        <li><strong>Position alignment</strong> — AI checks compliance with internal position, flags risks before publication.</li>
+        <li><strong>ESG compliance</strong> — auto-checking reports against international standards, finding issues before audit.</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <strong>What Cannot Be Automated in Sanctions Mode:</strong>
+      <ul>
+        <li>Strategic communication decisions (AI doesn't bear responsibility)</li>
+        <li>Direct contacts with regulators and lobbyists (requires human trust)</li>
+        <li>Key negotiations with investors (NDA, insider information)</li>
+        <li>Final editing of crisis statements (tone is strategy)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Table: What to Do Tomorrow, What to Do in Six Months</h2>
+    <table>
+      <tr><th>Task</th><th>Where to Do It</th><th>Complexity</th><th>Impact</th></tr>
+      <tr><td>Press release draft</td><td>Cloud (public facts)</td><td>Low</td><td>Saves 2–3 hours</td></tr>
+      <tr><td>Media monitoring</td><td>Cloud (public data)</td><td>Low</td><td>Covers 50+ sources</td></tr>
+      <tr><td>Release translations</td><td>Cloud</td><td>Low</td><td>10 languages in hours</td></tr>
+      <tr><td>Speaker prep (Q&A)</td><td>On-prem (internal position)</td><td>Medium</td><td>Reduces "fail" risk by 70%</td></tr>
+      <tr><td>Crisis scenarios</td><td>On-prem</td><td>Medium</td><td>Reaction speed: days → hours</td></tr>
+      <tr><td>ESG completeness check</td><td>On-prem (before audit)</td><td>Medium</td><td>Data omissions → 0</td></tr>
+      <tr><td>GR bill analytics</td><td>Hybrid</td><td>High</td><td>3–6 month forecast</td></tr>
+      <tr><td>Crisis bot coordinator</td><td>On-prem</td><td>High</td><td>Auto-escalation, checklists</td></tr>
+      <tr><td>Predictive analytics</td><td>On-prem</td><td>Very High</td><td>Crisis prediction</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Summary: Rules for a PR Director Working with AI</h2>
+    <div class="card card-accent">
+      <ol>
+        <li><strong>AI is an assistant, not a replacement.</strong> The final publication decision is always human. Tone, context, politics — these aren't about algorithms.</li>
+        <li><strong>The boundary is sacred.</strong> Drafts, positions, crisis plans — on-prem. Public facts — can be in the cloud.</li>
+        <li><strong>Speed ≠ quality.</strong> AI writes fast but can err in facts, tone, context. Everything is checked by a human.</li>
+        <li><strong>ESG is the new front.</strong> Automating ESG reporting and compliance is a competitive advantage, especially under sanctions.</li>
+        <li><strong>GR and PR are one.</strong> Any communication affects regulatory risks. AI helps track the connection.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Why is the "internal / external" boundary more critical in PR than in procurement?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because PR directors are more paranoid</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because a leak of position before approval creates a second crisis</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because procurement officers don't know how to work with on-prem</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Which task can be done in cloud AI rather than on-prem?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Crisis scenario with company BATNA</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Translating an approved press release into English</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">GR strategy for a bill</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Why doesn't AI replace the PR director?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because AI can't write press releases</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because reputation is an intangible asset requiring human judgment</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because a PR director is cheaper than a server</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> Which of these belongs to "Basket 3: Needs Agents"?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Autonomous crisis manager with access to internal data</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Press release draft</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Weekly media monitoring</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../09-4-compliance/index.html" class="nav-btn">← 9.4 Compliance</a>
+    <a href="../10-2-inside-gena/index.html" class="nav-btn primary">10.2 Inside GENAi →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.3 Tasks in External AI: Cloud — AI for PR — AI for Non-IT Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 6px; }
+  .tag-cloud { background: rgba(6,182,212,0.15); color: #06B6D4; }
+  .tag-public { background: rgba(16,185,129,0.15); color: #10B981; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 Level 10 · AI for PR</div>
+    <h1>10.3 Tasks in External AI: Cloud</h1>
+    <div class="meta">20 min · for PR specialists · public content and open data</div>
+  </div>
+
+  <div class="section">
+    <p>In this lesson — PR tasks that can be solved in external cloud AIs: <strong>Claude, ChatGPT, Kimi, Qwen</strong>, and others. We work with public information here: media, social networks, laws, ESG ratings, content for publication. No internal figures, strategies, or trade secrets.</p>
+    <p><strong>Principle:</strong> if the data is already publicly available or intended for publication — feel free to use cloud AIs. They are better at understanding tone, style, languages, and trends.</p>
+  </div>
+
+  <div class="section">
+    <h2>What can be done in the cloud</h2>
+    <div class="card card-success">
+      <strong><span class="tag tag-public">PUBLIC</span> Public content:</strong>
+      <ul>
+        <li>Media and social media publications (already published)</li>
+        <li>Press releases (being prepared for publication)</li>
+        <li>Texts of laws and regulations (open sources)</li>
+        <li>ESG ratings and competitor reports (publicly disclosed)</li>
+        <li>Social media posts (public content)</li>
+      </ul>
+    </div>
+    <div class="card card-warning">
+      <strong><span class="tag tag-cloud">CLOUD</span> Why cloud is suitable:</strong>
+      <ul>
+        <li>Better text generation and editing quality</li>
+        <li>Access to up-to-date knowledge about trends and events</li>
+        <li>Working with multilingual content</li>
+        <li>Fast processing of large volumes of public data</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Monitoring company mentions in media and social networks</h2>
+    <p>Collect links to publications, copy texts, or give the AI a list of URLs for analysis. The AI will extract key points, estimate reach, and compile a summary.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Here is a list of 15 publications about our company "AlphaStroy" for the past week (links and texts below).
+
+Analyze each publication:
+1. Media outlet / platform
+2. Publication date
+3. Key points (3–5 items)
+4. Reach / audience (if specified)
+5. Are there quotes from company management
+6. Are there any negative claims
+
+Create a summary table and a brief conclusion: what topics dominate the information field.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input:</strong> links to articles, copied texts, screenshots with OCR.<br>
+      <strong>Output:</strong> mention table + analytical summary.<br>
+      <strong>Savings:</strong> 3–4 hours of manual review → 10 minutes.<br>
+      <strong>Why outside:</strong> publications are already public, no confidential data.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Sentiment analysis of publications</h2>
+    <p>Determine whether the media writes about your company positively, negatively, or neutrally. AI can distinguish hidden irony, veiled negativity, and objective facts.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Here are 8 publications about our company for the month (texts below).
+
+Evaluate the sentiment of each publication on a scale:
+- Positive (+1)
+- Neutral (0)
+- Negative (−1)
+- Hidden negativity / irony (mark separately)
+
+For each publication:
+1. Specify the sentiment
+2. Explain why you decided so (quote key phrases)
+3. Assess the impact on reputation (high / medium / low)
+
+Result: overall sentiment index for the month and trend (improvement / deterioration / stable).</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input:</strong> publication texts, links to articles.<br>
+      <strong>Output:</strong> sentiment assessment for each publication + aggregate index.<br>
+      <strong>Savings:</strong> 2–3 hours of analysis → 5 minutes.<br>
+      <strong>Why outside:</strong> working with public texts, no internal data required.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Preparing press releases</h2>
+    <p>Write facts, figures, quotes — AI will format a ready press release according to journalism standards. Then edit and publish.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Write a press release in Russian based on the following facts:
+
+- Company: LLC "BetaLogistika"
+- Event: opening of a new distribution center
+- City: Kazan
+- Area: 25,000 sq. m
+- Investments: 1.2 billion rubles
+- Jobs created: 350
+- Launch: August 2026
+- Quote from CEO Ivanov: "This is an important step in the Volga region coverage strategy"
+- Additional: logistics complex certified to LEED Gold
+
+Requirements:
+- Headline (informative but catchy)
+- Lead (key news in 1–2 sentences)
+- Main text (facts, figures, context)
+- Quote (in direct speech format)
+- "About the company" block (2–3 sentences)
+- Media contacts
+
+Style: business, journalistic, no bureaucratic language.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input:</strong> facts, figures, quotes, event context.<br>
+      <strong>Output:</strong> ready press release according to standards.<br>
+      <strong>Savings:</strong> 2–3 hours of writing → 10 minutes.<br>
+      <strong>Why outside:</strong> press release is a public document intended for publication. Cloud AIs write better texts.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Social media management — post generation, content plan</h2>
+    <p>Generate posts for different platforms, create content plans for a week/month. Consider the specifics of each platform's audience.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Our company is an eco-packaging manufacturer "GreenPack". Target audience: b2b buyers, retailers, ESG directors.
+
+Create a weekly content plan for:
+1. Company Telegram channel (business tone, long posts)
+2. LinkedIn (international audience, in English)
+3. VK (lighter tone, visual posts)
+
+Weekly theme: launch of compostable packaging line.
+
+For each post specify:
+- Publication day
+- Platform
+- Topic
+- Tone
+- Post text (ready for publication)
+- 3–5 hashtags
+
+Additionally: write 2 headline variants for an email newsletter on the same topic.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input:</strong> topic, company description, target audience, platforms.<br>
+      <strong>Output:</strong> ready posts + content plan.<br>
+      <strong>Savings:</strong> 1 day of copywriter work → 15 minutes.<br>
+      <strong>Why outside:</strong> social media is a public platform, content is intended for a wide audience. Cloud AIs adapt style well to each platform.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Competitor monitoring in the information field</h2>
+    <p>Track competitor publications: new products, M&A deals, management changes, crises. AI aggregates and structures information.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Here is a selection of publications about our 3 competitors for the last quarter (texts and links below):
+
+Competitor 1: "StroyMontazh"
+Competitor 2: "TeknoProm"
+Competitor 3: "InzhStroy"
+
+For each competitor analyze:
+1. Number of media mentions
+2. Main topics (new projects, scandals, awards)
+3. Publication sentiment (positive / neutral / negative)
+4. Key messages the company promotes
+5. Changes in management or strategy (if any)
+
+Create a comparison table and highlight:
+- Which competitor is most active in media
+- What topics they promote
+- Where their weaknesses are (negativity, complaints)</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input:</strong> competitor publications, links, screenshots.<br>
+      <strong>Output:</strong> comparison table + competitor activity analysis.<br>
+      <strong>Savings:</strong> 4–5 hours of monitoring → 10 minutes.<br>
+      <strong>Why outside:</strong> competitor information from open sources — public media, press releases.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Media digests for management</h2>
+    <p>Daily or weekly prepare a selection of key industry news for top management. AI filters out noise and leaves only what matters.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Here are 25 news items from the construction materials industry for the week (texts below).
+
+Compile a digest for company management (format: 1 A4 page):
+
+1. Top-5 most important news (assess by market impact)
+   - Headline
+   - Essence in 2–3 sentences
+   - Why this matters to us
+2. Regulatory changes (laws, regulations)
+3. Raw material price movements (if mentioned)
+4. Competitor activity (if any)
+5. ESG / sustainable development (news on ecology, certification)
+
+Tone: business, no unnecessary details. Only what the CEO and CFO need to know.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input:</strong> news selection, RSS feeds, copied texts.<br>
+      <strong>Output:</strong> structured digest on 1 page.<br>
+      <strong>Savings:</strong> 2–3 hours of reading and summarizing → 10 minutes.<br>
+      <strong>Why outside:</strong> news from open sources, digest is an internal document but compiled from public data.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. Analysis of legislative initiatives</h2>
+    <p>Analyze draft laws, regulations, changes in regulation. AI will highlight key changes, deadlines, and business risks.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Here is the text of Federal Law Draft No. 12345 (on environmental regulation) and the explanatory note.
+
+Analyze:
+1. Brief essence of the bill (for a non-specialist)
+2. Key changes compared to current legislation
+3. Effective dates (if specified)
+4. How this will affect our business (construction materials, manufacturing)
+   - Obligations that will arise
+   - Fine risks
+   - Possible compliance costs
+5. What needs to be done before the law takes effect
+
+Format: 1-page business memo for management.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input:</strong> bill text, explanatory note, links to regulation.gov.ru or State Duma.<br>
+      <strong>Output:</strong> business memo with risks and recommendations.<br>
+      <strong>Savings:</strong> 4–6 hours of legal analysis → 15 minutes.<br>
+      <strong>Why outside:</strong> law texts are open data. Cloud AIs are good at legal language and can "translate" it into business language.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. Monitoring ESG ratings and disclosure requirements</h2>
+    <p>Track changes in ESG ratings, disclosure requirements, GRI, SASB, TCFD standards. AI aggregates changes from open sources.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Here is a selection of materials on changes in ESG regulation for the quarter:
+- GRI Standard 2024 update
+- New Central Bank of Russia requirements for ESG disclosure
+- Changes in RAEX rating methodology
+- EU Taxonomy update (green classification)
+
+Analyze:
+1. What exactly has changed (briefly, by item)
+2. Effective dates
+3. How this affects our disclosure obligations
+4. What data we need to start collecting if not already
+5. Recommendations: what to do in the next 3 months
+
+Format: list with checklist for the ESG director.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input:</strong> standard texts, regulator requirements, rating agency methodologies.<br>
+      <strong>Output:</strong> change checklist + recommendations.<br>
+      <strong>Savings:</strong> 1–2 days of studying standards → 15 minutes.<br>
+      <strong>Why outside:</strong> ESG standards and methodologies are publicly available. Cloud AIs are well oriented in international standards.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>9. Benchmarking competitor and industry PR activity</h2>
+    <p>Compare your PR activity with competitors: publication frequency, topics, channels, sentiment. AI will process public data and build a comparison.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Here is data on PR activity of 5 industry companies for six months (collected from open sources):
+
+Our company "AlphaStroy" + 4 competitors.
+
+Data includes: number of publications, platforms, topics, sentiment.
+
+Conduct benchmarking:
+1. Publication frequency (per month) — comparison table
+2. Top-3 topics for each company
+3. Distribution channels (media, social networks, own platforms)
+4. Average publication sentiment
+5. Activity in ESG / sustainable development (number of mentions)
+6. Where we lag behind leaders and where we lead
+
+Conclusions: 3 recommendations for strengthening PR positions.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input:</strong> competitor publication data (public sources).<br>
+      <strong>Output:</strong> comparative PR activity analysis + recommendations.<br>
+      <strong>Savings:</strong> 2–3 days of manual collection and analysis → 20 minutes.<br>
+      <strong>Why outside:</strong> all data from open sources. Benchmarking is a comparison of public activity.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>10. Draft ESG report sections (without internal operational figures)</h2>
+    <p>Write the structure, introduction, approach descriptions, methodology. Internal figures (emissions, energy consumption) will be added later from internal systems.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Write draft sections of an ESG report for a manufacturing company "AlphaStroy" (construction materials).
+
+Sections:
+1. CEO introduction (2–3 paragraphs on sustainable development priority)
+2. ESG approach description (what standards we use: GRI, SASB)
+3. Environmental policy (general principles, no specific figures)
+4. Social responsibility (approach to personnel, safety, training)
+5. Corporate governance (structure, committees, ethics)
+6. Data collection methodology (how we count emissions, energy, incidents)
+7. Plans for next year (improvement directions)
+
+Rules:
+- Do not use specific operational figures (leave placeholders like [INSERT: CO2 emissions])
+- Style: official but understandable
+- Compliance with GRI Universal Standards 2021
+- Length: 5–7 pages of finished text</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Input:</strong> company description, applied standards, general principles.<br>
+      <strong>Output:</strong> ESG report draft with placeholders for figures.<br>
+      <strong>Savings:</strong> 3–5 days of copywriter work → 20 minutes.<br>
+      <strong>Why outside:</strong> structure, introduction, and methodology do not contain confidential data. Internal figures are added later in a closed circuit.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Summary table: PR tasks in cloud AIs</h2>
+    <table>
+      <tr><th>Task</th><th>Input format</th><th>Output format</th><th>Time savings</th></tr>
+      <tr><td>Mention monitoring</td><td>Links, publication texts</td><td>Table + analytical summary</td><td>3–4 h → 10 min</td></tr>
+      <tr><td>Sentiment analysis</td><td>Publication texts</td><td>Assessment + aggregate index</td><td>2–3 h → 5 min</td></tr>
+      <tr><td>Press releases</td><td>Facts, figures, quotes</td><td>Ready press release</td><td>2–3 h → 10 min</td></tr>
+      <tr><td>Social media + content plan</td><td>Topic, audience, platforms</td><td>Posts + weekly plan</td><td>1 day → 15 min</td></tr>
+      <tr><td>Competitor monitoring</td><td>Competitor publications</td><td>Comparison table</td><td>4–5 h → 10 min</td></tr>
+      <tr><td>Media digests</td><td>Industry news</td><td>1-page digest</td><td>2–3 h → 10 min</td></tr>
+      <tr><td>Bill analysis</td><td>Law text, explanatory note</td><td>Business memo</td><td>4–6 h → 15 min</td></tr>
+      <tr><td>ESG rating monitoring</td><td>Standards, regulator requirements</td><td>Checklist + recommendations</td><td>1–2 days → 15 min</td></tr>
+      <tr><td>PR benchmarking</td><td>Competitor publication data</td><td>Comparative analysis</td><td>2–3 days → 20 min</td></tr>
+      <tr><td>ESG report draft</td><td>Company description, standards</td><td>Draft with placeholders</td><td>3–5 days → 20 min</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Separation rule: what goes in cloud, what stays inside</h2>
+    <div class="card card-success">
+      <strong><span class="tag tag-cloud">CLOUD</span> Do in cloud AIs:</strong>
+      <ul>
+        <li>Everything already published or being prepared for publication</li>
+        <li>Analysis of public data (media, laws, ratings)</li>
+        <li>Text generation for a wide audience</li>
+        <li>Translations and content adaptation for different markets</li>
+      </ul>
+    </div>
+    <div class="card card-danger">
+      <strong><span class="tag tag-public">ON-PREM</span> Keep inside:</strong>
+      <ul>
+        <li>Internal communications and official correspondence</li>
+        <li>Strategic plans and crisis scenarios</li>
+        <li>Specific operational data for reports (emissions, incidents)</li>
+        <li>Negotiating position on disputed issues</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Why can press release preparation be done in cloud AI?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because press releases contain trade secrets</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because a press release is a public document intended for publication</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because AI cannot work with internal data</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Which task from the list is NOT suitable for cloud AI?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Sentiment analysis of media publications</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Developing crisis communication strategy with specific scenarios</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Monitoring competitor ESG ratings</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Why can an ESG report draft be started in the cloud?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because all ESG report data is public by definition</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because structure, introduction, and methodology do not contain confidential operational figures</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because ESG standards prohibit the use of internal systems</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> Which of the following CAN be sent to cloud ChatGPT?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Internal memo about a reputational crisis with an action plan</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Correspondence with a lawyer about a lawsuit against the company</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Text of a published media article for sentiment analysis</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../10-2-on-prem/index.html" class="nav-btn">← 10.2 Inside GENAi</a>
+    <a href="../10-4-agents/index.html" class="nav-btn primary">10.4 Development & Agents →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

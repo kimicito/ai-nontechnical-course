@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.2 Tasks Inside GENAi: On-Prem</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 Level 10 · AI for PR</div>
+    <h1>10.2 Tasks Inside GENAi: On-Prem</h1>
+    <div class="meta">20 min · for PR department · closed loop</div>
+  </div>
+
+  <div class="section">
+    <p>The PR department works with information that is rarely public: crisis scenarios, internal communications, positions for regulators, stakeholder data, draft statements before publication. Any leak of this can cause reputational or legal damage.</p>
+    <p><strong>Solution:</strong> on-prem LLM (e.g., Qwen, GigaChat Enterprise) within the company's closed perimeter. Data never leaves the perimeter, but the LLM accelerates material preparation by 5–20x.</p>
+  </div>
+
+  <div class="section">
+    <h2>Why On-Prem for the PR Department</h2>
+    <div class="card card-danger">
+      <strong>What cannot be sent to the cloud:</strong>
+      <ul>
+        <li>Crisis scenarios and plans before publication</li>
+        <li>Draft statements at the moment of an incident</li>
+        <li>Stakeholder, regulator, and interaction history data</li>
+        <li>Internal management emails about layoffs, restructuring, sanctions</li>
+        <li>Reputational risk assessments by region and segment</li>
+        <li>Board reports with sensitive metrics</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>What can be done on-prem:</strong>
+      <ul>
+        <li>Generate crisis scenarios "if X happens"</li>
+        <li>Prepare a draft statement minutes before publication</li>
+        <li>Conduct a post-mortem analysis of an incident using internal data</li>
+        <li>Write an internal management email in the right tone</li>
+        <li>Compile an FAQ for employees on sensitive topics</li>
+        <li>Prepare a position for a regulator based on internal documents</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Crisis Plan Preparation</h2>
+    <p>A PR specialist prepares "what if" scenarios. Previously, this took days of work by scriptwriters and lawyers. With an on-prem LLM — systematic scenario generation, checking for missed risks, and structuring the response plan.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Our company operates in industry [X] in [regions].
+
+Prepare a crisis plan for 10 scenarios:
+1. Customer data leak
+2. Production accident with casualties
+3. Accusation of top-manager corruption
+4. Sanctions/ban on operations in a key region
+5. Mass layoffs (leaked to media before official announcement)
+6. Product boycott for ethical reasons
+7. Cyberattack with operational shutdown
+8. Product recall for safety reasons
+9. Public conflict with a key partner
+10. Fake news about bankruptcy
+
+For each scenario:
+- Scenario development (best and worst case)
+- Who is responsible (roles)
+- Response timelines (first minute, first hour, first day)
+- Key messages (hold statements)
+- Communication channels (internal and external)</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>Input format:</strong> business description, regions, industry, risk register file (optional).<br>
+      <strong>Output format:</strong> structured crisis plan with scenario tables and hold statements.<br>
+      <strong>Time savings:</strong> 3–5 days → 30 minutes for a draft.<br>
+      <strong>Why ONLY inside:</strong> a crisis plan is an operational instruction on how the company responds to threats. A leak gives competitors and malicious actors a roadmap of weak points.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Statement Preparation in the Moment of Crisis</h2>
+    <p>In the first minutes of a crisis, speed is critical. A statement is needed that acknowledges the fact, does not prematurely confirm guilt, does not escalate, and preserves reputation. On-prem LLM prepares a draft in seconds based on facts.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>An incident has occurred: [brief description].
+
+Known facts:
+- Date and time
+- What happened (no speculation)
+- Scale (if known)
+- What has already been done
+- What is still unknown
+
+Prepare 3 versions of the official statement:
+1. Restrained — for initial publication (website, social media)
+2. Detailed — for the press, if inquiries are already coming in
+3. Internal — for employees, before official release
+
+Requirements:
+- Acknowledge the fact, do not confirm guilt prematurely
+- Indicate that an investigation is underway
+- Provide a media contact
+- No emotions, no excuses, no legally risky wording</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>Input format:</strong> incident facts (short brief, text, or voice transcript).<br>
+      <strong>Output format:</strong> 3 ready statement drafts + channel and timing recommendations.<br>
+      <strong>Time savings:</strong> 1–2 hours → 5 minutes.<br>
+      <strong>Why ONLY inside:</strong> any statement before publication is an unapproved position. A leak of a draft creates a false narrative and can become evidence in court.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Post-Mortem Analysis After an Incident</h2>
+    <p>After a crisis, it's important to understand: what worked, what didn't, what communication mistakes were made, what lessons were learned. Internal assessment is not for the public — it's for improving processes.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>The incident is concluded. Here is the internal data:
+- Chronology (file Chronology.xlsx)
+- All external communications (file Communications.pdf)
+- Media coverage (file Monitoring.docx)
+- Internal correspondence (anonymized)
+
+Conduct a post-mortem analysis:
+1. Response timeline: when was what done, what was delayed
+2. Did the hold statements work? Which ones had to be adjusted?
+3. Which channels were effective, which were not
+4. Communication mistakes (wrong tone, inaccuracies, omissions)
+5. Compliance of actual actions with the plan (if there was one)
+6. Recommendations: what to change in the crisis plan
+
+Format: internal document, no external quoting.</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>Input format:</strong> chronology, communications, media monitoring, internal correspondence (within the perimeter).<br>
+      <strong>Output format:</strong> structured post-mortem with timeline and recommendations.<br>
+      <strong>Time savings:</strong> 1 day → 15 minutes.<br>
+      <strong>Why ONLY inside:</strong> internal correspondence and admissions of mistakes are material for lawsuits and regulatory inspections. Any leak to the cloud is a potential find for the opposing side.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Internal Emails and Management Letters</h2>
+    <p>A CEO writes a letter to employees about restructuring, sanctions, or strategy changes. Tone, structure, legal wording — everything is critical. The LLM helps with a draft that lawyers and HR then review.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>The head of division [X] is writing a letter to employees of division [Y] (N people).
+
+Topic: [layoffs / strategy change / exit from region / sanction restrictions]
+
+Key messages:
+- [fact 1]
+- [fact 2]
+- [what this means for employees]
+- [next steps]
+
+Tone: honest, no panic, respectful, no corporate jargon.
+
+Prepare 3 versions of the letter:
+1. Soft — for teams with high engagement
+2. Business-like — for functional departments
+3. Brief — for wide distribution (key facts, link to details)
+
+Add: a checklist of what needs to be approved by HR and legal before sending.</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>Input format:</strong> topic, key messages, audience (number, department type).<br>
+      <strong>Output format:</strong> 3 letter versions + approval checklist.<br>
+      <strong>Time savings:</strong> 2–3 hours → 10 minutes.<br>
+      <strong>Why ONLY inside:</strong> internal emails about layoffs, restructuring, or sanctions are insider information. A leak before the official announcement creates panic, distorts the market, and can lead to legal consequences.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. FAQ for Employees on Sensitive Topics</h2>
+    <p>After major changes, employees ask the same questions. HR and PR prepare an FAQ, but it takes time. The LLM accelerates preparation, and HR and legal then validate it.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Company [name] is conducting [restructuring / layoffs / exit from region / responding to sanctions].
+
+Compile an FAQ for employees with 15 questions:
+- 5 questions about personal consequences (job, compensation, relocation)
+- 5 questions about the process (timelines, criteria, who makes decisions)
+- 5 questions about the company's future (strategy, new markets, support)
+
+Requirements:
+- Answers are honest but not panic-inducing
+- If the answer is not yet known — honestly say the process is in progress
+- No promises the company cannot guarantee
+- Links to internal resources (HR, hotline, portal)
+
+Format: question — brief answer — who to contact for details.</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>Input format:</strong> description of change, list of known facts, internal regulations (optional).<br>
+      <strong>Output format:</strong> FAQ of 15 questions with short answers and directions.<br>
+      <strong>Time savings:</strong> 4–6 hours → 10 minutes.<br>
+      <strong>Why ONLY inside:</strong> the FAQ contains details of restructuring, compensation, layoff timelines — this is confidential HR information. Getting into the cloud = risk of leak before the official announcement.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Position Preparation for Regulator Interaction</h2>
+    <p>A regulator requests a position on an issue. The response must be accurate, legally correct, but protect the company's interests. Position preparation involves working with internal documents and analyzing regulatory practice.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Regulator [name] has requested a position on the issue: [essence of request].
+
+Input data:
+- Internal documents on the topic (files)
+- Previous company responses to similar requests
+- Regulatory practice (internal database)
+- Legal memorandum (file)
+
+Prepare:
+1. Brief position (1 page) — main thesis, 3 arguments, request to the regulator
+2. Detailed position (5 pages) — with quotes from documents, references to practice
+3. Risk checklist: what cannot be said, which wording is dangerous
+
+Tone: constructive, respectful, but firm in defending the company's position.</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>Input format:</strong> regulator request text, internal documents, legal memoranda, previous responses.<br>
+      <strong>Output format:</strong> brief and detailed position + risk checklist.<br>
+      <strong>Time savings:</strong> 1–2 days → 30 minutes.<br>
+      <strong>Why ONLY inside:</strong> a position for a regulator is built on internal documents, legal assessments, and strategic priorities. This can be used in judicial or regulatory proceedings. A leak undermines the negotiating position.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. Stakeholder Briefings</h2>
+    <p>Before an important meeting or investor meeting, a quick profile is needed: who this is, interaction history, sensitive topics, previous public statements. On-prem LLM analyzes internal CRM and communication archives.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare a briefing on the stakeholder: [name / organization].
+
+Input data:
+- Interaction history (file CRM_history.xlsx)
+- Previous meetings and correspondence (files)
+- Public statements (internal monitoring database)
+- Known preferences, risks, conflicts of interest
+
+The briefing should include:
+1. Profile (role, influence, interests)
+2. Interaction history (timeline of key events)
+3. Sensitive topics (what cannot be touched)
+4. Potential allies and opponents
+5. Approach recommendations (tone, arguments, meeting format)
+6. Red flags (risks to minimize)</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>Input format:</strong> CRM data, correspondence, internal meeting notes, monitoring database.<br>
+      <strong>Output format:</strong> stakeholder profile with timeline, risks, and recommendations.<br>
+      <strong>Time savings:</strong> 2–3 hours → 10 minutes.<br>
+      <strong>Why ONLY inside:</strong> stakeholder briefings contain personality assessments, conflicts of interest, internal negotiation tactics. This is the company's strategic intelligence, which in the cloud becomes compromising material.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. Reputational Risk Analysis by Region of Presence</h2>
+    <p>The company operates in 10+ countries. In each region — its own risks: political, regulatory, cultural, competitive. The LLM analyzes internal regional data and produces a risk map.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>The company has operations in regions: [list].
+
+Input data:
+- Internal regional reports (files)
+- Incident and claim history (file)
+- Regional media monitoring (file)
+- Regulatory inspection data (file)
+
+Conduct a reputational risk analysis for each region:
+1. Political risk (power changes, sanctions, protectionism)
+2. Regulatory risk (new laws, inspections, fines)
+3. Cultural risk (brand, product, communication — what is wrong)
+4. Competitive risk (attacks from competitors, price wars)
+5. Media risk (topics that have already surfaced, media tone)
+
+For each region:
+- Risk assessment (high / medium / low)
+- Key indicators (what to watch)
+- Mitigation recommendations
+- Escalation scenario (what to do if the risk materializes)</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>Input format:</strong> internal regional reports, incident history, media monitoring, regulatory inspection data.<br>
+      <strong>Output format:</strong> risk map by region with assessments, indicators, and scenarios.<br>
+      <strong>Time savings:</strong> 1 week → 30 minutes.<br>
+      <strong>Why ONLY inside:</strong> regional risk assessments are based on internal data about problems, incidents, and regulatory inspections. This is information that can affect investment decisions and negotiations with partners. A leak is a blow to the commercial position.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>9. Board Reports on Reputational Metrics</h2>
+    <p>Once a quarter, PR prepares a report for the board of directors: tone, reach, key topics, dynamics. Previously, this took days of analyst work. With on-prem LLM — automatic generation from internal monitoring data.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Based on monitoring data for the quarter (file Monitoring_Q3.xlsx), prepare a report for the board of directors:
+
+1. Executive summary (1 page): main changes, 3 theses
+2. Reputational metrics:
+   - Reach (by channels)
+   - Tone (positive / neutral / negative)
+   - Share of voice vs competitors
+   - Top 10 topics
+3. Key incidents: what happened, how we responded, result
+4. Dynamics vs previous quarter (trends)
+5. Risks on the horizon (what may flare up in Q4)
+6. Recommendations (3 points on what to do)
+
+Tone: professional, data-driven, no fluff. Every thesis is backed by numbers or an example.</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>Input format:</strong> internal monitoring (Excel, CSV), reach data, tone, topics.<br>
+      <strong>Output format:</strong> structured board report with summary, metrics, risks, and recommendations.<br>
+      <strong>Time savings:</strong> 2–3 days → 20 minutes.<br>
+      <strong>Why ONLY inside:</strong> a board report contains risk assessments, incident mentions, and strategic recommendations. This is insider information for investors and regulators. A leak = market manipulation or reputational damage.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>10. Speaker Preparation for Interviews on Sensitive Topics</h2>
+    <p>A speaker goes for an interview on a sensitive topic. Q&A needs to be prepared, vulnerable points identified, and wording practiced. On-prem LLM models aggressive questions and prepares answers that won't harm the company.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Speaker: [name, position].
+Interview: [media name, format — live / recorded / debate].
+Topic: [sensitive topic].
+
+Known vulnerable points:
+- [fact 1 that can be used against us]
+- [fact 2 that requires delicate wording]
+- [topic we want to avoid]
+
+Prepare:
+1. 20 questions that may be asked (including 5 "digs" — aggressive, provocative)
+2. Recommended answers for each question (2 versions: brief and detailed)
+3. Trap phrases: what NOT to say (with explanation why)
+4. Tactic to seize initiative: how to bring the conversation back to key messages
+5. Preparation checklist (what to have on hand, who can be mentioned, what to avoid)
+6. Post-interview: what to pay attention to in the recording before publication</pre>
+    </div>
+    <div class="card card-accent">
+      <strong>Input format:</strong> speaker profile, interview topic, list of known vulnerable points, internal data (optional).<br>
+      <strong>Output format:</strong> Q&A with 20 questions, answers, traps, tactics, and checklist.<br>
+      <strong>Time savings:</strong> 4–6 hours → 15 minutes.<br>
+      <strong>Why ONLY inside:</strong> interview preparation contains explicit admissions of vulnerable points, phrases to avoid, and takeover tactics. A leak of this material is a gift to a journalist: he knows where to hit and what the company is afraid to say.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: Internal PR Department Tasks</h2>
+    <table>
+      <tr><th>Task</th><th>Input Format</th><th>Output Format</th><th>Time Savings</th></tr>
+      <tr><td>Crisis plan</td><td>Business description, risk register</td><td>10 scenarios with hold statements</td><td>3–5 days → 30 min</td></tr>
+      <tr><td>Statements in crisis moment</td><td>Incident facts (brief)</td><td>3 statement drafts</td><td>1–2 hours → 5 min</td></tr>
+      <tr><td>Post-mortem analysis</td><td>Chronology, communications, monitoring</td><td>Structured post-mortem</td><td>1 day → 15 min</td></tr>
+      <tr><td>Internal emails</td><td>Topic, messages, audience</td><td>3 letter versions + checklist</td><td>2–3 hours → 10 min</td></tr>
+      <tr><td>FAQ on sensitive topics</td><td>Change description, facts</td><td>FAQ of 15 questions</td><td>4–6 hours → 10 min</td></tr>
+      <tr><td>Position for regulator</td><td>Regulator request, internal documents</td><td>Brief + detailed position + risks</td><td>1–2 days → 30 min</td></tr>
+      <tr><td>Stakeholder briefings</td><td>CRM, correspondence, internal notes</td><td>Profile with timeline and recommendations</td><td>2–3 hours → 10 min</td></tr>
+      <tr><td>Reputational risk analysis by region</td><td>Regional reports, monitoring, incidents</td><td>Risk map by region</td><td>1 week → 30 min</td></tr>
+      <tr><td>Board report</td><td>Monitoring (Excel/CSV)</td><td>Report with metrics and recommendations</td><td>2–3 days → 20 min</td></tr>
+      <tr><td>Speaker interview preparation</td><td>Profile, topic, vulnerable points</td><td>Q&A, traps, tactics, checklist</td><td>4–6 hours → 15 min</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Why can't a crisis plan be sent to cloud-based ChatGPT?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because ChatGPT can't work with tables</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because it's a roadmap of the company's weak points, useful to competitors and malicious actors</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because ChatGPT works too slowly</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> What tool to use for preparing a statement in the moment of crisis?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Google Docs with a template</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">On-prem LLM in a closed loop</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT with deleting the request after</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Why is speaker preparation for interviews on sensitive topics a task ONLY for on-prem?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because the material contains explicit vulnerable points and phrases to avoid — it's a gift to a journalist if leaked</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because the speaker doesn't know how to use cloud services</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because interviews are always secret</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> What is the time savings when preparing a board report with on-prem LLM?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">1 day → 2 hours</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">2–3 days → 20 minutes</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">30 minutes → 10 minutes</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../10-1-reality/index.html" class="nav-btn">← 10.1 Reality</a>
+    <a href="../10-3-external/index.html" class="nav-btn primary">10.3 External AI →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
