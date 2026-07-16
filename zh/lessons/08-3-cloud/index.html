@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.3 外部AI任务：云端 — 非IT专业人士的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">非IT专业人士的AI</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ 第8级 · 建筑的AI</div>
+    <h1>8.3 外部AI任务：云端</h1>
+    <div class="meta">15分钟 · 面向工程技术员、工长、预算员 · 开放学习</div>
+  </div>
+
+  <div class="section">
+    <p>在本课中，我们将学习建筑专业人士在外部云端AI中解决的任务：Claude、ChatGPT、Kimi、Qwen。这些是可以通过互联网发送的数据：一般性描述、公开法规、市场基准、外部可视化方案。</p>
+    <p><strong>主要规则：</strong>请勿将带有坐标的工程图纸、包含采购价格的预算、分包合同或内部商业数据发送到云端。其他内容都可以。</p>
+  </div>
+
+  <div class="section">
+    <h2>为什么建筑行业需要外部AI</h2>
+    <div class="card card-success">
+      <strong>可以发送到云端的内容：</strong>
+      <ul>
+        <li>设备描述（不含序列号和采购价格）</li>
+        <li>SP、SNiP、GOST的公开文本（来自公开来源）</li>
+        <li>设计理念和立面方案的一般性描述</li>
+        <li>用于可视化的立面或房间照片/扫描件</li>
+        <li>类比设备和市场基准的询价</li>
+      </ul>
+    </div>
+    <div class="card card-danger">
+      <strong>不能发送到云端的内容：</strong>
+      <ul>
+        <li>带有大地坐标和标高的施工图纸</li>
+        <li>包含采购价格和利润的预算</li>
+        <li>包含罚款和条款的分包合同</li>
+        <li>包含实际工程量的完工证书</li>
+        <li>显示安全区域或战略设施的现场照片</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. 查找设备类比和供应商</h2>
+    <p>现场水泵、阀门或执行器发生故障。铭牌磨损，供应商不再供货。需要找到具有相同参数的类比设备。</p>
+    
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>现场安装了一台格兰富UPS 32-60 180循环泵。
+该泵已损坏，格兰富不再向俄罗斯供应此型号。
+
+请查找具有相同参数的俄罗斯产类比设备：
+- 流量：最高8 m³/h
+- 扬程：最高6 m
+- 安装长度：180 mm
+- 转子类型：湿式
+- 电源：1×230 V
+
+每个类比设备请注明：
+- 制造商和型号
+- 购买地点（莫斯科/圣彼得堡的官方经销商）
+- 市场价格（约）
+- 与原设备的差异（尺寸、螺纹、安装方式）</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入格式：</strong>设备描述（品牌、参数、如有照片）<br>
+      <strong>输出格式：</strong>类比设备清单，含规格、经销商联系方式、近似价格<br>
+      <strong>节省时间：</strong>2–3小时手动搜索 → 5分钟
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. 建筑工程市场价格基准</h2>
+    <p>您需要快速了解：分包商的报价是否合理？是否比市场价高出一倍？外部AI提供参考依据——不是预算的依据，而是提出问题的理由。</p>
+    
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>我收到了一份2000 m²办公大楼通风安装报价。
+分包商报价450万卢布（不含材料，仅安装）。
+
+请对莫斯科地区2025年进行市场基准分析：
+- 带热回收的送排风系统
+- 面积2000 m²，4层
+- 约8000 m²风管
+- 20个通风机组
+- 自动化和调度系统
+
+请注明：
+1. 市场价格区间（下限/中位数/上限）
+2. 便宜承包商在哪些地方偷工减料
+3. 昂贵承包商在哪些地方过度收费
+4. 对账时需要检查哪些项目
+
+重要提示：此为参考，非预算依据。请勿用作官方价格。</pre>
+    </div>
+
+    <div class="card card-warning">
+      <strong>⚠️ 警告：</strong>云端AI的价格来自公开来源的近似数据。它们不能替代基于GESN/FER的预算，也不能作为索赔依据。用作"提出问题的理由"，而非"证据"。
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入格式：</strong>工作类型描述、工程量、地区、年份<br>
+      <strong>输出格式：</strong>市场价格区间、按项目分解、建议<br>
+      <strong>节省时间：</strong>向3个承包商收集报价1–2天 → 10分钟
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. 设计方案变体——文本开发</h2>
+    <p>客户希望立面"现代一些"。您需要制定3–5个文本概念，然后展示给建筑师。外部AI生成描述，随后转化为草图。</p>
+    
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>建筑：5层办公中心，60×30 m，西南向立面。
+地区：喀山，温带大陆性气候。
+预算：中档（非高端，非经济型）。
+
+请构思4个立面方案概念：
+
+1. 概念"科技"
+   - 描述：材料、颜色、纹理、玻璃类型
+   - 优点：成本、耐久性、可维护性
+   - 缺点：风险、局限性
+
+2. 概念"生态"
+   - 带绿植墙、露台、木质元素
+   - 同上项
+
+3. 概念" loft"
+   - 砖、钢、大窗户
+   - 同上项
+
+4. 概念"经典"
+   - 通风幕墙、瓷质炻砖、严谨几何
+   - 同上项
+
+每个概念请注明近似立面成本每m²（参考）和安装工期。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入格式：</strong>建筑描述、预算、地区、客户偏好<br>
+      <strong>输出格式：</strong>3–5个文本概念，含材料、优缺点、近似价格<br>
+      <strong>节省时间：</strong>设计师草图工作1–2天 → 10分钟
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. 通过专业工具生成3D可视化</h2>
+    <p>Claude和ChatGPT无法生成3D模型。但有专业云端工具：<strong>SketchUp + AI插件、Midjourney用于参考、Tripo3D、Spline、Looka</strong>。AI帮助为这些工具准备提示词。</p>
+    
+    <div class="example">
+      <div class="example-label">可视化准备提示词示例</div>
+      <pre>我需要办公楼大堂内部的3D可视化。
+
+房间参数：
+- 面积：120 m²，层高4.2 m
+- 形状：15×8 m矩形
+- 窗户：南侧全景玻璃，12 m
+- 地面：抛光混凝土，带暖木嵌条
+- 墙面：混凝土，部分刷深绿色（RAL 6005）
+- 天花板：裸露管线、轨道照明、黑色
+
+家具：
+- 接待台4 m，白色人造石
+- 沙发区：模块化灰色沙发、2把扶手椅
+- 会议桌：2张，玻璃
+- 植物：3棵大榕树，带种植器
+
+请生成用于Midjourney / SketchUp AI / DALL-E的提示词，以获得最真实的效果。并说明哪个工具最合适及原因。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入格式：</strong>房间描述、材料、家具、风格、期望效果<br>
+      <strong>输出格式：</strong>生成器就绪提示词 + 工具推荐<br>
+      <strong>节省时间：</strong>3–4小时参考选择和设置 → 10分钟准备提示词 + 5分钟生成
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. 按SP/SNiP检查图纸（初步）</h2>
+    <p>在提交专家审查或行政部门审批前，可以检查图纸是否符合公开法规。外部AI了解SP和SNiP文本，但不能替代专家。这是"初步梳理"。</p>
+    
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>我正在设计一栋9层住宅楼的楼梯间。
+
+请按SP 118.13330.2012（SNiP 31-01-2003）和SP 55.13330.2016检查我的参数：
+
+我的数据：
+- 楼梯宽度：1.2 m
+- 平台宽度：1.5 m
+- 踏步高度：170 mm
+- 踏步深度（踏面）：280 mm
+- 楼层高差：3.0 m
+- 每段楼梯踏步数：18级
+- 栏杆高度：900 mm
+- 无MGN（行动不便人士）楼梯
+
+请检查：
+1. 楼梯宽度是否符合疏散要求
+2. 踏步尺寸是否符合（公式2h + b = 620–640 mm）
+3. MGN楼梯的可用性和参数（如需要）
+4. 栏杆高度和中间扶手
+5. 防火门需求及其参数
+
+请列出违规项（如有）及具体SP条款。</pre>
+    </div>
+
+    <div class="card card-warning">
+      <strong>⚠️ 重要：</strong>AI基于公开法规文本工作，可能出错。这不能替代GAU专家审查或设计师验证。用作提交专家审查前的"初步检查"。
+    </div>
+
+    <div class="card card-accent">
+      <strong>输入格式：</strong>结构构件描述及尺寸、建筑类型、层数<br>
+      <strong>输出格式：</strong>按法规检查清单、发现的违规项及SP/SNiP条款<br>
+      <strong>节省时间：</strong>2–3小时手动法规检查 → 5分钟
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>汇总表：外部AI中的任务</h2>
+    <table>
+      <tr><th>任务</th><th>输入格式</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>查找设备类比</td><td>描述/品牌/参数</td><td>类比设备清单 + 经销商 + 价格</td><td>2–3小时 → 5分钟</td></tr>
+      <tr><td>建筑工程价格基准</td><td>工作描述、工程量、地区</td><td>价格区间 + 分解</td><td>1–2天 → 10分钟</td></tr>
+      <tr><td>文本概念开发</td><td>建筑描述、预算、地区</td><td>3–5个概念，含材料和价格</td><td>1–2天 → 10分钟</td></tr>
+      <tr><td>3D可视化生成</td><td>房间描述、材料、家具</td><td>生成器提示词 + 工具</td><td>3–4小时 → 10分钟</td></tr>
+      <tr><td>SP/SNiP合规检查</td><td>结构尺寸、建筑类型</td><td>检查清单 + 违规项</td><td>2–3小时 → 5分钟</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识检验</h2>
+    <div class="card card-accent">
+      <p><strong>问题1：</strong>可以将带有大地坐标的施工图纸发送到云端ChatGPT吗？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">可以，ChatGPT能读取图纸</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">不可以，这是机密项目数据</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">可以，但之后删除即可</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题2：</strong>云端AI的建筑工程价格可以用作：</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">预算和索赔的官方依据</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">讨论参考和提出问题的理由</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">替代基于GESN/FER的预算</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题3：</strong>哪个工具最适合室内3D可视化？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Claude — 它能生成3D模型</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">专业工具（Midjourney、Tripo3D、Spline）</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT — 它懂3D</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题4：</strong>云端AI按SP/SNiP检查图纸是：</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">初步检查，不能替代专家审查</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">适合提交GAU的官方结论</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">完全替代设计师验证</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-2-on-prem/index.html" class="nav-btn">← 8.2 GENAi内部任务</a>
+    <a href="../08-4-dev/index.html" class="nav-btn primary">8.4 开发与智能体 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>非IT专业人士的AI · 生产企业</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ 正确！';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ 错误。请再想想。';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

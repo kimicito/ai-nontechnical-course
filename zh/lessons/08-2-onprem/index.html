@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.2 GENAi内部任务：本地部署 — 非IT专业人士的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">非IT专业人士的AI</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ 第8级 · 建筑的AI</div>
+    <h1>8.2 GENAi内部任务：本地部署</h1>
+    <div class="meta">15分钟 · 面向土木工程师 · 闭环</div>
+  </div>
+
+  <div class="section">
+    <p>本课涵盖建筑公司内部解决的任务，这些任务的数据不能发送到互联网。预算、证书、与分包商的往来函件、索赔——所有这些都包含商业秘密和机密信息。</p>
+    <p><strong>解决方案：</strong>本地部署LLM（例如Qwen、GigaChat、YandexGPT企业版），在公司封闭网络范围内运行。数据永远不会离开公司网络，但您可以获得生成式AI的全部能力。</p>
+  </div>
+
+  <div class="section">
+    <h2>为什么建筑行业需要本地部署</h2>
+    <div class="card card-danger">
+      <strong>不能发送到云端的内容：</strong>
+      <ul>
+        <li>预算、KS-2、KS-3（含价格和工程量）</li>
+        <li>索赔及与分包商的索赔往来函件</li>
+        <li>竣工文件和隐蔽工程记录</li>
+        <li>包含商业条款的会议纪要</li>
+        <li>包含预算限制的设计任务书</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>可以在本地完成的工作：</strong>
+      <ul>
+        <li>起草索赔文件及论证——仅需10分钟</li>
+        <li>检查竣工文件的完整性</li>
+        <li>根据录音或笔记编写会议纪要</li>
+        <li>根据实际工程量核实KS-2/KS-3</li>
+        <li>编写设计任务书和施工监理任务书</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. 索赔——起草论证文件</h2>
+    <p>施工技术部（PTO）工程师或现场主管向分包商准备索赔，针对工期延误、施工质量差或材料短缺。以前：需要数小时查阅文件+法律咨询。现在：LLM准备草稿，律师进行审核。</p>
+
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>我正在准备对分包商有限责任公司"建筑安装"的索赔。
+
+输入数据：
+- 合同第45号，日期：2026年2月15日，完工期限：2026年6月30日
+- 实际完工日期：2026年8月15日（延误46天）
+- 我认定的延误原因：分包商钢筋延迟交付（10天），工人短缺（剩余36天）
+- 合同违约金：合同价的0.1%/天
+- 合同价格：15,000,000 ₽
+- 我于2026年5月15日发送了工期违约风险通知
+
+准备：
+1. 索赔论证，引用标准合同条款
+2. 违约金计算
+3. 要求：整改缺陷+支付违约金
+4. 回复期限：10个工作日
+5. 引用联邦法律44或俄罗斯联邦民法典（视适用情况而定）
+
+格式：供律师审核的完整信件草稿。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>结果：</strong>一份结构化的索赔草稿，包含违约金计算、法律法规和合同引用。工程师节省2-3小时，律师只需15分钟审核，而不是从头起草需要2小时。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. 检查竣工文件的完整性</h2>
+    <p>在向客户移交设施或提交完工证书之前，工程师需检查是否已收集所有竣工文件。OKS表、隐蔽工程证书、材料证书、日志——有数十项之多。</p>
+
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>检查"购物中心A楼"设施的竣工文件完整性。
+
+以下是我已收集的文件清单（文件OKS_list.xlsx）：
+- 竣工图（第1-45页）
+- 隐蔽工程证书（第1-120页）
+- 材料证书（文件夹/certs/）
+- 施工日志（log_2026.docx）
+- 进场检验日志
+- 竣工测量日志
+- 试验报告
+
+完整性要求：
+- 每种施工类型必须有隐蔽工程证书
+- 每种材料必须有使用日期内有效的证书
+- 所有施工阶段必须有测量记录
+
+检查：
+1. 与要求相比缺少哪些文件
+2. 哪些证书已过期
+3. 哪些隐蔽工程证书缺少对应的图纸
+4. 缺失项目清单及优先级</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>结果：</strong>一份包含优先级的缺失文件清单。施工技术部工程师节省3-4小时的手动文件夹检查时间。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. 与分包商的往来函件、会议纪要</h2>
+    <p>现场会议结束后，主管或工程师必须准备会议纪要。以前：回忆说了什么、重听录音、手动撰写。使用本地LLM：上传录音或笔记——即可获得现成的会议纪要。</p>
+
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>准备施工现场工作会议纪要。
+
+输入数据：
+日期：2026年7月14日
+地点：施工现场，主管办公室
+参会人员：
+- 伊万诺夫 A.P.（客户代表）
+- 彼得罗夫 S.V.（项目总工程师，CPE）
+- 西多罗夫 K.M.（现场主管，分包商有限责任公司"建筑安装"）
+- 库兹涅佐娃 L.V.（施工技术部工程师，总承包商）
+
+讨论议题（笔记）：
+1. 混凝土工程延误12天。原因：模板延迟交付。决定：增派第二组人员，自7月20日起两班倒作业。
+2. 关于3层抹灰质量的索赔。需部分拆除返工。期限：7月25日前。
+3. 批准将瓷砖供应商从"Kerama"更换为"GranitStroy"——价格低8%，14天内交货。
+4. 下次会议：2026年7月28日。
+
+准备：
+- 记录决策的标准会议纪要
+- 行动项，含责任人和期限
+- 单独列出：需上报管理层的风险清单</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>结果：</strong>现成的会议纪要，包含行动项、期限和责任人。主管节省1-1.5小时的准备时间。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. 根据实际数据分析KS-2/KS-3</h2>
+    <p>分包商提交KS-2（完工证书）和KS-3（预算书）。工程师必须检查证书中的工程量是否与实际相符。以前：根据日志、图纸、照片手动核对。使用本地LLM：上传文件并提问。</p>
+
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>检查KS-2和KS-3是否与实际工程量相符。
+
+输入数据：
+- 2026年6月KS-2（文件KS2_june.pdf）
+- 2026年6月KS-3（文件KS3_june.pdf）
+- 施工统计日志（文件log_june.xlsx）
+- 现场照片报告（文件夹/photos/june/）
+
+检查：
+1. KS-2中的混凝土量与日志中的实际量对比（差异以m³计）
+2. 钢筋量：KS-3中确认的量与实际安装量
+3. 照片报告未确认的施工项目
+4. KS-3中的单价与合同预算的一致性
+5. 加班施工：是否有指令确认
+
+输出：
+- 含金额的 discrepancies 清单
+- 建议：接受哪些、拒绝哪些
+- 需要分包商提供哪些文件来解决</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>结果：</strong>一份含金额和建议的差异表。施工技术部工程师节省4-6小时的交叉核对时间。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. 设计任务书、施工监理任务书</h2>
+    <p>客户为设计师或将执行施工监理的组织准备技术规范。以前：搜索模板、调整、检查完整性。使用本地LLM：描述任务——即可获得结构化的任务书。</p>
+
+    <div class="example">
+      <div class="example-label">提示词示例——设计任务书</div>
+      <pre>准备购物中心设计技术规范。
+
+输入数据：
+- 土地面积：1.2公顷
+- 建筑占地面积：8,500平方米
+- 楼层数：2层+地下室
+- 用途：零售空间、仓库、停车场
+- 气候区：III-B（俄罗斯中部）
+- 地震烈度：6度
+- 要求的能效等级：B
+- 设计预算：不超过5,000,000 ₽
+- 工期：4个月
+- 阶段：方案设计→技术设计→施工图设计
+
+任务书必须包含：
+1. 总则
+2. 输入数据（城市规划条件、地质勘察）
+3. 设计文件组成清单
+4. 结构方案要求
+5. 工程系统要求
+6. 能效要求
+7. 景观绿化要求
+8. 工期和阶段
+9. 审批和验收程序
+10. 限制和禁止事项</pre>
+    </div>
+
+    <div class="example">
+      <div class="example-label">提示词示例——施工监理任务书</div>
+      <pre>准备施工监理技术规范。
+
+输入数据：
+- 设施：购物中心A楼，8,500平方米
+- 开发商：有限责任公司"DevelopProject"
+- 总承包商：有限责任公司"StroyGrand"
+- 施工期：18个月
+- 结构防火等级：C0
+- 责任等级：提高
+
+任务书必须包含：
+1. 施工监理的范围和内容
+2. 受控参数清单（几何尺寸、材料、工艺）
+3. 各阶段检查频率
+4. 报告要求
+5. 违规记录和发令程序
+6. 与客户、总承包商、监管机构的工作协调
+7. 监理机构人员资质要求
+8. 监理工期和阶段
+9. 各方责任</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>结果：</strong>一份符合GOST和标准要求的结构化任务书。工程师节省4-6小时的从头起草时间。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>总结表：闭环中的任务</h2>
+    <table>
+      <tr><th>任务</th><th>输入格式</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>索赔工作</td><td>合同数据、违规事实</td><td>含计算的索赔草稿</td><td>3小时→15分钟</td></tr>
+      <tr><td>竣工文件检查</td><td>已收集文件清单+要求</td><td>含优先级的缺失项清单</td><td>4小时→20分钟</td></tr>
+      <tr><td>会议纪要</td><td>会议录音/笔记</td><td>含行动项的现成纪要</td><td>1.5小时→10分钟</td></tr>
+      <tr><td>KS-2/KS-3分析</td><td>证书、日志、照片报告</td><td>差异表+建议</td><td>6小时→30分钟</td></tr>
+      <tr><td>设计/监理任务书</td><td>设施描述和要求</td><td>符合GOST的结构化任务书</td><td>6小时→20分钟</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识检验</h2>
+    <div class="card card-accent">
+      <p><strong>问题1：</strong>为什么不能将索赔和KS-2/KS-3发送到云端ChatGPT？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为ChatGPT无法读取PDF文件</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">因为这是商业秘密和机密数据</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为建筑文件太大</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题2：</strong>通过本地LLM准备索赔时，律师扮演什么角色？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">律师从头起草索赔，LLM仅负责排版</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">LLM准备草稿，律师审核并完善</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">律师不参与，LLM独立完成所有工作</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题3：</strong>通过LLM分析KS-2/KS-3时，检查什么内容？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">证书中的工程量与实际数据和照片报告的一致性</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">拼写和文件格式</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">所有各方的签字是否齐全</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题4：</strong>生成会议纪要需要什么输入格式？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">仅会议录音</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">会议录音或包含关键决策的文字笔记</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">仅监控摄像头的视频录像</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-1-reality/index.html" class="nav-btn">← 8.1 现实</a>
+    <a href="../08-3-external-ai/index.html" class="nav-btn primary">8.3 外部AI任务 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>非IT专业人士的AI · 生产企业</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ 正确！';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ 错误。请再想想。';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

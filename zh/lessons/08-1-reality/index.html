@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.1 现实：AI在建筑领域能做什么 — 非IT专业人士的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">非IT专业人士的AI</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ 第8级 · 建筑的AI</div>
+    <h1>8.1 现实：AI在建筑领域能做什么</h1>
+    <div class="meta">15分钟 · 面向造价员、现场主管、工程师 · 资本建设</div>
+  </div>
+
+  <div class="section">
+    <p><strong>本课的核心论点：</strong>预算不是文本。大型语言模型不会按GESN/FER标准计算，不懂系数，也不理解资源法。如果你把预算当作文本喂给神经网络，并期望得到准确的计算结果——你注定会遇到幻觉。</p>
+    <p>但这并不意味着AI在建筑领域毫无用处。它是有用的——但仅限于那些不需要精确规范计算的任务。让我们分解一下AI现在在哪里有效，以及在哪里尚无效。</p>
+  </div>
+
+  <div class="section">
+    <h2>为什么建筑比采购更难</h2>
+    <p>在采购中，有具体的数字：价格、交货期、数量。大型语言模型比较5个报价——并且做得很好。在建筑中，一切都不同：</p>
+
+    <div class="card card-danger">
+      <strong>是什么让建筑对大型语言模型来说很困难：</strong>
+      <ul>
+        <li><strong>规范数据库：</strong> GESN、FER、TSN、FSSC——数以万计带系数的项目</li>
+        <li><strong>资源法：</strong> 成本 = 定额 × 资源价格 × 系数。大型语言模型不知道当前的资源价格</li>
+        <li><strong>系数：</strong> Kp（利润）、Knr（间接费）、Kpz（加载）、换算指数——它们因地区和年份而异</li>
+        <li><strong>地方预算：</strong> 每个项目都是独特的，没有两个预算完全相同</li>
+        <li><strong>预算定额 ≠ 市场价格：</strong> GESN提供人工和机械定额，但材料价格来自市场</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <strong>错误示例：</strong> 您将PDF预算上传到ChatGPT并询问"检查计算"。大型语言模型看到的是文本，但看不到表格背后的内容：应用了哪些定额、哪些系数、哪些指数。它可能会说"一切正确"或发现一个明显的算术错误——但会漏掉30%的估算错误。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>三个任务桶</h2>
+    <p>让我们将建筑部门的任务分为三组——按AI解决它们的准备程度。</p>
+
+    <div class="card card-success">
+      <h3>🟢 桶1：快速见效——现在就能做</h3>
+      <p><em>大型语言模型无需定制即可处理这些。投资回报以天和周计算。</em></p>
+      <ul>
+        <li><strong>规范数据库搜索：</strong> "我在哪个GESN集合中可以找到钻孔桩施工？"</li>
+        <li><strong>解码预算项目：</strong> "项目FERm 01-01-001-01是什么意思？"</li>
+        <li><strong>工程量清单转文本：</strong> "根据工程量清单，编写施工方案"</li>
+        <li><strong>文本文档生成：</strong> 说明文件、施工方案、信函</li>
+        <li><strong>按文本比较地方预算：</strong> "预算A和预算B——方法上有什么不同？"</li>
+        <li><strong>逻辑检查（不是计算！）：</strong> "基础预算包含屋面工作——这是错误吗？"</li>
+        <li><strong>从图纸提取数据（OCR）：</strong> 识别尺寸、标记、数量</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>🟡 桶2：需要开发——数月</h3>
+      <p><em>需要与预算软件、规范数据库或自定义逻辑集成。</em></p>
+      <ul>
+        <li><strong>从工程量清单自动计算预算：</strong> 将工程量关联到GESN/FER，应用系数</li>
+        <li><strong>基于定额的预算验证：</strong> 自动验证：费率选择是否正确，是否有遗漏工作</li>
+        <li><strong>成本预测：</strong> 基于历史数据训练的模型从草稿工程量清单预测最终预算</li>
+        <li><strong>图纸与预算匹配：</strong> 验证图纸上的所有元素是否都计入预算</li>
+        <li><strong>从BIM模型提取工程量清单：</strong> 从3D模型自动算量</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <h3>🔴 桶3：需要智能体——数年</h3>
+      <p><em>需要多智能体系统，能访问外部数据并自主决策。</em></p>
+      <ul>
+        <li><strong>全自动预算编制：</strong> 从图纸到批准预算无需人工干预</li>
+        <li><strong>自动资源价格监控：</strong> 智能体监控市场并实时更新预算</li>
+        <li><strong>建筑风险预测：</strong> 智能体分析天气、供应商、分包商，并预警延误</li>
+        <li><strong>自动变更管理：</strong> 当项目变更时，智能体重新计算一切：预算、进度、资源</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>从哪里试点：桶1</h2>
+    <p>不要从自动预算计算开始——那是桶2，需要开发。从一周内就能出结果的任务开始。</p>
+
+    <h3>步骤1：规范数据库搜索</h3>
+    <div class="example">
+      <div class="example-label">示例提示</div>
+      <pre>我需要找到现浇钢筋混凝土条形基础的定额。
+
+问题：
+1. 应该在哪个GESN或FER集合中查找？
+2. 哪些费率适用于深度1.5米、宽度0.4米的基础？
+3. 定额包含哪些资源（混凝土、钢筋、模板、人工）？
+4. 该定额通常应用哪些系数？</pre>
+    </div>
+    <p>大型语言模型不会给出精确计算，但会为您指明方向——节省30分钟翻阅集合的时间。</p>
+
+    <h3>步骤2：解码预算项目</h3>
+    <div class="example">
+      <div class="example-label">示例提示</div>
+      <pre>以下是地方预算中的项目列表：
+- FERm 08-02-001-01
+- GESNm 81-05-001-01
+- TSN-2001-08-02-001
+
+解码每个项目：
+1. 完整工作名称
+2. 计量单位
+3. 主要资源（材料、人工、机械）
+4. 典型应用领域</pre>
+    </div>
+
+    <h3>步骤3：预算逻辑检查</h3>
+    <div class="example">
+      <div class="example-label">示例提示</div>
+      <pre>我上传了一份资本维修地方预算的PDF。
+
+检查逻辑（不要计算金额）：
+1. 所有预算部分是否与说明中的工作类型匹配？
+2. 是否有不属于此类维修的工作？
+3. 是否有资本维修典型遗漏的工作？
+4. 工作顺序是否符合施工工艺？
+
+提供可疑项目清单及说明。</pre>
+    </div>
+
+    <h3>步骤4：生成说明文件</h3>
+    <div class="example">
+      <div class="example-label">示例提示</div>
+      <pre>基于地方预算（附PDF），起草说明文件：
+
+1. 总则（项目、业主、承包商）
+2. 预算编制依据
+3. 应用的费率和定额清单
+4. 系数应用特点
+5. 总成本和工作工期
+
+格式：正式，按GOST R 21.1101-2013标准。</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>桶1的投资回报：</strong>
+      <table>
+        <tr><th>任务</th><th>之前</th><th>之后</th><th>节省</th></tr>
+        <tr><td>规范数据库搜索</td><td>30–60分钟</td><td>2–5分钟</td><td>90%</td></tr>
+        <tr><td>解码项目</td><td>20–40分钟</td><td>2–3分钟</td><td>90%</td></tr>
+        <tr><td>预算逻辑检查</td><td>1–2小时</td><td>5–10分钟</td><td>85%</td></tr>
+        <tr><td>说明文件</td><td>2–4小时</td><td>10–15分钟</td><td>90%</td></tr>
+        <tr><td>施工方案</td><td>4–8小时</td><td>20–30分钟</td><td>90%</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>在建筑领域不要对大型语言模型做什么</h2>
+    <div class="card card-danger">
+      <strong>红旗——大型语言模型会误导您的任务：</strong>
+      <ul>
+        <li><strong>从文本"从零开始"计算预算：</strong> 大型语言模型不知道当前资源价格、指数和系数</li>
+        <li><strong>检查复杂预算中的算术：</strong> 可能漏掉系数中的错误但"确认"总额</li>
+        <li><strong>按工作描述选择定额：</strong> 大型语言模型可能建议类似但不正确的费率</li>
+        <li><strong>用于法庭或专家鉴定中的预算论证：</strong> 大型语言模型的结论没有法律效力</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>安全规则：</strong> 大型语言模型是造价员的助手，不是替代品。它加速常规工作（搜索、文本、逻辑检查），但精确计算仍属于人类和预算软件（GRAND-Estimate、A0、Smeta.ru）。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>知识检验</h2>
+    <div class="card card-accent">
+      <p><strong>问题1：</strong> 为什么大型语言模型不能按GESN/FER准确计算预算？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为GESN禁止使用AI</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">因为大型语言模型不知道当前资源价格、系数和指数</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">因为预算太长，超出上下文窗口</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题2：</strong> "检查预算是否包含不适合资本维修的工作"属于哪个桶？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">桶1——快速见效</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">桶2——需要开发</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">桶3——需要智能体</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题3：</strong> 以下哪项属于桶2（需要开发）？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">解码预算项目FERm 08-02-001-01</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">从工程量清单自动计算预算，含定额和系数选择</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">从模板生成说明文件</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题4：</strong> 在建筑领域使用大型语言模型的安全规则是什么？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">大型语言模型完全替代造价员</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">大型语言模型是造价员的助手；精确计算仍由人类负责</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">大型语言模型可用于法庭中的预算论证</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-hybrid/index.html" class="nav-btn">← 7.3 混合任务</a>
+    <a href="../08-2-onprem/index.html" class="nav-btn primary">8.2 GENAi内部任务 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>非IT专业人士的AI · 生产企业</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ 正确！';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ 错误。请再想想。';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.4 开发与智能体 — 非IT专业人士的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">非IT专业人士的AI</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">🏗️ 第8级 · 建筑的AI</div>
+    <h1>8.4 开发与智能体</h1>
+    <div class="meta">15分钟 · 面向项目经理和估算师 · 当需要团队时</div>
+  </div>
+
+  <div class="section">
+    <p>在建筑行业，AI不仅仅是ChatGPT里的提示词。真正的效率体现在模型与你的系统集成的地方：算量软件、BIM、ERP、图纸数据库。这需要一个开发团队或现成的智能体解决方案。</p>
+    <p><strong>在本课中：</strong>三个复杂度级别——从可由承包商完成的任务，到需要自有开发团队或智能体系统的任务。</p>
+  </div>
+
+  <div class="section">
+    <h2>1. 需要开发团队的场景</h2>
+    <p>建筑行业中有些任务无法用现成的AI工具解决。需要与内部系统集成、精确计算，以及承担法律责任。</p>
+
+    <div class="card card-accent">
+      <table>
+        <tr>
+          <th>任务</th>
+          <th>为什么需要开发</th>
+          <th>需要构建什么</th>
+        </tr>
+        <tr>
+          <td><strong>按ГЭСН/ФЕР编制估算</strong></td>
+          <td>ГРАНД-Смета等软件使用封闭格式；需要计算引擎</td>
+          <td>通过API或插件与ГРАНД-Смета集成 + 自定义校验计算引擎</td>
+        </tr>
+        <tr>
+          <td><strong>按Минстрой更新指数</strong></td>
+          <td>指数每季度变化；手动更新容易出错</td>
+          <td>Минstroy指数解析器 + 估算定额自动更新</td>
+        </tr>
+        <tr>
+          <td><strong>НМЦК计算</strong></td>
+          <td>初始最高合同价格具有法律敏感性；出错 = 重新招标</td>
+          <td>带来源追溯、论证导出和审计日志的计算模块</td>
+        </tr>
+        <tr>
+          <td><strong>从图纸提取工程量清单</strong></td>
+          <td>视觉模型产出初稿；生产环境需要校验流程</td>
+          <td>视觉模型（Qwen/GPT-4V）→ 结构化 → 人工检查 → 导出至估算</td>
+        </tr>
+        <tr>
+          <td><strong>从BIM提取工程量清单</strong></td>
+          <td>BIM是唯一真实数据源，但工程量清单需要在算量软件中</td>
+          <td>BIM连接器 → 工程量清单提取 → 格式化为ГРАНД-Смета</td>
+        </tr>
+        <tr>
+          <td><strong>ERP/仓库对账</strong></td>
+          <td>仓库材料 ≠ 估算材料；需要双向同步</td>
+          <td>ERP集成（1C、SAP）用于余额和订单对账</td>
+        </tr>
+        <tr>
+          <td><strong>碰撞检测</strong></td>
+          <td>Navisworks和Tekla能发现碰撞，但将报告集成到工作流程中是单独的任务</td>
+          <td>Navisworks API → 报告提取 → 自动分配责任人 → 仪表板</td>
+        </tr>
+        <tr>
+          <td><strong>3D渲染</strong></td>
+          <td>生成式工具（Stable Diffusion、DALL-E）需要与BIM模型集成</td>
+          <td>流程：BIM → 视图导出 → 生成式渲染 → 与原几何体比对</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card card-warning">
+      <strong>核心原则：</strong>如果一项任务需要与两个或更多内部系统集成——这是开发团队的工作，不是"两周承包商"能搞定的。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. 需要智能体的场景</h2>
+    <p>智能体系统不只是大语言模型，而是能够访问系统、收集数据、做出决策并向人类报告的自主流程。</p>
+
+    <div class="card card-success">
+      <h3>项目风险分析</h3>
+      <p>智能体分析估算、进度、天气和供应商，为每项风险输出风险评分及建议。</p>
+      <div class="example">
+        <div class="example-label">智能体工作中</div>
+        <pre>1. 接收估算和进度表
+2. 检查Минstroy指数——已更新
+3. 检查基础施工期天气预报——有降雨风险
+4. 检查供应商——5家中有2家上季度延迟交付
+5. 结果：报告含3项重大风险 + 建议</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h3>估算指数更新</h3>
+      <p>智能体流程：每季度，智能体检查Минstroy指数，与当前估算对比，并提出调整建议。</p>
+      <div class="example">
+        <div class="example-label">智能体工作中</div>
+        <pre>1. 从Минstroy网站加载当前指数
+2. 与15份活跃估算对比
+3. 发现3份估算指数已过时
+4. 计算偏差（估算高估8%）
+5. 发送给估算师审批</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h3>工程量清单与采购及库存对账</h3>
+      <p>智能体进入ERP检查：材料是否按工程量清单订购？库存有吗？何时到货？</p>
+      <div class="example">
+        <div class="example-label">智能体工作中</div>
+        <pre>1. 接收下月工程量清单
+2. 检查ERP——库存：水泥短缺
+3. 检查订单：水泥2周后到货
+4. 工程量清单1周后需要水泥
+5. 结果：延迟风险通知</pre>
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <h3>承包商估算校验</h3>
+      <p>智能体从公开来源（或你的数据库）获取市场价格，与承包商估算交叉核对。</p>
+      <div class="example">
+        <div class="example-label">智能体工作中</div>
+        <pre>1. 接收承包商4500万估算
+2. 针对市场价格数据库检查120项
+3. 发现15项虚高12-30%
+4. 生成报告含谈判建议</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. 试点：从哪里开始</h2>
+    <p>不要试图一次性自动化所有事情。建筑业是保守行业，估算中的一个错误比一个月的延迟代价更高。</p>
+
+    <div class="card card-accent">
+      <h3>级别1：快速见效，低风险</h3>
+      <ul>
+        <li><strong>从图纸提取工程量清单</strong>——视觉模型 + 人工检查。经过2-3轮迭代，准确率可达90%以上。</li>
+        <li><strong>项目风险分析</strong>——基于公开数据 + 你的估算的智能体。不接触系统。</li>
+        <li><strong>演示用3D渲染</strong>——生成式AI，不影响计算。</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>级别2：中等风险，需要集成</h3>
+      <ul>
+        <li><strong>估算指数更新</strong>——需要Минstroy解析器 + 估算访问权限。必须有人工确认环节。</li>
+        <li><strong>工程量清单与采购对账</strong>——智能体进入ERP，需要访问权限和审计日志。</li>
+        <li><strong>Navisworks碰撞检测</strong>——BIM集成，但结果是报告，不是模型更改。</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <h3>级别3：高风险，需要团队</h3>
+      <ul>
+        <li><strong>ГЭСН/ФЕР自动计算估算</strong>——错误 = 投标错误或进度延误。</li>
+        <li><strong>НМЦК计算</strong>——法律责任，需要可追溯性和专业知识。</li>
+        <li><strong>承包商估算校验并自动生成索赔</strong>——涉及合同后果。</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <strong>级别2和3必须有人在回路中。</strong> AI提出建议，人类执行前确认。这不是减速——这是保险。在建筑行业，5%的估算错误可能代价数千万。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>知识检验</h2>
+    <div class="card card-accent">
+      <p><strong>问题1：</strong>哪项任务肯定需要开发团队而非现成的AI工具？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">按价格比较3份商业报价</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">与ГРАНД-Смета及计算引擎集成</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">生成演示用3D渲染</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题2：</strong>为什么НМЦК计算属于级别3（高风险）？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">НМЦК错误可能导致重新招标和法律后果</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">НМЦК很难在Excel中计算</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">НМЦК需要联网</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题3：</strong>在建筑智能体的语境中，"人在回路中"是什么意思？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">雇佣更多人进行监督</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">AI提出解决方案，人类执行前确认</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">培训人们使用AI</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>问题4：</strong>以下哪项任务最适合作为试点（级别1）？</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">从图纸提取工程量清单并人工校验</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">自动НМЦК计算</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">对承包商生成索赔</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-3-external-ai/index.html" class="nav-btn">← 8.3 外部AI任务</a>
+    <a href="../09-1-procurement-audit/index.html" class="nav-btn primary">9.1 采购审计 →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>非IT专业人士的AI · 生产企业</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ 正确！';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ 错误。请再想想。';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
