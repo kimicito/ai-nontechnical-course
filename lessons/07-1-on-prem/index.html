@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.1 Внутренние задачи закупщика — on-prem — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI для не ИТ-специалистов</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 7 — Закупки</div>
+    <h1>7.1 Внутренние задачи: on-prem</h1>
+    <div class="meta">15 мин · для закупщиков · закрытый контур</div>
+  </div>
+
+  <div class="section">
+    <p>В этом уроке — задачи, которые закупщик выполняет внутри компании, с данными, которые нельзя отправлять в интернет. Цены, условия, переговорная позиция — всё это коммерческая тайна.</p>
+    <p><strong>Решение:</strong> on-prem LLM (например, Qwen) в закрытом контуре компании. Данные не покидают периметр.</p>
+  </div>
+
+  <div class="section">
+    <h2>Зачем on-prem для закупщика</h2>
+    <div class="card card-danger">
+      <strong>Что нельзя отправлять в облако:</strong>
+      <ul>
+        <li>Конкретные цены поставщиков из КП</li>
+        <li>Условия договоров и штрафы</li>
+        <li>Переговорная позиция (BATNA, рычаги)</li>
+        <li>Объёмы закупок по позициям</li>
+        <li>Исторические данные о поставщиках</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Что можно сделать в on-prem:</strong>
+      <ul>
+        <li>Сравнить 5 КП по цене, срокам, условиям — за 2 минуты</li>
+        <li>Проверить, соответствует ли предложение ТЗ</li>
+        <li>Подготовить аргументы для переговоров</li>
+        <li>Найти отклонения в договоре от шаблона</li>
+        <li>Проанализировать паттерны закупок за 2 года</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Сравнительный анализ КП</h2>
+    <p>Закупщик получает 3–5 коммерческих предложений. Раньше: вручную сводить в Excel, сравнивать цену, срок поставки, условия оплаты, гарантии. Сейчас: загрузить в on-prem LLM и задать вопрос.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>У меня 3 коммерческих предложения на поставку насосов. 
+Приложены файлы КП1, КП2, КП3.
+
+Сделай сравнительную таблицу:
+- Цена за единицу
+- Срок поставки
+- Условия оплаты
+- Гарантийный срок
+- Стоимость доставки
+
+Выдели лучшее предложение по каждому критерию и итоговый победитель.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Результат:</strong> таблица сравнения + визуальное выделение лучших позиций. Закупщик экономит 20–30 минут на рутине.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Сверка предложения с ТЗ</h2>
+    <p>Часто поставщик отвечает на ТЗ, но с оговорками или отклонениями. LLM может найти эти отклонения быстрее человека.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Сравни техническое задание (файл ТЗ.docx) и ответ поставщика (файл Ответ.docx).
+
+Найди:
+1. Полные отклонения от ТЗ (что не соответствует)
+2. Частичные отклонения (что соответствует с оговорками)
+3. Пропущенные пункты (на что поставщик не ответил)
+
+Сделай список с указанием конкретных пунктов ТЗ.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Подготовка к переговорам</h2>
+    <p>Это самая чувствительная задача. BATNA (лучшая альтернатива без сделки), рычаги давления, слабые места поставщика — всё это нельзя светить в облаке. On-prem решает проблему.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Я готовлюсь к переговорам с поставщиком X по закупке оборудования.
+
+Вот мои данные:
+- Есть 2 альтернативных поставщика с ценами на 15% ниже
+- Текущий поставщик задержал поставку в прошлом квартале на 2 недели
+- Мне нужна поставка за 3 недели, а у него стандартно 6 недель
+- Объём закупки — 50 единиц, это крупный заказ для его категории
+
+Подготовь:
+1. Мои аргументы для снижения цены
+2. Рычаги давления (вежливо, но убедительно)
+3. BATNA — что делать, если не договоримся
+4. Сценарий переговоров (по шагам)</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Проверка контрактов</h2>
+    <p>Юрист проверяет договор неделю. LLM находит отклонения от шаблона за минуты — юрист потом валидирует находки.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Сравни договор поставщика (файл Договор.docx) и наш стандартный шаблон (файл Шаблон.docx).
+
+Найди отклонения по:
+- Ответственности сторон
+- Штрафным санкциям
+- Срокам поставки
+- Условиям оплаты
+- Порядку разрешения споров
+
+Для каждого отклонения укажи: где в шаблоне, где в договоре, риск для нас.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Нормализация номенклатуры / SKU</h2>
+    <p>В компании 5 подразделений называют один товар по-разному: «насос Grundfos 32-160», «насос Грюндфос 32-160», «GRUNDFOS 32-160». LLM приводит к единому виду.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Вот список номенклатуры из 3 подразделений (файл Номенклатура.xlsx).
+
+Приведи к единому виду:
+- Унифицируй названия брендов (латиница)
+- Стандартизируй единицы измерения
+- Убери дубли
+- Создай таблицу соответствия: старое название → новое название
+
+Сохрани результат в Excel.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Анализ истории закупок</h2>
+    <p>Закупщик хочет понять: растут ли цены у постоянного поставщика? Есть ли сезонность? Какие позиции дорожают быстрее всего?</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>У меня история закупок за 2 года (файл История.xlsx).
+
+Проанализируй:
+1. Динамика цен по топ-10 поставщикам (тренд роста/падения)
+2. Сезонность (какие месяцы дороже)
+3. Топ-5 позиций с максимальным ростом цены
+4. Среднее время между заказом и поставкой по поставщикам
+5. Рекомендации: где есть риск роста цен, на что обратить внимание</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. Risk-скоринг поставщика</h2>
+    <p>Комбинация внутренних данных о поставщике + шаблон оценки рисков. LLM считает скоринг и объясняет почему.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Оцени риск поставщика "ПромТехСнаб" по данным:
+
+- Работаем 3 года
+- 2 задержки поставок за последний год (на 5 и 12 дней)
+- 1 претензия по качеству (брак 3%, устранили за свой счёт)
+- Цена на 8% ниже рынка
+- Финансовые показатели: выручка растёт, нет судебных дел
+- Контракт до конца года, потом перетендер
+
+По шкале от 1 до 10:
+1. Общий риск-профиль
+2. Риск операционный (срыв сроков)
+3. Риск финансовый
+4. Риск качества
+
+Дай рекомендацию: продлевать, перетендеровать, искать резерв.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. Разбор транспортных документов</h2>
+    <p>ТТН, инвойсы, CMR — LLM извлекает данные и сверяет с заказом. Всё внутри контура.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Файл ТТН.pdf — разбери содержимое:
+
+- Номер ТТН, дата
+- Отправитель и получатель
+- Перечень груза с количеством и весом
+- Сумма груза
+- Дата отгрузки и дата доставки (факт vs план)
+
+Сверь с заказом (файл Заказ.xlsx) и выяви:
+- Недостачи
+- Пересорты
+- Отклонения по срокам
+</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>9. Отчёты для руководства</h2>
+    <p>Закупщик тратит вечер на PowerPoint. LLM делает черновик за 10 минут — остаётся только доверить цифры.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>На основе данных из файла Закупки_Q3.xlsx подготовь черновик отчёта для совета директоров:
+
+1. Общий объём закупок (сумма, рост vs Q2)
+2. Топ-5 категорий по сумме
+3. Статус по ключевым проектам (в срок / с рисками / просрочены)
+4. Рекомендации по 2–3 проблемным зонам
+5. План на Q4 (кратко)
+
+Формат: структурированный текст, готовый к вставке в презентацию.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица: внутренние задачи</h2>
+    <table>
+      <tr><th>Задача</th><th>Формат входа</th><th>Формат выхода</th><th>Экономия времени</th></tr>
+      <tr><td>Сравнение КП</td><td>3–5 файлов КП</td><td>Таблица сравнения + победитель</td><td>30 мин → 2 мин</td></tr>
+      <tr><td>Сверка с ТЗ</td><td>ТЗ + ответ поставщика</td><td>Список отклонений</td><td>45 мин → 5 мин</td></tr>
+      <tr><td>Переговоры</td><td>Данные для BATNA</td><td>Сценарий + аргументы</td><td>2 часа → 15 мин</td></tr>
+      <tr><td>Проверка договора</td><td>Договор + шаблон</td><td>Список отклонений + риски</td><td>4 часа → 10 мин</td></tr>
+      <tr><td>Нормализация SKU</td><td>Excel с номенклатурой</td><td>Унифицированная таблица</td><td>3 часа → 10 мин</td></tr>
+      <tr><td>Анализ истории</td><td>Excel с закупками</td><td>Тренды + рекомендации</td><td>1 день → 10 мин</td></tr>
+      <tr><td>Risk-скоринг</td><td>Данные о поставщике</td><td>Оценка рисков 1–10 + рекомендация</td><td>2 часа → 5 мин</td></tr>
+      <tr><td>Транспортные документы</td><td>ТТН, инвойс (PDF)</td><td>Сверка с заказом</td><td>30 мин → 3 мин</td></tr>
+      <tr><td>Отчёт для руководства</td><td>Данные закупок</td><td>Черновик отчёта</td><td>3 часа → 10 мин</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Почему сравнение КП нельзя отправлять в облачный ChatGPT?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что ChatGPT работает медленно</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Потому что цены поставщиков — коммерческая тайна</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что ChatGPT не умеет читать Excel</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Какой инструмент использовать для подготовки к переговорам с BATNA?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Google Docs</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">On-prem LLM в закрытом контуре</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT с удалением данных после</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Сколько времени экономит LLM на сравнении 5 КП?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Не экономит, вручную быстрее</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">30 минут → 2 минуты</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">5 минут → 4 минуты</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 4:</strong> Что такое risk-скоринг поставщика?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Оценка рисков по шкале 1–10 на основе внутренних данных</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Проверка кредитной истории в банке</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Поиск отзывов о поставщике в интернете</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 5:</strong> Какой из этих документов точно в on-prem?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Черновик ТЗ без цен</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Контракт с конкретными штрафами и условиями</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Перевод инструкции с английского</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../06-hallucinations/index.html" class="nav-btn">← 6.3 Галлюцинации</a>
+    <a href="../07-2-cloud/index.html" class="nav-btn primary">7.2 Внешние задачи →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI для не ИТ-специалистов · Производственная компания</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Верно!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Неверно. Подумай ещё раз.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

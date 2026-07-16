@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.3 Гибридные задачи закупщика — обезличивание — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI для не ИТ-специалистов</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 7 — Закупки</div>
+    <h1>7.3 Гибридные задачи: обезличивание</h1>
+    <div class="meta">15 мин · для закупщиков · граница контуров</div>
+  </div>
+
+  <div class="section">
+    <p>Некоторые задачи находятся на границе: их можно сделать в облаке, но только если данные обезличены. Заменить название поставщика на «Поставщик А», убрать конкретные цены — и задача становится безопасной для внешней модели.</p>
+    <p>В этом уроке — как обезличивать данные, какие задачи допустимы в гибридном режиме, и как подготовить запрос разработчикам на автоматизацию.</p>
+  </div>
+
+  <div class="section">
+    <h2>Правило: обезличивание перед облаком</h2>
+    <div class="card card-danger">
+      <strong>Что НЕЛЬЗЯ отправлять в облако (даже частично):</strong>
+      <ul>
+        <li>Конкретные цены из КП</li>
+        <li>Названия поставщиков (если это не гиганты типа Сименс)</li>
+        <li>Объёмы закупок по конкретным позициям</li>
+        <li>Условия договоров (штрафы, скидки, отсрочки)</li>
+        <li>Переговорная позиция, BATNA, слабые места поставщика</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Что МОЖНО отправлять после обезличивания:</strong>
+      <ul>
+        <li>Сравнение структуры КП (без цен) — «Поставщик А vs Поставщик Б»</li>
+        <li>Анализ полноты ответа на ТЗ (без названий)</li>
+        <li>Ролевая репетиция переговоров (анонимный сценарий)</li>
+        <li>Составление общей аргументации (без конкретных цифр)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Чек-лист обезличивания (5 шагов)</h2>
+    <div class="card">
+      <ol>
+        <li><strong>Заменить названия:</strong> "ООО ПромТехСнаб" → "Поставщик А"</li>
+        <li><strong>Заменить цены на относительные:</strong> "1 200 000 ₽" → "базовая цена +20%" или "Цена X"</li>
+        <li><strong>Убрать объёмы:</strong> "50 единиц" → "партия среднего размера"</li>
+        <li><strong>Убрать даты контрактов:</strong> "до 31.12.2025" → "контракт до конца года"</li>
+        <li><strong>Проверить:</strong> если скинуть обезличенный текст коллеге — он поймёт, о чём речь, но не узнает поставщика? Если да — можно в облако.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Ролевая репетиция переговоров</h2>
+    <p>Закупщик готовится к сложным переговорам. Нужно отыграть сценарий. Можно обезличить данные и использовать облачную модель как "играющего противника".</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта (обезличенный)</div>
+      <pre>Проведи со мной ролевую репетицию переговоров.
+
+Сценарий (обезличенный):
+- Я закупщик в промышленной компании
+- Мне нужно снизить цену на поставку оборудования
+- У меня есть 2 альтернативных поставщика с ценой на 15% ниже
+- Текущий поставщик (Поставщик А) задержал поставку в прошлый раз
+- Мне нужен срок 3 недели, у него стандартно 6 недель
+- Я готов обсуждать объём, но не раскрывать конкретные цифры
+
+Ты играешь роль Поставщика А. Твоя цель — удержать цену и сроки.
+Моя цель — снизить цену и ускорить срок.
+
+Начни переговоры. Отвечай как реальный поставщик — 
+с возражениями, контраргументами, попытками уйти от темы.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Результат:</strong> 15–20 минут репетиции с «живым» оппонентом. Закупщик отрабатывает аргументы, учится отражать возражения, готовится к реальному разговору.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Сравнение структуры КП (без цен)</h2>
+    <p>Нужно понять, какой поставщик ответил на ТЗ полнее, а не кто дешевле. Цены убираем, сравниваем только структуру и полноту.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта (обезличенный)</div>
+      <pre>Сравни 3 коммерческих предложения по структуре и полноте ответа.
+
+Данные обезличены:
+- Поставщик А, Поставщик Б, Поставщик В
+- Цены удалены, только относительные: "ниже рынка", "рынок", "выше рынка"
+
+Сравни по критериям:
+1. Полнота ответа на ТЗ (все ли пункты покрыты)
+2. Наличие технических описаний (да/нет, качество)
+3. Наличие сертификатов (перечень)
+4. Условия гарантии (сроки, объём)
+5. Дополнительные услуги (монтаж, обучение, сервис)
+
+Не называй конкретные цены. Дай рекомендацию по полноте.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Составление общей аргументации</h2>
+    <p>Закупщику нужен список аргументов для переговоров в общем виде — не привязанный к конкретной сделке. Облачная модель генерирует базу, потом в on-prem дополняют конкретикой.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта (обезличенный)</div>
+      <pre>Я готовлюсь к переговорам по закупке промышленного оборудования.
+
+Контекст (обезличенный):
+- Рынок: 3–4 крупных поставщика, конкуренция высокая
+- Моя позиция: крупный заказчик, регулярные закупки
+- Проблема: поставщик хочет повысить цену и сроки
+
+Подготовь общие аргументы для переговоров:
+1. Аргументы для снижения цены (рынок, объёмы, конкуренция)
+2. Аргументы для ускорения сроков (планирование, резервы, штрафы)
+3. Контраргументы на типичные возражения поставщиков
+4. Вежливые формулировки для твёрдой позиции
+
+Без конкретных цен, названий, объёмов. 
+Только шаблоны, которые я потом адаптирую.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Запрос разработчикам на автоматизацию обезличивания</h2>
+    <p>Если закупщики часто обезличивают документы вручную — это можно автоматизировать. Вот шаблон запроса для IT-команды.</p>
+    
+    <div class="card card-accent">
+      <div class="example-label">Шаблон запроса разработчикам</div>
+      <pre>Задача: создать скрипт/приложение для обезличивания 
+закупочных документов перед отправкой в облачные LLM.
+
+Вход: файл (PDF, Word, Excel) с коммерческим предложением.
+Выход: тот же файл с заменёнными данными.
+
+Правила замены:
+1. Названия компаний → "Поставщик А", "Поставщик Б" и т.д.
+2. Суммы → относительные ("базовая цена", "+15%", "-20%")
+3. Объёмы → "партия малого/среднего/крупного размера"
+4. Даты → относительные ("в текущем квартале", "до конца года")
+5. Контактные данные → удалить полностью
+6. Номера договоров → "Договор N"
+
+Дополнительно: проверка — что в выходном файле 
+не осталось оригинальных данных (поиск по ключевым словам).
+
+Интеграция: drag-and-drop файл → получить обезличенную версию 
+за 5 секунд. Сохранение истории обезличиваний.
+
+Приоритет: высокий (используется ежедневно 5–10 закупщиками).</pre>
+    </div>
+    
+    <div class="card card-warning">
+      <strong>💡 Совет:</strong> даже если IT не может сделать полноценное приложение, можно начать с простого Python-скрипта. Он заменит 80% ручной работы. Потом доработать.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица: гибридные задачи</h2>
+    <table>
+      <tr><th>Задача</th><th>Что обезличить</th><th>Где выполнять</th><th>Экономия</th></tr>
+      <tr><td>Ролевая репетиция</td><td>Названия, цены, объёмы</td><td>Облако (ChatGPT, Claude)</td><td>2 часа → 20 мин</td></tr>
+      <tr><td>Сравнение структуры КП</td><td>Цены, названия, объёмы</td><td>Облако</td><td>1 час → 10 мин</td></tr>
+      <tr><td>Общая аргументация</td><td>Все конкретные данные</td><td>Облако → доработка в on-prem</td><td>3 часа → 20 мин</td></tr>
+      <tr><td>Обезличивание документов</td><td>Автозамена по правилам</td><td>Скрипт (on-prem) → облако</td><td>30 мин → 5 сек</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Что из списка НЕЛЬЗЯ отправлять в облако даже после обезличивания?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Название поставщика → "Поставщик А"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Конкретные штрафные санкции из действующего договора</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">"Цена выше рынка на 10%"</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Какой первый шаг чек-листа обезличивания?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Убрать все даты</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Заменить названия компаний на "Поставщик А", "Поставщик Б"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Убрать все цифры из документа</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Как проверить, что документ обезличен достаточно?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Отправить в облако и посмотреть, не заблокирует ли система</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Показать коллеге — он поймёт суть, но не узнает поставщика?</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Удалить все цифры и названия — этого достаточно</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 4:</strong> Какая задача из списка — гибридная (обезличивание + облако)?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Проверка договора на отклонения от шаблона</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Ролевая репетиция переговоров с анонимным сценарием</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Поиск новых поставщиков в интернете</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 5:</strong> Что делать, если закупщики постоянно обезличивают документы вручную?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Подготовить запрос разработчикам на автоматизацию скриптом</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Продолжать вручную — это надёжнее</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Отправлять оригиналы в облако — так быстрее</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-2-cloud/index.html" class="nav-btn">← 7.2 Внешние задачи</a>
+    <a href="../08-scheduling/index.html" class="nav-btn primary">8.1 Планирование →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI для не ИТ-специалистов · Производственная компания</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Верно!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Неверно. Подумай ещё раз.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

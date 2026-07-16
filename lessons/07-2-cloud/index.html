@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.2 Внешние задачи закупщика — облако — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI для не ИТ-специалистов</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 7 — Закупки</div>
+    <h1>7.2 Внешние задачи: облако</h1>
+    <div class="meta">15 мин · для закупщиков · открытые данные</div>
+  </div>
+
+  <div class="section">
+    <p>В этом уроке — задачи, где закупщик работает с публичной информацией: поиск поставщиков, бенчмаркинг цен, подготовка обезличенных документов. Эти данные не содержат коммерческой тайны — их можно отправлять в облачные модели.</p>
+    <p><strong>Решение:</strong> облачные API: Claude, ChatGPT, Kimi, Qwen API. Нужен веб-поиск — значит, модель должна быть подключена к интернету.</p>
+  </div>
+
+  <div class="section">
+    <h2>Когда облако лучше on-prem</h2>
+    <div class="card card-success">
+      <strong>Облачные модели выигрывают, когда нужно:</strong>
+      <ul>
+        <li><strong>Веб-поиск:</strong> найти новых поставщиков, проверить цены на рынке</li>
+        <li><strong>Перевод:</strong> работать с зарубежными документами</li>
+        <li><strong>Генерация:</strong> создать шаблонный текст с нуля</li>
+        <li><strong>Анализ публичных данных:</strong> индексы сырья, курсы валют, таможенные коды</li>
+      </ul>
+    </div>
+    <div class="card card-warning">
+      <strong>Важно:</strong> перед отправкой в облако — проверь, что в запросе нет конкретных цен, названий поставщиков, объёмов. Если есть — обезличь или отправь в on-prem.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Поиск аналогов и альтернативных поставщиков</h2>
+    <p>Закупщик знает 2–3 поставщика на позицию. Нужно найти ещё — для конкуренции или резерва. On-prem не имеет доступа к интернету, облако — имеет.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта (Claude с веб-поиском)</div>
+      <pre>Найди производителей промышленных центробежных насосов 
+серии 32-160 в России и ближнем зарубежье (Казахстан, Беларусь).
+
+Укажи:
+- Название компании и сайт
+- Где производство (город)
+- Есть ли сертификаты (ГОСТ, ISO)
+- Примерный диапазон цен (если публично)
+- Контакты для закупок (отдел продаж)
+
+Сделай таблицу сравнения.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Результат:</strong> таблица потенциальных поставщиков с контактами. Закупщик тратит 10 минут вместо 2 часов ручного поиска.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Бенчмаркинг рыночных цен и индексов сырья</h2>
+    <p>Закупщик договаривается о цене, но не знает, где рынок сейчас. LLM с веб-поиском находит актуальные индексы.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Какие сейчас (2024-2025) рыночные цены на:
+1. Стальную арматуру А500С (опт, тонна)
+2. Портландцемент М500 (опт, тонна)
+3. Медь катодную (LME + премия)
+
+Также укажи:
+- Динамику за последние 6 месяцев (рост/падение %)
+- Прогноз на ближайший квартал (если есть)
+- Основные факторы, влияющие на цену</pre>
+    </div>
+
+    <div class="card card-warning">
+      <strong>Важно:</strong> в запросе нет конкретных цен твоих поставщиков — только рыночные ориентиры. Это безопасно для облака.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Подготовка обезличенного ТЗ (черновик)</h2>
+    <p>ТЗ с конкретными цифрами — в on-prem. А черновик структуры ТЗ, общие требования, типовые параметры — можно сделать в облаке, а потом довести внутри.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь структуру технического задания на закупку 
+промышленного насосного оборудования для химического производства.
+
+Без конкретных цифр (объёмов, цен, сроков). 
+Только типовые параметры и требования.
+
+Структура:
+1. Общие требования
+2. Технические параметры (мощность, производительность, материалы)
+3. Требования к качеству и сертификации
+4. Условия поставки (типовые)
+5. Требования к документации
+6. Критерии приёмки
+
+Укажи, какие пункты нужно будет дополнить конкретными данными внутри компании.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Тендерная документация (общие разделы)</h2>
+    <p>Инструкция для участников, критерии оценки, форма заявки — всё это шаблонное и не содержит данных конкретной сделки.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Создай шаблон тендерной документации для закупки 
+промышленного оборудования методом открытого конкурса.
+
+Включи:
+1. Инструкция для участников (правила подачи, сроки)
+2. Форма заявки (общие поля)
+3. Критерии оценки (цена, сроки, опыт) — без весовых коэффициентов
+4. Форма договора (типовые условия)
+5. Перечень документов для заявки
+
+Укажи, какие разделы нужно согласовать с юристом и заказчиком.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Автоответы клиентам и площадкам</h2>
+    <p>Статус груза, сроки поставки, запросы на КП — часто шаблонные. LLM генерирует ответ по статусу из ERP, но без конкретных цифр.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Напиши шаблон письма ответа на запрос статуса поставки.
+
+Условия:
+- Заказ в пути
+- Поставщик сообщил о задержке
+- Нужно извиниться, объяснить причину, назвать новый срок
+- Предложить компенсацию (типовая)
+
+Без конкретных дат, сумм, названий поставщиков. 
+Получатель: заказчик внутри компании.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Перевод и локализация документов</h2>
+    <p>Зарубежные поставщики присылают инструкции, спецификации, договоры на английском, китайском, немецком. Облачный перевод быстрее и точнее стандартных переводчиков для технических текстов.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Переведи с английского на русский техническую спецификацию 
+на промышленный насос (файл Spec.pdf).
+
+Требования:
+- Сохрани структуру и нумерацию разделов
+- Технические термины — по ГОСТ/ISO
+- Единицы измерения — в СИ (м³/ч, бар, кВт)
+- Сохрани таблицы в формате markdown
+- Отметь непонятные места для уточнения у поставщика</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. Проверка таможенных требований (общая нормативка)</h2>
+    <p>Код ТН ВЭД, требования сертификации, пошлины — это публичная информация. LLM находит актуальные требования для категории товаров.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Какие таможенные требования и сертификаты нужны 
+для ввоза в РФ промышленных центробежных насосов (код ТН ВЭД 8413 70)?
+
+Укажи:
+- Обязательная сертификация (ГОСТ-Р, ТР ТС)
+- Нужен ли СБКТС
+- Таможенная пошлина (ставка)
+- НДС при ввозе
+- Требования к документам поставщика (инвойс, упаковочный лист)
+- Особенности для конкретных стран (КНР, Германия, Италия)
+
+Без конкретного груза и сумм — только общая нормативка.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица: внешние задачи</h2>
+    <table>
+      <tr><th>Задача</th><th>Модель</th><th>Почему облако</th><th>Экономия</th></tr>
+      <tr><td>Поиск поставщиков</td><td>Claude, ChatGPT, Kimi</td><td>Нужен веб-поиск</td><td>2 часа → 10 мин</td></tr>
+      <tr><td>Бенчмаркинг цен</td><td>Claude, ChatGPT</td><td>Актуальные рыночные данные</td><td>1 час → 5 мин</td></tr>
+      <tr><td>Черновик ТЗ (обезлич.)</td><td>ChatGPT, Kimi, Qwen API</td><td>Генерация с нуля</td><td>3 часа → 15 мин</td></tr>
+      <tr><td>Тендерная документация</td><td>ChatGPT, Kimi</td><td>Шаблоны без данных</td><td>4 часа → 20 мин</td></tr>
+      <tr><td>Автоответы</td><td>Любая облачная</td><td>Шаблонная генерация</td><td>15 мин → 1 мин</td></tr>
+      <tr><td>Переводы</td><td>Claude, GPT-4, Kimi</td><td>Технические тексты</td><td>2 часа → 10 мин</td></tr>
+      <tr><td>Таможенная нормативка</td><td>Claude с веб-поиском</td><td>Актуальные коды и ставки</td><td>1 час → 5 мин</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Почему поиск новых поставщиков лучше делать в облаке, а не в on-prem?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Потому что on-prem не имеет доступа к интернету для поиска</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что on-prem работает медленнее</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что облако бесплатное</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Какую модель НЕ стоит использовать для бенчмаркинга цен?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Claude с веб-поиском</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">On-prem LLM без интернета</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT с браузингом</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Какой запрос безопасен для облака?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">"Сравни цены моих 3 поставщиков: А, Б, В" (с конкретными суммами)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">"Какие рыночные цены на арматуру А500С в 2025 году?"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">"Проверь договор с поставщиком X на соответствие шаблону"</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 4:</strong> Какую задачу можно делать в облаке, если ТЗ содержит конкретные объёмы?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Отправить полное ТЗ с объёмами в ChatGPT</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Сделать черновик структуры ТЗ без цифр, а объёмы добавить в on-prem</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Нельзя использовать ИИ для ТЗ вообще</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 5:</strong> Какая модель лучше для перевода технических спецификаций?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Claude или GPT-4 — они лучше с техническими терминами</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Любая бесплатная модель — перевод это простая задача</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Только on-prem модель, потому что в спецификации могут быть цены</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-1-on-prem/index.html" class="nav-btn">← 7.1 Внутренние задачи</a>
+    <a href="../07-3-hybrid/index.html" class="nav-btn primary">7.3 Гибридные задачи →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI для не ИТ-специалистов · Производственная компания</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Верно!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Неверно. Подумай ещё раз.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
