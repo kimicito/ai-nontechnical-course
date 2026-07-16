@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.4 Développement et agents — IA pour la RP — L'IA pour les non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">L'IA pour les non-spécialistes IT</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 Niveau 10 · IA pour la RP</div>
+    <h1>10.4 Développement et agents</h1>
+    <div class="meta">15 min · pour les directeurs RP et les équipes communication</div>
+  </div>
+
+  <div class="section">
+    <p>Ce leçon couvre les tâches RP qui ne peuvent pas simplement être déléguées au cloud. Certains travaux sont effectués par une IA externe, d'autres uniquement en interne. Et quelque part, vous avez besoin d'une équipe de développement et de systèmes d'agents.</p>
+    <p><strong>Principe clé :</strong> approche hybride. Les brouillons sortent, l'alignement de la position reste en interne. Les sections publiques vont dans le cloud, les chiffres opérationnels restent dans une boucle fermée.</p>
+  </div>
+
+  <div class="section">
+    <h2>1. Tâches RP hybrides : à l'extérieur et à l'intérieur</h2>
+    <p>La RP travaille avec des informations de sensibilité variable. Certains documents peuvent être générés dans le cloud, d'autres uniquement dans une boucle fermée.</p>
+
+    <div class="card card-accent">
+      <h3>Commentaires pour les journalistes</h3>
+      <p><strong>Extérieur (cloud) :</strong> rédiger des commentaires sur des faits généraux — situation du marché, tendances générales, position neutre.</p>
+      <p><strong>Interne (on-prem) :</strong> alignement final de la position, en tenant compte de la stratégie interne, ajustement des chiffres, vérification de conformité avec les restrictions légales.</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>Questions-réponses pour les orateurs</h3>
+      <p><strong>Extérieur (cloud) :</strong> questions générales — stratégie de l'entreprise, gamme de produits, plans de marché.</p>
+      <p><strong>Interne (on-prem) :</strong> sujets sensibles — sanctions, litiges, urgences, décisions de personnel, négociations avec les régulateurs. Ces Q&R ne doivent jamais quitter le périmètre sous aucun prétexte.</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>Rapport ESG</h3>
+      <p><strong>Extérieur (cloud) :</strong> sections publiques — mission, stratégie de développement durable, objectifs généraux.</p>
+      <p><strong>Interne (on-prem) :</strong> sections avec des données opérationnelles et environnementales réelles — émissions, consommation d'énergie, incidents, amendes. L'assemblage final du rapport est également effectué en interne.</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>Analyse post-incident</h3>
+      <p><strong>Extérieur (cloud) :</strong> structure d'analyse sur un cas anonymisé — méthodologie, modèle, erreurs typiques.</p>
+      <p><strong>Interne (on-prem) :</strong> analyse réelle avec des noms, des processus spécifiques, des données internes et des conclusions sur le personnel.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Où une équipe de développement est nécessaire</h2>
+    <p>Certaines tâches RP nécessitent non seulement des LLM, mais un véritable développement : intégrations, pipelines, tableaux de bord.</p>
+
+    <div class="card card-success">
+      <h3>Intégration de la veille médiatique</h3>
+      <p>Connexion à Mention, Brand Analytics, SCAN, Medialogia. Développement de connecteurs, traitement des réponses API, format de données unifié.</p>
+      <p><strong>Sans développement :</strong> les analystes téléchargent manuellement des rapports de 3 à 4 systèmes. <strong>Avec développement :</strong> flux de données unifié en temps réel.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Génération automatique de communiqués de presse</h3>
+      <p>Pipeline : données des systèmes internes → brouillon de communiqué → alignement dans LLM on-prem → publication.</p>
+      <p>Exemple : rapports trimestriels, nominations de personnel, lancements de produits — tous générés à partir de modèles en utilisant des données internes.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Intégration CRM pour les briefings des parties prenantes</h3>
+      <p>Avant une rencontre avec un journaliste ou un régulateur, le système compile automatiquement un dossier : historique des interactions, publications, sentiment, derniers commentaires.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Tableau de bord des métriques de réputation</h3>
+      <p>En temps réel : sentiment des mentions, portée, part de voix, tendances des sujets. Mises à jour toutes les 15 minutes.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Analyse automatique post-incident</h3>
+      <p>Après un incident, le système collecte de manière structurée les données : chronologie, qui a fait quoi, quelles communications ont été envoyées, quelles décisions ont été prises. Forme un cadre d'analyse.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Où des systèmes d'agents sont nécessaires</h2>
+    <p>Les agents ne sont pas de simples chatbots. Ce sont des processus autonomes qui fonctionnent 24h/24 et 7j/7, prennent des décisions et agissent sans intervention humaine.</p>
+
+    <div class="card card-warning">
+      <h3>Agent de veille</h3>
+      <p><strong>Tâche :</strong> surveillance 24h/24 et 7j/7 des médias, réseaux sociaux, forums, messageries.</p>
+      <p><strong>Déclencheurs :</strong> hausse brutale de la négativité, mentions de personnes clés, fuites d'informations, attaques concurrentielles.</p>
+      <p><strong>Action :</strong> alertes automatiques sur Telegram/Slack au directeur RP avec le niveau de menace et les liens.</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>Agent analyste</h3>
+      <p><strong>Tâche :</strong> collecte des métriques de réputation pour la semaine.</p>
+      <p><strong>Sortie :</strong> rapport hebdomadaire pour le conseil d'administration — dynamique du sentiment, top 5 des sujets de crise, recommandations pour la stratégie de communication.</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>Agent GR (relations gouvernementales)</h3>
+      <p><strong>Tâche :</strong> surveillance des initiatives législatives.</p>
+      <p><strong>Sortie :</strong> briefing automatique pour le département des relations gouvernementales — quels projets de loi ont été déposés, quelles menaces pour l'entreprise, délais, actions recommandées.</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>Agent de crise</h3>
+      <p><strong>Tâche :</strong> scénarios de déclenchement lorsque le seuil de négativité est atteint.</p>
+      <p><strong>Action :</strong> forme automatiquement un brouillon de position (basé sur des modèles approuvés), prépare les Q&R, notifie le directeur RP.</p>
+      <p><strong>Important :</strong> l'agent ne publie pas sans un humain — prépare tout pour une prise de décision rapide.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Pilotage : par où commencer</h2>
+    <p>Vous n'avez pas besoin de tout lancer en même temps. Divisez la mise en œuvre en paniers — du simple au complexe, du ROI rapide aux projets à long terme.</p>
+
+    <table>
+      <tr><th>Panier</th><th>Contenu</th><th>Infrastructure</th><th>ROI</th></tr>
+      <tr>
+        <td><strong>Panier 1</strong></td>
+        <td>Veille, génération de communiqués, réseaux sociaux</td>
+        <td>API cloud (ChatGPT, Claude)</td>
+        <td>Semaines</td>
+      </tr>
+      <tr>
+        <td><strong>Panier 2</strong></td>
+        <td>Plans de crise, communications internes, alignement de position</td>
+        <td>LLM on-prem</td>
+        <td>Mois</td>
+      </tr>
+      <tr>
+        <td><strong>Panier 3</strong></td>
+        <td>Intégration de la veille médiatique, tableaux de bord, CRM</td>
+        <td>Équipe de développement + infrastructure serveur</td>
+        <td>Trimestres</td>
+      </tr>
+      <tr>
+        <td><strong>Panier 4</strong></td>
+        <td>Automatisation complète : agents, déclencheurs, briefings automatiques</td>
+        <td>Plateforme d'agents + développement</td>
+        <td>12 à 18 mois</td>
+      </tr>
+    </table>
+
+    <div class="card card-accent">
+      <strong>Conseil :</strong> commencez par le Panier 1. Lancez la veille et la génération de brouillons dans le cloud — obtenez votre premier ROI en 2 à 3 semaines. Préparez simultanément l'on-prem pour le Panier 2. N'essayez pas de construire un système d'agents complet dès le départ.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong> Quelle partie de la préparation des Q&R pour les orateurs ne doit être faite que sur on-prem ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Questions générales sur la stratégie de l'entreprise</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Sujets sensibles : sanctions, litiges, urgences</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Traduction des Q&R en anglais</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong> Que fait l'agent de crise lorsque le seuil de négativité est atteint ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Publie automatiquement une réfutation sur les réseaux sociaux</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Forme un brouillon de position et notifie le directeur RP</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Bloque l'accès des journalistes au site web de l'entreprise</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong> Quel panier de pilotage offre un ROI en quelques semaines ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Panier 1 : veille, communiqués, réseaux sociaux dans le cloud</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Panier 3 : intégration de la veille médiatique et tableaux de bord</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Panier 4 : automatisation complète avec des agents</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4 :</strong> Pourquoi l'assemblage final du rapport ESG doit-il être effectué en interne ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que les LLM cloud ne peuvent pas travailler avec des PDF</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Parce que le rapport contient des données opérationnelles et environnementales réelles</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que les rapports ESG ne sont pas soumis à audit</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../10-3-external-ai/index.html" class="nav-btn">← 10.3 IA externe</a>
+    <a href="../../index.html" class="nav-btn primary">Niveau suivant →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>L'IA pour les non-spécialistes IT · Entreprise industrielle</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct !';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Réfléchissez encore.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

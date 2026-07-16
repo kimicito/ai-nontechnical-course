@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.3 Tâches en IA externe : cloud — IA pour la RP — L'IA pour les non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-right: 6px; }
+  .tag-cloud { background: rgba(6,182,212,0.15); color: #06B6D4; }
+  .tag-public { background: rgba(16,185,129,0.15); color: #10B981; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">L'IA pour les non-spécialistes IT</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 Niveau 10 · IA pour la RP</div>
+    <h1>10.3 Tâches en IA externe : cloud</h1>
+    <div class="meta">20 min · pour les spécialistes RP · contenu public et données ouvertes</div>
+  </div>
+
+  <div class="section">
+    <p>Dans cette leçon — les tâches de relations publiques qui peuvent être résolues dans des IAs cloud externes : <strong>Claude, ChatGPT, Kimi, Qwen</strong>, et autres. Nous travaillons ici avec des informations publiques : médias, réseaux sociaux, lois, notations ESG, contenu pour publication. Pas de chiffres internes, de stratégies ou de secrets commerciaux.</p>
+    <p><strong>Principe :</strong> si les données sont déjà publiquement disponibles ou destinées à la publication — n'hésitez pas à utiliser les IAs cloud. Elles sont meilleures pour comprendre le ton, le style, les langues et les tendances.</p>
+  </div>
+
+  <div class="section">
+    <h2>Ce qui peut être fait dans le cloud</h2>
+    <div class="card card-success">
+      <strong><span class="tag tag-public">PUBLIC</span> Contenu public :</strong>
+      <ul>
+        <li>Publications dans les médias et sur les réseaux sociaux (déjà publiées)</li>
+        <li>Communiqués de presse (en préparation pour publication)</li>
+        <li>Textes de lois et réglementations (sources ouvertes)</li>
+        <li>Notations ESG et rapports des concurrents (divulgués publiquement)</li>
+        <li>Publications sur les réseaux sociaux (contenu public)</li>
+      </ul>
+    </div>
+    <div class="card card-warning">
+      <strong><span class="tag tag-cloud">CLOUD</span> Pourquoi le cloud est adapté :</strong>
+      <ul>
+        <li>Meilleure qualité de génération et d'édition de textes</li>
+        <li>Accès aux connaissances actualisées sur les tendances et les événements</li>
+        <li>Travail avec du contenu multilingue</li>
+        <li>Traitement rapide de grands volumes de données publiques</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Surveillance des mentions de l'entreprise dans les médias et les réseaux sociaux</h2>
+    <p>Collectez les liens vers les publications, copiez les textes, ou donnez à l'IA une liste d'URL pour analyse. L'IA extraira les points clés, estimera la portée et compilera un résumé.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Voici une liste de 15 publications sur notre entreprise "AlphaStroy" pour la semaine écoulée (liens et textes ci-dessous).
+
+Analysez chaque publication :
+1. Média / plateforme
+2. Date de publication
+3. Points clés (3 à 5 éléments)
+4. Portée / audience (si spécifié)
+5. Y a-t-il des citations de la direction de l'entreprise
+6. Y a-t-il des allégations négatives
+
+Créez un tableau récapitulatif et une brève conclusion : quels sujets dominent le champ informationnel.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Entrée :</strong> liens vers les articles, textes copiés, captures d'écran avec OCR.<br>
+      <strong>Sortie :</strong> tableau des mentions + résumé analytique.<br>
+      <strong>Gain de temps :</strong> 3 à 4 heures de révision manuelle → 10 minutes.<br>
+      <strong>Pourquoi à l'extérieur :</strong> les publications sont déjà publiques, pas de données confidentielles.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Analyse de sentiment des publications</h2>
+    <p>Déterminez si les médias écrivent sur votre entreprise positivement, négativement ou de manière neutre. L'IA peut distinguer l'ironie cachée, la négativité voilée et les faits objectifs.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Voici 8 publications sur notre entreprise pour le mois (textes ci-dessous).
+
+Évaluez le sentiment de chaque publication sur une échelle :
+- Positif (+1)
+- Neutre (0)
+- Négatif (−1)
+- Négativité cachée / ironie (marquer séparément)
+
+Pour chaque publication :
+1. Spécifiez le sentiment
+2. Expliquez pourquoi vous avez décidé ainsi (citer des phrases clés)
+3. Évaluez l'impact sur la réputation (élevé / moyen / faible)
+
+Résultat : indice de sentiment global pour le mois et tendance (amélioration / détérioration / stable).</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Entrée :</strong> textes de publication, liens vers les articles.<br>
+      <strong>Sortie :</strong> évaluation du sentiment pour chaque publication + indice agrégé.<br>
+      <strong>Gain de temps :</strong> 2 à 3 heures d'analyse → 5 minutes.<br>
+      <strong>Pourquoi à l'extérieur :</strong> travail avec des textes publics, pas de données internes requises.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Préparation des communiqués de presse</h2>
+    <p>Rédigez les faits, les chiffres, les citations — l'IA formatera un communiqué de presse prêt selon les standards journalistiques. Puis modifiez et publiez.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Rédigez un communiqué de presse en russe sur la base des faits suivants :
+
+- Entreprise : LLC "BetaLogistika"
+- Événement : ouverture d'un nouveau centre de distribution
+- Ville : Kazan
+- Surface : 25 000 m²
+- Investissements : 1,2 milliard de roubles
+- Emplois créés : 350
+- Lancement : août 2026
+- Citation du PDG Ivanov : "C'est une étape importante dans la stratégie de couverture de la région de la Volga"
+- Supplément : complexe logistique certifié LEED Gold
+
+Exigences :
+- Titre (informatif mais accrocheur)
+- Chapo (nouvelle clé en 1 à 2 phrases)
+- Texte principal (faits, chiffres, contexte)
+- Citation (en format de discours direct)
+- Bloc "À propos de l'entreprise" (2 à 3 phrases)
+- Contacts médias
+
+Style : professionnel, journalistique, sans langage bureaucratique.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Entrée :</strong> faits, chiffres, citations, contexte de l'événement.<br>
+      <strong>Sortie :</strong> communiqué de presse prêt selon les standards.<br>
+      <strong>Gain de temps :</strong> 2 à 3 heures de rédaction → 10 minutes.<br>
+      <strong>Pourquoi à l'extérieur :</strong> le communiqué de presse est un document public destiné à la publication. Les IAs cloud rédigent de meilleurs textes.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Gestion des réseaux sociaux — génération de publications, plan de contenu</h2>
+    <p>Générez des publications pour différentes plateformes, créez des plans de contenu pour une semaine/un mois. Tenez compte des spécificités de l'audience de chaque plateforme.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Notre entreprise est un fabricant d'emballages écologiques "GreenPack". Public cible : acheteurs B2B, détaillants, directeurs ESG.
+
+Créez un plan de contenu hebdomadaire pour :
+1. Canal Telegram de l'entreprise (ton professionnel, publications longues)
+2. LinkedIn (audience internationale, en anglais)
+3. VK (ton plus léger, publications visuelles)
+
+Thème hebdomadaire : lancement de la ligne d'emballages compostables.
+
+Pour chaque publication, précisez :
+- Jour de publication
+- Plateforme
+- Sujet
+- Ton
+- Texte de la publication (prêt pour publication)
+- 3 à 5 hashtags
+
+En plus : rédigez 2 variantes de titre pour une newsletter sur le même sujet.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Entrée :</strong> sujet, description de l'entreprise, public cible, plateformes.<br>
+      <strong>Sortie :</strong> publications prêtes + plan de contenu.<br>
+      <strong>Gain de temps :</strong> 1 jour de travail de rédacteur → 15 minutes.<br>
+      <strong>Pourquoi à l'extérieur :</strong> les réseaux sociaux sont une plateforme publique, le contenu est destiné à un large public. Les IAs cloud adaptent bien le style à chaque plateforme.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Surveillance des concurrents dans le champ informationnel</h2>
+    <p>Suivez les publications des concurrents : nouveaux produits, opérations de fusion-acquisition, changements de direction, crises. L'IA agrège et structure l'information.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Voici une sélection de publications sur nos 3 concurrents pour le dernier trimestre (textes et liens ci-dessous) :
+
+Concurrent 1 : "StroyMontazh"
+Concurrent 2 : "TeknoProm"
+Concurrent 3 : "InzhStroy"
+
+Pour chaque concurrent, analysez :
+1. Nombre de mentions dans les médias
+2. Principaux sujets (nouveaux projets, scandales, récompenses)
+3. Sentiment des publications (positif / neutre / négatif)
+4. Messages clés que l'entreprise promeut
+5. Changements de direction ou de stratégie (le cas échéant)
+
+Créez un tableau comparatif et mettez en évidence :
+- Quel concurrent est le plus actif dans les médias
+- Quels sujets ils promeuvent
+- Où sont leurs faiblesses (négativité, plaintes)</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Entrée :</strong> publications des concurrents, liens, captures d'écran.<br>
+      <strong>Sortie :</strong> tableau comparatif + analyse de l'activité des concurrents.<br>
+      <strong>Gain de temps :</strong> 4 à 5 heures de surveillance → 10 minutes.<br>
+      <strong>Pourquoi à l'extérieur :</strong> les informations sur les concurrents proviennent de sources ouvertes — médias publics, communiqués de presse.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Revues de presse pour la direction</h2>
+    <p>Préparez quotidiennement ou hebdomadairement une sélection des principales actualités sectorielles pour la direction générale. L'IA filtre le bruit et ne garde que l'essentiel.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Voici 25 actualités de l'industrie des matériaux de construction pour la semaine (textes ci-dessous).
+
+Compilez une revue de presse pour la direction de l'entreprise (format : 1 page A4) :
+
+1. Top-5 des actualités les plus importantes (évaluez par impact sur le marché)
+   - Titre
+   - Essentiel en 2 à 3 phrases
+   - Pourquoi c'est important pour nous
+2. Changements réglementaires (lois, réglementations)
+3. Évolutions des prix des matières premières (si mentionné)
+4. Activité des concurrents (le cas échéant)
+5. ESG / développement durable (actualités sur l'écologie, la certification)
+
+Ton : professionnel, sans détails superflus. Seulement ce que le PDG et le CFO doivent savoir.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Entrée :</strong> sélection d'actualités, flux RSS, textes copiés.<br>
+      <strong>Sortie :</strong> revue structurée sur 1 page.<br>
+      <strong>Gain de temps :</strong> 2 à 3 heures de lecture et de synthèse → 10 minutes.<br>
+      <strong>Pourquoi à l'extérieur :</strong> actualités de sources ouvertes, la revue est un document interne mais compilé à partir de données publiques.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. Analyse des initiatives législatives</h2>
+    <p>Analysez les projets de loi, les réglementations, les changements de régulation. L'IA mettra en évidence les changements clés, les délais et les risques commerciaux.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Voici le texte du projet de loi fédérale n° 12345 (sur la réglementation environnementale) et la note explicative.
+
+Analysez :
+1. Brève essence du projet de loi (pour un non-spécialiste)
+2. Changements clés par rapport à la législation actuelle
+3. Dates d'entrée en vigueur (si spécifiées)
+4. Comment cela affectera notre entreprise (matériaux de construction, fabrication)
+   - Obligations qui surviendront
+   - Risques d'amendes
+   - Coûts de conformité possibles
+5. Ce qu'il faut faire avant l'entrée en vigueur de la loi
+
+Format : note professionnelle d'1 page pour la direction.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Entrée :</strong> texte du projet de loi, note explicative, liens vers regulation.gov.ru ou la Douma d'État.<br>
+      <strong>Sortie :</strong> note professionnelle avec risques et recommandations.<br>
+      <strong>Gain de temps :</strong> 4 à 6 heures d'analyse juridique → 15 minutes.<br>
+      <strong>Pourquoi à l'extérieur :</strong> les textes de loi sont des données ouvertes. Les IAs cloud maîtrisent bien le langage juridique et peuvent le "traduire" en langage professionnel.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. Surveillance des notations ESG et des exigences de divulgation</h2>
+    <p>Suivez les évolutions des notations ESG, des exigences de divulgation, des standards GRI, SASB, TCFD. L'IA agrège les changements à partir de sources ouvertes.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Voici une sélection de documents sur les changements de réglementation ESG pour le trimestre :
+- Mise à jour du standard GRI 2024
+- Nouvelles exigences de la Banque centrale de Russie pour la divulgation ESG
+- Changements dans la méthodologie de notation RAEX
+- Mise à jour de la taxonomie de l'UE (classification verte)
+
+Analysez :
+1. Qu'est-ce qui a exactement changé (brièvement, point par point)
+2. Dates d'entrée en vigueur
+3. Comment cela affecte nos obligations de divulgation
+4. Quelles données nous devons commencer à collecter si ce n'est pas déjà fait
+5. Recommandations : quoi faire dans les 3 prochains mois
+
+Format : liste avec checklist pour le directeur ESG.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Entrée :</strong> textes de standards, exigences des régulateurs, méthodologies des agences de notation.<br>
+      <strong>Sortie :</strong> checklist des changements + recommandations.<br>
+      <strong>Gain de temps :</strong> 1 à 2 jours d'étude des standards → 15 minutes.<br>
+      <strong>Pourquoi à l'extérieur :</strong> les standards et méthodologies ESG sont publiquement disponibles. Les IAs cloud sont bien orientées dans les standards internationaux.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>9. Benchmarking de l'activité RP des concurrents et du secteur</h2>
+    <p>Comparez votre activité RP avec celle des concurrents : fréquence des publications, sujets, canaux, sentiment. L'IA traitera les données publiques et établira une comparaison.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Voici les données sur l'activité RP de 5 entreprises du secteur pour six mois (collectées à partir de sources ouvertes) :
+
+Notre entreprise "AlphaStroy" + 4 concurrents.
+
+Les données incluent : nombre de publications, plateformes, sujets, sentiment.
+
+Effectuez un benchmarking :
+1. Fréquence des publications (par mois) — tableau comparatif
+2. Top-3 des sujets pour chaque entreprise
+3. Canaux de diffusion (médias, réseaux sociaux, plateformes propres)
+4. Sentiment moyen des publications
+5. Activité en ESG / développement durable (nombre de mentions)
+6. Où nous sommes en retard sur les leaders et où nous menons
+
+Conclusions : 3 recommandations pour renforcer les positions RP.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Entrée :</strong> données de publication des concurrents (sources publiques).<br>
+      <strong>Sortie :</strong> analyse comparative de l'activité RP + recommandations.<br>
+      <strong>Gain de temps :</strong> 2 à 3 jours de collecte et d'analyse manuelles → 20 minutes.<br>
+      <strong>Pourquoi à l'extérieur :</strong> toutes les données proviennent de sources ouvertes. Le benchmarking est une comparaison d'activité publique.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>10. Rédaction de sections de rapport ESG (sans chiffres opérationnels internes)</h2>
+    <p>Rédigez la structure, l'introduction, les descriptions d'approche, la méthodologie. Les chiffres internes (émissions, consommation d'énergie) seront ajoutés plus tard à partir de systèmes internes.</p>
+    
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Rédigez des sections provisoires d'un rapport ESG pour une entreprise manufacturière "AlphaStroy" (matériaux de construction).
+
+Sections :
+1. Introduction du PDG (2 à 3 paragraphes sur la priorité du développement durable)
+2. Description de l'approche ESG (quels standards nous utilisons : GRI, SASB)
+3. Politique environnementale (principes généraux, pas de chiffres spécifiques)
+4. Responsabilité sociale (approche du personnel, sécurité, formation)
+5. Gouvernance d'entreprise (structure, comités, éthique)
+6. Méthodologie de collecte des données (comment nous comptons les émissions, l'énergie, les incidents)
+7. Plans pour l'année prochaine (directions d'amélioration)
+
+Règles :
+- N'utilisez pas de chiffres opérationnels spécifiques (laissez des placeholders comme [INSÉRER : émissions de CO2])
+- Style : officiel mais compréhensible
+- Conformité aux Standards universels GRI 2021
+- Longueur : 5 à 7 pages de texte fini</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Entrée :</strong> description de l'entreprise, standards appliqués, principes généraux.<br>
+      <strong>Sortie :</strong> projet de rapport ESG avec placeholders pour les chiffres.<br>
+      <strong>Gain de temps :</strong> 3 à 5 jours de travail de rédacteur → 20 minutes.<br>
+      <strong>Pourquoi à l'extérieur :</strong> la structure, l'introduction et la méthodologie ne contiennent pas de données confidentielles. Les chiffres internes sont ajoutés plus tard en circuit fermé.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif : tâches RP dans les IAs cloud</h2>
+    <table>
+      <tr><th>Tâche</th><th>Format d'entrée</th><th>Format de sortie</th><th>Gain de temps</th></tr>
+      <tr><td>Surveillance des mentions</td><td>Liens, textes de publication</td><td>Tableau + résumé analytique</td><td>3 à 4 h → 10 min</td></tr>
+      <tr><td>Analyse de sentiment</td><td>Textes de publication</td><td>Évaluation + indice agrégé</td><td>2 à 3 h → 5 min</td></tr>
+      <tr><td>Communiqués de presse</td><td>Faits, chiffres, citations</td><td>Communiqué de presse prêt</td><td>2 à 3 h → 10 min</td></tr>
+      <tr><td>Réseaux sociaux + plan de contenu</td><td>Sujet, audience, plateformes</td><td>Publications + plan hebdomadaire</td><td>1 jour → 15 min</td></tr>
+      <tr><td>Surveillance des concurrents</td><td>Publications des concurrents</td><td>Tableau comparatif</td><td>4 à 5 h → 10 min</td></tr>
+      <tr><td>Revues de presse</td><td>Actualités sectorielles</td><td>Revue d'1 page</td><td>2 à 3 h → 10 min</td></tr>
+      <tr><td>Analyse de projet de loi</td><td>Texte de loi, note explicative</td><td>Note professionnelle</td><td>4 à 6 h → 15 min</td></tr>
+      <tr><td>Surveillance des notations ESG</td><td>Standards, exigences des régulateurs</td><td>Checklist + recommandations</td><td>1 à 2 jours → 15 min</td></tr>
+      <tr><td>Benchmarking RP</td><td>Données de publication des concurrents</td><td>Analyse comparative</td><td>2 à 3 jours → 20 min</td></tr>
+      <tr><td>Projet de rapport ESG</td><td>Description de l'entreprise, standards</td><td>Projet avec placeholders</td><td>3 à 5 jours → 20 min</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Règle de séparation : quoi faire dans le cloud, quoi garder en interne</h2>
+    <div class="card card-success">
+      <strong><span class="tag tag-cloud">CLOUD</span> Faire dans les IAs cloud :</strong>
+      <ul>
+        <li>Tout ce qui est déjà publié ou en préparation pour publication</li>
+        <li>Analyse de données publiques (médias, lois, notations)</li>
+        <li>Génération de textes pour un large public</li>
+        <li>Traductions et adaptation de contenu pour différents marchés</li>
+      </ul>
+    </div>
+    <div class="card card-danger">
+      <strong><span class="tag tag-public">ON-PREM</span> Garder en interne :</strong>
+      <ul>
+        <li>Communications internes et correspondance officielle</li>
+        <li>Plans stratégiques et scénarios de crise</li>
+        <li>Données opérationnelles spécifiques pour les rapports (émissions, incidents)</li>
+        <li>Position de négociation sur des sujets litigieux</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong> Pourquoi la préparation d'un communiqué de presse peut-elle être faite dans une IA cloud ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que les communiqués de presse contiennent des secrets commerciaux</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Parce qu'un communiqué de presse est un document public destiné à la publication</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que l'IA ne peut pas travailler avec des données internes</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong> Quelle tâche de la liste N'EST PAS adaptée à une IA cloud ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Analyse de sentiment des publications médiatiques</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Élaboration d'une stratégie de communication de crise avec des scénarios spécifiques</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Surveillance des notations ESG des concurrents</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong> Pourquoi un projet de rapport ESG peut-il être commencé dans le cloud ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que toutes les données du rapport ESG sont publiques par définition</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Parce que la structure, l'introduction et la méthodologie ne contiennent pas de chiffres opérationnels confidentiels</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que les standards ESG interdisent l'utilisation de systèmes internes</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4 :</strong> Lequel des éléments suivants PEUT être envoyé à ChatGPT cloud ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Note interne sur une crise de réputation avec un plan d'action</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Correspondance avec un avocat sur un procès contre l'entreprise</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Texte d'un article médiatique publié pour analyse de sentiment</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../10-2-on-prem/index.html" class="nav-btn">← 10.2 En interne GENAi</a>
+    <a href="../10-4-agents/index.html" class="nav-btn primary">10.4 Développement et agents →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>L'IA pour les non-spécialistes IT · Entreprise industrielle</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct !';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Réfléchissez encore.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

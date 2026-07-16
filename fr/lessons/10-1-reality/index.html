@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.1 Réalité : ce que l'IA peut faire en RP et communications aujourd'hui — L'IA pour les non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">L'IA pour les non-spécialistes IT</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 Niveau 10 · IA pour la RP</div>
+    <h1>10.1 Réalité : ce que l'IA peut faire en RP et communications aujourd'hui</h1>
+    <div class="meta">20 min · pour directeurs RP, GR, professionnels de la communication · les frontières comptent le plus</div>
+  </div>
+
+  <div class="section">
+    <p><strong>Thèse principale :</strong> L'IA ne remplace pas le directeur RP, mais elle accélère le travail routinier par 10. La réputation est un actif immatériel qui peut être détruit par un seul brouillon. C'est pourquoi en RP, la frontière « interne / externe » est plus critique qu'en achats.</p>
+    <p>En achats, une fuite signifie des prix et des conditions. En RP, une fuite signifie la position de l'entreprise avant approbation — ce qui devient une deuxième crise en plus de la première.</p>
+  </div>
+
+  <div class="section">
+    <h2>Pourquoi la RP est plus difficile que les achats</h2>
+    <div class="card card-danger">
+      <strong>Le coût d'une erreur RP, ce sont des titres internationaux :</strong>
+      <ul>
+        <li>Communiqué de presse non vérifié → crise de réputation en quelques heures</li>
+        <li>Position interne divulguée → les opposants l'utilisent contre vous</li>
+        <li>Ton inapproprié en crise → le public le perçoit comme de la moquerie</li>
+        <li>Erreur dans le rapport ESG → sanctions et exclusion des indices</li>
+        <li>Plaisanterie inappropriée dans un discours GR → retrait de licence ou problème protocolaire</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Réputation = actif immatériel :</strong>
+      <ul>
+        <li>Valeur de marque d'une grande entreprise — des milliards de dollars</li>
+        <li>La récupération de réputation prend des années ; la perte prend des heures</li>
+        <li>La notation ESG affecte le coût du capital et l'accès au marché</li>
+        <li>La position GR détermine les licences, les quotas, les marchés publics</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Trois paniers de tâches RP</h2>
+    <p>Tout ce que fait la RP se classe en trois paniers selon la vitesse de mise en œuvre de l'IA :</p>
+
+    <div class="card card-success">
+      <h3>🟢 Panier 1 : Gains rapides (Demain)</h3>
+      <ul>
+        <li><strong>Brouillons de communiqués de presse</strong> — structure, faits, citations. L'IA écrit la première version, l'humain édite.</li>
+        <li><strong>Surveillance des médias et réseaux sociaux</strong> — collecte automatique des mentions, sentiment, regroupement thématique. L'IA analyse les flux.</li>
+        <li><strong>Traductions pour les médias internationaux</strong> — communiqués en anglais, chinois, arabe. Le contenu public peut être préparé en externe.</li>
+        <li><strong>Préparation des orateurs</strong> — Q&R, prévision des questions journalistes, sessions d'entraînement.</li>
+        <li><strong>Rapports ESG : forme</strong> — structure, alignement avec GRI/ESRS, vérification de l'exhaustivité des divulgations.</li>
+        <li><strong>Analyse des concurrents</strong> — ce qu'on écrit sur eux, quels sujets ils abordent, comment ils répondent aux crises.</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>🟡 Panier 2 : Nécessite un développement (Mois–Trimestre)</h3>
+      <ul>
+        <li><strong>Bot de crise</strong> — scénarios de réponse, escalade, coordination d'équipe. Nécessite un réglage sur des cas réels.</li>
+        <li><strong>Analytique GR</strong> — surveillance réglementaire, prévision des changements, évaluation de l'impact commercial. Nécessite l'intégration avec les bases de données juridiques.</li>
+        <li><strong>Contenu social média auto-généré</strong> — carrousels, publications, stories conformes au brand book. Nécessite une approbation visuelle.</li>
+        <li><strong>Base de connaissances RP interne</strong> — tous les communiqués passés, réponses, positions. Recherche sémantique, pas recherche par mots-clés.</li>
+        <li><strong>Rapports ESG : contenu</strong> — collecte de données auprès de 15 départements, validation des métriques, calcul de l'empreinte carbone.</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <h3>🔴 Panier 3 : Nécessite des agents (Six mois–Un an)</h3>
+      <ul>
+        <li><strong>Gestionnaire de crise autonome</strong> — l'IA surveille, évalue, propose une stratégie, coordonne avec les avocats, et émet une réponse. Nécessite l'accès aux données internes et une autorité.</li>
+        <li><strong>Analytique prédictive de réputation</strong> — prédire les crises avant qu'elles n'apparaissent dans les médias. Modèle sur données historiques + réseaux sociaux.</li>
+        <li><strong>Lobbying automatisé</strong> — génération de positions sur les projets de loi, envoi aux autorités, suivi de la réponse. Éthiquement et juridiquement complexe.</li>
+        <li><strong>Communications personnalisées</strong> — messages différents pour différents publics en temps réel. Nécessite des données de segmentation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>La frontière interne / externe : plus critique qu'en achats</h2>
+    <p>En RP, cette frontière n'est pas seulement importante — elle détermine la survie de l'entreprise en crise.</p>
+
+    <div class="card card-danger">
+      <strong>🔒 Interne — ne quitte jamais le périmètre :</strong>
+      <ul>
+        <li>Position de l'entreprise avant approbation (brouillons, notes internes)</li>
+        <li>Scénarios de crise et plans de réponse</li>
+        <li>Stratégie GR et positions de négociation avec les régulateurs</li>
+        <li>Données ESG avant audit (peuvent contenir des informations internes)</li>
+        <li>Analyse des faiblesses des concurrents (juridiquement risqué)</li>
+        <li>Données personnelles des journalistes et influenceurs</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <strong>🌍 Externe — peut être préparé à l'extérieur :</strong>
+      <ul>
+        <li>Communiqués de presse et déclarations approuvés</li>
+        <li>Rapports ESG publics (après audit)</li>
+        <li>Traductions de documents publics</li>
+        <li>Analyse des médias publics et réseaux sociaux</li>
+        <li>Brouillons de discours (sans position interne)</li>
+        <li>Tendances générales du marché et de l'industrie</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Exemple de frontière</div>
+      <pre><strong>Jamais dans le cloud :</strong>
+"Notre position sur l'incident de l'usine : nous admettons partiellement
+la faute, sommes prêts à compenser, mais demandons de ne pas en faire
+tout un plat. BATNA : si la pression continue — nous clôturerons le sujet
+par le parrainage d'une fondation locale."
+
+<strong>OK dans le cloud :</strong>
+"Rédigez un communiqué de presse sur le lancement d'une nouvelle
+installation de production. Faits : mise en service le 15 juillet,
+capacité 100 t/an, 200 nouveaux emplois, investissement de 5 milliards
+de roubles."</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Où l'IA fonctionne déjà en RP : exemples de prompts</h2>
+
+    <h3>1. Brouillon de communiqué de presse</h3>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (Externe)</div>
+      <pre>Rédigez un communiqué de presse sur le lancement d'un nouvel atelier
+de production d'alumine. Faits :
+- Lancement : 15 juillet 2026
+- Capacité : 100 mille tonnes par an
+- Investissement : 5 milliards de roubles
+- 200 nouveaux emplois
+- Technologie : développement propriétaire, 15 brevets
+- Écologie : émissions réduites de 30 % par rapport aux analogues
+
+Ton : professionnel, factuel. Longueur : 400 mots.
+Public cible : médias d'affaires, investisseurs.</pre>
+    </div>
+
+    <h3>2. Surveillance du sentiment médiatique</h3>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (Externe — Données publiques)</div>
+      <pre>Voici 50 mentions de l'entreprise cette semaine (fichier mentions.xlsx).
+
+Analysez :
+1. Répartition par sentiment (positif / neutre / négatif)
+2. Top 5 des sujets
+3. Top 5 des médias par portée
+4. Citations clés (une par sujet)
+5. Recommandations : à quels sujets répondre, quoi ignorer</pre>
+    </div>
+
+    <h3>3. Préparation de l'orateur (Q&R)</h3>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (Interne — On-Prem)</div>
+      <pre>Préparation du PDG pour une conférence de presse de fin d'année.
+
+Données internes (non pour publication) :
+- Chiffre d'affaires : +12 %, mais EBITDA en baisse de 3 %
+- Raison : augmentation des coûts logistiques
+- Risque de quitter le marché européen au T4
+- Négociations avec des partenaires asiatiques — en phase de NDA
+
+Générez :
+1. 20 questions que les journalistes poseront certainement
+2. Réponses recommandées (quoi dire / quoi ne pas dire)
+3. Questions pièges : à quoi ne pas répondre en aucun cas
+4. Messages clés (3 thèses à répéter 3 fois)</pre>
+    </div>
+
+    <h3>4. Communication de crise : première réponse</h3>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (Interne — On-Prem)</div>
+      <pre>Situation : déversement chimique dans une usine.
+Pas de victimes, pas de menace pour la population.
+Les médias locaux écrivent déjà.
+
+Position interne (non pour publication) :
+- Cause : facteur humain, violation de procédure
+- Enquête : interne, résultats dans 2 semaines
+- Indemnisation : en discussion avec l'administration du district
+
+Rédigez :
+1. Premier commentaire opérationnel (2–3 phrases)
+2. Brouillon de déclaration officielle (5–7 phrases)
+3. Note interne pour les employés : quoi dire, quoi ne pas dire
+4. Liste de contrôle d'actions pour les 24 prochaines heures</pre>
+    </div>
+
+    <h3>5. Rapport ESG : vérification d'exhaustivité</h3>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (Interne — On-Prem)</div>
+      <pre>Voici un brouillon de rapport ESG (fichier ESG_draft.pdf).
+
+Vérifiez la conformité avec les normes GRI et ESRS :
+1. Quelles divulgations obligatoires sont manquantes ?
+2. Quelles métriques ne correspondent pas à la méthodologie ?
+3. Où des données supplémentaires sont-elles nécessaires ?
+4. Quels sont les risques de "greenwashing" ?
+
+Fournissez un tableau : élément de la norme → statut → recommandation.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Enseignement pratique pour les entreprises sous sanctions</h2>
+    <p>Des entreprises comme RUSAL, En+, Norilsk Nickel vivent dans un mode particulier : chaque mot peut devenir une raison pour de nouvelles sanctions, une exclusion d'indices ou un retrait de licence.</p>
+
+    <div class="card card-warning">
+      <strong>Spécificités RP en mode sanctions :</strong>
+      <ul>
+        <li><strong>Chaque déclaration est politique.</strong> Un communiqué sur la production est lu comme une position sur les sanctions.</li>
+        <li><strong>L'ESG est un outil de survie.</strong> Une bonne notation ESG = accès au capital en Asie et au Moyen-Orient.</li>
+        <li><strong>GR et RP ont fusionné.</strong> Toute communication publique affecte les décisions réglementaires.</li>
+        <li><strong>Crises en cascade.</strong> Sanctions → problèmes logistiques → incidents → médias → nouvelles sanctions. La chaîne doit être brisée.</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <strong>Où l'IA aide ces entreprises spécifiques :</strong>
+      <ul>
+        <li><strong>Surveillance 24/7</strong> — suivi des mentions dans 50+ pays, traduction auto, sentiment. Un humain ne peut pas gérer cela.</li>
+        <li><strong>Analytique prédictive</strong> — quels sujets prennent de l'ampleur, quels médias se synchronisent (signe d'une campagne d'information).</li>
+        <li><strong>Localisation rapide</strong> — communiqués en 10 langues en heures, pas en semaines. Critique pour les marchés asiatiques et moyen-orientaux.</li>
+        <li><strong>Alignement des positions</strong> — l'IA vérifie la conformité avec la position interne, signale les risques avant publication.</li>
+        <li><strong>Conformité ESG</strong> — vérification auto des rapports selon les normes internationales, détection des problèmes avant audit.</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <strong>Ce qui ne peut pas être automatisé en mode sanctions :</strong>
+      <ul>
+        <li>Les décisions stratégiques de communication (l'IA ne porte pas la responsabilité)</li>
+        <li>Les contacts directs avec les régulateurs et lobbyistes (nécessite la confiance humaine)</li>
+        <li>Les négociations clés avec les investisseurs (NDA, informations internes)</li>
+        <li>L'édition finale des déclarations de crise (le ton est la stratégie)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tableau : quoi faire demain, quoi faire dans six mois</h2>
+    <table>
+      <tr><th>Tâche</th><th>Où la faire</th><th>Complexité</th><th>Impact</th></tr>
+      <tr><td>Brouillon de communiqué de presse</td><td>Cloud (faits publics)</td><td>Faible</td><td>Économise 2–3 heures</td></tr>
+      <tr><td>Surveillance médiatique</td><td>Cloud (données publiques)</td><td>Faible</td><td>Couvre 50+ sources</td></tr>
+      <tr><td>Traductions de communiqués</td><td>Cloud</td><td>Faible</td><td>10 langues en heures</td></tr>
+      <tr><td>Préparation orateur (Q&R)</td><td>On-prem (position interne)</td><td>Moyenne</td><td>Réduit le risque d'échec de 70 %</td></tr>
+      <tr><td>Scénarios de crise</td><td>On-prem</td><td>Moyenne</td><td>Vitesse de réaction : jours → heures</td></tr>
+      <tr><td>Vérification exhaustivité ESG</td><td>On-prem (avant audit)</td><td>Moyenne</td><td>Omissions de données → 0</td></tr>
+      <tr><td>Analytique des projets de loi GR</td><td>Hybride</td><td>Élevée</td><td>Prévision 3–6 mois</td></tr>
+      <tr><td>Coordinateur bot de crise</td><td>On-prem</td><td>Élevée</td><td>Escalade auto, listes de contrôle</td></tr>
+      <tr><td>Analytique prédictive</td><td>On-prem</td><td>Très élevée</td><td>Prédiction de crise</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Résumé : règles pour un directeur RP travaillant avec l'IA</h2>
+    <div class="card card-accent">
+      <ol>
+        <li><strong>L'IA est un assistant, pas un remplaçant.</strong> La décision finale de publication est toujours humaine. Le ton, le contexte, la politique — ce n'est pas l'affaire des algorithmes.</li>
+        <li><strong>La frontière est sacrée.</strong> Brouillons, positions, plans de crise — on-prem. Faits publics — peuvent être dans le cloud.</li>
+        <li><strong>Vitesse ≠ qualité.</strong> L'IA écrit vite mais peut se tromper sur les faits, le ton, le contexte. Tout est vérifié par un humain.</li>
+        <li><strong>L'ESG est le nouveau front.</strong> Automatiser le reporting ESG et la conformité est un avantage concurrentiel, surtout sous sanctions.</li>
+        <li><strong>GR et RP ne font qu'un.</strong> Toute communication affecte les risques réglementaires. L'IA aide à suivre la connexion.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1 :</strong> Pourquoi la frontière « interne / externe » est-elle plus critique en RP qu'en achats ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que les directeurs RP sont plus paranoïaques</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Parce qu'une fuite de position avant approbation crée une deuxième crise</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que les agents d'achat ne savent pas travailler avec on-prem</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2 :</strong> Quelle tâche peut être réalisée dans l'IA cloud plutôt qu'en on-prem ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Scénario de crise avec le BATNA de l'entreprise</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Traduire un communiqué de presse approuvé en anglais</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Stratégie GR pour un projet de loi</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3 :</strong> Pourquoi l'IA ne remplace-t-elle pas le directeur RP ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce que l'IA ne sait pas rédiger de communiqués de presse</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Parce que la réputation est un actif immatériel nécessitant un jugement humain</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Parce qu'un directeur RP coûte moins cher qu'un serveur</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4 :</strong> Lequel de ces éléments appartient au « Panier 3 : Nécessite des agents » ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Gestionnaire de crise autonome avec accès aux données internes</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Brouillon de communiqué de presse</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Surveillance médiatique hebdomadaire</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../09-4-compliance/index.html" class="nav-btn">← 9.4 Compliance</a>
+    <a href="../10-2-inside-gena/index.html" class="nav-btn primary">10.2 En interne GENAi →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>L'IA pour les non-spécialistes IT · Entreprise industrielle</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct !';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Réfléchissez encore.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
