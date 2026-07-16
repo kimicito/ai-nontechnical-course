@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.1 Реальность: что ИИ умеет в PR и коммуникациях — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI для не ИТ-специалистов</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 Уровень 10 · AI для PR</div>
+    <h1>10.1 Реальность: что ИИ умеет в PR и коммуникациях</h1>
+    <div class="meta">20 мин · для PR-директоров, GR, коммуникационщиков · граница — главное</div>
+  </div>
+
+  <div class="section">
+    <p><strong>Главный тезис:</strong> ИИ не заменяет PR-директора, но ускоряет рутину в 10 раз. Репутация — нематериальный актив, который можно уничтожить одним черновиком. Поэтому в PR граница «внутреннее / внешнее» критичнее, чем в закупках.</p>
+    <p>В закупках утечка — это цены и условия. В PR утечка — это позиция компании до согласования, которая становится вторым кризисом на фоне первого.</p>
+  </div>
+
+  <div class="section">
+    <h2>Почему PR сложнее закупок</h2>
+    <div class="card card-danger">
+      <strong>Цена ошибки в PR — в международных заголовках:</strong>
+      <ul>
+        <li>Непроверенный пресс-релиз → репутационный кризис за часы</li>
+        <li>Утечка внутренней позиции → враги используют против вас</li>
+        <li>Неверный тон в кризисе → аудитория воспринимает как насмешку</li>
+        <li>Ошибка в ESG-отчёте → санкции и исключение из индексов</li>
+        <li>Неуместная шутка GR-спича — отзыв лицензии или протокол</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Репутация = нематериальный актив:</strong>
+      <ul>
+        <li>Стоимость бренда крупной компании — миллиарды долларов</li>
+        <li>Восстановление репутации занимает годы, а потеря — часы</li>
+        <li>ESG-рейтинг влияет на стоимость капитала и доступ к рынкам</li>
+        <li>GR-позиция определяет лицензии, квоты, государственные контракты</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Три корзины задач PR-службы</h2>
+    <p>Всё, что делает PR, распадается на три корзины по скорости внедрения ИИ:</p>
+
+    <div class="card card-success">
+      <h3>🟢 Корзина 1: Быстро сами (уже завтра)</h3>
+      <ul>
+        <li><strong>Черновики пресс-релизов</strong> — структура, фактура, цитаты. ИИ пишет первую версию, человек редактирует.</li>
+        <li><strong>Мониторинг СМИ и соцсетей</strong> — автосбор упоминаний, тональность, кластеризация тем. ИИ анализирует потоки.</li>
+        <li><strong>Переводы для международных СМИ</strong> — релизы на английский, китайский, арабский. Публичный контент можно готовить снаружи.</li>
+        <li><strong>Подготовка спикеров</strong> — Q&A, прогноз вопросов журналистов, тренировочные сессии.</li>
+        <li><strong>ESG-отчёты: форма</strong> — структура, сверка с GRI/ESRS, проверка полноты раскрытий.</li>
+        <li><strong>Аналитика конкурентов</strong> — что пишут о них, какие темы поднимают, как реагируют на кризисы.</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>🟡 Корзина 2: Нужна разработка (месяц–квартал)</h3>
+      <ul>
+        <li><strong>Кризисный бот</strong> — сценарии ответов, эскалация, координация команды. Требует отладки на реальных кейсах.</li>
+        <li><strong>GR-аналитика</strong> — мониторинг регуляторики, прогноз изменений, оценка влияния на бизнес. Нужна интеграция с базами законов.</li>
+        <li><strong>Автогенерация контента для соцсетей</strong> — карусели, посты, stories с учётом брендбука. Требует согласования визуала.</li>
+        <li><strong>Внутренняя база знаний PR-службы</strong> — все прошлые релизы, ответы, позиции. Поиск по семантике, не по ключевым словам.</li>
+        <li><strong>ESG-отчёты: содержание</strong> — сбор данных из 15 подразделений, валидация метрик, расчёт углеродного следа.</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <h3>🔴 Корзина 3: Нужны агенты (полгода–год)</h3>
+      <ul>
+        <li><strong>Автономный кризис-менеджер</strong> — ИИ отслеживает, оценивает, предлагает стратегию, согласовывает с юристами и выдаёт ответ. Требует доступа к внутренним данным и полномочий.</li>
+        <li><strong>Предиктивная репутационная аналитика</strong> — предсказание кризисов до их появления в СМИ. Модель на исторических данных + соцсети.</li>
+        <li><strong>Автоматический лоббизм</strong> — генерация позиций по законопроектам, рассылка в органы власти, отслеживание реакции. Этично и юридически сложно.</li>
+        <li><strong>Персонализированные коммуникации</strong> — разные сообщения для разных аудиторий в real-time. Требует данных о сегментах.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Граница внутреннее / внешнее: критичнее, чем в закупках</h2>
+    <p>В PR эта граница не просто важна — она определяет выживание компании в кризисе.</p>
+
+    <div class="card card-danger">
+      <strong>🔒 Внутреннее — никогда не выходит за периметр:</strong>
+      <ul>
+        <li>Позиция компании до согласования (черновики, внутренние мемо)</li>
+        <li>Кризисные сценарии и планы реагирования</li>
+        <li>GR-стратегия и переговорные позиции с регуляторами</li>
+        <li>ESG-данные до аудита (могут содержать инсайд)</li>
+        <li>Анализ слабых сторон конкурентов (юридически рискованно)</li>
+        <li>Персональные данные журналистов и инфлюенсеров</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <strong>🌍 Внешнее — можно готовить снаружи:</strong>
+      <ul>
+        <li>Утверждённые пресс-релизы и заявления</li>
+        <li>Публичные ESG-отчёты (после аудита)</li>
+        <li>Переводы публичных материалов</li>
+        <li>Аналитика публичных СМИ и соцсетей</li>
+        <li>Черновики спичей (без внутренней позиции)</li>
+        <li>Общие тренды рынка и индустрии</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Пример границы</div>
+      <pre><strong>Нельзя в облако:</strong>
+«Наша позиция по инциденту на заводе: признаём вину частично,
+готовы компенсировать, но просим не раздувать. 
+BATNA: если давление продолжится — закроем тему 
+через спонсорство местного фонда.»
+
+<strong>Можно в облако:</strong>
+«Напиши пресс-релиз о запуске нового производства.
+Факты: введено в эксплуатацию 15 июля, мощность 100 т/год,
+200 новых рабочих мест, инвестиции 5 млрд руб.»</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Где ИИ уже работает в PR: примеры промптов</h2>
+
+    <h3>1. Черновик пресс-релиза</h3>
+    <div class="example">
+      <div class="example-label">Пример промпта (внешнее)</div>
+      <pre>Напиши пресс-релиз о запуске нового цеха по производству
+глинозёма. Факты:
+- Запуск: 15 июля 2026 года
+- Мощность: 100 тыс. тонн в год
+- Инвестиции: 5 млрд рублей
+- 200 новых рабочих мест
+- Технология: собственная разработка, 15 патентов
+- Экология: выбросы снижены на 30% vs аналогов
+
+Тон: профессиональный, фактуальный. Длина: 400 слов.
+Целевая аудитория: деловые СМИ, инвесторы.</pre>
+    </div>
+
+    <h3>2. Мониторинг тональности СМИ</h3>
+    <div class="example">
+      <div class="example-label">Пример промпта (внешнее — публичные данные)</div>
+      <pre>Вот 50 упоминаний компании за неделю (файл mentions.xlsx).
+
+Проанализируй:
+1. Распределение по тональности (позитив / нейтрал / негатив)
+2. Топ-5 тем
+3. Топ-5 СМИ по охвату
+4. Ключевые цитаты (по одной на каждую тему)
+5. Рекомендации: на какие темы отвечать, что игнорировать</pre>
+    </div>
+
+    <h3>3. Подготовка спикера (Q&A)</h3>
+    <div class="example">
+      <div class="example-label">Пример промпта (внутреннее — on-prem)</div>
+      <pre>Готовим CEO к пресс-конференции по итогам года.
+
+Внутренние данные (не для публикации):
+- Выручка: +12%, но EBITDA снизилась на 3%
+- Причина: рост логистических издержек
+- Есть риск ухода с рынка ЕС в Q4
+- Переговоры с азиатскими партнёрами — на стадии NDA
+
+Сгенерируй:
+1. 20 вопросов, которые точно зададут журналисты
+2. Рекомендуемые ответы (что сказать / что не сказать)
+3. Триггер-вопросы: на что не отвечать категорически
+4. Ключевые сообщения (3 тезиса, которые повторить 3 раза)</pre>
+    </div>
+
+    <h3>4. Кризисная коммуникация: первый ответ</h3>
+    <div class="example">
+      <div class="example-label">Пример промпта (внутреннее — on-prem)</div>
+      <pre>Ситуация: на заводе произошёл разлив химикатов.
+Пострадавших нет, угрозы населению нет.
+Местные СМИ уже пишут.
+
+Внутренняя позиция (не для публикации):
+- Причина: человеческий фактор, нарушение процедуры
+- Расследование: внутреннее, результаты через 2 недели
+- Компенсации: обсуждаем с администрацией района
+
+Напиши:
+1. Первый оперативный комментарий (2–3 предложения)
+2. Заготовку официального заявления (5–7 предложений)
+3. Внутреннюю памятку сотрудникам: что говорить, что не говорить
+4. Чек-лист действий на ближайшие 24 часа</pre>
+    </div>
+
+    <h3>5. ESG-отчёт: проверка полноты</h3>
+    <div class="example">
+      <div class="example-label">Пример промпта (внутреннее — on-prem)</div>
+      <pre>Вот черновик ESG-отчёта (файл ESG_draft.pdf).
+
+Проверь соответствие стандартам GRI и ESRS:
+1. Какие обязательные раскрытия пропущены?
+2. Какие метрики не соответствуют методологии?
+3. Где нужны дополнительные данные?
+4. Какие риски «greenwashing»?
+
+Дай таблицу: пункт стандарта → статус → рекомендация.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Практический вывод для компаний под санкциями</h2>
+    <p>Компании типа RUSAL, En+, «Норникель» живут в особом режиме: любое слово может стать поводом для новых санкций, исключения из индексов или отзыва лицензий.</p>
+
+    <div class="card card-warning">
+      <strong>Особенности PR в санкционном режиме:</strong>
+      <ul>
+        <li><strong>Любое заявление — политическое.</strong> Пресс-релиз о производстве читается как позиция по санкциям.</li>
+        <li><strong>ESG — инструмент выживания.</strong> Хороший ESG-рейтинг = доступ к капиталу в Азии и на Ближнем Востоке.</li>
+        <li><strong>GR и PR — слились.</strong> Любая публичная коммуникация влияет на регуляторные решения.</li>
+        <li><strong>Кризисы каскадные.</strong> Санкции → проблемы с логистикой → инциденты → СМИ → новые санкции. Нужно ломать цепочку.</li>
+      </ul>
+    </div>
+
+    <div class="card card-success">
+      <strong>Где ИИ помогает именно таким компаниям:</strong>
+      <ul>
+        <li><strong>Мониторинг 24/7</strong> — отслеживание упоминаний в 50+ странах, автоперевод, тональность. Человек не справится.</li>
+        <li><strong>Предиктивная аналитика</strong> — какие темы набирают обороты, какие СМИ синхронизируются (признак информационной кампании).</li>
+        <li><strong>Быстрая локализация</strong> — релизы на 10 языков за часы, а не недели. Важно для азиатских и ближневосточных рынков.</li>
+        <li><strong>Согласование позиций</strong> — ИИ проверяет соответствие внутренней позиции, флагает риски до публикации.</li>
+        <li><strong>ESG-комплаенс</strong> — автопроверка отчётов на соответствие международным стандартам, поиск проблем до аудита.</li>
+      </ul>
+    </div>
+
+    <div class="card card-danger">
+      <strong>Что нельзя автоматизировать в санкционном режиме:</strong>
+      <ul>
+        <li>Принятие стратегических коммуникационных решений (ИИ не несёт ответственность)</li>
+        <li>Прямые контакты с регуляторами и лоббистами (требуется человеческое доверие)</li>
+        <li>Ключевые переговоры с инвесторами (NDA, инсайд)</li>
+        <li>Финальное редактирование кризисных заявлений (тон — это стратегия)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Таблица: что делать завтра, что — через полгода</h2>
+    <table>
+      <tr><th>Задача</th><th>Где делать</th><th>Сложность</th><th>Эффект</th></tr>
+      <tr><td>Черновик пресс-релиза</td><td>Облако (публичные факты)</td><td>Низкая</td><td>Экономия 2–3 часа</td></tr>
+      <tr><td>Мониторинг СМИ</td><td>Облако (публичные данные)</td><td>Низкая</td><td>Покрытие 50+ источников</td></tr>
+      <tr><td>Переводы релизов</td><td>Облако</td><td>Низкая</td><td>10 языков за часы</td></tr>
+      <tr><td>Подготовка спикера (Q&A)</td><td>On-prem (внутренняя позиция)</td><td>Средняя</td><td>Снижение риска «фэйла» на 70%</td></tr>
+      <tr><td>Кризисные сценарии</td><td>On-prem</td><td>Средняя</td><td>Скорость реакции: дни → часы</td></tr>
+      <tr><td>ESG-проверка полноты</td><td>On-prem (до аудита)</td><td>Средняя</td><td>Пропуск данных → 0</td></tr>
+      <tr><td>GR-аналитика законопроектов</td><td>Гибрид</td><td>Высокая</td><td>Прогноз на 3–6 месяцев</td></tr>
+      <tr><td>Кризисный бот-координатор</td><td>On-prem</td><td>Высокая</td><td>Автоэскалация, чек-листы</td></tr>
+      <tr><td>Предиктивная аналитика</td><td>On-prem</td><td>Очень высокая</td><td>Предсказание кризисов</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Итог: правила жизни PR-директора с ИИ</h2>
+    <div class="card card-accent">
+      <ol>
+        <li><strong>ИИ — ассистент, не замена.</strong> Финальное решение о публикации — всегда человек. Тон, контекст, политика — это не про алгоритмы.</li>
+        <li><strong>Граница священна.</strong> Черновики, позиции, кризисные планы — в on-prem. Публичные факты — можно в облаке.</li>
+        <li><strong>Скорость ≠ качество.</strong> ИИ пишет быстро, но может ошибиться в фактах, тональности, контексте. Всё проверяет человек.</li>
+        <li><strong>ESG — новый фронт.</strong> Автоматизация ESG-отчётности и комплаенса — конкурентное преимущество, особенно под санкциями.</li>
+        <li><strong>GR и PR — единое целое.</strong> Любая коммуникация влияет на регуляторные риски. ИИ помогает отслеживать связь.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Почему в PR граница «внутреннее / внешнее» критичнее, чем в закупках?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что PR-директоры более параноидальны</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Потому что утечка позиции до согласования создаёт второй кризис</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что закупщики не умеют работать с on-prem</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Какую задачу можно делать в облачном ИИ, а не в on-prem?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Кризисный сценарий с BATNA компании</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Перевод утверждённого пресс-релиза на английский</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">GR-стратегия по законопроекту</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Почему ИИ не заменяет PR-директора?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что ИИ не умеет писать пресс-релизы</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Потому что репутация — нематериальный актив, требующий человеческого суждения</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что PR-директор дешевле сервера</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 4:</strong> Что из этого относится к «Корзине 3: нужны агенты»?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Автономный кризис-менеджер с доступом к внутренним данным</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Черновик пресс-релиза</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Мониторинг СМИ за неделю</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../09-4-compliance/index.html" class="nav-btn">← 9.4 Compliance</a>
+    <a href="../10-2-inside-gena/index.html" class="nav-btn primary">10.2 Внутри GENAi →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI для не ИТ-специалистов · Производственная компания</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Верно!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Неверно. Подумай ещё раз.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

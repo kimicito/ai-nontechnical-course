@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.4 Разработка и агенты — AI для PR — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI для не ИТ-специалистов</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">📢 Уровень 10 · AI для PR</div>
+    <h1>10.4 Разработка и агенты</h1>
+    <div class="meta">15 мин · для PR-директоров и коммуникационных команд</div>
+  </div>
+
+  <div class="section">
+    <p>В этом уроке — задачи PR-службы, которые нельзя просто отдать в облако. Часть работы делается внешними ИИ, часть — только внутри. А где-то нужна команда разработки и агентные системы.</p>
+    <p><strong>Ключевой принцип:</strong> гибридный подход. Черновик — снаружи, согласование позиции — внутри. Публичные разделы — в облаке, операционные цифры — в закрытом контуре.</p>
+  </div>
+
+  <div class="section">
+    <h2>1. Гибридные задачи PR: снаружи и внутри</h2>
+    <p>PR работает с информацией разной степени чувствительности. Одни материалы можно генерировать в облаке, другие — только в закрытом контуре.</p>
+
+    <div class="card card-accent">
+      <h3>Комментарии для журналистов</h3>
+      <p><strong>Снаружи (облако):</strong> черновик комментария по общей фактуре — рыночная ситуация, общие тренды, нейтральная позиция.</p>
+      <p><strong>Внутри (on-prem):</strong> финальное согласование позиции, учёт внутренней стратегии, корректировка цифр, проверка на соответствие юридическим ограничениям.</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>Q&A для спикеров</h3>
+      <p><strong>Снаружи (облако):</strong> общие вопросы — стратегия компании, продуктовая линейка, рыночные планы.</p>
+      <p><strong>Внутри (on-prem):</strong> уязвимые темы — санкции, судебные споры, ЧП, кадровые решения, переговоры с регуляторами. Эти Q&A ни при каких обстоятельствах не покидают периметр.</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>ESG-отчётность</h3>
+      <p><strong>Снаружи (облако):</strong> публичные разделы — миссия, стратегия устойчивого развития, общие цели.</p>
+      <p><strong>Внутри (on-prem):</strong> разделы с реальными операционными и экологическими цифрами — выбросы, энергопотребление, инциденты, штрафы. Финальная сборка отчёта тоже внутри.</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>Постмортем по инциденту</h3>
+      <p><strong>Снаружи (облако):</strong> структура анализа на обезличенном кейсе — методология, шаблон, типичные ошибки.</p>
+      <p><strong>Внутри (on-prem):</strong> реальный разбор с именами, конкретными процессами, внутренними данными и выводами по персоналиям.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Где нужна команда разработки</h2>
+    <p>Некоторые задачи PR требуют не просто LLM, а полноценной разработки: интеграции, пайплайны, дашборды.</p>
+
+    <div class="card card-success">
+      <h3>Интеграция с медиамониторингом</h3>
+      <p>Подключение к Mention, Brand Analytics, СКАН, Медиалогия. Разработка коннекторов, обработка API-ответов, единый формат данных.</p>
+      <p><strong>Без разработки:</strong> аналитик вручную выгружает отчёты из 3–4 систем. <strong>С разработкой:</strong> единый поток данных в реальном времени.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Автоматическая генерация пресс-релизов</h3>
+      <p>Пайплайн: данные из внутренних систем → черновик релиза → согласование в on-prem LLM → публикация.</p>
+      <p>Пример: ежеквартальные отчёты, кадровые назначения, запуск продуктов — всё генерируется по шаблону из внутренних данных.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Интеграция с CRM для справок по стейкхолдерам</h3>
+      <p>Перед встречей с журналистом или регулятором система автоматически собирает досье: история взаимодействий, публикации, тональность, последние комментарии.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Дашборд репутационных метрик</h3>
+      <p>В реальном времени: тональность упоминаний, охват, Share of Voice, тренды по темам. Обновляется каждые 15 минут.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Автоматический постмортем-анализ</h3>
+      <p>После инцидента система структурированно собирает данные: таймлайн, кто что делал, какие коммуникации были, какие решения принимались. Формирует каркас для анализа.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Где нужны агентные системы</h2>
+    <p>Агенты — это не просто чат-боты. Это автономные процессы, которые работают 24/7, принимают решения и действуют без участия человека.</p>
+
+    <div class="card card-warning">
+      <h3>Агент-мониторинг</h3>
+      <p><strong>Задача:</strong> 24/7 сканирование СМИ, соцсетей, форумов, мессенджеров.</p>
+      <p><strong>Триггеры:</strong> резкий рост негатива, упоминание ключевых лиц, утечка информации, конкурентные атаки.</p>
+      <p><strong>Действие:</strong> автоматические алерты в Telegram/Slack PR-директору с уровнем угрозы и ссылками.</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>Агент-аналитик</h3>
+      <p><strong>Задача:</strong> сбор репутационных метрик за неделю.</p>
+      <p><strong>Выход:</strong> еженедельный отчёт для совета директоров — динамика тональности, топ-5 кризисных тем, рекомендации по коммуникационной стратегии.</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>Агент-GR</h3>
+      <p><strong>Задача:</strong> мониторинг законодательных инициатив.</p>
+      <p><strong>Выход:</strong> автоматический брифинг для департамента по связям с органами власти — какие законы внесены, что угрожает бизнесу, сроки, рекомендуемые действия.</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>Агент-кризис</h3>
+      <p><strong>Задача:</strong> триггер-сценарии при наборе порога негатива.</p>
+      <p><strong>Действие:</strong> автоматически формирует черновик позиции (на основе утверждённых шаблонов), подготавливает Q&A, уведомляет PR-директора.</p>
+      <p><strong>Важно:</strong> агент не публикует без человека — готовит всё к быстрому принятию решения.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Пилотирование: с чего начать</h2>
+    <p>Не нужно запускать всё сразу. Разбейте внедрение на корзины — от простого к сложному, от быстрого ROI к долгосрочным проектам.</p>
+
+    <table>
+      <tr><th>Корзина</th><th>Что внутри</th><th>Инфраструктура</th><th>ROI</th></tr>
+      <tr>
+        <td><strong>Корзина 1</strong></td>
+        <td>Мониторинг, генерация пресс-релизов, соцсети</td>
+        <td>Cloud API (ChatGPT, Claude)</td>
+        <td>Недели</td>
+      </tr>
+      <tr>
+        <td><strong>Корзина 2</strong></td>
+        <td>Кризис-планы, внутренние коммуникации, согласование позиций</td>
+        <td>On-prem LLM</td>
+        <td>Месяцы</td>
+      </tr>
+      <tr>
+        <td><strong>Корзина 3</strong></td>
+        <td>Интеграция с медиамониторингом, дашборды, CRM</td>
+        <td>Команда разработки + серверная инфраструктура</td>
+        <td>Кварталы</td>
+      </tr>
+      <tr>
+        <td><strong>Корзина 4</strong></td>
+        <td>Полная автоматизация: агенты, триггеры, автоматические брифинги</td>
+        <td>Агентная платформа + разработка</td>
+        <td>12–18 месяцев</td>
+      </tr>
+    </table>
+
+    <div class="card card-accent">
+      <strong>Совет:</strong> начните с Корзины 1. Запустите облачный мониторинг и генерацию черновиков — получите первый ROI за 2–3 недели. Параллельно готовьте on-prem для Корзины 2. Не пытайтесь сразу построить полную агентную систему.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Какая часть подготовки Q&A для спикеров должна выполняться только в on-prem?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Общие вопросы о стратегии компании</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Уязвимые темы: санкции, судебные споры, ЧП</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Перевод Q&A на английский</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Что делает агент-кризис при наборе порога негатива?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Автоматически публикует опровержение в соцсетях</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Формирует черновик позиции и уведомляет PR-директора</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Блокирует доступ журналистов к сайту компании</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Какая корзина пилотирования даёт ROI за недели?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Корзина 1: мониторинг, пресс-релизы, соцсети в облаке</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Корзина 3: интеграция с медиамониторингом и дашборды</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Корзина 4: полная автоматизация агентами</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 4:</strong> Почему финальная сборка ESG-отчёта должна выполняться внутри компании?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что облачные LLM не умеют работать с PDF</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Потому что отчёт содержит реальные операционные и экологические цифры</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что ESG-отчёты не подлежат аудиту</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../10-3-external-ai/index.html" class="nav-btn">← 10.3 Внешние ИИ</a>
+    <a href="../../index.html" class="nav-btn primary">Следующий уровень →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI для не ИТ-специалистов · Производственная компания</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Верно!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Неверно. Подумай ещё раз.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
