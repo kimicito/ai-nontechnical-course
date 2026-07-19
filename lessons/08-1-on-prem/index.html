@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.1 Внутренние задачи Дирекции по качеству — on-prem — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI для не ИТ-специалистов</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 8 — Дирекция по качеству</div>
+    <h1>8.1 Внутренние задачи: on-prem</h1>
+    <div class="meta">20 мин · для специалистов по качеству · закрытый контур</div>
+  </div>
+
+  <div class="section">
+    <p>В этом уроке — задачи Дирекции по качеству, которые выполняются с реальными производственными данными. Дефекты, рецептура, параметры процессов, клиентские претензии — всё это производственная тайна и коммерчески чувствительная информация.</p>
+    <p><strong>Решение:</strong> on-prem LLM в закрытом контуре компании. Данные не покидают периметр.</p>
+  </div>
+
+  <div class="section">
+    <h2>Зачем on-prem для дирекции по качеству</h2>
+    <div class="card card-danger">
+      <strong>Что нельзя отправлять в облако:</strong>
+      <ul>
+        <li>Конкретные параметры технологических процессов (температуры, скорости, составы)</li>
+        <li>Рецептура сплавов и химический состав партий</li>
+        <li>Данные лабораторных испытаний с номерами партий</li>
+        <li>Реальные претензии клиентов с объёмами и суммами</li>
+        <li>Исторические данные о дефектах по конкретным линиям</li>
+        <li>Контрактные условия с поставщиками сырья</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Что можно сделать в on-prem:</strong>
+      <ul>
+        <li>Root-cause анализ дефектов по фактическим параметрам процесса</li>
+        <li>Подготовка 8D-отчётов и ответов на рекламации</li>
+        <li>Анализ повторяемости претензий по линиям/партиям/клиентам</li>
+        <li>Внутренний аудит СМК и карта слабых мест</li>
+        <li>Аудит поставщиков сырья по внутренним данным</li>
+        <li>Разработка ТУ с реальными техническими параметрами</li>
+        <li>R&D новых сплавов с экспериментальными данными</li>
+        <li>Cost of quality и KPI для руководства</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Root-cause анализ дефектов (Ishikawa, 5 Why)</h2>
+    <p>Дефект на линии. Нужно понять корневую причину. LLM анализирует фактические параметры процесса и строит дерево причин.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>На линии №3 произошёл дефект "раковины на поверхности слитка" в партии П-2026-1847.
+
+Фактические параметры процесса:
+- Температура заливки: 1480°C (норма 1450-1470°C)
+- Скорость охлаждения: 12°C/мин (норма 8-10°C/мин)
+- Состав шлака: Al2O3 45%, SiO2 32% (норма Al2O3 40-42%, SiO2 28-30%)
+- Время между заливкой и началом прокатки: 4.5 часа (норма 3-4 часа)
+- Текущий поставщик флюса: ООО "МеталлургХим"
+
+Проведи root-cause анализ:
+1. Построй Ishikawa-диаграмму (6M: Man, Machine, Material, Method, Milieu, Measurement)
+2. Примени 5 Why к главной ветке
+3. Оцени вероятность каждой причины (высокая/средняя/низкая)
+4. Дай рекомендации по устранению</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Результат:</strong> структурированный анализ с деревом причин, приоритизацией и конкретными рекомендациями. Экономия 2-4 часа инженера.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Обработка рекламаций и 8D-отчёты</h2>
+    <p>Клиент прислал претензию. Нужно подготовить 8D-ответ с расследованием, корректирующими действиями и превентивными мерами.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Клиент "АвтоПром ООО" прислал претензию на партию АП-2026-0523:
+"В 15% слитков выявлено превышение допустимого содержания серы (факт 0.045%, ТУ ≤ 0.035%)"
+
+Внутренние данные:
+- Партия произведена на линии №2, 12-15 июня 2026
+- Поставщик чугуна: ООО "УралСырье" (партия УС-2026-4412)
+- Лабораторные данные: сера в чугуне 0.038% (по сертификату поставщика 0.025%)
+- Данные десульфурации: расход флюса 12 кг/т (норма 15-18 кг/т)
+- Технолог: Иванов П.С. (смена 2, опыт 2 года)
+
+Подготовь 8D-отчёт:
+D0: Подготовка (проверка критичности)
+D1: Команда (роли)
+D2: Описание проблемы (5W2H)
+D3: Временное сдерживающее действие
+D4: Root-cause (Ishikawa + 5 Why)
+D5: Корректирующее действие
+D6: Проверка эффективности (критерии)
+D7: Превентивные действия
+D8: Поздравление команды и закрытие</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Анализ повторяемости претензий</h2>
+    <p>Репутационно и коммерчески чувствительно. Нужно понять: по каким линиям/клиентам/партиям претензии повторяются.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>У меня реестр претензий за 2025-2026 годы (файл Претензии.xlsx).
+Колонки: дата, клиент, линия, тип дефекта, партия, сумма убытка, статус.
+
+Проанализируй:
+1. Топ-3 клиента по частоте претензий (количество)
+2. Топ-3 типа дефекта по сумме убытка
+3. Линии с максимальной повторяемостью (какие линии "болеют")
+4. Сезонность претензий (месяцы пиков)
+5. Динамика: растёт/падает количество претензий YoY
+6. Корреляция: тип дефекта vs линия vs поставщик сырья
+7. Рекомендации: на что сфокусировать ресурсы качества</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Внутренний аудит СМК</h2>
+    <p>Карта слабых мест системы менеджмента качества. LLM анализирует результаты внутренних аудитов и находит системные проблемы.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Результаты внутренних аудитов СМК за 2025-2026 (файл Аудиты.xlsx):
+Колонки: дата аудита, подразделение, пункт ISO 9001, найденное несоответствие, оценка риска, срок устранения, факт устранения, просрочено (да/нет).
+
+Сделай:
+1. Карта слабых мест: какие пункты ISO чаще всего нарушаются
+2. Подразделения с наибольшим количеством несоответствий
+3. Процент просроченных мероприятий по подразделениям
+4. Тренд: улучшается или ухудшается ситуация
+5. Системные проблемы (повторяющиеся несоответствия в разных подразделениях)
+6. Рекомендации по усилению СМК</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Аудит поставщиков сырья</h2>
+    <p>Коммерческая информация о контрагентах. Анализ истории поставок, качества, своевременности.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Данные по поставщикам сырья за 2 года (файл Поставщики.xlsx):
+Колонки: поставщик, материал, количество поставок, количество отклонений по качеству, процент брака, среднее отклонение по химсоставу, просрочки поставки, цена за тонну, сертификация ISO.
+
+Оцени каждого поставщика:
+1. Общий скоринг качества (1-10)
+2. Скоринг надёжности (1-10)
+3. Скоринг соотношения цена/качество (1-10)
+4. Риск-статус: зелёный/жёлтый/красный
+5. Рекомендация: продолжать, усилить контроль, заменить
+6. Для "красных" — конкретные риски и обоснование</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Разработка ТУ на новую продукцию</h2>
+    <p>Рецептура, режимы, ноу-хау — всё это конфиденциально. On-prem LLM помогает структурировать ТУ.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Разрабатываем ТУ на новый сплав "СуперАлюм-3000" для авиапрома.
+
+Экспериментальные данные (5 партий):
+- Химсостав: Al 94.2%, Mg 2.8%, Si 1.5%, Cu 0.8%, Fe 0.4%, остальное
+- Механические свойства: σв = 380-420 МПа, δ = 12-15%, HB = 110-120
+- Температура литья: 720-740°C (оптимум 730°C)
+- Скорость кристаллизации: 15-20°C/мин
+- Брак по раковинам: 3% (при 730°C), 8% (при 720°C), 5% (при 740°C)
+
+Подготовь структуру ТУ:
+1. Область применения
+2. Технические требования (химсостав, мехсвойства, допуски)
+3. Методы контроля (испытания, частота, оборудование)
+4. Упаковка и маркировка
+5. Технологические указания (режимы, но без точных параметров процесса — вставить [УТОЧНИТЬ ПРОИЗВОДСТВО])
+6. Критерии приёмки
+
+Сохрани в формате, готовом для согласования с производством.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. R&D новых сплавов</h2>
+    <p>Сопоставление экспериментальных данных с литературными. Помогает принять решение о масштабировании.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Эксперимент: сплав Al-Mg-Sc (0.3% Sc) для повышения прочности.
+
+Наши данные (3 партии):
+- σв = 420, 435, 428 МПа (среднее 428)
+- δ = 10, 11, 9% (среднее 10%)
+- Твердость: 135, 142, 138 HB
+- Стоимость добавки Sc: +15% к цене сплава
+- Проблема: склонность к растрескиванию при сварке (2 из 3 партий)
+
+Сравни с литературными данными (если известны) и дай:
+1. Соответствие ли наши результаты ожидаемым для Al-Mg-Sc
+2. Окупается ли прирост прочности (+15% vs базовый Al-Mg) дополнительной стоимостью
+3. Риски: свариваемость, коррозия, стабильность свойств
+4. Рекомендация: продолжить R&D / промышленные испытания / отказаться</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. Подготовка сертификатов качества</h2>
+    <p>Для реальных отгрузок. LLM генерирует сертификат по данным партии.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь сертификат качества для партии П-2026-2105, отгрузка клиенту "АвиаМаш ООО".
+
+Данные партии:
+- Номер: П-2026-2105
+- Дата производства: 2026-07-10
+- Линия: №3
+- Сплав: АМг6
+- Химсостав: Al 93.8%, Mg 6.0%, Si 0.3%, Cu 0.2%, Fe 0.15%, Mn 0.5%
+- Мехсвойства: σв = 325 МПа, δ = 14%, HB = 95
+- ГОСТ: ГОСТ 22233-2018
+- ТУ: ТУ 1-2-123-2025
+- Результаты УЗК: дефекты не обнаружены (класс 1)
+- Вес партии: 12.5 тонн
+- Количество слитков: 25 шт
+
+Сформируй сертификат в формате ГОСТ. Включи все обязательные поля.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>9. Cost of Quality и KPI</h2>
+    <p>Отчёты для совета директоров. Сколько стоит качество: превентивные затраты, оценка, внутренние отказы, внешние отказы.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Данные по качеству за 2026 год (файл CoQ.xlsx):
+Колонки: месяц, превентивные затраты (обучение, плановое ТО), затраты на оценку (лаборатория, аудиты), внутренние отказы (брак, передел), внешние отказы (претензии, возвраты), объём производства (тонны).
+
+Подготовь отчёт для совета директоров:
+1. Cost of Quality (COQ) по категориям: превентивные, оценка, внутренние отказы, внешние отказы
+2. COQ как % от объёма производства (тренд по месяцам)
+3. Соотношение "хорошие" затраты (превентивные + оценка) vs "плохие" (отказы)
+4. Топ-3 источника потерь по сумме
+5. Динамика: улучшение vs ухудшение vs прошлый год
+6. KPI качества: процент брака, PPM (parts per million), стоимость претензий на тонну
+7. Рекомендации: куда направить инвестиции в качество</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>10. Скоринг качества поставщиков (текстовый)</h2>
+    <p>LLM-рассуждение над текстовым досье поставщика (не числовая ML-модель).</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Оцени поставщика "МеталлургХим" на основе текстового досье:
+
+- Работаем с 2019 года
+- Поставляет флюс для десульфурации
+- За 2 года: 2 претензии по качеству (нестабильный химсостав, отклонения до 15%)
+- Просрочка поставок: 3 из 24 (средняя задержка 5 дней)
+- Предоставил сертификат ISO 9001 (2023), но аудит не проводился
+- Цена ниже рынка на 12%
+- Финансовое состояние: неизвестно (не публичная компания)
+- Конкуренты: ООО "ФлюсПром" (цена +8%, но 0 претензий за 3 года)
+
+Оцени по шкале 1-10:
+1. Качество продукции
+2. Надёжность поставок
+3. Финансовая стабильность
+4. Потенциал улучшения
+
+Дай рекомендацию: продолжать, усилить контроль, искать замену.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>11. Интерпретация лабораторных испытаний</h2>
+    <p>Рецептура и производственная тайна. LLM помогает интерпретировать результаты.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Результаты лабораторных испытаний партии П-2026-2107:
+
+Химический состав:
+- Al: 94.5% (ТУ: 94.0-95.0%) ✓
+- Mg: 2.8% (ТУ: 2.5-3.0%) ✓
+- Si: 1.2% (ТУ: 0.8-1.5%) ✓
+- Cu: 0.9% (ТУ: 0.5-1.0%) ⚠️ — близко к верхней границе
+- Fe: 0.35% (ТУ: ≤0.4%) ✓
+- Ti: 0.08% (ТУ: 0.05-0.12%) ✓
+- Прочие: 0.15% (ТУ: ≤0.3%) ✓
+
+Механические свойства:
+- σв: 385 МПа (ТУ: ≥350) ✓
+- δ: 13% (ТУ: ≥10%) ✓
+- HB: 105 (ТУ: 95-115) ✓
+
+УЗК: класс 2 (ТУ: класс 1-2) ✓
+
+Интерпретируй:
+1. Все показатели в норме? Какие требуют внимания?
+2. Критичность Cu на верхней границе: влияет ли на свариваемость?
+3. Рекомендации по партии: отгрузка, дополнительные испытания, передел?
+4. Какие параметры стоит мониторить в следующих партиях</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица: внутренние задачи Дирекции по качеству</h2>
+    <table>
+      <tr><th>Задача</th><th>Формат входа</th><th>Формат выхода</th><th>Экономия времени</th></tr>
+      <tr><td>Root-cause анализ</td><td>Параметры процесса, описание дефекта</td><td>Ishikawa + 5 Why + рекомендации</td><td>4 часа → 30 мин</td></tr>
+      <tr><td>8D-отчёт</td><td>Данные претензии, внутренние данные</td><td>Полный 8D-отчёт</td><td>1 день → 2 часа</td></tr>
+      <tr><td>Анализ претензий</td><td>Реестр претензий (Excel)</td><td>Аналитика + тренды + рекомендации</td><td>1 день → 30 мин</td></tr>
+      <tr><td>Аудит СМК</td><td>Результаты аудитов</td><td>Карта слабых мест + рекомендации</td><td>2 дня → 2 часа</td></tr>
+      <tr><td>Аудит поставщиков</td><td>Данные о поставках</td><td>Скоринг + риск-статус</td><td>1 день → 1 час</td></tr>
+      <tr><td>Разработка ТУ</td><td>Экспериментальные данные</td><td>Структура ТУ</td><td>2 дня → 4 часа</td></tr>
+      <tr><td>R&D сплавов</td><td>Экспериментальные данные</td><td>Сравнение + рекомендация</td><td>3 дня → 2 часа</td></tr>
+      <tr><td>Сертификаты</td><td>Данные партии</td><td>Готовый сертификат</td><td>1 час → 10 мин</td></tr>
+      <tr><td>Cost of Quality</td><td>Финансовые данные</td><td>Отчёт для совета директоров</td><td>2 дня → 2 часа</td></tr>
+      <tr><td>Скоринг поставщиков</td><td>Текстовое досье</td><td>Оценка 1-10 + рекомендация</td><td>3 часа → 20 мин</td></tr>
+      <tr><td>Интерпретация лаборатории</td><td>Результаты испытаний</td><td>Интерпретация + рекомендации</td><td>2 часа → 20 мин</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Почему root-cause анализ дефектов нельзя делать в облачном ChatGPT?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что ChatGPT не знает метод Ishikawa</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Потому что параметры процесса и рецептура — производственная тайна</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что ChatGPT работает медленно</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Какой инструмент использовать для 8D-отчёта с реальными данными клиента?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT с удалением после</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">On-prem LLM в закрытом контуре</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Google Docs</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 3:</strong> Что такое Cost of Quality (COQ)?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Только затраты на исправление брака</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Сумма превентивных, оценочных затрат и потерь от отказов</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Цена сертификата ISO</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 4:</strong> Какой риск при содержании Cu на верхней границе ТУ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Ухудшение свариваемости</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Увеличение пластичности</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Снижение коррозионной стойкости</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 5:</strong> Какой документ из списка точно в on-prem?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Шаблон сертификата качества</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Рецептура нового сплава с экспериментальными данными</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Перевод стандарта ISO с английского</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-3-hybrid/index.html" class="nav-btn">← 7.3 Гибридные задачи</a>
+    <a href="../08-2-cloud/index.html" class="nav-btn primary">8.2 Внешние задачи →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI для не ИТ-специалистов · Производственная компания</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Верно!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Неверно. Подумай ещё раз.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
