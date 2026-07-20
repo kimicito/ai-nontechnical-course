@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>13.2 物流外部任务 — внешний ИИ — 非IT专业人员的AI</title>
+<title>13.2 物流外部任务 — 外部AI — 非IT人员的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -50,259 +50,259 @@
 </style>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">非IT专业人员的AI</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
 <div class="container">
   <div class="lesson-header">
     <div class="phase">第13级 — 物流</div>
     <h1>13.2 物流外部任务</h1>
-    <div class="meta">⏱ 15 мин · для логистов и специалистов по цепочкам поставок</div>
+    <div class="meta">⏱ 15分钟 · 面向物流与供应链专员</div>
   </div>
 
   <div class="card card-success">
-    <strong>公开数据(外部AI)</strong><br>
-    Все задачи этого урока — с <span class="highlight">публичными источниками, общими методологиями, открытым рынком</span>. Можно использовать Claude, ChatGPT, Gemini.
+    <strong>开放数据（外部AI）</strong><br>
+    本节课的所有任务均涉及<span class="highlight">公开来源、通用方法论、公开市场</span>。可以使用Claude、ChatGPT、Gemini。
   </div>
 
   <div class="section">
-    <h2>Почему облако лучше on-prem для логистики</h2>
-    <p>Облачные модели выигрывают, когда нужно:</p>
+    <h2>为什么云比本地部署更适合物流</h2>
+    <p>在以下场景，云模型更具优势：</p>
     <ul>
-      <li><strong>Веб-поиск:</strong> мониторить фрахтовые индексы, тарифы РЖД, публичные ограничения</li>
-      <li><strong>Методология:</strong> разработать общую стратегию без реальных объёмов</li>
-      <li><strong>Бенчмаркинг:</strong> сравнить отраслевые практики 3PL, KPI</li>
-      <li><strong>Прогнозы:</strong> суммаризировать публичные прогнозы погоды/геополитики</li>
-      <li><strong>Шаблоны:</strong> создать типовые документы (CMR, заявки)</li>
+      <li><strong>网络搜索：</strong>监控运费指数、铁路运价、公开限制信息</li>
+      <li><strong>方法论：</strong>制定不涉及真实业务量的通用战略</li>
+      <li><strong>基准对标：</strong>比较3PL行业实践和KPI指标</li>
+      <li><strong>预测：</strong>汇总公开的天气/地缘政治预测</li>
+      <li><strong>模板：</strong>创建标准文档（CMR、委托书等）</li>
     </ul>
   </div>
 
   <div class="card card-warning">
-    <strong>重要: перед отправкой в облако — проверь</strong>, что в запросе нет реальных объёмов, маршрутов, ставок, названий контрагентов. Если есть — обезличь или отправь в on-prem.
+    <strong>重要：提交到云端前，请检查</strong>请求中是否包含真实的业务量、路线、费率、合作方名称。如有，请去标识化或发送至本地部署环境。
   </div>
 
   <div class="section">
-    <h2>1. Разработка логистической стратегии в общем виде</h2>
-    <p>Методология построения сети маршрутов — без привязки к конкретной компании.</p>
+    <h2>1. 通用物流战略制定</h2>
+    <p>路线网络构建方法论 — 不绑定特定企业。</p>
     <div class="example">
-      <div class="example-label">Пример промпта (Claude с веб-поиском)</div>
-      <pre>Подготовь структуру логистической стратегии для металлургической компании:
+      <div class="example-label">提示词示例（Claude带网络搜索）</div>
+      <pre>为一家冶金公司准备物流战略结构：
 
-Разделы:
-1. Анализ текущей сети (типичные этапы: сырьё → производство → клиент)
-2. Выбор режима транспорта (море/ЖД/авто/морской контейнер) — критерии
-3. Резервирование и redundance (дублирование маршрутов)
-4. Управление запасами (safety stock, reorder point)
-5. 3PL vs in-house — критерии выбора
-6. IT-системы (TMS, WMS, EDI)
-7. KPI (OTIF, cost per ton, lead time, carbon footprint)
-8. Риск-менеджмент (сценарное планирование, insurance)
+章节：
+1. 现有网络分析（典型阶段：原材料 → 生产 → 客户）
+2. 运输方式选择（海运/铁路/公路/集装箱）— 评估标准
+3. 备用与冗余（路线备份）
+4. 库存管理（安全库存、再订货点）
+5. 3PL vs 自营 — 选择标准
+6. IT系统（TMS、WMS、EDI）
+7. KPI指标（OTIF、每吨成本、交货周期、碳足迹）
+8. 风险管理（情景规划、保险）
 
-Без конкретных объёмов и маршрутов.</pre>
+不含具体业务量和路线。</pre>
     </div>
-    <p><strong>Результат:</strong> готовая стратегия, экономит 5–6 часов.</p>
+    <p><strong>结果：</strong>现成战略，节省5–6小时。</p>
   </div>
 
   <div class="section">
-    <h2>2. Мониторинг фрахтовых индексов</h2>
-    <p>Baltic Dry Index и аналоги — публичные данные для бенчмаркинга.</p>
+    <h2>2. 运费指数监控</h2>
+    <p>波罗的海干散货指数（BDI）等 — 用于基准对标的公开数据。</p>
     <div class="example">
-      <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Проведи мониторинг фрахтовых индексов (июль 2026):
+      <div class="example-label">提示词示例（网络搜索）</div>
+      <pre>进行运费指数监控（2026年7月）：
 
-Индексы:
-1. Baltic Dry Index (BDI) — динамика за 3 месяца
-2. Baltic Capesize Index (BCI)
-3. Baltic Panamax Index (BPI)
-4. China Containerized Freight Index (CCFI)
+指数：
+1. 波罗的海干散货指数（BDI）— 近3个月走势
+2. 波罗的海海岬型船指数（BCI）
+3. 波罗的海巴拿马型船指数（BPI）
+4. 中国出口集装箱运价指数（CCFI）
 
-问题ы:
-- Какая динамика с начала года?
-- Какие факторы влияют (погода, геополитика, сезонность)?
-- Прогноз на Q3–Q4 2026 (по аналитикам)
-- Какие маршруты дорожают быстрее всего?
-- Рекомендации по хеджированию фрахтовых рисков
+问题：
+- 年初以来的走势如何？
+- 影响因素（天气、地缘政治、季节性）？
+- 2026年Q3–Q4预测（分析师观点）
+- 哪些航线涨价最快？
+- 运费风险对冲建议
 
-Выведи таблицу с источниками.</pre>
+输出表格并注明来源。</pre>
     </div>
-    <p><strong>Результат:</strong> обзор рынка фрахта, экономит 2–3 часа.</p>
+    <p><strong>结果：</strong>运费市场概览，节省2–3小时。</p>
   </div>
 
   <div class="section">
-    <h2>3. Анализ тарифов РЖД и китайских операторов</h2>
-    <p>Публичные тарифные сетки — сравнение, поиск оптимальных маршрутов.</p>
+    <h2>3. 俄罗斯铁路与中国运营商运价分析</h2>
+    <p>公开运价表 — 比较与最优路线搜索。</p>
     <div class="example">
-      <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Сравни тарифы на ЖД перевозку контейнеров:
+      <div class="example-label">提示词示例（网络搜索）</div>
+      <pre>比较铁路集装箱运输运价：
 
-Маршрут (типовой): [УКАЖИТЕ СТАНЦИЮ] (РФ) → [УКАЖИТЕ СТАНЦИЮ] (КНР)
+路线（典型）：[请填写站点]（俄罗斯） → [请填写站点]（中国）
 
-Операторы:
-1. РЖД (контейнерные перевозки) — тариф за 40 футов
-2. Китайские операторы (CR, China Railway)
-3. Транзит через Казахстан (KTZ)
-4. Мультимодальные операторы (FESCO, TransContainer)
+运营商：
+1. 俄罗斯铁路（集装箱运输）— 40英尺箱运价
+2. 中国运营商（国铁、中国铁路）
+3. 哈萨克斯坦过境（KTZ）
+4. 多式联运运营商（FESCO、TransContainer）
 
-Дополнительно:
-- Сроки доставки
-- Частота отправлений
-- Доступность вагонов/платформ
-- Дополнительные сборы (погранпереход, терминалы)
+补充：
+- 运输时效
+- 发车频次
+- 车辆/平板可用性
+- 附加费用（口岸换装、场站费）
 
-Выведи сравнительную таблицу.</pre>
+输出对比表格。</pre>
     </div>
-    <p><strong>Результат:</strong> сравнение тарифов, экономит 2 часа.</p>
+    <p><strong>结果：</strong>运价对比，节省2小时。</p>
   </div>
 
   <div class="section">
-    <h2>4. Анализ узких мест на погранпереходах</h2>
-    <p>Общая ситуация по открытым источникам — не привязанная к конкретной поставке.</p>
+    <h2>4. 口岸瓶颈分析</h2>
+    <p>基于公开信息的一般性状况 — 不绑定特定批次。</p>
     <div class="example">
-      <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Проанализируй ситуацию на погранпереходах РФ–КНР (2026):
+      <div class="example-label">提示词示例（网络搜索）</div>
+      <pre>分析俄罗斯—中国口岸现状（2026年）：
 
-Переходы:
-1. [УКАЖИТЕ ПЕРЕХОД 1]
-2. [УКАЖИТЕ ПЕРЕХОД 2]
-3. [УКАЖИТЕ ПЕРЕХОД 3]
-4. [УКАЖИТЕ ПЕРЕХОД 4]
+口岸：
+1. [请填写口岸1]
+2. [请填写口岸2]
+3. [请填写口岸3]
+4. [请填写口岸4]
 
-Данные для сбора:
-- Среднее время ожидания (дни)
-- Пропускная способность (вагонов/сутки)
-- Типичные проблемы (документы, очереди, погода)
-- Инфраструктура (склады, терминалы)
-- Планы развития (инвестиции, расширение)
+需收集数据：
+- 平均等待时间（天）
+- 通行能力（车皮/日）
+- 典型问题（单证、排队、天气）
+- 基础设施（仓库、场站）
+- 发展规划（投资、扩建计划）
 
-Источники: официальная статистика таможни, отраслевые СМИ, форумы перевозчиков.</pre>
+来源：海关官方统计、行业媒体、承运人论坛。</pre>
     </div>
-    <p><strong>Результат:</strong> обзор узких мест, экономит 3–4 часа.</p>
+    <p><strong>结果：</strong>瓶颈概览，节省3–4小时。</p>
   </div>
 
   <div class="section">
-    <h2>5. Сбор и суммаризация прогнозов погоды/катаклизмов</h2>
-    <p>Генеративная функция — суммаризация публичных сводок, не прогноз как таковой.</p>
+    <h2>5. 天气/灾害预测汇总</h2>
+    <p>生成式功能 — 汇总公开预警，而非独立预测。</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Суммаризируй открытые прогнозы, влияющие на маршруты доставки в августе 2026:
+      <div class="example-label">提示词示例</div>
+      <pre>汇总影响2026年8月运输路线的公开预测：
 
-Регионы:
-- Южно-Китайское море (тайфуны)
-- Мыс Доброй Надежды (штормы)
-- Суэцкий канал (погода, геополитика)
-- Балтийское море (осенние шторма)
+区域：
+- 南海（台风）
+- 好望角（风暴）
+- 苏伊士运河（天气、地缘政治）
+- 波罗的海（秋季风暴）
 
-Для каждого:
-1. Публичные прогнозы (метеорологические службы, NOAA)
-2. Период риска (даты)
-3. Вероятность и сила
-4. Влияние на судоходство (закрытие портов, ограничения)
-5. Рекомендации (избегать, обходить, резервировать)
+每项包括：
+1. 公开预测（气象部门、NOAA）
+2. 风险时段（日期）
+3. 概率与强度
+4. 对航运的影响（港口关闭、航行限制）
+5. 建议（规避、绕行、预留备用方案）
 
-Формат: алерт для логистического отдела.</pre>
+格式：物流部门警报。</pre>
     </div>
-    <p><strong>Результат:</strong> сводка рисков, экономит 1.5 часа.</p>
+    <p><strong>结果：</strong>风险汇总，节省1.5小时。</p>
   </div>
 
   <div class="section">
-    <h2>6. Бенчмаркинг логистических затрат и практик</h2>
-    <p>Сравнение с отраслевыми стандартами — публичные данные.</p>
+    <h2>6. 物流成本与行业实践基准对标</h2>
+    <p>与行业标准比较 — 公开数据。</p>
     <div class="example">
-      <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Проведи бенчмаркинг логистических затрат в металлургии (2024–2026):
+      <div class="example-label">提示词示例（网络搜索）</div>
+      <pre>进行冶金行业物流成本基准对标（2024–2026年）：
 
-问题ы:
-1. Какой % от выручки составляют логистические расходы у крупных металлургов?
-2. Какие KPI используют лидеры отрасли (OTIF, cost per ton, carbon intensity)?
-3. Какие 3PL-провайдеры работают с металлургией (FESCO, TransContainer, DP World)?
-4. Какие IT-системы TMS внедрены (SAP TM, 1С Логистика, Ortec)?
-5. Какие тренды: green logistics, digital twin, blockchain в документообороте?
+问题：
+1. 大型冶金企业的物流成本占收入百分比？
+2. 行业龙头使用哪些KPI（OTIF、每吨成本、碳强度）？
+3. 哪些3PL服务商服务冶金行业（FESCO、TransContainer、DP World）？
+4. 已部署哪些TMS系统（SAP TM、1C物流、Ortec）？
+5. 趋势：绿色物流、数字孪生、区块链单证？
 
-Сделай структурированный отчёт с источниками.</pre>
+输出结构化报告并注明来源。</pre>
     </div>
-    <p><strong>Результат:</strong> обзор отраслевых практик, экономит 4–5 часов.</p>
+    <p><strong>结果：</strong>行业实践概览，节省4–5小时。</p>
   </div>
 
   <div class="section">
-    <h2>7. Общий шаблон документов для международной автоперевозки</h2>
-    <p>CMR, типовые разрешения — без реальных грузов.</p>
+    <h2>7. 国际公路运输通用文档模板</h2>
+    <p>CMR、标准许可证 — 不含真实货物信息。</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь шаблон пакета документов для международной автоперевозки (РФ → ЕС):
+      <div class="example-label">提示词示例</div>
+      <pre>准备国际公路运输（俄罗斯 → 欧盟）文档包模板：
 
-Документы:
-1. CMR (коносамент для авто) — обязательные поля
-2. ТТН (товарно-транспортная накладная)
-3. Инвойс (коммерческий счёт)
-4. Упаковочный лист
-5. Сертификат происхождения (Form A, EUR.1)
-6. Разрешение на перевозку (если опасный груз — ADR)
-7. Страховой полис (CMR-страхование)
-8. Доверенность на получение груза
+文档：
+1. CMR（公路提单）— 必填字段
+2. 运单（商品运输单）
+3. 发票（商业发票）
+4. 装箱单
+5. 原产地证（Form A、EUR.1）
+6. 运输许可证（危险品 — ADR）
+7. 保险单（CMR保险）
+8. 提货授权书
 
-Для каждого: назначение, обязательные поля, типичные ошибки.
-Место для вставки реальных данных: [УТОЧНИТЬ].</pre>
+每项包括：用途、必填字段、常见错误。
+真实数据填写位置：[请标注]。</pre>
     </div>
-    <p><strong>Результат:</strong> готовый шаблон, экономит 2–3 часа.</p>
+    <p><strong>结果：</strong>现成模板，节省2–3小时。</p>
   </div>
 
   <div class="section">
-    <h2>8. Подготовка алертов по объезду/переносу отгрузки</h2>
-    <p>Общий сценарий маршрутизации — без привязки к конкретному грузу.</p>
+    <h2>8. 绕行/改期警报准备</h2>
+    <p>通用路线规划场景 — 不绑定特定货物。</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь методологию алертов и рекомендаций при сбоях в логистике:
+      <div class="example-label">提示词示例</div>
+      <pre>准备物流中断时的警报与建议方法论：
 
-Типовые сценарии:
-1. Шторм в порту погрузки — задержка на 3–5 дней
-2. Перегруз погранперехода — очередь 10+ дней
-3. Забастовка в порту выгрузки — неопределённая задержка
-4. Авария на ЖД путях — обход через альтернативный маршрут
-5. Регуляторные ограничения — внезапный запрет на заход в порт
+典型场景：
+1. 装货港风暴 — 延误3–5天
+2. 口岸超载 — 排队10天以上
+3. 卸货港罢工 — 延误时间不确定
+4. 铁路事故 — 绕行替代路线
+5. 监管限制 — 突然禁入港口
 
-Для каждого сценария:
-- Триггер алерта (что фиксируем)
-- Кто уведомляется (логист, закупщик, клиент)
-- Варианты действий (обход, перенос, замена)
-- Шаблон сообщения контрагенту
-- Срок принятия решения
+每个场景：
+- 警报触发条件（监控什么）
+- 通知对象（物流、采购、客户）
+- 可选行动（绕行、改期、替换）
+- 致合作方消息模板
+- 决策时限
 
-Методология без конкретных грузов и дат.</pre>
+方法论不含具体货物和日期。</pre>
     </div>
-    <p><strong>Результат:</strong> готовая методология, экономит 3–4 часа.</p>
+    <p><strong>结果：</strong>现成方法论，节省3–4小时。</p>
   </div>
 
   <div class="section">
-    <h2>汇总表: внешние задачи</h2>
+    <h2>汇总表：外部任务</h2>
     <table>
-      <tr><th>任务</th><th>所需内容</th><th>输出格式</th><th>节省时间</th></tr>
-      <tr><td>Логистическая стратегия</td><td>Тип компании</td><td>Структура стратегии</td><td>5–6 ч</td></tr>
-      <tr><td>Фрахтовые индексы</td><td>Период</td><td>Обзор рынка</td><td>2–3 ч</td></tr>
-      <tr><td>Тарифы РЖД/КНР</td><td>Маршрут</td><td>Сравнительная таблица</td><td>2 ч</td></tr>
-      <tr><td>Погранпереходы</td><td>Регион</td><td>Обзор узких мест</td><td>3–4 ч</td></tr>
-      <tr><td>Прогнозы погоды</td><td>Регион, период</td><td>Алерт рисков</td><td>1.5 ч</td></tr>
-      <tr><td>Бенчмаркинг</td><td>Отрасль</td><td>Отчёт с источниками</td><td>4–5 ч</td></tr>
-      <tr><td>Шаблоны документов</td><td>Тип перевозки</td><td>Пакет документов</td><td>2–3 ч</td></tr>
-      <tr><td>Алерты по сбоям</td><td>Сценарии</td><td>Методология реагирования</td><td>3–4 ч</td></tr>
+      <tr><th>任务</th><th>所需信息</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>物流战略</td><td>企业类型</td><td>战略结构</td><td>5–6小时</td></tr>
+      <tr><td>运费指数</td><td>时段</td><td>市场概览</td><td>2–3小时</td></tr>
+      <tr><td>俄罗斯/中国铁路运价</td><td>路线</td><td>对比表格</td><td>2小时</td></tr>
+      <tr><td>口岸分析</td><td>区域</td><td>瓶颈概览</td><td>3–4小时</td></tr>
+      <tr><td>天气预测</td><td>区域、时段</td><td>风险警报</td><td>1.5小时</td></tr>
+      <tr><td>基准对标</td><td>行业</td><td>含来源报告</td><td>4–5小时</td></tr>
+      <tr><td>文档模板</td><td>运输类型</td><td>文档包</td><td>2–3小时</td></tr>
+      <tr><td>中断警报</td><td>场景</td><td>响应方法论</td><td>3–4小时</td></tr>
     </table>
   </div>
 
   <div class="section">
-    <h2>知识测验</h2>
-    <p><strong>问题 1:</strong> Почему стратегия логистики — во внешний ИИ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确!</strong> Методология без реальных объёмов — публичное знание.'">Потому что это общая методология без конкретных объёмов и маршрутов</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想一想. Стратегия не содержит реальных данных.'">Потому что стратегия — это не документ, а концепция</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想一想. Любая стратегия может быть чувствительна.'">Только если обезличить название компании</div>
+    <h2>知识检测</h2>
+    <p><strong>问题1：</strong>为什么物流战略适合用外部AI？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>不涉及真实业务量的通用方法论属于公开知识。'">因为这是不含具体业务量和路线的通用方法论</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。战略本身不包含真实数据。'">因为战略不是文件而是概念</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。任何战略都可能敏感。'">只有去标识化公司名称时才可以</div>
     <div id="q1-result" class="result"></div>
 
-    <p><strong>问题 2:</strong> Baltic Dry Index — какой контур?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确!</strong> BDI — публичный индекс.'">Внешний ИИ — публичный фрахтовый индекс</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想一想. BDI публикуется открыто.'">On-prem — коммерческая тайна</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想一想. BDI — публичный, не нужен гибрид.'">Гибрид — индекс снаружи, интерпретация внутри</div>
+    <p><strong>问题2：</strong>波罗的海干散货指数（BDI）属于哪个环境？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>BDI是公开指数。'">外部AI — 公开运费指数</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。BDI公开发布。'">本地部署 — 商业机密</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。BDI是公开的，不需要混合。'">混合 — 指数在外部，解读在内部</div>
     <div id="q2-result" class="result"></div>
 
-    <p><strong>问题 3:</strong> Шаблон CMR — какой контур?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确!</strong> Общий шаблон без реальных данных.'">Внешний ИИ — типовой документ без реальных грузов</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想一想. Шаблон — общий документ.'">On-prem — CMR содержит коммерческие данные</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想一想. Шаблон без данных — во внешнем.'">Гибрид — шаблон снаружи, данные внутри</div>
+    <p><strong>问题3：</strong>CMR模板属于哪个环境？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>通用模板不含真实数据。'">外部AI — 不含真实货物的标准文档</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。模板是通用文档。'">本地部署 — CMR包含商业数据</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。无数据模板属于外部。'">混合 — 模板在外部，数据在内部</div>
     <div id="q3-result" class="result"></div>
   </div>
 
@@ -311,5 +311,5 @@
     <a href="../12-3-hybrid/index.html" class="nav-btn primary">13.3 混合任务 →</a>
   </div>
 </div>
-<footer><div class="container"><p>非IT专业人员的AI · 制造企业</p></div></footer>
+<footer><div class="container"><p>非IT人员的AI · 生产企业</p></div></footer>
 </body></html>

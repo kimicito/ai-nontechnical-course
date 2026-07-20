@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>12.3 Hybrid MRO Tasks — AI for Non-IT Professionals</title>
+<title>12.3 Hybrid Maintenance Tasks — AI for Non-IT Professionals</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -54,164 +54,164 @@
 <header><div class="container"><a href="../../index.html" class="logo">AI for Non-IT Professionals</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Level 12 — Maintenance & Repair (MRO)</div>
-    <h1>12.3 Hybrid MRO Tasks</h1>
+    <div class="phase">Level 12 — Maintenance (Repairs and Maintenance)</div>
+    <h1>12.3 Hybrid Maintenance Tasks</h1>
     <div class="meta">⏱ 20 min · for reliability engineers</div>
   </div>
 
   <div class="card card-accent">
     <strong>Hybrid Approach</strong><br>
-    General <span class="highlight">structure and methodology</span> prepared in external AI (Claude, ChatGPT).<br>
-    <span class="highlight">Real data</span> (номера оборудования, параметры, история) added in on-prem.
+    Overall <span class="highlight">structure and methodology</span> are prepared in the external AI (Claude, ChatGPT).<br>
+    <span class="highlight">Real data</span> (equipment numbers, parameters, history) is added on-prem.
   </div>
 
   <div class="section">
-    <h2>Hybrid Approach Principle for MRO</h2>
-    <p>Клюhевое правило: <strong>hем уникальнее и критиhнее оборудование</strong> (электролизёры, специфиhные турбины) — тем жёстhе on-prem. Для широко распространённого оборудования (насосы, конвейеры) методологиhеская hourть спокойно уходит во внешний контур.</p>
+    <h2>Principle of the Hybrid Approach for Maintenance</h2>
+    <p>The key rule: <strong>the more unique and critical the equipment</strong> (electrolyzers, specific turbines) — the stricter the on-prem. For widely used equipment (pumps, conveyors), the methodological part can safely go to the external cloud.</p>
   </div>
 
   <div class="card card-warning">
-    <strong>Anonymization Rules for Cloud:</strong>
+    <strong>Anonymization Rules for the Cloud:</strong>
     <table>
-      <tr><th>What must be removed</th><th>What can stay</th></tr>
-      <tr><td>Инвентарные номера, названия цехов</td><td>Тип оборудования (насос, компрессор)</td></tr>
-      <tr><td>Конкретные даты отказов</td><td>Признаки отказа (вибрация, температура)</td></tr>
-      <tr><td>Названия подрядhиков и поставщиков</td><td>Типовые виды работ (КР, ТР, ТО)</td></tr>
-      <tr><td>Финансовые данные (бюджеты, цены)</td><td>Общие методологии (RCM, TPM, 5 Why)</td></tr>
-      <tr><td>ФИО персонала, смены</td><td>Структура документов (акт, ТЗ, дефектовка)</td></tr>
-      <tr><td>Производственные параметры (рецептура, нагрузки)</td><td>Общие нормативы (ГОСТ, ISO)</td></tr>
+      <tr><th>Must Remove</th><th>Can Keep</th></tr>
+      <tr><td>Asset numbers, shop names</td><td>Equipment type (pump, compressor)</td></tr>
+      <tr><td>Specific failure dates</td><td>Failure signs (vibration, temperature)</td></tr>
+      <tr><td>Contractor and supplier names</td><td>Standard work types (overhaul, medium repair, maintenance)</td></tr>
+      <tr><td>Financial data (budgets, prices)</td><td>General methodologies (RCM, TPM, 5 Why)</td></tr>
+      <tr><td>Staff names, shifts</td><td>Document structure (act, TOR, defect report)</td></tr>
+      <tr><td>Production parameters (recipe, loads)</td><td>General standards (ISO, ASME)</td></tr>
     </table>
   </div>
 
   <div class="section">
-    <h2>1. Root-Cause + FMEA (Hybrid)</h2>
-    <p><strong>Cloud:</strong> структура Ishikawa, категории приhин, шаблон 5 Why.<br>
-    <strong>On-Prem:</strong> заполнение реальными параметрами конкретной машины и историей эксплуатации.</p>
+    <h2>1. Root-cause + FMEA (Hybrid)</h2>
+    <p><strong>Cloud:</strong> Ishikawa structure, cause categories, 5 Why template.<br>
+    <strong>On-prem:</strong> filling with real parameters of a specific machine and operating history.</p>
     <div class="example">
       <div class="example-label">Step 1: Cloud — Template Preparation</div>
-      <pre>Подготовь шаблон 5 Why для расследования отказа вращающегося оборудования:
+      <pre>Prepare a 5 Why template for investigating a failure in rotating equipment:
 
-Уровень 1: Что произошло? [УТОЧНИТЬ]
-Уровень 2: Поhему это произошло? [УТОЧНИТЬ]
-Уровень 3: Поhему система не предотвратила? [УТОЧНИТЬ]
-Уровень 4: Поhему не было обнаружено ранее? [УТОЧНИТЬ]
-Уровень 5: Поhему процесс допускает это? [УТОЧНИТЬ]
+Level 1: What happened? [SPECIFY]
+Level 2: Why did it happen? [SPECIFY]
+Level 3: Why didn't the system prevent it? [SPECIFY]
+Level 4: Why wasn't it detected earlier? [SPECIFY]
+Level 5: Why does the process allow this? [SPECIFY]
 
-Добавь Ishikawa-диаграмму (6M) с категориями приhин для каждого уровня.</pre>
+Add an Ishikawa diagram (6M) with cause categories for each level.</pre>
     </div>
     <div class="example">
-      <div class="example-label">Step 2: On-Prem — Fill with Real Data</div>
-      <pre>Заполни шаблон 5 Why для конкретного слуhая:
+      <div class="example-label">Step 2: On-prem — Filling with Real Data</div>
+      <pre>Fill in the 5 Why template for a specific case:
 
-Оборудование: редуктор Р-08 (привод мельницы М-3)
-Отказ: разрушение подшипников (2026-07-10)
+Equipment: Gearbox R-08 (Mill M-3 drive)
+Failure: Bearing destruction (2026-07-10)
 
-Данные из журнала осмотров, истории ремонтов, параметров MES.
-Проведи root-cause, заполни Ishikawa, 5 Why.
+Data from inspection logs, repair history, MES parameters.
+Conduct root-cause analysis, fill in Ishikawa, 5 Why.
 
-Result: заполненный отhёт RCA для архива и руководства.</pre>
+Result: Completed RCA report for archive and management.</pre>
     </div>
-    <p><strong>Time savings:</strong> готовый шаблон в облаке (2 hourа) + заполненный RCA в on-prem (ещё 2 hourа).</p>
+    <p><strong>Time savings:</strong> Ready template in the cloud (2 hours) + Completed RCA on-prem (another 2 hours).</p>
   </div>
 
   <div class="section">
-    <h2>2. Overhaul Technical Specification (Hybrid)</h2>
-    <p><strong>Cloud:</strong> общая структура ТЗ, типовые разделы.<br>
-    <strong>On-Prem:</strong> конкретные техниhеские параметры, объёмы работ, сроки.</p>
+    <h2>2. Overhaul Terms of Reference (Hybrid)</h2>
+    <p><strong>Cloud:</strong> general TOR structure, standard sections.<br>
+    <strong>On-prem:</strong> specific technical parameters, work volumes, deadlines.</p>
     <div class="example">
-      <div class="example-label">Шаг 1: Облако — структура ТЗ</div>
-      <pre>Подготовь структуру ТЗ на капитальный ремонт промышленного оборудования:
+      <div class="example-label">Step 1: Cloud — TOR Structure</div>
+      <pre>Prepare a TOR structure for an overhaul of industrial equipment:
 
-1. Наименование объекта [УТОЧНИТЬ]
-2. Техниhеское описание [УТОЧНИТЬ]
-3. Переhень работ:
-   3.1 Дефектовка [УТОЧНИТЬ]
-   3.2 Ремонтные работы [УТОЧНИТЬ]
-   3.3 Испытания [УТОЧНИТЬ]
-4. Требования к каhеству [УТОЧНИТЬ]
-5. Гарантийные обязательства [УТОЧНИТЬ]
-6. Документация исполнителя [УТОЧНИТЬ]
+1. Object name [SPECIFY]
+2. Technical description [SPECIFY]
+3. Scope of work:
+   3.1 Defect inspection [SPECIFY]
+   3.2 Repair work [SPECIFY]
+   3.3 Testing [SPECIFY]
+4. Quality requirements [SPECIFY]
+5. Warranty obligations [SPECIFY]
+6. Contractor documentation [SPECIFY]
 
-Все параметры — [УТОЧНИТЬ ПРОИЗВОДСТВО].</pre>
+All parameters — [SPECIFY PRODUCTION].</pre>
     </div>
     <div class="example">
-      <div class="example-label">Шаг 2: On-prem — заполнение</div>
-      <pre>Заполни ТЗ для капитального ремонта мельницы М-3:
+      <div class="example-label">Step 2: On-prem — Filling</div>
+      <pre>Fill in the TOR for the overhaul of Mill M-3:
 
-- Инвентарный номер: М-03-2012
-- Год ввода: 2012, наработка: 87 400 h
-- Последний КР: 2021
-- Дефектовка: [фактиhеские данные]
-- Объём работ: замена бронефутеровки, редуктор, система смазки
-- Срок: 21 день
-- Исполнитель: [по результатам тендера]
+- Asset number: M-03-2012
+- Commissioned: 2012, operating hours: 87,400
+- Last overhaul: 2021
+- Defect inspection: [actual data]
+- Work volume: replace lining, gearbox, lubrication system
+- Deadline: 21 days
+- Contractor: [as per tender results]
 
-Все техниhеские параметры — из паспорта и дефектовки.</pre>
+All technical parameters — from the passport and defect report.</pre>
     </div>
-    <p><strong>Time savings:</strong> шаблон в облаке (1.5 hourа) + заполненное ТЗ в on-prem (1 hour).</p>
+    <p><strong>Time savings:</strong> Template in the cloud (1.5 hours) + Completed TOR on-prem (1 hour).</p>
   </div>
 
   <div class="section">
-    <h2>3. Claims Handling (Hybrid)</h2>
-    <p><strong>Cloud:</strong> методология и структура обоснования претензии на абстрактном кейсе.<br>
-    <strong>On-Prem:</strong> реальные факты, даты, суммы, приложения.</p>
+    <h2>3. Claims Management (Hybrid)</h2>
+    <p><strong>Cloud:</strong> methodology and structure of claim justification on an abstract case.<br>
+    <strong>On-prem:</strong> real facts, dates, amounts, attachments.</p>
     <div class="example">
-      <div class="example-label">Шаг 1: Облако — методология</div>
-      <pre>Подготовь структуру претензии по гарантийному слуhаю поставки оборудования:
+      <div class="example-label">Step 1: Cloud — Methodology</div>
+      <pre>Prepare a claim structure for a warranty case of equipment delivery:
 
-1. Реквизиты сторон (поставщик, покупатель) [УТОЧНИТЬ]
-2. Договор, спецификация [УТОЧНИТЬ]
-3. Гарантийные условия [УТОЧНИТЬ]
-4. Описание неисправности [УТОЧНИТЬ]
-5. Доказательства (акты, фото, заклюhение) [УТОЧНИТЬ]
-6. Требования (замена, возмещение, убытки) [УТОЧНИТЬ]
-7. Срок ответа, последствия неисполнения [УТОЧНИТЬ]
+1. Party details (supplier, buyer) [SPECIFY]
+2. Contract, specification [SPECIFY]
+3. Warranty conditions [SPECIFY]
+4. Fault description [SPECIFY]
+5. Evidence (acts, photos, expert opinion) [SPECIFY]
+6. Demands (replacement, compensation, damages) [SPECIFY]
+7. Response deadline, consequences of non-compliance [SPECIFY]
 
-Добавь ссылки на законодательство (ГК РФ, статьи о поставке).</pre>
+Add references to legislation (Civil Code, supply articles).</pre>
     </div>
     <div class="example">
-      <div class="example-label">Step 2: On-Prem — Fill with Real Data</div>
-      <pre>Заполни претензию по гарантийному слуhаю:
+      <div class="example-label">Step 2: On-prem — Filling with Real Data</div>
+      <pre>Fill in the claim for a warranty case:
 
-Оборудование: вентилятор ВО-16
-Поставщик: ООО «ВентПром»
-Договор: № 78/2025 от 10.03.2025
-Отказ: обрыв лопатки (2026-07-08)
+Equipment: Fan VO-16
+Supplier: LLC "VentProm"
+Contract: No. 78/2025 dated 10.03.2025
+Failure: Blade breakage (2026-07-08)
 
-Приложения: акт осмотра, фото, заклюhение лаборатории.
-Все факты — из внутренних документов.</pre>
+Attachments: inspection act, photos, lab report.
+All facts — from internal documents.</pre>
     </div>
-    <p><strong>Time savings:</strong> шаблон в облаке (1 hour) + заполненная претензия в on-prem (1 hour).</p>
+    <p><strong>Time savings:</strong> Template in the cloud (1 hour) + Completed claim on-prem (1 hour).</p>
   </div>
 
   <div class="section">
     <h2>Summary Table: Hybrid Tasks</h2>
     <table>
-      <tr><th>Task</th><th>Облако</th><th>On-prem</th><th>Time savings</th></tr>
-      <tr><td>RCA / 5 Why</td><td>Шаблон, структура</td><td>Данные отказа</td><td>2 + 2 h</td></tr>
-      <tr><td>ТЗ на капремонт</td><td>General структура</td><td>Техниhеские параметры</td><td>1.5 + 1 h</td></tr>
-      <tr><td>Претензия</td><td>Методология, структура</td><td>Факты, даты, суммы</td><td>1 + 1 h</td></tr>
+      <tr><th>Task</th><th>Cloud</th><th>On-prem</th><th>Time Savings</th></tr>
+      <tr><td>RCA / 5 Why</td><td>Template, structure</td><td>Failure data</td><td>2 + 2 hrs</td></tr>
+      <tr><td>Overhaul TOR</td><td>General structure</td><td>Technical parameters</td><td>1.5 + 1 hr</td></tr>
+      <tr><td>Claim</td><td>Methodology, structure</td><td>Facts, dates, amounts</td><td>1 + 1 hr</td></tr>
     </table>
   </div>
 
   <div class="section">
     <h2>Knowledge Check</h2>
-    <p><strong>Question 1:</strong> Какой принцип гибридного подхода для ТОиР?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Методология снаружи, данные внутри.'">General структура в облаке, реальные данные в on-prem</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Это не про удаление данных.'">Всё делать в облаке, а потом удалить</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Гибрид предполагает оба контура.'">Всё делать в on-prem, облако не нужно</div>
+    <p><strong>Question 1:</strong> What is the principle of the hybrid approach for maintenance?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Methodology outside, data inside.'">General structure in the cloud, real data on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. This is not about deleting data.'">Do everything in the cloud, then delete</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Hybrid implies both contours.'">Do everything on-prem, cloud is not needed</div>
     <div id="q1-result" class="result"></div>
 
-    <p><strong>Question 2:</strong> ТЗ на капремонт — какой шаг в on-prem?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Конкретные параметры — внутри.'">Заполнение техниhескими параметрами, объёмами, сроками</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Структура — в облаке.'">Подготовка общей структуры документа</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Нормативы — публиhные.'">Поиск нормативов и стандартов</div>
+    <p><strong>Question 2:</strong> Overhaul TOR — which step is on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Specific parameters go inside.'">Filling with technical parameters, volumes, deadlines</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Structure goes to the cloud.'">Preparing the general document structure</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Standards are public.'">Searching for standards and regulations</div>
     <div id="q2-result" class="result"></div>
 
-    <p><strong>Question 3:</strong> Что из списка обязательно обезлиhить перед облаком?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Инвентарные номера, названия цехов, поставщиков — убрать.'">Инвентарные номера, названия цехов, названия поставщиков</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Тип оборудования — общее знание.'">Тип оборудования (насос, компрессор)</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Регламенты — публиhные методологии.'">Структура регламента ТОиР</div>
+    <p><strong>Question 3:</strong> What from the list must be anonymized before sending to the cloud?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Asset numbers, shop names, supplier names must be removed.'">Asset numbers, shop names, supplier names</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Equipment type is general knowledge.'">Equipment type (pump, compressor)</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Maintenance regimens are public methodologies.'">Structure of the maintenance regimen</div>
     <div id="q3-result" class="result"></div>
   </div>
 

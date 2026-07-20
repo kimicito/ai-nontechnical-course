@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>13.1 Tâches logistiques internes — on-prem — AI pour les non-informaticiens</title>
+<title>13.1 Tâches internes de logistique — on-prem — IA pour Non-Informaticiens</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -50,374 +50,374 @@
 </style>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">AI pour les non-informaticiens</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour Non-Informaticiens</a></div></header>
 <div class="container">
   <div class="lesson-header">
     <div class="phase">Niveau 13 — Logistique</div>
-    <h1>13.1 Tâches logistiques internes</h1>
-    <div class="meta">⏱ 20 мин · для логистов и специалистов по цепочкам поставок</div>
+    <h1>13.1 Tâches internes de logistique</h1>
+    <div class="meta">⏱ 20 min · pour logisticiens et spécialistes de la chaîne d'approvisionnement</div>
   </div>
 
   <div class="card card-accent">
     <strong>Circuit fermé (on-prem)</strong><br>
-    Все задачи этого урока работают с <span class="highlight">реальными объёмами, маршрутами, ставками, контрагентами</span>. Используйте внутреннюю модель или локальный LLM.
+    Toutes les tâches de cette leçon traitent des <span class="highlight">volumes réels, itinéraires, tarifs, partenaires commerciaux</span>. Utilisez un modèle interne ou un LLM local.
   </div>
 
   <div class="section">
-    <h2>Почему on-prem критичен для логистики</h2>
-    <p>Логистика оперирует чувствительными данными: коммерческими ставками, договорными условиями, маршрутами поставок, данными контрагентов. Передача такой информации во внешние сервисы создаёт риски утечки и недобросовестной конкуренции.</p>
+    <h2>Pourquoi l'on-prem est critique pour la logistique</h2>
+    <p>La logistique manipule des données sensibles : tarifs commerciaux, conditions contractuelles, itinéraires d'approvisionnement, données des partenaires. Le transfert de ces informations vers des services externes crée des risques de fuite et de concurrence déloyale.</p>
   </div>
 
   <div class="card card-warning">
-    <strong>Когда on-prem обязателен:</strong>
+    <strong>Quand l'on-prem est obligatoire :</strong>
     <ul>
-      <li>Сценарное планирование цепочек поставок (реальные объёмы, маршруты, зависимости)</li>
-      <li>Фрахтовые котировки (коммерческие условия, переговоры)</li>
-      <li>Чартер-партии (юридически значимые условия)</li>
-      <li>Переписка с брокерами/судовладельцами по реальным ставкам</li>
-      <li>Заявки на ЖД перевозку с реальными объёмами/направлениями</li>
-      <li>Планирование маршрутов с учётом регуляторных ограничений</li>
-      <li>Переписка с перевозчиками по реальным условиям</li>
-      <li>Оценка риска задержки конкретной поставки</li>
-      <li>Отчёты по эффективности (коммерческие данные)</li>
-      <li>Претензионная работа (юридически значимо)</li>
-      <li>ТЗ на логистический аутсорсинг с реальными объёмами</li>
-      <li>Планы резервирования мощностей на пиковый сезон</li>
+      <li>Planification de scénarios pour les chaînes d'approvisionnement (volumes réels, itinéraires, dépendances)</li>
+      <li>Cotations de fret (conditions commerciales, négociations)</li>
+      <li>Connaissements affrétés (conditions juridiquement contraignantes)</li>
+      <li>Correspondance avec courtiers/armateurs concernant les tarifs réels</li>
+      <li>Demandes de transport ferroviaire avec volumes réels/directions</li>
+      <li>Planification d'itinéraires en tenant compte des restrictions réglementaires</li>
+      <li>Correspondance avec les transporteurs concernant les conditions réelles</li>
+      <li>Évaluation du risque de retard d'une livraison spécifique</li>
+      <li>Rapports d'efficacité (données commerciales)</li>
+      <li>Gestion des réclamations (juridiquement significative)</li>
+      <li>Cahier des charges pour l'externalisation logistique avec volumes réels</li>
+      <li>Plans de réservation de capacités pour la saison de pointe</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>1. Сценарное планирование цепочек поставок</h2>
-    <p>Что если закрылся порт? Переход перегружен? Разрабатываем альтернативные сценарии.</p>
+    <h2>1. Planification de scénarios pour les chaînes d'approvisionnement</h2>
+    <p>Et si un port fermait ? Un point de transit était surchargé ? Développons des scénarios alternatifs.</p>
     <div class="example">
-      <div class="example-label">Пример промпта (on-prem)</div>
-      <pre>Проведи сценарное планирование для поставки металла в Европу на Q4 2026:
+      <div class="example-label">Exemple de prompt (on-prem)</div>
+      <pre>Réalise une planification de scénarios pour une livraison de métaux en Europe au T4 2026 :
 
-Базовый сценарий: отгрузка из [УКАЖИТЕ ПОРТ ОТПРАВЛЕНИЯ] → [УКАЖИТЕ ПОРТ НАЗНАЧЕНИЯ], 45 000 т
-Риски:
-- [УКАЖИТЕ ПОРТ]: возможные ограничения (проверить контракты стивидоров)
-- [УКАЖИТЕ ПЕРЕХОД]: усиление проверок ожидается с 01.10.2026
-- Альтернатива: [УКАЖИТЕ АЛЬТ. ПОРТ] → [УКАЖИТЕ ПОРТ НАЗНАЧЕНИЯ] (добавка 8$/т)
+Scénario de base : expédition depuis [INDIQUEZ LE PORT DE DÉPART] → [INDIQUEZ LE PORT DE DESTINATION], 45 000 t
+Risques :
+- [INDIQUEZ LE PORT] : restrictions possibles (vérifiez les contrats des manutentionnaires)
+- [INDIQUEZ LE POINT DE TRANSIT] : renforcement des contrôles prévu à partir du 01.10.2026
+- Alternative : [INDIQUEZ LE PORT ALT.] → [INDIQUEZ LE PORT DE DESTINATION] (surcoût de 8 $/t)
 
-Сценарии:
-1. Базовый (вероятность 60%)
-2. Перенос на альтернативный порт (вероятность 30%)
-3. ЖД маршрут через [УКАЖИТЕ СТРАНУ] → [УКАЖИТЕ СТРАНУ] (вероятность 10%, дороже на 35$/т)
+Scénarios :
+1. Base (probabilité 60 %)
+2. Report vers un port alternatif (probabilité 30 %)
+3. Itinéraire ferroviaire via [INDIQUEZ LE PAYS] → [INDIQUEZ LE PAYS] (probabilité 10 %, surcoût de 35 $/t)
 
-Для каждого: объём, срок, стоимость, риски, триггер переключения.</pre>
+Pour chacun : volume, délai, coût, risques, déclencheur de basculement.</pre>
     </div>
-    <p><strong>Результат:</strong> матрица сценариев для совета директоров, экономит 3–4 часа.</p>
+    <p><strong>Résultat :</strong> matrice de scénarios pour le conseil d'administration, économise 3–4 heures.</p>
   </div>
 
   <div class="section">
-    <h2>2. Анализ и сравнение фрахтовых котировок</h2>
-    <p>Сравнение чартерных ставок, выбор оптимального предложения — текстовый анализ + рекомендация.</p>
+    <h2>2. Analyse et comparaison des cotations de fret</h2>
+    <p>Comparaison des tarifs d'affrètement, choix de l'offre optimale — analyse textuelle + recommandation.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Сравни фрахтовые котировки для перевозки 55 000 т [УКАЖИТЕ ГРУЗ] ([УКАЖИТЕ ПОРТ] → [УКАЖИТЕ ПОРТ], октябрь 2026):
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Compare les cotations de fret pour le transport de 55 000 t de [INDIQUEZ LA MARCHANDISE] ([INDIQUEZ LE PORT] → [INDIQUEZ LE PORT], octobre 2026) :
 
-Котировки:
-1. Брокер A: $18.5/т, Capesize, погрузка [УКАЖИТЕ ПОРТ], выгрузка [УКАЖИТЕ ПОРТ], 45 дней
-2. Брокер B: $16.8/т, Panamax (2 судна), погрузка [УКАЖИТЕ ПОРТ], выгрузка [УКАЖИТЕ ПОРТ], 52 дня
-3. Брокер C: $19.2/т, Capesize, погрузка [УКАЖИТЕ ПОРТ], выгрузка [УКАЖИТЕ ПОРТ] + ЖД, 38 дней
+Cotations :
+1. Courtier A : 18,5 $/t, Capesize, chargement [INDIQUEZ LE PORT], déchargement [INDIQUEZ LE PORT], 45 jours
+2. Courtier B : 16,8 $/t, Panamax (2 navires), chargement [INDIQUEZ LE PORT], déchargement [INDIQUEZ LE PORT], 52 jours
+3. Courtier C : 19,2 $/t, Capesize, chargement [INDIQUEZ LE PORT], déchargement [INDIQUEZ LE PORT] + fer, 38 jours
 
-Дополнительно:
-- Штраф за простой судна: $18 000/день
-- Страховка груза: 0.12% от стоимости
-- Риск задержки в порту погрузки: 20% вероятность +5 дней
+Supplémentaire :
+- Pénalité d'immobilisation du navire : 18 000 $/jour
+- Assurance marchandise : 0,12 % de la valeur
+- Risque de retard au port de chargement : 20 % de probabilité +5 jours
 
-Сделай сравнительный анализ (CAPEX + OPEX + риски) и рекомендацию.</pre>
+Fais une analyse comparative (CAPEX + OPEX + risques) et une recommandation.</pre>
     </div>
-    <p><strong>Результат:</strong> обоснованный выбор, экономит 2 часа.</p>
+    <p><strong>Résultat :</strong> choix justifié, économise 2 heures.</p>
   </div>
 
   <div class="section">
-    <h2>3. Подготовка и проверка чартер-партий</h2>
-    <p>Чартер-партия — юридически значимый документ. LLM помогает проверить на нетиповые условия и сформулировать риски текстом.</p>
+    <h2>3. Préparation et vérification des connaissements affrétés</h2>
+    <p>Le connaissement affrété est un document juridiquement significatif. Le LLM aide à vérifier les conditions non standard et à formuler les risques en texte.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Проверь чартер-партию на соответствие типовым условиям и выяви риски:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Vérifie la conformité du connaissement affrété aux conditions types et identifie les risques :
 
-Текст чартер-партии (фрагменты):
-- Тип судна: Capesize, dwt 180 000
-- Груз: [УКАЖИТЕ ГРУЗ], 55 000 т (+/- 10%)
-- Порт погрузки: [УКАЖИТЕ ПОРТ] (1 безопасный порт)
-- Порт выгрузки: [УКАЖИТЕ ПОРТ] (1 безопасный порт)
-- Ставка фрахта: $18.5/т, FIOST
-- Laytime: 5 дней погрузка, 4 дня выгрузка, Sundays/holidays excluded
-- Демерредж: $18 000/день
-- Условие: "Owner not responsible for cargo shortfall if shore scales differ from draft survey by more than 0.5%"
+Texte du connaissement (extraits) :
+- Type de navire : Capesize, dwt 180 000
+- Marchandise : [INDIQUEZ LA MARCHANDISE], 55 000 t (+/- 10 %)
+- Port de chargement : [INDIQUEZ LE PORT] (1 port sûr)
+- Port de déchargement : [INDIQUEZ LE PORT] (1 port sûr)
+- Tarif de fret : 18,5 $/t, FIOST
+- Temps de séjour : 5 jours chargement, 4 jours déchargement, dimanches/jours fériés exclus
+- Surestaries : 18 000 $/jour
+- Condition : « Le propriétaire n'est pas responsable des manquants de marchandise si les balances à quai diffèrent de l'arpentage par le tirant d'eau de plus de 0,5 % »
 
-Проверь:
-1. Нетиповые/рискованные условия (vs стандартная GENCON)
-2. Пропущенные пункты (стандартные для балкеров)
-3. Конфликтные формулировки
-4. Рекомендации по дополнениям/поправкам</pre>
+Vérifie :
+1. Conditions non standard/risquées (vs GENCON standard)
+2. Points manquants (standards pour les vraquiers)
+3. Formulations conflictuelles
+4. Recommandations d'ajouts/modifications</pre>
     </div>
-    <p><strong>Результат:</strong> проверенная партия с рисками, экономит 3–4 часа юриста.</p>
+    <p><strong>Résultat :</strong> connaissement vérifié avec risques identifiés, économise 3–4 heures d'avocat.</p>
   </div>
 
   <div class="section">
-    <h2>4. Переписка с брокерами и судовладельцами</h2>
-    <p>Деловая переписка по ставкам, срокам, условиям — генерация текста.</p>
+    <h2>4. Correspondance avec les courtiers et les armateurs</h2>
+    <p>Correspondance professionnelle concernant les tarifs, délais, conditions — génération de texte.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь письмо брокеру по запросу фрахта:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une lettre à un courtier pour une demande de fret :
 
-Тема: Запрос ставки на балкер Capesize, маршрут [УКАЖИТЕ ПОРТ] → [УКАЖИТЕ ПОРТ], октябрь 2026
+Objet : Demande de tarif pour vraquier Capesize, itinéraire [INDIQUEZ LE PORT] → [INDIQUEZ LE PORT], octobre 2026
 
-Требования:
-- Груз: [УКАЖИТЕ ГРУЗ], 55 000 т (+/- 10%)
-- Погрузка: [УКАЖИТЕ ПОРТ], готовность 15–25 октября
-- Выгрузка: [УКАЖИТЕ ПОРТ], 1 безопасный порт
-- Условия: FIOST, демерредж $18 000/день
-- Ограничения: [УКАЖИТЕ РЕГУЛЯТОРНЫЕ ОГРАНИЧЕНИЯ]
+Exigences :
+- Marchandise : [INDIQUEZ LA MARCHANDISE], 55 000 t (+/- 10 %)
+- Chargement : [INDIQUEZ LE PORT], disponibilité 15–25 octobre
+- Déchargement : [INDIQUEZ LE PORT], 1 port sûr
+- Conditions : FIOST, surestaries 18 000 $/jour
+- Restrictions : [INDIQUEZ LES RESTRICTIONS RÉGLEMENTAIRES]
 
-Запроси:
-1. Ставку фрахта $/т
-2. Тип судна и год постройки
-3. ETA погрузки
-4. Комиссию брокера
-5. Подтверждение соответствия ограничениям</pre>
+Demande :
+1. Le tarif de fret en $/t
+2. Le type de navire et l'année de construction
+3. L'ETA au chargement
+4. La commission du courtier
+5. La confirmation de conformité aux restrictions</pre>
     </div>
-    <p><strong>Результат:</strong> готовое письмо, экономит 30 мин.</p>
+    <p><strong>Résultat :</strong> lettre prête à l'envoi, économise 30 min.</p>
   </div>
 
   <div class="section">
-    <h2>5. Заявки на ЖД перевозку с реальными объёмами</h2>
-    <p>Подготовка заявок и сопроводительных документов — генерация текста форм.</p>
+    <h2>5. Demandes de transport ferroviaire avec volumes réels</h2>
+    <p>Préparation des demandes et documents d'accompagnement — génération de formulaires textuels.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь заявку на ЖД перевозку:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une demande de transport ferroviaire :
 
-Отправитель: [УКАЖИТЕ КОМПАНИЮ], ст. [УКАЖИТЕ СТАНЦИЮ]
-Получатель: [УКАЖИТЕ КОМПАНИЮ], ст. [УКАЖИТЕ СТАНЦИЮ]
-Груз: [УКАЖИТЕ ГРУЗ], 3 200 т (64 вагона)
-Срок отгрузки: 2026-08-15 – 2026-08-20
-Особые условия: [УКАЖИТЕ ТИП ВАГОНОВ], температурный режим
+Expéditeur : [INDIQUEZ L'ENTREPRISE], gare [INDIQUEZ LA GARE]
+Destinataire : [INDIQUEZ L'ENTREPRISE], gare [INDIQUEZ LA GARE]
+Marchandise : [INDIQUEZ LA MARCHANDISE], 3 200 t (64 wagons)
+Période d'expédition : 2026-08-15 – 2026-08-20
+Conditions spéciales : [INDIQUEZ LE TYPE DE WAGONS], régime thermique
 
-Подготовь:
-1. Заявку по форме РЖД
-2. Спецификацию груза (коды ГНГ, опасность)
-3. Перечень документов для оформления
-4. Расчёт стоимости (тариф РЖД + сборы)</pre>
+Prépare :
+1. La demande selon le formulaire des chemins de fer
+2. La spécification de la marchandise (codes NCM, dangerosité)
+3. La liste des documents nécessaires à l'enregistrement
+4. Le calcul du coût (tarif ferroviaire + frais)</pre>
     </div>
-    <p><strong>Результат:</strong> готовая заявка, экономит 1.5 часа.</p>
+    <p><strong>Résultat :</strong> demande prête, économise 1,5 heure.</p>
   </div>
 
   <div class="section">
-    <h2>6. Планирование маршрутов международных автоперевозок</h2>
-    <p>Маршрутизация с учётом весогабаритов и регуляторных ограничений — генерация сравнительного анализа.</p>
+    <h2>6. Planification d'itinéraires de transport routier international</h2>
+    <p>Routage en tenant compte des poids et dimensions et des restrictions réglementaires — génération d'analyse comparative.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Спланируй маршрут доставки [УКАЖИТЕ ГРУЗ] из [УКАЖИТЕ ГОРОД] в [УКАЖИТЕ СТРАНУ] ([УКАЖИТЕ ГОРОД]):
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Planifie l'itinéraire de livraison de [INDIQUEZ LA MARCHANDISE] de [INDIQUEZ LA VILLE] vers [INDIQUEZ LE PAYS] ([INDIQUEZ LA VILLE]) :
 
-Исходные данные:
-- Груз: [УКАЖИТЕ ГРУЗ], 28 т (2 контейнера 20 футов)
-- Отправитель: [УКАЖИТЕ СКЛАД]
-- Получатель: [УКАЖИТЕ ПОЛУЧАТЕЛЯ]
-- Ограничения: [УКАЖИТЕ РЕГУЛЯТОРНЫЕ ОГРАНИЧЕНИЯ], требуется избегать определённых юрисдикций
-- Разрешения: требуется TIR, разрешение на перевозку через [УКАЖИТЕ СТРАНЫ]
-- Весогабариты: контейнеры ≤24 т каждый
+Données de base :
+- Marchandise : [INDIQUEZ LA MARCHANDISE], 28 t (2 conteneurs de 20 pieds)
+- Expéditeur : [INDIQUEZ L'ENTREPÔT]
+- Destinataire : [INDIQUEZ LE DESTINATAIRE]
+- Restrictions : [INDIQUEZ LES RESTRICTIONS RÉGLEMENTAIRES], nécessité d'éviter certaines juridictions
+- Autorisations : TIR requis, autorisation de transit via [INDIQUEZ LES PAYS]
+- Poids et dimensions : conteneurs ≤ 24 t chacun
 
-Варианты маршрута:
-1. [УКАЖИТЕ ГОРОД] → [УКАЖИТЕ ГОРОД] → порт → [УКАЖИТЕ ГОРОД] (море)
-2. [УКАЖИТЕ ГОРОД] → [УКАЖИТЕ ПОРТ] → порт [УКАЖИТЕ ГОРОД] (море)
-3. [УКАЖИТЕ ГОРОД] → [УКАЖИТЕ РЕГИОН] → [УКАЖИТЕ СТРАНУ] (сложно из-за регуляторных ограничений)
+Variantes d'itinéraire :
+1. [INDIQUEZ LA VILLE] → [INDIQUEZ LA VILLE] → port → [INDIQUEZ LA VILLE] (mer)
+2. [INDIQUEZ LA VILLE] → [INDIQUEZ LE PORT] → port [INDIQUEZ LA VILLE] (mer)
+3. [INDIQUEZ LA VILLE] → [INDIQUEZ LA RÉGION] → [INDIQUEZ LE PAYS] (difficile en raison des restrictions réglementaires)
 
-Для каждого: расстояние, срок, стоимость, риски, необходимые документы.</pre>
+Pour chacun : distance, délai, coût, risques, documents nécessaires.</pre>
     </div>
-    <p><strong>Результат:</strong> сравнительный анализ маршрутов, экономит 3–4 часа.</p>
+    <p><strong>Résultat :</strong> analyse comparative des itinéraires, économise 3–4 heures.</p>
   </div>
 
   <div class="section">
-    <h2>7. Переписка с перевозчиками по реальным условиям</h2>
-    <p>Согласование ставок, сроков, документов — генерация деловых писем.</p>
+    <h2>7. Correspondance avec les transporteurs selon les conditions réelles</h2>
+    <p>Négociation des tarifs, délais, documents — génération de lettres professionnelles.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь письмо перевозчику [УКАЖИТЕ КОМПАНИЮ]:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une lettre au transporteur [INDIQUEZ L'ENTREPRISE] :
 
-Тема: Уточнение условий перевозки [УКАЖИТЕ ГРУЗ] ([УКАЖИТЕ ГОРОД] → [УКАЖИТЕ ГОРОД])
+Objet : Précision des conditions de transport de [INDIQUEZ LA MARCHANDISE] ([INDIQUEZ LA VILLE] → [INDIQUEZ LA VILLE])
 
-Контекст:
-- Договор № [УКАЖИТЕ НОМЕР] от [УКАЖИТЕ ДАТУ]
-- Заявленный срок доставки: 18 дней
-- Текущий статус: груз в пути, задержка на границе [УКАЖИТЕ СТРАНЫ]–[УКАЖИТЕ СТРАНЫ] (3 дня)
-- Риск: просрочка поставки контракту с покупателем (штраф $2 000/день)
+Contexte :
+- Contrat n° [INDIQUEZ LE NUMÉRO] du [INDIQUEZ LA DATE]
+- Délai de livraison prévu : 18 jours
+- Statut actuel : marchandise en transit, retard à la frontière [INDIQUEZ LE PAYS]–[INDIQUEZ LE PAYS] (3 jours)
+- Risque : retard de livraison au contrat avec l'acheteur (pénalité 2 000 $/jour)
 
-Тон: деловой, срочность. Запроси:
-1. Причину задержки и ожидаемое время
-2. Компенсацию (по условиям договора — пени за просрочку)
-3. Меры по ускорению (альтернативный маршрут, смена водителя)</pre>
+Ton : professionnel, urgence. Demande :
+1. La cause du retard et le délai prévu
+2. Une compensation (selon les conditions du contrat — pénalités de retard)
+3. Des mesures d'accélération (itinéraire alternatif, changement de chauffeur)</pre>
     </div>
-    <p><strong>Результат:</strong> готовое письмо, экономит 30 мин.</p>
+    <p><strong>Résultat :</strong> lettre prête à l'envoi, économise 30 min.</p>
   </div>
 
   <div class="section">
-    <h2>8. Оценка риска задержки конкретной поставки</h2>
-    <p>Генерация аналитического текста с привязкой к реальному грузу и судну.</p>
+    <h2>8. Évaluation du risque de retard d'une livraison spécifique</h2>
+    <p>Génération d'un texte analytique lié à une marchandise et un navire réels.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Оцени риск задержки поставки [УКАЖИТЕ ГРУЗ]:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Évalue le risque de retard de la livraison de [INDIQUEZ LA MARCHANDISE] :
 
-Рейс: балкер "[УКАЖИТЕ НАЗВАНИЕ СУДНА]", погрузка [УКАЖИТЕ ПОРТ] 2026-08-10
-- Текущий статус: судно в пути, ожидается у [УКАЖИТЕ ТОЧКУ] 2026-08-25
-- Прогноз погоды: шторм в районе [УКАЖИТЕ РЕГИОН], волна до 7 м (25–27 августа)
-- Альтернатива: обход через [УКАЖИТЕ РЕГИОН] (+4 дня, +$45 000 бункер)
-- Контракт получателя: штраф за задержку $3 000/день после 2026-09-05
+Voyage : vraquier « [INDIQUEZ LE NOM DU NAVIRE] », chargement [INDIQUEZ LE PORT] 2026-08-10
+- Statut actuel : navire en route, prévu à [INDIQUEZ LE POINT] 2026-08-25
+- Prévisions météo : tempête dans la région [INDIQUEZ LA RÉGION], vagues jusqu'à 7 m (25–27 août)
+- Alternative : détour via [INDIQUEZ LA RÉGION] (+4 jours, +45 000 $ de carburant)
+- Contrat du destinataire : pénalité de retard 3 000 $/jour après 2026-09-05
 
-Оцени:
-1. Вероятность задержки из-за шторма
-2. Сценарии: стандартный маршрут vs обход
-3. Финансовое сравнение (штрафы vs доп. расходы на обход)
-4. Рекомендацию (продолжить или изменить маршрут)</pre>
+Évalue :
+1. La probabilité de retard en raison de la tempête
+2. Les scénarios : itinéraire standard vs détour
+3. La comparaison financière (pénalités vs frais supplémentaires du détour)
+4. Une recommandation (continuer ou modifier l'itinéraire)</pre>
     </div>
-    <p><strong>Результат:</strong> обоснованное решение, экономит 2 часа.</p>
+    <p><strong>Résultat :</strong> décision justifiée, économise 2 heures.</p>
   </div>
 
   <div class="section">
-    <h2>9. Сводный отчёт по эффективности логистики</h2>
-    <p>Генерация текстового executive summary для руководства на основе KPI.</p>
+    <h2>9. Rapport consolidé sur l'efficacité logistique</h2>
+    <p>Génération d'un résumé exécutif textuel pour la direction sur la base des KPI.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь ежеквартальный отчёт по логистике за Q2 2026 в виде текста для директора:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare un rapport trimestriel de logistique pour le T2 2026 sous forme de texte pour le directeur :
 
-Ключевые показатели:
-- Отгрузок: 127 рейсов (план: 120)
-- OTIF (On Time In Full): 78% (план: 85%, год назад: 82%)
-- Средняя стоимость перевозки: $23.4/т (план: $21, год назад: $19.8)
-- Простои в портах: средний 3.2 дня (норма 2)
-- Претензий: 12 (прошлый квартал: 7)
+Indicateurs clés :
+- Expéditions : 127 voyages (prévu : 120)
+- OTIF (On Time In Full) : 78 % (prévu : 85 %, il y a un an : 82 %)
+- Coût moyen de transport : 23,4 $/t (prévu : 21 $, il y a un an : 19,8 $)
+- Immobilisations dans les ports : moyenne 3,2 jours (norme 2)
+- Réclamations : 12 (trimestre précédent : 7)
 
-Сделай:
-1. Краткое резюме (3 предложения) — главная проблема
-2. Анализ трендов (что улучшилось, что ухудшилось vs прошлый квартал и vs план)
-3. Текстовые рекомендации (3 конкретных действия)
-4. Риски Q3 (что может пойти не так)
+Fais :
+1. Un bref résumé (3 phrases) — le principal problème
+2. Une analyse des tendances (ce qui s'est amélioré, ce qui s'est dégradé vs trimestre précédent et vs prévisions)
+3. Des recommandations textuelles (3 actions concrètes)
+4. Les risques du T3 (ce qui pourrait mal tourner)
 
-Тон: профессиональный, без таблиц — только текст.</pre>
+Ton : professionnel, sans tableaux — uniquement du texte.</pre>
     </div>
-    <p><strong>Результат:</strong> готовый текстовый отчёт, экономит 1.5 часа.</p>
+    <p><strong>Résultat :</strong> rapport textuel prêt, économise 1,5 heure.</p>
   </div>
 
   <div class="section">
-    <h2>10. Претензионная работа по срывам поставок</h2>
-    <p>Генерация юридически грамотного текста претензии.</p>
+    <h2>10. Gestion des réclamations suite à des retards de livraison</h2>
+    <p>Génération d'un texte de réclamation juridiquement correct.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь претензию перевозчику:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une réclamation à l'attention du transporteur :
 
-Рейс: балкер "[УКАЖИТЕ НАЗВАНИЕ СУДНА]", перевозка [УКАЖИТЕ ГРУЗ] [УКАЖИТЕ ПОРТ] → [УКАЖИТЕ ПОРТ]
-Договор фрахта: № [УКАЖИТЕ НОМЕР] от [УКАЖИТЕ ДАТУ]
+Voyage : vraquier « [INDIQUEZ LE NOM DU NAVIRE] », transport de [INDIQUEZ LA MARCHANDISE] [INDIQUEZ LE PORT] → [INDIQUEZ LE PORT]
+Contrat d'affrètement : n° [INDIQUEZ LE NUMÉRO] du [INDIQUEZ LA DATE]
 
-Нарушение:
-- Фактическая дата прибытия: 2026-06-28 (план: 2026-06-20)
-- Задержка: 8 дней
-- Причина по заявлению судна: поломка главного двигателя
-- Проверка: поломка произошла 2026-06-18 (2 дня после плановой даты), при этом судно не снизило скорость до поломки
+Manquement :
+- Date d'arrivée réelle : 2026-06-28 (prévu : 2026-06-20)
+- Retard : 8 jours
+- Cause déclarée par le navire : panne du moteur principal
+- Vérification : la panne s'est produite le 2026-06-18 (2 jours après la date prévue), et le navire n'a pas réduit sa vitesse avant la panne
 
-Убытки:
-- Штраф по контракту с покупателем: $24 000
-- Простой разгрузочного оборудования: $8 000
-- Дополнительные складские расходы: $3 200
+Pertes :
+- Pénalité selon le contrat avec l'acheteur : 24 000 $
+- Immobilisation de l'équipement de déchargement : 8 000 $
+- Frais d'entreposage supplémentaires : 3 200 $
 
-Требования: возмещение убытков $35 200 + пени по договору $8 000.</pre>
+Demandes : indemnisation des pertes 35 200 $ + pénalités contractuelles 8 000 $.</pre>
     </div>
-    <p><strong>Результат:</strong> юридически грамотная претензия, экономит 2 часа.</p>
+    <p><strong>Résultat :</strong> réclamation juridiquement correcte, économise 2 heures.</p>
   </div>
 
   <div class="section">
-    <h2>11. ТЗ на логистический аутсорсинг (3PL, экспедиторы)</h2>
-    <p>Генерация полноценного технического задания для тендера.</p>
+    <h2>11. Cahier des charges pour l'externalisation logistique (3PL, expéditeurs)</h2>
+    <p>Génération d'un cahier des charges complet pour un appel d'offres.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь ТЗ на аутсорсинг логистики [УКАЖИТЕ ГРУЗ]:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare un cahier des charges pour l'externalisation de la logistique de [INDIQUEZ LA MARCHANDISE] :
 
-Объём: [УКАЖИТЕ ОБЪЁМ] т/год
-Маршруты:
-- [УКАЖИТЕ СТРАНА] ([УКАЖИТЕ ПОРТ]) → [УКАЖИТЕ СТРАНА] ([УКАЖИТЕ ПОРТ]): [УКАЖИТЕ ОБЪЁМ] т/год (море)
-- [УКАЖИТЕ ГОРОД] → [УКАЖИТЕ ГОРОД]: [УКАЖИТЕ ОБЪЁМ] т/год (ЖД)
-- [УКАЖИТЕ ГОРОД] → [УКАЖИТЕ ГОРОД]: [УКАЖИТЕ ОБЪЁМ] т/год (авто/море)
+Volume : [INDIQUEZ LE VOLUME] t/an
+Itinéraires :
+- [INDIQUEZ LE PAYS] ([INDIQUEZ LE PORT]) → [INDIQUEZ LE PAYS] ([INDIQUEZ LE PORT]) : [INDIQUEZ LE VOLUME] t/an (mer)
+- [INDIQUEZ LA VILLE] → [INDIQUEZ LA VILLE] : [INDIQUEZ LE VOLUME] t/an (fer)
+- [INDIQUEZ LA VILLE] → [INDIQUEZ LA VILLE] : [INDIQUEZ LE VOLUME] t/an (route/mer)
 
-Требования:
-- 3PL с опытом в [УКАЖИТЕ ОТРАСЛЬ]/сырье
-- Страхование груза (110% от стоимости)
-- Отслеживание груза (online, API)
-- SLA: OTIF ≥90%, претензионная работа
-- Отчётность: ежемесячная (KPI, аналитика)
-- Срок контракта: 2 года + пролонгация
+Exigences :
+- 3PL avec expérience dans [INDIQUEZ LE SECTEUR]/matières premières
+- Assurance marchandise (110 % de la valeur)
+- Suivi de marchandise (en ligne, API)
+- SLA : OTIF ≥ 90 %, gestion des réclamations
+- Rapports : mensuels (KPI, analyses)
+- Durée du contrat : 2 ans + prorogation
 
-Критерии оценки (вес): цена (40%), опыт (25%), IT (15%), география (10%), референсы (10%).</pre>
+Critères d'évaluation (poids) : prix (40 %), expérience (25 %), IT (15 %), géographie (10 %), références (10 %).</pre>
     </div>
-    <p><strong>Результат:</strong> готовое ТЗ для тендера, экономит 4–5 часов.</p>
+    <p><strong>Résultat :</strong> cahier des charges prêt pour l'appel d'offres, économise 4–5 heures.</p>
   </div>
 
   <div class="section">
-    <h2>12. Планы резервирования мощностей на пиковый сезон</h2>
-    <p>Генерация стратегического плана резервирования — текстовый документ.</p>
+    <h2>12. Plans de réservation de capacités pour la saison de pointe</h2>
+    <p>Génération d'un plan stratégique de réservation — document textuel.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь план резервирования на Q4 2026 (пиковый сезон):
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare un plan de réservation pour le T4 2026 (saison de pointe) :
 
-История Q4:
-- Q4 2024: пиковый объём +35% vs средний, проблемы: нехватка вагонов, перегруз [УКАЖИТЕ ПОРТ]
-- Q4 2025: пик +28%, проблемы: задержки фрахта, нехватка складских площадей
+Historique du T4 :
+- T4 2024 : volume de pointe +35 % vs la moyenne, problèmes : pénurie de wagons, surcharge [INDIQUEZ LE PORT]
+- T4 2025 : pointe +28 %, problèmes : retards de fret, pénurie d'espaces d'entreposage
 
-Прогноз Q4 2026: рост объёмов на 20% vs Q3
+Prévision T4 2026 : croissance des volumes de 20 % vs T3
 
-Текущие мощности:
-- Склад [УКАЖИТЕ СКЛАД]: 85% загрузка (остаток [УКАЖИТЕ] т)
-- ЖД вагоны: 90% загрузка (резерв [УКАЖИТЕ] вагонов)
-- Фрахт: контракты на 60% пикового объёма
+Capacités actuelles :
+- Entrepôt [INDIQUEZ L'ENTREPÔT] : 85 % d'occupation (reste [INDIQUEZ] t)
+- Wagons ferroviaires : 90 % d'occupation (réserve [INDIQUEZ] wagons)
+- Fret : contrats pour 60 % du volume de pointe
 
-Составь план:
-1. Дополнительные складские мощности (аренда?)
-2. Резерв ЖД вагонов (заявка в РЖД, срок)
-3. Резерв фрахта (доп. котировки)
-4. Персонал (смены, подрядчики на погрузку)
-5. Триггеры активации резерва
-6. Бюджет резервирования</pre>
+Élabore un plan :
+1. Capacités d'entreposage supplémentaires (location ?)
+2. Réserve de wagons ferroviaires (demande aux chemins de fer, délai)
+3. Réserve de fret (cotations supplémentaires)
+4. Personnel (équipes, sous-traitants de manutention)
+5. Déclencheurs d'activation de la réserve
+6. Budget de réservation</pre>
     </div>
-    <p><strong>Результат:</strong> план резервирования, экономит 3 часа.</p>
+    <p><strong>Résultat :</strong> plan de réservation, économise 3 heures.</p>
   </div>
 
   <div class="section">
     <h2>Tableau récapitulatif</h2>
     <table>
-      <tr><th>Tâche</th><th>Besoins</th><th>Format sortie</th><th>Gain de temps</th></tr>
-      <tr><td>Сценарное планирование</td><td>Объёмы, маршруты, риски</td><td>Матрица сценариев</td><td>3–4 ч</td></tr>
-      <tr><td>Фрахтовые котировки</td><td>Ставки, условия</td><td>Сравнительный анализ</td><td>2 ч</td></tr>
-      <tr><td>Чартер-партии</td><td>Текст партии</td><td>Проверка + риски</td><td>3–4 ч</td></tr>
-      <tr><td>Переписка с брокерами</td><td>Требования</td><td>Письмо</td><td>30 мин</td></tr>
-      <tr><td>Заявки на ЖД</td><td>Параметры груза</td><td>Заявка РЖД</td><td>1.5 ч</td></tr>
-      <tr><td>Маршруты авто</td><td>Груз, ограничения</td><td>Сравнение маршрутов</td><td>3–4 ч</td></tr>
-      <tr><td>Переписка с перевозчиками</td><td>Контекст</td><td>Письмо</td><td>30 мин</td></tr>
-      <tr><td>Оценка риска задержки</td><td>Данные рейса</td><td>Анализ + рекомендация</td><td>2 ч</td></tr>
-      <tr><td>Сводный отчёт</td><td>KPI за период</td><td>Текст для директора</td><td>1.5 ч</td></tr>
-      <tr><td>Претензионная работа</td><td>Данные срыва</td><td>Претензия</td><td>2 ч</td></tr>
-      <tr><td>ТЗ на аутсорсинг</td><td>Объёмы, требования</td><td>ТЗ для тендера</td><td>4–5 ч</td></tr>
-      <tr><td>Резервирование мощностей</td><td>Прогноз, мощности</td><td>План резервирования</td><td>3 ч</td></tr>
+      <tr><th>Tâche</th><th>Ce qu'il faut</th><th>Format de sortie</th><th>Économie</th></tr>
+      <tr><td>Planification de scénarios</td><td>Volumes, itinéraires, risques</td><td>Matrice de scénarios</td><td>3–4 h</td></tr>
+      <tr><td>Cotations de fret</td><td>Tarifs, conditions</td><td>Analyse comparative</td><td>2 h</td></tr>
+      <tr><td>Connaissements affrétés</td><td>Texte du connaissement</td><td>Vérification + risques</td><td>3–4 h</td></tr>
+      <tr><td>Correspondance avec courtiers</td><td>Exigences</td><td>Lettre</td><td>30 min</td></tr>
+      <tr><td>Demandes de transport ferroviaire</td><td>Paramètres de la marchandise</td><td>Demande ferroviaire</td><td>1,5 h</td></tr>
+      <tr><td>Itinéraires routiers</td><td>Marchandise, restrictions</td><td>Comparaison d'itinéraires</td><td>3–4 h</td></tr>
+      <tr><td>Correspondance avec transporteurs</td><td>Contexte</td><td>Lettre</td><td>30 min</td></tr>
+      <tr><td>Évaluation du risque de retard</td><td>Données du voyage</td><td>Analyse + recommandation</td><td>2 h</td></tr>
+      <tr><td>Rapport consolidé</td><td>KPI sur la période</td><td>Texte pour le directeur</td><td>1,5 h</td></tr>
+      <tr><td>Gestion des réclamations</td><td>Données du retard</td><td>Réclamation</td><td>2 h</td></tr>
+      <tr><td>Cahier des charges d'externalisation</td><td>Volumes, exigences</td><td>CDS pour appel d'offres</td><td>4–5 h</td></tr>
+      <tr><td>Réservation de capacités</td><td>Prévision, capacités</td><td>Plan de réservation</td><td>3 h</td></tr>
     </table>
   </div>
 
   <div class="section">
-    <h2>Test de connaissances</h2>
-    <p><strong>Question 1:</strong> Почему планирование маршрутов с регуляторными ограничениями — on-prem?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Логика маршрута — коммерчески чувствительная информация.'">Потому что описывает логику движения грузов компании — коммерческий риск</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Это не про цену.'">Потому что содержит коммерческие ставки перевозчиков</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Методология — публична.'">Только если маршрут проходит через страны ЕС</div>
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Pourquoi la planification d'itinéraires avec des restrictions réglementaires est-elle en on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> La logique de l\'itinéraire est une information commercialement sensible.'">Parce que cela décrit la logique de déplacement des marchandises de l'entreprise — risque commercial</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchis encore. Ce n\'est pas le prix qui est en cause.'">Parce que cela contient les tarifs commerciaux des transporteurs</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchis encore. La méthodologie est publique.'">Uniquement si l'itinéraire traverse des pays de l'UE</div>
     <div id="q1-result" class="result"></div>
 
-    <p><strong>Question 2:</strong> Можно ли в облаке мониторить Baltic Dry Index?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> BDI — публичный индекс.'">Да, это публично доступный фрахтовый индекс</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. BDI — не коммерческая тайна.'">Нет, фрахтовые индексы — коммерческая тайна</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. BDI — публичный.'">Только если это исторические данные, а не текущие</div>
+    <p><strong>Question 2 :</strong> Peut-on surveiller le Baltic Dry Index dans le cloud ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Le BDI est un indice public.'">Oui, c'est un indice de fret accessible au public</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchis encore. Le BDI n\'est pas un secret commercial.'">Non, les indices de fret sont un secret commercial</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchis encore. Le BDI est public.'">Uniquement s'il s'agit de données historiques, pas des données actuelles</div>
     <div id="q2-result" class="result"></div>
 
-    <p><strong>Question 3:</strong> ТЗ на аутсорсинг — какой контур?</p>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Реальные объёмы искажают торги.'">On-prem — всё содержит коммерческую тайну</div>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Шаблон снаружи, цифры внутри.'">Гибрид — обезличенный шаблон в облаке, реальные объёмы в on-prem</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Общая структура — публична.'">Внешний ИИ — структура ТЗ общая для всех компаний</div>
+    <p><strong>Question 3 :</strong> Le cahier des charges pour l'externalisation — quel circuit ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchis encore. Les volumes réels faussent les appels d\'offres.'">On-prem — tout contient un secret commercial</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Le modèle à l\'extérieur, les chiffres à l\'intérieur.'">Hybride — modèle anonymisé dans le cloud, volumes réels en on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchis encore. La structure générale est publique.'">IA externe — la structure du CDS est commune à toutes les entreprises</div>
     <div id="q3-result" class="result"></div>
   </div>
 
@@ -426,5 +426,5 @@
     <a href="../12-2-cloud/index.html" class="nav-btn primary">13.2 Tâches externes →</a>
   </div>
 </div>
-<footer><div class="container"><p>AI pour les non-informaticiens · Entreprise industrielle</p></div></footer>
+<footer><div class="container"><p>IA pour Non-Informaticiens · Entreprise industrielle</p></div></footer>
 </body></html>

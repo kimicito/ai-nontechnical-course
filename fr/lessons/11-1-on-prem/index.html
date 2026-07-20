@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>12.1 Tâches MRO internes — on-prem — AI pour les non-informaticiens</title>
+<title>12.1 Tâches internes de GMAO — on-prem — IA pour Non-Informaticiens</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -57,440 +57,440 @@
 <body>
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">AI pour les non-informaticiens</a>
+    <a href="../../index.html" class="logo">IA pour Non-Informaticiens</a>
   </div>
 </header>
 
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Niveau 12 — Maintenance & Réparation (MRO)</div>
-    <h1>12.1 Tâches MRO internes</h1>
+    <div class="phase">Niveau 12 — GMAO (Maintenance et Réparations)</div>
+    <h1>12.1 Tâches internes de GMAO</h1>
     <div class="meta">⏱ 20 min · pour ingénieurs de fiabilité et mécaniciens</div>
   </div>
 
   <div class="card card-accent">
-    <strong>Circuit fermé (on-prem)</strong><br>
-    Все задачи этого урока работают с <span class="highlight">конкретным оборудованием, реальными отказами, финансовыми данными</span>. Используйте внутреннюю модель или локальный LLM.
+    <strong>Boucle fermée (on-prem)</strong><br>
+    Toutes les tâches de cette leçon fonctionnent avec <span class="highlight">du matériel spécifique, des pannes réelles, des données financières</span>. Utilisez le modèle interne ou un LLM local.
   </div>
 
   <div class="section">
-    <h2>Pourquoi on-prem est crucial pour MRO</h2>
-    <p>Данные ТОиР — это не просто списки запчастей. Это:</p>
+    <h2>Pourquoi on-prem est important pour la GMAO</h2>
+    <p>Les données de GMAO ne sont pas de simples listes de pièces de rechange. C'est :</p>
     <ul>
-      <li><strong>Состояние реальных активов</strong> — дефектные ведомости описывают износ конкретных машин</li>
-      <li><strong>Производственная уязвимость</strong> — история отказов раскрывает слабые места линий</li>
-      <li><strong>Финансовые обязательства</strong> — акты выполненных работ, основание для оплаты подрядчикам</li>
-      <li><strong>Конкурентная информация</strong> — простои, планировка ремонтов, бюджеты</li>
+      <li><strong>L'état des actifs réels</strong> — les rapports de défauts décrivent l'usure des machines spécifiques</li>
+      <li><strong>La vulnérabilité de production</strong> — l'historique des pannes révèle les points faibles des lignes</li>
+      <li><strong>Les obligations financières</strong> — les bons de travail, base de paiement aux sous-traitants</li>
+      <li><strong>L'information concurrentielle</strong> — les temps d'arrêt, la planification des réparations, les budgets</li>
     </ul>
   </div>
 
   <div class="card card-warning">
-    <strong>Когда on-prem обязателен:</strong>
+    <strong>Quand on-prem est obligatoire :</strong>
     <ul>
-      <li>Дефектные ведомости по конкретному оборудованию</li>
-      <li>Root-cause анализ с реальными данными отказов</li>
-      <li>Спецификации запчастей с номенклатурой завода</li>
-      <li>История отказов и MTBF (внутренняя надёжность)</li>
-      <li>Ремонтная документация (акты, отчёты) — финансово значимо</li>
-      <li>Переписка с поставщиками (коммерческие условия)</li>
-      <li>Претензионная работа (юридически значимо)</li>
-      <li>Интерпретация вибродиагностики/НК по конкретным единицам</li>
-      <li>Отчёты по надёжности для руководства</li>
-      <li>Анализ простоев и причин (может затрагивать персонал)</li>
-      <li>Обоснование бюджета на ремонты</li>
-      <li>Обоснование «ремонт vs замена» — инвестиционное решение</li>
-      <li>Анализ предложений подрядчиков на капремонт</li>
+      <li>Rapports de défauts pour un équipement spécifique</li>
+      <li>Analyse des causes racines avec des données de pannes réelles</li>
+      <li>Spécifications de pièces de rechange avec nomenclature d'usine</li>
+      <li>Historique des pannes et MTBF (fiabilité interne)</li>
+      <li>Documentation de maintenance (bons, rapports) — importance financière</li>
+      <li>Correspondance avec les fournisseurs (conditions commerciales)</li>
+      <li>Travail réclamationnaire (importance juridique)</li>
+      <li>Interprétation des diagnostics vibratoires/CND par unité spécifique</li>
+      <li>Rapports de fiabilité pour la direction</li>
+      <li>Analyse des temps d'arrêt et de leurs causes (peut toucher au personnel)</li>
+      <li>Justification du budget de maintenance</li>
+      <li>Justification « réparation vs remplacement » — décision d'investissement</li>
+      <li>Analyse des propositions de sous-traitants pour révision générale</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>1. Разработка и актуализация графиков ППР</h2>
-    <p>Планово-предупредительные ремонты (ППР) — основа планирования. LLM помогает актуализировать графики на основе фактических данных.</p>
+    <h2>1. Développement et actualisation des calendriers de maintenance préventive</h2>
+    <p>Les réparations planifiées et préventives — base de la planification. Le LLM aide à actualiser les calendriers sur la base des données réelles.</p>
     <div class="example">
-      <div class="example-label">Пример промпта (on-prem)</div>
-      <pre>Актуализируй график ППР цеха №3 на III квартал 2026:
+      <div class="example-label">Exemple de prompt (on-prem)</div>
+      <pre>Actualise le calendrier de maintenance préventive de l'atelier n°3 pour le troisième trimestre 2026 :
 
-Исходные данные:
-- Текущий график: КР мельницы М-3 (август), ТР компрессоров (июль, сентябрь)
-- Факт: компрессор К-05 отказал 2026-07-10, требуется внеплановый ремонт
-- Ресурс: бригада механиков — 6 человек, доступность — 80%
-- Ограничения: август — отпускной период, 2 человека в отпуске
+Données de base :
+- Calendrier actuel : révision générale du moulin M-3 (août), révision de moteurs (juillet, septembre)
+- Fait : le compresseur K-05 est tombé en panne le 10/07/2026, nécessite une réparation non planifiée
+- Ressource : brigade de mécaniciens — 6 personnes, disponibilité — 80 %
+- Contraintes : août — période de congés, 2 personnes en congé
 
-Сделай:
-1. Корректировку графика с учётом внепланового ремонта К-05
-2. Перераспределение работ между июлем и сентябрем
-3. Оценку загрузки бригады (чел/час) по месяцам
-4. Риски: что сдвинется, если появятся ещё внеплановые
-5. Рекомендации по резерву мощности</pre>
+Réalise :
+1. Ajustement du calendrier en tenant compte de la réparation non planifiée du K-05
+2. Redistribution des travaux entre juillet et septembre
+3. Évaluation de la charge de la brigade (h/pers) par mois
+4. Risques : quoi sera décalé si d'autres imprévus surviennent
+5. Recommandations sur la réserve de capacité</pre>
     </div>
-    <p><strong>Результат:</strong> скорректированный график ППР, экономит 2–3 часа.</p>
+    <p><strong>Résultat :</strong> calendrier de maintenance corrigé, économise 2–3 heures.</p>
   </div>
 
   <div class="section">
-    <h2>2. Формирование дефектных ведомостей</h2>
-    <p>После осмотра оборудования — систематизировать выявленные дефекты в стандартный документ.</p>
+    <h2>2. Rédaction des rapports de défauts</h2>
+    <p>Après l'inspection de l'équipement — systématiser les défauts identifiés dans un document standard.</p>
     <div class="example">
-      <div class="example-label">Пример промпта (on-prem LLM)</div>
-      <pre>На основании данных осмотра электродвигателя ЭД-37 (цех №3):
-- Вибрация подшипника НД: 8.2 мм/с (норма ≤4.5)
-- Температура обмотки: 127°C (норма ≤105)
-- Масло в подшипнике: потемнение, примеси
-- Люфт вала: 0.35 мм (норма ≤0.1)
+      <div class="example-label">Exemple de prompt (LLM on-prem)</div>
+      <pre>Sur la base des données d'inspection du moteur électrique ME-37 (atelier n°3) :
+- Vibration du palier côté pompe : 8,2 mm/s (norme ≤4,5)
+- Température de l'enroulement : 127°C (norme ≤105)
+- Huile dans le palier : noircissement, impuretés
+- Jeu de l'arbre : 0,35 mm (norme ≤0,1)
 
-Сформируй дефектную ведомость по форме:
-1. Наименование оборудования, инв. номер
-2. Выявленные дефекты (перечень)
-3. Оценка критичности (критический / значительный / незначительный)
-4. Рекомендуемые мероприятия
-5. Срок устранения
-6. Ответственное подразделение</pre>
+Rédige un rapport de défauts selon le formulaire :
+1. Désignation de l'équipement, n° d'inventaire
+2. Défauts identifiés (liste)
+3. Évaluation de la criticité (critique / significatif / mineur)
+4. Mesures recommandées
+5. Délai de correction
+6. Service responsable</pre>
     </div>
-    <p><strong>Результат:</strong> готовая дефектная ведомость, экономит 30 мин на оформление.</p>
+    <p><strong>Résultat :</strong> rapport de défauts prêt, économise 30 min de rédaction.</p>
   </div>
 
   <div class="section">
-    <h2>2. Analyse root-cause des pannes (RCA, 5 Why)</h2>
-    <p>Расследование причин отказа с привязкой к конкретной единице оборудования.</p>
+    <h2>2. Analyse des causes racines des pannes (ACR, 5 Pourquoi)</h2>
+    <p>Enquête sur les causes de la panne avec rattachement à une unité d'équipement spécifique.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Отказ: насос П-12 (перекачка шлама, цех обжига) остановлен 2026-07-15 03:20.
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Panne : la pompe P-12 (transfert de boues, atelier de cuisson) arrêtée le 15/07/2026 à 03:20.
 
-Данные:
-- Наработка с момента последнего ремонта: 4 847 ч
-- Предыдущий отказ: 2025-11-03, замена подшипников
-- Текущие параметры перед остановкой: вибрация 12.4 мм/с, температура 89°C
-- Визуальный осмотр: разрушение рабочего колеса, задиры на втулке
+Données :
+- Heures de fonctionnement depuis la dernière réparation : 4 847 h
+- Panne précédente : 03/11/2025, remplacement des paliers
+- Paramètres actuels avant l'arrêt : vibration 12,4 mm/s, température 89°C
+- Inspection visuelle : destruction de la roue de travail, rayures sur la douille
 
-Проведи root-cause анализ:
-1. 5 Why (5 уровней «почему»)
-2. Диаграмма Ishikawa (6M: Man, Machine, Material, Method, Milieu, Measurement)
-3. Основная причина отказа
-4. Корректирующие действия (краткосрочные)
-5. Превентивные действия (долгосрочные)
-6. Рекомендации по изменению графика ТО</pre>
+Effectue une analyse des causes racines :
+1. 5 Pourquoi (5 niveaux de « pourquoi »)
+2. Diagramme d'Ishikawa (6M : Homme, Machine, Matière, Méthode, Milieu, Mesure)
+3. Cause principale de la panne
+4. Actions correctives (court terme)
+5. Actions préventives (long terme)
+6. Recommandations pour modifier le calendrier de maintenance</pre>
     </div>
-    <p><strong>Результат:</strong> структурированное расследование, экономит 2–3 часа.</p>
+    <p><strong>Résultat :</strong> enquête structurée, économise 2–3 heures.</p>
   </div>
 
   <div class="section">
-    <h2>3. Préparation des spécifications de pièces</h2>
-    <p>Для конкретного ремонта — список необходимых материалов и запчастей с привязкой к номенклатуре.</p>
+    <h2>3. Préparation des spécifications de pièces de rechange</h2>
+    <p>Pour une réparation spécifique — liste des matériaux et pièces de rechange nécessaires avec rattachement à la nomenclature.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Требуется капитальный ремонт редуктора Р-08 (привод мельницы М-3).
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Une révision générale du réducteur R-08 (entraînement du moulin M-3) est nécessaire.
 
-По результатам дефектовки:
-- Подшипники 22320 (2 шт.) — износ, замена
-- Валы промежуточный — износ шеек (требуется наплавка + шлифовка)
-- Шестерни цилиндрические — задиры на зубьях (замена)
-- Сальники 80×100×10 (4 шт.)
-- Масло И-40А — 45 л (промывка + заливка)
+Résultats de l'expertise :
+- Roulements 22320 (2 pcs.) — usure, remplacement
+- Arbres intermédiaires — usure des tourillons (nécessite rechargement + rectification)
+- Engrenages cylindriques — rayures sur les dents (remplacement)
+- Joints d'étanchéité 80×100×10 (4 pcs.)
+- Huile I-40A — 45 L (rinçage + remplissage)
 
-Подготовь спецификацию запчастей и материалов:
-1. Позиция, наименование, чертёж/ГОСТ
-2. Количество, ед. измерения
-3. Код по номенклатуре предприятия (если есть)
-4. Рекомендуемый поставщик (из базы утверждённых)
-5. Ориентировочная цена за единицу
-6. Срок поставки
-7. Признак: складская / под заказ
+Prépare la spécification des pièces de rechange et matériaux :
+1. Position, désignation, dessin/GOST
+2. Quantité, unité de mesure
+3. Code selon la nomenclature de l'entreprise (si disponible)
+4. Fournisseur recommandé (de la base des fournisseurs agréés)
+5. Prix indicatif à l'unité
+6. Délai de livraison
+7. Indicateur : stock / sur commande
 
-Добавь примечания по замене (например: аналоги, если оригинал недоступен).</pre>
+Ajoute des notes sur le remplacement (par exemple : équivalents si l'original n'est pas disponible).</pre>
     </div>
-    <p><strong>Результат:</strong> готовая спецификация для закупки, экономит 1 час.</p>
+    <p><strong>Résultat :</strong> spécification prête pour l'achat, économise 1 heure.</p>
   </div>
 
   <div class="section">
-    <h2>4. Analyse historique et MTBF</h2>
-    <p>Расчёт средней наработки на отказ и выявление закономерностей.</p>
+    <h2>4. Analyse de l'historique des pannes et du MTBF</h2>
+    <p>Calcul du temps moyen de fonctionnement avant panne et identification des tendances.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>История отказов компрессора К-05 (цех подготовки):
-- 2024-03-12: отказ клапана всасывания, наработка 3 200 ч
-- 2024-09-08: перегрев подшипника, наработка 2 850 ч
-- 2025-02-20: разрушение сальника, наработка 2 100 ч
-- 2025-08-15: поломка шатуна, наработка 2 400 ч
-- 2026-01-30: износ клапана нагнетания, наработка 2 650 ч
-- 2026-07-10: перегрев подшипника (повторно), наработка 2 200 ч
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Historique des pannes du compresseur K-05 (atelier de préparation) :
+- 12/03/2024 : panne de la soupape d'aspiration, fonctionnement 3 200 h
+- 08/09/2024 : surchauffe du palier, fonctionnement 2 850 h
+- 20/02/2025 : destruction du joint d'étanchéité, fonctionnement 2 100 h
+- 15/08/2025 : rupture de la bielle, fonctionnement 2 400 h
+- 30/01/2026 : usure de la soupape de refoulement, fonctionnement 2 650 h
+- 10/07/2026 : surchauffe du palier (répétition), fonctionnement 2 200 h
 
-Проанализируй:
-1. MTBF за период (средняя наработка между отказами)
-2. Тренд MTBF (улучшается / ухудшается / стабилен)
-3. Частые отказы (какие узлы чаще всего)
-4. Рекомендации по изменению графика ТО
-5. Прогноз: когда ожидать следующий отказ</pre>
+Analyse :
+1. MTBF sur la période (temps moyen de fonctionnement entre pannes)
+2. Tendance du MTBF (s'améliore / se dégrade / stable)
+3. Pannes fréquentes (quels sous-ensembles le plus souvent)
+4. Recommandations pour modifier le calendrier de maintenance
+5. Prévision : quand s'attendre à la prochaine panne</pre>
     </div>
-    <p><strong>Результат:</strong> статистический анализ для планирования, экономит 1.5 часа.</p>
+    <p><strong>Résultat :</strong> analyse statistique pour la planification, économise 1,5 heure.</p>
   </div>
 
   <div class="section">
-    <h2>5. Подготовка ТЗ на капитальный ремонт</h2>
-    <p>Техническое задание — основной документ для подрядчика. Содержит объём работ, технические требования, сроки.</p>
+    <h2>5. Préparation du cahier des charges pour révision générale</h2>
+    <p>Le cahier des charges — document principal pour le sous-traitant. Contient le volume des travaux, les exigences techniques, les délais.</p>
     <div class="example">
-      <div class="example-label">Пример промпта (on-prem)</div>
-      <pre>Подготовь ТЗ на капитальный ремонт мельницы М-3 (инв. № М-03-2012):
+      <div class="example-label">Exemple de prompt (on-prem)</div>
+      <pre>Prépare le cahier des charges pour la révision générale du moulin M-3 (n° d'inv. M-03-2012) :
 
-Технические данные:
-- Год ввода: 2012, наработка: 87 400 ч
-- Последний КР: 2021
-- Тип: шаровая мельница 3.2×15 м, производительность 120 т/ч
-- Привод: редуктор Р-08, двигатель 800 кВт
+Données techniques :
+- Année de mise en service : 2012, heures de fonctionnement : 87 400 h
+- Dernière RG : 2021
+- Type : moulin à billes 3,2×15 m, capacité 120 t/h
+- Entraînement : réducteur R-08, moteur 800 kW
 
-Перечень работ (по результатам дефектовки):
-1. Замена бронефутеровки (комплект, ~45 т)
-2. Ремонт/замена редуктора Р-08
-3. Замена системы смазки (насосы, трубопроводы)
-4. Ремонт торцевых уплотнений
-5. Испытания (холостой ход, под нагрузкой)
-6. Приёмочные критерии (вибрация ≤4.5 мм/с, температура ≤65°C)
+Liste des travaux (selon les résultats de l'expertise) :
+1. Remplacement du blindage (ensemble, ~45 t)
+2. Réparation/remplacement du réducteur R-08
+3. Remplacement du système de lubrification (pompes, tuyauteries)
+4. Réparation des joints d'extrémité
+5. Essais (marche à vide, sous charge)
+6. Critères de réception (vibration ≤4,5 mm/s, température ≤65°C)
 
-Требования:
-- Срок выполнения: 21 календарный день
-- Гарантия: 18 месяцев
-- Документация: акты скрытых работ, сертификаты на материалы, фотоотчёт</pre>
+Exigences :
+- Délai d'exécution : 21 jours calendaires
+- Garantie : 18 mois
+- Documentation : bons de travaux dissimulés, certificats sur les matériaux, rapport photo</pre>
     </div>
-    <p><strong>Результат:</strong> готовое ТЗ для тендера, экономит 3–4 часа.</p>
+    <p><strong>Résultat :</strong> cahier des charges prêt pour l'appel d'offres, économise 3–4 heures.</p>
   </div>
 
   <div class="section">
-    <h2>6. Ремонтная документация (акты, отчёты)</h2>
-    <p>Оформление документов по выполненным работам — основание для оплаты подрядчику.</p>
+    <h2>6. Documentation de maintenance (bons, rapports)</h2>
+    <p>Rédaction des documents sur les travaux effectués — base de paiement au sous-traitant.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Составь акт выполненных работ по капитальному ремонту трансформатора Т-14:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Rédige un bon de travaux pour la révision générale du transformateur T-14 :
 
-Выполненные работы:
-- Замена масла (30 000 л)
-- Ремонт баков (сварка, герметизация)
-- Замена вводов ВН (6 шт.)
-- Испытания (пробивное напряжение, tg δ)
-- Покраска корпуса
+Travaux effectués :
+- Remplacement de l'huile (30 000 L)
+- Réparation des réservoirs (soudure, étanchéification)
+- Remplacement des bornes HT (6 pcs.)
+- Essais (tension de rupture, tg δ)
+- Peinture du corps
 
-Исполнитель: ООО «ЭнергоРемонт»
-Договор № 45/2026 от 15.01.2026
-Срок выполнения: 2026-07-01 — 2026-07-14
+Exécutant : SARL « ÉnergoRéparation »
+Contrat n° 45/2026 du 15/01/2026
+Délai d'exécution : 01/07/2026 — 14/07/2026
 
-Формат: акт по типовой форме, с приложениями (скрытые работы, испытания).</pre>
+Format : bon selon le formulaire type, avec annexes (travaux dissimulés, essais).</pre>
     </div>
-    <p><strong>Результат:</strong> готовый акт, экономит 45 мин.</p>
+    <p><strong>Résultat :</strong> bon prêt, économise 45 min.</p>
   </div>
 
   <div class="section">
-    <h2>7. Переписка с поставщиками и сервисными компаниями</h2>
-    <p>Согласование условий поставки запчастей, сроков сервисного обслуживания.</p>
+    <h2>7. Correspondance avec les fournisseurs et sociétés de service</h2>
+    <p>Accord sur les conditions de livraison des pièces de rechange, délais de maintenance.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь письмо поставщику ООО «ТехноСнаб» по запросу:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une lettre au fournisseur SARL « TechnoAppro » pour la demande :
 
-Тема: Уточнение сроков поставки подшипников 22320 для редуктора Р-08
+Objet : Précision des délais de livraison des roulements 22320 pour le réducteur R-08
 
-Контекст:
-- Заказ размещён 2026-06-20 (заявка № З-1847)
-- Обещанный срок: 4 недели
-- Текущий статус: не поступило, срок поджимает (ремонт запланирован на 2026-08-05)
-- Альтернатива: подшипники SKF аналогичного типа (уточнить совместимость)
+Contexte :
+- Commande passée le 20/06/2026 (demande n° D-1847)
+- Délai promis : 4 semaines
+- Statut actuel : non reçu, le délau se resserre (réparation prévue le 05/08/2026)
+- Alternative : roulements SKF de type similaire (préciser la compatibilité)
 
-Тон: деловой, срочность, но без конфликта. Упомянуть возможность применения пеней по договору.</pre>
+Ton : professionnel, urgence, mais sans conflit. Mentionner la possibilité d'application de pénalités selon le contrat.</pre>
     </div>
-    <p><strong>Результат:</strong> готовое письмо, экономит 20 min.</p>
+    <p><strong>Résultat :</strong> lettre prête, économise 20 min.</p>
   </div>
 
   <div class="section">
-    <h2>8. Претензионная работа по гарантийным случаям</h2>
-    <p>Обоснование претензии к поставщику или подрядчику по гарантийному отказу.</p>
+    <h2>8. Travail réclamationnaire sur les cas de garantie</h2>
+    <p>Justification de la réclamation au fournisseur ou sous-traitant pour une panne sous garantie.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь претензию по гарантийному случаю:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une réclamation pour un cas de garantie :
 
-Оборудование: вентилятор ВО-16, поставщик ООО «ВентПром»
-Договор: № 78/2025 от 10.03.2025
-Гарантийный срок: 18 месяцев
-Дата ввода в эксплуатацию: 2025-06-15
+Équipement : ventilateur VO-16, fournisseur SARL « VentProm »
+Contrat : n° 78/2025 du 10/03/2025
+Délai de garantie : 18 mois
+Date de mise en service : 15/06/2025
 
-Неисправность: обрыв лопатки рабочего колеса (2026-07-08)
-Причина (по предварительной оценке): дефект литья (пористость в зоне крепления)
-Наработка на момент отказа: 8 420 ч (в пределах гарантии)
+Défaut : rupture d'une aube de la roue de travail (08/07/2026)
+Cause (selon l'évaluation préliminaire) : défaut de coulée (porosité dans la zone de fixation)
+Heures de fonctionnement au moment de la panne : 8 420 h (dans la garantie)
 
-Требования:
-1. Бесплатная замена рабочего колеса
-2. Возмещение расходов на демонтаж/монтаж
-3. Возмещение убытков от простоя (2 смены)
+Exigences :
+1. Remplacement gratuit de la roue de travail
+2. Indemnisation des frais de démontage/remontage
+3. Indemnisation des pertes dues à l'arrêt (2 équipes)
 
-Приложения: акт осмотра, фото дефекта, заключение лаборатории.</pre>
+Annexes : bon d'inspection, photo du défaut, conclusion du laboratoire.</pre>
     </div>
-    <p><strong>Результат:</strong> юридически грамотная претензия, экономит 1–1.5 часа.</p>
+    <p><strong>Résultat :</strong> réclamation juridiquement correcte, économise 1–1,5 heure.</p>
   </div>
 
   <div class="section">
-    <h2>9. Интерпретация отчётов вибродиагностики и НК</h2>
-    <p>Текстовый анализ готовых отчётов — не замена DSP/ML, но помощь в формулировке выводов.</p>
+    <h2>9. Interprétation des rapports de diagnostic vibratoire et CND</h2>
+    <p>Analyse textuelle des rapports prêts — ne remplace pas le traitement du signal/ML, mais aide à formuler des conclusions.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Интерпретируй отчёт вибродиагностики насоса П-12:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Interprète le rapport de diagnostic vibratoire de la pompe P-12 :
 
-Данные:
-- Точка измерения: подшипник НД, радиальная вибрация
-- Значения (мм/с): общая — 8.2, 1× — 5.1, 2× — 1.8, 3× — 0.4, BPF — 0.3
-- Тренд за 3 месяца: рост с 4.8 до 8.2 мм/с
-- Температура подшипника: 67°C (норма ≤65)
+Données :
+- Point de mesure : palier côté pompe, vibration radiale
+- Valeurs (mm/s) : totale — 8,2, 1× — 5,1, 2× — 1,8, 3× — 0,4, BPF — 0,3
+- Tendance sur 3 mois : augmentation de 4,8 à 8,2 mm/s
+- Température du palier : 67°C (norme ≤65)
 
-Сделай выводы:
-1. Что показывает спектр (преобладающая частота)
-2. Вероятная причина (небаланс / неисправность подшипника / кавитация / др.)
-3. Рекомендации (срочность, мероприятия)
-4. Прогноз: через сколько часов критический уровень</pre>
+Formule des conclusions :
+1. Ce que montre le spectre (fréquence prédominante)
+2. Cause probable (déséquilibre / défaut de palier / cavitation / etc.)
+3. Recommandations (urgence, mesures)
+4. Prévision : dans combien d'heures le niveau critique</pre>
     </div>
-    <p><strong>Результат:</strong> структурированная интерпретация, экономит 30 мин.</p>
+    <p><strong>Résultat :</strong> interprétation structurée, économise 30 min.</p>
   </div>
 
   <div class="section">
-    <h2>10. Отчёты по надёжности для руководства</h2>
-    <p>Управленческая сводка по состоянию оборудования и трендам.</p>
+    <h2>10. Rapports de fiabilité pour la direction</h2>
+    <p>Synthèse managériale sur l'état de l'équipement et les tendances.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь ежемесячный отчёт по надёжности оборудования цеха №3 за июнь 2026:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare le rapport mensuel de fiabilité de l'équipement de l'atelier n°3 pour juin 2026 :
 
-Данные:
-- Всего единиц оборудования: 147
-- Отказов: 12 (в мае было 8)
-- Плановых ремонтов: 5
-- Внеплановых остановок: 7
-- Общий простой: 34 часа
-- Средний MTBF: 2 340 ч (в мае: 2 680 ч)
-- Критические отказы: 2 (компрессор К-05, насос П-12)
+Données :
+- Total d'unités d'équipement : 147
+- Pannes : 12 (en mai il y en avait 8)
+- Réparations planifiées : 5
+- Arrêts non planifiés : 7
+- Arrêt total : 34 heures
+- MTBF moyen : 2 340 h (en mai : 2 680 h)
+- Pannes critiques : 2 (compresseur K-05, pompe P-12)
 
-Формат: 1 страница А4 для директора по производству.
-Структура: ключевые метрики, тренды, проблемные зоны, рекомендации.</pre>
+Format : 1 page A4 pour le directeur de production.
+Structure : indicateurs clés, tendances, zones problématiques, recommandations.</pre>
     </div>
-    <p><strong>Результат:</strong> готовый отчёт, экономит 1 час.</p>
+    <p><strong>Résultat :</strong> rapport prêt, économise 1 heure.</p>
   </div>
 
   <div class="section">
-    <h2>11. Анализ простоев и их причин</h2>
-    <p>Распределение простоев по типам, оборудованию, причинам — для принятия решений.</p>
+    <h2>11. Analyse des temps d'arrêt et de leurs causes</h2>
+    <p>Répartition des temps d'arrêt par type, équipement, causes — pour la prise de décision.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Анализ простоев цеха №3 за II квартал 2026:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Analyse des temps d'arrêt de l'atelier n°3 pour le deuxième trimestre 2026 :
 
-Данные (в часах):
-- Оборудование: насосы — 28, компрессоры — 45, транспортёры — 12, мельницы — 38
-- Причины: износ — 67, операторская ошибка — 18, внешние факторы — 14, прочее — 24
-- Смены: дневная — 61, ночная — 62
+Données (en heures) :
+- Équipement : pompes — 28, compresseurs — 45, convoyeurs — 12, moulins — 38
+- Causes : usure — 67, erreur d'opérateur — 18, facteurs externes — 14, autres — 24
+- Équipes : jour — 61, nuit — 62
 
-Проведи анализ:
-1. Pareto-распределение (80/20) — что даёт основной простой
-2. Тренд vs I квартал
-3. Зоны риска (оборудование с ростом простоев)
-4. Рекомендации (ТО, замена, обучение)</pre>
+Effectue l'analyse :
+1. Répartition de Pareto (80/20) — quoi cause l'essentiel des arrêts
+2. Tendance par rapport au premier trimestre
+3. Zones à risque (équipement avec augmentation des arrêts)
+4. Recommandations (maintenance, remplacement, formation)</pre>
     </div>
-    <p><strong>Результат:</strong> аналитика для планирования, экономит 1.5 часа.</p>
+    <p><strong>Résultat :</strong> analyse pour la planification, économise 1,5 heure.</p>
   </div>
 
   <div class="section">
-    <h2>13. Обоснование бюджета на ремонты</h2>
-    <p>Финансовое обоснование необходимых ремонтных расходов.</p>
+    <h2>13. Justification du budget de maintenance</h2>
+    <p>Justification financière des dépenses de maintenance nécessaires.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь обоснование бюджета на ремонты цеха №3 на 2027 год:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare la justification du budget de maintenance de l'atelier n°3 pour 2027 :
 
-Исходные данные:
-- Факт 2026: 47.3 млн ₽ (план: 42 млн, перерасход 12.6%)
-- Основные статьи перерасхода: внеплановые откасы компрессоров (+8.2 млн), замена транспортёра Т-04 (+4.1 млн)
-- Плановые ремонты 2027: КР мельницы М-3 (15 млн), ТР компрессоров (12 млн), текущий ремонт (18 млн)
-- Резерв на внеплановые: 8 млн
-- Инфляция/дорожание запчастей: +8%
+Données de base :
+- Réel 2026 : 47,3 M₽ (prévision : 42 M₽, dépassement 12,6 %)
+- Principaux postes de dépassement : pannes non planifiées des compresseurs (+8,2 M₽), remplacement du convoyeur T-04 (+4,1 M₽)
+- Réparations planifiées 2027 : RG du moulin M-3 (15 M₽), révision des compresseurs (12 M₽), maintenance courante (18 M₽)
+- Réserve pour imprévus : 8 M₽
+- Inflation/hausse des pièces de rechange : +8 %
 
-Итого: 57.8 млн ₽ (+22% vs 2026)
+Total : 57,8 M₽ (+22 % vs 2026)
 
-Подготовь обоснование для финансового директора: почему +22%, что будет если сократить, какие риски.</pre>
+Prépare la justification pour le directeur financier : pourquoi +22 %, que se passera-t-il si on réduit, quels risques.</pre>
     </div>
-    <p><strong>Результат:</strong> обоснование для совета директоров, экономит 2–3 часа.</p>
+    <p><strong>Résultat :</strong> justification pour le conseil d'administration, économise 2–3 heures.</p>
   </div>
 
   <div class="section">
-    <h2>12. Justification «réparation vs remplacement»</h2>
-    <p>Инвестиционное решение — чинить старое или купить новое.</p>
+    <h2>12. Justification « réparation vs remplacement »</h2>
+    <p>Décision d'investissement — réparer l'ancien ou acheter du neuf.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Обоснуй решение: ремонтировать или заменить компрессор К-05?
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Justifie la décision : réparer ou remplacer le compresseur K-05 ?
 
-Данные:
-- Год выпуска: 2012 (14 лет эксплуатации)
-- Стоимость КР: 8.5 млн ₽ (прогноз)
-- Стоимость нового аналога: 32 млн ₽
-- MTBF после КР (история): ~2 800 ч
-- MTBF нового: ~8 000 ч
-- Энергопотребление старого: на 18% выше нового
-- Стоимость запчастей в год: 2.1 млн ₽
-- Остаточная стоимость старого: 0
+Données :
+- Année de fabrication : 2012 (14 ans d'exploitation)
+- Coût de la RG : 8,5 M₽ (prévision)
+- Coût d'un équivalent neuf : 32 M₽
+- MTBF après RG (historique) : ~2 800 h
+- MTBF du neuf : ~8 000 h
+- Consommation énergétique de l'ancien : 18 % supérieure au neuf
+- Coût des pièces de rechange par an : 2,1 M₽
+- Valeur résiduelle de l'ancien : 0
 
-Сделай сравнительный анализ (3 года, 5 лет, 10 лет), учитывая:
-- CAPEX (капитальные затраты)
-- OPEX (эксплуатация, запчасти, энергия)
-- Простои (потеря производства)
-- Риски (неопределённость MTBF после КР)</pre>
+Effectue une analyse comparative (3 ans, 5 ans, 10 ans), en tenant compte de :
+- CAPEX (dépenses d'investissement)
+- OPEX (exploitation, pièces de rechange, énergie)
+- Temps d'arrêt (perte de production)
+- Risques (incertitude du MTBF après RG)</pre>
     </div>
-    <p><strong>Результат:</strong> обоснованное решение с цифрами, экономит 3–4 часа.</p>
+    <p><strong>Résultat :</strong> décision justifiée avec des chiffres, économise 3–4 heures.</p>
   </div>
 
   <div class="section">
-    <h2>14. Анализ предложений подрядчиков на капремонт</h2>
-    <p>Сравнение коммерческих предложений по критериям цена/сроки/опыт.</p>
+    <h2>14. Analyse des propositions de sous-traitants pour révision générale</h2>
+    <p>Comparaison des propositions commerciales selon les critères prix/délais/expérience.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>ТЗ: капитальный ремонт мельницы М-3 (замена бронефутеровки, редуктор, система смазки).
+      <div class="example-label">Exemple de prompt</div>
+      <pre>CdC : révision générale du moulin M-3 (remplacement du blindage, réducteur, système de lubrification).
 
-Предложения подрядчиков:
-1. ООО «МеталлРемонт» — 15.2 млн, 21 день, 5 аналогичных объектов, гарантия 12 мес.
-2. ООО «ГорТехСервис» — 13.8 млн, 28 дней, 12 объектов, гарантия 18 мес.
-3. ООО «СибРемСтрой» — 14.5 млн, 18 дней, 3 объекта, гарантия 6 мес.
+Propositions des sous-traitants :
+1. SARL « MétalRéparation » — 15,2 M₽, 21 jours, 5 objets analogues, garantie 12 mois
+2. SARL « GorTechService » — 13,8 M₽, 28 jours, 12 objets, garantie 18 mois
+3. SARL « SibRéparationConstruction » — 14,5 M₽, 18 jours, 3 objets, garantie 6 mois
 
-Критерии (вес):
-- Цена (30%), срок (25%), опыт (20%), гарантия (15%), отзывы (10%)
+Critères (poids) :
+- Prix (30 %), délai (25 %), expérience (20 %), garantie (15 %), avis (10 %)
 
-Сделай сравнительную таблицу и рекомендацию.</pre>
+Réalise un tableau comparatif et une recommandation.</pre>
     </div>
-    <p><strong>Результат:</strong> обоснованный выбор подрядчика, экономит 2 часа.</p>
+    <p><strong>Résultat :</strong> choix de sous-traitant justifié, économise 2 heures.</p>
   </div>
 
   <div class="section">
     <h2>Tableau récapitulatif</h2>
     <table>
-      <tr><th>Tâche</th><th>Besoins</th><th>Format sortie</th><th>Gain de temps</th></tr>
-      <tr><td>Дефектные ведомости</td><td>Данные осмотра</td><td>Документ по форме</td><td>30 мин</td></tr>
-      <tr><td>RCA / 5 Why</td><td>Данные отказа, история</td><td>Отчёт с Ishikawa</td><td>2–3 ч</td></tr>
-      <tr><td>Спецификации запчастей</td><td>Результаты дефектовки</td><td>Таблица для закупки</td><td>1 ч</td></tr>
-      <tr><td>MTBF-анализ</td><td>История отказов</td><td>Статистика + прогноз</td><td>1.5 ч</td></tr>
-      <tr><td>Ремонтная документация</td><td>Перечень работ</td><td>Акт, отчёт</td><td>45 мин</td></tr>
-      <tr><td>Переписка с поставщиками</td><td>Контекст запроса</td><td>Письмо</td><td>20 min</td></tr>
-      <tr><td>Претензионная работа</td><td>Данные гарантийного случая</td><td>Претензия</td><td>1–1.5 ч</td></tr>
-      <tr><td>Интерпретация вибро/НК</td><td>Отчёт диагностики</td><td>Выводы + рекомендации</td><td>30 мин</td></tr>
-      <tr><td>Отчёт по надёжности</td><td>Метрики за период</td><td>Сводка для руководства</td><td>1 ч</td></tr>
-      <tr><td>Анализ простоев</td><td>Данные простоев</td><td>Pareto + тренды</td><td>1.5 ч</td></tr>
-      <tr><td>Бюджет на ремонты</td><td>История, планы, риски</td><td>Обоснование</td><td>2–3 ч</td></tr>
-      <tr><td>Ремонт vs замена</td><td>Данные по оборудованию</td><td>Сравнительный анализ</td><td>3–4 ч</td></tr>
-      <tr><td>Анализ подрядчиков</td><td>Предложения, критерии</td><td>Таблица + рекомендация</td><td>2 ч</td></tr>
+      <tr><th>Tâche</th><th>Ce qu'il faut</th><th>Format de sortie</th><th>Gain de temps</th></tr>
+      <tr><td>Rapports de défauts</td><td>Données d'inspection</td><td>Document selon formulaire</td><td>30 min</td></tr>
+      <tr><td>ACR / 5 Pourquoi</td><td>Données de panne, historique</td><td>Rapport avec Ishikawa</td><td>2–3 h</td></tr>
+      <tr><td>Spécifications de pièces</td><td>Résultats d'expertise</td><td>Tableau pour achat</td><td>1 h</td></tr>
+      <tr><td>Analyse MTBF</td><td>Historique des pannes</td><td>Statistiques + prévision</td><td>1,5 h</td></tr>
+      <tr><td>Documentation de maintenance</td><td>Liste des travaux</td><td>Bon, rapport</td><td>45 min</td></tr>
+      <tr><td>Correspondance avec fournisseurs</td><td>Contexte de la demande</td><td>Lettre</td><td>20 min</td></tr>
+      <tr><td>Travail réclamationnaire</td><td>Données du cas de garantie</td><td>Réclamation</td><td>1–1,5 h</td></tr>
+      <tr><td>Interprétation vibro/CND</td><td>Rapport de diagnostic</td><td>Conclusions + recommandations</td><td>30 min</td></tr>
+      <tr><td>Rapport de fiabilité</td><td>Indicateurs sur la période</td><td>Synthèse pour la direction</td><td>1 h</td></tr>
+      <tr><td>Analyse des temps d'arrêt</td><td>Données d'arrêt</td><td>Pareto + tendances</td><td>1,5 h</td></tr>
+      <tr><td>Budget de maintenance</td><td>Historique, plans, risques</td><td>Justification</td><td>2–3 h</td></tr>
+      <tr><td>Réparation vs remplacement</td><td>Données sur l'équipement</td><td>Analyse comparative</td><td>3–4 h</td></tr>
+      <tr><td>Analyse des sous-traitants</td><td>Propositions, critères</td><td>Tableau + recommandation</td><td>2 h</td></tr>
     </table>
   </div>
 
   <div class="section">
-    <h2>Test de connaissances</h2>
-    <p><strong>Question 1:</strong> Почему анализ предложений подрядчиков на капремонт — on-prem?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Коммерческие предложения — конкурентные данные, как в закупках.'">Коммерческие условия конкурентов, цены, сроки — конфиденциально</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Это не про секретность оборудования.'">Потому что ТЗ содержит секретные чертежи оборудования</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Аналоги — внешний контур.'">Потому что запчасти нужно искать на открытом рынке</div>
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Pourquoi l'analyse des propositions de sous-traitants pour révision générale est-elle on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Les propositions commerciales sont des données concurrentielles, comme dans les achats.'">Conditions commerciales des concurrents, prix, délais — confidentiel</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Ce n\'est pas à propos du secret de l\'équipement.'">Parce que le CdC contient des dessins secrets de l'équipement</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Les équivalents sont du contour externe.'">Parce qu'il faut chercher les pièces de rechange sur le marché ouvert</div>
     <div id="q1-result" class="result"></div>
 
-    <p><strong>Question 2:</strong> Можно ли во внешнем ИИ подготовить регламент ТОиР для насоса?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Общая структура регламента для типового оборудования — публичное знание.'">Да, если это общая структура для типового насоса без привязки к конкретному заводу</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Не совсем. Регламент без конкретных данных — это методология.'">Нет, любой документ ТОиР содержит производственную тайну</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Разделение важно.'">Только если обезличить название завода</div>
+    <p><strong>Question 2 :</strong> Peut-on préparer un règlement de GMAO pour une pompe avec une IA externe ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> La structure générale d\'un règlement pour un équipement type est une connaissance publique.'">Oui, s'il s'agit d'une structure générale pour une pompe type sans lien avec une usine spécifique</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Pas tout à fait. Un règlement sans données spécifiques est une méthodologie.'">Non, tout document de GMAO contient un secret de fabrication</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. La séparation est importante.'">Seulement si on rend anonyme le nom de l'usine</div>
     <div id="q2-result" class="result"></div>
 
-    <p><strong>Question 3:</strong> Обоснование «ремонт vs замена» — какой контур?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Инвестиционное решение с конкретными данными — внутренний контур.'">On-prem — содержит финансовые данные, производственные параметры, риски</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Общая методология — во внешнем, но расчёт с реальными данными — внутри.'">Cloud — методология расчёта TCO общедоступна</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Разделение по данным, а не по документу.'">Гибрид — методология снаружи, цифры внутри</div>
+    <p><strong>Question 3 :</strong> La justification « réparation vs remplacement » — quel contour ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Une décision d\'investissement avec des données spécifiques — contour interne.'">On-prem — contient des données financières, des paramètres de production, des risques</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. La méthodologie générale de calcul du TCO est accessible, mais le calcul avec des données réelles est interne.'">Cloud — la méthodologie de calcul du TCO est d'accès public</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. La séparation se fait selon les données, pas selon le document.'">Hybride — méthodologie à l'extérieur, chiffres à l'intérieur</div>
     <div id="q3-result" class="result"></div>
   </div>
 
@@ -502,7 +502,7 @@
 
 <footer>
   <div class="container">
-    <p>AI pour les non-informaticiens · Entreprise industrielle</p>
+    <p>IA pour Non-Informaticiens · Entreprise de production</p>
   </div>
 </footer>
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>12.2 Tâches MRO externes — внешний ИИ — AI pour les non-informaticiens</title>
+<title>12.2 Tâches externes de la maintenance — IA externe — IA pour Non-Informaticiens</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -51,230 +51,230 @@
 </style>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">AI pour les non-informaticiens</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour Non-Informaticiens</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Niveau 12 — Maintenance & Réparation (MRO)</div>
-    <h1>12.2 Tâches MRO externes</h1>
-    <div class="meta">⏱ 15 min · pour ingénieurs de fiabilité et mécaniciens</div>
+    <div class="phase">Niveau 12 — Maintenance (Réparations et Entretien)</div>
+    <h1>12.2 Tâches externes de la maintenance</h1>
+    <div class="meta">⏱ 15 min · pour les ingénieurs en fiabilité et les mécaniciens</div>
   </div>
 
   <div class="card card-success">
-    <strong>Données publiques (IA externe)</strong><br>
-    Все задачи этого урока — с <span class="highlight">публичными источниками, общими методологиями, открытым рынком</span>. Можно использовать Claude, ChatGPT, Gemini.
+    <strong>Données ouvertes (IA externe)</strong><br>
+    Toutes les tâches de cette leçon utilisent des <span class="highlight">sources publiques, des méthodologies communes, un marché ouvert</span>. Vous pouvez utiliser Claude, ChatGPT, Gemini.
   </div>
 
   <div class="section">
-    <h2>Quand le cloud est préférable pour MRO</h2>
-    <p>Облачные модели выигрывают, когда нужно:</p>
+    <h2>Pourquoi le cloud est mieux que l'on-prem pour la maintenance</h2>
+    <p>Les modèles cloud sont préférables lorsqu'il faut :</p>
     <ul>
-      <li><strong>Веб-поиск:</strong> мониторить стандарты ТОиР, ГОСТ на оборудование, отраслевые требования</li>
-      <li><strong>Перевод:</strong> работать с зарубежными каталогами запчастей, ISO, API</li>
-      <li><strong>Генерация:</strong> создать обучающие материалы с нуля, типовые регламенты</li>
-      <li><strong>Анализ публичных данных:</strong> LME на металлы, цены на оборудование, бенчмаркинг</li>
-      <li><strong>Поиск аналогов:</strong> импортозамещение, кросс-номера запчастей</li>
+      <li><strong>Recherche web :</strong> surveiller les normes de maintenance, les standards d'équipement, les exigences sectorielles</li>
+      <li><strong>Traduction :</strong> travailler avec des catalogues de pièces détachées étrangers, ISO, API</li>
+      <li><strong>Génération :</strong> créer des supports de formation à partir de zéro, des règlements types</li>
+      <li><strong>Analyse de données publiques :</strong> LME sur les métaux, prix des équipements, benchmarking</li>
+      <li><strong>Recherche d'analogues :</strong> substitution des importations, numéros croisés de pièces détachées</li>
     </ul>
   </div>
 
   <div class="card card-warning">
-    <strong>Important: перед отправкой в облако — проверь</strong>, что в запросе нет конкретных инвентарных номеров, данных о простоях, финансовых показателей завода. Если есть — обезличь или отправь в on-prem.
+    <strong>Important : avant d'envoyer dans le cloud — vérifiez</strong> qu'il n'y a pas de numéros d'inventaire spécifiques, de données sur les arrêts, d'indicateurs financiers de l'usine. Si c'est le cas — anonymisez ou envoyez vers l'on-prem.
   </div>
 
     <div class="section">
-    <h2>1. Разработка и актуализация графиков ППР</h2>
-    <p>Общая методология планирования планово-предупредительных ремонтов — без привязки к конкретному заводу.</p>
+    <h2>1. Élaboration et mise à jour des calendriers de maintenance préventive</h2>
+    <p>Méthodologie générale de planification de la maintenance préventive — sans lien avec une usine spécifique.</p>
     <div class="example">
-      <div class="example-label">Пример промпта (внешний ИИ)</div>
-      <pre>Подготовь методологию разработки графика ППР для металлургического предприятия:
+      <div class="example-label">Exemple de prompt (IA externe)</div>
+      <pre>Prépare une méthodologie pour l'élaboration d'un calendrier de maintenance préventive pour une entreprise métallurgique :
 
-1. Классификация оборудования по критичности (A — критичное, B — важное, C — вспомогательное)
-2. Определение периодичности ТО и ремонтов по типам оборудования
-   - Текущий ремонт: ежемесячно/ежеквартально
-   - Средний ремонт: 1–2 раза в год
-   - Капитальный ремонт: через наработку или календарный срок
-3. Резервирование ресурсов (бригады, запчасти, оборудование)
-4. Методика корректировки графика при внеплановых отказах
-5. KPI контроля выполнения (% выполнения по плану, простои)
-6. Формы документации (график, наряд, акт)
+1. Classification des équipements par criticité (A — critique, B — important, C — auxiliaire)
+2. Détermination de la périodicité de l'entretien et des réparations par type d'équipement
+   - Réparation courante : mensuelle/trimestrielle
+   - Réparation moyenne : 1–2 fois par an
+   - Réparation capitale : selon le temps de fonctionnement ou le délai calendaire
+3. Réservation des ressources (équipes, pièces de rechange, équipements)
+4. Méthode d'ajustement du calendrier en cas de pannes imprévues
+5. Indicateurs de contrôle de l'exécution (% de réalisation du plan, arrêts)
+6. Formulaires de documentation (calendrier, ordre de travail, procès-verbal)
 
-Без конкретных инвентарных номеров и заводских данных.</pre>
+Sans numéros d'inventaire spécifiques ni données d'usine.</pre>
     </div>
-    <p><strong>Результат:</strong> методология для внедрения на предприятии, экономит 4–5 часов.</p>
+    <p><strong>Résultat :</strong> une méthodologie prête à être mise en œuvre sur l'entreprise, gain de 4–5 heures.</p>
   </div>
 <div class="section">
-    <h2>2. Разработка регламентов ТОиР в общем виде</h2>
-    <p>Структура документа для типового оборудования (насос, мельница, компрессор) — без привязки к конкретному заводу.</p>
+    <h2>2. Élaboration des règlements de maintenance sous forme générale</h2>
+    <p>Structure du document pour un équipement type (pompe, broyeur, compresseur) — sans lien avec une usine spécifique.</p>
     <div class="example">
-      <div class="example-label">Пример промпта (Claude с веб-поиском)</div>
-      <pre>Подготовь структуру регламента ТОиР для центробежного насоса горизонтального типа (общего назначения, перекачка воды/шлама):
+      <div class="example-label">Exemple de prompt (Claude avec recherche web)</div>
+      <pre>Prépare la structure d'un règlement de maintenance pour une pompe centrifuge horizontale (usage général, transfert d'eau/boue) :
 
-Структура регламента:
-1. Область применения (типы насосов, условия эксплуатации)
-2. Типы и периодичность ТО (ежедневный осмотр, ТО-1, ТО-2, ТО-3, КР)
-3. Перечень работ для каждого типа ТО (контрольные точки)
-4. Нормативы допустимых параметров (вибрация, температура, расход)
-5. Критерии приёмки после ремонта
-6. Формы учёта (журнал осмотров, акты)
-7. Приложения (схема смазки, схема уплотнений)
+Structure du règlement :
+1. Domaine d'application (types de pompes, conditions d'exploitation)
+2. Types et périodicité de l'entretien (inspection quotidienne, TO-1, TO-2, TO-3, RC)
+3. Liste des travaux pour chaque type d'entretien (points de contrôle)
+4. Normes des paramètres admissibles (vibration, température, débit)
+5. Critères d'acceptation après réparation
+6. Formulaires de suivi (registre d'inspection, procès-verbaux)
+7. Annexes (schéma de graissage, schéma des joints)
 
-Без конкретных инвентарных номеров и заводских данных.</pre>
+Sans numéros d'inventaire spécifiques ni données d'usine.</pre>
     </div>
-    <p><strong>Результат:</strong> готовая структура регламента, экономит 2–3 часа.</p>
+    <p><strong>Résultat :</strong> une structure de règlement prête, gain de 2–3 heures.</p>
   </div>
 
   <div class="section">
-    <h2>3. Инструкции по эксплуатации — общая часть</h2>
-    <p>Базовые принципы работы с оборудованием, если нет специфичных для завода модификаций.</p>
+    <h2>3. Instructions d'utilisation — partie générale</h2>
+    <p>Principes de base de fonctionnement des équipements, en l'absence de modifications spécifiques à l'usine.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь инструкцию по эксплуатации пластинчатого теплообменника (общего назначения):
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une instruction d'utilisation pour un échangeur de chaleur à plaques (usage général) :
 
-Разделы:
-1. Назначение и принцип работы
-2. Технические характеристики (общие диапазоны)
-3. Требования к персоналу
-4. Порядок пуска и остановки
-5. Контрольные параметры в работе (температура, давление, перепад)
-6. Профилактический осмотр (что проверять, с какой периодичностью)
-7. Типичные неисправности и действия (без привязки к конкретным случаям)
-8. Требования безопасности
+Sections :
+1. Destination et principe de fonctionnement
+2. Caractéristiques techniques (gammes générales)
+3. Exigences envers le personnel
+4. Procédure de démarrage et d'arrêt
+5. Paramètres de contrôle en fonctionnement (température, pression, différentiel)
+6. Inspection préventive (quoi vérifier, à quelle périodicité)
+7. Pannes typiques et actions (sans lien avec des cas spécifiques)
+8. Exigences de sécurité
 
-Язык: простой, для операторов и механиков.</pre>
+Langage : simple, pour les opérateurs et mécaniciens.</pre>
     </div>
-    <p><strong>Результат:</strong> готовая инструкция, экономит 3–4 часа.</p>
+    <p><strong>Résultat :</strong> une instruction prête, gain de 3–4 heures.</p>
   </div>
 
   <div class="section">
-    <h2>4. Обучающие материалы для ремонтного персонала</h2>
-    <p>Базовые принципы, безопасность, типовые процедуры — без привязки к реальным инцидентам завода.</p>
+    <h2>4. Supports de formation pour le personnel de maintenance</h2>
+    <p>Principes de base, sécurité, procédures types — sans lien avec des incidents réels de l'usine.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготови обучающий модуль «Безопасность при ремонте вращающегося оборудования» для механиков:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare un module de formation « Sécurité lors de la réparation des équipements rotatifs » pour les mécaniciens :
 
-Формат: 10 слайдов (текст для каждого)
-Содержание:
-1. Типы опасностей (механические, электрические, химические)
-2. LOTO (Lockout/Tagout) — процедура отключения
-3. Средства индивидуальной защиты
-4. Контрольные вопросы (5 вопросов с ответами)
+Format : 10 diapositives (texte pour chacune)
+Contenu :
+1. Types de dangers (mécaniques, électriques, chimiques)
+2. LOTO (Lockout/Tagout) — procédure de déconnexion
+3. Équipements de protection individuelle
+4. Questions de contrôle (5 questions avec réponses)
 
-Без конкретных случаев с завода — только общие принципы.</pre>
+Sans cas spécifiques de l'usine — seulement des principes généraux.</pre>
     </div>
-    <p><strong>Результат:</strong> готовый модуль, экономит 4 часа.</p>
+    <p><strong>Résultat :</strong> un module prêt, gain de 4 heures.</p>
   </div>
 
   <div class="section">
-    <h2>5. Поиск аналогов оборудования и запчастей (импортозамещение)</h2>
-    <p>Открытый рынок — поиск кросс-номеров, аналогов, заменителей.</p>
+    <h2>5. Recherche d'analogues d'équipements et de pièces de rechange (substitution des importations)</h2>
+    <p>Marché ouvert — recherche de numéros croisés, analogues, substituts.</p>
     <div class="example">
-      <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Найди аналоги подшипника SKF 22320 EK/C3 для импортозамещения:
+      <div class="example-label">Exemple de prompt (recherche web)</div>
+      <pre>Trouve des analogues du roulement SKF 22320 EK/C3 pour la substitution des importations :
 
-Требования:
-- Российский производитель или страны ЕАЭС
-- Аналогичные размеры: d=100, D=215, B=73 мм
-- Тип: сферический роликовый, с бронзовым сепаратором
-- Допустимая нагрузка: не ниже оригинала
+Exigences :
+- Fabricant russe ou pays de l'UEE
+- Dimensions identiques : d=100, D=215, B=73 mm
+- Type : roulement à rouleaux sphériques, avec cage en bronze
+- Charge admissible : au moins équivalente à l'original
 
-Выведи таблицу: производитель, обозначение, размеры, примерная цена, наличие на складе (если есть данные).</pre>
+Affiche un tableau : fabricant, désignation, dimensions, prix approximatif, disponibilité en stock (si des données sont disponibles).</pre>
     </div>
-    <p><strong>Результат:</strong> список аналогов для закупки, экономит 1–2 часа.</p>
+    <p><strong>Résultat :</strong> une liste d'analogues pour l'achat, gain de 1–2 heures.</p>
   </div>
 
   <div class="section">
-    <h2>6. Бенчмаркинг практик ТОиР в отрасли (RCM, TPM)</h2>
-    <p>Открытая методология — лучшие практики в металлургии, ГОКах, энергетике.</p>
+    <h2>6. Benchmarking des pratiques de maintenance dans le secteur (RCM, TPM)</h2>
+    <p>Méthodologie ouverte — meilleures pratiques dans la métallurgie, les GOK, l'énergie.</p>
     <div class="example">
-      <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Проведи бенчмаркинг практик ТОиР в металлургии (2024–2026):
+      <div class="example-label">Exemple de prompt (recherche web)</div>
+      <pre>Réalise un benchmarking des pratiques de maintenance dans la métallurgie (2024–2026) :
 
-Questionы:
-1. Какие крупные металлургические компании внедрили RCM (Reliability-Centered Maintenance)?
-2. Какие результаты заявлены (снижение простоев, экономия)?
-3. Какие ИТ-системы используют для ТОиР (SAP PM, 1С ТОиР, Infor)?
-4. Какие показатели KPI применяют (MTBF, MTTR, OEE)?
-5. Какие конференции по ТОиР в металлургии проходят в 2026?
+Questions :
+1. Quelles grandes entreprises métallurgiques ont mis en œuvre la RCM (Reliability-Centered Maintenance) ?
+2. Quels résultats sont annoncés (réduction des arrêts, économies) ?
+3. Quels systèmes informatiques utilisent-ils pour la maintenance (SAP PM, 1C Maintenance, Infor) ?
+4. Quels indicateurs KPI appliquent-ils (MTBF, MTTR, OEE) ?
+5. Quelles conférences sur la maintenance dans la métallurgie ont lieu en 2026 ?
 
-Сделай структурированный отчёт с источниками.</pre>
+Rédige un rapport structuré avec des sources.</pre>
     </div>
-    <p><strong>Результат:</strong> обзор отраслевых практик, экономит 3–4 часа.</p>
+    <p><strong>Résultat :</strong> un aperçu des pratiques sectorielles, gain de 3–4 heures.</p>
   </div>
 
   <div class="section">
-    <h2>7. Разработка методологии перехода на RCM/TPM</h2>
-    <p>Общий фреймворк — публичные подходы, без привязки к конкретному заводу.</p>
+    <h2>7. Élaboration d'une méthodologie de transition vers la RCM/TPM</h2>
+    <p>Cadre général — approches publiques, sans lien avec une usine spécifique.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь план внедрения TPM (Total Productive Maintenance) для металлургического предприятия:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare un plan de mise en œuvre du TPM (Total Productive Maintenance) pour une entreprise métallurgique :
 
-Этапы (по месяцам, 12-месячный план):
-1. Подготовка: обучение персонала, создание команды TPM
-2. Автономное обслуживание (операторы выполняют базовый уход)
-3. Плановое техническое обслуживание (графики, регламенты)
-4. Плановый ремонт (КР, ТР)
-5. Обучение и развитие (тренинги, сертификация)
-6. Раннее управление проектами (учёт надёжности при закупке)
-7. Безопасность и качество (5S, визуальный контроль)
+Étapes (par mois, sur 12 mois) :
+1. Préparation : formation du personnel, création de l'équipe TPM
+2. Maintenance autonome (les opérateurs effectuent l'entretien de base)
+3. Maintenance technique planifiée (calendriers, règlements)
+4. Réparation planifiée (RC, RM)
+5. Formation et développement (ateliers, certification)
+6. Gestion précoce des projets (prise en compte de la fiabilité lors de l'achat)
+7. Sécurité et qualité (5S, contrôle visuel)
 
-Для каждого этапа: цели, метрики успеха, типичные проблемы.</pre>
+Pour chaque étape : objectifs, indicateurs de succès, problèmes typiques.</pre>
     </div>
-    <p><strong>Результат:</strong> готовый план внедрения, экономит 5–6 часов.</p>
+    <p><strong>Résultat :</strong> un plan de mise en œuvre prêt, gain de 5–6 heures.</p>
   </div>
 
   <div class="section">
-    <h2>8. Подготовка тендерной документации — общие разделы</h2>
-    <p>Типовые разделы ТЗ на ремонтные работы — без коммерческих условий конкретной сделки.</p>
+    <h2>8. Préparation de la documentation d'appel d'offres — sections générales</h2>
+    <p>Sections types du cahier des charges pour des travaux de réparation — sans conditions commerciales spécifiques.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь типовую структуру ТЗ на капитальный ремонт оборудования:
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une structure type de cahier des charges pour la réparation capitale d'un équipement :
 
-Разделы:
-1. Общие положения (область действия, нормативные ссылки)
-2. Техническое описание объекта (без конкретных инвентарных номеров)
-3. Перечень работ (типовые виды: дефектовка, ремонт, испытания)
-4. Требования к качеству (приёмочные критерии, испытания)
-5. Требования к документации (акты, сертификаты, фото)
-6. Гарантийные обязательства (типовые сроки)
-7. Требования безопасности
-8. Форма отчёта исполнителя
+Sections :
+1. Dispositions générales (domaine d'application, références normatives)
+2. Description technique de l'objet (sans numéros d'inventaire spécifiques)
+3. Liste des travaux (types : démontage, réparation, essais)
+4. Exigences de qualité (critères d'acceptation, essais)
+5. Exigences documentaires (procès-verbaux, certificats, photos)
+6. Obligations de garantie (délais types)
+7. Exigences de sécurité
+8. Formulaire de rapport du prestataire
 
-Место для вставки конкретных данных: [УТОЧНИТЬ ПРОИЗВОДСТВО].</pre>
+Emplacement pour l'insertion de données spécifiques : [À PRÉCISER PAR LA PRODUCTION].</pre>
     </div>
-    <p><strong>Результат:</strong> типовой шаблон ТЗ, экономит 2 часа.</p>
+    <p><strong>Résultat :</strong> un modèle type de cahier des charges, gain de 2 heures.</p>
   </div>
 
   <div class="section">
-    <h2>Tableau récapitulatif: внешние задачи</h2>
+    <h2>Tableau récapitulatif : tâches externes</h2>
     <table>
-      <tr><th>Tâche</th><th>Besoins</th><th>Format sortie</th><th>Gain de temps</th></tr>
-      <tr><td>Регламенты ТОиР</td><td>Тип оборудования</td><td>Структура документа</td><td>2–3 ч</td></tr>
-      <tr><td>Инструкции по эксплуатации</td><td>Тип оборудования</td><td>Инструкция</td><td>3–4 ч</td></tr>
-      <tr><td>Обучающие материалы</td><td>Тема, аудитория</td><td>Слайды/текст</td><td>4 ч</td></tr>
-      <tr><td>Поиск аналогов</td><td>Оригинальный номер</td><td>Таблица аналогов</td><td>1–2 ч</td></tr>
-      <tr><td>Бенчмаркинг RCM/TPM</td><td>Отрасль, период</td><td>Отчёт с источниками</td><td>3–4 ч</td></tr>
-      <tr><td>Методология RCM/TPM</td><td>Тип предприятия</td><td>План внедрения</td><td>5–6 ч</td></tr>
-      <tr><td>Тендерная документация</td><td>Тип работ</td><td>Шаблон ТЗ</td><td>2 ч</td></tr>
+      <tr><th>Tâche</th><th>Ce qu'il faut</th><th>Format de sortie</th><th>Gain de temps</th></tr>
+      <tr><td>Règlements de maintenance</td><td>Type d'équipement</td><td>Structure du document</td><td>2–3 h</td></tr>
+      <tr><td>Instructions d'utilisation</td><td>Type d'équipement</td><td>Instruction</td><td>3–4 h</td></tr>
+      <tr><td>Supports de formation</td><td>Sujet, audience</td><td>Diapositives/texte</td><td>4 h</td></tr>
+      <tr><td>Recherche d'analogues</td><td>Numéro d'origine</td><td>Tableau d'analogues</td><td>1–2 h</td></tr>
+      <tr><td>Benchmarking RCM/TPM</td><td>Secteur, période</td><td>Rapport avec sources</td><td>3–4 h</td></tr>
+      <tr><td>Méthodologie RCM/TPM</td><td>Type d'entreprise</td><td>Plan de mise en œuvre</td><td>5–6 h</td></tr>
+      <tr><td>Documentation d'appel d'offres</td><td>Type de travaux</td><td>Modèle de CdC</td><td>2 h</td></tr>
     </table>
   </div>
 
   <div class="section">
-    <h2>Test de connaissances</h2>
-    <p><strong>Question 1:</strong> Почему поиск аналогов запчастей — во внешний ИИ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Открытый рынок, публичные каталоги.'">Потому что это публичная информация — каталоги, кросс-номера, цены</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Поставщики — это on-prem.'">Потому что поставщики — внешние контрагенты</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Импортозамещение — публичная тема.'">Только если это импортозамещение</div>
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Pourquoi la recherche d'analogues de pièces de rechange se fait-elle en IA externe ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Exact !</strong> C\'est une information publique — catalogues, numéros croisés, prix.'">Parce que c'est une information publique — catalogues, numéros croisés, prix</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchis encore. Les fournisseurs sont en on-prem.'">Parce que les fournisseurs sont des partenaires externes</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchis encore. La substitution des importations est un sujet public.'">Seulement s'il s'agit de substitution des importations</div>
     <div id="q1-result" class="result"></div>
 
-    <p><strong>Question 2:</strong> Какая задача ТОиР точно в on-prem?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Инвестиционное решение с конкретными данными — внутри.'">Обоснование «ремонт vs замена» для конкретного компрессора</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Общая методология — во внешнем.'">Разработка методологии RCM для металлургии</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Типовой шаблон — во внешнем.'">Подготовка типовой структуры ТЗ на капремонт</div>
+    <p><strong>Question 2 :</strong> Quelle tâche de maintenance est définitivement en on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Exact !</strong> Une décision d\'investissement avec des données spécifiques reste en interne.'">Justification « réparation vs remplacement » pour un compresseur spécifique</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchis encore. Une méthodologie générale est externe.'">Élaboration d'une méthodologie RCM pour la métallurgie</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchis encore. Une structure type est externe.'">Préparation d'une structure type de CdC pour réparation capitale</div>
     <div id="q2-result" class="result"></div>
 
-    <p><strong>Question 3:</strong> Обучающие материалы для механиков — какой контур?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Общие принципы безопасности — публичные знания.'">Внешний ИИ — базовые принципы, без конкретных инцидентов завода</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Реальные кейсы — это on-prem.'">On-prem — любые материалы для персонала завода</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Гибрид — это сочетание.'">Гибрид — базовые принципы снаружи, кейсы завода внутри</div>
+    <p><strong>Question 3 :</strong> Les supports de formation pour les mécaniciens — quel périmètre ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Exact !</strong> Les principes généraux de sécurité sont des connaissances publiques.'">IA externe — principes de base, sans incidents spécifiques de l'usine</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchis encore. Les cas réels sont en on-prem.'">On-prem — tous les supports pour le personnel de l'usine</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchis encore. L'hybride est une combinaison.'">Hybride — principes de base à l'extérieur, cas de l'usine à l'intérieur</div>
     <div id="q3-result" class="result"></div>
   </div>
 
@@ -284,5 +284,5 @@ Questionы:
   </div>
 
 </div>
-<footer><div class="container"><p>AI pour les non-informaticiens · Entreprise industrielle</p></div></footer>
+<footer><div class="container"><p>IA pour Non-Informaticiens · Entreprise de production</p></div></footer>
 </body></html>

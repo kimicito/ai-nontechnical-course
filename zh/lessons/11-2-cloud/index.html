@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>12.2 MRO外部任务 — внешний ИИ — 非IT专业人员的AI</title>
+<title>12.2 设备维护的外部任务 — 外部AI — 非IT人员的AI</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -51,230 +51,230 @@
 </style>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">非IT专业人员的AI</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">第12级 — 维修与保养(MRO)</div>
-    <h1>12.2 MRO外部任务</h1>
+    <div class="phase">第12级 — 设备维护（维修与保养）</div>
+    <h1>12.2 设备维护的外部任务</h1>
     <div class="meta">⏱ 15分钟 · 面向可靠性工程师和机械师</div>
   </div>
 
   <div class="card card-success">
-    <strong>公开数据(外部AI)</strong><br>
-    Все задачи этого урока — с <span class="highlight">публичными источниками, общими методологиями, открытым рынком</span>. Можно использовать Claude, ChatGPT, Gemini.
+    <strong>开放数据（外部AI）</strong><br>
+    本课程的所有任务都使用<span class="highlight">公开来源、通用方法论和开放市场</span>。可以使用Claude、ChatGPT、Gemini。
   </div>
 
   <div class="section">
-    <h2>Почему облако лучше on-prem для ТОиР</h2>
-    <p>Облачные модели выигрывают, когда нужно:</p>
+    <h2>为什么云端比本地部署更适合设备维护</h2>
+    <p>当需要以下功能时，云端模型更具优势：</p>
     <ul>
-      <li><strong>Веб-поиск:</strong> мониторить стандарты ТОиР, ГОСТ на оборудование, отраслевые требования</li>
-      <li><strong>Перевод:</strong> работать с зарубежными каталогами запчастей, ISO, API</li>
-      <li><strong>Генерация:</strong> создать обучающие материалы с нуля, типовые регламенты</li>
-      <li><strong>Анализ публичных данных:</strong> LME на металлы, цены на оборудование, бенчмаркинг</li>
-      <li><strong>Поиск аналогов:</strong> импортозамещение, кросс-номера запчастей</li>
+      <li><strong>网络搜索：</strong>监控设备维护标准、设备国标、行业要求</li>
+      <li><strong>翻译：</strong>处理国外备件目录、ISO、API标准</li>
+      <li><strong>生成：</strong>从零创建培训材料、标准规程</li>
+      <li><strong>公开数据分析：</strong>LME金属价格、设备价格、对标分析</li>
+      <li><strong>寻找替代品：</strong>进口替代、备件交叉编号</li>
     </ul>
   </div>
 
   <div class="card card-warning">
-    <strong>重要: перед отправкой в облако — проверь</strong>, что в запросе нет конкретных инвентарных номеров, данных о простоях, финансовых показателей завода. Если есть — обезличь или отправь в on-prem.
+    <strong>重要：发送到云端之前，请检查</strong>请求中是否包含具体的资产编号、停机数据、工厂财务指标。如果有，请脱敏处理或发送到本地部署系统。
   </div>
 
     <div class="section">
-    <h2>1. Разработка и актуализация графиков ППР</h2>
-    <p>Общая методология планирования планово-предупредительных ремонтов — без привязки к конкретному заводу.</p>
+    <h2>1. 计划性检修图表的编制与更新</h2>
+    <p>计划性预防检修的通用方法论 — 不绑定特定工厂。</p>
     <div class="example">
-      <div class="example-label">Пример промпта (внешний ИИ)</div>
-      <pre>Подготовь методологию разработки графика ППР для металлургического предприятия:
+      <div class="example-label">提示词示例（外部AI）</div>
+      <pre>为冶金企业编制计划性检修图表的方法论：
 
-1. Классификация оборудования по критичности (A — критичное, B — важное, C — вспомогательное)
-2. Определение периодичности ТО и ремонтов по типам оборудования
-   - Текущий ремонт: ежемесячно/ежеквартально
-   - Средний ремонт: 1–2 раза в год
-   - Капитальный ремонт: через наработку или календарный срок
-3. Резервирование ресурсов (бригады, запчасти, оборудование)
-4. Методика корректировки графика при внеплановых отказах
-5. KPI контроля выполнения (% выполнения по плану, простои)
-6. Формы документации (график, наряд, акт)
+1. 按重要性对设备进行分类（A — 关键设备，B — 重要设备，C — 辅助设备）
+2. 按设备类型确定技术维护和维修周期
+   - 小修：每月/每季度
+   - 中修：每年1-2次
+   - 大修：按运行时间或日历期限
+3. 资源预留（班组、备件、设备）
+4. 非计划故障时调整图表的方法
+5. 执行控制KPI（计划完成率、停机时间）
+6. 文件形式（图表、工单、验收单）
 
-Без конкретных инвентарных номеров и заводских данных.</pre>
+不包含具体的资产编号和工厂数据。</pre>
     </div>
-    <p><strong>Результат:</strong> методология для внедрения на предприятии, экономит 4–5 часов.</p>
+    <p><strong>结果：</strong>适用于企业实施的方法论，节省4-5小时。</p>
   </div>
 <div class="section">
-    <h2>2. Разработка регламентов ТОиР в общем виде</h2>
-    <p>Структура документа для типового оборудования (насос, мельница, компрессор) — без привязки к конкретному заводу.</p>
+    <h2>2. 通用设备维护规程的编制</h2>
+    <p>典型设备（泵、磨机、压缩机）的文件结构 — 不绑定特定工厂。</p>
     <div class="example">
-      <div class="example-label">Пример промпта (Claude с веб-поиском)</div>
-      <pre>Подготовь структуру регламента ТОиР для центробежного насоса горизонтального типа (общего назначения, перекачка воды/шлама):
+      <div class="example-label">提示词示例（Claude带网络搜索）</div>
+      <pre>为卧式离心泵（通用型，输送水/矿浆）编制设备维护规程结构：
 
-Структура регламента:
-1. Область применения (типы насосов, условия эксплуатации)
-2. Типы и периодичность ТО (ежедневный осмотр, ТО-1, ТО-2, ТО-3, КР)
-3. Перечень работ для каждого типа ТО (контрольные точки)
-4. Нормативы допустимых параметров (вибрация, температура, расход)
-5. Критерии приёмки после ремонта
-6. Формы учёта (журнал осмотров, акты)
-7. Приложения (схема смазки, схема уплотнений)
+规程结构：
+1. 适用范围（泵类型、运行条件）
+2. 技术维护类型及周期（日常巡检、TO-1、TO-2、TO-3、大修）
+3. 每种维护类型的工作清单（检查点）
+4. 允许参数标准（振动、温度、流量）
+5. 维修后验收标准
+6. 记录形式（巡检日志、验收单）
+7. 附件（润滑图、密封图）
 
-Без конкретных инвентарных номеров и заводских данных.</pre>
+不包含具体的资产编号和工厂数据。</pre>
     </div>
-    <p><strong>Результат:</strong> готовая структура регламента, экономит 2–3 часа.</p>
+    <p><strong>结果：</strong>完整的规程结构，节省2-3小时。</p>
   </div>
 
   <div class="section">
-    <h2>3. Инструкции по эксплуатации — общая часть</h2>
-    <p>Базовые принципы работы с оборудованием, если нет специфичных для завода модификаций.</p>
+    <h2>3. 操作说明书 — 通用部分</h2>
+    <p>设备操作的基本原则，如果没有工厂特定的改装。</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь инструкцию по эксплуатации пластинчатого теплообменника (общего назначения):
+      <div class="example-label">提示词示例</div>
+      <pre>为板式换热器（通用型）编制操作说明书：
 
-Разделы:
-1. Назначение и принцип работы
-2. Технические характеристики (общие диапазоны)
-3. Требования к персоналу
-4. Порядок пуска и остановки
-5. Контрольные параметры в работе (температура, давление, перепад)
-6. Профилактический осмотр (что проверять, с какой периодичностью)
-7. Типичные неисправности и действия (без привязки к конкретным случаям)
-8. Требования безопасности
+章节：
+1. 用途和工作原理
+2. 技术参数（通用范围）
+3. 人员要求
+4. 启停程序
+5. 运行中的控制参数（温度、压力、压差）
+6. 预防性检查（检查内容、检查周期）
+7. 典型故障及处理（不绑定具体案例）
+8. 安全要求
 
-Язык: простой, для операторов и механиков.</pre>
+语言：简洁明了，面向操作员和机械师。</pre>
     </div>
-    <p><strong>Результат:</strong> готовая инструкция, экономит 3–4 часа.</p>
+    <p><strong>结果：</strong>完整的说明书，节省3-4小时。</p>
   </div>
 
   <div class="section">
-    <h2>4. Обучающие материалы для ремонтного персонала</h2>
-    <p>Базовые принципы, безопасность, типовые процедуры — без привязки к реальным инцидентам завода.</p>
+    <h2>4. 维修人员的培训材料</h2>
+    <p>基本原则、安全、标准程序 — 不绑定工厂的实际事故。</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготови обучающий модуль «Безопасность при ремонте вращающегося оборудования» для механиков:
+      <div class="example-label">提示词示例</div>
+      <pre>为机械师准备"旋转设备维修安全"培训模块：
 
-Формат: 10 слайдов (текст для каждого)
-Содержание:
-1. Типы опасностей (механические, электрические, химические)
-2. LOTO (Lockout/Tagout) — процедура отключения
-3. Средства индивидуальной защиты
-4. Контрольные вопросы (5 вопросов с ответами)
+格式：10页幻灯片（每页文字内容）
+内容：
+1. 危险类型（机械、电气、化学）
+2. LOTO（上锁挂牌）—— 断电程序
+3. 个人防护装备
+4. 测试题（5道题附答案）
 
-Без конкретных случаев с завода — только общие принципы.</pre>
+不包含工厂的具体案例 — 仅通用原则。</pre>
     </div>
-    <p><strong>Результат:</strong> готовый модуль, экономит 4 часа.</p>
+    <p><strong>结果：</strong>完整的培训模块，节省4小时。</p>
   </div>
 
   <div class="section">
-    <h2>5. Поиск аналогов оборудования и запчастей (импортозамещение)</h2>
-    <p>Открытый рынок — поиск кросс-номеров, аналогов, заменителей.</p>
+    <h2>5. 设备和备件替代品搜索（进口替代）</h2>
+    <p>开放市场 — 搜索交叉编号、替代品、替换件。</p>
     <div class="example">
-      <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Найди аналоги подшипника SKF 22320 EK/C3 для импортозамещения:
+      <div class="example-label">提示词示例（网络搜索）</div>
+      <pre>寻找SKF 22320 EK/C3轴承的进口替代方案：
 
-Требования:
-- Российский производитель или страны ЕАЭС
-- Аналогичные размеры: d=100, D=215, B=73 мм
-- Тип: сферический роликовый, с бронзовым сепаратором
-- Допустимая нагрузка: не ниже оригинала
+要求：
+- 俄罗斯制造商或欧亚经济联盟国家
+- 相同尺寸：d=100，D=215，B=73 mm
+- 类型：调心滚子轴承，铜保持架
+- 允许载荷：不低于原装
 
-Выведи таблицу: производитель, обозначение, размеры, примерная цена, наличие на складе (если есть данные).</pre>
+输出表格：制造商、型号、尺寸、参考价格、库存情况（如有数据）。</pre>
     </div>
-    <p><strong>Результат:</strong> список аналогов для закупки, экономит 1–2 часа.</p>
+    <p><strong>结果：</strong>采购用替代品清单，节省1-2小时。</p>
   </div>
 
   <div class="section">
-    <h2>6. Бенчмаркинг практик ТОиР в отрасли (RCM, TPM)</h2>
-    <p>Открытая методология — лучшие практики в металлургии, ГОКах, энергетике.</p>
+    <h2>6. 行业设备维护实践对标（RCM、TPM）</h2>
+    <p>开放方法论 — 冶金、选矿、能源领域的最佳实践。</p>
     <div class="example">
-      <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Проведи бенчмаркинг практик ТОиР в металлургии (2024–2026):
+      <div class="example-label">提示词示例（网络搜索）</div>
+      <pre>对冶金行业设备维护实践进行对标分析（2024-2026）：
 
-问题ы:
-1. Какие крупные металлургические компании внедрили RCM (Reliability-Centered Maintenance)?
-2. Какие результаты заявлены (снижение простоев, экономия)?
-3. Какие ИТ-системы используют для ТОиР (SAP PM, 1С ТОиР, Infor)?
-4. Какие показатели KPI применяют (MTBF, MTTR, OEE)?
-5. Какие конференции по ТОиР в металлургии проходят в 2026?
+问题：
+1. 哪些大型冶金企业实施了RCM（以可靠性为中心的维护）？
+2. 宣称取得了哪些成果（停机减少、成本节约）？
+3. 使用哪些IT系统进行设备维护（SAP PM、1C MRO、Infor）？
+4. 应用哪些KPI指标（MTBF、MTTR、OEE）？
+5. 2026年有哪些冶金设备维护会议？
 
-Сделай структурированный отчёт с источниками.</pre>
+制作带来源的结构化报告。</pre>
     </div>
-    <p><strong>Результат:</strong> обзор отраслевых практик, экономит 3–4 часа.</p>
+    <p><strong>结果：</strong>行业实践概述，节省3-4小时。</p>
   </div>
 
   <div class="section">
-    <h2>7. Разработка методологии перехода на RCM/TPM</h2>
-    <p>Общий фреймворк — публичные подходы, без привязки к конкретному заводу.</p>
+    <h2>7. RCM/TPM转型方法论开发</h2>
+    <p>通用框架 — 公开方法，不绑定特定工厂。</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь план внедрения TPM (Total Productive Maintenance) для металлургического предприятия:
+      <div class="example-label">提示词示例</div>
+      <pre>为冶金企业准备TPM（全员生产维护）实施计划：
 
-Этапы (по месяцам, 12-месячный план):
-1. Подготовка: обучение персонала, создание команды TPM
-2. Автономное обслуживание (операторы выполняют базовый уход)
-3. Плановое техническое обслуживание (графики, регламенты)
-4. Плановый ремонт (КР, ТР)
-5. Обучение и развитие (тренинги, сертификация)
-6. Раннее управление проектами (учёт надёжности при закупке)
-7. Безопасность и качество (5S, визуальный контроль)
+阶段（按月划分，12个月计划）：
+1. 准备：人员培训、组建TPM团队
+2. 自主维护（操作员执行基础保养）
+3. 计划性技术维护（图表、规程）
+4. 计划性维修（大修、中修）
+5. 培训与发展（培训、认证）
+6. 早期项目管理（采购时考虑可靠性）
+7. 安全与质量（5S、目视化管理）
 
-Для каждого этапа: цели, метрики успеха, типичные проблемы.</pre>
+每个阶段：目标、成功指标、典型问题。</pre>
     </div>
-    <p><strong>Результат:</strong> готовый план внедрения, экономит 5–6 часов.</p>
+    <p><strong>结果：</strong>完整的实施计划，节省5-6小时。</p>
   </div>
 
   <div class="section">
-    <h2>8. Подготовка тендерной документации — общие разделы</h2>
-    <p>Типовые разделы ТЗ на ремонтные работы — без коммерческих условий конкретной сделки.</p>
+    <h2>8. 招标文件准备 — 通用章节</h2>
+    <p>维修工作技术任务书的标准章节 — 不包含具体交易的商务条件。</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь типовую структуру ТЗ на капитальный ремонт оборудования:
+      <div class="example-label">提示词示例</div>
+      <pre>准备设备大修技术任务书的标准结构：
 
-Разделы:
-1. Общие положения (область действия, нормативные ссылки)
-2. Техническое описание объекта (без конкретных инвентарных номеров)
-3. Перечень работ (типовые виды: дефектовка, ремонт, испытания)
-4. Требования к качеству (приёмочные критерии, испытания)
-5. Требования к документации (акты, сертификаты, фото)
-6. Гарантийные обязательства (типовые сроки)
-7. Требования безопасности
-8. Форма отчёта исполнителя
+章节：
+1. 总则（适用范围、规范性文件引用）
+2. 对象技术描述（不包含具体的资产编号）
+3. 工作清单（标准类型：缺陷检测、维修、测试）
+4. 质量要求（验收标准、测试）
+5. 文件要求（验收单、证书、照片）
+6. 质保义务（标准期限）
+7. 安全要求
+8. 承包商报告形式
 
-Место для вставки конкретных данных: [УТОЧНИТЬ ПРОИЗВОДСТВО].</pre>
+具体数据的插入位置：[请确认生产信息]。</pre>
     </div>
-    <p><strong>Результат:</strong> типовой шаблон ТЗ, экономит 2 часа.</p>
+    <p><strong>结果：</strong>标准技术任务书模板，节省2小时。</p>
   </div>
 
   <div class="section">
-    <h2>汇总表: внешние задачи</h2>
+    <h2>汇总表：外部任务</h2>
     <table>
-      <tr><th>任务</th><th>所需内容</th><th>输出格式</th><th>节省时间</th></tr>
-      <tr><td>Регламенты ТОиР</td><td>Тип оборудования</td><td>Структура документа</td><td>2–3 ч</td></tr>
-      <tr><td>Инструкции по эксплуатации</td><td>Тип оборудования</td><td>Инструкция</td><td>3–4 ч</td></tr>
-      <tr><td>Обучающие материалы</td><td>Тема, аудитория</td><td>Слайды/текст</td><td>4 ч</td></tr>
-      <tr><td>Поиск аналогов</td><td>Оригинальный номер</td><td>Таблица аналогов</td><td>1–2 ч</td></tr>
-      <tr><td>Бенчмаркинг RCM/TPM</td><td>Отрасль, период</td><td>Отчёт с источниками</td><td>3–4 ч</td></tr>
-      <tr><td>Методология RCM/TPM</td><td>Тип предприятия</td><td>План внедрения</td><td>5–6 ч</td></tr>
-      <tr><td>Тендерная документация</td><td>Тип работ</td><td>Шаблон ТЗ</td><td>2 ч</td></tr>
+      <tr><th>任务</th><th>需要什么</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>设备维护规程</td><td>设备类型</td><td>文件结构</td><td>2-3小时</td></tr>
+      <tr><td>操作说明书</td><td>设备类型</td><td>说明书</td><td>3-4小时</td></tr>
+      <tr><td>培训材料</td><td>主题、受众</td><td>幻灯片/文本</td><td>4小时</td></tr>
+      <tr><td>替代品搜索</td><td>原装编号</td><td>替代品表格</td><td>1-2小时</td></tr>
+      <tr><td>RCM/TPM对标</td><td>行业、时期</td><td>带来源的报告</td><td>3-4小时</td></tr>
+      <tr><td>RCM/TPM方法论</td><td>企业类型</td><td>实施计划</td><td>5-6小时</td></tr>
+      <tr><td>招标文件</td><td>工作类型</td><td>技术任务书模板</td><td>2小时</td></tr>
     </table>
   </div>
 
   <div class="section">
-    <h2>知识测验</h2>
-    <p><strong>问题 1:</strong> Почему поиск аналогов запчастей — во внешний ИИ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确!</strong> Открытый рынок, публичные каталоги.'">Потому что это публичная информация — каталоги, кросс-номера, цены</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想一想. Поставщики — это on-prem.'">Потому что поставщики — внешние контрагенты</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想一想. Импортозамещение — публичная тема.'">Только если это импортозамещение</div>
+    <h2>知识测试</h2>
+    <p><strong>问题1：</strong>为什么备件替代品搜索要用外部AI？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>这是公开信息 — 产品目录、交叉编号、价格。'">因为这是公开信息 — 产品目录、交叉编号、价格</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。供应商属于本地部署范畴。'">因为供应商是外部合作伙伴</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。进口替代是公开话题。'">仅限于进口替代的情况</div>
     <div id="q1-result" class="result"></div>
 
-    <p><strong>问题 2:</strong> Какая задача ТОиР точно в on-prem?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确!</strong> Инвестиционное решение с конкретными данными — внутри.'">Обоснование «ремонт vs замена» для конкретного компрессора</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想一想. Общая методология — во внешнем.'">Разработка методологии RCM для металлургии</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想一想. Типовой шаблон — во внешнем.'">Подготовка типовой структуры ТЗ на капремонт</div>
+    <p><strong>问题2：</strong>哪项设备维护任务一定属于本地部署？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>涉及具体数据的投资决策属于内部处理。'">具体压缩机的"维修vs更换"论证</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。通用方法论属于外部处理。'">为冶金行业开发RCM方法论</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。标准模板属于外部处理。'">准备大修技术任务书标准结构</div>
     <div id="q2-result" class="result"></div>
 
-    <p><strong>问题 3:</strong> Обучающие материалы для механиков — какой контур?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确!</strong> Общие принципы безопасности — публичные знания.'">Внешний ИИ — базовые принципы, без конкретных инцидентов завода</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想一想. Реальные кейсы — это on-prem.'">On-prem — любые материалы для персонала завода</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想一想. Гибрид — это сочетание.'">Гибрид — базовые принципы снаружи, кейсы завода внутри</div>
+    <p><strong>问题3：</strong>机械师培训材料 — 属于哪种处理模式？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>通用安全原则属于公开知识。'">外部AI — 基本原则，不包含工厂具体事故</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。真实案例属于本地部署。'">本地部署 — 任何面向工厂员工的材料</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。混合是指两者结合使用。'">混合 — 基本原则外部处理，工厂案例内部处理</div>
     <div id="q3-result" class="result"></div>
   </div>
 
@@ -284,5 +284,5 @@
   </div>
 
 </div>
-<footer><div class="container"><p>非IT专业人员的AI · 制造企业</p></div></footer>
+<footer><div class="container"><p>非IT人员的AI · 生产企业</p></div></footer>
 </body></html>
