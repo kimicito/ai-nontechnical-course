@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>11.3 Hybrid Quality Tasks Дирекции по качеству — anonymized data — AI for Non-IT Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 11 — Quality Management</div>
+    <h1>11.3 Hybrid Quality Tasks: anonymized data</h1>
+    <div class="meta">15 min · for quality specialists · cloud + on-prem combination</div>
+  </div>
+
+  <div class="section">
+    <p>Гибридные задачи — это сценарии, где часть работы делается в облаке (общая структура, методология, литературный обзор), а финальная версия с реальными данными — в on-prem (закрытом контуре).</p>
+    <p><strong>Принцип:</strong> Обезличенное описание + общая методология → облако. Конкретные параметры, рецептура, номера партий → on-prem.</p>
+  </div>
+
+  <div class="section">
+    <h2>Hybrid Approach Diagram</h2>
+    <div class="card card-accent">
+      <pre style="background:transparent;">┌─────────────────────────────────────────┐
+│  ОБЛАКО (публичные данные)              │
+│  • Структура метода                     │
+│  • Литературный обзор                   │
+│  • Общие принципы                       │
+│  • Шаблоны без данных                   │
+└─────────────────┬───────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────────┐
+│  ON-PREM (производственная тайна)       │
+│  • Реальные параметры процесса            │
+│  • Batch numbers, клиенты                │
+│  • Рецептура, химсостав                │
+│  • Экспериментальные данные             │
+└─────────────────────────────────────────┘</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Root-Cause + FMEA (Hybrid)</h2>
+    <p><strong>Cloud:</strong> Ishikawa diagram structure, 8D template, FMEA matrix. <strong>On-Prem:</strong> filling with real parameters of a specific batch.</p>
+    
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — Template Preparation</div>
+      <pre>Prepare an 8D investigation template for metallurgical production:
+
+D0: Launch criteria (when to start 8D)
+D1: Team roles (manager, quality engineer, technologist, production, laboratory)
+D2: Problem description form (5W2H)
+D3: Temporary containment action options
+D4: Ishikawa template (6M: Man, Machine, Material, Method, Milieu, Measurement)
+D5-D7: Formats for corrective and preventive actions
+D8: Closure criteria
+
+All fields — fill with placeholder'ами [SPECIFY].</pre>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Step 2: On-Prem — Fill with Real Data</div>
+      <pre>Fill the 8D template for a specific case:
+
+- Партия: Batch-2026-1847
+- Defect: cavities on ingot surface
+- Линия: №3
+- Date: 2026-07-15
+- Parameters: [actual data from MES]
+
+Conduct root-cause, fill Ishikawa, 5 Why, D5-D7.</pre>
+    </div>
+
+    <div class="card card-success">
+      <strong>Результат:</strong> ready template in cloud (saves 2 hours) + filled 8D in on-prem (saves another 4 hours).
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Technical Specifications (Hybrid)</h2>
+    <p><strong>Cloud:</strong> general document structure, typical sections. <strong>On-Prem:</strong> specific technical parameters, tolerances, recipe.</p>
+    
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — структура ТУ</div>
+      <pre>Prepare a ТУ structure for an aluminum alloy for aviation:
+
+1. Application area (example: aircraft structural parts)
+2. Technical requirements:
+   - Chemical composition (table: element, min, nominal, max)
+   - Mechanical properties (σв, δ, HB, E)
+   - Dimensional tolerances
+3. Control methods (list of standard methods)
+4. Packaging and marking (general requirements)
+5. Technological instructions (without specific parameters — [SPECIFY])
+6. Acceptance criteria (statistical, 100%)
+
+All numerical values — [SPECIFY PRODUCTION].</pre>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — заполнение параметрами</div>
+      <pre>Fill ТУ for alloy "SuperAlum-3000":
+
+Chemical composition:
+- Al: [94.0-95.0]% — nominal 94.5%
+- Mg: [2.5-3.0]% — nominal 2.8%
+- Si: [0.8-1.5]% — nominal 1.2%
+... [specific data from laboratory]
+
+Mechanical properties:
+- σв: ≥350 MPa (our data: 385)
+- δ: ≥10% (our data: 13%)
+... [specific data from tests]
+
+Technological instructions:
+- Casting temperature: 720-740°C (optimum 730°C)
+- Cooling rate: 15-20°C/min
+... [specific parameters from MES]</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Alloy R&D (Hybrid)</h2>
+    <p><strong>Cloud:</strong> literature review, general metallurgical principles. <strong>On-Prem:</strong> comparison with real experimental data and decision making.</p>
+    
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — литературный обзор</div>
+      <pre>Conduct a literature review on aluminum alloys with Scandium (Sc):
+
+1. What Sc alloys are described in literature (2020-2026)?
+2. What mechanical properties are claimed (σв, δ, fatigue)?
+3. What production methods (casting, rolling, extrusion)?
+4. What application areas (aviation, automotive, sports)?
+5. What problems (weldability, corrosion, Sc cost)?
+6. Which companies are implementing (public information)?
+
+Make a comparison table: alloy × properties × problems.</pre>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Step 2: On-Prem — Compare with Our Data</div>
+      <pre>Compare our experimental data with literature:
+
+Our alloy: Al-Mg-Sc (0.3% Sc)
+Our data:
+- σв = 428 MPa (average, 3 batches)
+- δ = 10%
+- Problem: cracking during welding (2/3 batches)
+
+Literature data: [from cloud review]
+
+Сделай:
+1. Do our results match literature?
+2. If not — what are the differences and why?
+3. Recommendation: continue / change composition / abandon?
+4. Next experimental steps (if continuing)</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Training Materials (Hybrid)</h2>
+    <p><strong>Cloud:</strong> basic content, general principles. <strong>On-Prem:</strong> cases with real plant incidents as illustrations.</p>
+    
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — базовый контент</div>
+      <pre>Prepare a training module "Quality Control in Melting":
+
+1. Main melting defects (types, causes, signs)
+   - Gas inclusions
+   - Oxide films
+   - Chemical composition non-uniformity
+   - Cavities (internal and surface)
+2. Control methods (visual, UT, chemical analysis)
+3. Acceptance criteria (general, without specific numbers)
+4. Actions when defect is found (general algorithm)
+
+Without reference to a specific plant — only general principles.</pre>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Step 2: On-Prem — Add Real Cases</div>
+      <pre>Add real cases from our plant to the module:
+
+Case 1: "Gas inclusions in batch Batch-2026-1847"
+- What happened: [description, anonymized]
+- Cause: [real cause from investigation]
+- How found: [control method]
+- What was done: [corrective actions]
+- What we learned: [lesson for other masters]
+
+Case 2: "Chemical composition non-uniformity in batch П-2026-1956"
+- [similar structure]
+
+Important: anonymize (remove names, specific customers, exact parameters if sensitive).</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Anonymization Rules for Cloud</h2>
+    <div class="card card-warning">
+      <strong>What must be removed before sending to cloud:</strong>
+      <ul>
+        <li>Customer names ("AutoProm LLC" → "Client A")</li>
+        <li>Batch numbers ("Batch-2026-1847" → "Batch X")</li>
+        <li>Specific chemical compositions ("Al ~94.5%" → "main element ~95%")</li>
+        <li>Supplier names ("UralRaw" → "Supplier 1")</li>
+        <li>Employee names ("Ivanov P.S." → "shift master 2")</li>
+        <li>Geolocation ("shop #3" → "shop Y")</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>What Can Stay:</strong>
+      <ul>
+        <li>Defect type ("cavities", "porosity")</li>
+        <li>General process type ("melting", "rolling")</li>
+        <li>General control methods ("UT", "chemical analysis")</li>
+        <li>Document structure (ТУ sections, 8D form)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: Hybrid Tasks</h2>
+    <table>
+      <tr><th>Task</th><th>Облако (общее)</th><th>On-prem (реальные данные)</th></th>Экономия</th></tr>
+      <tr><td>Root-cause + FMEA</td><td>Шаблон Ishikawa, 8D, FMEA-матрица</td><td>Заполнение параметрами конкретной партии</td><td>6 часов → 1 час</td></tr>
+      <tr><td>ТУ на продукцию</td><td>General document structure</td><td>Конкретные параметры, допуски, рецептура</td><td>3 дня → 4 часа</td></tr>
+      <tr><td>R&D сплавов</td><td>Литературный обзор, общие принципы</td><td>Сопоставление с экспериментальными данными</td><td>5 дней → 1 день</td></tr>
+      <tr><td>Обучающие материалы</td><td>Базовый контент, общие принципы</td><td>Кейсы с реальными инцидентами (обезличенные)</td><td>2 дня → 3 часа</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> What is the hybrid approach principle?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Do everything in cloud, then delete data</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">General structure in cloud, real data in on-prem</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Do everything in on-prem, cloud not needed</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Can FMEA for a real process be prepared in the cloud?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Yes, FMEA is a public method</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">No, template only. Real process data — in on-prem</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Yes, if plant name is anonymized</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> What from the list must be anonymized before cloud?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Batch numbers, customer names, specific chemical compositions</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Типы дефектов ("cavities", "porosity")</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">General control methods ("UT", "chemical analysis")</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> Which R&D alloy step is done in on-prem?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Literature review on Scandium alloys</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Comparison of our experimental data with literature</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Patent search on Al-Mg-Sc</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 5:</strong> What format of training materials is hybrid?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Everything in on-prem, including basic principles</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Basic content in cloud + real cases (anonymized) in on-prem</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Everything in cloud, cases without anonymization</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-2-cloud/index.html" class="nav-btn">← 11.2 External Tasks</a>
+    <a href="../../index.html" class="nav-btn primary">Home →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>

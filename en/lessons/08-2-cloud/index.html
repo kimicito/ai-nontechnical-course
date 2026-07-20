@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>11.2 External Quality Tasks Дирекции по качеству — облако — AI for Non-IT Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 11 — Quality Management</div>
+    <h1>11.2 External Quality Tasks: облако</h1>
+    <div class="meta">15 min · for quality specialists · public data</div>
+  </div>
+
+  <div class="section">
+    <p>In this lesson — tasks, где Дирекция по качеству работает с публичной информацией: нормативы, стандарты, научная литература, отраслевые обзоры. These data do not contain trade secrets — they can be sent to cloud models.</p>
+    <p><strong>Solution:</strong> облачные API: Claude, ChatGPT, Kimi, Qwen API. Нужен веб-поиск — значит, модель должна быть подключена к интернету.</p>
+  </div>
+
+  <div class="section">
+    <h2>When Cloud is Better for Quality</h2>
+    <div class="card card-success">
+      <strong>Cloud models win when you need:</strong>
+      <ul>
+        <li><strong>Web search:</strong> monitor changes in ГОСТ, ISO, ТУ</li>
+        <li><strong>Translation:</strong> work with international standards (ASTM, DIN, JIS)</li>
+        <li><strong>Generation:</strong> create training materials from scratch</li>
+        <li><strong>Analysis of public data:</strong> LME Good Delivery, industry requirements</li>
+        <li><strong>Patent search:</strong> search for new alloys and technologies</li>
+      </ul>
+    </div>
+    <div class="card card-warning">
+      <strong>Important:</strong> before sending to cloud — check, that the request does not contain specific recipes, batch numbers, customer data. If present — anonymize or send to on-prem.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Monitoring Changes in ГОСТ, ISO, ТУ</h2>
+    <p>New standards, transition periods, cancelled ГОСТs — need to be monitored to ensure products meet current requirements.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example (Claude with Web Search)</div>
+      <pre>What changes in ГОСТ 22233-2018 (сплавы алюминиевые деформируемые) 
+occurred in the last 12 months?
+
+Are there new editions, amendments or cancellations?
+Which parameters have changed (chemical composition, mechanical properties, test methods)?
+When do new requirements come into force?
+
+Make a table: what changed, when it takes effect, what actions we need.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Результат:</strong> a table of changes with dates and recommended actions. Engineer saves 2-3 hours on manual search.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Certification Methodology (General)</h2>
+    <p>Preparation for ISO 9001, 14001, IATF 16949 certification — general principles, without reference to specific plant data.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Prepare a plan for IATF 16949 certification preparation 
+for a metallurgical enterprise (aluminum alloy production).
+
+Include:
+1. Preparation stages (by month, 12-month plan)
+2. Key documents to be developed
+3. Typical non-conformities found by IATF auditors
+4. Evidence requirements (records, evidence)
+5. Self-checklist before audit
+
+Without specific data — only general methodology.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Quality Standards Training Materials</h2>
+    <p>Basic content: what is СТО, why SPC is needed, basic quality principles. Without reference to real data.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Prepare training material for production masters:
+
+Topic: "Statistical Process Control (SPC) for Dummies"
+
+Format: 10 slides (text for each slide)
+Content:
+1. What is SPC and why it is needed
+2. Types of variation (random vs special cause)
+3. Control charts (x-bar, R-chart, p-chart)
+4. How to read a control chart (within limits, trends, points beyond limits)
+5. Actions when out of limits
+6. Examples from metallurgy (general, without specific data)
+
+Language: simple, no math, for workers.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Patent Search and Literature Review</h2>
+    <p>Search for new alloys, technologies, control methods. Public sources — ideal for cloud.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example (Web Search)</div>
+      <pre>Find the latest patents and publications (2023-2026) on:
+- Aluminum alloys with Scandium (Sc) additions for aviation
+- UT methods for detecting micro-cracks in aluminum ingots
+- New desulfurization methods in electric furnaces
+
+Для каждой находки:
+1. Patent number / Article DOI
+2. Authors and organization
+3. Brief technology description
+4. Claimed advantages
+5. Status (patent granted / application / publication)
+
+Make a comparison table.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Quality 4.0 Benchmarking in Metallurgy</h2>
+    <p>Open information: conferences, industry reviews, best practices.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt Example (Web Search)</div>
+      <pre>Conduct Quality 4.0 benchmarking in metallurgy (2024-2026):
+
+1. Which large metallurgical companies are implementing AI in quality control?
+2. What technologies are used (computer vision, ML, digital twins)?
+3. What results are claimed (defect reduction, savings, speed)?
+4. What Quality 4.0 conferences and exhibitions in metallurgy are happening in 2026?
+5. Best practices: what can be adapted for a medium-sized metallurgical enterprise?
+
+Make a structured report with sources.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. FMEA Templates / Control Charts</h2>
+    <p>Method structure without filling in real data. Training material.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Prepare an FMEA (Failure Mode and Effects Analysis) template 
+for metallurgical production (general, without specific data).
+
+Структура:
+1. Process description (example: "Melting in electric furnace")
+2. Potential failures (at least 5 for example)
+3. Possible causes
+4. Current control methods
+5. S (Severity), O (Occurrence), D (Detection) assessment — on a 1-10 scale
+6. RPN (Risk Priority Number) = S × O × D
+7. Recommended actions for high RPN
+
+Add instructions: how to fill for a real process (in on-prem).</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. Harmonization with Public Specifications</h2>
+    <p>Open industry standards of customers (automotive, aviation of general nature), not protected by NDA.</p>
+    
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Compare requirements for aluminum alloys for the automotive industry:
+- VDA 6.3 (Germany) — general material requirements
+- AIAG guidelines (USA) — supply chain requirements
+- ГОСТ Р  ИСО/ТС 16949 (Россия) — адаптация IATF
+
+What quality parameters are common to all three standards?
+Which ones differ?
+What additional requirements are in VDA but not in ГОСТ?
+
+Make a comparison matrix: requirement × standard (✓/✗/partial).</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: External Tasks Дирекции по качеству</h2>
+    <table>
+      <tr><th>Task</th><th>What is needed</th><th>Output format</th><th>Time savings</th></tr>
+      <tr><td>Мониторинг ГОСТ/ISO</td><td>Веб-поиск + актуальные стандарты</td><td>Таблица изменений + действия</td><td>3 часа → 15 min</td></tr>
+      <tr><td>Методология сертификации</td><td>Общие принципы ISO/IATF</td><td>План подготовки + чек-листы</td><td>2 дня → 2 часа</td></tr>
+      <tr><td>Обучающие материалы</td><td>Базовые концепции (SPC, СТО)</td><td>Слайды / тексты для обучения</td><td>1 день → 2 часа</td></tr>
+      <tr><td>Патентный поиск</td><td>Веб-поиск по патентам/статьям</td><td>Таблица находок + сравнение</td><td>2 дня → 1 час</td></tr>
+      <tr><td>Бенчмаркинг Quality 4.0</td><td>Открытые источники, конференции</td><td>Отчёт с лучшими практиками</td><td>3 дня → 2 часа</td></tr>
+      <tr><td>Шаблоны FMEA</td><td>Структура метода</td><td>Готовый шаблон + инструкция</td><td>4 часа → 30 мин</td></tr>
+      <tr><td>Гармонизация стандартов</td><td>Публичные спецификации клиентов</td><td>Матрица сравнения</td><td>1 день → 1 час</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Why can ГОСТ monitoring be done in the cloud?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because ГОСТ is a secret document</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because ГОСТ is a public document, available to everyone</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because ChatGPT knows Russian better</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> What tool to use for patent search?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">On-prem LLM (no internet access)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Cloud AI with web search (Claude, ChatGPT)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Excel</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Can FMEA for a real process be prepared in the cloud?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Yes, FMEA is a public method</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">No, FMEA with real process data — in on-prem. In cloud — template only</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Yes, if data is deleted after</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> What data type definitely goes to cloud?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Laboratory test results of a specific batch</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">General IATF 16949 methodology for metallurgy</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">New alloy recipe</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 5:</strong> What is Quality 4.0?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Quality control digitalization: AI, CV, digital twins, IoT</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">New standard ISO 9004:2020</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Fourth version of ГОСТ Р ISO 9001</div>
+      <div class="result" id="result5"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-1-on-prem/index.html" class="nav-btn">← 11.1 Internal Tasks</a>
+    <a href="../08-3-hybrid/index.html" class="nav-btn primary">11.3 Hybrid Tasks →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
