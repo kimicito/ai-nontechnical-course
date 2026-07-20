@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>13.1 Внутренние задачи логистики — on-prem — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 13 — Логистика</div>
+    <h1>13.1 Внутренние задачи логистики</h1>
+    <div class="meta">⏱ 25 мин · для логистов и специалистов по цепочкам поставок</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Закрытый контур (on-prem)</strong><br>
+    Все задачи этого урока работают с <span class="highlight">реальными объёмами, маршрутами, ставками, контрагентами</span>. Используйте внутреннюю модель или локальный LLM.
+  </div>
+
+  <div class="section">
+    <h2>Почему on-prem критичен для логистики</h2>
+    <p>В логистике добавляется уникальное измерение — <strong>санкционный комплаенс</strong>. Маршруты, фрахт и международные перевозки часто выстроены с учётом конкретных ограничений. Любая задача, где текст описывает, как компания структурирует поставки в обход ограничений — <strong>только on-prem, без исключений</strong>.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Когда on-prem обязателен:</strong>
+    <ul>
+      <li>Сценарное планирование цепочек поставок (реальные объёмы, маршруты, зависимости)</li>
+      <li>Анализ узких мест на реальных данных</li>
+      <li>Фрахтовые котировки (коммерческие условия, переговоры)</li>
+      <li>Чартер-партии (юридически значимые условия)</li>
+      <li>Переписка с брокерами/судовладельцами по реальным ставкам</li>
+      <li>Заявки на ЖД перевозку с реальными объёмами/направлениями</li>
+      <li>Планирование маршрутов с учётом санкционных ограничений</li>
+      <li>Переписка с перевозчиками по реальным условиям</li>
+      <li>Оценка риска задержки конкретной поставки</li>
+      <li>Отчёты по эффективности (OTIF, себестоимость — финансовые данные)</li>
+      <li>Претензионная работа (юридически значимо)</li>
+      <li>Разбор транспортных документов по реальным грузам</li>
+      <li>ТЗ на логистический аутсорсинг с реальными объёмами</li>
+      <li>Планы резервирования мощностей на пиковый сезон</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. Сценарное планирование цепочек поставок</h2>
+    <p>Что если закрылся порт? Погранпереход перегружен? Разрабатываем альтернативные сценарии.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (on-prem)</div>
+      <pre>Проведи сценарное планирование для поставки алюминия в Европу на Q4 2026:
+
+Базовый сценарий: отгрузка из порта Санкт-Петербург → Роттердам, 45 000 т
+Риски:
+- Порт Санкт-Петербург: возможные ограничения (проверить контракты стивидоров)
+- Погранпереходы ЕС: усиление проверок ожидается с 01.10.2026
+- Альтернатива: порт Усть-Луга → порт Хамбург (добавка 8$/т)
+
+Сценарии:
+1. Базовый (вероятность 60%)
+2. Перенос на Усть-Луга (вероятность 30%)
+3. ЖД маршрут через Казахстан → Турция (вероятность 10%, дороже на 35$/т)
+
+Для каждого: объём, срок, стоимость, риски, триггер переключения.</pre>
+    </div>
+    <p><strong>Результат:</strong> матрица сценариев для совета директоров, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Анализ узких мест цепочки поставок</h2>
+    <p>Bottleneck analysis по реальным данным — склады, транспорт, погранпереходы.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Проанализируй узкие места в цепочке поставок глинозёма (маршрут: Гвинея → Россия):
+
+Данные за II квартал 2026:
+- Погрузка в порту Камсар: средняя задержка 4.2 дня (норма 2)
+- Фрахт балкером: доступность судов снята на 30% (выход флота из проекта)
+- Погранпереход Забайкальск: очередь 8–12 дней (норма 3)
+- Склад-порт Восточный: загрузка 94% (критический порог 90%)
+- ЖД этап: простой вагонов на станции 2.3 дня (норма 1)
+
+Сделай:
+1. Bottleneck-анализ (Pareto)
+2. Оценку влияния каждого узкого места на общий Lead Time
+3. Рекомендации (инвестиции, альтернативы, контракты)
+4. Прогноз: что сломается первым при росте объёмов на 15%</pre>
+    </div>
+    <p><strong>Результат:</strong> аналитика для планирования, экономит 2–3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Анализ и сравнение фрахтовых котировок</h2>
+    <p>Сравнение чартерных ставок, выбор оптимального предложения.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Сравни фрахтовые котировки для перевозки 55 000 т бокситов (Гвинея → Россия, октябрь 2026):
+
+Котировки:
+1. Брокер A: $18.5/т, Capesize, погрузка Камсар, выгрузка Восточный, 45 дней
+2. Брокер B: $16.8/т, Panamax (2 судна), погрузка Камсар/Боке, выгрузка Восточный/Находка, 52 дня
+3. Брокер C: $19.2/т, Capesize, погрузка Камсар, выгрузка Роттердам + ЖД, 38 дней
+
+Дополнительно:
+- Штраф за простой судна: $18 000/день
+- Страховка груза: 0.12% от стоимости
+- Риск задержки в порту Камсар: 20% вероятность +5 дней
+
+Сделай сравнительный анализ (CAPEX + OPEX + риски) и рекомендацию.</pre>
+    </div>
+    <p><strong>Результат:</strong> обоснованный выбор, экономит 2 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Подготовка и проверка чартер-партий</h2>
+    <p>Чартер-партия — юридически значимый документ. LLM помогает проверить на нетиповые условия.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Проверь чартер-партию на соответствие типовым условиям и выяви риски:
+
+Текст чартер-партии (фрагменты):
+- Тип судна: Capesize, dwt 180 000
+- Груз: бокситы, 55 000 т (+/- 10%)
+- Порт погрузки: Камсар (1 безопасный порт)
+- Порт выгрузки: Восточный (1 безопасный порт)
+- Ставка фрахта: $18.5/т, FIOST
+- Laytime: 5 дней погрузка, 4 дня выгрузка, Sundays/holidays excluded
+- Демерредж: $18 000/день
+- Условие: "Owner not responsible for cargo shortfall if shore scales differ from draft survey by more than 0.5%"
+
+Проверь:
+1. Нетиповые/рискованные условия (vs стандартная GENCON)
+2. Пропущенные пункты (стандартные для балкеров)
+3. Конфликтные формулировки
+4. Рекомендации по дополнениям/поправкам</pre>
+    </div>
+    <p><strong>Результат:</strong> проверенная партиия с рисками, экономит 3–4 часа юриста.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Переписка с брокерами и судовладельцами</h2>
+    <p>Деловая переписка по ставкам, срокам, условиям.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь письмо брокеру по запросу фрахта:
+
+Тема: Запрос ставки на балкер Capesize, маршрут Камсар → Восточный, октябрь 2026
+
+Требования:
+- Груз: бокситы, 55 000 т (+/- 10%)
+- Погрузка: Камсар (Гвинея), готовность 15–25 октября
+- Выгрузка: Восточный (РФ), 1 безопасный порт
+- Условия: FIOST, демерредж $18 000/день
+- Ограничения: без захода в порты ЕС (санкционный риск)
+
+Запроси:
+1. Ставку фрахта $/т
+2. Тип судна и год постройки
+3. ETA погрузки
+4. Комиссию брокера
+5. Подтверждение соответствия ограничениям</pre>
+    </div>
+    <p><strong>Результат:</strong> готовое письмо, экономит 30 мин.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Заявки на ЖД перевозку с реальными объёмами</h2>
+    <p>Подготовка заявок и сопроводительных документов для РЖД.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь заявку на ЖД перевозку:
+
+Отправитель: ООО "Русал", п/п Восточный
+Получатель: ООО "Алюминий-Пром", ст. Братск
+Груз: глинозём, 3 200 т (64 вагона)
+Срок отгрузки: 2026-08-15 – 2026-08-20
+Особые условия: танталовые вагоны (герметичные), температурный режим
+
+Подготовь:
+1. Заявку по форме РЖД
+2. Спецификацию груза (коды ГНГ, опасность)
+3. Перечень документов для оформления
+4. Расчёт стоимости (тариф РЖД + сборы)</pre>
+    </div>
+    <p><strong>Результат:</strong> готовая заявка, экономит 1.5 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Планирование маршрутов международных автоперевозок</h2>
+    <p>С учётом санкций, разрешений, весогабаритов — особо чувствительная задача.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Спланируй маршрут доставки катодов алюминия из Красноярска в Турцию (Мерсин):
+
+Исходные данные:
+- Груз: катоды А7, 28 т (2 контейнера 20 футов)
+- Отправитель: Красноярский АЗ, склад отгрузки
+- Получатель: Турецкий переработчик, Мерсин
+- Ограничения: санкционный режим, требуется избегать ЕС/США юрисдикций
+- Разрешения: требуется TIR, разрешение на перевозку через Казахстан, Грузию
+- Весогабариты: контейнеры ≤24 т каждый
+
+Варианты маршрута:
+1. Красноярск → Алма-Ата → Актау → порт → Мерсин (море)
+2. Красноярск → Новороссийск → порт Мерсин (море)
+3. Красноярск → Каспий → Иран → Турция (сложно из-за иранских ограничений)
+
+Для каждого: расстояние, срок, стоимость, риски, необходимые документы.</pre>
+    </div>
+    <p><strong>Результат:</strong> сравнительный анализ маршрутов, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Переписка с перевозчиками по реальным условиям</h2>
+    <p>Согласование ставок, сроков, документов.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь письмо перевозчику ООО "Транзит-Лог":
+
+Тема: Уточнение условий перевозки катодов (Красноярск → Мерсин)
+
+Контекст:
+- Договор № Л-2026/084 от 12.03.2026
+- Заявленный срок доставки: 18 дней
+- Текущий статус: груз в пути, задержка на границе Казахстан–Грузия (3 дня)
+- Риск: просрочка поставки контракту с турецким покупателом (штраф $2 000/день)
+
+Тон: деловой, срочность. Запроси:
+1. Причину задержки и ожидаемое время
+2. Компенсацию (по условиям договора — пени за просрочку)
+3. Меры по ускорению (альтернативный маршрут, смена водителя)</pre>
+    </div>
+    <p><strong>Результат:</strong> готовое письмо, экономит 30 мин.</p>
+  </div>
+
+  <div class="section">
+    <h2>9. Оценка риска задержки конкретной поставки</h2>
+    <p>Привязка к реальному грузу, судну, контракту.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Оцени риск задержки поставки глинозёма:
+
+Рейс: балкер "Ocean Trader", погрузка Камсар 2026-08-10
+- Текущий статус: судно в пути, ожидается у мыса Доброй Надежды 2026-08-25
+- Прогноз погоды: шторм в районе мыса, волна до 7 м (25–27 августа)
+- Альтернатива: обход через Индийский океан (+4 дня, +$45 000 бункер)
+- Контракт получателя: штраф за задержку $3 000/день после 2026-09-05
+
+Оцени:
+1. Вероятность задержки из-за шторма
+2. Сценарии: стандартный маршрут vs обход
+3. Финансовое сравнение (штрафы vs доп. расходы на обход)
+4. Рекомендацию (продолжить или изменить маршрут)</pre>
+    </div>
+    <p><strong>Результат:</strong> обоснованное решение, экономит 2 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>10. Отчёты по эффективности логистики</h2>
+    <p>OTIF, стоимость перевозки на тонну, сравнение с планом.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь ежеквартальный отчёт по логистике за Q2 2026:
+
+Данные:
+- Отгрузок: 127 рейсов (план: 120)
+- OTIF (On Time In Full): 78% (план: 85%, год назад: 82%)
+- Средняя стоимость перевозки: $23.4/т (план: $21, год назад: $19.8)
+- Простои в портах: средний 3.2 дня (норма 2)
+- Претензий: 12 (прошлый квартал: 7)
+- Основные причины срывов: задержки фрахта (35%), ЖД узкие места (28%), погода (18%), прочее (19%)
+
+Формат: 1 страница для директора по логистике. KPI, тренды, проблемные зоны, рекомендации.</pre>
+    </div>
+    <p><strong>Результат:</strong> готовый отчёт, экономит 1.5 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>11. Претензионная работа по срывам поставок</h2>
+    <p>Обоснование претензии перевозчику/фрахтовщику.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь претензию перевозчику:
+
+Рейс: балкер "Atlantic Star", перевозка бокситов Камсар → Восточный
+Договор фрахта: № Ф-2026/112 от 15.04.2026
+
+Нарушение:
+- Фактическая дата прибытия в Восточный: 2026-06-28 (план: 2026-06-20)
+- Задержка: 8 дней
+- Причина по заявлению судна: поломка главного двигателя
+- Проверка: поломка произошла 2026-06-18 (2 дня после плановой даты), при этом судно не снизило скорость до поломки
+
+Убытки:
+- Штраф по контракту с покупателем: $24 000
+- Простой разгрузочного оборудования: $8 000
+- Дополнительные складские расходы: $3 200
+
+Требования: возмещение убытков $35 200 + пени по договору $8 000.</pre>
+    </div>
+    <p><strong>Результат:</strong> юридически грамотная претензия, экономит 2 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>12. Разбор транспортных документов</h2>
+    <p>Извлечение данных из ТТН, коносаментов, инвойсов — vision-extraction + LLM.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Разбери коносамент (Bill of Lading) и извлеки ключевые данные:
+
+Документ: B/L № CMACGM-2026-0847
+Судно: CMA CGM Marco Polo
+Груз: алюминиевые катоды, 2 850 т (114 бундлов)
+Порт погрузки: Роттердам
+Порт выгрузки: Санкт-Петербург
+Отправитель: Trafigura BV
+Получатель: ООО "Русал-Трейдинг"
+
+Извлеки и сверь:
+1. Наименование груза и вес (совпадает с инвойсом?)
+2. Количество мест (114 бундлов vs 115 по инвойсу)
+3. Условия поставки (FOB, CIF, DAP — проверить соответствие контракту)
+4. Дата выдачи коносамента
+5. Подписи (кем выдан, подлинность)
+6. Примечания (повреждения, оговорки)
+
+Флаг: несоответствие веса или количества мест — требуется уточнение.</pre>
+    </div>
+    <p><strong>Результат:</strong> проверенный документ с выявленными расхождениями, экономит 1 час.</p>
+  </div>
+
+  <div class="section">
+    <h2>13. ТЗ на логистический аутсорсинг (3PL, экспедиторы)</h2>
+    <p>Техническое задание для тендера на логистические услуги.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь ТЗ на аутсорсинг логистики глинозёма:
+
+Объём: 1.2 млн т/год
+Маршруты:
+- Гвинея (Камсар) → Россия (Восточный): 800 000 т/год (море)
+- Россия (Братск) → Казахстан (Павлодар): 250 000 т/год (ЖД)
+- Россия (Саяногорск) → Турция (Мерсин): 150 000 т/год (авто/море)
+
+Требования:
+- 3PL с опытом в металлургии/сырье
+- Страхование груза (110% от стоимости)
+- Отслеживание груза (online, API)
+- SLA: OTIF ≥90%, претензионная работа
+- Отчётность: ежемесячная (KPI, аналитика)
+- Срок контракта: 2 года + пролонгация
+
+Критерии оценки (вес): цена (40%), опыт (25%), IT (15%), география (10%), референсы (10%).</pre>
+    </div>
+    <p><strong>Результат:</strong> готовое ТЗ для тендера, экономит 4–5 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>14. Планы резервирования мощностей на пиковый сезон</h2>
+    <p>Подготовка склада, транспорта, персонала к пиковой нагрузке.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь план резервирования на Q4 2026 (пиковый сезон):
+
+История Q4:
+- Q4 2024: пиковый объём +35% vs средний, проблемы: нехватка вагонов, перегруз порта Восточный
+- Q4 2025: пик +28%, проблемы: задержки фрахта, нехватка складских площадей
+
+Прогноз Q4 2026: рост объёмов на 20% vs Q3
+
+Текущие мощности:
+- Склад Восточный: 85% загрузка (остаток 12 000 т)
+- ЖД вагоны: 90% загрузка (резерв 8 вагонов)
+- Фрахт: контракты на 60% пикового объёма
+
+Составь план:
+1. Дополнительные складские мощности (аренда?)
+2. Резерв ЖД вагонов (заявка в РЖД, срок)
+3. Резерв фрахта (доп. котировки)
+4. Персонал (смены, подрядчики на погрузку)
+5. Триггеры активации резерва
+6. Бюджет резервирования</pre>
+    </div>
+    <p><strong>Результат:</strong> план резервирования, экономит 3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица</h2>
+    <table>
+      <tr><th>Задача</th><th>Что нужно</th><th>Формат выхода</th><th>Экономия</th></tr>
+      <tr><td>Сценарное планирование</td><td>Объёмы, маршруты, риски</td><td>Матрица сценариев</td><td>3–4 ч</td></tr>
+      <tr><td>Bottleneck-анализ</td><td>Данные по этапам</td><td>Pareto + рекомендации</td><td>2–3 ч</td></tr>
+      <tr><td>Фрахтовые котировки</td><td>Ставки, условия</td><td>Сравнительный анализ</td><td>2 ч</td></tr>
+      <tr><td>Чартер-партии</td><td>Текст партии</td><td>Проверка + риски</td><td>3–4 ч</td></tr>
+      <tr><td>Переписка с брокерами</td><td>Требования</td><td>Письмо</td><td>30 мин</td></tr>
+      <tr><td>Заявки на ЖД</td><td>Параметры груза</td><td>Заявка РЖД</td><td>1.5 ч</td></tr>
+      <tr><td>Маршруты авто</td><td>Груз, ограничения</td><td>Сравнение маршрутов</td><td>3–4 ч</td></tr>
+      <tr><td>Переписка с перевозчиками</td><td>Контекст</td><td>Письмо</td><td>30 мин</td></tr>
+      <tr><td>Оценка риска задержки</td><td>Данные рейса</td><td>Анализ + рекомендация</td><td>2 ч</td></tr>
+      <tr><td>Отчёт по эффективности</td><td>KPI за период</td><td>Сводка</td><td>1.5 ч</td></tr>
+      <tr><td>Претензионная работа</td><td>Данные срыва</td><td>Претензия</td><td>2 ч</td></tr>
+      <tr><td>Разбор документов</td><td>ТТН, коносамент</td><td>Проверка + флаги</td><td>1 ч</td></tr>
+      <tr><td>ТЗ на аутсорсинг</td><td>Объёмы, требования</td><td>ТЗ для тендера</td><td>4–5 ч</td></tr>
+      <tr><td>Резервирование мощностей</td><td>Прогноз, мощности</td><td>План резервирования</td><td>3 ч</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <p><strong>Вопрос 1:</strong> Почему планирование маршрутов авто с санкциями — on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Логика обхода ограничений — чувствительная информация.'">Потому что описывает, как компания обходит/учитывает ограничения — комплаенс-риск</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Это не про цену.'">Потому что содержит коммерческие ставки перевозчиков</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Методология — публична.'">Только если маршрут проходит через страны ЕС</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Можно ли в облаке мониторить Baltic Dry Index?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> BDI — публичный индекс.'">Да, это публично доступный фрахтовый индекс</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. BDI — не коммерческая тайна.'">Нет, фрахтовые индексы — коммерческая тайна</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. BDI — публичный.'">Только если это исторические данные, а не текущие</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> ТЗ на аутсорсинг — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Реальные объёмы искажают торги.'">On-prem — всё содержит коммерческую тайну</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Шаблон снаружи, цифры внутри.'">Гибрид — обезличенный шаблон в облаке, реальные объёмы в on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Общая структура — публична.'">Внешний ИИ — структура ТЗ общая для всех компаний</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">На главную</a>
+    <a href="../12-2-cloud/index.html" class="nav-btn primary">13.2 Внешние задачи →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

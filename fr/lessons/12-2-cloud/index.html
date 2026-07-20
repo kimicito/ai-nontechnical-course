@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>13.2 Tâches logistiques externes — внешний ИИ — AI pour les non-informaticiens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI pour les non-informaticiens</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 13 — Logistique</div>
+    <h1>13.2 Tâches logistiques externes</h1>
+    <div class="meta">⏱ 15 мин · для логистов и специалистов по цепочкам поставок</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>Données publiques (IA externe)</strong><br>
+    Все задачи этого урока — с <span class="highlight">публичными источниками, общими методологиями, открытым рынком</span>. Можно использовать Claude, ChatGPT, Gemini.
+  </div>
+
+  <div class="section">
+    <h2>Почему облако лучше on-prem для логистики</h2>
+    <p>Облачные модели выигрывают, когда нужно:</p>
+    <ul>
+      <li><strong>Веб-поиск:</strong> мониторить фрахтовые индексы, тарифы РЖД, публичные ограничения</li>
+      <li><strong>Методология:</strong> разработать общую стратегию без реальных объёмов</li>
+      <li><strong>Бенчмаркинг:</strong> сравнить отраслевые практики 3PL, KPI</li>
+      <li><strong>Прогнозы:</strong> суммаризировать публичные прогнозы погоды/геополитики</li>
+      <li><strong>Шаблоны:</strong> создать типовые документы (CMR, заявки)</li>
+    </ul>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Important: перед отправкой в облако — проверь</strong>, что в запросе нет реальных объёмов, маршрутов, ставок, названий контрагентов. Если есть — обезличь или отправь в on-prem.
+  </div>
+
+  <div class="section">
+    <h2>1. Разработка логистической стратегии в общем виде</h2>
+    <p>Методология построения сети маршрутов — без привязки к конкретной компании.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (Claude с веб-поиском)</div>
+      <pre>Подготовь структуру логистической стратегии для металлургической компании:
+
+Разделы:
+1. Анализ текущей сети (типичные этапы: сырьё → производство → клиент)
+2. Выбор режима транспорта (море/ЖД/авто/морской контейнер) — критерии
+3. Резервирование и redundance (дублирование маршрутов)
+4. Управление запасами (safety stock, reorder point)
+5. 3PL vs in-house — критерии выбора
+6. IT-системы (TMS, WMS, EDI)
+7. KPI (OTIF, cost per ton, lead time, carbon footprint)
+8. Риск-менеджмент (сценарное планирование, insurance)
+
+Без конкретных объёмов и маршрутов.</pre>
+    </div>
+    <p><strong>Результат:</strong> готовая стратегия, экономит 5–6 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Мониторинг фрахтовых индексов</h2>
+    <p>Baltic Dry Index и аналоги — публичные данные для бенчмаркинга.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проведи мониторинг фрахтовых индексов (июль 2026):
+
+Индексы:
+1. Baltic Dry Index (BDI) — динамика за 3 месяца
+2. Baltic Capesize Index (BCI)
+3. Baltic Panamax Index (BPI)
+4. China Containerized Freight Index (CCFI)
+
+Questionы:
+- Какая динамика с начала года?
+- Какие факторы влияют (погода, геополитика, сезонность)?
+- Прогноз на Q3–Q4 2026 (по аналитикам)
+- Какие маршруты дорожают быстрее всего?
+- Рекомендации по хеджированию фрахтовых рисков
+
+Выведи таблицу с источниками.</pre>
+    </div>
+    <p><strong>Результат:</strong> обзор рынка фрахта, экономит 2–3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Анализ тарифов РЖД и китайских операторов</h2>
+    <p>Публичные тарифные сетки — сравнение, поиск оптимальных маршрутов.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Сравни тарифы на ЖД перевозку контейнеров:
+
+Маршрут (типовой): Восточный (РФ) → Суйфэньхэ (КНР)
+
+Операторы:
+1. РЖД (контейнерные перевозки) — тариф за 40 футов
+2. Китайские операторы (CR, China Railway)
+3. Транзит через Казахстан (KTZ)
+4. Мультимодальные операторы (FESCO, TransContainer)
+
+Дополнительно:
+- Сроки доставки
+- Частота отправлений
+- Доступность вагонов/платформ
+- Дополнительные сборы (погранпереход, терминалы)
+
+Выведи сравнительную таблицу.</pre>
+    </div>
+    <p><strong>Результат:</strong> сравнение тарифов, экономит 2 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Анализ узких мест на погранпереходах</h2>
+    <p>Общая ситуация по открытым источникам — не привязанная к конкретной поставке.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проанализируй ситуацию на погранпереходах РФ–КНР (2026):
+
+Переходы:
+1. Забайкальск–Маньчжурия
+2. Пограничный–Суйфэньхэ
+3. Краскино–Хуньчунь
+4. Дружина–Дуньин
+
+Данные для сбора:
+- Среднее время ожидания (дни)
+- Пропускная способность (вагонов/сутки)
+- Типичные проблемы (документы, очереди, погода)
+- Инфраструктура (склады, терминалы)
+- Планы развития (инвестиции, расширение)
+
+Источники: официальная статистика таможни, отраслевые СМИ, форумы перевозчиков.</pre>
+    </div>
+    <p><strong>Результат:</strong> обзор узких мест, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Сбор и суммаризация прогнозов погоды/катаклизмов</h2>
+    <p>Генеративная функция — суммаризация публичных сводок, не прогноз как таковой.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Суммаризируй открытые прогнозы, влияющие на маршруты доставки в августе 2026:
+
+Регионы:
+- Южно-Китайское море (тайфуны)
+- Мыс Доброй Надежды (штормы)
+- Суэцкий канал (погода, геополитика)
+- Балтийское море (осенние шторма)
+
+Для каждого:
+1. Публичные прогнозы (метеорологические службы, NOAA)
+2. Период риска (даты)
+3. Вероятность и сила
+4. Влияние на судоходство (закрытие портов, ограничения)
+5. Рекомендации (избегать, обходить, резервировать)
+
+Формат: алерт для логистического отдела.</pre>
+    </div>
+    <p><strong>Результат:</strong> сводка рисков, экономит 1.5 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Бенчмаркинг логистических затрат и практик</h2>
+    <p>Сравнение с отраслевыми стандартами — публичные данные.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проведи бенчмаркинг логистических затрат в металлургии (2024–2026):
+
+Questionы:
+1. Какой % от выручки составляют логистические расходы у крупных металлургов?
+2. Какие KPI используют лидеры отрасли (OTIF, cost per ton, carbon intensity)?
+3. Какие 3PL-провайдеры работают с металлургией (FESCO, TransContainer, DP World)?
+4. Какие IT-системы TMS внедрены (SAP TM, 1С Логистика, Ortec)?
+5. Какие тренды: green logistics, digital twin, blockchain в документообороте?
+
+Сделай структурированный отчёт с источниками.</pre>
+    </div>
+    <p><strong>Результат:</strong> обзор отраслевых практик, экономит 4–5 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Общий шаблон документов для международной автоперевозки</h2>
+    <p>CMR, типовые разрешения — без реальных грузов.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь шаблон пакета документов для международной автоперевозки (РФ → ЕС):
+
+Документы:
+1. CMR (коносамент для авто) — обязательные поля
+2. ТТН (товарно-транспортная накладная)
+3. Инвойс (коммерческий счёт)
+4. Упаковочный лист
+5. Сертификат происхождения (Form A, EUR.1)
+6. Разрешение на перевозку (если опасный груз — ADR)
+7. Страховой полис (CMR-страхование)
+8. Доверенность на получение груза
+
+Для каждого: назначение, обязательные поля, типичные ошибки.
+Место для вставки реальных данных: [УТОЧНИТЬ].</pre>
+    </div>
+    <p><strong>Результат:</strong> готовый шаблон, экономит 2–3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Подготовка алертов по объезду/переносу отгрузки</h2>
+    <p>Общий сценарий маршрутизации — без привязки к конкретному грузу.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь методологию алертов и рекомендаций при сбоях в логистике:
+
+Типовые сценарии:
+1. Шторм в порту погрузки — задержка на 3–5 дней
+2. Перегруз погранперехода — очередь 10+ дней
+3. Забастовка в порту выгрузки — неопределённая задержка
+4. Авария на ЖД путях — обход через альтернативный маршрут
+5. Санкционные ограничения — внезапный запрет на заход в порт
+
+Для каждого сценария:
+- Триггер алерта (что фиксируем)
+- Кто уведомляется (логист, закупщик, клиент)
+- Варианты действий (обход, перенос, замена)
+- Шаблон сообщения контрагенту
+- Срок принятия решения
+
+Методология без конкретных грузов и дат.</pre>
+    </div>
+    <p><strong>Результат:</strong> готовая методология, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif: внешние задачи</h2>
+    <table>
+      <tr><th>Tâche</th><th>Besoins</th><th>Format sortie</th><th>Gain de temps</th></tr>
+      <tr><td>Логистическая стратегия</td><td>Тип компании</td><td>Структура стратегии</td><td>5–6 ч</td></tr>
+      <tr><td>Фрахтовые индексы</td><td>Период</td><td>Обзор рынка</td><td>2–3 ч</td></tr>
+      <tr><td>Тарифы РЖД/КНР</td><td>Маршрут</td><td>Сравнительная таблица</td><td>2 ч</td></tr>
+      <tr><td>Погранпереходы</td><td>Регион</td><td>Обзор узких мест</td><td>3–4 ч</td></tr>
+      <tr><td>Прогнозы погоды</td><td>Регион, период</td><td>Алерт рисков</td><td>1.5 ч</td></tr>
+      <tr><td>Бенчмаркинг</td><td>Отрасль</td><td>Отчёт с источниками</td><td>4–5 ч</td></tr>
+      <tr><td>Шаблоны документов</td><td>Тип перевозки</td><td>Пакет документов</td><td>2–3 ч</td></tr>
+      <tr><td>Алерты по сбоям</td><td>Сценарии</td><td>Методология реагирования</td><td>3–4 ч</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Test de connaissances</h2>
+    <p><strong>Question 1:</strong> Почему стратегия логистики — во внешний ИИ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Методология без реальных объёмов — публичное знание.'">Потому что это общая методология без конкретных объёмов и маршрутов</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Стратегия не содержит реальных данных.'">Потому что стратегия — это не документ, а концепция</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Любая стратегия может быть чувствительна.'">Только если обезличить название компании</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Baltic Dry Index — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> BDI — публичный индекс.'">Внешний ИИ — публичный фрахтовый индекс</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. BDI публикуется открыто.'">On-prem — коммерческая тайна</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. BDI — публичный, не нужен гибрид.'">Гибрид — индекс снаружи, интерпретация внутри</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Шаблон CMR — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Общий шаблон без реальных данных.'">Внешний ИИ — типовой документ без реальных грузов</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Шаблон — общий документ.'">On-prem — CMR содержит коммерческие данные</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Шаблон без данных — во внешнем.'">Гибрид — шаблон снаружи, данные внутри</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../12-1-on-prem/index.html" class="nav-btn">← 13.1 Tâches internes</a>
+    <a href="../12-3-hybrid/index.html" class="nav-btn primary">13.3 Tâches hybrides →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI pour les non-informaticiens · Entreprise industrielle</p></div></footer>
+</body></html>

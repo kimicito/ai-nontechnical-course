@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>13.3 Гибридные задачи логистики — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 13 — Логистика</div>
+    <h1>13.3 Гибридные задачи логистики</h1>
+    <div class="meta">⏱ 20 мин · для логистов</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Гибридный подход</strong><br>
+    Общую <span class="highlight">структуру и методологию</span> готовим во внешнем ИИ.<br>
+    <span class="highlight">Реальные данные</span> (грузы, даты, ставки, маршруты) добавляем в on-prem.
+  </div>
+
+  <div class="section">
+    <h2>Принцип гибридного подхода для логистики</h2>
+    <p>Ключевое правило: <strong>чем чувствительнее данные</strong> (санкции, конкретные контрагенты, финансовые показатели) — тем жёстче on-prem. Общая методология (структура документа, категории анализа) спокойно уходит во внешний контур.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Правила обезличивания для облака:</strong>
+    <table>
+      <tr><th>Что обязательно убрать</th><th>Что можно оставить</th></tr>
+      <tr><td>Названия портов (если уникальные для компании)</td><td>Типы портов (балкерный, контейнерный)</td></tr>
+      <tr><td>Названия контрагентов (брокеры, перевозчики)</td><td>Тип контрагента (брокер, 3PL, экспедитор)</td></tr>
+      <tr><td>Конкретные объёмы (тонны, TEU)</td><td>Методология расчёта</td></tr>
+      <tr><td>Финансовые ставки, тарифы</td><td>Структура тарифа (база + надбавки)</td></tr>
+      <tr><td>Маршруты с привязкой к компании</td><td>Общие логистические концепции</td></tr>
+      <tr><td>Конкретные даты отгрузок</td><td>Сезонность, типичные сроки</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>1. Оценка риска задержки (гибрид)</h2>
+    <p><strong>Облако:</strong> общая логика — "если в порту X шторм, как это типично влияет на груз навалочного типа".<br>
+    <strong>On-prem:</strong> привязка к конкретному судну, грузу, клиенту.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — методология оценки</div>
+      <pre>Подготовь методологию оценки риска задержки морской поставки:
+
+Факторы:
+1. Погода в районе маршрута (штормы, тайфуны)
+2. Загрузка портов (очереди, стивидоры)
+3. Геополитика (санкции, ограничения)
+4. Техническое состояние судна (возраст, класс)
+5. Сезонность (пиковые периоды)
+
+Шкала риска: низкий (задержка ≤1 день) / средний (2–3 дня) / высокий (≥4 дня)
+
+Методика расчёта влияния: стоимость задержки = штрафы + простой + альтернативные расходы
+
+[УТОЧНИТЬ: конкретное судно, груз, маршрут, даты]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — заполнение реальными данными</div>
+      <pre>Заполни оценку риска для рейса:
+
+Судно: "Ocean Trader", груз: бокситы 55 000 т
+Маршрут: Камсар → Восточный
+Дата погрузки: 2026-08-10
+
+Данные:
+- Прогноз погоды: шторм у мыса Доброй Надежды 25–27 августа
+- Текущее положение: ожидается у мыса 25 августа
+- Альтернатива: обход (+4 дня, +$45 000)
+- Штраф за задержку: $3 000/день после 05.09
+
+Рассчитай риск и рекомендацию.</pre>
+    </div>
+    <p><strong>Экономия:</strong> методология в облаке (1 час) + оценка в on-prem (1 час).</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Алерты по объезду/переносу (гибрид)</h2>
+    <p><strong>Облако:</strong> общий сценарий маршрутизации снаружи.<br>
+    <strong>On-prem:</strong> финальное решение с реальными датами и грузами.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — сценарии реагирования</div>
+      <pre>Подготовь сценарии реагирования на задержку в порту погрузки:
+
+Сценарий: задержка погрузки на 5 дней (шторм, поломка оборудования)
+
+Варианты:
+A. Ожидать (держать судно в порту) — риск: демерредж
+B. Перенаправить на альтернативный порт — риск: +расстояние, +бункер
+C. Сменить судно на более доступное — риск: перегруз, повреждение
+D. Перенести отгрузку на следующее окно — риск: штраф покупателю
+
+Критерии выбора: стоимость, срок, риск повреждения груза, репутация.
+
+[УТОЧНИТЬ: конкретный груз, объём, контракт, даты]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — принятие решения</div>
+      <pre>Примите решение для рейса:
+
+Груз: катоды алюминия, 2 850 т (контейнеры)
+Судно: задержка в Роттердаме на 5 дней (шторм)
+Контракт: поставка до 2026-09-10, штраф $2 000/день
+
+Варианты:
+A. Ждать — демерредж $12 000, но нет штрафа
+B. Перенаправить на Гамбург — +$8 000, +2 дня
+C. Перенести на авиа (часть груза) — +$45 000, но в срок
+
+Рассчитай и рекомендуй.</pre>
+    </div>
+    <p><strong>Экономия:</strong> сценарии в облаке (1.5 часа) + решение в on-prem (1 час).</p>
+  </div>
+
+  <div class="section">
+    <h2>3. ТЗ на аутсорсинг (гибрид)</h2>
+    <p><strong>Облако:</strong> обезличенный шаблон ТЗ.<br>
+    <strong>On-prem:</strong> реальные объёмы, маршруты, требования.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — шаблон ТЗ</div>
+      <pre>Подготовь типовое ТЗ на логистический аутсорсинг (3PL):
+
+1. Общие положения (область, срок)
+2. Объём грузопотока [УТОЧНИТЬ: тонны/TEU в год]
+3. Маршруты [УТОЧНИТЬ: типовые направления]
+4. Требования к транспорту (море/ЖД/авто/мультимодаль)
+5. SLA (OTIF, время доставки, претензии)
+6. IT-интеграция (API, EDI, отслеживание)
+7. Отчётность (KPI, периодичность)
+8. Страхование (110% стоимости)
+9. Требования к персоналу (сертификация)
+10. Критерии оценки (цена, опыт, география, IT)
+
+Место для вставки: [УТОЧНИТЬ ПРОИЗВОДСТВО].</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — заполнение</div>
+      <pre>Заполни ТЗ для тендера:
+
+Компания: [наше название]
+Объём: 1.2 млн т/год глинозёма
+Маршруты:
+- Камсар → Восточный: 800 000 т/год
+- Братск → Павлодар: 250 000 т/год
+- Саяногорск → Мерсин: 150 000 т/год
+
+SLA: OTIF ≥90%, отчётность ежемесячная
+Критерии: цена 40%, опыт 25%, IT 15%, география 10%, референсы 10%
+
+Все параметры — из внутренних данных.</pre>
+    </div>
+    <p><strong>Экономия:</strong> шаблон в облаке (2 часа) + заполненное ТЗ в on-prem (1.5 часа).</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Претензионная работа (гибрид)</h2>
+    <p><strong>Облако:</strong> структура и методология обоснования претензии.<br>
+    <strong>On-prem:</strong> реальные факты, даты, суммы.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — методология</div>
+      <pre>Подготовь структуру претензии по срыву сроков доставки:
+
+1. Реквизиты сторон [УТОЧНИТЬ]
+2. Договор, спецификация [УТОЧНИТЬ]
+3. Фактические условия перевозки [УТОЧНИТЬ]
+4. Нарушение (факт vs план) [УТОЧНИТЬ]
+5. Причина (по документам/заявлению) [УТОЧНИТЬ]
+6. Убытки (штрафы, простой, доп. расходы) [УТОЧНИТЬ]
+7. Требования (возмещение, пени) [УТОЧНИТЬ]
+8. Срок ответа и последствия [УТОЧНИТЬ]
+
+Добавь ссылки на законодательство (ГК РФ, Венская конвенция о договорах международной купли-продажи).</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — заполнение</div>
+      <pre>Заполни претензию по рейсу:
+
+Перевозчик: ООО "Транзит-Лог"
+Договор: № Л-2026/084 от 12.03.2026
+Рейс: Красноярск → Мерсин, катоды 28 т
+Задержка: 8 дней (план 18, факт 26)
+
+Убытки: штраф покупателю $16 000, простой $8 000
+Требования: возмещение $24 000 + пени по договору
+
+Все факты — из внутренних документов.</pre>
+    </div>
+    <p><strong>Экономия:</strong> шаблон в облаке (1 час) + претензия в on-prem (1 час).</p>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица: гибридные задачи</h2>
+    <table>
+      <tr><th>Задача</th><th>Облако</th><th>On-prem</th><th>Экономия</th></tr>
+      <tr><td>Оценка риска задержки</td><td>Методология, факторы</td><td>Конкретное судно, груз, даты</td><td>1 + 1 ч</td></tr>
+      <tr><td>Алерты по объезду</td><td>Сценарии реагирования</td><td>Реальные грузы, даты, решение</td><td>1.5 + 1 ч</td></tr>
+      <tr><td>ТЗ на аутсорсинг</td><td>Общий шаблон</td><td>Объёмы, маршруты, требования</td><td>2 + 1.5 ч</td></tr>
+      <tr><td>Претензия</td><td>Структура, методология</td><td>Факты, даты, суммы</td><td>1 + 1 ч</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <p><strong>Вопрос 1:</strong> Какой принцип гибрида для логистики?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Структура снаружи, данные внутри.'">Общая методология в облаке, реальные данные в on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Это не про копирование.'">Всё делать в облаке, потом скопировать в on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Гибрид предполагает оба контура.'">Всё делать в on-prem, облако не нужно</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Оценка риска задержки — какой шаг в on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Конкретные данные — внутри.'">Привязка к конкретному судну, грузу, маршруту, датам</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Методология — в облаке.'">Разработка шкалы риска и методологии оценки</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Погода — публичные данные.'">Сбор прогнозов погоды в районе маршрута</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> Что из списка обязательно убрать перед облаком?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Контрагенты, объёмы, ставки — убрать.'">Названия брокеров, конкретные объёмы, финансовые ставки</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Тип — общее знание.'">Тип транспорта (море/ЖД/авто)</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Структура тарифа — публична.'">Структура тарифа (база + надбавки)</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../12-2-cloud/index.html" class="nav-btn">← 13.2 Внешние задачи</a>
+    <a href="../../index.html" class="nav-btn primary">На главную</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>
