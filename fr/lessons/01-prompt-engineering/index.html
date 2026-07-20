@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -119,7 +119,7 @@ new PagefindUI({
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../index.html" class="logo">🧠 IA pour Non-Informaticiens</a>
     <div id="search" style="flex:1;max-width:200px;margin:0 12px;"></div>
     <button id="search-toggle" onclick="toggleSearch()" style="display:none;background:none;border:none;color:var(--accent);font-size:1.3rem;cursor:pointer;padding:4px 8px;">🔍</button>
     <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
@@ -262,6 +262,60 @@ Responsable : [nom]"</pre>
     </div>
   </div>
 
+  <!-- CONTRAT DE COMPORTEMENT -->
+  <div class="section">
+    <h2>🔒 Quand le prompt ne suffit pas : contrat de comportement</h2>
+    <p>La formule <strong>RCOFE</strong> fonctionne parfaitement pour les <strong>tâches ponctuelles</strong>. Mais si vous écrivez le même prompt pour la 3ème fois de suite — il est temps de formaliser un <strong>contrat de comportement</strong>.</p>
+    <div class="card card-warning">
+      <p><strong>Signal :</strong> « Je demande pour la 5ème fois à l'IA de vérifier les factures » → ce n'est pas une tâche ponctuelle, c'est un <strong>processus régulier</strong>.</p>
+    </div>
+
+    <h3>6 éléments du contrat</h3>
+    <div class="card card-accent">
+      <table>
+        <tr><th>Élément</th><th>Question</th><th>Exemple</th></tr>
+        <tr><td><strong>1. Activation</strong></td><td>Quand déclencher le processus ?</td><td>« Rapport de ventes reçu par email »</td></tr>
+        <tr><td><strong>2. Entrée</strong></td><td>Qu'envoie-t-on en entrée ?</td><td>« Excel avec colonnes Plan | Réel | Écart »</td></tr>
+        <tr><td><strong>3. Limites</strong></td><td>Que NE PAS faire ?</td><td>« Ne fais pas de recommandations de licenciement. N'utilise pas de données externes »</td></tr>
+        <tr><td><strong>4. Mode</strong></td><td>Analyse / brouillon / final ?</td><td>« Analyse uniquement — ne modifie pas le fichier source »</td></tr>
+        <tr><td><strong>5. Sortie</strong></td><td>Format et où enregistrer ?</td><td>« Tableau des 3 écarts + cause probable. Envoie sur Telegram »</td></tr>
+        <tr><td><strong>6. Stop</strong></td><td>Où attendre l'humain ?</td><td>« Si écart > 30 % — arrête-toi, attends la décision du CFO »</td></tr>
+      </table>
+    </div>
+
+    <h3>Évolution : du RCOFE au contrat</h3>
+    <div class="example">
+      <div class="example-label">🔄 Étape 1 — Prompt ponctuel (RCOFE)</div>
+      <pre>Tu es analyste financier.
+Entrée : rapport de ventes T2.
+Tâche : trouve les 3 principaux écarts par rapport au plan.
+Format : tableau.
+Eval : vérifie que les chiffres sont corrects.</pre>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 8px;">✅ Convient pour un seul rapport. Mais si le rapport arrive chaque vendredi — il faudra copier le prompt encore et encore.</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">🔄 Étape 2 — Contrat pour processus régulier</div>
+      <pre>ACTIVATION : Fichier "Rapport_ventes_*.xlsx" reçu par email
+ENTRÉE : Tableau avec colonnes Plan | Réel | Écart (%)
+LIMITES :
+  - Analyse uniquement les chiffres du fichier
+  - NE fais pas de recommandations de licenciement
+  - N'utilise PAS de données externes
+MODE : Analyse uniquement (ne modifie pas le fichier)
+SORTIE : Tableau avec 3 écarts + cause probable
+STOP : Si écart > 30 % → arrête-toi, attends le CFO</pre>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 8px;">✅ Écrit une fois — fonctionne chaque semaine. Peut être confié au développeur pour être transformé en skill.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>💡 Règle de décision</h3>
+      <p><strong>1-2 fois</strong> → RCOFE (prompt ponctuel)<br>
+      <strong>3+ fois</strong> → Contrat (processus régulier)<br>
+      <strong>Chaque semaine</strong> → Skill (automatisation via développeur)</p>
+    </div>
+  </div>
+
   <!-- CHECKLIST ACCEPTATION -->
   <div class="section">
     <h2>✅ Checklist d'acceptation</h2>
@@ -325,6 +379,14 @@ Responsable : [nom]"</pre>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) Pour que l'IA vérifie sa réponse pour les erreurs et les hallucinations avant de la sortir</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Pour que l'IA réécrive la réponse dans une autre langue</div>
       <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 5 :</strong> Vous demandez pour la 5ème fois à l'IA de vérifier le rapport hebdomadaire. Que faire ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Continuer à écrire RCOFE de zéro chaque semaine</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Formaliser un contrat de comportement pour un processus régulier</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Abandonner l'IA et revenir à la vérification manuelle</div>
+      <div class="result" id="result5"></div>
     </div>
   </div>
 

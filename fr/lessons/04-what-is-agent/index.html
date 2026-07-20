@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -118,7 +118,7 @@ new PagefindUI({
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 IA pour les professionnels non informatiques</a>
+    <a href="../../index.html" class="logo">🧠 IA pour Non-Informaticiens</a>
     <div id="search" style="flex:1;max-width:200px;margin:0 12px;"></div>
     <button id="search-toggle" onclick="toggleSearch()" style="display:none;background:none;border:none;color:var(--accent);font-size:1.3rem;cursor:pointer;padding:4px 8px;">🔍</button>
     <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalogue</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Conditions</a>
@@ -138,7 +138,7 @@ new PagefindUI({
     <h2>🎯 Pourquoi c'est important pour l'entreprise</h2>
     <p>L'IA régulière attend vos commandes.<strong>L'agent agit seul</strong>: fixe les objectifs, planifie les étapes, met en œuvre, vérifie les résultats.</p>
     <div class="card card-success">
-      <p><strong>Exemple:</strong>Vous dites à l'agent : « Préparez un rapport sur le marché de l'emballage. » Agent lui-même :</p>
+      <p><strong>Exemple:</strong>Vous dites à l'agent : « Préparez un rapport sur le marché de l'emballage. » Agent lui-même :</p>
       <ol>
         <li>Recherche d'informations sur Internet</li>
         <li>Analyse ce qui est trouvé</li>
@@ -146,7 +146,45 @@ new PagefindUI({
         <li>Rédige des conclusions et des recommandations</li>
         <li>Vous envoie le document terminé</li>
       </ol>
-      <p><strong>Vous avez dépensé :</strong>5 minutes pour régler le problème.<strong>Agent dépensé :</strong>20 minutes pour terminer.</p>
+      <p><strong>Vous avez dépensé :</strong>5 minutes pour régler le problème.<strong>Agent dépensé :</strong>20 minutes pour terminer.</p>
+    </div>
+  </div>
+
+  <!-- CHOIX DU MÉCANISME -->
+  <div class="section">
+    <h2>🛠️ Prompt vs Skill vs Subagent : comment choisir l'outil</h2>
+    <p>Tout n'a pas besoin d'être compliqué. Une tâche ponctuelle — un prompt ponctuel. Un processus régulier — un contrat ou un skill. Besoin d'un contexte propre — subagent.</p>
+
+    <div class="card card-accent">
+      <table>
+        <tr><th>Mécanisme</th><th>Quand l'utiliser</th><th>Exemple</th></tr>
+        <tr><td><strong>Prompt</strong></td><td>Tâche ponctuelle dans la conversation actuelle</td><td>« Compare 3 offres fournisseurs »</td></tr>
+        <tr><td><strong>Instruction de projet</strong></td><td>Règle pour presque tout le travail dans le projet</td><td>« Toujours écrire brièvement, sans fioritures »</td></tr>
+        <tr><td><strong>Skill</strong></td><td>Processus répétable avec limites et vérification</td><td>« Chaque vendredi, vérifie le rapport du contrat »</td></tr>
+        <tr><td><strong>Subagent</strong></td><td>Besoin d'un contexte propre ou d'un travail parallèle</td><td>« Vérifie ce contrat indépendamment, pendant que je fais autre chose »</td></tr>
+      </table>
+    </div>
+
+    <h3>Route rapide de choix</h3>
+    <div class="card">
+      <ol>
+        <li><strong>Une réponse dans une conversation ?</strong> → Prompt</li>
+        <li><strong>Règle pour tout le projet ?</strong> → Instruction de projet</li>
+        <li><strong>Processus répétable avec début et fin ?</strong> → Skill</li>
+        <li><strong>Besoin d'un exécutant séparé ou d'un contexte propre ?</strong> → Subagent</li>
+      </ol>
+    </div>
+
+    <div class="example">
+      <div class="example-label">💡 Exemple d'évolution</div>
+      <p><strong>Semaine 1 :</strong> « Analyse ce rapport » — <em>Prompt</em> (ponctuel)</p>
+      <p><strong>Semaine 3 :</strong> « Vérifie le rapport chaque vendredi selon ce contrat » — <em>Skill</em> (régulier)</p>
+      <p><strong>Semaine 5 :</strong> « Vérifie le rapport indépendamment de la tâche principale » — <em>Subagent</em> (isolation)</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>💡 Règle de décision</h3>
+      <p>Commencez par le mécanisme le plus léger qui assure la répétabilité nécessaire. Tâche ponctuelle — prompt. Norme permanente — instruction de projet. Processus répétable — skill. Isolation nécessaire — subagent.</p>
     </div>
   </div>
 
@@ -231,22 +269,22 @@ new PagefindUI({
       <h3>Modèle de tâche</h3>
       <pre>"Nous avons besoin d'un agent IA pour [tâche].
 
-Objectif de l'agent : [ce qui doit être réalisé]
+Objectif de l'agent : [ce qui doit être réalisé]
 
-Données d'entrée : [d'où proviennent les informations]
-Résultat : [ce qui devrait produire]
+Données d'entrée : [d'où proviennent les informations]
+Résultat : [ce qui devrait produire]
 
-Outils nécessaires :
+Outils nécessaires :
 - [recherche internet / email / Excel / API / etc.]
 
-Limites :
+Limites :
 - [budget pour les requêtes API]
 - [exécution]
 - [qui nécessite une confirmation humaine]
 
-Exemple de tâche et résultat attendu : [donner]
+Exemple de tâche et résultat attendu : [donner]
 
-Date limite : [date]"</pre>
+Date limite : [date]"</pre>
     </div>
   </div>
 
@@ -254,12 +292,12 @@ Date limite : [date]"</pre>
   <div class="section">
     <h2>✅ Checklist d'acceptation</h2>
     <ul class="checklist">
-      <li>L’agent atteint-il complètement l’objectif ? (du début à la fin)</li>
+      <li>L'agent atteint-il complètement l'objectif ? (du début à la fin)</li>
       <li>Vous ne restez pas bloqué sur une seule marche ?</li>
       <li>Utilise correctement les outils ?</li>
-      <li>Vous vous souvenez du contexte entre les étapes ?</li>
+      <li>Vous vous souvenez du contexte entre les étapes ?</li>
       <li>Est-ce dans les limites du budget et du temps ?</li>
-      <li>Existe-t-il un « homme au courant » pour les décisions critiques ?</li>
+      <li>Existe-t-il un « homme au courant » pour les décisions critiques ?</li>
     </ul>
   </div>
 
@@ -268,7 +306,7 @@ Date limite : [date]"</pre>
     <h2>📝 Vérification des connaissances</h2>
     
     <div class="card card-accent">
-      <p><strong>Question 1 :</strong>En quoi un agent est-il différent d’un chatbot ?</p>
+      <p><strong>Question 1 :</strong>En quoi un agent est-il différent d'un chatbot ?</p>
       <div class="quiz-option" onclick="checkAnswer(this, true)">A) L'agent fixe des objectifs et exécute lui-même des actions</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">B) L'agent est plus cher</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) L'agent répond plus rapidement</div>
@@ -276,7 +314,7 @@ Date limite : [date]"</pre>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2 :</strong>Quelle est la « mémoire » de l’agent ?</p>
+      <p><strong>Question 2 :</strong>Quelle est la « mémoire » de l'agent ?</p>
       <div class="quiz-option" onclick="checkAnswer(this, true)">A) Capacité à se souvenir du contexte et de l'histoire</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">B) Capacité du disque dur</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Vitesse de fonctionnement</div>
@@ -284,11 +322,27 @@ Date limite : [date]"</pre>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3 :</strong>Pourquoi un agent a-t-il besoin d’« outils » ?</p>
+      <p><strong>Question 3 :</strong>Pourquoi un agent a-t-il besoin d'« outils » ?</p>
       <div class="quiz-option" onclick="checkAnswer(this, true)">A) Pour effectuer des actions : rechercher, envoyer, enregistrer</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">B) Pour avoir l'air plus compliqué</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Ceci est facultatif</div>
       <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4 :</strong>Vous demandez chaque jour à l'IA de résumer brièvement les e-mails entrants. Quel mécanisme choisir ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Écrire un nouveau prompt à chaque fois</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Formuler comme un skill — processus régulier avec limites</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Créer un subagent pour chaque e-mail</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 5 :</strong>Il faut vérifier un contrat indépendamment, pendant que l'IA principale travaille sur une autre tâche. Que choisir ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Prompt dans le même chat</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Subagent — exécutant séparé avec un contexte propre</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Instruction de projet</div>
+      <div class="result" id="result5"></div>
     </div>
   </div>
 
@@ -296,7 +350,7 @@ Date limite : [date]"</pre>
   <div class="section">
     <div class="card card-success">
       <h3>🎯 L'essentiel de la leçon</h3>
-      <p><strong>Agent = employé autonome.</strong>Il possède un cerveau (LLM), une mémoire, des outils et un planificateur. Il ne se contente pas de répondre aux questions : il résout les problèmes du début à la fin. Commencez avec des agents simples, ajoutez progressivement de la complexité. Laissez toujours "l'homme au courant".</p>
+      <p><strong>Agent = employé autonome.</strong>Il possède un cerveau (LLM), une mémoire, des outils et un planificateur. Il ne se contente pas de répondre aux questions : il résout les problèmes du début à la fin. Commencez avec des agents simples, ajoutez progressivement de la complexité. Laissez toujours « l'homme au courant ».</p>
     </div>
   </div>
 

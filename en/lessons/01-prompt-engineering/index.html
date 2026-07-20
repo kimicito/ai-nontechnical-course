@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -119,7 +119,7 @@ new PagefindUI({
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../index.html" class="logo">🧠 AI for Non-IT Professionals</a>
     <div id="search" style="flex:1;max-width:200px;margin:0 12px;"></div>
     <button id="search-toggle" onclick="toggleSearch()" style="display:none;background:none;border:none;color:var(--accent);font-size:1.3rem;cursor:pointer;padding:4px 8px;">🔍</button>
     <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
@@ -235,6 +235,60 @@ If any item is not specified in the document — write "Not specified".</pre>
     </div>
   </div>
 
+  <!-- CONTRACT BEHAVIOR -->
+  <div class="section">
+    <h2>🔒 When prompt is not enough: contract behavior</h2>
+    <p>The RCOFE formula works great for <strong>one-off tasks</strong>. But if you are writing the same prompt for the 3rd time in a row — it's time to formalize a <strong>behavior contract</strong>.</p>
+    <div class="card card-warning">
+      <p><strong>Signal:</strong> "I'm asking AI to check invoices for the 5th time already" → this is not a one-off task, this is a <strong>regular process</strong>.</p>
+    </div>
+
+    <h3>6 elements of the contract</h3>
+    <div class="card card-accent">
+      <table>
+        <tr><th>Element</th><th>Question</th><th>Example</th></tr>
+        <tr><td><strong>1. Activation</strong></td><td>When to trigger the process?</td><td>"Sales report received via email"</td></tr>
+        <tr><td><strong>2. Input</strong></td><td>What do we feed in?</td><td>"Excel with columns Plan | Actual | Deviation"</td></tr>
+        <tr><td><strong>3. Boundaries</strong></td><td>What NOT to do?</td><td>"Don't write recommendations about firing. Don't use external data"</td></tr>
+        <tr><td><strong>4. Mode</strong></td><td>Analysis / draft / final?</td><td>"Analysis only — do not edit the source file"</td></tr>
+        <tr><td><strong>5. Output</strong></td><td>Format and where to save?</td><td>"Table of 3 deviations + likely cause. Send to Telegram"</td></tr>
+        <tr><td><strong>6. Stop</strong></td><td>Where to wait for a human?</td><td>"If deviation >30% — stop and wait for CFO decision"</td></tr>
+      </table>
+    </div>
+
+    <h3>Evolution: from RCOFE to contract</h3>
+    <div class="example">
+      <div class="example-label">🔄 Stage 1 — One-off prompt (RCOFE)</div>
+      <pre>You are a financial analyst.
+Input: Q2 sales report.
+Task: find 3 main deviations from the plan.
+Format: table.
+Eval: check that numbers are correct.</pre>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 8px;">✅ Suitable for one report. But if the report comes every Friday — you'll have to copy the prompt again and again.</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">🔄 Stage 2 — Contract for a regular process</div>
+      <pre>ACTIVATION: File "Sales_Report_*.xlsx" received via email
+INPUT: Table with columns Plan | Actual | Deviation (%)
+BOUNDARIES:
+  - Analyze only numbers from the file
+  - DO NOT write recommendations about firing
+  - DO NOT use external data
+MODE: Analysis only (do not modify file)
+OUTPUT: Table with 3 deviations + likely cause
+STOP: If deviation >30% → stop and wait for CFO</pre>
+      <p style="color: var(--muted); font-size: 0.85rem; margin-top: 8px;">✅ Write once — works every week. Can ask developer to formalize as a skill.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>💡 Decision rule</h3>
+      <p><strong>1-2 times</strong> → RCOFE (one-off prompt)<br>
+      <strong>3+ times</strong> → Contract (regular process)<br>
+      <strong>Every week</strong> → Skill (automation via developer)</p>
+    </div>
+  </div>
+
   <!-- ACCEPTANCE CHECKLIST -->
   <div class="section">
     <h2>✅ Checklist for accepting the result</h2>
@@ -290,6 +344,22 @@ If any item is not specified in the document — write "Not specified".</pre>
       <div class="quiz-option" onclick="checkAnswer(this, true)">B) To save time on reformatting</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) This is optional</div>
       <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> Why is Eval needed in a prompt?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) To make AI give a longer answer</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) To make AI check its answer for errors and hallucinations before outputting</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) To make AI rewrite the answer in another language</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 5:</strong> You're asking AI to check a weekly report for the 5th time. What to do?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Keep writing RCOFE from scratch every week</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Formalize a behavior contract for a regular process</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Give up on AI and return to manual checking</div>
+      <div class="result" id="result5"></div>
     </div>
   </div>
 

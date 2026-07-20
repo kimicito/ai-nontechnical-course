@@ -118,7 +118,7 @@ new PagefindUI({
 
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">🧠 AI for non-IT professionals</a>
+    <a href="../../index.html" class="logo">🧠 AI for Non-IT Professionals</a>
     <div id="search" style="flex:1;max-width:200px;margin:0 12px;"></div>
     <button id="search-toggle" onclick="toggleSearch()" style="display:none;background:none;border:none;color:var(--accent);font-size:1.3rem;cursor:pointer;padding:4px 8px;">🔍</button>
     <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">← Catalog</a> <span style="color: var(--border); margin: 0 8px;">|</span> <a href="../../glossary.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">📖 Terms</a>
@@ -147,6 +147,44 @@ new PagefindUI({
         <li>Sends you the finished document</li>
       </ol>
       <p><strong>You spent:</strong>5 minutes to set the problem.<strong>Agent spent:</strong>20 minutes to complete.</p>
+    </div>
+  </div>
+
+  <!-- TOOL SELECTION: PROMPT VS SKILL VS SUBAGENT -->
+  <div class="section">
+    <h2>🛠️ Prompt vs Skill vs Subagent: how to choose the right tool</h2>
+    <p>Not everything needs to be complex. A one-off task — a single prompt. A recurring process — a contract or skill. A clean context needed — subagent.</p>
+
+    <div class="card card-accent">
+      <table>
+        <tr><th>Mechanism</th><th>When to use</th><th>Example</th></tr>
+        <tr><td><strong>Prompt</strong></td><td>One-off task in the current conversation</td><td>"Compare 3 supplier quotes"</td></tr>
+        <tr><td><strong>Project instruction</strong></td><td>A rule for almost all work in a project</td><td>"Always write briefly, no fluff"</td></tr>
+        <tr><td><strong>Skill</strong></td><td>A repeatable process with boundaries and checks</td><td>"Every Friday check the contract report"</td></tr>
+        <tr><td><strong>Subagent</strong></td><td>Need a clean context or parallel work</td><td>"Independently check this contract while I do something else"</td></tr>
+      </table>
+    </div>
+
+    <h3>Quick decision route</h3>
+    <div class="card">
+      <ol>
+        <li><strong>One answer in one conversation?</strong> → Prompt</li>
+        <li><strong>A rule for the whole project?</strong> → Project instruction</li>
+        <li><strong>A repeatable process with a start and exit?</strong> → Skill</li>
+        <li><strong>Need a separate performer or clean context?</strong> → Subagent</li>
+      </ol>
+    </div>
+
+    <div class="example">
+      <div class="example-label">💡 Evolution example</div>
+      <p><strong>Week 1:</strong> "Analyze this report" — <em>Prompt</em> (one-off)</p>
+      <p><strong>Week 3:</strong> "Check the report every Friday per this contract" — <em>Skill</em> (recurring)</p>
+      <p><strong>Week 5:</strong> "Check the report independently of the main task" — <em>Subagent</em> (isolation)</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>💡 Decision rule</h3>
+      <p>Start with the lightest mechanism that provides the required repeatability. One-off task — prompt. Constant norm — project instruction. Repeatable process — skill. Need isolation — subagent.</p>
     </div>
   </div>
 
@@ -274,6 +312,22 @@ new PagefindUI({
       <div class="quiz-option" onclick="checkAnswer(this, false)">B) To look more complicated</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) This is optional</div>
       <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> You ask AI to briefly summarize incoming emails every day. Which mechanism to choose?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Write a new prompt every time</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Set up as a skill — a recurring process with boundaries</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Create a subagent for each email</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 5:</strong> You need to independently check a contract while the main AI works on another task. What to choose?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Prompt in the same chat</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Subagent — a separate performer with a clean context</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Project instruction</div>
+      <div class="result" id="result5"></div>
     </div>
   </div>
 

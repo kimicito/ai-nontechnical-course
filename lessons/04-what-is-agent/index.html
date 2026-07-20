@@ -150,6 +150,44 @@ new PagefindUI({
     </div>
   </div>
 
+  <!-- ВЫБОР МЕХАНИЗМА -->
+  <div class="section">
+    <h2>🛠️ Prompt vs Skill vs Subagent: как выбрать инструмент</h2>
+    <p>Не всё нужно делать сложным. Разовая задача — разовый промпт. Регулярный процесс — контракт или skill. Нужен чистый контекст — subagent.</p>
+
+    <div class="card card-accent">
+      <table>
+        <tr><th>Механизм</th><th>Когда использовать</th><th>Пример</th></tr>
+        <tr><td><strong>Prompt</strong></td><td>Разовая задача в текущем разговоре</td><td>«Сравни 3 предложения поставщиков»</td></tr>
+        <tr><td><strong>Проектная инструкция</strong></td><td>Правило почти для всей работы в проекте</td><td>«Всегда пиши кратко, без воды»</td></tr>
+        <tr><td><strong>Skill</strong></td><td>Повторяемый процесс с границами и проверкой</td><td>«Каждую пятницу проверяй отчёт по контракту»</td></tr>
+        <tr><td><strong>Subagent</strong></td><td>Нужен чистый контекст или параллельная работа</td><td>«Независимо проверь этот договор, пока я делаю другое»</td></tr>
+      </table>
+    </div>
+
+    <h3>Быстрый маршрут выбора</h3>
+    <div class="card">
+      <ol>
+        <li><strong>Один ответ в одном разговоре?</strong> → Prompt</li>
+        <li><strong>Правило для всего проекта?</strong> → Проектная инструкция</li>
+        <li><strong>Повторяемый процесс с началом и выходом?</strong> → Skill</li>
+        <li><strong>Нужен отдельный исполнитель или чистый контекст?</strong> → Subagent</li>
+      </ol>
+    </div>
+
+    <div class="example">
+      <div class="example-label">💡 Пример эволюции</div>
+      <p><strong>Неделя 1:</strong> «Проанализируй этот отчёт» — <em>Prompt</em> (разово)</p>
+      <p><strong>Неделя 3:</strong> «Проверяй отчёт каждую пятницу по этому контракту» — <em>Skill</em> (регулярно)</p>
+      <p><strong>Неделя 5:</strong> «Проверь отчёт независимо от основной задачи» — <em>Subagent</em> (изоляция)</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>💡 Правило решения</h3>
+      <p>Начинайте с самого лёгкого механизма, который обеспечивает нужную повторяемость. Разовая задача — prompt. Постоянная норма — проектная инструкция. Повторяемый процесс — skill. Нужна изоляция — subagent.</p>
+    </div>
+  </div>
+
   <!-- ЧТО ИЗУЧАЕМ -->
   <div class="section">
     <h2>📚 Что изучаем</h2>
@@ -289,6 +327,21 @@ new PagefindUI({
       <div class="quiz-option" onclick="checkAnswer(this, false)">B) Чтобы выглядеть сложнее</div>
       <div class="quiz-option" onclick="checkAnswer(this, false)">C) Это необязательно</div>
       <div class="result" id="result3"></div>
+    </div>
+    <div class="card card-accent">
+      <p><strong>Вопрос 4:</strong> Вы каждый день просите AI кратко пересказывать входящие письма. Какой механизм выбрать?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Каждый раз писать новый prompt</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Оформить как skill — регулярный процесс с границами</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Создать subagent на каждое письмо</div>
+      <div class="result" id="result4"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 5:</strong> Нужно независимо проверить договор, пока основной AI работает над другой задачей. Что выбрать?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Prompt в том же чате</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Subagent — отдельный исполнитель с чистым контекстом</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Проектную инструкцию</div>
+      <div class="result" id="result5"></div>
     </div>
   </div>
 
