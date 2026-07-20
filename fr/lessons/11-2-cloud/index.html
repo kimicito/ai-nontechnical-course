@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>12.2 Tâches MRO externes — внешний ИИ — AI pour les non-informaticiens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI pour les non-informaticiens</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 12 — Maintenance & Réparation (MRO)</div>
+    <h1>12.2 Tâches MRO externes</h1>
+    <div class="meta">⏱ 15 min · pour ingénieurs de fiabilité et mécaniciens</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>Données publiques (IA externe)</strong><br>
+    Все задачи этого урока — с <span class="highlight">публичными источниками, общими методологиями, открытым рынком</span>. Можно использовать Claude, ChatGPT, Gemini.
+  </div>
+
+  <div class="section">
+    <h2>Quand le cloud est préférable pour MRO</h2>
+    <p>Облачные модели выигрывают, когда нужно:</p>
+    <ul>
+      <li><strong>Веб-поиск:</strong> мониторить стандарты ТОиР, ГОСТ на оборудование, отраслевые требования</li>
+      <li><strong>Перевод:</strong> работать с зарубежными каталогами запчастей, ISO, API</li>
+      <li><strong>Генерация:</strong> создать обучающие материалы с нуля, типовые регламенты</li>
+      <li><strong>Анализ публичных данных:</strong> LME на металлы, цены на оборудование, бенчмаркинг</li>
+      <li><strong>Поиск аналогов:</strong> импортозамещение, кросс-номера запчастей</li>
+    </ul>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Important: перед отправкой в облако — проверь</strong>, что в запросе нет конкретных инвентарных номеров, данных о простоях, финансовых показателей завода. Если есть — обезличь или отправь в on-prem.
+  </div>
+
+    <div class="section">
+    <h2>1. Разработка и актуализация графиков ППР</h2>
+    <p>Общая методология планирования планово-предупредительных ремонтов — без привязки к конкретному заводу.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (внешний ИИ)</div>
+      <pre>Подготовь методологию разработки графика ППР для металлургического предприятия:
+
+1. Классификация оборудования по критичности (A — критичное, B — важное, C — вспомогательное)
+2. Определение периодичности ТО и ремонтов по типам оборудования
+   - Текущий ремонт: ежемесячно/ежеквартально
+   - Средний ремонт: 1–2 раза в год
+   - Капитальный ремонт: через наработку или календарный срок
+3. Резервирование ресурсов (бригады, запчасти, оборудование)
+4. Методика корректировки графика при внеплановых отказах
+5. KPI контроля выполнения (% выполнения по плану, простои)
+6. Формы документации (график, наряд, акт)
+
+Без конкретных инвентарных номеров и заводских данных.</pre>
+    </div>
+    <p><strong>Результат:</strong> методология для внедрения на предприятии, экономит 4–5 часов.</p>
+  </div>
+<div class="section">
+    <h2>2. Разработка регламентов ТОиР в общем виде</h2>
+    <p>Структура документа для типового оборудования (насос, мельница, компрессор) — без привязки к конкретному заводу.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (Claude с веб-поиском)</div>
+      <pre>Подготовь структуру регламента ТОиР для центробежного насоса горизонтального типа (общего назначения, перекачка воды/шлама):
+
+Структура регламента:
+1. Область применения (типы насосов, условия эксплуатации)
+2. Типы и периодичность ТО (ежедневный осмотр, ТО-1, ТО-2, ТО-3, КР)
+3. Перечень работ для каждого типа ТО (контрольные точки)
+4. Нормативы допустимых параметров (вибрация, температура, расход)
+5. Критерии приёмки после ремонта
+6. Формы учёта (журнал осмотров, акты)
+7. Приложения (схема смазки, схема уплотнений)
+
+Без конкретных инвентарных номеров и заводских данных.</pre>
+    </div>
+    <p><strong>Результат:</strong> готовая структура регламента, экономит 2–3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Инструкции по эксплуатации — общая часть</h2>
+    <p>Базовые принципы работы с оборудованием, если нет специфичных для завода модификаций.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь инструкцию по эксплуатации пластинчатого теплообменника (общего назначения):
+
+Разделы:
+1. Назначение и принцип работы
+2. Технические характеристики (общие диапазоны)
+3. Требования к персоналу
+4. Порядок пуска и остановки
+5. Контрольные параметры в работе (температура, давление, перепад)
+6. Профилактический осмотр (что проверять, с какой периодичностью)
+7. Типичные неисправности и действия (без привязки к конкретным случаям)
+8. Требования безопасности
+
+Язык: простой, для операторов и механиков.</pre>
+    </div>
+    <p><strong>Результат:</strong> готовая инструкция, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Обучающие материалы для ремонтного персонала</h2>
+    <p>Базовые принципы, безопасность, типовые процедуры — без привязки к реальным инцидентам завода.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготови обучающий модуль «Безопасность при ремонте вращающегося оборудования» для механиков:
+
+Формат: 10 слайдов (текст для каждого)
+Содержание:
+1. Типы опасностей (механические, электрические, химические)
+2. LOTO (Lockout/Tagout) — процедура отключения
+3. Средства индивидуальной защиты
+4. Контрольные вопросы (5 вопросов с ответами)
+
+Без конкретных случаев с завода — только общие принципы.</pre>
+    </div>
+    <p><strong>Результат:</strong> готовый модуль, экономит 4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Поиск аналогов оборудования и запчастей (импортозамещение)</h2>
+    <p>Открытый рынок — поиск кросс-номеров, аналогов, заменителей.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Найди аналоги подшипника SKF 22320 EK/C3 для импортозамещения:
+
+Требования:
+- Российский производитель или страны ЕАЭС
+- Аналогичные размеры: d=100, D=215, B=73 мм
+- Тип: сферический роликовый, с бронзовым сепаратором
+- Допустимая нагрузка: не ниже оригинала
+
+Выведи таблицу: производитель, обозначение, размеры, примерная цена, наличие на складе (если есть данные).</pre>
+    </div>
+    <p><strong>Результат:</strong> список аналогов для закупки, экономит 1–2 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Бенчмаркинг практик ТОиР в отрасли (RCM, TPM)</h2>
+    <p>Открытая методология — лучшие практики в металлургии, ГОКах, энергетике.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проведи бенчмаркинг практик ТОиР в металлургии (2024–2026):
+
+Questionы:
+1. Какие крупные металлургические компании внедрили RCM (Reliability-Centered Maintenance)?
+2. Какие результаты заявлены (снижение простоев, экономия)?
+3. Какие ИТ-системы используют для ТОиР (SAP PM, 1С ТОиР, Infor)?
+4. Какие показатели KPI применяют (MTBF, MTTR, OEE)?
+5. Какие конференции по ТОиР в металлургии проходят в 2026?
+
+Сделай структурированный отчёт с источниками.</pre>
+    </div>
+    <p><strong>Результат:</strong> обзор отраслевых практик, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Разработка методологии перехода на RCM/TPM</h2>
+    <p>Общий фреймворк — публичные подходы, без привязки к конкретному заводу.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь план внедрения TPM (Total Productive Maintenance) для металлургического предприятия:
+
+Этапы (по месяцам, 12-месячный план):
+1. Подготовка: обучение персонала, создание команды TPM
+2. Автономное обслуживание (операторы выполняют базовый уход)
+3. Плановое техническое обслуживание (графики, регламенты)
+4. Плановый ремонт (КР, ТР)
+5. Обучение и развитие (тренинги, сертификация)
+6. Раннее управление проектами (учёт надёжности при закупке)
+7. Безопасность и качество (5S, визуальный контроль)
+
+Для каждого этапа: цели, метрики успеха, типичные проблемы.</pre>
+    </div>
+    <p><strong>Результат:</strong> готовый план внедрения, экономит 5–6 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Подготовка тендерной документации — общие разделы</h2>
+    <p>Типовые разделы ТЗ на ремонтные работы — без коммерческих условий конкретной сделки.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь типовую структуру ТЗ на капитальный ремонт оборудования:
+
+Разделы:
+1. Общие положения (область действия, нормативные ссылки)
+2. Техническое описание объекта (без конкретных инвентарных номеров)
+3. Перечень работ (типовые виды: дефектовка, ремонт, испытания)
+4. Требования к качеству (приёмочные критерии, испытания)
+5. Требования к документации (акты, сертификаты, фото)
+6. Гарантийные обязательства (типовые сроки)
+7. Требования безопасности
+8. Форма отчёта исполнителя
+
+Место для вставки конкретных данных: [УТОЧНИТЬ ПРОИЗВОДСТВО].</pre>
+    </div>
+    <p><strong>Результат:</strong> типовой шаблон ТЗ, экономит 2 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif: внешние задачи</h2>
+    <table>
+      <tr><th>Tâche</th><th>Besoins</th><th>Format sortie</th><th>Gain de temps</th></tr>
+      <tr><td>Регламенты ТОиР</td><td>Тип оборудования</td><td>Структура документа</td><td>2–3 ч</td></tr>
+      <tr><td>Инструкции по эксплуатации</td><td>Тип оборудования</td><td>Инструкция</td><td>3–4 ч</td></tr>
+      <tr><td>Обучающие материалы</td><td>Тема, аудитория</td><td>Слайды/текст</td><td>4 ч</td></tr>
+      <tr><td>Поиск аналогов</td><td>Оригинальный номер</td><td>Таблица аналогов</td><td>1–2 ч</td></tr>
+      <tr><td>Бенчмаркинг RCM/TPM</td><td>Отрасль, период</td><td>Отчёт с источниками</td><td>3–4 ч</td></tr>
+      <tr><td>Методология RCM/TPM</td><td>Тип предприятия</td><td>План внедрения</td><td>5–6 ч</td></tr>
+      <tr><td>Тендерная документация</td><td>Тип работ</td><td>Шаблон ТЗ</td><td>2 ч</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Test de connaissances</h2>
+    <p><strong>Question 1:</strong> Почему поиск аналогов запчастей — во внешний ИИ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Открытый рынок, публичные каталоги.'">Потому что это публичная информация — каталоги, кросс-номера, цены</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Поставщики — это on-prem.'">Потому что поставщики — внешние контрагенты</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Импортозамещение — публичная тема.'">Только если это импортозамещение</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Какая задача ТОиР точно в on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Инвестиционное решение с конкретными данными — внутри.'">Обоснование «ремонт vs замена» для конкретного компрессора</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Общая методология — во внешнем.'">Разработка методологии RCM для металлургии</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Типовой шаблон — во внешнем.'">Подготовка типовой структуры ТЗ на капремонт</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Обучающие материалы для механиков — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Общие принципы безопасности — публичные знания.'">Внешний ИИ — базовые принципы, без конкретных инцидентов завода</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Реальные кейсы — это on-prem.'">On-prem — любые материалы для персонала завода</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Гибрид — это сочетание.'">Гибрид — базовые принципы снаружи, кейсы завода внутри</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../11-1-on-prem/index.html" class="nav-btn">← 12.1 Tâches internes</a>
+    <a href="../11-3-hybrid/index.html" class="nav-btn primary">12.3 Tâches hybrides →</a>
+  </div>
+
+</div>
+<footer><div class="container"><p>AI pour les non-informaticiens · Entreprise industrielle</p></div></footer>
+</body></html>

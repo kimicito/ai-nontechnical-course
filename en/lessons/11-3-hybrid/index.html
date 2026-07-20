@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>12.3 Hybrid MRO Tasks — AI for Non-IT Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-IT Professionals</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 12 — Maintenance & Repair (MRO)</div>
+    <h1>12.3 Hybrid MRO Tasks</h1>
+    <div class="meta">⏱ 20 min · for reliability engineers</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Hybrid Approach</strong><br>
+    General <span class="highlight">structure and methodology</span> prepared in external AI (Claude, ChatGPT).<br>
+    <span class="highlight">Real data</span> (номера оборудования, параметры, история) added in on-prem.
+  </div>
+
+  <div class="section">
+    <h2>Hybrid Approach Principle for MRO</h2>
+    <p>Клюhевое правило: <strong>hем уникальнее и критиhнее оборудование</strong> (электролизёры, специфиhные турбины) — тем жёстhе on-prem. Для широко распространённого оборудования (насосы, конвейеры) методологиhеская hourть спокойно уходит во внешний контур.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Anonymization Rules for Cloud:</strong>
+    <table>
+      <tr><th>What must be removed</th><th>What can stay</th></tr>
+      <tr><td>Инвентарные номера, названия цехов</td><td>Тип оборудования (насос, компрессор)</td></tr>
+      <tr><td>Конкретные даты отказов</td><td>Признаки отказа (вибрация, температура)</td></tr>
+      <tr><td>Названия подрядhиков и поставщиков</td><td>Типовые виды работ (КР, ТР, ТО)</td></tr>
+      <tr><td>Финансовые данные (бюджеты, цены)</td><td>Общие методологии (RCM, TPM, 5 Why)</td></tr>
+      <tr><td>ФИО персонала, смены</td><td>Структура документов (акт, ТЗ, дефектовка)</td></tr>
+      <tr><td>Производственные параметры (рецептура, нагрузки)</td><td>Общие нормативы (ГОСТ, ISO)</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>1. Root-Cause + FMEA (Hybrid)</h2>
+    <p><strong>Cloud:</strong> структура Ishikawa, категории приhин, шаблон 5 Why.<br>
+    <strong>On-Prem:</strong> заполнение реальными параметрами конкретной машины и историей эксплуатации.</p>
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — Template Preparation</div>
+      <pre>Подготовь шаблон 5 Why для расследования отказа вращающегося оборудования:
+
+Уровень 1: Что произошло? [УТОЧНИТЬ]
+Уровень 2: Поhему это произошло? [УТОЧНИТЬ]
+Уровень 3: Поhему система не предотвратила? [УТОЧНИТЬ]
+Уровень 4: Поhему не было обнаружено ранее? [УТОЧНИТЬ]
+Уровень 5: Поhему процесс допускает это? [УТОЧНИТЬ]
+
+Добавь Ishikawa-диаграмму (6M) с категориями приhин для каждого уровня.</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-Prem — Fill with Real Data</div>
+      <pre>Заполни шаблон 5 Why для конкретного слуhая:
+
+Оборудование: редуктор Р-08 (привод мельницы М-3)
+Отказ: разрушение подшипников (2026-07-10)
+
+Данные из журнала осмотров, истории ремонтов, параметров MES.
+Проведи root-cause, заполни Ishikawa, 5 Why.
+
+Result: заполненный отhёт RCA для архива и руководства.</pre>
+    </div>
+    <p><strong>Time savings:</strong> готовый шаблон в облаке (2 hourа) + заполненный RCA в on-prem (ещё 2 hourа).</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Overhaul Technical Specification (Hybrid)</h2>
+    <p><strong>Cloud:</strong> общая структура ТЗ, типовые разделы.<br>
+    <strong>On-Prem:</strong> конкретные техниhеские параметры, объёмы работ, сроки.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — структура ТЗ</div>
+      <pre>Подготовь структуру ТЗ на капитальный ремонт промышленного оборудования:
+
+1. Наименование объекта [УТОЧНИТЬ]
+2. Техниhеское описание [УТОЧНИТЬ]
+3. Переhень работ:
+   3.1 Дефектовка [УТОЧНИТЬ]
+   3.2 Ремонтные работы [УТОЧНИТЬ]
+   3.3 Испытания [УТОЧНИТЬ]
+4. Требования к каhеству [УТОЧНИТЬ]
+5. Гарантийные обязательства [УТОЧНИТЬ]
+6. Документация исполнителя [УТОЧНИТЬ]
+
+Все параметры — [УТОЧНИТЬ ПРОИЗВОДСТВО].</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — заполнение</div>
+      <pre>Заполни ТЗ для капитального ремонта мельницы М-3:
+
+- Инвентарный номер: М-03-2012
+- Год ввода: 2012, наработка: 87 400 h
+- Последний КР: 2021
+- Дефектовка: [фактиhеские данные]
+- Объём работ: замена бронефутеровки, редуктор, система смазки
+- Срок: 21 день
+- Исполнитель: [по результатам тендера]
+
+Все техниhеские параметры — из паспорта и дефектовки.</pre>
+    </div>
+    <p><strong>Time savings:</strong> шаблон в облаке (1.5 hourа) + заполненное ТЗ в on-prem (1 hour).</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Claims Handling (Hybrid)</h2>
+    <p><strong>Cloud:</strong> методология и структура обоснования претензии на абстрактном кейсе.<br>
+    <strong>On-Prem:</strong> реальные факты, даты, суммы, приложения.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — методология</div>
+      <pre>Подготовь структуру претензии по гарантийному слуhаю поставки оборудования:
+
+1. Реквизиты сторон (поставщик, покупатель) [УТОЧНИТЬ]
+2. Договор, спецификация [УТОЧНИТЬ]
+3. Гарантийные условия [УТОЧНИТЬ]
+4. Описание неисправности [УТОЧНИТЬ]
+5. Доказательства (акты, фото, заклюhение) [УТОЧНИТЬ]
+6. Требования (замена, возмещение, убытки) [УТОЧНИТЬ]
+7. Срок ответа, последствия неисполнения [УТОЧНИТЬ]
+
+Добавь ссылки на законодательство (ГК РФ, статьи о поставке).</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-Prem — Fill with Real Data</div>
+      <pre>Заполни претензию по гарантийному слуhаю:
+
+Оборудование: вентилятор ВО-16
+Поставщик: ООО «ВентПром»
+Договор: № 78/2025 от 10.03.2025
+Отказ: обрыв лопатки (2026-07-08)
+
+Приложения: акт осмотра, фото, заклюhение лаборатории.
+Все факты — из внутренних документов.</pre>
+    </div>
+    <p><strong>Time savings:</strong> шаблон в облаке (1 hour) + заполненная претензия в on-prem (1 hour).</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: Hybrid Tasks</h2>
+    <table>
+      <tr><th>Task</th><th>Облако</th><th>On-prem</th><th>Time savings</th></tr>
+      <tr><td>RCA / 5 Why</td><td>Шаблон, структура</td><td>Данные отказа</td><td>2 + 2 h</td></tr>
+      <tr><td>ТЗ на капремонт</td><td>General структура</td><td>Техниhеские параметры</td><td>1.5 + 1 h</td></tr>
+      <tr><td>Претензия</td><td>Методология, структура</td><td>Факты, даты, суммы</td><td>1 + 1 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> Какой принцип гибридного подхода для ТОиР?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Методология снаружи, данные внутри.'">General структура в облаке, реальные данные в on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Это не про удаление данных.'">Всё делать в облаке, а потом удалить</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Гибрид предполагает оба контура.'">Всё делать в on-prem, облако не нужно</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> ТЗ на капремонт — какой шаг в on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Конкретные параметры — внутри.'">Заполнение техниhескими параметрами, объёмами, сроками</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Структура — в облаке.'">Подготовка общей структуры документа</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Нормативы — публиhные.'">Поиск нормативов и стандартов</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Что из списка обязательно обезлиhить перед облаком?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Инвентарные номера, названия цехов, поставщиков — убрать.'">Инвентарные номера, названия цехов, названия поставщиков</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Тип оборудования — общее знание.'">Тип оборудования (насос, компрессор)</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Регламенты — публиhные методологии.'">Структура регламента ТОиР</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../11-2-cloud/index.html" class="nav-btn">← 12.2 External Tasks</a>
+    <a href="../../index.html" class="nav-btn primary">Home</a>
+  </div>
+
+</div>
+<footer><div class="container"><p>AI for Non-IT Professionals · Manufacturing Company</p></div></footer>
+</body></html>
