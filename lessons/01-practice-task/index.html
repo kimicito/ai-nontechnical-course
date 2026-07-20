@@ -60,13 +60,13 @@
     
     const script = document.createElement('script');
     script.src = base + 'pagefind-ui.js';
+    window.toggleSearch = function() {
+        const search = document.getElementById('search');
+        if (search) search.classList.toggle('active');
+    };
+    
     script.onload = function() {
-        function toggleSearch() {
-  const search = document.getElementById('search');
-  if (search) search.classList.toggle('active');
-}
-
-new PagefindUI({ 
+        new PagefindUI({ 
             element: "#search", 
             showSubResults: true,
             bundlePath: base,
