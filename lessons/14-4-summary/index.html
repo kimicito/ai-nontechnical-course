@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.4 Практический вывод — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 14 — Продажи и маркетинг</div>
+    <h1>14.4 Практический вывод</h1>
+    <div class="meta">⏱ 15 мин · итоговое резюме уровня</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Главный принцип уровня 14</strong><br>
+    Продажи и маркетинг — зеркальная функция к закупкам. Симметричная чувствительность данных (цена, скидка, условия = коммерческая тайна с любой стороны сделки). При этом маркетинг — одна из самых безопасных зон для внешнего ИИ.
+  </div>
+
+  <div class="section">
+    <h2>Ключевые выводы</h2>
+    
+    <h3>1. Продажи = закупки в зеркале</h3>
+    <p>Там, где в закупках вы покупатель со своей переговорной позицией, в продажах вы продавец с точно такой же структурой чувствительности:</p>
+    <ul>
+      <li><strong>Цена и скидки</strong> — коммерческая тайна, независимо от стороны сделки</li>
+      <li><strong>Условия оплаты</strong> — финансовая политика компании</li>
+      <li><strong>Переговорная стратегия</strong> — BATNA, ZOPA, рычаги не для внешнего обсуждения</li>
+      <li><strong>Клиентская база</strong> — стратегический актив, зависимость от ключевых клиентов</li>
+    </ul>
+
+    <h3>2. Маркетинг — безопасная зона для внешнего ИИ</h3>
+    <p>Маркетинговый контент по определению предназначен для публики:</p>
+    <ul>
+      <li>Посты, статьи, брошюры — публичны по своей природе</li>
+      <li>SEO-оптимизация — работа с публичным контентом</li>
+      <li>Анализ конкурентов по открытым данным — легально и безопасно</li>
+      <li>Копирайтинг рекламных кампаний — конечный продукт публичен</li>
+    </ul>
+    <p><strong>Единственное ограничение:</strong> не передавайте во внешний ИИ внутренние бюджеты, стратегические планы, ценовую политику до публикации.</p>
+
+    <h3>3. Прогноз спроса — чувствительнее, чем кажется</h3>
+    <p>Прогноз продаж напрямую утекает в производственное планирование, закупку сырья, управление запасами. Утечка прогноза = утечка операционных планов компании. Всегда on-prem.</p>
+
+    <h3>4. Гибрид — основа эффективности</h3>
+    <p>Самые частые задачи (КП, переговоры, email-рассылки, IR-материалы) работают по гибридной схеме:</p>
+    <ul>
+      <li>Шаблон, структура, методология — во внешнем ИИ (быстро, качественно)</li>
+      <li>Цифры, клиенты, условия — в on-prem (безопасно)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая матрица: продажи и маркетинг</h2>
+    <table>
+      <tr><th>Задача</th><th>On-prem</th><th>Внешний ИИ</th><th>Гибрид</th></tr>
+      <tr><td>Ценообразование</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Контракты на сбыт</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Анализ клиентской базы</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Прогноз спроса</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Переговоры (стратегия)</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>CRM-заметки</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>RFQ/RFP</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Win/loss анализ</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Отчёты по плану продаж</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>IR-материалы (до публикации)</td><td>✅</td><td>❌</td><td>✅ (структура)</td></tr>
+      <tr><td>Контент-план</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Копирайтинг</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>SEO-оптимизация</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Анализ конкурентов</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Материалы для выставок</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Локализация</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Анализ трендов</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Биржевая аналитика</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Коммерческие предложения</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Email-рассылки</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Подготовка к переговорам</td><td>❌</td><td>❌</td><td>✅</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Что исключено из уровня (и почему)</h2>
+    <div class="card card-warning">
+      <p><strong>Скоринг лидов и предиктивная аналитика оттока</strong> — supervised ML на CRM-данных. Генеративный ИИ может только интерпретировать результаты, но не заменить модель.</p>
+      <p><strong>Персонализация рекомендаций</strong> — рекомендательные системы (ML/коллаборативная фильтрация). GenAI подключается к генерации текста на основе готовых рекомендаций.</p>
+      <p><strong>Программатик-закупка рекламы</strong> — алгоритмическая торговля, real-time bidding. GenAI может помочь с креативами, но не с закупкой.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Чек-лист для продавца и маркетолога</h2>
+    <div class="card card-success">
+      <p><strong>Перед отправкой запроса во внешний ИИ, проверь:</strong></p>
+      <ul>
+        <li>❌ Нет ли конкретных цен, скидок, условий оплаты?</li>
+        <li>❌ Нет ли названий клиентов, контактов, телефонов?</li>
+        <li>❌ Нет ли объёмов по конкретным сделкам?</li>
+        <li>❌ Нет ли финансовых показателей компании?</li>
+        <li>❌ Нет ли прогнозов продаж, планов, бюджетов?</li>
+        <li>❌ Нет ли win/loss анализа по конкретным сделкам?</li>
+        <li>❌ Нет ли стратегических планов до публикации?</li>
+      </ul>
+      <p><strong>Если хоть один пункт не прошёл — обезличь или отправь в on-prem.</strong></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Экономия времени по уровню</h2>
+    <table>
+      <tr><th>Категория</th><th>Задач</th><th>Средняя экономия</th></tr>
+      <tr><td>On-prem (продажи)</td><td>8</td><td>2–4 часа каждая</td></tr>
+      <tr><td>Внешний ИИ (маркетинг)</td><td>8</td><td>2–5 часов каждая</td></tr>
+      <tr><td>Гибрид</td><td>4</td><td>1.5–3 часа (суммарно)</td></tr>
+    </table>
+    <p><strong>Итого:</strong> 20 задач, суммарная экономия 40–80 часов в месяц на команду из 3–5 человек.</p>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний — финальный квиз</h2>
+    <p><strong>Вопрос 1:</strong> Почему маркетинг безопаснее продаж для внешнего ИИ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Маркетинговый контент по определению публичен.'">Потому что конечный продукт (пост, брошюра) предназначен для публики</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Маркетологи тоже работают с чувствительной информацией.'">Потому что маркетологи не имеют доступа к ценам</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Это не про технические ограничения.'">Потому что внешние модели лучше генерируют креативы</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Какой контур для анализа эффективности кампаний на внутренних метриках?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Бюджеты и ROI — внутренняя информация.'">Внешний ИИ — метрики — это просто цифры</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Бюджеты, конверсия, ROI — управленческая информация.'">On-prem — содержит бюджеты, конверсию, ROI</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Метрики — это данные, не методология.'">Гибрид — методология анализа снаружи, метрики внутри</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> Можно ли win/loss анализ делать в облаке, если обезличить клиента?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Даже обезличенный win/loss раскрывает стратегические слабости.'">Да, если убрать название клиента и конкретные цены</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Win/loss содержит причины проигрыша — стратегически чувствительно.'">Нет, он раскрывает причины потери сделок — критически чувствительно</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Смысл win/loss — в деталях сделки.'">Только для выигранных сделок</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../14-3-hybrid/index.html" class="nav-btn">← 14.3 Гибридные задачи</a>
+    <a href="../../index.html" class="nav-btn primary">На главную</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

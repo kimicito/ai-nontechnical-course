@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.1 Внутренние задачи продаж и маркетинга — on-prem — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 14 — Продажи и маркетинг</div>
+    <h1>14.1 Внутренние задачи: on-prem</h1>
+    <div class="meta">⏱ 25 мин · для менеджеров по продажам, коммерческих директоров, маркетологов</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Закрытый контур (on-prem)</strong><br>
+    Все задачи этого урока работают с <span class="highlight">реальными ценами, условиями сделок, клиентскими данными, коммерческими прогнозами</span>. Используйте внутреннюю модель или локальный LLM.
+  </div>
+
+  <div class="section">
+    <h2>Почему on-prem критичен для продаж</h2>
+    <p>Продажи — зеркальная функция закупкам: там, где вы покупатель со своей переговорной позицией, здесь вы продавец с симметрично устроенной чувствительностью данных. Цена, скидка, условия оплаты — коммерческая тайна независимо от того, с какой стороны сделки.</p>
+    <p>Кроме того, прогноз спроса и планирование продаж напрямую утекают в производственное планирование, поэтому эта задача чувствительнее, чем кажется на первый взгляд.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Когда on-prem обязателен:</strong>
+    <ul>
+      <li>Ценообразование и расчёт индивидуальных скидок (основа переговорной позиции)</li>
+      <li>Подготовка и проверка контрактов на сбыт (реальные условия сделки)</li>
+      <li>Анализ клиентской базы — сегментация, потенциал, отток (зависимость от клиентов)</li>
+      <li>Прогноз спроса и планирование продаж (внутренние операционные данные)</li>
+      <li>Подготовка к переговорам с ключевыми клиентами (переговорная стратегия)</li>
+      <li>CRM-заметки и суммаризация звонков с клиентами (персональные данные + коммерческая информация)</li>
+      <li>Ответы на RFQ/RFP от клиентов (реальные цены до подачи)</li>
+      <li>Win/loss анализ по конкретным сделкам (раскрывает причины потери клиентов)</li>
+      <li>Отчёты по выполнению плана продаж (управленческая финансовая информация)</li>
+      <li>Анализ эффективности кампаний на реальных внутренних метриках (бюджеты, ROI)</li>
+      <li>Питчи для инвесторов/аналитиков до официальной публикации (инсайдерская информация)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. Ценообразование и расчёт индивидуальных условий</h2>
+    <p>Расчёт цены под конкретного клиента с учётом объёма, скидок, условий оплаты и логистики — коммерческая тайна.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (on-prem)</div>
+      <pre>Подготовь коммерческое предложение для клиента [УКАЖИТЕ НАЗВАНИЕ]:
+
+Исходные данные:
+- Продукт: [УКАЖИТЕ ПРОДУКТ]
+- Объём: [УКАЖИТЕ ОБЪЁМ] ед./месяц
+- Базовая цена: [УКАЖИТЕ ЦЕНУ] $/ед.
+- История сделок: [УКАЖИТЕ ИСТОРИЮ СКИДОК]
+- Конкуренты: предлагают [УКАЖИТЕ ЦЕНУ КОНКУРЕНТОВ]
+- Условия оплаты: [УКАЖИТЕ УСЛОВИЯ]
+- Логистика: доставка до [УКАЖИТЕ АДРЕС]
+
+Рассчитай:
+1. Цену с учётом объёмной скидки
+2. Варианты: предоплата vs отсрочка (влияние на цену)
+3. Сравнение с конкурентами (позиционирование)
+4. Минимальную цену (нижняя граница рентабельности)
+5. Рекомендацию по стратегии переговоров</pre>
+    </div>
+    <p><strong>Результат:</strong> обоснованная цена с нижней границей, экономит 2–3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Анализ клиентской базы</h2>
+    <p>Сегментация, оценка потенциала роста, риск оттока — стратегическая информация.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Проанализируй клиентскую базу и дай рекомендации:
+
+Данные ( anonymized / внутренние):
+- Клиент A: оборот [УКАЖИТЕ], маржа [УКАЖИТЕ], просрочка 0 дней, рост +15%/год
+- Клиент B: оборот [УКАЖИТЕ], маржа [УКАЖИТЕ], просрочка 45 дней, стабильность
+- Клиент C: оборот [УКАЖИТЕ], маржа [УКАЖИТЕ], просрочка 0, падение -20%/год
+- Клиент D: новый, потенциал [УКАЖИТЕ], отрасль [УКАЖИТЕ]
+
+Сделай:
+1. ABC-сегментацию (по обороту и марже)
+2. Оценку риска оттока (по трендам)
+3. Потенциал роста по каждому сегменту
+4. Рекомендации: кого удерживать, кого развивать, кого отпускать
+5. План действий на квартал</pre>
+    </div>
+    <p><strong>Результат:</strong> сегментация с планом, экономит 4–5 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Прогноз спроса и планирование продаж</h2>
+    <p>Текстовое рассуждение над готовыми данными — прогноз напрямую влияет на производственное планирование.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь прогноз спроса и план продаж на Q4 2026:
+
+История продаж (внутренние данные):
+- Q1: [УКАЖИТЕ ОБЪЁМ] ед., выручка [УКАЖИТЕ]
+- Q2: [УКАЖИТЕ ОБЪЁМ] ед., выручка [УКАЖИТЕ]
+- Q3 (прогноз): [УКАЖИТЕ ОБЪЁМ] ед.
+
+Факторы:
+- Сезонность: Q4 традиционно +[УКАЖИТЕ]% к Q3
+- Новые клиенты: [УКАЖИТЕ КОЛИЧЕСТВО] в воронке
+- Риски: [УКАЖИТЕ КОНКУРЕНТНЫЕ ФАКТОРЫ]
+- Маркетинговая активность: [УКАЖИТЕ ПЛАН]
+
+Сделай:
+1. Прогноз объёма и выручки по месяцам
+2. План по клиентам (топ-10)
+3. Риски и mitigations
+4. Требования к производству/запасам</pre>
+    </div>
+    <p><strong>Результат:</strong> обоснованный прогноз, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Подготовка к переговорам с ключевым клиентом</h2>
+    <p>Переговорная стратегия, BATNA, рычаги — как в закупках, только с другой стороны стола.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь стратегию переговоров с клиентом [УКАЖИТЕ НАЗВАНИЕ]:
+
+Контекст:
+- Текущий контракт: [УКАЖИТЕ УСЛОВИЯ], истекает [УКАЖИТЕ ДАТУ]
+- Объём: [УКАЖИТЕ] ед./год
+- Жалобы клиента: [УКАЖИТЕ ПРЕТЕНЗИИ]
+- Конкуренты: [УКАЖИТЕ КТО] предлагает [УКАЖИТЕ УСЛОВИЯ]
+- Наша позиция: [УКАЖИТЕ ЦЕЛИ]
+
+Составь:
+1. BATNA (наш лучший альтернативный вариант)
+2. ZOPA (зона возможного соглашения)
+3. Рычаги давления (что можем предложить/чем рискуем)
+4. Сценарии: оптимистичный, реалистичный, пессимистичный
+5. Ответы на типичные возражения
+6. План переговоров (поэтапно)</pre>
+    </div>
+    <p><strong>Результат:</strong> готовая стратегия, экономит 3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. CRM-заметки и суммаризация встреч</h2>
+    <p>Автоматическая обработка записей звонков и встреч — персональные данные + коммерческая информация.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Суммаризируй встречу с клиентом на основе заметок:
+
+Исходные данные (CRM + заметки менеджера):
+- Дата: [УКАЖИТЕ]
+- Участники: [УКАЖИТЕ ФИО клиента, должность]
+- Тема: обсуждение условий контракта [УКАЖИТЕ НОМЕР]
+- Ключевые моменты:
+  * Клиент хочет отсрочку с 30 до 60 дней
+  * Клиент недоволен качеством партии [УКАЖИТЕ]
+  * Клиент рассматривает конкурента [УКАЖИТЕ]
+  * Клиент готов увеличить объём на 20% при снижении цены на 5%
+
+Сделай:
+1. Краткое резюме (3 предложения)
+2. Список договорённостей
+3. Открытые вопросы
+4. Риски и red flags
+5. Следующие шаги (кто, что, когда)
+6. Рекомендации руководству</pre>
+    </div>
+    <p><strong>Результат:</strong> структурированная CRM-заметка, экономит 30 мин.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Ответы на тендерные запросы (RFQ/RFP)</h2>
+    <p>Подготовка ответа на запрос котировки — реальные цены и условия до подачи.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь ответ на RFQ клиента [УКАЖИТЕ НАЗВАНИЕ]:
+
+Требования клиента:
+- Продукт: [УКАЖИТЕ]
+- Объём: [УКАЖИТЕ] ед.
+- Условия поставки: [УКАЖИТЕ Incoterms]
+- Срок: [УКАЖИТЕ]
+- Требования к качеству: [УКАЖИТЕ СТАНДАРТЫ]
+- Форма ответа: [УКАЖИТЕ ТРЕБОВАНИЯ]
+
+Наши данные:
+- Себестоимость: [УКАЖИТЕ]
+- Минимальная маржа: [УКАЖИТЕ]%
+- Производственная мощность: [УКАЖИТЕ]
+- Текущая загрузка: [УКАЖИТЕ]%
+
+Составь:
+1. Техническое предложение
+2. Коммерческие условия (цена, скидки, оплата)
+3. График поставок
+4. Преимущества vs конкуренты
+5. Риски и ограничения</pre>
+    </div>
+    <p><strong>Результат:</strong> готовый ответ на тендер, экономит 4–5 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Win/loss анализ</h2>
+    <p>Анализ причин выигрыша или проигрыша сделки — критически чувствительная информация.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Проведи win/loss анализ сделки [УКАЖИТЕ НОМЕР]:
+
+Данные сделки:
+- Клиент: [УКАЖИТЕ НАЗВАНИЕ]
+- Продукт: [УКАЖИТЕ]
+- Объём: [УКАЖИТЕ]
+- Наша цена: [УКАЖИТЕ]
+- Цена конкурента-победителя: [УКАЖИТЕ] (если известна)
+- Результат: [win/loss]
+- Обратная связь клиента: [УКАЖИТЕ]
+
+Сделай:
+1. Хронология сделки (этапы, кто участвовал)
+2. Факторы решения (цена, качество, сроки, отношения)
+3. Наши сильные стороны
+4. Наши слабые стороны
+5. Что сделал конкурент иначе
+6. Уроки и рекомендации (процесс, продукт, цена)
+7. План действий по улучшению</pre>
+    </div>
+    <p><strong>Результат:</strong> структурированный анализ, экономит 3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Питч для инвесторов (до публикации)</h2>
+    <p>IR-материалы с финальными цифрами до официального раскрытия — инсайдерская информация.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь структуру питча для инвесторов на основе внутренних данных:
+
+Данные (предварительные, не публичные):
+- Выручка H1: [УКАЖИТЕ] (рост [УКАЖИТЕ]%)
+- EBITDA: [УКАЖИТЕ]
+- Новые клиенты: [УКАЖИТЕ]
+- Потерянные сделки: [УКАЖИТЕ]
+- Прогноз годовой: [УКАЖИТЕ]
+- Ключевые риски: [УКАЖИТЕ]
+
+Составь:
+1. Executive summary (3 слайда)
+2. Финансовые результаты (ключевые метрики)
+3. Операционные достижения
+4. Стратегия на второе полугодие
+5. Риски и mitigations
+6. Ответы на сложные вопросы (что могут спросить аналитики)
+
+Тон: профессиональный, уверенный, без хайпа.</pre>
+    </div>
+    <p><strong>Результат:</strong> готовый питч, экономит 5–6 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица</h2>
+    <table>
+      <tr><th>Задача</th><th>Что нужно</th><th>Формат выхода</th><th>Экономия</th></tr>
+      <tr><td>Ценообразование</td><td>История, конкуренты, условия</td><td>Расчёт цены + стратегия</td><td>2–3 ч</td></tr>
+      <tr><td>Анализ клиентской базы</td><td>CRM-данные</td><td>Сегментация + план</td><td>4–5 ч</td></tr>
+      <tr><td>Прогноз спроса</td><td>История, факторы</td><td>План продаж</td><td>3–4 ч</td></tr>
+      <tr><td>Переговоры</td><td>Контекст сделки</td><td>Стратегия + сценарии</td><td>3 ч</td></tr>
+      <tr><td>CRM-заметки</td><td>Заметки, записи</td><td>Суммаризация + todo</td><td>30 мин</td></tr>
+      <tr><td>RFQ/RFP</td><td>Требования клиента</td><td>Ответ на тендер</td><td>4–5 ч</td></tr>
+      <tr><td>Win/loss анализ</td><td>Данные сделки</td><td>Анализ + рекомендации</td><td>3 ч</td></tr>
+      <tr><td>IR-питч</td><td>Финансовые данные</td><td>Презентация для инвесторов</td><td>5–6 ч</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <p><strong>Вопрос 1:</strong> Почему прогноз спроса — on-prem, а не внешний ИИ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Прогноз напрямую влияет на производственное планирование и является операционной тайной.'">Потому что он напрямую утекает в производственное планирование и содержит операционные данные</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Это не про цену как таковую.'">Потому что содержит цену продукта</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Методология прогнозирования — публична.'">Только если прогноз включает исторические данные более 3 лет</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Можно ли win/loss анализ делать во внешнем ИИ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Win/loss раскрывает стратегические слабости.'">Да, если обезличить названия клиентов</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Win/loss содержит стратегическую информацию о слабостях.'">Нет, он раскрывает причины потери клиентов конкурентам — критически чувствительно</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Любой win/loss содержит ценную информацию.'">Только для проигранных сделок с крупными клиентами</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> Какой контур для CRM-заметок после встречи с клиентом?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. CRM содержит персональные данные и коммерческую информацию.'">Внешний ИИ — это просто текстовая суммаризация</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> CRM содержит персональные данные и коммерческую тайну.'">On-prem — персональные данные контактов + коммерческая информация</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Обезличивание CRM-данных теряет смысл.'">Гибрид — обезличить и отправить в облако</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">На главную</a>
+    <a href="../14-2-cloud/index.html" class="nav-btn primary">14.2 Внешние задачи →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

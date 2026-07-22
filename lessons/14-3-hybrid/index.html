@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.3 Гибридные задачи продаж и маркетинга — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 14 — Продажи и маркетинг</div>
+    <h1>14.3 Гибридные задачи</h1>
+    <div class="meta">⏱ 20 мин · для продавцов и маркетологов</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Гибридный подход</strong><br>
+    Общую <span class="highlight">структуру и методологию</span> готовим во внешнем ИИ.<br>
+    <span class="highlight">Реальные данные</span> (цены, клиенты, условия) добавляем в on-prem.
+  </div>
+
+  <div class="section">
+    <h2>Принцип гибридного подхода для продаж и маркетинга</h2>
+    <p>Ключевое правило: <strong>чем чувствительнее данные</strong> (конкретные цены, условия сделки, персональные данные клиента) — тем жёстче on-prem. Общая методология (структура документа, типовые сценарии) спокойно уходит во внешний контур.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Правила обезличивания для облака:</strong>
+    <table>
+      <tr><th>Что обязательно убрать</th><th>Что можно оставить</th></tr>
+      <tr><td>Конкретные цены и скидки</td><td>Методология ценообразования</td></tr>
+      <tr><td>Названия клиентов и контактов</td><td>Тип клиента (крупный, средний, ключевой)</td></tr>
+      <tr><td>Индивидуальные условия оплаты</td><td>Типовые формы оплаты</td></tr>
+      <tr><td>Объёмы по конкретным сделкам</td><td>Методология расчёта объёма</td></tr>
+      <tr><td>Финансовые показатели компании</td><td>Отраслевые бенчмарки</td></tr>
+      <tr><td>Конкретные даты сделок</td><td>Сезонность, типичные сроки</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>1. Коммерческие предложения (гибрид)</h2>
+    <p><strong>Облако:</strong> общий шаблон и структура КП.<br>
+    <strong>On-prem:</strong> финальные цены, условия, персонализация под клиента.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — шаблон КП</div>
+      <pre>Подготовь структуру коммерческого предложения для B2B-продаж:
+
+Структура КП:
+1. Титул (логотип, контакты, дата)
+2. О компании (2-3 предложения)
+3. Понимание потребности клиента
+4. Продукт/решение (описание, спецификация)
+5. Условия поставки [УТОЧНИТЬ: конкретные условия]
+6. Цена [УТОЧНИТЬ: расчёт под клиента]
+7. Преимущества и гарантии
+8. Порядок работы (этапы, сроки)
+9. Приложения (спецификация, сертификаты)
+
+Для каждого раздела: что писать, типичные ошибки, примеры формулировок.
+
+[УТОЧНИТЬ: отрасль клиента, тип продукта, регион]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — заполнение под клиента</div>
+      <pre>Заполни КП для клиента [УКАЖИТЕ НАЗВАНИЕ]:
+
+Данные клиента:
+- Отрасль: [УКАЖИТЕ]
+- Объём потребления: [УКАЖИТЕ]
+- История: клиент с [УКАЖИТЕ ГОДА], оборот [УКАЖИТЕ]
+- Текущие условия: [УКАЖИТЕ]
+- Потребность: [УКАЖИТЕ]
+
+Наши данные:
+- Цена: [УКАЖИТЕ] (базовая), скидка [УКАЖИТЕ]% при объёме [УКАЖИТЕ]
+- Условия оплаты: [УКАЖИТЕ]
+- Срок поставки: [УКАЖИТЕ]
+- Гарантии: [УКАЖИТЕ]
+
+Составь финальное КП с персонализацией под клиента.</pre>
+    </div>
+    <p><strong>Экономия:</strong> шаблон в облаке (1.5 часа) + заполненное КП в on-prem (1 час).</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Подготовка к переговорам (гибрид)</h2>
+    <p><strong>Облако:</strong> общая методология переговоров, типовые сценарии.<br>
+    <strong>On-prem:</strong> реальные цифры, конкретный клиент, BATNA.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — методология</div>
+      <pre>Подготовь методологию переговоров для B2B-продаж:
+
+Этапы переговоров:
+1. Разведка (какие вопросы задать, чтобы понять потребности)
+2. Презентация решения (как связать продукт с потребностью)
+3. Работа с возражениями (типичные возражения и ответы)
+4. Обсуждение условий (цена, скидки, оплата, логистика)
+5. Закрытие (какие сигналы говорят о готовности)
+
+Методология:
+- BATNA: как определить и использовать
+- ZOPA: как расширить зону соглашения
+- Рычаги: что можем предложить (кроме цены)
+- Типичные ловушки (преждевременное скидование, согласие без обмена)
+
+[УТОЧНИТЬ: отрасль, тип продукта, средний чек]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — конкретная сделка</div>
+      <pre>Примени методологию к переговорам с [УКАЖИТЕ КЛИЕНТА]:
+
+Контекст:
+- Текущий контракт: [УКАЖИТЕ], истекает [УКАЖИТЕ ДАТУ]
+- Объём: [УКАЖИТЕ] ед./год
+- Жалобы: [УКАЖИТЕ]
+- Конкурент: предлагает [УКАЖИТЕ УСЛОВИЯ]
+- Наша цель: [УКАЖИТЕ]
+
+Составь:
+1. BATNA (если не договоримся)
+2. ZOPA (приемлемый диапазон)
+3. Рычаги (что можем предложить)
+4. Сценарии: оптимистичный, реалистичный, пессимистичный
+5. Ответы на ожидаемые возражения</pre>
+    </div>
+    <p><strong>Экономия:</strong> методология в облаке (1.5 часа) + стратегия в on-prem (1.5 часа).</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Email-рассылки лидам (гибрид)</h2>
+    <p><strong>Облако:</strong> общий шаблон письма, A/B-варианты.<br>
+    <strong>On-prem:</strong> персонализация с реальными данными клиента.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — шаблон письма</div>
+      <pre>Напиши шаблон письма для холодной рассылки B2B:
+
+Параметры:
+- Продукт: [УКАЖИТЕ ТИП]
+- ЦА: [УКАЖИТЕ ДОЛЖНОСТЬ], [УКАЖИТЕ РАЗМЕР КОМПАНИИ]
+- Цель: получить встречу/демо
+
+Варианты:
+1. Короткое (3 предложения, мобильный формат)
+2. Среднее (параграф + буллеты + CTA)
+3. Со ссылкой на кейс (социальное доказательство)
+
+Для каждого:
+- Тема письма (3 варианта)
+- Хук (что привлечёт внимание)
+- CTA (конкретное действие)
+- Подпись
+
+[УТОЧНИТЬ: отрасль, ключевая боль ЦА]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — персонализация</div>
+      <pre>Персонализируй письмо для [УКАЖИТЕ ФИО], [УКАЖИТЕ ДОЛЖНОСТЬ], [УКАЖИТЕ КОМПАНИЮ]:
+
+Данные клиента:
+- Отрасль: [УКАЖИТЕ]
+- Недавнее событие: [УКАЖИТЕ: расширение, новый продукт, публикация]
+- Возможная потребность: [УКАЖИТЕ]
+- История взаимодействия: [УКАЖИТЕ]
+
+Шаблон: [ВСТАВЬТЕ ШАБЛОН ИЗ ОБЛАКА]
+
+Адаптируй:
+1. Упомяни конкретное событие/контекст
+2. Свяжи продукт с их потребностью
+3. Добавь релевантный кейс
+4. Предложи конкретное время встречи</pre>
+    </div>
+    <p><strong>Экономия:</strong> шаблон в облаке (1 час) + персонализация в on-prem (30 мин).</p>
+  </div>
+
+  <div class="section">
+    <h2>4. IR-материалы (гибрид)</h2>
+    <p><strong>Облако:</strong> общая структура презентации, типовые слайды.<br>
+    <strong>On-prem:</strong> финальные цифры до официальной публикации.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — структура презентации</div>
+      <pre>Подготовь структуру IR-презентации для B2B-компании:
+
+Слайды:
+1. Титул (компания, период)
+2. Executive summary (3 ключевых сообщения)
+3. Рыночная позиция (TAM/SAM/SOM, тренды)
+4. Продуктовая линейка (категории, дифференциация)
+5. Финансовые результаты [УТОЧНИТЬ: конкретные цифры]
+6. Клиентская база (диверсификация, retention)
+7. Стратегия роста (органический, M&A, новые рынки)
+8. ESG и устойчивое развитие
+9. Риски и mitigations
+10. Финансовый прогноз [УТОЧНИТЬ: конкретные цифры]
+11. Инвестиционная тезис (почему стоит инвестировать)
+12. Контакты IR-отдела
+
+Для каждого слайда: ключевое сообщение, типичные вопросы аналитиков, как отвечать.</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — финальные данные</div>
+      <pre>Заполни IR-презентацию финальными данными:
+
+Предварительные данные (не публичные):
+- Выручка H1: [УКАЖИТЕ]
+- EBITDA: [УКАЖИТЕ]
+- Маржа: [УКАЖИТЕ]%
+- Новые клиенты: [УКАЖИТЕ]
+- Потерянные сделки: [УКАЖИТЕ]
+- Прогноз годовой: [УКАЖИТЕ]
+
+Составь:
+1. Текст для каждого слайда (с цифрами)
+2. Спикер-ноуты (что говорить вслух)
+3. Ответы на ожидаемые вопросы
+4. Appendix (детальная разбивка для аналитиков)</pre>
+    </div>
+    <p><strong>Экономия:</strong> структура в облаке (2 часа) + заполнение в on-prem (2 часа).</p>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица: гибридные задачи</h2>
+    <table>
+      <tr><th>Задача</th><th>Облако</th><th>On-prem</th><th>Экономия</th></tr>
+      <tr><td>Коммерческое предложение</td><td>Шаблон, структура</td><td>Цены, условия, клиент</td><td>1.5 + 1 ч</td></tr>
+      <tr><td>Переговоры</td><td>Методология, сценарии</td><td>Реальные цифры, BATNA</td><td>1.5 + 1.5 ч</td></tr>
+      <tr><td>Email-рассылки</td><td>Шаблон, A/B-варианты</td><td>Персонализация под клиента</td><td>1 + 0.5 ч</td></tr>
+      <tr><td>IR-материалы</td><td>Структура, типовые слайды</td><td>Финальные цифры</td><td>2 + 2 ч</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <p><strong>Вопрос 1:</strong> Какой принцип гибрида для коммерческих предложений?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Структура снаружи, цены и условия внутри.'">Общий шаблон в облаке, финальные цены и условия в on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Цены — всегда внутри.'">Всё КП можно делать в облаке, если обезличить название клиента</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Гибрид предполагает оба контура.'">Всё КП — только в on-prem, так как содержит коммерческую тайну</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Email-рассылка лидам — какой шаг в on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Персонализация с реальными данными — внутри.'">Персонализация: имя, компания, контекст, конкретное предложение</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Шаблон — в облаке.'">Написание общего шаблона письма</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. A/B-тесты — публичная методология.'">A/B-тестирование вариантов письма</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> Что из списка обязательно убрать перед облаком?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Цены, клиенты, объёмы — убрать.'">Конкретные цены, названия клиентов, объёмы сделок</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Тип продукта — общая информация.'">Тип продукта (например, "программное обеспечение")</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Отрасль — публичная информация.'">Отрасль клиента (например, "производство")</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../14-2-cloud/index.html" class="nav-btn">← 14.2 Внешние задачи</a>
+    <a href="../14-4-summary/index.html" class="nav-btn primary">14.4 Итоговый вывод →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

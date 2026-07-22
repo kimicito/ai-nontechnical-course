@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.2 Внешние задачи продаж и маркетинга — внешний ИИ — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 14 — Продажи и маркетинг</div>
+    <h1>14.2 Внешние задачи: внешний ИИ</h1>
+    <div class="meta">⏱ 20 мин · для маркетологов, SMM-менеджеров, контент-менеджеров</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>Открытые данные (внешний ИИ)</strong><br>
+    Все задачи этого урока — с <span class="highlight">публичным контентом, открытыми источниками, общими методологиями</span>. Можно использовать Claude, ChatGPT, Gemini.
+  </div>
+
+  <div class="section">
+    <h2>Почему маркетинг — одна из самых безопасных зон для внешнего ИИ</h2>
+    <p>Маркетинговый контент по определению публичен. Конечный продукт (пост, брошюра, рекламный текст) предназначен для широкой аудитории. Риск утечки коммерческой тайны минимален — если не передавать внутренние бюджеты, цены и стратегические планы.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Важно: перед отправкой в облако — проверь</strong>, что в запросе нет реальных цен, бюджетов, клиентских данных, стратегических планов. Если есть — обезличь или отправь в on-prem.
+  </div>
+
+  <div class="section">
+    <h2>1. Разработка контент-плана</h2>
+    <p>Генерация идей, рубрик, календаря публикаций — родная территория genAI.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (Claude с веб-поиском)</div>
+      <pre>Подготовь контент-план на месяц для B2B-компании в сфере [УКАЖИТЕ ОТРАСЛЬ]:
+
+Параметры:
+- Каналы: LinkedIn, корпоративный блог, email-рассылка
+- Целевая аудитория: [УКАЖИТЕ: закупщики, инженеры, директора]
+- Тематические блоки: экспертиза, кейсы, тренды, продукт
+- Частота: 3 поста в неделю LinkedIn, 2 статьи в месяц, 4 письма
+
+Сделай:
+1. Темы на каждый пост (заголовок + формат: карусель, текст, видео)
+2. Календарь публикаций
+3. Хуки для каждой темы (что привлечёт внимание)
+4. Призывы к действию (CTA)
+5. Перекрёстные ссылки между каналами</pre>
+    </div>
+    <p><strong>Результат:</strong> готовый контент-план, экономит 4–5 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Копирайтинг рекламных кампаний</h2>
+    <p>Генерация вариантов заголовков, текстов объявлений, описаний — без реальных бюджетов.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Напиши 5 вариантов рекламного объявления для B2B-аудитории:
+
+Продукт: [УКАЖИТЕ ТИП ПРОДУКТА] для [УКАЖИТЕ ОТРАСЛЬ]
+УТП: [УКАЖИТЕ КЛЮЧЕВОЕ ПРЕИМУЩЕСТВО]
+ЦА: [УКАЖИТЕ ДОЛЖНОСТЬ], компании [УКАЖИТЕ РАЗМЕР]
+Формат: Google Ads (3 заголовка по 30 символов, 2 описания по 90)
+
+Дополнительно:
+- 3 варианта для LinkedIn (более экспертный тон)
+- 3 варианта для email-рассылки (персонализированные)
+- A/B-тест гипотезы: что тестировать (заголовок, CTA, оффер)</pre>
+    </div>
+    <p><strong>Результат:</strong> набор объявлений для тестов, экономит 2–3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. SEO-оптимизация контента</h2>
+    <p>Генерация метаописаний, заголовков H1-H3, alt-текстов — публичный контент.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Оптимизируй текст для SEO:
+
+Исходный текст (статья в блог):
+[ВСТАВЬТЕ ТЕКСТ СТАТЬИ]
+
+Ключевые слова (приоритетные):
+1. [УКАЖИТЕ КЛЮЧЕВОЕ СЛОВО 1]
+2. [УКАЖИТЕ КЛЮЧЕВОЕ СЛОВО 2]
+3. [УКАЖИТЕ КЛЮЧЕВОЕ СЛОВО 3]
+
+Сделай:
+1. Заголовок H1 (60 символов, с ключом)
+2. Мета-описание (150 символов, с CTA)
+3. Структуру H2-H3 (с вхождением ключей)
+4. Alt-тексты для 3 изображений
+5. Чек-лист внутренней оптимизации (перелинковка)</pre>
+    </div>
+    <p><strong>Результат:</strong> оптимизированный текст, экономит 1.5 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Анализ конкурентов по открытым данным</h2>
+    <p>Продуктовая линейка, позиционирование, публичные цены — всё это в открытом доступе.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проведи анализ 3 конкурентов в сегменте [УКАЖИТЕ РЫНОК]:
+
+Конкуренты:
+1. [УКАЖИТЕ КОМПАНИЮ 1]
+2. [УКАЖИТЕ КОМПАНИЮ 2]
+3. [УКАЖИТЕ КОМПАНИЮ 3]
+
+Данные для сбора (публичные источники):
+- Продуктовая линейка (категории, SKU)
+- Позиционирование (как себя позиционируют)
+- Публичные цены (если есть на сайте)
+- Каналы продвижения (где рекламируются)
+- Сильные стороны (по отзывам, кейсам)
+- Слабые стороны (жалобы, пробелы)
+
+Сделай:
+1. Сравнительную таблицу
+2. Карту позиционирования (как они себя видят vs как видят клиенты)
+3. Белые пятна (что не покрывают конкуренты — наша возможность)
+4. Рекомендации по дифференциации</pre>
+    </div>
+    <p><strong>Результат:</strong> обзор конкурентов, экономит 6–8 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Подготовка материалов для выставок</h2>
+    <p>Презентации стенда, тексты для буклетов, скрипты для менеджеров — публичные материалы.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь пакет материалов для выставки [УКАЖИТЕ НАЗВАНИЕ]:
+
+Параметры:
+- Отрасль: [УКАЖИТЕ]
+- Аудитория: [УКАЖИТЕ]
+- Продукт: [УКАЖИТЕ]
+- Цель выставки: [УКАЖИТЕ: лиды, бренд, продукт]
+
+Материалы:
+1. Слоган стенда (3 варианта, 5-7 слов)
+2. Текст для буклета (1 страница A4, структура: проблема-решение-результат)
+3. Скрипт для менеджера (приветствие → квалификация → презентация → CTA)
+4. Текст для roll-up (2 варианта, 50 слов)
+5. Email-фоллоу для встретившихся на стенде
+
+Тон: профессиональный, без агрессивных продаж.</pre>
+    </div>
+    <p><strong>Результат:</strong> комплект материалов, экономит 4–5 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Локализация маркетинговых материалов</h2>
+    <p>Адаптация контента под разные рынки — язык, культура, регуляторика.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Адаптируй маркетинговый текст под локальный рынок:
+
+Исходный текст (русский):
+[ВСТАВЬТЕ ТЕКСТ]
+
+Целевой рынок: [УКАЖИТЕ СТРАНУ]
+Язык: [УКАЖИТЕ ЯЗЫК]
+
+Адаптируй:
+1. Перевод с учётом отраслевой терминологии
+2. Культурные нюансы (что работает на этом рынке)
+3. Регуляторные ограничения (что нельзя обещать)
+4. Примеры и кейсы (заменить на локальные, если возможно)
+5. CTA (призыв к действию, актуальный для рынка)
+
+Формат: таблица "исходник → адаптация → комментарий"</pre>
+    </div>
+    <p><strong>Результат:</strong> локализованный текст, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Анализ отраслевых трендов</h2>
+    <p>Суммаризация публичной аналитики, новостей, отчётов аналитиков.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проанализируй тренды отрасли [УКАЖИТЕ] за 2025–2026:
+
+Источники (публичные):
+- Отраслевые СМИ
+- Отчёты аналитиков (McKinsey, BCG, Deloitte)
+- Новости крупных игроков
+- Публикации на LinkedIn от экспертов
+
+Вопросы:
+1. Ключевые тренды (топ-5)
+2. Технологические изменения
+3. Регуляторные сдвиги
+4. Изменение поведения клиентов
+5. Новые бизнес-модели
+6. Риски и возможности для нашей компании
+7. Рекомендации по позиционированию
+
+Формат: аналитическая записка (1-2 страницы)</pre>
+    </div>
+    <p><strong>Результат:</strong> обзор трендов, экономит 5–6 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Ценовая аналитика по биржевым котировкам</h2>
+    <p>Мониторинг публичных биржевых данных для ценовой политики.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проведи ценовую аналитику по сырьевым рынкам:
+
+Индикаторы:
+1. LME Aluminum (3-месячный фьючерс) — динамика за 6 месяцев
+2. Baltic Dry Index (BDI) — тренд фрахта
+3. Курс USD/RUB (если релевантно)
+4. Индекс PMI производственного сектора
+
+Вопросы:
+- Какая динамика цен на сырьё?
+- Как это влияет на себестоимость [УКАЖИТЕ ПРОДУКТ]?
+- Прогноз на ближайший квартал (по аналитикам)
+- Рекомендации по ценовой политике (общие, без конкретных цифр)
+
+Формат: аналитический бюллетень</pre>
+    </div>
+    <p><strong>Результат:</strong> обзор рынка, экономит 2–3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица: внешние задачи</h2>
+    <table>
+      <tr><th>Задача</th><th>Что нужно</th><th>Формат выхода</th><th>Экономия</th></tr>
+      <tr><td>Контент-план</td><td>Тематика, каналы, аудитория</td><td>Календарь публикаций</td><td>4–5 ч</td></tr>
+      <tr><td>Копирайтинг</td><td>Продукт, УТП, ЦА</td><td>Тексты объявлений</td><td>2–3 ч</td></tr>
+      <tr><td>SEO-оптимизация</td><td>Текст, ключевые слова</td><td>Оптимизированный текст</td><td>1.5 ч</td></tr>
+      <tr><td>Анализ конкурентов</td><td>Названия конкурентов</td><td>Сравнительная таблица</td><td>6–8 ч</td></tr>
+      <tr><td>Материалы для выставок</td><td>Продукт, аудитория, цель</td><td>Буклет, скрипт, слоган</td><td>4–5 ч</td></tr>
+      <tr><td>Локализация</td><td>Текст, целевой рынок</td><td>Адаптированный текст</td><td>3–4 ч</td></tr>
+      <tr><td>Анализ трендов</td><td>Отрасль, период</td><td>Аналитическая записка</td><td>5–6 ч</td></tr>
+      <tr><td>Ценовая аналитика</td><td>Сырьевые индикаторы</td><td>Бюллетень рынка</td><td>2–3 ч</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <p><strong>Вопрос 1:</strong> Почему разработка контент-плана — во внешний ИИ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Контент-план — публичная методология, конечный продукт по определению публичен.'">Потому что конечный продукт (посты, статьи) по определению публичен</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Контент-план не содержит цен.'">Потому что не содержит коммерческих цен</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Бюджет — внутренняя информация, но сам план публичен.'">Только если не указывать рекламный бюджет</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Анализ конкурентов — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Публичные цены, продукты, позиционирование — открытые данные.'">Внешний ИИ — публичные данные о продуктах и ценах</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Конкуренты сами публикуют эту информацию.'">On-prem — коммерческая разведка</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Публичные данные не нуждаются в гибриде.'">Гибрид — данные снаружи, выводы внутри</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> Можно ли во внешнем ИИ готовить питч для инвесторов?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Структура — да, но цифры нет.'">Да, если это общая структура без финансовых данных</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Структуру и методологию можно готовить снаружи, цифры — только внутри.'">Гибрид — структура и текст во внешнем, финальные цифры в on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Любой питч содержит финансовую информацию.'">Нет, питч всегда содержит инсайдерскую информацию</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../14-1-on-prem/index.html" class="nav-btn">← 14.1 Внутренние задачи</a>
+    <a href="../14-3-hybrid/index.html" class="nav-btn primary">14.3 Гибридные задачи →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>
