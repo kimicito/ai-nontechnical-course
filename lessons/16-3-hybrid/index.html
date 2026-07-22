@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.3 Гибридные задачи комплаенса — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 16 — Комплаенс</div>
+    <h1>16.3 Гибридные задачи</h1>
+    <div class="meta">⏱ 20 мин · для комплаенс-офицеров</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Гибридный подход</strong><br>
+    Общую <span class="highlight">методологию, структуру, типовую логику</span> готовим во внешнем ИИ.<br>
+    <span class="highlight">Конкретные имена, сделки, транзакции, стратегические решения</span> — в on-prem.
+  </div>
+
+  <div class="section">
+    <h2>Принцип гибридного подхода для комплаенса</h2>
+    <p>Комплаенс сочетает чувствительность нескольких функций. Гибридный подход позволяет использовать внешний ИИ для методологии и общей логики, сохраняя конфиденциальные данные внутри.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Правила обезличивания для облака:</strong>
+    <table>
+      <tr><th>Что обязательно убрать</th><th>Что можно оставить</th></tr>
+      <tr><td>Названия компаний-контрагентов</td><td>Тип контрагента (поставщик/покупатель/агент)</td></tr>
+      <tr><td>Конкретные суммы транзакций</td><td>Методология анализа паттернов</td></tr>
+      <tr><td>Имена бенефициаров/PEP</td><td>Тип риска (PEP/санкции/коррупция)</td></tr>
+      <tr><td>Номера счетов, даты сделок</td><td>Типичные сроки в отрасли</td></tr>
+      <tr><td>Названия подразделений компании</td><td>Тип процесса (закупки/продажи/наём)</td></tr>
+      <tr><td>Стратегические решения совета</td><td>Общие принципы governance</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>1. Санкционный скрининг (гибрид)</h2>
+    <p>Сам скрининг — через специализированные системы (не genAI). Интерпретация результатов — с обезличенными данными во внешнем ИИ, финальное решение — в on-prem.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — интерпретация на обезличенных данных</div>
+      <pre>Проанализируй сценарий санкционного скрининга:
+
+Сценарий (обезличенный):
+- Тип контрагента: физическое лицо
+- Страна: [УКАЖИТЕ РЕГИОН без конкретной страны если чувствительно]
+- Алерт: частичное совпадение имени с фигурантом списка OFAC
+- Дополнительные данные: дата рождения не совпадает, страна другая
+
+Сделай:
+1. Анализ степени совпадения (критерии OFAC)
+2. Вероятность ложного срабатывания
+3. Дополнительные проверки, которые нужно провести
+4. Методология принятия решения (да/нет/дополнительная проверка)
+5. Документальный след (что зафиксировать)
+
+Важно: без конкретного имени, только методология.</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — финальное решение</div>
+      <pre>Прими решение по конкретному контрагенту:
+
+Контрагент: [УКАЖИТЕ ИМЯ]
+Результаты скрининга: [ВСТАВЬТЕ]
+Методология (из облака): [ВСТАВЬТЕ]
+
+Дополнительные внутренние данные:
+- История сотрудничества: [УКАЖИТЕ]
+- Бизнес-обоснование: [УКАЖИТЕ]
+- Риск отказа: [УКАЖИТЕ]
+
+Прими решение:
+1. Одобрить / Одобрить с условиями / Отказать
+2. Обоснование (с привязкой к конкретным фактам)
+3. Условия (если применимо)
+4. Документальное оформление
+5. Срок пересмотра</pre>
+    </div>
+    <p><strong>Экономия:</strong> методология в облаке (1 час) + решение в on-prem (1 час).</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Комплаенс риск-оценка (гибрид)</h2>
+    <p>Общую методологию и матрицу рисков готовим снаружи, применение к реальным бизнес-единицам — внутри.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — методология и матрица</div>
+      <pre>Разработай методологию комплаенс риск-оценки:
+
+Параметры (общие):
+- Отрасль: [УКАЖИТЕ ТИП без названия компании]
+- География операций: [УКАЖИТЕ РЕГИОНЫ]
+- Типы контрагентов: [УКАЖИТЕ: госучреждения/частные/агенты]
+- Продукты/услуги: [УКАЖИТЕ ТИП]
+
+Сделай:
+1. Матрица рисков (факторы: страна, контрагент, продукт, канал)
+2. Методология оценки (веса факторов)
+3. Категории риска (высокий/средний/низкий)
+4. Меры контроля для каждой категории
+5. Частота пересмотра
+6. Шаблон оценки (таблица)
+
+Важно: методология без привязки к конкретной компании.</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — применение к реальным процессам</div>
+      <pre>Примени методологию к реальным бизнес-процессам:
+
+Методология (из облака): [ВСТАВЬТЕ]
+
+Бизнес-процессы компании:
+- Процесс 1: [УКАЖИТЕ НАЗВАНИЕ] — страна [УКАЖИТЕ], контрагенты [УКАЖИТЕ]
+- Процесс 2: [УКАЖИТЕ НАЗВАНИЕ] — страна [УКАЖИТЕ], контрагенты [УКАЖИТЕ]
+- Процесс 3: [УКАЖИТЕ НАЗВАНИЕ] — страна [УКАЖИТЕ], контрагенты [УКАЖИТЕ]
+
+Сделай:
+1. Оценка риска каждого процесса
+2. Карта уязвимостей
+3. Приоритеты усиления контроля
+4. План мероприятий (кто, что, когда)
+5. Сроки пересмотра</pre>
+    </div>
+    <p><strong>Экономия:</strong> методология в облаке (2 часа) + применение в on-prem (2 часа).</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Сценарии тренингов на основе реальных кейсов (гибрид)</h2>
+    <p>Структуру реального кейса обезличиваем и прорабатываем снаружи, полностью реальный кейс — внутри.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — обезличенный кейс</div>
+      <pre>Разработай сценарий для комплаенс-тренинга:
+
+Кейс (обезличенный):
+- Ситуация: сотрудник отдела [УКАЖИТЕ ФУНКЦИЮ] получил предложение о "подарке" от потенциального контрагента
+- Контрагент: компания из страны с [УКАЖИТЕ УРОВЕНЬ коррупционного риска]
+- Сумма "подарка": [УКАЖИТЕ ДИАПАЗОН без точной суммы]
+- Контекст: компания ведёт переговоры о [УКАЖИТЕ ТИП СДЕЛКИ]
+
+Сделай:
+1. Описание ситуации для тренинга
+2. Ключевые вопросы для обсуждения
+3. Правильные и неправильные действия
+4. Правовые последствия
+5. Порядок действий сотрудника
+6. Роль руководителя
+
+Важно: без названий, дат, сумм.</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — реальный кейс для внутреннего использования</div>
+      <pre>Адаптируй сценарий под реальный инцидент:
+
+Реальный кейс (внутренний):
+[УКАЖИТЕ ФАКТЫ ИНЦИДЕНТА]
+
+Сценарий (из облака): [ВСТАВЬТЕ]
+
+Сделай:
+1. Адаптированный сценарий с реальными деталями
+2. Дополнительные нюансы (специфика компании)
+3. Ссылки на внутренние политики
+4. Контакты для обращения
+5. Форма фиксации решения
+
+Важно: только для внутреннего использования, не для внешних тренингов.</pre>
+    </div>
+    <p><strong>Экономия:</strong> обезличенный кейс в облаке (1.5 часа) + реальный адаптация в on-prem (1 час).</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Due diligence контрагента (гибрид)</h2>
+    <p>Публичная часть (открытые реестры, суды, СМИ) — через внешний ИИ как ресёрч. Сведение с внутренней оценкой риска — в on-prem.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — публичный ресёрч</div>
+      <pre>Проведи публичный due diligence типового контрагента:
+
+Тип контрагента: [УКАЖИТЕ: агент/посредник/поставщик госучреждений]
+Страна: [УКАЖИТЕ]
+Отрасль: [УКАЖИТЕ]
+
+Публичные источники:
+1. Реестры юридических лиц
+2. Судебные базы
+3. СМИ и новости
+4. Санкционные списки
+5. PEP-базы (публичные)
+
+Сделай:
+1. Чек-лист публичных проверок
+2. Типовые red flags по категории контрагента
+3. Методология оценки риска
+4. Шаблон отчёта о публичной части
+
+Важно: без конкретного названия компании.</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — внутренняя оценка</div>
+      <pre>Сведи результаты с внутренней оценкой:
+
+Контрагент: [УКАЖИТЕ НАЗВАНИЕ]
+Публичные данные (из облака): [ВСТАВЬТЕ]
+
+Внутренние данные:
+- История сотрудничества: [УКАЖИТЕ]
+- Объём сделок: [УКАЖИТЕ]
+- Связанные лица: [УКАЖИТЕ]
+- Внутренние риски: [УКАЖИТЕ]
+
+Сделай:
+1. Сводная таблица рисков
+2. Итоговая оценка (одобрить/условия/отказать)
+3. Рекомендуемые условия
+4. План мониторинга</pre>
+    </div>
+    <p><strong>Экономия:</strong> публичная часть в облаке (1.5 часа) + внутренняя оценка в on-prem (1 час).</p>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица: гибридные задачи</h2>
+    <table>
+      <tr><th>Задача</th><th>Облако</th><th>On-prem</th><th>Экономия</th></tr>
+      <tr><td>Санкционный скрининг</td><td>Методология интерпретации</td><td>Решение по конкретному имени</td><td>1 + 1 ч</td></tr>
+      <tr><td>Риск-оценка</td><td>Матрица и методология</td><td>Применение к реальным процессам</td><td>2 + 2 ч</td></tr>
+      <tr><td>Сценарии тренингов</td><td>Обезличенный кейс</td><td>Ральный кейс для внутреннего использования</td><td>1.5 + 1 ч</td></tr>
+      <tr><td>Due diligence</td><td>Публичный ресёрч</td><td>Внутренняя оценка риска</td><td>1.5 + 1 ч</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <p><strong>Вопрос 1:</strong> Почему санкционный скрининг — гибрид, а не полностью в облаке?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Методология — публична, но решение по конкретному имени — внутреннее.'">Потому что методология публична, а решение по конкретному имени — конфиденциально</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Скрининг — не genAI, это rule-based система.'">Потому что скрининг требует специализированного ПО</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Результаты — внутренняя информация.'">Можно полностью в облаке, если обезличить</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Комплаенс риск-оценка — что в on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Реальные процессы — внутренняя информация.'">Применение к реальным бизнес-процессам и подразделениям</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Матрица — общая методология.'">Разработка матрицы рисков</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Веса факторов — методология.'">Определение весов факторов риска</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> Сценарии тренингов — зачем обезличивать?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Инциденты — внутренняя информация.'">Чтобы не раскрыть реальные инциденты и вовлечённых лиц</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Обезличивание — не для страховки, а для конфиденциальности.'">Чтобы страховая компания не узнала</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Обезличивание не связано с аудиторией.'">Чтобы сотрудники не узнали, что это реальный кейс</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../16-2-cloud/index.html" class="nav-btn">← 16.2 Внешние задачи</a>
+    <a href="../16-4-summary/index.html" class="nav-btn primary">16.4 Итоговый вывод →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

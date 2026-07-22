@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.4 Практический вывод — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 16 — Комплаенс</div>
+    <h1>16.4 Практический вывод</h1>
+    <div class="meta">⏱ 15 мин · итоговое резюме уровня</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Главный принцип уровня 16</strong><br>
+    Комплаенс сочетает в себе чувствительность <span class="highlight">СВК (карта уязвимостей, whistleblower)</span>, <span class="highlight">юриста (privilege, регуляторные последствия)</span> и <span class="highlight">безопасности (расследования людей)</span>. On-prem — правило по умолчанию.
+  </div>
+
+  <div class="section">
+    <h2>Ключевые выводы</h2>
+    
+    <h3>1. On-prem — правило по умолчанию</h3>
+    <p>Для комплаенса on-prem — не исключение, а норма:</p>
+    <ul>
+      <li><strong>Конкретные сделки и контрагенты</strong> — санкционный анализ, KYC/KYB, due diligence</li>
+      <li><strong>Транзакции и алерты</strong> — анализ подозрительной активности, SAR/STR</li>
+      <li><strong>Расследования</strong> — коррупция, whistleblower-обращения, материалы для комитета</li>
+      <li><strong>Отчётность руководству</strong> — комплаенс-отчёты для совета/аудиткомитета</li>
+      <li><strong>Регуляторные запросы</strong> — ответы на запросы, подготовка к аудитам</li>
+      <li><strong>Риск-оценка реальных процессов</strong> — карта уязвимостей компании</li>
+    </ul>
+
+    <h3>2. Внешний ИИ — только нормативное поле</h3>
+    <p>Безопасные задачи для облака:</p>
+    <ul>
+      <li>Мониторинг санкционных режимов (публичные списки)</li>
+      <li>Заключения по экспортному контролю (общие нормы)</li>
+      <li>Разработка политик по публичным фреймворкам (ISO 37001, UK Bribery Act)</li>
+      <li>Кодекс деловой этики (общая структура)</li>
+      <li>Обучающие программы (общего содержания)</li>
+      <li>Бенчмаркинг (публичные отчёты)</li>
+    </ul>
+
+    <h3>3. Гибрид — для методологии</h3>
+    <p>Три задачи работают по гибридной схеме:</p>
+    <ul>
+      <li><strong>Санкционный скрининг</strong> — методология интерпретации снаружи, решение по имени внутри</li>
+      <li><strong>Риск-оценка</strong> — матрица и методология снаружи, применение к процессам внутри</li>
+      <li><strong>Сценарии тренингов</strong> — обезличенный кейс снаружи, реальный кейс внутри</li>
+      <li><strong>Due diligence</strong> — публичный ресёрч снаружи, внутренняя оценка внутри</li>
+    </ul>
+
+    <h3>4. Уникальный фактор — сам факт проверки конфиденциален</h3>
+    <p>Дополнительная специфика комплаенса: любая задача, где на входе или выходе фигурирует конкретное имя человека или компании, сверяемое с санкционным/PEP-статусом, — по умолчанию on-prem. Сам факт «кого именно и зачем проверяли» — это чувствительная информация вне зависимости от результата проверки.</p>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая матрица: комплаенс</h2>
+    <table>
+      <tr><th>Задача</th><th>On-prem</th><th>Внешний ИИ</th><th>Гибрид</th></tr>
+      <tr><td>Санкционный анализ сделки</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>KYC/KYB</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Анализ транзакций</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>SAR/STR</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Расследование коррупции</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Whistleblower-обращения</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Отчётность совета</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Ответы регуляторам</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Подготовка к аудитам</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Риск-оценка (реальные процессы)</td><td>✅</td><td>❌</td><td>✅ (методология)</td></tr>
+      <tr><td>Мониторинг санкций</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Экспортный контроль (общий)</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Комплаенс-политики</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Кодекс этики</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Обучающие программы</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Бенчмаркинг</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Санкционный скрининг (интерпретация)</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Сценарии тренингов</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Due diligence (публичная часть)</td><td>❌</td><td>❌</td><td>✅</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Что исключено из уровня (и почему)</h2>
+    <div class="card card-warning">
+      <p><strong>Автоматизированный скрининг по санкционным/PEP-базам</strong> — rule-based или ML-matching системы (World-Check, Dow Jones Risk & Compliance). Это не генеративный ИИ, а специализированное ПО с интеграцией к базам данных. GenAI подключается только к интерпретации, приоритизации и оформлению результатов, но не к самому matching-процессу.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Чек-лист для комплаенс-офицера перед внешним ИИ</h2>
+    <div class="card card-success">
+      <p><strong>Перед отправкой запроса во внешний ИИ, проверь:</strong></p>
+      <ul>
+        <li>❌ Нет ли названий компаний-контрагентов?</li>
+        <li>❌ Нет ли имён бенефициаров/PEP?</li>
+        <li>❌ Нет ли конкретных сумм транзакций?</li>
+        <li>❌ Нет ли номеров счетов?</li>
+        <li>❌ Нет ли дат сделок?</li>
+        <li>❌ Нет ли названий подразделений компании?</li>
+        <li>❌ Нет ли стратегических решений совета?</li>
+        <li>❌ Нет ли деталей whistleblower-обращений?</li>
+      </ul>
+      <p><strong>Если хоть один пункт не прошёл — только on-prem.</strong></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Экономия времени по уровню</h2>
+    <table>
+      <tr><th>Категория</th><th>Задач</th><th>Средняя экономия</th></tr>
+      <tr><td>On-prem (основные)</td><td>14</td><td>2–5 часов каждая</td></tr>
+      <tr><td>Внешний ИИ (вспомогательные)</td><td>6</td><td>3–5 часов каждая</td></tr>
+      <tr><td>Гибрид</td><td>4</td><td>1.5–2 часа (суммарно)</td></tr>
+    </table>
+    <p><strong>Итого:</strong> 24 задачи, суммарная экономия 40–100 часов в месяц на команду из 2–4 комплаенс-офицеров.</p>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний — финальный квиз</h2>
+    <p><strong>Вопрос 1:</strong> Почему комплаенс — одна из самых закрытых функций?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Совокупность чувствительности СВК, юриста и безопасности.'">Сочетает чувствительность СВК, юриста и безопасности + сам факт проверки конфиденциален</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Это не главная причина.'">Потому что комплаенс-офицеры консервативны</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Санкции — одна из тем, но не единственная причина.'">Только из-за санкционных рисков</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Можно ли во внешнем ИИ провести KYC конкретного контрагента?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Реестры публичны, но сбор профиля — внутренняя задача.'">Да, реестры юрлиц публичны</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Бенефициары и структура собственности — персональные данные.'">Нет, бенефициары и структура собственности — персональные данные</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Обезличивание KYC практически невозможно.'">Только если обезличить название компании</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> SAR/STR — какой контур и почему?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Содержит конфиденциальные данные о конкретных операциях.'">On-prem — юридически значимый документ с конфиденциальными данными</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. SAR — не публичный документ.'">Внешний ИИ — требования к SAR публичны</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Структура — да, но содержание — нет.'">Гибрид — структура в облаке, факты внутри</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../16-3-hybrid/index.html" class="nav-btn">← 16.3 Гибридные задачи</a>
+    <a href="../../index.html" class="nav-btn primary">На главную</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

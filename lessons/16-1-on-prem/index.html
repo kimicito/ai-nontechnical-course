@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.1 Внутренние задачи комплаенса — on-prem — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 16 — Комплаенс</div>
+    <h1>16.1 Внутренние задачи: on-prem</h1>
+    <div class="meta">⏱ 25 мин · для комплаенс-офицеров, юристов, CCO</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Закрытый контур (on-prem)</strong><br>
+    Все задачи этого урока работают с <span class="highlight">конкретными именами, сделками, транзакциями, персональными данными, whistleblower-обращениями, расследованиями</span>. On-prem — правило по умолчанию для комплаенса.
+  </div>
+
+  <div class="section">
+    <h2>Почему комплаенс — одна из самых закрытых функций</h2>
+    <p>Комплаенс сочетает чувствительность сразу нескольких функций: как у СВК — карта уязвимостей и whistleblower-риск, как у юриста — privilege и связь с регуляторными последствиями, как у безопасности — расследования конкретных людей. Дополнительная специфика: сам факт «кого именно и зачем проверяли» — это чувствительная информация вне зависимости от результата проверки.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Когда on-prem обязателен:</strong>
+    <ul>
+      <li>Анализ применимости санкционных ограничений к конкретной сделке/контрагенту</li>
+      <li>KYC/KYB — сбор информации о конкретных контрагентах (бенефициары, структура собственности)</li>
+      <li>Анализ транзакций на признаки подозрительной активности (финансовые данные)</li>
+      <li>Подготовка SAR/STR — сообщений о подозрительных операциях для регулятора</li>
+      <li>Расследование алертов транзакционного мониторинга</li>
+      <li>Due diligence третьих лиц на коррупционные риски (конкретные партнёры)</li>
+      <li>Анализ подарков/представительских расходов (персональные данные сотрудников)</li>
+      <li>Расследование сигналов о коррупции (совместно с СВК)</li>
+      <li>Первичный анализ обращений с горячей линии (риск деанонимизации заявителя)</li>
+      <li>Структурирование материалов расследования, отчёты для руководства</li>
+      <li>Комплаенс-отчётность для совета директоров/аудиткомитета</li>
+      <li>Ответы на запросы регуляторов</li>
+      <li>Подготовка к внешним комплаенс-аудитам (полная картина внутренних процессов)</li>
+      <li>Комплаенс риск-оценка применительно к реальным бизнес-процессам (карта уязвимостей)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. Анализ применимости санкций к сделке</h2>
+    <p>Интерпретация результатов скрининга по конкретному контрагенту и сделке — решение, можно ли проводить операцию.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (on-prem)</div>
+      <pre>Проанализируй применимость санкционных ограничений к сделке:
+
+Данные сделки (конфиденциально):
+- Контрагент: [УКАЖИТЕ НАЗВАНИЕ]
+- Страна контрагента: [УКАЖИТЕ]
+- Страна происхождения товара: [УКАЖИТЕ]
+- Вид товара/услуги: [УКАЖИТЕ]
+- Сумма: [УКАЖИТЕ]
+- Валюта: [УКАЖИТЕ]
+- Способ оплаты: [УКАЖИТЕ]
+
+Результаты скрининга (внутренние системы):
+- OFAC: [УКАЖИТЕ]
+- EU: [УКАЖИТЕ]
+- UK: [УКАЖИТЕ]
+- Национальные списки: [УКАЖИТЕ]
+
+Сделай:
+1. Оценка риска сделки (высокий/средний/низкий/запрещено)
+2. Применимые ограничительные меры
+3. Необходимые дополнительные проверки
+4. Условия, при которых сделка возможна (если возможна)
+5. Обоснование для compliance-комитета
+6. Документальный след (что зафиксировать)</pre>
+    </div>
+    <p><strong>Результат:</strong> обоснованное решение по сделке, экономит 2–3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. KYC/KYB контрагента</h2>
+    <p>Сбор и структурирование информации о бенефициарах, структуре собственности, связанных лицах.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Проведи KYC/KYB анализ контрагента:
+
+Контрагент: [УКАЖИТЕ НАЗВАНИЕ]
+
+Внутренние данные:
+- Учредители: [УКАЖИТЕ]
+- Бенефициары: [УКАЖИТЕ]
+- Структура собственности: [УКАЖИТЕ]
+- Связанные лица: [УКАЖИТЕ]
+- История изменений: [УКАЖИТЕ]
+
+Сделай:
+1. Схема структуры собственности (текстовое описание)
+2. Конечные бенефициары (UBO)
+3. Связанные лица и их статус (PEP, санкции)
+4. Риск-оценка (высокий/средний/низкий)
+5. Рекомендации по условиям сотрудничества
+6. План обновления информации</pre>
+    </div>
+    <p><strong>Результат:</strong> структурированный профиль контрагента, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Анализ транзакций на подозрительную активность</h2>
+    <p>Интерпретация алертов транзакционного мониторинга, подготовка обоснования.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Проанализируй алерт транзакционного мониторинга:
+
+Алерт (внутренняя система):
+- ID: [УКАЖИТЕ]
+- Тип: [УКАЖИТЕ: структурирование/круговое движение/резко увеличившийся объём]
+- Счёт: [УКАЖИТЕ (обезличенно, если нужно)]
+- Период: [УКАЖИТЕ]
+- Сумма: [УКАЖИТЕ]
+- Контрагенты операций: [УКАЖИТЕ]
+
+История счёта:
+- Среднемесячный оборот: [УКАЖИТЕ]
+- Типичные контрагенты: [УКАЖИТЕ]
+- Бизнес-оправдание: [УКАЖИТЕ]
+
+Сделай:
+1. Описание подозрительного паттерна
+2. Сравнение с типичным поведением счёта
+3. Вероятные объяснения (легитимные и нет)
+4. Необходимые дополнительные данные
+5. Рекомендация (SAR/дополнительный анализ/закрыть)
+6. Обоснование для файла</pre>
+    </div>
+    <p><strong>Результат:</strong> обоснованное заключение по алерту, экономит 2–3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Подготовка SAR/STR</h2>
+    <p>Сообщение о подозрительной операции для регулятора — юридически значимый документ.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь SAR (Suspicious Activity Report):
+
+Данные операции (конфиденциально):
+- Дата операции: [УКАЖИТЕ]
+- Сумма: [УКАЖИТЕ]
+- Валюта: [УКАЖИТЕ]
+- Отправитель: [УКАЖИТЕ]
+- Получатель: [УКАЖИТЕ]
+- Основание для подозрения: [УКАЖИТЕ]
+- История взаимоотношений: [УКАЖИТЕ]
+- Предыдущие алерты: [УКАЖИТЕ]
+
+Сделай:
+1. Резюме подозрительной активности
+2. Детальное описание транзакций (хронология)
+3. Обоснование подозрения (почему считаем подозрительным)
+4. Связанные лица и счета
+5. Предыдущая история (если есть)
+6. Действия, предпринятые компанией
+7. Приложения (список документов)
+
+Формат: в соответствии с требованиями [УКАЖИТЕ РЕГУЛЯТОРА]</pre>
+    </div>
+    <p><strong>Результат:</strong> готовый SAR, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Расследование сигналов о коррупции</h2>
+    <p>Структурирование материалов, подготовка заключения для комитета по этике.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Проведи расследование сигнала о коррупции:
+
+Источник сигнала: [УКАЖИТЕ: горячая линия/аудит/внутренний контроль]
+
+Содержание сигнала:
+[УКАЖИТЕ СУТЬ (без идентификации источника, если whistleblower)]
+
+Внутренние данные:
+- Должностное лицо: [УКАЖИТЕ]
+- История подарков/представительских расходов: [УКАЖИТЕ]
+- Контрагенты: [УКАЖИТЕ]
+- Документы: [УКАЖИТЕ]
+
+Сделай:
+1. Хронология событий
+2. Анализ фактов (что подтверждается, что нет)
+3. Оценка нарушений (какие политики нарушены)
+4. Вовлечённые лица
+5. Рекомендации (дисциплинарные/административные/уголовные)
+6. План корректирующих мероприятий
+7. Отчёт для комитета по этике</pre>
+    </div>
+    <p><strong>Результат:</strong> структурированное расследование, экономит 4–5 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Анализ обращений с горячей линии</h2>
+    <p>Первичная категоризация и приоритизация whistleblower-обращений.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Проанализируй обращение с горячей линии:
+
+Обращение (анонимное):
+[ВСТАВЬТЕ ТЕКСТ ОБРАЩЕНИЯ]
+
+Сделай:
+1. Категория нарушения (коррупция/финансовые махинации/нарушение ТБ/дискриминация/другое)
+2. Уровень серьёзности (критический/высокий/средний/низкий)
+3. Подразделения/лица, упомянутые в обращении
+4. Необходимые первые шаги расследования
+5. Риски (реторсанкции, утечка, репутация)
+6. Рекомендация по срокам расследования
+7. Приоритет относительно других дел
+
+Важно: сохранить анонимность источника.</pre>
+    </div>
+    <p><strong>Результат:</strong> категоризация и план действий, экономит 1–2 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Комплаенс-отчётность для совета директоров</h2>
+    <p>Подготовка структурированного отчёта для высшего органа управления.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь комплаенс-отчёт для совета директоров:
+
+Период: [УКАЖИТЕ]
+
+Внутренние данные:
+- Количество проверок: [УКАЖИТЕ]
+- Выявленные нарушения: [УКАЖИТЕ]
+- SAR/STR подано: [УКАЖИТЕ]
+- Санкционные алерты: [УКАЖИТЕ]
+- Обращения с горячей линии: [УКАЖИТЕ]
+- Расследования: [УКАЖИТЕ]
+- Обучение пройдено: [УКАЖИТЕ]% сотрудников
+
+Сделай:
+1. Executive summary (1 страница)
+2. Ключевые риски периода
+3. Тренды (сравнение с прошлым периодом)
+4. Значимые инциденты (анонимизированно)
+5. Статус корректирующих мероприятий
+6. Рекомендации руководству
+7. План на следующий период
+
+Тон: профессиональный, без паники, с фокусом на рисках.</pre>
+    </div>
+    <p><strong>Результат:</strong> готовый отчёт, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица</h2>
+    <table>
+      <tr><th>Задача</th><th>Что нужно</th><th>Формат выхода</th><th>Экономия</th></tr>
+      <tr><td>Санкционный анализ сделки</td><td>Данные сделки, результаты скрининга</td><td>Решение compliance</td><td>2–3 ч</td></tr>
+      <tr><td>KYC/KYB</td><td>Данные контрагента</td><td>Профиль риска</td><td>3–4 ч</td></tr>
+      <tr><td>Анализ транзакций</td><td>Алерт, история счёта</td><td>Заключение по алерту</td><td>2–3 ч</td></tr>
+      <tr><td>SAR/STR</td><td>Данные операции, обоснование</td><td>Готовый отчёт</td><td>3–4 ч</td></tr>
+      <tr><td>Расследование коррупции</td><td>Сигнал, внутренние документы</td><td>Отчёт расследования</td><td>4–5 ч</td></tr>
+      <tr><td>Whistlebliner-обращения</td><td>Текст обращения</td><td>Категоризация + план</td><td>1–2 ч</td></tr>
+      <tr><td>Отчёт для совета</td><td>Статистика периода</td><td>Executive summary</td><td>3–4 ч</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <p><strong>Вопрос 1:</strong> Почему первичный анализ whistleblower-обращений — только on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Риск деанонимизации источника — критичный.'">Риск деанонимизации заявителя и компрометации всей системы горячей линии</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Количество — не главный фактор.'">Только если обращений меньше 10 в месяц</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Обезличивание whistleblower-обращения практически невозможно.'">Можно в облаке, если обезличить текст обращения</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> SAR/STR — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Содержит конфиденциальные данные о конкретных операциях.'">On-prem — юридически значимый документ с конфиденциальными данными</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. SAR — не публичный документ.'">Внешний ИИ — регуляторы публикуют требования к SAR</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Структура — да, но содержание — нет.'">Гибрид — структура в облаке, факты внутри</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> Почему KYC/KYB — on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Бенефициары и структура собственности — персональные данные.'">Бенефициары и структура собственности — персональные данные</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Публичные реестры — да, но сбор в одном месте создаёт профиль.'">Публичные реестры доступны всем, значит можно в облаке</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Даже обезличенный KYC содержит чувствительную информацию.'">Можно в облаке, если обезличить названия</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">На главную</a>
+    <a href="../16-2-cloud/index.html" class="nav-btn primary">16.2 Внешние задачи →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>
