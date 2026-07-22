@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.1 Внутренние задачи юридической функции — on-prem — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 15 — Юридическая функция</div>
+    <h1>15.1 Внутренние задачи: on-prem</h1>
+    <div class="meta">⏱ 25 мин · для юристов, корпоративных секретарей, compliance-специалистов</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Закрытый контур (on-prem)</strong><br>
+    Все задачи этого урока работают с <span class="highlight">адвокатской тайной, инсайдерской информацией, персональными данными, стратегическими планами компании</span>. Используйте внутреннюю модель или локальный LLM.
+  </div>
+
+  <div class="section">
+    <h2>Почему on-prem критичен для юристов</h2>
+    <p>Юридическая функция — одна из самых закрытых по умолчанию. Адвокатская тайна, attorney-client privilege, инсайдерская информация о сделках и спорах — всё это требует строгого контроля доступа. Если материалы дела или переговорную позицию по спору запросит суд или регулятор, использование внешнего облачного сервиса может создать вопрос о нарушении конфиденциальности и повлиять на защиту privilege в некоторых юрисдикциях.</p>
+    <p><strong>Правило по умолчанию:</strong> если материал связан с конкретным спором, сделкой, контрагентом или сотрудником — только on-prem. Во внешний контур можно выносить исключительно работу с открытым правовым полем.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Когда on-prem обязателен:</strong>
+    <ul>
+      <li>Проверка входящих договоров и подготовка правок (реальные коммерческие условия, стратегия переговоров)</li>
+      <li>Due diligence контрагента и сделок M&A (инсайдерская информация, утечка = манипуляция рынком)</li>
+      <li>Подготовка исковых заявлений, отзывов, апелляционных жалоб (адвокатская тайна, стратегия защиты)</li>
+      <li>Формирование правовой позиции по спору (rola-playing допроса свидетеля/оппонента)</li>
+      <li>Подготовка доказательной базы, систематизация документов дела (конкретный спор)</li>
+      <li>Претензионная переписка по реальным делам (конкретные суммы, нарушения, требования)</li>
+      <li>Корпоративные документы (протоколы, решения) — управленческая информация до публикации</li>
+      <li>Санкционный комплаенс screening по конкретным контрагентам/сделкам</li>
+      <li>Ответы на запросы регуляторов (стратегически чувствительно)</li>
+      <li>Юридические заключения по конкретным вопросам бизнеса (реальные факты, суммы, риски)</li>
+      <li>Трудовые споры, позиция работодателя (персональные данные, потенциальный конфликт)</li>
+      <li>Ведение реестра договоров (полный список коммерческих отношений)</li>
+      <li>Реорганизации и создание дочерних структур (стратегически чувствительно)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. Проверка входящих договоров</h2>
+    <p>Сравнение входящего договора с корпоративным стандартом, выявление рисковых положений, подготовка правок.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (on-prem)</div>
+      <pre>Проверь входящий договор на соответствие стандартам компании:
+
+Входящий договор (текст):
+[ВСТАВЬТЕ ТЕКСТ ДОГОВОРА]
+
+Стандарт компании (ключевые положения):
+- Ответственность поставщика: не менее [УКАЖИТЕ]% от стоимости партии
+- Срок оплаты: не ранее [УКАЖИТЕ] дней с даты поставки
+- Форс-мажор: согласно [УКАЖИТЕ ЗАКОНОДАТЕЛЬСТВО]
+- Претензионный порядок: [УКАЖИТЕ СРОК] дней
+- Арбитраж: [УКАЖИТЕ МЕСТО]
+
+Сделай:
+1. Список отклонений от стандарта (с указанием пунктов)
+2. Оценка риска каждого отклонения (высокий/средний/низкий)
+3. Предлагаемые правки (текст)
+4. Аргументация для переговоров с контрагентом
+5. Альтернативные формулировки (компромиссные)</pre>
+    </div>
+    <p><strong>Результат:</strong> проверенный договор с правками, экономит 2–3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Due diligence контрагента</h2>
+    <p>Анализ контрагента по внутренним данным + открытым источникам, оценка рисков сделки.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Проведи due diligence контрагента [УКАЖИТЕ НАЗВАНИЕ]:
+
+Внутренние данные:
+- История сотрудничества: с [УКАЖИТЕ ГОД], оборот [УКАЖИТЕ], просрочки [УКАЖИТЕ]
+- Текущие обязательства: [УКАЖИТЕ СУММУ]
+- Судебные споры: [УКАЖИТЕ]
+- Связанные лица: [УКАЖИТЕ]
+
+Публичные данные (проверены отдельно):
+- ЕГРЮЛ: [УКАЖИТЕ СТАТУС]
+- Арбитражные дела: [УКАЖИТЕ]
+- Санкционные списки: [УКАЖИТЕ]
+
+Сделай:
+1. Резюме рисков (высокие/средние/низкие)
+2. Рекомендация по сделке (да/да с условиями/нет)
+3. Условия, необходимые для минимизации рисков
+4. Предупреждающие факторы (red flags)
+5. План мониторинга после сделки</pre>
+    </div>
+    <p><strong>Результат:</strong> анализ рисков с рекомендацией, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Подготовка искового заявления</h2>
+    <p>Структурирование позиции, подготовка документов, ролевая репетиция.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь исковое заявление по спору:
+
+Контекст:
+- Сторона истца: [УКАЖИТЕ НАЗВАНИЕ КОМПАНИИ]
+- Сторона ответчика: [УКАЖИТЕ]
+- Предмет спора: [УКАЖИТЕ: неисполнение договора, взыскание задолженности и т.д.]
+- Основные факты:
+  * [УКАЖИТЕ ФАКТ 1]
+  * [УКАЖИТЕ ФАКТ 2]
+  * [УКАЖИТЕ ФАКТ 3]
+- Доказательства: [УКАЖИТЕ ПЕРЕЧЕНЬ]
+- Требования: [УКАЖИТЕ]
+- Сумма иска: [УКАЖИТЕ]
+
+Сделай:
+1. Структура искового заявления
+2. Изложение фактических обстоятельств (с цитатами договора)
+3. Правовое обоснование (нормы, судебная практика)
+4. Перечень прилагаемых документов
+5. Ролевая репетиция: типичные вопросы судьи и ответы</pre>
+    </div>
+    <p><strong>Результат:</strong> готовое исковое заявление, экономит 4–5 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Санкционный комплаенс screening</h2>
+    <p>Проверка контрагентов и сделок на санкционные риски, интерпретация результатов.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Проанализируй санкционные риски сделки:
+
+Данные сделки:
+- Контрагент: [УКАЖИТЕ НАЗВАНИЕ]
+- Страна контрагента: [УКАЖИТЕ]
+- Страна происхождения товара: [УКАЖИТЕ]
+- Страна назначения: [УКАЖИТЕ]
+- Вид товара/услуги: [УКАЖИТЕ]
+- Сумма: [УКАЖИТЕ]
+- Валюта: [УКАЖИТЕ]
+- Способ оплаты: [УКАЖИТЕ]
+
+Результаты screening (внутренние системы):
+- OFAC: [УКАЖИТЕ РЕЗУЛЬТАТ]
+- EU: [УКАЖИТЕ РЕЗУЛЬТАТ]
+- UK: [УКАЖИТЕ РЕЗУЛЬТАТ]
+- Национальные списки: [УКАЖИТЕ РЕЗУЛЬТАТ]
+
+Сделай:
+1. Оценка риска сделки (высокий/средний/низкий)
+2. Применимые ограничительные меры
+3. Необходимые дополнительные проверки
+4. Рекомендация (одобрить/одобрить с условиями/отказать)
+5. Обоснование для compliance-комитета</pre>
+    </div>
+    <p><strong>Результат:</strong> анализ санкционных рисков, экономит 2–3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Ответ на запрос регулятора</h2>
+    <p>Подготовка структурированного ответа на запрос антимонопольного органа, налоговой или иного регулятора.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь ответ на запрос [УКАЖИТЕ РЕГУЛЯТОРА]:
+
+Запрос:
+[ВСТАВЬТЕ ТЕКСТ ЗАПРОСА]
+
+Исходные данные (внутренние):
+- Факты: [УКАЖИТЕ]
+- Документы: [УКАЖИТЕ ПЕРЕЧЕНЬ]
+- Правовая позиция: [УКАЖИТЕ]
+- Риски: [УКАЖИТЕ]
+
+Сделай:
+1. Структура ответа (по пунктам запроса)
+2. Текст ответа на каждый пункт
+3. Ссылки на нормы права
+4. Приложения (список)
+5. Риск-анализ: что может спросить регулятор дальше
+6. Рекомендации руководству</pre>
+    </div>
+    <p><strong>Результат:</strong> готовый ответ на запрос, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Юридическое заключение (legal opinion)</h2>
+    <p>Анализ конкретной правовой ситуации с рекомендациями для бизнеса.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь legal opinion по вопросу:
+
+Вопрос:
+[УКАЖИТЕ КОНКРЕТНЫЙ ВОПРОС]
+
+Факты (внутренние):
+- [УКАЖИТЕ ФАКТ 1]
+- [УКАЖИТЕ ФАКТ 2]
+- [УКАЖИТЕ ФАКТ 3]
+
+Применимое право: [УКАЖИТЕ ЮРИСДИКЦИЮ]
+
+Сделай:
+1. Краткое изложение фактов
+2. Юридический анализ (применимые нормы)
+3. Судебная практика (аналогичные дела)
+4. Риски и их оценка
+5. Рекомендации (варианты действий)
+6. План реализации рекомендаций</pre>
+    </div>
+    <p><strong>Результат:</strong> структурированное заключение, экономит 4–5 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Трудовой спор — позиция работодателя</h2>
+    <p>Подготовка позиции по трудовому спору с учётом персональных данных сотрудника.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь позицию работодателя по трудовому спору:
+
+Данные сотрудника (конфиденциально):
+- Должность: [УКАЖИТЕ]
+- Стаж: [УКАЖИТЕ]
+- Претензия сотрудника: [УКАЖИТЕ]
+- История дисциплинарных взысканий: [УКАЖИТЕ]
+- Документы: [УКАЖИТЕ]
+
+Требования сотрудника:
+[УКАЖИТЕ]
+
+Сделай:
+1. Правовой анализ требований (обоснованность)
+2. Позиция работодателя (аргументация)
+3. Риски проигрыша (вероятность, сумма)
+4. Варианты урегулирования (суд/мировое/досудебное)
+5. Рекомендация по стратегии</pre>
+    </div>
+    <p><strong>Результат:</strong> готовая позиция, экономит 2–3 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица</h2>
+    <table>
+      <tr><th>Задача</th><th>Что нужно</th><th>Формат выхода</th><th>Экономия</th></tr>
+      <tr><td>Проверка договора</td><td>Входящий договор, стандарт</td><td>Правки + риски</td><td>2–3 ч</td></tr>
+      <tr><td>Due diligence</td><td>Данные контрагента</td><td>Анализ рисков</td><td>3–4 ч</td></tr>
+      <tr><td>Исковое заявление</td><td>Факты, доказательства</td><td>Готовый иск</td><td>4–5 ч</td></tr>
+      <tr><td>Санкционный screening</td><td>Данные сделки, результаты проверок</td><td>Решение compliance</td><td>2–3 ч</td></tr>
+      <tr><td>Ответ регулятору</td><td>Запрос, внутренние данные</td><td>Структурированный ответ</td><td>3–4 ч</td></tr>
+      <tr><td>Legal opinion</td><td>Вопрос, факты</td><td>Заключение + рекомендации</td><td>4–5 ч</td></tr>
+      <tr><td>Трудовой спор</td><td>Данные сотрудника, претензия</td><td>Позиция + стратегия</td><td>2–3 ч</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <p><strong>Вопрос 1:</strong> Почему подготовка искового заявления — только on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Иск содержит адвокатскую тайну и стратегию защиты.'">Потому что содержит адвокатскую тайну, стратегию спора и конфиденциальные факты</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Судебная практика — публична, но конкретный иск — нет.'">Только если иск касается суммы выше определённого порога</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Attorney-client privilege — это не только о деньгах.'">Можно делать в облаке, если обезличить названия сторон</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Можно ли санкционный screening делать в облаке?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Список — да, но интерпретация — нет.'">Да, санкционные списки — публичные данные</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Screening списков — публично, но интерпретация по конкретной сделке — стратегически чувствительна.'">Нет — интерпретация результатов по конкретному контрагенту и сделке — внутренняя информация</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Гибрид возможен, но не полный облако.'">Гибрид — списки в облаке, решение внутри</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> Почему ответы на запросы регуляторов — on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Форма — не главное, содержание — главное.'">Потому что требуется особая форма ответа</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Ответ раскрывает стратегическую позицию компании.'">Потому что раскрывают стратегическую позицию компании и могут повлиять на текущие споры</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Это не про сроки.'">Только если ответ требуется в течение 24 часов</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">На главную</a>
+    <a href="../15-2-cloud/index.html" class="nav-btn primary">15.2 Внешние задачи →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

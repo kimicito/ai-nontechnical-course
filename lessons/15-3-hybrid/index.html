@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.3 Гибридные задачи юридической функции — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 15 — Юридическая функция</div>
+    <h1>15.3 Гибридные задачи</h1>
+    <div class="meta">⏱ 20 мин · для юристов</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Гибридный подход</strong><br>
+    Общую <span class="highlight">правовую логику, структуру документа, типовую аргументацию</span> готовим во внешнем ИИ.<br>
+    <span class="highlight">Реальные факты, суммы, названия сторон, стратегическую позицию</span> добавляем в on-prem.
+  </div>
+
+  <div class="section">
+    <h2>Принцип гибридного подхода для юристов</h2>
+    <p>Юридическая функция требует особой осторожности: адвокатская тайна и attorney-client privilege могут быть поставлены под угрозу при использовании внешних сервисов. Гибридный подход позволяет использовать сильные стороны обоих контуров без нарушения конфиденциальности.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Правила обезличивания для облака:</strong>
+    <table>
+      <tr><th>Что обязательно убрать</th><th>Что можно оставить</th></tr>
+      <tr><td>Названия компаний-сторон</td><td>Тип стороны (поставщик, покупатель, работодатель)</td></tr>
+      <tr><td>Конкретные суммы и цены</td><td>Методология расчёта ущерба</td></tr>
+      <tr><td>Даты и сроки конкретных сделок</td><td>Типичные сроки в отрасли</td></tr>
+      <tr><td>Имена сотрудников, свидетелей</td><td>Должности участников</td></tr>
+      <tr><td>Номера дел, реестровые номера</td><td>Тип дела (взыскание, неисполнение)</td></tr>
+      <tr><td>Стратегическая позиция по спору</td><td>Общая правовая логика</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>1. Legal opinion (гибрид)</h2>
+    <p><strong>Облако:</strong> общая правовая логика, применимые нормы, аналогичная практика.<br>
+    <strong>On-prem:</strong> реальные факты, суммы, конкретные риски для бизнеса.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — правовая логика</div>
+      <pre>Подготовь правовой анализ по типовой ситуации:
+
+Ситуация (обезличенная):
+Компания в отрасли [УКАЖИТЕ ТИП] столкнулась с вопросом:
+[УКАЖИТЕ ПРАВОВОЙ ВОПРОС в общем виде]
+
+Юрисдикция: [УКАЖИТЕ]
+
+Сделай:
+1. Применимые нормы права (статьи, законы)
+2. Судебная практика по аналогичным вопросам (обезличенная)
+3. Аргументация "за" и "против"
+4. Типичные риски
+5. Общие рекомендации (без привязки к конкретным фактам)
+
+Формат: правовой анализ (2-3 страницы)</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — финальное заключение</div>
+      <pre>Заполни legal opinion реальными данными:
+
+Правовой анализ (из облака):
+[ВСТАВЬТЕ РЕЗУЛЬТАТ ИЗ ОБЛАКА]
+
+Реальные факты:
+- Компания: [УКАЖИТЕ НАЗВАНИЕ]
+- Сумма сделки: [УКАЖИТЕ]
+- Контрагент: [УКАЖИТЕ]
+- История отношений: [УКАЖИТЕ]
+- Конкретные риски: [УКАЖИТЕ]
+
+Адаптируй анализ:
+1. Примени правовую логику к реальным фактам
+2. Добавь конкретные цифры (штрафы, неустойки, сроки)
+3. Оцени вероятность рисков
+4. Дай конкретные рекомендации с приоритетами
+5. План действий (кто, что, когда)</pre>
+    </div>
+    <p><strong>Экономия:</strong> анализ в облаке (2 часа) + финальное заключение в on-prem (1.5 часа).</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Исковое заявление / правовая позиция (гибрид)</h2>
+    <p><strong>Облако:</strong> структура документа, типовая аргументация по виду дела.<br>
+    <strong>On-prem:</strong> реальные факты, доказательства, суммы, названия сторон.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — структура и аргументация</div>
+      <pre>Подготовь структуру искового заявления по типу дела:
+
+Тип дела: [УКАЖИТЕ: взыскание задолженности/неисполнение договора/трудовой спор]
+Юрисдикция: [УКАЖИТЕ]
+
+Составь:
+1. Структура искового заявления (по пунктам)
+2. Типовые доводы истца (аргументация)
+3. Типовые возражения ответчика (контраргументация)
+4. Доказательства, которые обычно требуются
+5. Правовые нормы, которые обычно применяются
+6. Судебная практика (типовые подходы судов)
+
+[УТОЧНИТЬ: отрасль, типичные условия договора]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — конкретное дело</div>
+      <pre>Адаптируй структуру под конкретное дело:
+
+Дело:
+- Истец: [УКАЖИТЕ]
+- Ответчик: [УКАЖИТЕ]
+- Предмет: [УКАЖИТЕ]
+- Сумма иска: [УКАЖИТЕ]
+- Факты: [УКАЖИТЕ]
+- Доказательства: [УКАЖИТЕ]
+
+Структура (из облака):
+[ВСТАВЬТЕ СТРУКТУРУ]
+
+Составь:
+1. Описание фактических обстоятельств (с датами, ссылками)
+2. Правовое обоснование (с конкретными нормами)
+3. Доказательственная база (привязка к фактам)
+4. Расчёт суммы иска (с формулами)
+5. Ролевая репетиция: вопросы судьи и ответы</pre>
+    </div>
+    <p><strong>Экономия:</strong> структура в облаке (1.5 часа) + дело в on-prem (2 часа).</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Due diligence (гибрид)</h2>
+    <p><strong>Облако:</strong> публичная часть (реестры, СМИ, судебные базы, типовые риски).<br>
+    <strong>On-prem:</strong> сведение с внутренней оценкой риска, стратегическое решение.</p>
+    <div class="example">
+      <div class="example-label">Шаг 1: Облако — публичный ресёрч</div>
+      <pre>Проведи публичный due diligence типового контрагента:
+
+Тип контрагента: [УКАЖИТЕ: производитель/дистрибьютор/подрядчик]
+Отрасль: [УКАЖИТЕ]
+Страна: [УКАЖИТЕ]
+
+Публичные источники:
+1. ЕГРЮЛ / аналогичный реестр
+2. Арбитражные дела (открытые базы)
+3. СМИ и новости
+4. Санкционные списки (публичные)
+5. Отраслевые рейтинги
+
+Сделай:
+1. Чек-лист публичных проверок
+2. Типовые red flags по отрасли
+3. Методология оценки рисков
+4. Шаблон отчёта о публичной части DD</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Шаг 2: On-prem — внутренняя оценка</div>
+      <pre>Сведи результаты с внутренней оценкой:
+
+Контрагент: [УКАЖИТЕ НАЗВАНИЕ]
+Публичные данные (из облака):
+[ВСТАВЬТЕ РЕЗУЛЬТАТЫ]
+
+Внутренние данные:
+- История сотрудничества: [УКАЖИТЕ]
+- Текущие обязательства: [УКАЖИТЕ]
+- Связанные лица: [УКАЖИТЕ]
+- Внутренние риски: [УКАЖИТЕ]
+
+Сделай:
+1. Сводная таблица рисков (публичные + внутренние)
+2. Итоговая оценка (одобрить/условия/отказ)
+3. Рекомендуемые условия сделки
+4. План мониторинга после заключения</pre>
+    </div>
+    <p><strong>Экономия:</strong> публичная часть в облаке (2 часа) + внутренняя оценка в on-prem (1.5 часа).</p>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица: гибридные задачи</h2>
+    <table>
+      <tr><th>Задача</th><th>Облако</th><th>On-prem</th><th>Экономия</th></tr>
+      <tr><td>Legal opinion</td><td>Правовая логика, нормы</td><td>Факты, суммы, риски</td><td>2 + 1.5 ч</td></tr>
+      <tr><td>Исковое заявление</td><td>Структура, типовая аргументация</td><td>Конкретное дело, доказательства</td><td>1.5 + 2 ч</td></tr>
+      <tr><td>Due diligence</td><td>Публичные реестры, СМИ</td><td>Внутренняя оценка риска</td><td>2 + 1.5 ч</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <p><strong>Вопрос 1:</strong> Какой принцип гибрида для legal opinion?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Правовая логика снаружи, конкретные факты внутри.'">Правовую логику и нормы — в облаке, реальные факты и суммы — в on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Всё в облаке — нарушение конфиденциальности.'">Весь legal opinion можно делать в облаке, если обезличить</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Судебная практика — публична, но анализ — нет.'">Legal opinion всегда только в on-prem</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Исковое заявление — какой шаг в on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Факты, суммы, названия — внутри.'">Конкретные факты, суммы, названия сторон, доказательства</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Структура — в облаке.'">Структура документа и типовые доводы</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Применимые нормы — общие знания.'">Применимые нормы права</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> Due diligence — что убираем перед облаком?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Названия, суммы, номера — убрать.'">Название компании, суммы сделок, номера договоров</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Тип контрагента — общая информация.'">Тип контрагента (поставщик/покупатель)</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Страна — публичная информация.'">Страна регистрации контрагента</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../15-2-cloud/index.html" class="nav-btn">← 15.2 Внешние задачи</a>
+    <a href="../15-4-summary/index.html" class="nav-btn primary">15.4 Итоговый вывод →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

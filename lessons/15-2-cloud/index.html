@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.2 Внешние задачи юридической функции — внешний ИИ — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 15 — Юридическая функция</div>
+    <h1>15.2 Внешние задачи: внешний ИИ</h1>
+    <div class="meta">⏱ 20 мин · для юристов, compliance-специалистов</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>Открытые данные (внешний ИИ)</strong><br>
+    Все задачи этого урока — с <span class="highlight">типовыми шаблонами, публичным законодательством, открытыми судебными решениями, обучающими материалами</span>. Можно использовать Claude, ChatGPT, Gemini.
+  </div>
+
+  <div class="section">
+    <h2>Что можно делать во внешнем ИИ</h2>
+    <p>В отличие от задач с конкретными делами и контрагентами, работа с открытым правовым полем безопасна и эффективна:</p>
+    <ul>
+      <li>Составление типовых договоров по шаблонам (без реальных условий)</li>
+      <li>Мониторинг изменений законодательства (публичные источники)</li>
+      <li>Анализ судебной практики (открытые решения)</li>
+      <li>Патентный поиск (открытые базы)</li>
+      <li>Обучающие материалы (общего характера)</li>
+      <li>Бенчмаркинг юридических практик (публичные данные)</li>
+    </ul>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Главное правило:</strong> если в запросе нет названий компаний, сумм, конкретных дат, персональных данных, стратегических планов — можно использовать внешний ИИ.
+  </div>
+
+  <div class="section">
+    <h2>1. Типовые шаблоны договоров</h2>
+    <p>Составление структуры типового договора без реальных условий — публичная методология.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (внешний ИИ)</div>
+      <pre>Подготовь типовой договор поставки:
+
+Параметры (без конкретных условий):
+- Тип: договор поставки товара
+- Правовая система: [УКАЖИТЕ СТРАНУ]
+- Сторона покупатель: крупная компания (B2B)
+- Сторона поставщик: производитель
+- Объект: [УКАЖИТЕ ТИП ТОВАРА без количества/цен]
+
+Составь:
+1. Преамбула (типовая)
+2. Предмет договора (структура описания)
+3. Цена и порядок расчётов (типовые формулировки)
+4. Поставка и передача рисков (Incoterms — типовые)
+5. Качество и приёмка (типовые условия)
+6. Ответственность сторон (без конкретных штрафов)
+7. Форс-мажор (типовая статья)
+8. Порядок разрешения споров (типовые варианты)
+9. Заключительные положения
+
+Формат: для каждой статьи — базовый текст + альтернативы</pre>
+    </div>
+    <p><strong>Результат:</strong> типовой шаблон для юротдела, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Мониторинг изменений законодательства</h2>
+    <p>Суммаризация изменений в законодательстве по конкретным темам.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проанализируй изменения законодательства за последние 6 месяцев:
+
+Темы:
+1. [УКАЖИТЕ ОТРАСЛЬ: корпоративное право/налоги/трудовое/антимонопольное]
+2. [УКАЖИТЕ ВТОРУЮ ТЕМУ]
+3. [УКАЖИТЕ ТРЕТЬЮ ТЕМУ]
+
+Юрисдикция: [УКАЖИТЕ СТРАНУ/РЕГИОН]
+
+Сделай:
+1. Список ключевых изменений (дата, номер документа, суть)
+2. Анализ влияния на бизнес (общий, без привязки к конкретной компании)
+3. Сроки вступления в силу
+3. Необходимые действия компаний в целом
+4. Рекомендации по подготовке
+
+Формат: аналитическая записка (1-2 страницы)</pre>
+    </div>
+    <p><strong>Результат:</strong> обзор изменений, экономит 4–5 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Анализ судебной практики</h2>
+    <p>Поиск и анализ открытых судебных решений по аналогичным вопросам.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проанализируй судебную практику по вопросу:
+
+Вопрос: [УКАЖИТЕ ПРАВОВОЙ ВОПРОС без привязки к конкретному делу]
+Юрисдикция: [УКАЖИТЕ]
+Период: последние 2 года
+
+Сделай:
+1. Подборка релевантных дел (5-10 решений)
+2. Краткое содержание каждого дела
+3. Позиция суда (ключевые выводы)
+4. Тренды в практике (как меняется подход судов)
+5. Риски для компаний в целом
+6. Рекомендации по минимизации рисков
+
+Важно: только публичные решения, без упоминания конкретных компаний если не является публичным делом.</pre>
+    </div>
+    <p><strong>Результат:</strong> обзор практики, экономит 5–6 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Патентный поиск и анализ патентной чистоты</h2>
+    <p>Поиск по открытым патентным базам, анализ свободы действий.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проведи патентный поиск по технологии:
+
+Технология: [УКАЖИТЕ ОБЛАСТЬ без конкретных деталей продукта]
+Ключевые слова: [УКАЖИТЕ 3-5 ТЕРМИНОВ]
+Классы МПК: [УКАЖИТЕ если известны]
+Юрисдикции: [УКАЖИТЕ: РФ, США, ЕПВ, КНР и т.д.]
+
+Сделай:
+1. Поиск релевантных патентов (5-10)
+2. Анализ каждого патента (что охраняется, срок, статус)
+3. Анализ патентной чистоты (есть ли препятствия)
+4. Рекомендации по обходным решениям (если есть)
+5. Рекомендация по дальнейшим действиям
+
+Важно: это предварительный анализ, не заменяет патентного поверенного.</pre>
+    </div>
+    <p><strong>Результат:</strong> предварительный анализ, экономит 3–4 часа (но не заменяет патентного поверенного).</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Обучающие материалы для сотрудников</h2>
+    <p>Подготовка обучающих материалов по правовым темам общего характера.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготовь обучающий материал для сотрудников:
+
+Тема: [УКАЖИТЕ: коммерческая тайна/антикоррупция/конкуренция/персональные данные]
+Аудитория: [УКАЖИТЕ: все сотрудники/менеджеры/продавцы]
+Формат: презентация (10 слайдов) + тест (5 вопросов)
+
+Составь:
+1. Цели обучения (что должен знать сотрудник)
+2. Основные положения (простым языком)
+3. Примеры ситуаций (гипотетические, не реальные)
+4. Правила поведения (do's and don'ts)
+5. Ответственность за нарушение
+6. Тест (5 вопросов с вариантами ответов)
+7. Чек-лист для самопроверки
+
+Тон: доступный, без юридического жаргона.</pre>
+    </div>
+    <p><strong>Результат:</strong> готовый материал для тренинга, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Бенчмаркинг юридических практик отрасли</h2>
+    <p>Сравнение юридических процессов с аналогичными компаниями по публичным данным.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проведи бенчмаркинг юридических практик в отрасли:
+
+Отрасль: [УКАЖИТЕ]
+Параметры для сравнения:
+- Структура юридического департамента
+- Использование legal tech
+- Внешние юристы vs in-house
+- Судебная нагрузка (типичные споры)
+- Стоимость юридических услуг (публичные данные)
+- Compliance-практики
+
+Источники: отраслевые отчёты, публикации, конференции
+
+Сделай:
+1. Обзор практик 3-5 компаний отрасли (публичные данные)
+2. Сравнительная таблица
+3. Лучшие практики (best practices)
+4. Рекомендации по оптимизации юридической функции
+
+Важно: только публичные данные, без конкретных сумм контрактов.</pre>
+    </div>
+    <p><strong>Результат:</strong> обзор отраслевых практик, экономит 4–5 часов.</p>
+  </div>
+
+  <div class="section">
+    <h2>Итоговая таблица: внешние задачи</h2>
+    <table>
+      <tr><th>Задача</th><th>Что нужно</th><th>Формат выхода</th><th>Экономия</th></tr>
+      <tr><td>Типовые шаблоны</td><td>Тип договора, правовая система</td><td>Готовый шаблон</td><td>3–4 ч</td></tr>
+      <tr><td>Мониторинг законов</td><td>Темы, юрисдикция</td><td>Аналитическая записка</td><td>4–5 ч</td></tr>
+      <tr><td>Судебная практика</td><td>Правовой вопрос</td><td>Обзор решений</td><td>5–6 ч</td></tr>
+      <tr><td>Патентный поиск</td><td>Технология, ключевые слова</td><td>Анализ патентов</td><td>3–4 ч</td></tr>
+      <tr><td>Обучающие материалы</td><td>Тема, аудитория</td><td>Презентация + тест</td><td>3–4 ч</td></tr>
+      <tr><td>Бенчмаркинг</td><td>Отрасль, параметры</td><td>Сравнительный анализ</td><td>4–5 ч</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <p><strong>Вопрос 1:</strong> Можно ли составить договор поставки с конкретной ценой во внешнем ИИ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Конкретная цена — коммерческая тайна.'">Да, если это типовой договор</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Конкретная цена — коммерческая тайна, только on-prem.'">Нет, конкретная цена — коммерческая тайна и идёт в on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Размер компании не влияет на чувствительность цены.'">Да, но только для компаний небольшого размера</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Анализ судебной практики — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Судебные решения — публичные данные.'">Внешний ИИ — судебные решения публичны</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Судебные решения публикуются в открытом доступе.'">On-prem — судебная практика конфиденциальна</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Анализ практики — это не конкретное дело.'">Гибрид — обезличить названия компаний</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> Патентный поиск — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Патентные базы — открытые данные.'">Внешний ИИ — патентные базы открыты</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Патенты публикуются специально для публичного доступа.'">On-prem — это интеллектуальная собственность компании</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Поиск по открытым базам не требует гибрида.'">Гибрид — базы снаружи, анализ внутри</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../15-1-on-prem/index.html" class="nav-btn">← 15.1 Внутренние задачи</a>
+    <a href="../15-3-hybrid/index.html" class="nav-btn primary">15.3 Гибридные задачи →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>
