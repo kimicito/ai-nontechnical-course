@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.1 Internal Legal Tasks — On-Prem — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 15 — Legal Function</div>
+    <h1>15.1 Internal Tasks: On-Prem</h1>
+    <div class="meta">⏱ 25 min · for lawyers, corporate secretaries, compliance specialists</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Closed Loop (On-Prem)</strong><br>
+    All tasks in this lesson work with <span class="highlight">attorney-client privilege, insider information, personal data, company strategic plans</span>. Use internal model or local LLM.
+  </div>
+
+  <div class="section">
+    <h2>Why On-Prem is Critical for Lawyers</h2>
+    <p>The legal function is one of the most closed by default. Attorney-client privilege, insider information about deals and disputes — all of this requires strict access control. If case materials or negotiation position on a dispute are requested by a court or regulator, using an external cloud service may raise questions about confidentiality breach and affect privilege defense in some jurisdictions.</p>
+    <p><strong>Default rule:</strong> if material is related to a specific dispute, deal, counterparty or employee — on-prem only. To the external environment, only work with open legal field can be taken.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>When On-Prem is Mandatory:</strong>
+    <ul>
+      <li>Review of incoming contracts and preparation of amendments (real commercial terms, negotiation strategy)</li>
+      <li>Due diligence of counterparties and M&A deals (insider information, leak = market manipulation)</li>
+      <li>Preparation of statements of claim, responses, appeals (attorney-client privilege, defense strategy)</li>
+      <li>Formation of legal position on dispute (role-playing witness/opponent examination)</li>
+      <li>Preparation of evidence base, case document systematization (specific dispute)</li>
+      <li>Pre-trial correspondence on real cases (specific amounts, violations, demands)</li>
+      <li>Corporate documents (minutes, resolutions) — management information before publication</li>
+      <li>Sanctions compliance screening for specific counterparties/deals</li>
+      <li>Responses to regulator inquiries (strategically sensitive)</li>
+      <li>Legal opinions on specific business issues (real facts, amounts, risks)</li>
+      <li>Labor disputes, employer position (personal data, potential conflict)</li>
+      <li>Contract registry management (full list of commercial relations)</li>
+      <li>Reorganizations and creation of subsidiaries (strategically sensitive)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. Incoming Contract Review</h2>
+    <p>Comparing incoming contract with corporate standard, identifying risky provisions, preparing amendments.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (On-Prem)</div>
+      <pre>Review incoming contract against company standards:
+
+Incoming contract (text):
+[PASTE CONTRACT TEXT]
+
+Company standard (key provisions):
+- Supplier liability: not less than [SPECIFY]% of shipment value
+- Payment term: no earlier than [SPECIFY] days from delivery date
+- Force majeure: according to [SPECIFY LEGISLATION]
+- Pre-trial procedure: [SPECIFY TERM] days
+- Arbitration: [SPECIFY PLACE]
+
+Provide:
+1. List of deviations from standard (with clause references)
+2. Risk assessment for each deviation (high/medium/low)
+3. Proposed amendments (text)
+4. Arguments for negotiations with counterparty
+5. Alternative formulations (compromise)</pre>
+    </div>
+    <p><strong>Result:</strong> reviewed contract with amendments, saves 2–3 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Counterparty Due Diligence</h2>
+    <p>Counterparty analysis based on internal data + open sources, deal risk assessment.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Conduct due diligence of counterparty [SPECIFY NAME]:
+
+Internal data:
+- Cooperation history: since [SPECIFY YEAR], turnover [SPECIFY], delays [SPECIFY]
+- Current obligations: [SPECIFY AMOUNT]
+- Litigation: [SPECIFY]
+- Related parties: [SPECIFY]
+
+Public data (checked separately):
+- Registry: [SPECIFY STATUS]
+- Arbitration cases: [SPECIFY]
+- Sanctions lists: [SPECIFY]
+
+Provide:
+1. Risk summary (high/medium/low)
+2. Deal recommendation (yes/yes with conditions/no)
+3. Conditions required for risk minimization
+4. Red flags
+5. Post-deal monitoring plan</pre>
+    </div>
+    <p><strong>Result:</strong> risk analysis with recommendation, saves 3–4 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Statement of Claim Preparation</h2>
+    <p>Structuring position, preparing documents, role-play rehearsal.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare statement of claim for dispute:
+
+Context:
+- Plaintiff: [SPECIFY COMPANY NAME]
+- Defendant: [SPECIFY]
+- Subject: [SPECIFY: contract breach, debt recovery, etc.]
+- Key facts:
+  * [SPECIFY FACT 1]
+  * [SPECIFY FACT 2]
+  * [SPECIFY FACT 3]
+- Evidence: [SPECIFY LIST]
+- Demands: [SPECIFY]
+- Claim amount: [SPECIFY]
+
+Provide:
+1. Structure of statement of claim
+2. Statement of facts (with contract quotes)
+3. Legal basis (norms, case law)
+4. List of attached documents
+5. Role-play: typical judge questions and answers</pre>
+    </div>
+    <p><strong>Result:</strong> ready statement of claim, saves 4–5 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Sanctions Compliance Screening</h2>
+    <p>Checking counterparties and deals for sanctions risks, interpreting results.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Analyze sanctions risks of deal:
+
+Deal data:
+- Counterparty: [SPECIFY NAME]
+- Counterparty country: [SPECIFY]
+- Goods origin country: [SPECIFY]
+- Destination country: [SPECIFY]
+- Goods/services type: [SPECIFY]
+- Amount: [SPECIFY]
+- Currency: [SPECIFY]
+- Payment method: [SPECIFY]
+
+Screening results (internal systems):
+- OFAC: [SPECIFY RESULT]
+- EU: [SPECIFY RESULT]
+- UK: [SPECIFY RESULT]
+- National lists: [SPECIFY RESULT]
+
+Provide:
+1. Deal risk assessment (high/medium/low)
+2. Applicable restrictive measures
+3. Required additional checks
+4. Recommendation (approve/approve with conditions/reject)
+5. Justification for compliance committee</pre>
+    </div>
+    <p><strong>Result:</strong> sanctions risk analysis, saves 2–3 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Response to Regulator Inquiry</h2>
+    <p>Preparing structured response to antitrust authority, tax authority or other regulator.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare response to [SPECIFY REGULATOR] inquiry:
+
+Inquiry:
+[PASTE INQUIRY TEXT]
+
+Source data (internal):
+- Facts: [SPECIFY]
+- Documents: [SPECIFY LIST]
+- Legal position: [SPECIFY]
+- Risks: [SPECIFY]
+
+Provide:
+1. Response structure (by inquiry points)
+2. Response text for each point
+3. Legal norms references
+4. Attachments (list)
+5. Risk analysis: what regulator may ask next
+6. Management recommendations</pre>
+    </div>
+    <p><strong>Result:</strong> ready response to inquiry, saves 3–4 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Legal Opinion</h2>
+    <p>Analysis of specific legal situation with recommendations for business.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare legal opinion on issue:
+
+Issue:
+[SPECIFY SPECIFIC ISSUE]
+
+Facts (internal):
+- [SPECIFY FACT 1]
+- [SPECIFY FACT 2]
+- [SPECIFY FACT 3]
+
+Applicable law: [SPECIFY JURISDICTION]
+
+Provide:
+1. Brief facts summary
+2. Legal analysis (applicable norms)
+3. Case law (similar cases)
+4. Risks and assessment
+5. Recommendations (action options)
+6. Implementation plan</pre>
+    </div>
+    <p><strong>Result:</strong> structured opinion, saves 4–5 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Labor Dispute — Employer Position</h2>
+    <p>Preparing position on labor dispute considering employee personal data.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare employer position on labor dispute:
+
+Employee data (confidential):
+- Position: [SPECIFY]
+- Tenure: [SPECIFY]
+- Employee claim: [SPECIFY]
+- Disciplinary history: [SPECIFY]
+- Documents: [SPECIFY]
+
+Employee demands:
+[SPECIFY]
+
+Provide:
+1. Legal analysis of demands (validity)
+2. Employer position (arguments)
+3. Loss risks (probability, amount)
+4. Settlement options (court/settlement/pre-trial)
+5. Strategy recommendation</pre>
+    </div>
+    <p><strong>Result:</strong> ready position, saves 2–3 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table</h2>
+    <table>
+      <tr><th>Task</th><th>Input Required</th><th>Output Format</th><th>Time Saved</th></tr>
+      <tr><td>Contract review</td><td>Incoming contract, standard</td><td>Amendments + risks</td><td>2–3 h</td></tr>
+      <tr><td>Due diligence</td><td>Counterparty data</td><td>Risk analysis</td><td>3–4 h</td></tr>
+      <tr><td>Statement of claim</td><td>Facts, evidence</td><td>Ready claim</td><td>4–5 h</td></tr>
+      <tr><td>Sanctions screening</td><td>Deal data, check results</td><td>Compliance decision</td><td>2–3 h</td></tr>
+      <tr><td>Regulator response</td><td>Inquiry, internal data</td><td>Structured response</td><td>3–4 h</td></tr>
+      <tr><td>Legal opinion</td><td>Issue, facts</td><td>Opinion + recommendations</td><td>4–5 h</td></tr>
+      <tr><td>Labor dispute</td><td>Employee data, claim</td><td>Position + strategy</td><td>2–3 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> Why is statement of claim preparation on-prem only?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Claim contains attorney-client privilege and defense strategy.'">Because it contains attorney-client privilege, dispute strategy and confidential facts</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Case law is public, but specific claim is not.'">Only if claim amount exceeds a certain threshold</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Attorney-client privilege is not just about money.'">Can be done in cloud if party names are anonymized</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Can sanctions screening be done in cloud?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Lists — yes, but interpretation — no.'">Yes, sanctions lists are public data</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Screening lists — public, but interpretation for specific deal — strategically sensitive.'">No — interpretation of results for specific counterparty and deal is internal information</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Hybrid is possible, but not full cloud.'">Hybrid — lists in cloud, decision inside</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Why are responses to regulator inquiries on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Form is not the main thing, content is.'">Because special response form is required</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Response reveals company strategic position.'">Because they reveal company strategic position and may affect ongoing disputes</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. This is not about timelines.'">Only if response is required within 24 hours</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">Home</a>
+    <a href="../15-2-cloud/index.html" class="nav-btn primary">15.2 External Tasks →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

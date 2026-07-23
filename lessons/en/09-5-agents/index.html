@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>9.5 Agent Scenarios for Audit — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 9 — Audit</div>
+    <h1>9.5 Agent Scenarios for Audit</h1>
+    <div class="meta">⏱ 12 min · agents for internal control and audit</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>How is an agent different from a language model?</strong><br>
+    LLM answers requests. <span class="highlight">Agent</span> works continuously: monitors, compares, alerts, documents — without command "check now". More — <a href="../../lessons/4-1-agents/index.html" style="color:var(--accent2);">Level 4</a>.
+  </div>
+
+  <div class="section">
+    <h2>Scenario 1: Anomaly Monitoring Agent (n8n + SQL)</h2>
+    <p><strong>Task:</strong> daily scan transactions, detect deviations from norm, send alerts to auditors.</p>
+    <div class="arch">
+[Cron: daily at 8:00]<br>
+  ↓<br>
+[SQL query to ERP: yesterday's transactions]<br>
+  ↓<br>
+[Agent: statistical analysis]<br>
+  ├─→ Amounts 2σ from average<br>
+  ├─→ Duplicate payments<br>
+  ├─→ Payments outside working hours<br>
+  └─→ New counterparties with large amounts<br>
+  ↓<br>
+[LLM: formulate remark with context]<br>
+  ↓<br>
+[Email to auditor: "5 anomalies for 23.07"]<br>
+  ↓<br>
+[Google Sheets: anomaly log]
+    </div>
+    <div class="card card-success">
+      <strong>Result:</strong> anomalies detected within a day, not at quarterly reconciliation. Reaction time reduced from weeks to hours.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Scenario 2: Contract Audit Agent (OpenClaw Agent)</h2>
+    <p><strong>Task:</strong> upon contract submission for approval — automatically check for typical risks, template compliance, mandatory conditions.</p>
+    <div class="arch">
+[Email / ECM: new contract for approval]<br>
+  ↓<br>
+[Agent: text extraction (OCR if PDF)]<br>
+  ↓<br>
+[On-prem LLM: checklist verification]<br>
+  ├─→ Compliance with company template<br>
+  ├─→ Mandatory conditions presence (insurance, penalties, force majeure)<br>
+  ├─→ Risky wording (auto-renewal, sole arbitration)<br>
+  ├─→ Legislative compliance<br>
+  └─→ Details check against business registry<br>
+  ↓<br>
+[Verification protocol formation]<br>
+  ├─ Remarks with item references<br>
+  ├─ Correction recommendations<br>
+  └─ Risk assessment (low / medium / high)<br>
+  ↓<br>
+[Notification to auditor + lawyer]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Scenario 3: Audit Preparation Agent (Hybrid)</h2>
+    <p><strong>Task:</strong> before external audit collect all required documents, check completeness, prepare plan.</p>
+    <div class="arch">
+[Request: "Preparing for Q2 VAT audit"]<br>
+  ↓<br>
+[Agent: document search in ECM / archive]<br>
+  ├─→ Invoices<br>
+  ├─→ Purchase/sales ledger<br>
+  ├─→ Bank statements<br>
+  └─→ Counterparty contracts<br>
+  ↓<br>
+[Completeness check by auditor's list]<br>
+  ↓<br>
+[LLM: analysis of found / missing documents]<br>
+  ↓<br>
+[Preparation plan formation]<br>
+  ├─ What's ready<br>
+  ├─ What's missing + responsible persons<br>
+  └─ Deadlines<br>
+  ↓<br>
+[Notification to manager + responsible persons]
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../09-compliance-fraud/index.html" class="nav-btn">← Compliance and Fraud</a>
+    <a href="../../catalog.html" class="nav-btn primary">Catalog</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

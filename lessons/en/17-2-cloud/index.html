@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.2 External HR Tasks — External AI — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .prompt-box { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: 'Segoe UI', monospace; font-size: 0.9rem; line-height: 1.5; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 17 — HR</div>
+    <h1>17.2 External Tasks: Cloud</h1>
+    <div class="meta">⏱ 15 min · universal methodology without personal data</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Main Lesson Principle</strong><br>
+    Only what is <span class="highlight">not personalized</span> can be safely taken to external environment: methodology, templates, public labor market analytics.
+  </div>
+
+  <div class="section">
+    <h2>Task 1: Job Postings and Position Descriptions</h2>
+    <p><strong>Why cloud:</strong> public content by definition. Job posting is published on job boards, social media, company website.</p>
+    <h3>What AI Does</h3>
+    <ul>
+      <li>Formulates attractive description based on requirements</li>
+      <li>Adapts to company tone of voice</li>
+      <li>Adds ESG/DEI accents if needed</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Create job description for position [title] in [industry]. Key requirements: [list]. Level: [junior/middle/senior]. Format: attractive, with accent on development and company culture. Add sections "What you'll do", "What we expect", "What we offer".
+    </div>
+    <div class="card card-success">
+      <strong>Result:</strong> saves 20–30 minutes per vacancy. HR can publish 2–3x more vacancies.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 2: Interview Questions Preparation (Methodology)</h2>
+    <p><strong>Why cloud:</strong> general methodology for position type — without reference to real candidate. Reusable content.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Develop behavioral interview structure for position [title] in [industry]. Level: [junior/middle/senior]. Include: opening questions, behavioral (STAR), case questions, culture fit questions, competency check questions [competency list].
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 3: Standard Assessment Programs (Performance Review, 360)</h2>
+    <p><strong>Why cloud:</strong> assessment methodology — universal structure. Real assessments of specific employees — on-prem.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Develop 360 assessment program structure for [level: manager/specialist]. Include: competencies to assess, scale, respondent categories (manager, peers, subordinates), feedback format, timelines.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 4: Training Programs and Materials Development</h2>
+    <p><strong>Why cloud:</strong> general training materials — public part. Can be published on corporate portal.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Develop training program on topic [name] for employees level [junior/middle/senior]. Format: modular structure, 4–6 sessions of 2 hours each. For each module: objectives, content, methods, assessment. Include practical exercises.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 5: Tests and Assessment Materials Preparation</h2>
+    <p><strong>Why cloud:</strong> general-type tests — not tied to specific employee. Can be standard for all candidates for position.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Create test on knowledge of [subject/skill] for candidates for position [title]. 10 questions: 5 theoretical, 3 case-based, 2 logic. Specify correct answers and scoring criteria.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 6: General Onboarding Materials</h2>
+    <p><strong>Why cloud:</strong> materials about company, culture, processes — public part. Don't contain personal data.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Create onboarding guide for new employee. Sections: first day, first week, first month. Include: team introduction, key processes, tools, company culture, HR contact points. Format: friendly, structured.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 7: Salary Market Benchmarking</h2>
+    <p><strong>Why cloud:</strong> analysis of public salary surveys (job boards, Glassdoor, industry research) — open sources. Doesn't contain real employee salaries.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Based on open data (job boards, Glassdoor, industry surveys) for [period], analyze market salaries for position [title] in [region/industry]. Specify: median, P25, P75, P90. Compare with previous period. Highlight trends.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 8: Competency Matrices for Standard Positions</h2>
+    <p><strong>Why cloud:</strong> standard competencies — universal methodology. Tying to specific employee — on-prem.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Develop competency matrix for position [title]. Include: technical competencies, soft skills, leadership qualities (for managers). For each: description, development levels (1–5), behavior indicators. Format: table.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 9: Industry HR Practice Benchmarking</h2>
+    <p><strong>Why cloud:</strong> analysis of public reports, cases, research — open data.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Conduct HR practice benchmarking in [industry] for areas: recruitment, training, motivation, engagement. Use public reports from Deloitte, McKinsey, industry job boards. Highlight best practices and trends.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 10: General HR Strategy (Workforce Planning)</h2>
+    <p><strong>Why cloud:</strong> workforce planning methodology — universal. Real headcount figures — on-prem.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Develop HR strategy for company in [industry] for [period]. Include: current state analysis (typical problems), objectives, key initiatives (recruitment, development, retention), success metrics, risks. Format: structured plan.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> Why can onboarding materials be prepared in cloud?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> General materials about company and processes — public part.'">They describe company and processes, not a specific employee</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Format doesn't determine environment.'">Because they are in PDF format</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Time is not the criterion for environment choice.'">Because onboarding is a quick task</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Why can competency matrix be prepared in cloud?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Standard competencies — universal methodology, not tied to a person.'">It's universal methodology, not tied to a specific employee</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Levels are part of matrix, but not reason for environment choice.'">Because matrix has levels 1–5</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Accessibility is a consequence, not a reason.'">Because competencies are a public concept</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Which task from the list is NOT suitable for cloud?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Assessment structure is methodology, suitable for cloud.'">360 assessment structure development</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Summary contains personal data and evaluations of specific people.'">Analysis of real employees' 360 assessment results</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Benchmarking is public data, suitable for cloud.'">Industry HR practice benchmarking</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../17-1-on-prem/index.html" class="nav-btn">← 17.1 Internal Tasks</a>
+    <a href="../17-3-hybrid/index.html" class="nav-btn primary">17.3 Hybrid Tasks →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

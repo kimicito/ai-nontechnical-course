@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.4 Practical Summary — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 16 — Compliance</div>
+    <h1>16.4 Practical Summary</h1>
+    <div class="meta">⏱ 15 min · level summary</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Main Principle of Level 16</strong><br>
+    Compliance combines the sensitivity of <span class="highlight">internal audit (vulnerability map, whistleblower)</span>, <span class="highlight">legal (privilege, regulatory consequences)</span>, and <span class="highlight">security (person investigations)</span>. On-prem is the default rule.
+  </div>
+
+  <div class="section">
+    <h2>Key Takeaways</h2>
+    
+    <h3>1. On-Prem — Default Rule</h3>
+    <p>For compliance, on-prem is not an exception but the norm:</p>
+    <ul>
+      <li><strong>Specific deals and counterparties</strong> — sanctions analysis, KYC/KYB, due diligence</li>
+      <li><strong>Transactions and alerts</strong> — suspicious activity analysis, SAR/STR</li>
+      <li><strong>Investigations</strong> — corruption, whistleblower reports, committee materials</li>
+      <li><strong>Management reporting</strong> — compliance reports for board/audit committee</li>
+      <li><strong>Regulatory requests</strong> — responses to inquiries, audit preparation</li>
+      <li><strong>Risk assessment of real processes</strong> — company vulnerability map</li>
+    </ul>
+
+    <h3>2. External AI — Regulatory Field Only</h3>
+    <p>Safe tasks for cloud:</p>
+    <ul>
+      <li>Sanctions regime monitoring (public lists)</li>
+      <li>Export control conclusions (general norms)</li>
+      <li>Policy development based on public frameworks (ISO 37001, UK Bribery Act)</li>
+      <li>Code of business ethics (general structure)</li>
+      <li>Training programs (general content)</li>
+      <li>Benchmarking (public reports)</li>
+    </ul>
+
+    <h3>3. Hybrid — for Methodology</h3>
+    <p>Three tasks work on hybrid scheme:</p>
+    <ul>
+      <li><strong>Sanctions screening</strong> — interpretation methodology outside, decision on name inside</li>
+      <li><strong>Risk assessment</strong> — matrix and methodology outside, application to processes inside</li>
+      <li><strong>Training scenarios</strong> — anonymized case outside, real case inside</li>
+      <li><strong>Due diligence</strong> — public research outside, internal assessment inside</li>
+    </ul>
+
+    <h3>4. Unique Factor — The Fact of Checking is Confidential</h3>
+    <p>Additional compliance specificity: any task where a specific person's or company's name appears at input or output, checked against sanctions/PEP status — is on-prem by default. The very fact of "who was checked and why" is sensitive information regardless of the check result.</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Matrix: Compliance</h2>
+    <table>
+      <tr><th>Task</th><th>On-Prem</th><th>External AI</th><th>Hybrid</th></tr>
+      <tr><td>Deal sanctions analysis</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>KYC/KYB</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Transaction analysis</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>SAR/STR</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Corruption investigation</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Whistleblower reports</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Board reporting</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Regulatory responses</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Audit preparation</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Risk assessment (real processes)</td><td>✅</td><td>❌</td><td>✅ (methodology)</td></tr>
+      <tr><td>Sanctions monitoring</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Export control (general)</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Compliance policies</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Code of ethics</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Training programs</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Benchmarking</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Sanctions screening (interpretation)</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Training scenarios</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Due diligence (public part)</td><td>❌</td><td>❌</td><td>✅</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>What's Excluded from Level (and Why)</h2>
+    <div class="card card-warning">
+      <p><strong>Automated screening against sanctions/PEP databases</strong> — rule-based or ML-matching systems (World-Check, Dow Jones Risk & Compliance). This is not generative AI but specialized software with database integration. GenAI is connected only to interpretation, prioritization, and formatting of results, not to the matching process itself.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Checklist for Compliance Officer Before External AI</h2>
+    <div class="card card-success">
+      <p><strong>Before sending request to external AI, check:</strong></p>
+      <ul>
+        <li>❌ No counterparty company names?</li>
+        <li>❌ No beneficiary/PEP names?</li>
+        <li>❌ No specific transaction amounts?</li>
+        <li>❌ No account numbers?</li>
+        <li>❌ No deal dates?</li>
+        <li>❌ No company department names?</li>
+        <li>❌ No board strategic decisions?</li>
+        <li>❌ No whistleblower report details?</li>
+      </ul>
+      <p><strong>If any item fails — on-prem only.</strong></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Time Savings by Level</h2>
+    <table>
+      <tr><th>Category</th><th>Tasks</th><th>Average Savings</th></tr>
+      <tr><td>On-prem (main)</td><td>14</td><td>2–5 hours each</td></tr>
+      <tr><td>External AI (auxiliary)</td><td>6</td><td>3–5 hours each</td></tr>
+      <tr><td>Hybrid</td><td>4</td><td>1.5–2 hours (combined)</td></tr>
+    </table>
+    <p><strong>Total:</strong> 24 tasks, combined savings of 40–100 hours per month for a team of 2–4 compliance officers.</p>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check — Final Quiz</h2>
+    <p><strong>Question 1:</strong> Why is compliance one of the most closed functions?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Combination of internal audit, legal, and security sensitivity.'">Combines sensitivity of internal audit, legal, and security + fact of checking is confidential</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. This is not the main reason.'">Because compliance officers are conservative</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Sanctions are one topic, but not the only reason.'">Only due to sanctions risks</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Can KYC of a specific counterparty be done in external AI?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Registries are public, but profile creation is internal.'">Yes, business registries are public</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Beneficiaries and ownership structure are personal data.'">No, beneficiaries and ownership structure are personal data</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. KYC anonymization is practically impossible.'">Only if company name is anonymized</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> SAR/STR — which environment and why?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Contains confidential data on specific operations.'">On-prem — legally significant document with confidential data</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. SAR is not a public document.'">External AI — SAR requirements are public</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Structure — yes, but content — no.'">Hybrid — structure in cloud, facts inside</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../16-3-hybrid/index.html" class="nav-btn">← 16.3 Hybrid Tasks</a>
+    <a href="../../index.html" class="nav-btn primary">Home</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

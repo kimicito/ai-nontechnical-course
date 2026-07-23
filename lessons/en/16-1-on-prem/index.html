@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.1 Internal Compliance Tasks — On-Prem — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 16 — Compliance</div>
+    <h1>16.1 Internal Tasks: On-Prem</h1>
+    <div class="meta">⏱ 25 min · for compliance officers, lawyers, CCO</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Closed Loop (On-Prem)</strong><br>
+    All tasks in this lesson work with <span class="highlight">specific names, deals, transactions, personal data, whistleblower reports, investigations</span>. On-prem is the default rule for compliance.
+  </div>
+
+  <div class="section">
+    <h2>Why Compliance is One of the Most Closed Functions</h2>
+    <p>Compliance combines sensitivity from several functions: like internal audit — vulnerability map and whistleblower risk, like legal — privilege and regulatory consequences, like security — investigations of specific people. Additional specificity: the very fact of "who exactly was checked and why" is sensitive information regardless of the check result.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>When On-Prem is Mandatory:</strong>
+    <ul>
+      <li>Analysis of sanctions applicability to specific deal/counterparty</li>
+      <li>KYC/KYB — information collection on specific counterparties (beneficiaries, ownership structure)</li>
+      <li>Transaction analysis for suspicious activity signs (financial data)</li>
+      <li>SAR/STR preparation — reports on suspicious operations for regulator</li>
+      <li>Transaction monitoring alert investigation</li>
+      <li>Third-party due diligence for corruption risks (specific partners)</li>
+      <li>Gifts/entertainment expenses analysis (employee personal data)</li>
+      <li>Corruption signal investigation (jointly with internal audit)</li>
+      <li>Primary analysis of hotline reports (risk of whistleblower de-anonymization)</li>
+      <li>Investigation materials structuring, management reports</li>
+      <li>Compliance reporting for board of directors/audit committee</li>
+      <li>Responses to regulator inquiries</li>
+      <li>Preparation for external compliance audits (full picture of internal processes)</li>
+      <li>Compliance risk assessment applied to real business processes (vulnerability map)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. Sanctions Applicability Analysis for Deal</h2>
+    <p>Interpreting screening results for specific counterparty and deal — decision whether operation can proceed.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (On-Prem)</div>
+      <pre>Analyze sanctions applicability to deal:
+
+Deal data (confidential):
+- Counterparty: [SPECIFY NAME]
+- Counterparty country: [SPECIFY]
+- Goods origin country: [SPECIFY]
+- Goods/services type: [SPECIFY]
+- Amount: [SPECIFY]
+- Currency: [SPECIFY]
+- Payment method: [SPECIFY]
+
+Screening results (internal systems):
+- OFAC: [SPECIFY]
+- EU: [SPECIFY]
+- UK: [SPECIFY]
+- National lists: [SPECIFY]
+
+Provide:
+1. Deal risk assessment (high/medium/low/prohibited)
+2. Applicable restrictive measures
+3. Required additional checks
+4. Conditions under which deal is possible (if possible)
+5. Justification for compliance committee
+6. Documentation trail (what to record)</pre>
+    </div>
+    <p><strong>Result:</strong> substantiated deal decision, saves 2–3 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Counterparty KYC/KYB</h2>
+    <p>Collection and structuring of information on beneficiaries, ownership structure, related parties.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Conduct KYC/KYB analysis of counterparty:
+
+Counterparty: [SPECIFY NAME]
+
+Internal data:
+- Founders: [SPECIFY]
+- Beneficiaries: [SPECIFY]
+- Ownership structure: [SPECIFY]
+- Related parties: [SPECIFY]
+- Change history: [SPECIFY]
+
+Provide:
+1. Ownership structure diagram (text description)
+2. Ultimate beneficial owners (UBO)
+3. Related parties and their status (PEP, sanctions)
+4. Risk assessment (high/medium/low)
+5. Cooperation terms recommendations
+6. Information update plan</pre>
+    </div>
+    <p><strong>Result:</strong> structured counterparty profile, saves 3–4 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Transaction Analysis for Suspicious Activity</h2>
+    <p>Interpreting transaction monitoring alerts, preparing substantiation.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Analyze transaction monitoring alert:
+
+Alert (internal system):
+- ID: [SPECIFY]
+- Type: [SPECIFY: structuring/circular movement/sharp volume increase]
+- Account: [SPECIFY (anonymized if needed)]
+- Period: [SPECIFY]
+- Amount: [SPECIFY]
+- Operation counterparties: [SPECIFY]
+
+Account history:
+- Average monthly turnover: [SPECIFY]
+- Typical counterparties: [SPECIFY]
+- Business justification: [SPECIFY]
+
+Provide:
+1. Suspicious pattern description
+2. Comparison with typical account behavior
+3. Likely explanations (legitimate and not)
+4. Required additional data
+5. Recommendation (SAR/additional analysis/close)
+6. File substantiation</pre>
+    </div>
+    <p><strong>Result:</strong> substantiated alert conclusion, saves 2–3 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. SAR/STR Preparation</h2>
+    <p>Suspicious activity report for regulator — legally significant document.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare SAR (Suspicious Activity Report):
+
+Operation data (confidential):
+- Operation date: [SPECIFY]
+- Amount: [SPECIFY]
+- Currency: [SPECIFY]
+- Sender: [SPECIFY]
+- Recipient: [SPECIFY]
+- Suspicion basis: [SPECIFY]
+- Relationship history: [SPECIFY]
+- Previous alerts: [SPECIFY]
+
+Provide:
+1. Suspicious activity summary
+2. Detailed transaction description (chronology)
+3. Suspicion substantiation (why considered suspicious)
+4. Related persons and accounts
+5. Previous history (if any)
+6. Actions taken by company
+7. Attachments (document list)
+
+Format: according to [SPECIFY REGULATOR] requirements</pre>
+    </div>
+    <p><strong>Result:</strong> ready SAR, saves 3–4 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Corruption Signal Investigation</h2>
+    <p>Structuring materials, preparing conclusion for ethics committee.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Investigate corruption signal:
+
+Signal source: [SPECIFY: hotline/audit/internal control]
+
+Signal content:
+[SPECIFY ESSENCE (without source identification if whistleblower)]
+
+Internal data:
+- Official: [SPECIFY]
+- Gift/entertainment history: [SPECIFY]
+- Counterparties: [SPECIFY]
+- Documents: [SPECIFY]
+
+Provide:
+1. Event chronology
+2. Fact analysis (what is confirmed, what is not)
+3. Violation assessment (which policies violated)
+4. Involved persons
+5. Recommendations (disciplinary/administrative/criminal)
+6. Corrective action plan
+7. Ethics committee report</pre>
+    </div>
+    <p><strong>Result:</strong> structured investigation, saves 4–5 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Hotline Report Analysis</h2>
+    <p>Primary categorization and prioritization of whistleblower reports.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Analyze hotline report:
+
+Report (anonymous):
+[PASTE REPORT TEXT]
+
+Provide:
+1. Violation category (corruption/financial fraud/safety breach/discrimination/other)
+2. Severity level (critical/high/medium/low)
+3. Departments/persons mentioned in report
+4. Required first investigation steps
+5. Risks (retaliation, leak, reputation)
+6. Investigation timeline recommendation
+7. Priority relative to other cases
+
+Important: preserve source anonymity.</pre>
+    </div>
+    <p><strong>Result:</strong> categorization and action plan, saves 1–2 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Compliance Reporting for Board of Directors</h2>
+    <p>Preparing structured report for highest management body.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare compliance report for board of directors:
+
+Period: [SPECIFY]
+
+Internal data:
+- Checks conducted: [SPECIFY]
+- Violations found: [SPECIFY]
+- SAR/STR filed: [SPECIFY]
+- Sanctions alerts: [SPECIFY]
+- Hotline reports: [SPECIFY]
+- Investigations: [SPECIFY]
+- Training completed: [SPECIFY]% of employees
+
+Provide:
+1. Executive summary (1 page)
+2. Key risks of period
+3. Trends (comparison with previous period)
+4. Significant incidents (anonymized)
+5. Corrective actions status
+6. Management recommendations
+7. Plan for next period
+
+Tone: professional, no panic, risk-focused.</pre>
+    </div>
+    <p><strong>Result:</strong> ready report, saves 3–4 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table</h2>
+    <table>
+      <tr><th>Task</th><th>Input Required</th><th>Output Format</th><th>Time Saved</th></tr>
+      <tr><td>Sanctions deal analysis</td><td>Deal data, screening results</td><td>Compliance decision</td><td>2–3 h</td></tr>
+      <tr><td>KYC/KYB</td><td>Counterparty data</td><td>Risk profile</td><td>3–4 h</td></tr>
+      <tr><td>Transaction analysis</td><td>Alert, account history</td><td>Alert conclusion</td><td>2–3 h</td></tr>
+      <tr><td>SAR/STR</td><td>Operation data, substantiation</td><td>Ready report</td><td>3–4 h</td></tr>
+      <tr><td>Corruption investigation</td><td>Signal, internal documents</td><td>Investigation report</td><td>4–5 h</td></tr>
+      <tr><td>Whistleblower reports</td><td>Report text</td><td>Categorization + plan</td><td>1–2 h</td></tr>
+      <tr><td>Board report</td><td>Period statistics</td><td>Executive summary</td><td>3–4 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> Why is primary whistleblower report analysis on-prem only?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Risk of whistleblower de-anonymization is critical.'">Risk of whistleblower de-anonymization and compromising entire hotline system</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Quantity is not the main factor.'">Only if fewer than 10 reports per month</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Anonymizing whistleblower report is practically impossible.'">Can be in cloud if report text is anonymized</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> SAR/STR — which environment?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Contains confidential data about specific operations.'">On-prem — legally significant document with confidential data</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. SAR is not a public document.'">External AI — regulators publish SAR requirements</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Structure — yes, but content — no.'">Hybrid — structure in cloud, facts inside</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Why is KYC/KYB on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Beneficiaries and ownership structure — personal data.'">Beneficiaries and ownership structure — personal data</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Public registries — yes, but collection creates profile.'">Public registries are available to everyone, so cloud is fine</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Even anonymized KYC contains sensitive information.'">Can be in cloud if names are anonymized</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">Home</a>
+    <a href="../16-2-cloud/index.html" class="nav-btn primary">16.2 External Tasks →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

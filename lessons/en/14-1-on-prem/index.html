@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.1 Internal Sales & Marketing Tasks — On-Prem — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 14 — Sales & Marketing</div>
+    <h1>14.1 Internal Tasks: On-Prem</h1>
+    <div class="meta">⏱ 25 min · for sales managers, commercial directors, marketers</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Closed Loop (On-Prem)</strong><br>
+    All tasks in this lesson work with <span class="highlight">real prices, deal terms, client data, and commercial forecasts</span>. Use an internal model or local LLM.
+  </div>
+
+  <div class="section">
+    <h2>Why On-Prem is Critical for Sales</h2>
+    <p>Sales is a mirror function of procurement: where you are the buyer with your negotiating position, here you are the seller with symmetrically sensitive data. Price, discount, payment terms — all are trade secrets regardless of which side of the deal you're on.</p>
+    <p>Moreover, demand forecasting and sales planning directly flow into production planning, making this task more sensitive than it appears at first glance.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>When On-Prem is Mandatory:</strong>
+    <ul>
+      <li>Pricing and calculation of individual discounts (foundation of negotiating position)</li>
+      <li>Preparation and review of sales contracts (real deal terms)</li>
+      <li>Client base analysis — segmentation, potential, churn (client dependency)</li>
+      <li>Demand forecasting and sales planning (internal operational data)</li>
+      <li>Preparation for negotiations with key clients (negotiation strategy)</li>
+      <li>CRM notes and summarization of client calls (personal data + commercial information)</li>
+      <li>Responses to RFQ/RFP from clients (real prices before submission)</li>
+      <li>Win/loss analysis for specific deals (reveals reasons for losing clients)</li>
+      <li>Sales plan execution reports (management financial information)</li>
+      <li>Campaign effectiveness analysis on real internal metrics (budgets, ROI)</li>
+      <li>Investor/analyst pitches before official publication (insider information)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. Pricing and Individual Terms Calculation</h2>
+    <p>Price calculation for a specific client considering volume, discounts, payment terms, and logistics — a trade secret.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (On-Prem)</div>
+      <pre>Prepare a commercial proposal for client [SPECIFY NAME]:
+
+Input Data:
+- Product: [SPECIFY PRODUCT]
+- Volume: [SPECIFY VOLUME] units/month
+- Base price: [SPECIFY PRICE] $/unit
+- Deal history: [SPECIFY DISCOUNT HISTORY]
+- Competitors: offer [SPECIFY COMPETITOR PRICES]
+- Payment terms: [SPECIFY TERMS]
+- Logistics: delivery to [SPECIFY ADDRESS]
+
+Calculate:
+1. Price with volume discount
+2. Options: prepayment vs deferred payment (price impact)
+3. Comparison with competitors (positioning)
+4. Minimum price (lower profitability boundary)
+5. Negotiation strategy recommendation</pre>
+    </div>
+    <p><strong>Result:</strong> justified price with lower boundary, saves 2–3 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Client Base Analysis</h2>
+    <p>Segmentation, growth potential assessment, churn risk — strategic information.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Analyze the client base and provide recommendations:
+
+Data (anonymized / internal):
+- Client A: turnover [SPECIFY], margin [SPECIFY], delay 0 days, growth +15%/year
+- Client B: turnover [SPECIFY], margin [SPECIFY], delay 45 days, stable
+- Client C: turnover [SPECIFY], margin [SPECIFY], delay 0, decline -20%/year
+- Client D: new, potential [SPECIFY], industry [SPECIFY]
+
+Provide:
+1. ABC segmentation (by turnover and margin)
+2. Churn risk assessment (by trends)
+3. Growth potential by segment
+4. Recommendations: who to retain, who to develop, who to let go
+5. Quarterly action plan</pre>
+    </div>
+    <p><strong>Result:</strong> segmentation with plan, saves 4–5 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Demand Forecasting and Sales Planning</h2>
+    <p>Textual reasoning over prepared data — forecast directly impacts production planning.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare demand forecast and sales plan for Q4 2026:
+
+Sales history (internal data):
+- Q1: [SPECIFY VOLUME] units, revenue [SPECIFY]
+- Q2: [SPECIFY VOLUME] units, revenue [SPECIFY]
+- Q3 (forecast): [SPECIFY VOLUME] units
+
+Factors:
+- Seasonality: Q4 traditionally +[SPECIFY]% vs Q3
+- New clients: [SPECIFY NUMBER] in pipeline
+- Risks: [SPECIFY COMPETITIVE FACTORS]
+- Marketing activity: [SPECIFY PLAN]
+
+Provide:
+1. Volume and revenue forecast by month
+2. Client plan (top 10)
+3. Risks and mitigations
+4. Production/inventory requirements</pre>
+    </div>
+    <p><strong>Result:</strong> justified forecast, saves 3–4 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Preparation for Negotiations with Key Clients</h2>
+    <p>Negotiation strategy, BATNA, leverage — as in procurement, just on the other side of the table.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare negotiation strategy for client [SPECIFY NAME]:
+
+Context:
+- Current contract: [SPECIFY TERMS], expires [SPECIFY DATE]
+- Volume: [SPECIFY] units/year
+- Client complaints: [SPECIFY CLAIMS]
+- Competitors: [SPECIFY WHO] offers [SPECIFY TERMS]
+- Our position: [SPECIFY GOALS]
+
+Develop:
+1. BATNA (our best alternative)
+2. ZOPA (zone of possible agreement)
+3. Leverage (what we can offer/what we risk)
+4. Scenarios: optimistic, realistic, pessimistic
+5. Responses to typical objections
+6. Negotiation plan (step by step)</pre>
+    </div>
+    <p><strong>Result:</strong> ready strategy, saves 3 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. CRM Notes and Meeting Summarization</h2>
+    <p>Automatic processing of call and meeting records — personal data + commercial information.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Summarize the client meeting based on notes:
+
+Input Data (CRM + manager notes):
+- Date: [SPECIFY]
+- Participants: [SPECIFY CLIENT NAME, POSITION]
+- Topic: contract [SPECIFY NUMBER] terms discussion
+- Key Points:
+  * Client wants payment deferral from 30 to 60 days
+  * Client dissatisfied with batch [SPECIFY] quality
+  * Client considering competitor [SPECIFY]
+  * Client ready to increase volume by 20% with 5% price reduction
+
+Provide:
+1. Brief summary (3 sentences)
+2. List of agreements
+3. Open questions
+4. Risks and red flags
+5. Next steps (who, what, when)
+6. Management recommendations</pre>
+    </div>
+    <p><strong>Result:</strong> structured CRM note, saves 30 min.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Tender Responses (RFQ/RFP)</h2>
+    <p>Preparing responses to quotation requests — real prices and terms before submission.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare RFQ response for client [SPECIFY NAME]:
+
+Client Requirements:
+- Product: [SPECIFY]
+- Volume: [SPECIFY] units
+- Delivery terms: [SPECIFY Incoterms]
+- Timeline: [SPECIFY]
+- Quality requirements: [SPECIFY STANDARDS]
+- Response format: [SPECIFY REQUIREMENTS]
+
+Our Data:
+- Cost: [SPECIFY]
+- Minimum margin: [SPECIFY]%
+- Production capacity: [SPECIFY]
+- Current load: [SPECIFY]%
+
+Develop:
+1. Technical proposal
+2. Commercial terms (price, discounts, payment)
+3. Delivery schedule
+4. Advantages vs competitors
+5. Risks and limitations</pre>
+    </div>
+    <p><strong>Result:</strong> ready tender response, saves 4–5 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Win/Loss Analysis</h2>
+    <p>Analysis of deal win/loss reasons — critically sensitive information.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Conduct win/loss analysis for deal [SPECIFY NUMBER]:
+
+Deal Data:
+- Client: [SPECIFY NAME]
+- Product: [SPECIFY]
+- Volume: [SPECIFY]
+- Our price: [SPECIFY]
+- Winner competitor price: [SPECIFY] (if known)
+- Result: [win/loss]
+- Client feedback: [SPECIFY]
+
+Provide:
+1. Deal chronology (stages, participants)
+2. Decision factors (price, quality, timelines, relationships)
+3. Our strengths
+4. Our weaknesses
+5. What competitor did differently
+6. Lessons and recommendations (process, product, price)
+7. Improvement action plan</pre>
+    </div>
+    <p><strong>Result:</strong> structured analysis, saves 3 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Investor Pitch (Pre-Publication)</h2>
+    <p>IR materials with final figures before official disclosure — insider information.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare investor pitch structure based on internal data:
+
+Data (preliminary, non-public):
+- H1 revenue: [SPECIFY] (growth [SPECIFY]%)
+- EBITDA: [SPECIFY]
+- New clients: [SPECIFY]
+- Lost deals: [SPECIFY]
+- Annual forecast: [SPECIFY]
+- Key risks: [SPECIFY]
+
+Develop:
+1. Executive summary (3 slides)
+2. Financial results (key metrics)
+3. Operational achievements
+4. H2 strategy
+5. Risks and mitigations
+6. Answers to tough questions (what analysts might ask)
+
+Tone: professional, confident, no hype.</pre>
+    </div>
+    <p><strong>Result:</strong> ready pitch, saves 5–6 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table</h2>
+    <table>
+      <tr><th>Task</th><th>Input Required</th><th>Output Format</th><th>Time Saved</th></tr>
+      <tr><td>Pricing</td><td>History, competitors, terms</td><td>Price calculation + strategy</td><td>2–3 h</td></tr>
+      <tr><td>Client base analysis</td><td>CRM data</td><td>Segmentation + plan</td><td>4–5 h</td></tr>
+      <tr><td>Demand forecasting</td><td>History, factors</td><td>Sales plan</td><td>3–4 h</td></tr>
+      <tr><td>Negotiations</td><td>Deal context</td><td>Strategy + scenarios</td><td>3 h</td></tr>
+      <tr><td>CRM notes</td><td>Notes, records</td><td>Summary + todo</td><td>30 min</td></tr>
+      <tr><td>RFQ/RFP</td><td>Client requirements</td><td>Tender response</td><td>4–5 h</td></tr>
+      <tr><td>Win/loss analysis</td><td>Deal data</td><td>Analysis + recommendations</td><td>3 h</td></tr>
+      <tr><td>IR pitch</td><td>Financial data</td><td>Investor presentation</td><td>5–6 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> Why is demand forecasting on-prem and not external AI?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Forecast directly impacts production planning and contains operational data.'">Because it directly flows into production planning and contains operational data</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. It\'s not just about the price itself.'">Because it contains product pricing</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Forecasting methodology is public.'">Only if forecast includes historical data over 3 years</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Can win/loss analysis be done in external AI?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Win/loss reveals strategic weaknesses.'">Yes, if client names are anonymized</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Win/loss contains strategic information about weaknesses.'">No, it reveals reasons for losing clients to competitors — critically sensitive</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Any win/loss contains valuable information.'">Only for lost deals with major clients</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Which environment for CRM notes after a client meeting?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. CRM contains personal data and commercial secrets.'">External AI — it's just text summarization</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> CRM contains personal data and commercial secrets.'">On-prem — personal contacts data + commercial information</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Anonymizing CRM data defeats the purpose.'">Hybrid — anonymize and send to cloud</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">Home</a>
+    <a href="../14-2-cloud/index.html" class="nav-btn primary">14.2 External Tasks →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

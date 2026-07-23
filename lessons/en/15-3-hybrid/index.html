@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.3 Hybrid Legal Tasks — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 15 — Legal Function</div>
+    <h1>15.3 Hybrid Tasks</h1>
+    <div class="meta">⏱ 20 min · for lawyers</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Hybrid Approach</strong><br>
+    General <span class="highlight">legal logic, document structure, standard argumentation</span> are prepared in external AI.<br>
+    <span class="highlight">Real facts, amounts, party names, strategic position</span> are added in on-prem.
+  </div>
+
+  <div class="section">
+    <h2>Hybrid Approach Principle for Lawyers</h2>
+    <p>The legal function requires special caution: attorney-client privilege may be compromised when using external services. The hybrid approach allows leveraging the strengths of both environments without violating confidentiality.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Anonymization Rules for Cloud:</strong>
+    <table>
+      <tr><th>Must Remove</th><th>Can Keep</th></tr>
+      <tr><td>Company-party names</td><td>Party type (supplier, buyer, employer)</td></tr>
+      <tr><td>Specific amounts and prices</td><td>Damage calculation methodology</td></tr>
+      <tr><td>Dates and terms of specific deals</td><td>Typical timelines in industry</td></tr>
+      <tr><td>Employee and witness names</td><td>Participant positions</td></tr>
+      <tr><td>Case numbers, registry numbers</td><td>Case type (debt recovery, breach)</td></tr>
+      <tr><td>Strategic position on dispute</td><td>General legal logic</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>1. Legal Opinion (Hybrid)</h2>
+    <p><strong>Cloud:</strong> general legal logic, applicable norms, similar practice.<br>
+    <strong>On-prem:</strong> real facts, amounts, specific business risks.</p>
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — Legal Logic</div>
+      <pre>Prepare legal analysis on typical situation:
+
+Situation (anonymized):
+Company in industry [SPECIFY TYPE] encountered issue:
+[SPECIFY LEGAL ISSUE in general terms]
+
+Jurisdiction: [SPECIFY]
+
+Provide:
+1. Applicable legal norms (articles, laws)
+2. Case law on similar issues (anonymized)
+3. Arguments "for" and "against"
+4. Typical risks
+5. General recommendations (without specific facts reference)
+
+Format: legal analysis (2-3 pages)</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-prem — Final Opinion</div>
+      <pre>Fill legal opinion with real data:
+
+Legal analysis (from cloud):
+[PASTE CLOUD RESULT]
+
+Real facts:
+- Company: [SPECIFY NAME]
+- Deal amount: [SPECIFY]
+- Counterparty: [SPECIFY]
+- Relationship history: [SPECIFY]
+- Specific risks: [SPECIFY]
+
+Adapt analysis:
+1. Apply legal logic to real facts
+2. Add specific figures (penalties, fines, terms)
+3. Assess risk probability
+4. Give specific recommendations with priorities
+5. Action plan (who, what, when)</pre>
+    </div>
+    <p><strong>Time saved:</strong> analysis in cloud (2 hours) + final opinion in on-prem (1.5 hours).</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Statement of Claim / Legal Position (Hybrid)</h2>
+    <p><strong>Cloud:</strong> document structure, standard argumentation by case type.<br>
+    <strong>On-prem:</strong> real facts, evidence, amounts, party names.</p>
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — Structure and Argumentation</div>
+      <pre>Prepare statement of claim structure by case type:
+
+Case type: [SPECIFY: debt recovery/contract breach/labor dispute]
+Jurisdiction: [SPECIFY]
+
+Draft:
+1. Statement of claim structure (by points)
+2. Typical plaintiff arguments
+3. Typical defendant objections
+4. Evidence usually required
+5. Legal norms usually applied
+6. Case law (typical court approaches)
+
+[SPECIFY: industry, typical contract terms]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-prem — Specific Case</div>
+      <pre>Adapt structure to specific case:
+
+Case:
+- Plaintiff: [SPECIFY]
+- Defendant: [SPECIFY]
+- Subject: [SPECIFY]
+- Claim amount: [SPECIFY]
+- Facts: [SPECIFY]
+- Evidence: [SPECIFY]
+
+Structure (from cloud):
+[PASTE STRUCTURE]
+
+Draft:
+1. Factual circumstances description (with dates, references)
+2. Legal basis (with specific norms)
+3. Evidence base (linked to facts)
+4. Claim amount calculation (with formulas)
+5. Role-play: judge questions and answers</pre>
+    </div>
+    <p><strong>Time saved:</strong> structure in cloud (1.5 hours) + case in on-prem (2 hours).</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Due Diligence (Hybrid)</h2>
+    <p><strong>Cloud:</strong> public part (registries, media, court databases, typical risks).<br>
+    <strong>On-prem:</strong> integration with internal risk assessment, strategic decision.</p>
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — Public Research</div>
+      <pre>Conduct public due diligence of typical counterparty:
+
+Counterparty type: [SPECIFY: manufacturer/distributor/contractor]
+Industry: [SPECIFY]
+Country: [SPECIFY]
+
+Public sources:
+1. Registry / equivalent
+2. Court cases (open databases)
+3. Media and news
+4. Sanctions lists (public)
+5. Industry ratings
+
+Provide:
+1. Public checks checklist
+2. Typical red flags by industry
+3. Risk assessment methodology
+4. Public DD report template</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-prem — Internal Assessment</div>
+      <pre>Integrate results with internal assessment:
+
+Counterparty: [SPECIFY NAME]
+Public data (from cloud):
+[PASTE RESULTS]
+
+Internal data:
+- Cooperation history: [SPECIFY]
+- Current obligations: [SPECIFY]
+- Related parties: [SPECIFY]
+- Internal risks: [SPECIFY]
+
+Provide:
+1. Consolidated risk table (public + internal)
+2. Final assessment (approve/conditions/reject)
+3. Recommended deal terms
+4. Post-deal monitoring plan</pre>
+    </div>
+    <p><strong>Time saved:</strong> public part in cloud (2 hours) + internal assessment in on-prem (1.5 hours).</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: Hybrid Tasks</h2>
+    <table>
+      <tr><th>Task</th><th>Cloud</th><th>On-prem</th><th>Time Saved</th></tr>
+      <tr><td>Legal opinion</td><td>Legal logic, norms</td><td>Facts, amounts, risks</td><td>2 + 1.5 h</td></tr>
+      <tr><td>Statement of claim</td><td>Structure, standard argumentation</td><td>Specific case, evidence</td><td>1.5 + 2 h</td></tr>
+      <tr><td>Due diligence</td><td>Public registries, media</td><td>Internal risk assessment</td><td>2 + 1.5 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> What is the hybrid principle for legal opinion?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Legal logic outside, specific facts inside.'">Legal logic and norms — in cloud, real facts and amounts — in on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. All in cloud — confidentiality violation.'">All legal opinion can be done in cloud if anonymized</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Case law is public, but analysis is not.'">Legal opinion is always only on-prem</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Statement of claim — which step in on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Facts, amounts, names — inside.'">Specific facts, amounts, party names, evidence</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Structure is in cloud.'">Document structure and standard arguments</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Applicable norms are general knowledge.'">Applicable legal norms</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Due diligence — what to remove before cloud?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Names, amounts, numbers — remove.'">Company name, deal amounts, contract numbers</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Counterparty type is general information.'">Counterparty type (supplier/buyer)</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Country is public information.'">Country of counterparty registration</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../15-2-cloud/index.html" class="nav-btn">← 15.2 External Tasks</a>
+    <a href="../15-4-summary/index.html" class="nav-btn primary">15.4 Summary →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

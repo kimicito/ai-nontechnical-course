@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.4 Practical Conclusion — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 15 — Legal Function</div>
+    <h1>15.4 Practical Conclusion</h1>
+    <div class="meta">⏱ 15 min · level summary</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Main Principle of Level 15</strong><br>
+    Legal function — <span class="highlight">one of the most closed by default</span>. Attorney-client privilege, insider information about deals and disputes require strict control. Environment decision should be made not only by CISO, but also by chief legal officer.
+  </div>
+
+  <div class="section">
+    <h2>Key Takeaways</h2>
+    
+    <h3>1. On-Prem — Default Rule</h3>
+    <p>For lawyers, on-prem is not exception, but norm:</p>
+    <ul>
+      <li><strong>All documents on specific cases</strong> — claims, responses, complaints, legal positions</li>
+      <li><strong>Due diligence of specific counterparties</strong> — especially M&A (insider information)</li>
+      <li><strong>Corporate documents before publication</strong> — minutes, resolutions, reorganizations</li>
+      <li><strong>Responses to regulators</strong> — company strategic position</li>
+      <li><strong>Sanctions screening of specific deals</strong> — risk interpretation</li>
+      <li><strong>Labor disputes</strong> — personal data, employer position</li>
+    </ul>
+
+    <h3>2. External AI — Only Open Legal Field</h3>
+    <p>Safe tasks for cloud:</p>
+    <ul>
+      <li>Standard contract templates (without real terms)</li>
+      <li>Legislation change monitoring (public sources)</li>
+      <li>Case law analysis (open decisions)</li>
+      <li>Patent search (open databases)</li>
+      <li>Training materials (general topics)</li>
+      <li>Legal practice benchmarking (public data)</li>
+    </ul>
+
+    <h3>3. Hybrid — For Complex Tasks</h3>
+    <p>Three tasks work on hybrid scheme:</p>
+    <ul>
+      <li><strong>Legal opinion</strong> — legal logic outside, facts inside</li>
+      <li><strong>Statements of claim</strong> — structure outside, specific case inside</li>
+      <li><strong>Due diligence</strong> — public part outside, internal assessment inside</li>
+    </ul>
+
+    <h3>4. Unique Factor — Attorney-Client Privilege</h3>
+    <p>Using external cloud service for case materials may raise questions about confidentiality breach and affect privilege defense in some jurisdictions. This is a separate (legal, not only IT security) argument for on-prem.</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Matrix: Legal Function</h2>
+    <table>
+      <tr><th>Task</th><th>On-prem</th><th>External AI</th><th>Hybrid</th></tr>
+      <tr><td>Incoming contract review</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>M&A due diligence</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Statements of claim</td><td>✅</td><td>❌</td><td>✅ (structure)</td></tr>
+      <tr><td>Legal position on dispute</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Evidence base</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Pre-trial correspondence</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Corporate documents</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Sanctions screening (specific)</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Regulator responses</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Legal opinion (specific)</td><td>✅</td><td>❌</td><td>✅ (logic)</td></tr>
+      <tr><td>Labor disputes</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Contract registry</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Standard templates</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Legislation monitoring</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Case law (general)</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Patent search</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Training materials</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Benchmarking</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Legal opinion (typical)</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Due diligence (public part)</td><td>❌</td><td>❌</td><td>✅</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>What Was Excluded from Level (and Why)</h2>
+    <div class="card card-warning">
+      <p><strong>Automatic counterparty scoring from databases</strong> — rule-based/ML screening systems (OFAC, EU, national lists). This is result of database integration, generative AI connects only to interpretation/formatting of ready result.</p>
+      <p><strong>Big data legal analytics</strong> — predictive case law analytics, ML risk assessment models. GenAI can interpret results, but doesn't replace the model.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Lawyer Checklist Before External AI</h2>
+    <div class="card card-success">
+      <p><strong>Before sending request to external AI, check:</strong></p>
+      <ul>
+        <li>❌ No company-party names?</li>
+        <li>❌ No specific amounts and prices?</li>
+        <li>❌ No dates and terms of specific deals?</li>
+        <li>❌ No employee or witness names?</li>
+        <li>❌ No case numbers, registry numbers?</li>
+        <li>❌ No strategic position on dispute?</li>
+        <li>❌ No personal data?</li>
+        <li>❌ No M&A insider information?</li>
+      </ul>
+      <p><strong>If any item fails — on-prem only.</strong></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Time Savings by Level</h2>
+    <table>
+      <tr><th>Category</th><th>Tasks</th><th>Average Savings</th></tr>
+      <tr><td>On-prem (main)</td><td>12</td><td>2–5 hours each</td></tr>
+      <tr><td>External AI (auxiliary)</td><td>6</td><td>3–5 hours each</td></tr>
+      <tr><td>Hybrid</td><td>3</td><td>2–3 hours (total)</td></tr>
+    </table>
+    <p><strong>Total:</strong> 21 tasks, total savings 40–90 hours per month for a team of 2–4 lawyers.</p>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check — Final Quiz</h2>
+    <p><strong>Question 1:</strong> Why is legal function one of the most closed?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Attorney-client privilege, insider information.'">Attorney-client privilege, insider information about deals</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. This is not the main reason.'">Because lawyers are conservative and don't like new technologies</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Sanctions — one topic, but not the only reason.'">Only because of sanctions risks</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Can external AI be used for M&A due diligence?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. M&A is insider information.'">Yes, if company names are anonymized</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> M&A contains insider information, leak = market manipulation.'">No, M&A contains insider information — on-prem only</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Public part — yes, but not full DD.'">Hybrid — public part in cloud, internal assessment inside</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Patent search — which environment?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Patent databases are open and public.'">External AI — patent databases are public</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Patents are published for public access.'">On-prem — intellectual property</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Search in open databases doesn't require hybrid.'">Hybrid — databases outside, analysis inside</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../15-3-hybrid/index.html" class="nav-btn">← 15.3 Hybrid Tasks</a>
+    <a href="../../index.html" class="nav-btn primary">Home</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

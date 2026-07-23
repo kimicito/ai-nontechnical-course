@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.3 Hybrid Compliance Tasks — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 16 — Compliance</div>
+    <h1>16.3 Hybrid Tasks</h1>
+    <div class="meta">⏱ 20 min · for compliance officers</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Hybrid Approach</strong><br>
+    General <span class="highlight">methodology, structure, standard logic</span> is prepared in external AI.<br>
+    <span class="highlight">Specific names, deals, transactions, strategic decisions</span> — in on-prem.
+  </div>
+
+  <div class="section">
+    <h2>Hybrid Approach Principle for Compliance</h2>
+    <p>Compliance combines sensitivity from several functions. The hybrid approach allows using external AI for methodology and general logic while keeping confidential data inside.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Anonymization Rules for Cloud:</strong>
+    <table>
+      <tr><th>Must Remove</th><th>Can Leave</th></tr>
+      <tr><td>Counterparty company names</td><td>Counterparty type (supplier/customer/agent)</td></tr>
+      <tr><td>Specific transaction amounts</td><td>Analysis methodology for patterns</td></tr>
+      <tr><td>Beneficiary/PEP names</td><td>Risk type (PEP/sanctions/corruption)</td></tr>
+      <tr><td>Account numbers, deal dates</td><td>Typical industry timelines</td></tr>
+      <tr><td>Company department names</td><td>Process type (procurement/sales/hiring)</td></tr>
+      <tr><td>Board strategic decisions</td><td>General governance principles</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>1. Sanctions Screening (Hybrid)</h2>
+    <p>Screening itself is through specialized systems (not genAI). Result interpretation — with anonymized data in external AI, final decision — in on-prem.</p>
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — Interpretation on Anonymized Data</div>
+      <pre>Analyze sanctions screening scenario:
+
+Scenario (anonymized):
+- Counterparty type: individual
+- Country: [SPECIFY REGION without specific country if sensitive]
+- Alert: partial name match with OFAC list person
+- Additional data: birth date doesn't match, country is different
+
+Provide:
+1. Match degree analysis (OFAC criteria)
+2. False positive probability
+3. Additional checks needed
+4. Decision methodology (yes/no/additional review)
+5. Documentation trail (what to record)
+
+Important: without specific name, only methodology.</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-Prem — Final Decision</div>
+      <pre>Make decision on specific counterparty:
+
+Counterparty: [SPECIFY NAME]
+Screening results: [PASTE]
+Methodology (from cloud): [PASTE]
+
+Additional internal data:
+- Cooperation history: [SPECIFY]
+- Business justification: [SPECIFY]
+- Refusal risk: [SPECIFY]
+
+Make decision:
+1. Approve / Approve with conditions / Reject
+2. Justification (with reference to specific facts)
+3. Conditions (if applicable)
+4. Documentation
+5. Review period</pre>
+    </div>
+    <p><strong>Time saved:</strong> methodology in cloud (1 hour) + decision in on-prem (1 hour).</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Compliance Risk Assessment (Hybrid)</h2>
+    <p>General methodology and risk matrix are prepared externally; application to real business units — internally.</p>
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — Methodology and Matrix</div>
+      <pre>Develop compliance risk assessment methodology:
+
+Parameters (general):
+- Industry: [SPECIFY TYPE without company name]
+- Operations geography: [SPECIFY REGIONS]
+- Counterparty types: [SPECIFY: government/private/agents]
+- Products/services: [SPECIFY TYPE]
+
+Provide:
+1. Risk matrix (factors: country, counterparty, product, channel)
+2. Assessment methodology (factor weights)
+3. Risk categories (high/medium/low)
+4. Control measures for each category
+5. Review frequency
+6. Assessment template (table)
+
+Important: methodology without reference to specific company.</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-Prem — Application to Real Processes</div>
+      <pre>Apply methodology to real business processes:
+
+Methodology (from cloud): [PASTE]
+
+Company business processes:
+- Process 1: [SPECIFY NAME] — country [SPECIFY], counterparties [SPECIFY]
+- Process 2: [SPECIFY NAME] — country [SPECIFY], counterparties [SPECIFY]
+- Process 3: [SPECIFY NAME] — country [SPECIFY], counterparties [SPECIFY]
+
+Provide:
+1. Risk assessment of each process
+2. Vulnerability map
+3. Control strengthening priorities
+4. Action plan (who, what, when)
+5. Review timelines</pre>
+    </div>
+    <p><strong>Time saved:</strong> methodology in cloud (2 hours) + application in on-prem (2 hours).</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Training Scenarios Based on Real Cases (Hybrid)</h2>
+    <p>Structure of real case is anonymized and worked out externally; fully real case — internally.</p>
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — Anonymized Case</div>
+      <pre>Develop scenario for compliance training:
+
+Case (anonymized):
+- Situation: employee in [SPECIFY FUNCTION] department received a "gift" offer from potential counterparty
+- Counterparty: company from country with [SPECIFY LEVEL of corruption risk]
+- "Gift" amount: [SPECIFY RANGE without exact amount]
+- Context: company is negotiating [SPECIFY DEAL TYPE]
+
+Provide:
+1. Situation description for training
+2. Key discussion questions
+3. Right and wrong actions
+4. Legal consequences
+5. Employee action procedure
+6. Manager role
+
+Important: without names, dates, amounts.</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-Prem — Real Case for Internal Use</div>
+      <pre>Adapt scenario to real incident:
+
+Real case (internal):
+[SPECIFY INCIDENT FACTS]
+
+Scenario (from cloud): [PASTE]
+
+Provide:
+1. Adapted scenario with real details
+2. Additional nuances (company specifics)
+3. References to internal policies
+4. Contact points
+5. Decision recording form
+
+Important: for internal use only, not for external training.</pre>
+    </div>
+    <p><strong>Time saved:</strong> anonymized case in cloud (1.5 hours) + real adaptation in on-prem (1 hour).</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Counterparty Due Diligence (Hybrid)</h2>
+    <p>Public part (open registries, courts, media) — through external AI as research. Consolidation with internal risk assessment — in on-prem.</p>
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — Public Research</div>
+      <pre>Conduct public due diligence on typical counterparty:
+
+Counterparty type: [SPECIFY: agent/intermediary/government supplier]
+Country: [SPECIFY]
+Industry: [SPECIFY]
+
+Public sources:
+1. Business registries
+2. Court databases
+3. Media and news
+4. Sanctions lists
+5. PEP databases (public)
+
+Provide:
+1. Public checks checklist
+2. Typical red flags by counterparty category
+3. Risk assessment methodology
+4. Public part report template
+
+Important: without specific company name.</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-Prem — Internal Assessment</div>
+      <pre>Consolidate results with internal assessment:
+
+Counterparty: [SPECIFY NAME]
+Public data (from cloud): [PASTE]
+
+Internal data:
+- Cooperation history: [SPECIFY]
+- Deal volume: [SPECIFY]
+- Related persons: [SPECIFY]
+- Internal risks: [SPECIFY]
+
+Provide:
+1. Risk summary table
+2. Final assessment (approve/conditions/reject)
+3. Recommended conditions
+4. Monitoring plan</pre>
+    </div>
+    <p><strong>Time saved:</strong> public part in cloud (1.5 hours) + internal assessment in on-prem (1 hour).</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: Hybrid Tasks</h2>
+    <table>
+      <tr><th>Task</th><th>Cloud</th><th>On-Prem</th><th>Time Saved</th></tr>
+      <tr><td>Sanctions screening</td><td>Interpretation methodology</td><td>Decision on specific name</td><td>1 + 1 h</td></tr>
+      <tr><td>Risk assessment</td><td>Matrix and methodology</td><td>Application to real processes</td><td>2 + 2 h</td></tr>
+      <tr><td>Training scenarios</td><td>Anonymized case</td><td>Real case for internal use</td><td>1.5 + 1 h</td></tr>
+      <tr><td>Due diligence</td><td>Public research</td><td>Internal risk assessment</td><td>1.5 + 1 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> Why is sanctions screening hybrid, not fully in cloud?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Methodology is public, but decision on specific name is confidential.'">Because methodology is public, but decision on specific name is confidential</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Screening is rule-based, not genAI.'">Because screening requires specialized software</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Results are internal information.'">Can be fully in cloud if anonymized</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Compliance risk assessment — what goes in on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Real processes are internal information.'">Application to real business processes and departments</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Matrix is general methodology.'">Risk matrix development</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Factor weights are methodology.'">Determining risk factor weights</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Training scenarios — why anonymize?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Incidents are internal information.'">To avoid disclosing real incidents and involved persons</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Anonymization is for confidentiality, not insurance.'">So the insurance company doesn't find out</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Anonymization is not about audience awareness.'">So employees don't know it's a real case</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../16-2-cloud/index.html" class="nav-btn">← 16.2 External Tasks</a>
+    <a href="../16-4-summary/index.html" class="nav-btn primary">16.4 Summary →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

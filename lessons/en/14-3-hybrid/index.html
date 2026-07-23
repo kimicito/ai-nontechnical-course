@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.3 Hybrid Sales & Marketing Tasks — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 14 — Sales & Marketing</div>
+    <h1>14.3 Hybrid Tasks</h1>
+    <div class="meta">⏱ 20 min · for salespeople and marketers</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Hybrid Approach</strong><br>
+    General <span class="highlight">structure and methodology</span> are prepared in external AI.<br>
+    <span class="highlight">Real data</span> (prices, clients, terms) is added in on-prem.
+  </div>
+
+  <div class="section">
+    <h2>Hybrid Approach Principle for Sales and Marketing</h2>
+    <p>The key rule: <strong>the more sensitive the data</strong> (specific prices, deal terms, client personal data) — the stricter the on-prem. General methodology (document structure, typical scenarios) can safely go to the external environment.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Anonymization Rules for Cloud:</strong>
+    <table>
+      <tr><th>Must Remove</th><th>Can Keep</th></tr>
+      <tr><td>Specific prices and discounts</td><td>Pricing methodology</td></tr>
+      <tr><td>Client names and contacts</td><td>Client type (large, medium, key)</td></tr>
+      <tr><td>Individual payment terms</td><td>Typical payment forms</td></tr>
+      <tr><td>Volumes for specific deals</td><td>Volume calculation methodology</td></tr>
+      <tr><td>Company financial indicators</td><td>Industry benchmarks</td></tr>
+      <tr><td>Specific deal dates</td><td>Seasonality, typical timelines</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>1. Commercial Proposals (Hybrid)</h2>
+    <p><strong>Cloud:</strong> general template and CP structure.<br>
+    <strong>On-prem:</strong> final prices, terms, client personalization.</p>
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — CP Template</div>
+      <pre>Prepare a commercial proposal structure for B2B sales:
+
+CP Structure:
+1. Title (logo, contacts, date)
+2. About company (2-3 sentences)
+3. Understanding client needs
+4. Product/solution (description, specification)
+5. Delivery terms [SPECIFY: specific terms]
+6. Price [SPECIFY: client-specific calculation]
+7. Advantages and guarantees
+8. Work process (stages, timelines)
+9. Appendices (specification, certificates)
+
+For each section: what to write, typical mistakes, formulation examples.
+
+[SPECIFY: client industry, product type, region]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-prem — Client-specific Filling</div>
+      <pre>Fill CP for client [SPECIFY NAME]:
+
+Client data:
+- Industry: [SPECIFY]
+- Consumption volume: [SPECIFY]
+- History: client since [SPECIFY YEAR], turnover [SPECIFY]
+- Current terms: [SPECIFY]
+- Need: [SPECIFY]
+
+Our data:
+- Price: [SPECIFY] (base), discount [SPECIFY]% at volume [SPECIFY]
+- Payment terms: [SPECIFY]
+- Delivery time: [SPECIFY]
+- Guarantees: [SPECIFY]
+
+Develop final CP with client personalization.</pre>
+    </div>
+    <p><strong>Time saved:</strong> template in cloud (1.5 hours) + filled CP in on-prem (1 hour).</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Negotiation Preparation (Hybrid)</h2>
+    <p><strong>Cloud:</strong> general negotiation methodology, typical scenarios.<br>
+    <strong>On-prem:</strong> real figures, specific client, BATNA.</p>
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — Methodology</div>
+      <pre>Prepare negotiation methodology for B2B sales:
+
+Negotiation stages:
+1. Discovery (what questions to ask to understand needs)
+2. Solution presentation (how to connect product with need)
+3. Objection handling (typical objections and responses)
+4. Terms discussion (price, discounts, payment, logistics)
+5. Closing (what signals indicate readiness)
+
+Methodology:
+- BATNA: how to determine and use
+- ZOPA: how to expand agreement zone
+- Leverage: what we can offer (besides price)
+- Typical traps (premature discounting, agreement without exchange)
+
+[SPECIFY: industry, product type, average check]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-prem — Specific Deal</div>
+      <pre>Apply methodology to negotiations with [SPECIFY CLIENT]:
+
+Context:
+- Current contract: [SPECIFY], expires [SPECIFY DATE]
+- Volume: [SPECIFY] units/year
+- Complaints: [SPECIFY]
+- Competitor: offers [SPECIFY TERMS]
+- Our goal: [SPECIFY]
+
+Develop:
+1. BATNA (if we don't agree)
+2. ZOPA (acceptable range)
+3. Leverage (what we can offer)
+4. Scenarios: optimistic, realistic, pessimistic
+5. Responses to expected objections</pre>
+    </div>
+    <p><strong>Time saved:</strong> methodology in cloud (1.5 hours) + strategy in on-prem (1.5 hours).</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Lead Email Campaigns (Hybrid)</h2>
+    <p><strong>Cloud:</strong> general email template, A/B variants.<br>
+    <strong>On-prem:</strong> personalization with real client data.</p>
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — Email Template</div>
+      <pre>Write a cold email template for B2B:
+
+Parameters:
+- Product: [SPECIFY TYPE]
+- Target: [SPECIFY POSITION], [SPECIFY COMPANY SIZE]
+- Goal: get meeting/demo
+
+Variants:
+1. Short (3 sentences, mobile format)
+2. Medium (paragraph + bullets + CTA)
+3. With case study link (social proof)
+
+For each:
+- Subject line (3 variants)
+- Hook (what grabs attention)
+- CTA (specific action)
+- Signature
+
+[SPECIFY: industry, key pain point]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-prem — Personalization</div>
+      <pre>Personalize email for [SPECIFY NAME], [SPECIFY POSITION], [SPECIFY COMPANY]:
+
+Client data:
+- Industry: [SPECIFY]
+- Recent event: [SPECIFY: expansion, new product, publication]
+- Possible need: [SPECIFY]
+- Interaction history: [SPECIFY]
+
+Template: [PASTE TEMPLATE FROM CLOUD]
+
+Adapt:
+1. Mention specific event/context
+2. Connect product with their need
+3. Add relevant case study
+4. Propose specific meeting time</pre>
+    </div>
+    <p><strong>Time saved:</strong> template in cloud (1 hour) + personalization in on-prem (30 min).</p>
+  </div>
+
+  <div class="section">
+    <h2>4. IR Materials (Hybrid)</h2>
+    <p><strong>Cloud:</strong> general presentation structure, typical slides.<br>
+    <strong>On-prem:</strong> final figures before official publication.</p>
+    <div class="example">
+      <div class="example-label">Step 1: Cloud — Presentation Structure</div>
+      <pre>Prepare IR presentation structure for B2B company:
+
+Slides:
+1. Title (company, period)
+2. Executive summary (3 key messages)
+3. Market position (TAM/SAM/SOM, trends)
+4. Product line (categories, differentiation)
+5. Financial results [SPECIFY: specific figures]
+5. Client base (diversification, retention)
+6. Growth strategy (organic, M&A, new markets)
+7. ESG and sustainable development
+8. Risks and mitigations
+9. Financial forecast [SPECIFY: specific figures]
+10. Investment thesis (why invest)
+11. IR contacts
+
+For each slide: key message, typical analyst questions, how to answer.</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-prem — Final Data</div>
+      <pre>Fill IR presentation with final data:
+
+Preliminary data (non-public):
+- H1 revenue: [SPECIFY]
+- EBITDA: [SPECIFY]
+- Margin: [SPECIFY]%
+- New clients: [SPECIFY]
+- Lost deals: [SPECIFY]
+- Annual forecast: [SPECIFY]
+
+Develop:
+1. Text for each slide (with figures)
+2. Speaker notes (what to say aloud)
+3. Answers to expected questions
+4. Appendix (detailed breakdown for analysts)</pre>
+    </div>
+    <p><strong>Time saved:</strong> structure in cloud (2 hours) + filling in on-prem (2 hours).</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: Hybrid Tasks</h2>
+    <table>
+      <tr><th>Task</th><th>Cloud</th><th>On-prem</th><th>Time Saved</th></tr>
+      <tr><td>Commercial proposal</td><td>Template, structure</td><td>Prices, terms, client</td><td>1.5 + 1 h</td></tr>
+      <tr><td>Negotiations</td><td>Methodology, scenarios</td><td>Real figures, BATNA</td><td>1.5 + 1.5 h</td></tr>
+      <tr><td>Email campaigns</td><td>Template, A/B variants</td><td>Client personalization</td><td>1 + 0.5 h</td></tr>
+      <tr><td>IR materials</td><td>Structure, typical slides</td><td>Final figures</td><td>2 + 2 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> What is the hybrid principle for commercial proposals?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Structure outside, prices and terms inside.'">General template in cloud, final prices and terms in on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Prices are always inside.'">All CP can be done in cloud if client name is anonymized</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Hybrid implies both environments.'">All CP — only on-prem, as it contains trade secrets</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Lead email campaign — which step in on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Personalization with real data — inside.'">Personalization: name, company, context, specific offer</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Template is in cloud.'">Writing general email template</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. A/B tests are public methodology.'">A/B testing email variants</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> What from the list must be removed before cloud?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Prices, clients, volumes — remove.'">Specific prices, client names, deal volumes</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Product type is general information.'">Product type (e.g., "software")</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Client industry is public information.'">Client industry (e.g., "manufacturing")</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../14-2-cloud/index.html" class="nav-btn">← 14.2 External Tasks</a>
+    <a href="../14-4-summary/index.html" class="nav-btn primary">14.4 Summary →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

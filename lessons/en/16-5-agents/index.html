@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.5 Agent Scenarios for Compliance — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 16 — Compliance</div>
+    <h1>16.5 Agent Scenarios for Compliance</h1>
+    <div class="meta">⏱ 12 min · sanctions, AML, whistleblower, investigations</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>How is an agent different from a language model?</strong><br>
+    LLM analyzes on request. <span class="highlight">Agent</span> works continuously: monitors sanctions lists, analyzes transactions, processes reports — without command "check now". More — <a href="../../lessons/4-1-agents/index.html" style="color:var(--accent2);">Level 4</a>.
+  </div>
+
+  <div class="section">
+    <h2>Scenario 1: Sanctions Monitoring Agent (n8n + API)</h2>
+    <p><strong>Task:</strong> track sanctions list changes, check counterparties, alert on matches.</p>
+    <div class="arch">
+[Cron: every 4 hours]<br>
+  ↓<br>
+[API: sanctions lists update request]<br>
+  ├─→ OFAC SDN<br>
+  ├─→ EU sanctions<br>
+  ├─→ UN<br>
+  ├─→ National lists (compensatory)<br>
+  └─→ Other national lists (China, UAE, etc.)<br>
+  ↓<br>
+[LLM: change analysis]<br>
+  ├─→ New persons/companies<br>
+  ├─→ Changes to existing entries<br>
+  └─→ Sanctions lifted<br>
+  ↓<br>
+[Automatic company counterparty check]<br>
+  ├─→ Match with supplier/customer base<br>
+  ├─→ Match with beneficiary base<br>
+  └─→ Transit chain check<br>
+  ↓<br>
+[On match: critical alert]<br>
+  ├─→ Email to CCO + lawyer<br>
+  ├─→ Block operations (ERP integration)<br>
+  └─→ Initiate exit procedure<br>
+  ↓<br>
+[Daily report: changes, checks, risks]
+    </div>
+    <div class="card card-success">
+      <strong>Result:</strong> reaction to sanctions changes within hours, not days. Minimizes "inadvertent violation" risk.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Scenario 2: Transaction Analysis Agent (OpenClaw Agent)</h2>
+    <p><strong>Task:</strong> analyze AML alerts, form SAR/STR, maintain documentation.</p>
+    <div class="arch">
+[Trigger: AML system alert (suspicious transaction)]<br>
+  ↓<br>
+[Agent: context collection]<br>
+  ├─→ Counterparty transaction history<br>
+  ├─→ Geography (risky jurisdictions)<br>
+  ├─→ Amount vs client profile<br>
+  ├─→ Timing (non-standard)<br>
+  └─→ Related persons<br>
+  ↓<br>
+[On-prem LLM: justification analysis]<br>
+  ├─→ False alert: reasons<br>
+  ├─→ Requires investigation: questions<br>
+  └─→ Critical: SAR/STR recommendation<br>
+  ↓<br>
+[If confirmed: automatic SAR/STR formation]<br>
+  ├─→ Structure per regulator requirements<br>
+  ├─→ Transaction description<br>
+  ├─→ Suspicion justification<br>
+  └─→ Attachments<br>
+  ↓<br>
+[Notification to compliance officer + log entry]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Scenario 3: Whistleblower Agent (Hybrid)</h2>
+    <p><strong>Task:</strong> process reports, classify, route, ensure confidentiality.</p>
+    <div class="arch">
+[Report received (form, email, phone)]<br>
+  ↓<br>
+[Agent: initial processing]<br>
+  ├─→ Text extraction (transcription if audio)<br>
+  ├─→ Classification: corruption / harassment / safety / finance / other<br>
+  ├─→ Urgency assessment<br>
+  └─→ Duplicate check (similar reports)<br>
+  ↓<br>
+[On-prem LLM: anonymization + card formation]<br>
+  ├─→ Remove reporter identifiers (if not anonymous)<br>
+  ├─→ Structure facts<br>
+  └─→ Form investigation questions<br>
+  ↓<br>
+[Routing]<br>
+  ├─→ Corruption → ethics committee<br>
+  ├─→ Harassment → HR + lawyer<br>
+  ├─→ Finance → internal audit<br>
+  └─→ Safety → security service<br>
+  ↓<br>
+[Create task with deadline]<br>
+  ↓<br>
+[Monitoring: overdue → escalation to board of directors]
+    </div>
+    <div class="card card-warning">
+      <strong>Critical:</strong> all whistleblower processing — on-prem. Reporter data never leaves the perimeter. Anonymization is mandatory.
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../16-4-summary/index.html" class="nav-btn">← 16.4 Practical Summary</a>
+    <a href="../../catalog.html" class="nav-btn primary">Catalog</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

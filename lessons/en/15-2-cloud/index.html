@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.2 External Legal Tasks — External AI — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 15 — Legal Function</div>
+    <h1>15.2 External Tasks: External AI</h1>
+    <div class="meta">⏱ 20 min · for lawyers, compliance specialists</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>Open Data (External AI)</strong><br>
+    All tasks in this lesson — <span class="highlight">standard templates, public legislation, open court decisions, training materials</span>. You can use Claude, ChatGPT, Gemini.
+  </div>
+
+  <div class="section">
+    <h2>What Can Be Done in External AI</h2>
+    <p>Unlike tasks with specific cases and counterparties, working with open legal field is safe and effective:</p>
+    <ul>
+      <li>Drafting standard contracts from templates (without real terms)</li>
+      <li>Legislation change monitoring (public sources)</li>
+      <li>Case law analysis (open decisions)</li>
+      <li>Patent search (open databases)</li>
+      <li>Training materials (general topics)</li>
+      <li>Legal practice benchmarking (public data)</li>
+    </ul>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Main Rule:</strong> if the request doesn't contain company names, amounts, specific dates, personal data, strategic plans — you can use external AI.
+  </div>
+
+  <div class="section">
+    <h2>1. Standard Contract Templates</h2>
+    <p>Drafting contract structure without real terms — public methodology.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (External AI)</div>
+      <pre>Prepare a standard supply contract:
+
+Parameters (without specific terms):
+- Type: goods supply contract
+- Legal system: [SPECIFY COUNTRY]
+- Buyer side: large company (B2B)
+- Supplier side: manufacturer
+- Subject: [SPECIFY GOODS TYPE without quantity/price]
+
+Draft:
+1. Preamble (standard)
+2. Subject of contract (description structure)
+3. Price and payment procedure (standard formulations)
+4. Delivery and risk transfer (Incoterms — standard)
+5. Quality and acceptance (standard terms)
+6. Liability of parties (without specific penalties)
+7. Force majeure (standard article)
+8. Dispute resolution (standard options)
+9. Final provisions
+
+Format: for each article — base text + alternatives</pre>
+    </div>
+    <p><strong>Result:</strong> standard template for legal department, saves 3–4 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Legislation Change Monitoring</h2>
+    <p>Summarizing legislation changes on specific topics.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (Web Search)</div>
+      <pre>Analyze legislation changes for the last 6 months:
+
+Topics:
+1. [SPECIFY AREA: corporate law/tax/labor/antitrust]
+2. [SPECIFY SECOND TOPIC]
+3. [SPECIFY THIRD TOPIC]
+
+Jurisdiction: [SPECIFY COUNTRY/REGION]
+
+Provide:
+1. List of key changes (date, document number, essence)
+2. Business impact analysis (general, without company-specific reference)
+3. Effective dates
+4. Required company actions in general
+5. Preparation recommendations
+
+Format: analytical note (1-2 pages)</pre>
+    </div>
+    <p><strong>Result:</strong> changes overview, saves 4–5 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Case Law Analysis</h2>
+    <p>Search and analysis of open court decisions on similar issues.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (Web Search)</div>
+      <pre>Analyze case law on issue:
+
+Issue: [SPECIFY LEGAL ISSUE without specific case reference]
+Jurisdiction: [SPECIFY]
+Period: last 2 years
+
+Provide:
+1. Selection of relevant cases (5-10 decisions)
+2. Brief summary of each case
+3. Court position (key conclusions)
+4. Practice trends (how court approach changes)
+5. Risks for companies in general
+6. Risk minimization recommendations
+
+Important: only public decisions, no company mentions unless public case.</pre>
+    </div>
+    <p><strong>Result:</strong> practice overview, saves 5–6 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Patent Search and Freedom-to-Operate Analysis</h2>
+    <p>Search in open patent databases, freedom-to-operate analysis.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (Web Search)</div>
+      <pre>Conduct patent search on technology:
+
+Technology: [SPECIFY AREA without specific product details]
+Keywords: [SPECIFY 3-5 TERMS]
+IPC classes: [SPECIFY if known]
+Jurisdictions: [SPECIFY: US, EP, CN, etc.]
+
+Provide:
+1. Search for relevant patents (5-10)
+2. Analysis of each patent (what is protected, term, status)
+3. Freedom-to-operate analysis (any obstacles)
+4. Workaround recommendations (if any)
+5. Next steps recommendation
+
+Important: this is preliminary analysis, not a substitute for patent attorney.</pre>
+    </div>
+    <p><strong>Result:</strong> preliminary analysis, saves 3–4 hours (but doesn't replace patent attorney).</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Employee Training Materials</h2>
+    <p>Preparing training materials on general legal topics.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare training material for employees:
+
+Topic: [SPECIFY: trade secrets/anti-corruption/competition/personal data]
+Audience: [SPECIFY: all employees/managers/sales]
+Format: presentation (10 slides) + test (5 questions)
+
+Draft:
+1. Training objectives (what employee should know)
+2. Key provisions (simple language)
+3. Situation examples (hypothetical, not real)
+4. Behavior rules (do's and don'ts)
+5. Liability for violation
+6. Test (5 multiple-choice questions)
+7. Self-check checklist
+
+Tone: accessible, no legal jargon.</pre>
+    </div>
+    <p><strong>Result:</strong> ready training material, saves 3–4 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Industry Legal Practice Benchmarking</h2>
+    <p>Comparing legal processes with similar companies based on public data.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (Web Search)</div>
+      <pre>Conduct legal practice benchmarking in industry:
+
+Industry: [SPECIFY]
+Comparison parameters:
+- Legal department structure
+- Legal tech usage
+- External lawyers vs in-house
+- Litigation load (typical disputes)
+- Legal services cost (public data)
+- Compliance practices
+
+Sources: industry reports, publications, conferences
+
+Provide:
+1. Overview of 3-5 industry companies (public data)
+2. Comparison table
+3. Best practices
+4. Legal function optimization recommendations
+
+Important: only public data, no specific contract amounts.</pre>
+    </div>
+    <p><strong>Result:</strong> industry practices overview, saves 4–5 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: External Tasks</h2>
+    <table>
+      <tr><th>Task</th><th>Input Required</th><th>Output Format</th><th>Time Saved</th></tr>
+      <tr><td>Standard templates</td><td>Contract type, legal system</td><td>Ready template</td><td>3–4 h</td></tr>
+      <tr><td>Legislation monitoring</td><td>Topics, jurisdiction</td><td>Analytical note</td><td>4–5 h</td></tr>
+      <tr><td>Case law</td><td>Legal issue</td><td>Decisions overview</td><td>5–6 h</td></tr>
+      <tr><td>Patent search</td><td>Technology, keywords</td><td>Patent analysis</td><td>3–4 h</td></tr>
+      <tr><td>Training materials</td><td>Topic, audience</td><td>Presentation + test</td><td>3–4 h</td></tr>
+      <tr><td>Benchmarking</td><td>Industry, parameters</td><td>Comparative analysis</td><td>4–5 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> Can a supply contract with specific price be drafted in external AI?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Specific price is trade secret.'">Yes, if it's a standard contract</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Specific price is trade secret, only on-prem.'">No, specific price is trade secret and goes to on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Company size doesn't affect price sensitivity.'">Yes, but only for small companies</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Case law analysis — which environment?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Court decisions are public data.'">External AI — court decisions are public</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Court decisions are published in open access.'">On-prem — case law is confidential</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Case analysis is not a specific case.'">Hybrid — anonymize company names</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Patent search — which environment?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Patent databases are open data.'">External AI — patent databases are open</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Patents are published specifically for public access.'">On-prem — this is company intellectual property</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Search in open databases doesn't require hybrid.'">Hybrid — databases outside, analysis inside</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../15-1-on-prem/index.html" class="nav-btn">← 15.1 Internal Tasks</a>
+    <a href="../15-3-hybrid/index.html" class="nav-btn primary">15.3 Hybrid Tasks →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

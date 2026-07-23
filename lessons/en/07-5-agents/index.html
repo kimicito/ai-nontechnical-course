@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.5 Agent Scenarios for Procurement — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 7 — Procurement</div>
+    <h1>7.5 Agent Scenarios for Procurement</h1>
+    <div class="meta">⏱ 12 min · how agents automate procurement processes</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>How is an agent different from a language model?</strong><br>
+    LLM answers individual requests. <span class="highlight">Agent</span> works cyclically: sets tasks itself, calls tools, gets results and decides what to do next. An agent can visit a website, download a file, send an email — without human involvement at each step.
+    <p style="margin-top:8px;">More about agents — <a href="../../lessons/4-1-agents/index.html" style="color:var(--accent2);">Level 4: Agents and Orchestration</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>Scenario 1: Tender Monitoring Agent (n8n + LLM)</h2>
+    <p><strong>Task:</strong> daily check government and commercial tenders, filter by keywords, send brief digest to procurement officer.</p>
+    
+    <h3>Agent Architecture</h3>
+    <div class="arch">
+[n8n Cron: daily at 9:00]<br>
+  ↓<br>
+[HTTP Request: procurement portal / customer API]<br>
+  ↓<br>
+[LLM Node: filter by keywords, assess relevance]<br>
+  ↓<br>
+[Telegram / Email: digest "5 tenders for today"]<br>
+  ↓<br>
+[Google Sheets: log for analytics]
+    </div>
+
+    <h3>What the Agent Does</h3>
+    <ul>
+      <li>Downloads XML/JSON from procurement platform</li>
+      <li>LLM reads lot descriptions, compares with procurement profile</li>
+      <li>Assesses relevance on 1–10 scale</li>
+      <li>Sends only tenders with score ≥7</li>
+      <li>Logs to spreadsheet for effectiveness statistics</li>
+    </ul>
+
+    <div class="card card-success">
+      <strong>Result:</strong> procurement officer gets ready digest instead of 2 hours of manual platform browsing. Saves 10 hours per week.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Scenario 2: Supplier Analysis Agent (OpenClaw-style Agent)</h2>
+    <p><strong>Task:</strong> upon receiving a new supplier request — automatically collect public information and prepare due diligence profile.</p>
+    
+    <h3>Agent Architecture</h3>
+    <div class="arch">
+[System request: company name, tax ID]<br>
+  ↓<br>
+[OpenClaw Agent: parallel calls]<br>
+  ├─→ [Browser: company website → extract activity, contacts]<br>
+  ├─→ [API: business registry → check status, founders]<br>
+  ├─→ [API: credit bureau → financial indicators]<br>
+  └─→ [Search: news, court cases]<br>
+  ↓<br>
+[On-prem LLM: consolidate into unified profile]<br>
+  ↓<br>
+[PDF report to folder + notification to procurement]
+    </div>
+
+    <h3>Environment Security</h3>
+    <ul>
+      <li>Public data collection — external environment (browser, API)</li>
+      <li>Profile consolidation, risk assessment — on-prem LLM</li>
+      <li>Admission decision — human (human-in-the-loop)</li>
+    </ul>
+
+    <div class="card card-warning">
+      <strong>Important:</strong> the very fact of supplier checking and its results are internal information. Profile is prepared on-prem, even if data is collected from public sources.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Scenario 3: Commercial Proposal Comparison Agent (Hybrid)</h2>
+    <p><strong>Task:</strong> receive CPs from 3+ suppliers, structure, compare, identify hidden risks, prepare recommendation.</p>
+    
+    <h3>Agent Architecture</h3>
+    <div class="arch">
+[Email integration: new email with subject "CP"]<br>
+  ↓<br>
+[Agent: extract attachments (PDF, Excel, Word)]<br>
+  ↓<br>
+[On-prem LLM: extract parameters from CPs]<br>
+  ├─ Price, terms, payment conditions<br>
+  ├─ Warranties, penalties, force majeure<br>
+  └─ Hidden conditions (auto-renewal, sole arbitration)<br>
+  ↓<br>
+[LLM: comparison table + SWOT for each CP]<br>
+  ↓<br>
+[Notification to procurement: "CPs ready for comparison"]
+    </div>
+
+    <h3>Key Feature</h3>
+    <p>Agent works inside the environment: receives emails, processes documents, doesn't send CP content outside. LLM analyzes conditions without seeing competitor names during comparison (if additional confidentiality is required).</p>
+
+    <div class="card card-success">
+      <strong>Result:</strong> comparison of 5 CPs in 15 minutes instead of 3–4 hours of manual analysis. Agent doesn't miss fine print and hidden conditions.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Approach Comparison</h2>
+    <table style="width:100%;border-collapse:collapse;margin:14px 0;font-size:0.9rem;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">Approach</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">When to Use</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">Complexity</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n + LLM API</td><td style="padding:10px;border-bottom:1px solid var(--border);">Simple scenarios: parsing, filtering, notifications</td><td style="padding:10px;border-bottom:1px solid var(--border);">Low</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">OpenClaw Agent</td><td style="padding:10px;border-bottom:1px solid var(--border);">Complex multi-step tasks with decision-making</td><td style="padding:10px;border-bottom:1px solid var(--border);">Medium</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Hybrid Agent</td><td style="padding:10px;border-bottom:1px solid var(--border);">Tasks with sensitive data + public sources</td><td style="padding:10px;border-bottom:1px solid var(--border);">High</td></tr>
+    </table>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-3-hybrid/index.html" class="nav-btn">← 7.3 Hybrid Approach</a>
+    <a href="../../catalog.html" class="nav-btn primary">Catalog</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

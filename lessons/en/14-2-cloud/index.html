@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.2 External Sales & Marketing Tasks — External AI — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 14 — Sales & Marketing</div>
+    <h1>14.2 External Tasks: External AI</h1>
+    <div class="meta">⏱ 20 min · for marketers, SMM managers, content managers</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>Open Data (External AI)</strong><br>
+    All tasks in this lesson work with <span class="highlight">public content, open sources, general methodologies</span>. You can use Claude, ChatGPT, Gemini.
+  </div>
+
+  <div class="section">
+    <h2>Why Marketing is One of the Safest Zones for External AI</h2>
+    <p>Marketing content is public by definition. The end product (post, brochure, ad copy) is intended for a wide audience. The risk of trade secret leakage is minimal — as long as you don't share internal budgets, prices, and strategic plans.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Important: before sending to the cloud — check</strong> that your request doesn't contain real prices, budgets, client data, or strategic plans. If it does — anonymize or send to on-prem.
+  </div>
+
+  <div class="section">
+    <h2>1. Content Plan Development</h2>
+    <p>Generating ideas, rubrics, publication calendar — native territory for genAI.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (Claude with Web Search)</div>
+      <pre>Prepare a monthly content plan for a B2B company in [SPECIFY INDUSTRY]:
+
+Parameters:
+- Channels: LinkedIn, corporate blog, email newsletter
+- Target audience: [SPECIFY: procurement, engineers, directors]
+- Content blocks: expertise, cases, trends, product
+- Frequency: 3 LinkedIn posts/week, 2 articles/month, 4 emails
+
+Develop:
+1. Topics for each post (headline + format: carousel, text, video)
+2. Publication calendar
+3. Hooks for each topic (what will grab attention)
+4. Calls to action (CTA)
+5. Cross-channel links</pre>
+    </div>
+    <p><strong>Result:</strong> ready content plan, saves 4–5 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Advertising Copywriting</h2>
+    <p>Generating headline variants, ad texts, descriptions — without real budgets.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Write 5 ad variants for a B2B audience:
+
+Product: [SPECIFY PRODUCT TYPE] for [SPECIFY INDUSTRY]
+USP: [SPECIFY KEY ADVANTAGE]
+Target: [SPECIFY POSITION], companies [SPECIFY SIZE]
+Format: Google Ads (3 headlines x 30 chars, 2 descriptions x 90 chars)
+
+Additional:
+- 3 LinkedIn variants (more expert tone)
+- 3 email newsletter variants (personalized)
+- A/B test hypotheses: what to test (headline, CTA, offer)</pre>
+    </div>
+    <p><strong>Result:</strong> ad set for testing, saves 2–3 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. SEO Content Optimization</h2>
+    <p>Generating meta descriptions, H1-H3 headlines, alt texts — public content.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Optimize text for SEO:
+
+Original text (blog article):
+[PASTE ARTICLE TEXT]
+
+Keywords (priority):
+1. [SPECIFY KEYWORD 1]
+2. [SPECIFY KEYWORD 2]
+3. [SPECIFY KEYWORD 3]
+
+Develop:
+1. H1 headline (60 chars, with keyword)
+2. Meta description (150 chars, with CTA)
+3. H2-H3 structure (with keyword inclusion)
+4. Alt texts for 3 images
+5. Internal optimization checklist (cross-linking)</pre>
+    </div>
+    <p><strong>Result:</strong> optimized text, saves 1.5 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Competitor Analysis from Open Data</h2>
+    <p>Product line, positioning, public prices — all in open access.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (Web Search)</div>
+      <pre>Conduct analysis of 3 competitors in [SPECIFY MARKET] segment:
+
+Competitors:
+1. [SPECIFY COMPANY 1]
+2. [SPECIFY COMPANY 2]
+3. [SPECIFY COMPANY 3]
+
+Data to collect (public sources):
+- Product line (categories, SKU)
+- Positioning (how they position themselves)
+- Public prices (if on website)
+- Promotion channels (where they advertise)
+- Strengths (from reviews, cases)
+- Weaknesses (complaints, gaps)
+
+Develop:
+1. Comparison table
+2. Positioning map (how they see themselves vs how clients see them)
+3. White spaces (what competitors don't cover — our opportunity)
+4. Differentiation recommendations</pre>
+    </div>
+    <p><strong>Result:</strong> competitor overview, saves 6–8 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Exhibition Materials Preparation</h2>
+    <p>Stand presentations, brochure texts, manager scripts — public materials.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Prepare material package for [SPECIFY EXHIBITION]:
+
+Parameters:
+- Industry: [SPECIFY]
+- Audience: [SPECIFY]
+- Product: [SPECIFY]
+- Exhibition goal: [SPECIFY: leads, brand, product]
+
+Materials:
+1. Stand slogan (3 variants, 5-7 words)
+2. Brochure text (1 A4 page, structure: problem-solution-result)
+3. Manager script (greeting → qualification → presentation → CTA)
+4. Roll-up text (2 variants, 50 words)
+5. Follow-up email for stand visitors
+
+Tone: professional, no aggressive sales.</pre>
+    </div>
+    <p><strong>Result:</strong> material kit, saves 4–5 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Marketing Materials Localization</h2>
+    <p>Content adaptation for different markets — language, culture, regulations.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Adapt marketing text for local market:
+
+Original text (Russian):
+[PASTE TEXT]
+
+Target market: [SPECIFY COUNTRY]
+Language: [SPECIFY LANGUAGE]
+
+Adapt:
+1. Translation with industry terminology
+2. Cultural nuances (what works in this market)
+3. Regulatory restrictions (what can't be promised)
+4. Examples and cases (replace with local if possible)
+5. CTA (call to action relevant to market)
+
+Format: table "original → adaptation → comment"</pre>
+    </div>
+    <p><strong>Result:</strong> localized text, saves 3–4 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Industry Trend Analysis</h2>
+    <p>Summarization of public analytics, news, analyst reports.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (Web Search)</div>
+      <pre>Analyze trends in [SPECIFY] industry for 2025–2026:
+
+Sources (public):
+- Industry media
+- Analyst reports (McKinsey, BCG, Deloitte)
+- Major player news
+- LinkedIn publications from experts
+
+Questions:
+1. Key trends (top 5)
+2. Technology changes
+3. Regulatory shifts
+4. Changing client behavior
+5. New business models
+6. Risks and opportunities for our company
+7. Positioning recommendations
+
+Format: analytical note (1-2 pages)</pre>
+    </div>
+    <p><strong>Result:</strong> trend overview, saves 5–6 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Price Analytics from Exchange Quotes</h2>
+    <p>Monitoring public exchange data for pricing policy.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (Web Search)</div>
+      <pre>Conduct price analytics for commodity markets:
+
+Indicators:
+1. LME Aluminum (3-month futures) — 6-month dynamics
+2. Baltic Dry Index (BDI) — freight trend
+3. USD/RUB rate (if relevant)
+4. Manufacturing sector PMI index
+
+Questions:
+- What is the raw material price dynamic?
+- How does this affect [SPECIFY PRODUCT] cost?
+- Forecast for next quarter (from analysts)
+- Pricing policy recommendations (general, without specific figures)
+
+Format: analytical bulletin</pre>
+    </div>
+    <p><strong>Result:</strong> market overview, saves 2–3 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: External Tasks</h2>
+    <table>
+      <tr><th>Task</th><th>Input Required</th><th>Output Format</th><th>Time Saved</th></tr>
+      <tr><td>Content plan</td><td>Topics, channels, audience</td><td>Publication calendar</td><td>4–5 h</td></tr>
+      <tr><td>Copywriting</td><td>Product, USP, target</td><td>Ad texts</td><td>2–3 h</td></tr>
+      <tr><td>SEO optimization</td><td>Text, keywords</td><td>Optimized text</td><td>1.5 h</td></tr>
+      <tr><td>Competitor analysis</td><td>Competitor names</td><td>Comparison table</td><td>6–8 h</td></tr>
+      <tr><td>Exhibition materials</td><td>Product, audience, goal</td><td>Brochure, script, slogan</td><td>4–5 h</td></tr>
+      <tr><td>Localization</td><td>Text, target market</td><td>Adapted text</td><td>3–4 h</td></tr>
+      <tr><td>Trend analysis</td><td>Industry, period</td><td>Analytical note</td><td>5–6 h</td></tr>
+      <tr><td>Price analytics</td><td>Commodity indicators</td><td>Market bulletin</td><td>2–3 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> Why is content plan development for external AI?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Content plan is public methodology, end product is public by definition.'">Because the end product (posts, articles) is public by definition</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Content plan doesn\'t contain prices.'">Because it doesn't contain commercial prices</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Budget is internal, but plan itself is public.'">Only if advertising budget is not specified</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Competitor analysis — which environment?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Public prices, products, positioning — open data.'">External AI — public data about products and prices</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Competitors publish this themselves.'">On-prem — commercial intelligence</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Public data doesn\'t need hybrid.'">Hybrid — data outside, conclusions inside</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Can you prepare investor pitch in external AI?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Structure — yes, but figures no.'">Yes, if it's general structure without financial data</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Structure and methodology can be external, figures only inside.'">Hybrid — structure and text external, final figures in on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Any pitch contains financial information.'">No, pitch always contains insider information</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../14-1-on-prem/index.html" class="nav-btn">← 14.1 Internal Tasks</a>
+    <a href="../14-3-hybrid/index.html" class="nav-btn primary">14.3 Hybrid Tasks →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

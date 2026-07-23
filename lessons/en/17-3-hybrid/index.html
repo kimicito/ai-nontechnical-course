@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.3 Hybrid HR Tasks — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .prompt-box { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: 'Segoe UI', monospace; font-size: 0.9rem; line-height: 1.5; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 17 — HR</div>
+    <h1>17.3 Hybrid Tasks</h1>
+    <div class="meta">⏱ 15 min · standard/anonymized outside, personal inside</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Hybrid Principle for HR</strong><br>
+    General structure, methodology, standard phrasing — <span class="highlight">outside</span>. Specific names, salaries, evaluations, employee facts — <span class="highlight">inside</span>.
+  </div>
+
+  <div class="section">
+    <h2>Task 1: Reference Check — Structure Outside, Assessment with Name Inside</h2>
+    <p><strong>Hybrid:</strong> standard reference check structure and assessment criteria are universal. Final assessment of specific candidate by real recommender responses — on-prem.</p>
+    
+    <h3>Stage 1 — External AI (Structure)</h3>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Develop reference check structure for position [title] level [junior/middle/senior]. Include: recommender circle (manager, peers, clients), competency questions [list], assessment scale, results recording form. Format: ready HR template.
+    </div>
+    
+    <h3>Stage 2 — On-Prem (Specific Candidate Assessment)</h3>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Reference check results for candidate [name] by structure above: [notes]. Assess by each competency. Form final conclusion with recommendation (hire/reject/additional interview).
+    </div>
+    <div class="card card-success">
+      <strong>Time saved:</strong> 30–40 minutes for structure preparation (done once per position type). Specific candidate assessment — 10 minutes instead of 30.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 2: Individual Development Plan — Template Outside, Employee Tie Inside</h2>
+    <p><strong>Hybrid:</strong> general IDP template, standard development tracks — universal. Tying to specific employee assessment results — on-prem.</p>
+    
+    <h3>Stage 1 — External AI (Template)</h3>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Develop IDP template for [level: specialist/manager] for [period]. Include: structure (goals, competencies, activities, timelines, criteria), standard development tracks (technical, managerial, soft skills). Format: fillable template.
+    </div>
+    
+    <h3>Stage 2 — On-Prem (Personalization)</h3>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Fill IDP template for employee [name]. Data: position [title], assessment results [data], employee goals [goals]. Create specific plan with measurable criteria.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 3: Engagement Surveys — Questions Outside, Answer Analysis Inside</h2>
+    <p><strong>Hybrid:</strong> question phrasing is standard, can be public. Analysis of real employee responses — personal data + management sensitivity.</p>
+    
+    <h3>Stage 1 — External AI (Questions)</h3>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Develop employee engagement survey. 15 questions: 10 closed (scale 1–5), 5 open. Topics: job satisfaction, manager relationship, development, work/life balance, company recommendation as employer. Format: ready questionnaire.
+    </div>
+    
+    <h3>Stage 2 — On-Prem (Analysis)</h3>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Analyze engagement survey results for [period]. Data: [aggregated results, no names for individual responses]. Highlight: overall index, problem areas by department, trends vs previous period, recommendations.
+    </div>
+    <div class="card card-warning">
+      <strong>Important:</strong> analysis of open responses where employees may mention names or describe specific situations — on-prem only.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 4: Assessment Feedback — Principles Outside, Employee Facts Inside</h2>
+    <p><strong>Hybrid:</strong> general principles of constructive feedback formulation — universal. Content with real facts about specific employee — on-prem.</p>
+    
+    <h3>Stage 1 — External AI (Methodology)</h3>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Develop manager guide for conducting review meeting. Include: conversation structure, constructive feedback examples (SBI model: Situation-Behavior-Impact), phrasing examples for different scenarios (exceeds expectations, meets, growth area). Format: manager cheat sheet.
+    </div>
+    
+    <h3>Stage 2 — On-Prem (Specific Meeting Preparation)</h3>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Prepare talking points for review meeting with employee [name]. Data: position [title], assessment results [data], period goals [goals]. Use SBI model. Formulate feedback by each competency.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 5: Offers and Employment Contracts — Template Outside, Real Conditions Inside</h2>
+    <p><strong>Hybrid:</strong> standard offer/contract template — universal. Real conditions (salary, name, date) — on-prem.</p>
+    
+    <h3>Stage 1 — External AI (Template)</h3>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Create standard offer template for position [title] in [industry]. Include: structure, mandatory sections (position, salary, probation, benefits), confidentiality wording, part-time conditions (if applicable). Format: template with markers [NAME], [SALARY].
+    </div>
+    
+    <h3>Stage 2 — On-Prem (Filling)</h3>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Fill offer template for candidate [name]. Data: position [title], salary [amount], start date [date], probation period [period]. Check compliance with labor code.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> Why is engagement survey hybrid, not fully on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Questions are standard, answer analysis is personal data.'">Questions are standard (can be in cloud), answer analysis — on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Format doesn't determine environment.'">Because survey is conducted online</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Anonymity is not a guarantee against personal data in responses.'">Because survey is anonymous</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Which reference check stage is on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Structure is universal, can be in cloud.'">Question structure development</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Specific candidate assessment contains personal data.'">Specific candidate assessment by real responses</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Scale is part of structure, universal.'">Assessment scale selection (1–5)</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Why is IDP hybrid?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Personal goals are part of on-prem, but not the reason for hybrid.'">Because goals are personal</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Template is universal, employee tie is personal data.'">Template is universal (cloud), tie to specific employee is on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Timelines are neutral, don't determine environment.'">Because timelines differ for everyone</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../17-2-cloud/index.html" class="nav-btn">← 17.2 External Tasks</a>
+    <a href="../17-4-summary/index.html" class="nav-btn primary">17.4 Summary →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

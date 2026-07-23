@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.1 Internal HR Tasks — On-Prem — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .prompt-box { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: 'Segoe UI', monospace; font-size: 0.9rem; line-height: 1.5; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 17 — HR</div>
+    <h1>17.1 Internal Tasks: On-Prem</h1>
+    <div class="meta">⏱ 20 min · tasks involving a specific person</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Main Lesson Principle</strong><br>
+    HR works with personal data in almost every task. Rule: if the text contains a name, salary, evaluation, or personal situation of a specific person — <span class="highlight">on-prem only</span>.
+  </div>
+
+  <div class="section">
+    <h2>Task 1: Resume Screening and Candidate Assessment</h2>
+    <p><strong>Why on-prem:</strong> resumes contain personal data (name, contacts, previous employers, salary). Even matching analysis is personal data processing.</p>
+    <h3>What AI Does</h3>
+    <ul>
+      <li>Compares resume with vacancy requirements</li>
+      <li>Highlights candidate strengths and weaknesses</li>
+      <li>Creates brief annotation for HR</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Vacancy requirements: [requirements text].<br>
+      Candidate resume: [resume text].<br><br>
+      Analyze match by each requirement. Highlight strengths, risks, interview questions. Create brief annotation (max 150 words).
+    </div>
+    <div class="card card-success">
+      <strong>Result:</strong> saves 10–15 minutes per resume. A team of 3 HR can process 2x more candidates.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 2: HR Orders Preparation</h2>
+    <p><strong>Why on-prem:</strong> orders contain names, salaries, positions, dates — full set of personal data. Legally significant documents.</p>
+    <h3>What AI Does</h3>
+    <ul>
+      <li>Generates order text by template</li>
+      <li>Checks compliance with labor code</li>
+      <li>Forms attachments list</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Create employment order. Data: name [name], position [title], department [name], salary [amount], start date [date], probation period [period]. Check compliance with labor code. Specify required attachments.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 3: Personnel Files Management and Structuring</h2>
+    <p><strong>Why on-prem:</strong> personnel files are personal data in the full sense. Even text part contains biographical information.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Structure the following documents in personnel file [name] into standardized format: [document list]. For each document specify date, type, compliance with HR record-keeping requirements.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 4: HR Reporting (Turnover, Staffing)</h2>
+    <p><strong>Why on-prem:</strong> analytics by department, names of departed employees, reasons for leaving — management-sensitive information.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Turnover data for [period]: [data table]. Analyze: trends by department, average tenure, main reasons for leaving (by categories). Create summary for management with recommendations.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 5: Personnel Assessment (Performance Review)</h2>
+    <p><strong>Why on-prem:</strong> assessment of real employees — extremely sensitive information. Affects career, compensation, motivation of specific people.</p>
+    <h3>What AI Does</h3>
+    <ul>
+      <li>Structures feedback from 360 reviews</li>
+      <li>Creates competency summary</li>
+      <li>Prepares phrasing for review meeting</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      360 review results for employee [name] for [period]: [evaluation data]. Structure feedback by competencies. Highlight strengths, growth areas, recommendations. Prepare phrasing for review meeting.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 6: Individual Development Plans (IDP)</h2>
+    <p><strong>Why on-prem:</strong> IDP is tied to specific employee, their assessment, career goals.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Create IDP for employee [name] for [period]. Data: current position [title], assessment results [data], employee goals [goals]. Include: competencies to develop, activities, timelines, success criteria, manager support.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 7: Talent Pool and Succession Programs</h2>
+    <p><strong>Why on-prem:</strong> "who is targeting which position" is politically sensitive information inside the company. Leakage can cause conflicts and key employee turnover.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Based on potential matrix and key employee assessment: [anonymized data — no names, only IDs], form talent pool proposals for critical positions. Specify: positions, required competencies, preparation timelines, succession absence risks.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 8: Payroll Justification and Grading</h2>
+    <p><strong>Why on-prem:</strong> real salaries, grades of specific positions — confidential information. AI processes text justification part, not mathematical calculation.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Justify grading proposal for position [title]. Data: current grade [number], market median [range], internal fairness (ratio with similar roles). Formulate arguments for management.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 9: Exit Interview Analysis</h2>
+    <p><strong>Why on-prem:</strong> exit interviews may contain criticism of management, personal reasons, complaints — all personal data + de-anonymization risk.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Analyze reasons for leaving based on exit interviews for [period]: [interview texts, anonymized]. Group reasons by categories. Highlight systemic problems and recommendations for resolution.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 10: Disciplinary Actions</h2>
+    <p><strong>Why on-prem:</strong> legally significant documents with personal data. Require precise wording.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Draft disciplinary action order. Data: name [name], position [title], violation [description], date [date], witnesses [list]. Check compliance with labor code articles. Specify legal grounds.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 11: Labor Disputes, Employer Position</h2>
+    <p><strong>Why on-prem:</strong> specific employee, their labor dispute, company defense strategy — attorney-client privilege + trade secret.</p>
+    <div class="prompt-box">
+      <strong>Prompt (jointly with lawyer):</strong><br>
+      Situation: employee [name] filed claim [claim essence]. Facts: [context]. Prepare employer position: legal justification, risks, possible resolution scenarios. Identify weak points in position.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 12: Harassment/Discrimination Complaints</h2>
+    <p><strong>Why on-prem:</strong> maximum sensitivity. Risk of complainant de-anonymization, secondary trauma, reputational risks for company.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Create plan for initial processing of [type: harassment/discrimination] complaint. Include: investigation stages, required documents, confidentiality requirements, timelines, final document format. Specify what requires external lawyer involvement.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 13: HR Metrics Reports for Management</h2>
+    <p><strong>Why on-prem:</strong> management information: payroll, turnover by department, labor productivity — strategic data.</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Based on HR metrics for [period]: [data], create analytical summary for management. Include: key trends, deviations from plan, risks, recommendations. Format: 1 page, structured, with conclusions.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Task 14: Reference Check of Specific Candidates</h2>
+    <p><strong>Why on-prem:</strong> reference check includes personal data of not only candidate but third parties (recommenders, former managers).</p>
+    <div class="prompt-box">
+      <strong>Prompt:</strong><br>
+      Reference check results for candidate [name]: [conversation notes/recommendation letters]. Structure information by categories: professional qualities, communication, reliability, growth areas. Create summary for decision-making.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> Why is even a simple employee reference letter on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Reference contains name, position, salary — personal data regulated by data protection laws.'">Contains personal data (name, position, salary)</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. It is personal data, but the reason is broader.'">Because it's an internal document</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. This is not the main reason.'">Because references are rarely requested</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Which HR task is most sensitive among listed?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Important, but not the most sensitive.'">Performance review</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Risk of de-anonymization, secondary trauma, reputational risks — maximum sensitivity.'">Harassment/discrimination complaints</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Important, but less sensitive than harassment.'">Talent pool and succession</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Why is salary benchmarking an external AI task, not on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Public salary surveys, open sources — not personal data.'">Analyzes public salary surveys, not specific employee salaries</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Methodology is part of the task, not the reason for environment choice.'">Because methodology is universal</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Benchmarking may be accurate, but that doesn't determine environment.'">Because external AI is more accurate in calculations</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../catalog.html" class="nav-btn">← Catalog</a>
+    <a href="../17-2-cloud/index.html" class="nav-btn primary">17.2 External Tasks →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

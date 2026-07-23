@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.2 External Compliance Tasks — External AI — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 16 — Compliance</div>
+    <h1>16.2 External Tasks: External AI</h1>
+    <div class="meta">⏱ 20 min · for compliance officers</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>Open Data (External AI)</strong><br>
+    All tasks in this lesson — <span class="highlight">public sanctions lists, regulatory acts, open frameworks, standard policies</span>. You can use Claude, ChatGPT, Gemini.
+  </div>
+
+  <div class="section">
+    <h2>What Can Be Done in External AI</h2>
+    <p>External AI is safe where work is with the regulatory field as such — what lists exist, what the regulator requires, how the methodology works — before applying it to a real name or deal.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Main Rule:</strong> if the request doesn't contain specific names, company names, amounts, account numbers, deal dates — you can use external AI.
+  </div>
+
+  <div class="section">
+    <h2>1. Sanctions Regime Monitoring</h2>
+    <p>Summarizing changes in OFAC, EU, UK, UN and national regulator sanctions lists.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (External AI + Web Search)</div>
+      <pre>Analyze sanctions regime changes for last month:
+
+Jurisdictions: OFAC (USA), EU, UK, UN
+
+Provide:
+1. New persons/organizations added to lists
+2. Changes in sectoral sanctions
+3. New goods/technology restrictions
+4. Regulator guidance updates
+5. Trends (what to watch)
+6. Recommendations for companies in general
+
+Format: analytical note (1-2 pages)</pre>
+    </div>
+    <p><strong>Result:</strong> changes overview, saves 3–4 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Export Control Conclusions (General)</h2>
+    <p>Analysis of export control norms applicability in general terms, without reference to specific deal.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Explain export control applicability:
+
+Topic: [SPECIFY: dual-use goods/technology restrictions/military end-use]
+Jurisdictions: [SPECIFY: US/EU/CN]
+
+Provide:
+1. Applicable export control regimes
+2. Goods/technology categories
+3. Licensing requirements
+4. Exceptions and exemptions
+5. License application procedure
+6. Practical recommendations (general)
+7. Regulatory references
+
+Important: without reference to specific company deal.</pre>
+    </div>
+    <p><strong>Result:</strong> export control reference, saves 2–3 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Compliance Policy Development Based on Standard Frameworks</h2>
+    <p>Creating policies based on international standards (ISO 37001, UK Bribery Act, FCPA).</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Develop compliance policy based on international standards:
+
+Policy type: [SPECIFY: anti-corruption/AML/sanctions/conflict of interest]
+Base framework: [SPECIFY: ISO 37001/UK Bribery Act/FCPA guidance]
+
+Provide:
+1. Policy structure (sections)
+2. Main provisions (principles)
+3. Employee obligations (by level)
+4. Documentation procedures
+5. Violation investigation procedure
+6. Sanctions for violations
+7. Review periodicity
+8. Appendices (forms, checklists)
+
+Format: ready document for company adaptation.</pre>
+    </div>
+    <p><strong>Result:</strong> policy draft, saves 4–5 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Business Ethics Code</h2>
+    <p>Developing general part of code based on best practices.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Develop business ethics code:
+
+Company: large manufacturing company (B2B)
+Geography: international operations
+
+Provide:
+1. Company values (5-7 items)
+2. Behavior in counterparty relations
+3. Gifts and hospitality rules
+4. Conflict of interest (definition, examples)
+5. Asset and information protection
+6. Work ethics (discrimination, harassment)
+7. Obligation to report violations
+8. Investigation procedure
+9. Responsibility
+
+Tone: clear, specific examples, no abstractions.</pre>
+    </div>
+    <p><strong>Result:</strong> ready code, saves 3–4 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Compliance Training Programs</h2>
+    <p>Preparing general training materials.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example</div>
+      <pre>Develop compliance training course:
+
+Topic: [SPECIFY: AML/anti-corruption/sanctions/conflict of interest]
+Audience: [SPECIFY: all employees/managers/finance department]
+Format: 10 slides + test (5 questions)
+
+Draft:
+1. Training objectives
+2. Key concepts (simple language)
+3. Employee obligations
+4. Red flags (examples)
+5. What to do when suspected
+6. Test (5 multiple-choice questions)
+7. Self-check checklist
+
+Tone: accessible, with real-life examples.</pre>
+    </div>
+    <p><strong>Result:</strong> ready training material, saves 3–4 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Industry Compliance Practice Benchmarking</h2>
+    <p>Comparing compliance practices with international holdings based on public data.</p>
+    <div class="example">
+      <div class="example-label">Prompt Example (Web Search)</div>
+      <pre>Conduct compliance practice benchmarking:
+
+Industry: [SPECIFY]
+Parameters:
+- Compliance function structure
+- Technology usage (screening automation)
+- Training program (hours per employee)
+- Whistleblower channels
+- External audits (frequency)
+- Public reporting (ESG/anti-bribery reports)
+
+Provide:
+1. Overview of 3-5 international companies
+2. Comparison table
+3. Best practices
+4. Improvement recommendations
+5. Compliance function trends
+
+Sources: public reports, ESG disclosures, ethics codes.</pre>
+    </div>
+    <p><strong>Result:</strong> industry practices overview, saves 4–5 hours.</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: External Tasks</h2>
+    <table>
+      <tr><th>Task</th><th>Input Required</th><th>Output Format</th><th>Time Saved</th></tr>
+      <tr><td>Sanctions monitoring</td><td>Jurisdictions, period</td><td>Analytical note</td><td>3–4 h</td></tr>
+      <tr><td>Export control</td><td>Topic, jurisdictions</td><td>Reference</td><td>2–3 h</td></tr>
+      <tr><td>Compliance policies</td><td>Type, framework</td><td>Policy draft</td><td>4–5 h</td></tr>
+      <tr><td>Ethics code</td><td>Company type</td><td>Ready code</td><td>3–4 h</td></tr>
+      <tr><td>Training programs</td><td>Topic, audience</td><td>Presentation + test</td><td>3–4 h</td></tr>
+      <tr><td>Benchmarking</td><td>Industry, parameters</td><td>Comparative analysis</td><td>4–5 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <p><strong>Question 1:</strong> Can you check a specific counterparty against sanctions lists in external AI?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Specific name is sensitive information.'">Yes, lists are public</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> The very fact of "who was checked" is sensitive.'">No, the very fact of "who we checked" is sensitive information</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Anonymization doesn't help if request contains specific data.'">Only if name is anonymized</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> ISO 37001 compliance policy development — which environment?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> ISO 37001 is a public standard.'">External AI — framework is public</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. ISO standard is public, draft can be made outside.'">On-prem — policy is internal</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Structure is public, adaptation is internal, but development itself is external.'">Hybrid — structure in cloud, adaptation inside</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Compliance practice benchmarking — which environment?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> ESG reports and ethics codes are public.'">External AI — uses public reports</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Benchmarking is comparison with public data.'">On-prem — comparison with competitors</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Public data — not hybrid.'">Hybrid — public data + internal analytics</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../16-1-on-prem/index.html" class="nav-btn">← 16.1 Internal Tasks</a>
+    <a href="../16-3-hybrid/index.html" class="nav-btn primary">16.3 Hybrid Tasks →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.4 Practical Summary — AI for Non-Technical Specialists</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 17 — HR</div>
+    <h1>17.4 Practical Summary</h1>
+    <div class="meta">⏱ 15 min · level summary</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Main Principle of Level 17</strong><br>
+    HR — function with <span class="highlight">the widest personal data surface</span> of all covered. Almost any task touches a specific person. Rule: if the text contains a name, salary, evaluation, or personal situation — <span class="highlight">on-prem only</span>.
+  </div>
+
+  <div class="section">
+    <h2>Key Takeaways</h2>
+    
+    <h3>1. On-Prem — Default Rule</h3>
+    <p>For HR, on-prem is not an exception but the norm:</p>
+    <ul>
+      <li><strong>Resume screening</strong> — candidates' personal data</li>
+      <li><strong>HR orders</strong> — names, salaries, legally significant documents</li>
+      <li><strong>Personnel files, references</strong> — personal data in full sense</li>
+      <li><strong>HR reporting</strong> — turnover by department, management sensitivity</li>
+      <li><strong>Personnel assessment, IDP</strong> — affects careers of specific people</li>
+      <li><strong>Talent pool</strong> — politically sensitive information</li>
+      <li><strong>Exit interviews</strong> — may contain criticism of management</li>
+      <li><strong>Disciplinary actions, labor disputes</strong> — legally significant documents</li>
+      <li><strong>Harassment complaints</strong> — maximum sensitivity</li>
+      <li><strong>Reference check</strong> — third parties' personal data</li>
+    </ul>
+
+    <h3>2. External AI — Non-Personalized Only</h3>
+    <p>Safe tasks for cloud:</p>
+    <ul>
+      <li>Job postings (public content)</li>
+      <li>Interview methodology (without candidate reference)</li>
+      <li>Standard assessment programs (structure)</li>
+      <li>General training programs</li>
+      <li>General-type tests</li>
+      <li>Onboarding materials (about company, culture)</li>
+      <li>Salary market benchmarking (public surveys)</li>
+      <li>Competency matrices (standard)</li>
+      <li>HR practice benchmarking (public reports)</li>
+      <li>General HR strategy (methodology)</li>
+    </ul>
+
+    <h3>3. Hybrid — for Templates and Methodology</h3>
+    <p>Five tasks work on hybrid scheme:</p>
+    <ul>
+      <li><strong>Reference check</strong> — structure outside, candidate assessment inside</li>
+      <li><strong>IDP</strong> — template outside, employee tie inside</li>
+      <li><strong>Engagement surveys</strong> — questions outside, answer analysis inside</li>
+      <li><strong>Feedback</strong> — principles outside, employee facts inside</li>
+      <li><strong>Offers/contracts</strong> — template outside, real conditions inside</li>
+    </ul>
+
+    <h3>4. Unique Factor — Data Protection Legislation</h3>
+    <p>HR differs from other functions in being regulated not only by trade secrets but also by personal data protection legislation (GDPR, local equivalents). This creates additional legal risk when using external AI.</p>
+  </div>
+
+  <div class="section">
+    <h2>Summary Matrix: HR</h2>
+    <table>
+      <tr><th>Task</th><th>On-Prem</th><th>External AI</th><th>Hybrid</th></tr>
+      <tr><td>Resume screening</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>HR orders</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Personnel files</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>HR reporting</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Personnel assessment</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>IDP (personalized)</td><td>✅</td><td>❌</td><td>✅ (template)</td></tr>
+      <tr><td>Talent pool</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Grading/payroll</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Exit interviews</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Disciplinary actions</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Labor disputes</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Harassment complaints</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>HR reports to management</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Reference check (assessment)</td><td>✅</td><td>❌</td><td>✅ (structure)</td></tr>
+      <tr><td>Job postings</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Interview questions (methodology)</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Assessment programs (structure)</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Training programs</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>General-type tests</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Onboarding (general)</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Salary benchmarking</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Competency matrices (standard)</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>HR practice benchmarking</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>HR strategy (general)</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Engagement surveys</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Assessment feedback</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Offers/contracts</td><td>❌</td><td>❌</td><td>✅</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>What's Excluded from Level (and Why)</h2>
+    <div class="card card-warning">
+      <p><strong>Automated resume scoring by ML model</strong> — ATS systems (Applicant Tracking Systems) use ranking algorithms for preliminary resume sorting. This is not generative AI but supervised ML on HR data. GenAI is connected only to interpretation and text formatting of such systems' results.</p>
+      <p><strong>Predictive turnover analytics</strong> — supervised ML models on historical HR data. GenAI can help in formatting conclusions but not in building the model itself.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Checklist for HR Before External AI</h2>
+    <div class="card card-success">
+      <p><strong>Before sending request to external AI, check:</strong></p>
+      <ul>
+        <li>❌ No employee/candidate names?</li>
+        <li>❌ No salaries, grades?</li>
+        <li>❌ No specific people's evaluations?</li>
+        <li>❌ No department names (if could de-anonymize)?</li>
+        <li>❌ No complaints/appeals with details?</li>
+        <li>❌ No exit interview results with quotes?</li>
+        <li>❌ No strategic HR decisions (layoffs, reorganizations)?</li>
+      </ul>
+      <p><strong>If any item fails — on-prem only.</strong></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Time Savings by Level</h2>
+    <table>
+      <tr><th>Category</th><th>Tasks</th><th>Average Savings</th></tr>
+      <tr><td>On-prem (main)</td><td>14</td><td>1.5–5 hours each</td></tr>
+      <tr><td>External AI (auxiliary)</td><td>10</td><td>2–4 hours each</td></tr>
+      <tr><td>Hybrid</td><td>5</td><td>1–2 hours (combined)</td></tr>
+    </table>
+    <p><strong>Total:</strong> 29 tasks, combined savings of 50–120 hours per month for a team of 3–5 HR specialists.</p>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check — Final Quiz</h2>
+    <p><strong>Question 1:</strong> Why is HR the function with the widest personal data surface?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Almost any HR task touches a specific person.'">Almost any task touches a specific employee or candidate</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. This is typical for all functions.'">Because HR works with paperwork</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Size is not the main factor.'">Because company has many employees</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2:</strong> Can performance review be done in external AI?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Structure — yes, but not assessment of specific person.'">Yes, if using general assessment scale</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Assessment of specific employee is personal data + management sensitivity.'">No, it's assessment of a specific person with personal data</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. 360 anonymity is a method, not reason for environment choice.'">Yes, if assessment is anonymous (360)</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3:</strong> Why are harassment complaints on-prem only?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Important, but not the main reason.'">Because they are legally significant documents</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Risk of complainant de-anonymization and secondary trauma.'">Risk of complainant de-anonymization and secondary trauma</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Important, but doesn't determine environment choice.'">Because external lawyer involvement is required</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../17-3-hybrid/index.html" class="nav-btn">← 17.3 Hybrid Tasks</a>
+    <a href="../../index.html" class="nav-btn primary">Home</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+</body></html>
