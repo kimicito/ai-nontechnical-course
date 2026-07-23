@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.4 Conclusion pratique — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 14 — Ventes et marketing</div>
+    <h1>14.4 Conclusion pratique</h1>
+    <div class="meta">⏱ 15 min · résumé final du niveau</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Principe principal du niveau 14</strong><br>
+    Les ventes et le marketing sont la fonction miroir des achats. Sensibilité symétrique des données (prix, remise, conditions = secret commercial de chaque côté de la transaction). Le marketing est l'une des zones les plus sûres pour l'IA externe.
+  </div>
+
+  <div class="section">
+    <h2>Conclusions clés</h2>
+    
+    <h3>1. Ventes = achats dans le miroir</h3>
+    <p>Là où en achats vous êtes acheteur avec votre position de négociation, en ventes vous êtes vendeur avec exactement la même structure de sensibilité :</p>
+    <ul>
+      <li><strong>Prix et remises</strong> — secret commercial, indépendamment du côté de la transaction</li>
+      <li><strong>Conditions de paiement</strong> — politique financière de l'entreprise</li>
+      <li><strong>Stratégie de négociation</strong> — BATNA, ZOPA, leviers ne sont pas pour discussion externe</li>
+      <li><strong>Base clients</strong> — actif stratégique, dépendance vis-à-vis des clients clés</li>
+    </ul>
+
+    <h3>2. Marketing — zone sûre pour l'IA externe</h3>
+    <p>Le contenu marketing est par définition destiné au public :</p>
+    <ul>
+      <li>Posts, articles, brochures — publics par nature</li>
+      <li>Optimisation SEO — travail sur du contenu public</li>
+      <li>Analyse concurrentielle sur données ouvertes — légal et sûr</li>
+      <li>Rédaction publicitaire — le produit final est public</li>
+    </ul>
+    <p><strong>Seule restriction :</strong> ne transmettez pas à l'IA externe les budgets internes, plans stratégiques, politique de prix avant publication.</p>
+
+    <h3>3. Prévision de demande — plus sensible qu'il n'y paraît</h3>
+    <p>La prévision des ventes fuit directement dans la planification de production, l'achat de matières premières, la gestion des stocks. Fuite de prévision = fuite des plans opérationnels de l'entreprise. Toujours en on-prem.</p>
+
+    <h3>4. Hybride — base de l'efficacité</h3>
+    <p>Les tâches les plus fréquentes (proposition, négociations, emailing, matériaux IR) fonctionnent selon un schéma hybride :</p>
+    <ul>
+      <li>Modèle, structure, méthodologie — en IA externe (rapide, qualité)</li>
+      <li>Chiffres, clients, conditions — en on-prem (sécurisé)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Matrice finale : ventes et marketing</h2>
+    <table>
+      <tr><th>Tâche</th><th>On-prem</th><th>IA externe</th><th>Hybride</th></tr>
+      <tr><td>Fixation des prix</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Contrats de vente</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Analyse base clients</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Prévision demande</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Négociations (stratégie)</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Notes CRM</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>RFQ/RFP</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Analyse win/loss</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Rapports plan de ventes</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Matériaux IR (avant pub)</td><td>✅</td><td>❌</td><td>✅ (structure)</td></tr>
+      <tr><td>Plan de contenu</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Rédaction publicitaire</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Optimisation SEO</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Analyse concurrentielle</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Matériaux salons</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Localisation</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Analyse tendances</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Analyse boursière</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Propositions commerciales</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Emailing</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Préparation négociations</td><td>❌</td><td>❌</td><td>✅</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Ce qui est exclu du niveau (et pourquoi)</h2>
+    <div class="card card-warning">
+      <p><strong>Scoring de leads et analyse prédictive d'attrition</strong> — ML supervisé sur données CRM. L'IA générative peut seulement interpréter les résultats, pas remplacer le modèle.</p>
+      <p><strong>Personnalisation des recommandations</strong> — systèmes de recommandation (ML/filtrage collaboratif). GenAI se connecte à la génération de texte sur la base de recommandations prêtes.</p>
+      <p><strong>Achat programmatique publicitaire</strong> — trading algorithmique, real-time bidding. GenAI peut aider avec les créatifs, pas avec l'achat.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Check-list pour vendeur et marketeur</h2>
+    <div class="card card-success">
+      <p><strong>Avant d'envoyer une requête en IA externe, vérifiez :</strong></p>
+      <ul>
+        <li>❌ Pas de prix spécifiques, remises, conditions de paiement ?</li>
+        <li>❌ Pas de noms de clients, contacts, téléphones ?</li>
+        <li>❌ Pas de volumes par transaction spécifique ?</li>
+        <li>❌ Pas d'indicateurs financiers de l'entreprise ?</li>
+        <li>❌ Pas de prévisions de ventes, plans, budgets ?</li>
+        <li>❌ Pas d'analyse win/loss par transaction spécifique ?</li>
+        <li>❌ Pas de plans stratégiques avant publication ?</li>
+      </ul>
+      <p><strong>Si au moins un point ne passe pas — anonymisez ou envoyez en on-prem.</strong></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Économie de temps par niveau</h2>
+    <table>
+      <tr><th>Catégorie</th><th>Tâches</th><th>Économie moyenne</th></tr>
+      <tr><td>On-prem (ventes)</td><td>8</td><td>2–4 heures chacune</td></tr>
+      <tr><td>IA externe (marketing)</td><td>8</td><td>2–5 heures chacune</td></tr>
+      <tr><td>Hybride</td><td>4</td><td>1,5–3 heures (cumulé)</td></tr>
+    </table>
+    <p><strong>Total :</strong> 20 tâches, économie cumulée 40–80 heures par mois pour une équipe de 3–5 personnes.</p>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances — quiz final</h2>
+    <p><strong>Question 1 :</strong> Pourquoi le marketing est-il plus sûr que les ventes pour l'IA externe ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Le contenu marketing est par définition public.'">Parce que le produit final (post, brochure) est destiné au public</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Les marketeurs travaillent aussi avec des infos sensibles.'">Parce que les marketeurs n'ont pas accès aux prix</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Ce n\'est pas une question de capacités techniques.'">Parce que les modèles externes génèrent mieux les créatifs</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> Quel contour pour l'analyse d'efficacité de campagnes sur métriques internes ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Budgets et ROI — info interne.'">IA externe — les métriques sont juste des chiffres</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Budgets, conversion, ROI — info de gestion.'">On-prem — contient budgets, conversion, ROI</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Les métriques sont des données, pas de la méthodologie.'">Hybride — méthodologie d'analyse à l'extérieur, métriques à l'intérieur</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3 :</strong> Peut-on faire l'analyse win/loss dans le cloud en anonymisant le client ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Même anonymisé, win/loss révèle des faiblesses stratégiques.'">Oui, si on retire le nom du client et les prix spécifiques</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Win/loss contient les raisons de perte — stratégiquement sensible.'">Non, elle révèle les raisons de perte de transactions — critique</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Le sens de win/loss est dans les détails de la transaction.'">Uniquement pour les transactions gagnées</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../14-3-hybrid/index.html" class="nav-btn">← 14.3 Tâches hybrides</a>
+    <a href="../../index.html" class="nav-btn primary">Accueil</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.3 Tâches hybrides ventes et marketing — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 14 — Ventes et marketing</div>
+    <h1>14.3 Tâches hybrides</h1>
+    <div class="meta">⏱ 20 min · pour vendeurs et marketeurs</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Approche hybride</strong><br>
+    La <span class="highlight">structure et méthodologie générales</span> se préparent en IA externe.<br>
+    Les <span class="highlight">données réelles</span> (prix, clients, conditions) s'ajoutent en on-prem.
+  </div>
+
+  <div class="section">
+    <h2>Principe de l'approche hybride pour les ventes et le marketing</h2>
+    <p>Règle clé : <strong>plus les données sont sensibles</strong> (prix spécifiques, conditions de transaction, données personnelles client) — plus l'on-prem est strict. La méthodologie générale (structure de document, scénarios types) peut tranquillement aller dans le contour externe.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Règles d'anonymisation pour le cloud :</strong>
+    <table>
+      <tr><th>Quoi retirer obligatoirement</th><th>Quoi peut rester</th></tr>
+      <tr><td>Prix et remises spécifiques</td><td>Méthodologie de fixation des prix</td></tr>
+      <tr><td>Noms de clients et contacts</td><td>Type de client (grand, moyen, clé)</td></tr>
+      <tr><td>Conditions de paiement individuelles</td><td>Formes de paiement types</td></tr>
+      <tr><td>Volumes par transaction spécifique</td><td>Méthodologie de calcul du volume</td></tr>
+      <tr><td>Indicateurs financiers de l'entreprise</td><td>Benchmarks sectoriels</td></tr>
+      <tr><td>Dates spécifiques de transactions</td><td>Saisonnalité, délais typiques</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>1. Propositions commerciales (hybride)</h2>
+    <p><strong>Cloud :</strong> modèle et structure générale de la proposition.<br>
+    <strong>On-prem :</strong> prix finaux, conditions, personnalisation pour le client.</p>
+    <div class="example">
+      <div class="example-label">Étape 1 : Cloud — modèle de proposition</div>
+      <pre>Prépare la structure d'une proposition commerciale pour des ventes B2B :
+
+Structure de la proposition :
+1. Page de titre (logo, contacts, date)
+2. À propos de l'entreprise (2-3 phrases)
+3. Compréhension du besoin client
+4. Produit/solution (description, spécification)
+5. Conditions de livraison [PRÉCISER : conditions spécifiques]
+6. Prix [PRÉCISER : calcul pour le client]
+7. Avantages et garanties
+8. Processus de travail (étapes, délais)
+9. Annexes (spécification, certificats)
+
+Pour chaque section : quoi écrire, erreurs typiques, exemples de formulations.
+
+[PRÉCISER : secteur du client, type de produit, région]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Étape 2 : On-prem — remplissage pour le client</div>
+      <pre>Remplis la proposition pour le client [INDIQUEZ LE NOM] :
+
+Données client :
+- Secteur : [INDIQUEZ]
+- Volume de consommation : [INDIQUEZ]
+- Historique : client depuis [INDIQUEZ L'ANNÉE], chiffre d'affaires [INDIQUEZ]
+- Conditions actuelles : [INDIQUEZ]
+- Besoin : [INDIQUEZ]
+
+Nos données :
+- Prix : [INDIQUEZ] (de base), remise [INDIQUEZ]% pour volume [INDIQUEZ]
+- Conditions de paiement : [INDIQUEZ]
+- Délai de livraison : [INDIQUEZ]
+- Garanties : [INDIQUEZ]
+
+Rédige la proposition finale avec personnalisation pour le client.</pre>
+    </div>
+    <p><strong>Économie :</strong> modèle dans le cloud (1,5 heure) + proposition remplie en on-prem (1 heure).</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Préparation aux négociations (hybride)</h2>
+    <p><strong>Cloud :</strong> méthodologie générale de négociation, scénarios types.<br>
+    <strong>On-prem :</strong> chiffres réels, client spécifique, BATNA.</p>
+    <div class="example">
+      <div class="example-label">Étape 1 : Cloud — méthodologie</div>
+      <pre>Prépare une méthodologie de négociation pour des ventes B2B :
+
+Étapes des négociations :
+1. Exploration (quelles questions poser pour comprendre les besoins)
+2. Présentation de la solution (comment lier le produit au besoin)
+3. Gestion des objections (objections typiques et réponses)
+4. Discussion des conditions (prix, remises, paiement, logistique)
+5. Conclusion (quels signaux indiquent la disponibilité)
+
+Méthodologie :
+- BATNA : comment le définir et l'utiliser
+- ZOPA : comment élargir la zone d'accord
+- Leviers : quoi proposer (au-delà du prix)
+- Pièges typiques (remise prématurée, accord sans contrepartie)
+
+[PRÉCISER : secteur, type de produit, panier moyen]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Étape 2 : On-prem — transaction spécifique</div>
+      <pre>Applique la méthodologie aux négociations avec [INDIQUEZ LE CLIENT] :
+
+Contexte :
+- Contrat actuel : [INDIQUEZ], expire le [INDIQUEZ LA DATE]
+- Volume : [INDIQUEZ] unités/an
+- Réclamations : [INDIQUEZ]
+- Concurrent : propose [INDIQUEZ LES CONDITIONS]
+- Notre objectif : [INDIQUEZ]
+
+Établis :
+1. BATNA (si pas d'accord)
+2. ZOPA (plage acceptable)
+3. Leviers (quoi proposer)
+4. Scénarios : optimiste, réaliste, pessimiste
+5. Réponses aux objections attendues</pre>
+    </div>
+    <p><strong>Économie :</strong> méthodologie dans le cloud (1,5 heure) + stratégie en on-prem (1,5 heure).</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Emailing de prospection (hybride)</h2>
+    <p><strong>Cloud :</strong> modèle d'email général, variantes A/B.<br>
+    <strong>On-prem :</strong> personnalisation avec données réelles du client.</p>
+    <div class="example">
+      <div class="example-label">Étape 1 : Cloud — modèle d'email</div>
+      <pre>Rédige un modèle d'email pour une prospection B2B :
+
+Paramètres :
+- Produit : [INDIQUEZ LE TYPE]
+- Audience : [INDIQUEZ LE POSTE], [INDIQUEZ LA TAILLE D'ENTREPRISE]
+- Objectif : obtenir un rendez-vous/démo
+
+Variantes :
+1. Court (3 phrases, format mobile)
+2. Moyen (paragraphe + puces + CTA)
+3. Avec référence à un cas client (preuve sociale)
+
+Pour chaque :
+- Objet (3 variantes)
+- Accroche (ce qui attire l'attention)
+- CTA (action concrète)
+- Signature
+
+[PRÉCISER : secteur, douleur clé de l'audience]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Étape 2 : On-prem — personnalisation</div>
+      <pre>Personnalise l'email pour [INDIQUEZ NOM], [INDIQUEZ FONCTION], [INDIQUEZ ENTREPRISE] :
+
+Données client :
+- Secteur : [INDIQUEZ]
+- Événement récent : [INDIQUEZ : expansion, nouveau produit, publication]
+- Besoin probable : [INDIQUEZ]
+- Historique d'interaction : [INDIQUEZ]
+
+Modèle : [INSÉREZ LE MODÈLE DU CLOUD]
+
+Adapte :
+1. Mentionne l'événement/contexte spécifique
+2. Lie le produit à leur besoin
+3. Ajoute un cas client pertinent
+4. Propose un créneau de rendez-vous concret</pre>
+    </div>
+    <p><strong>Économie :</strong> modèle dans le cloud (1 heure) + personnalisation en on-prem (30 min).</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Matériaux IR (hybride)</h2>
+    <p><strong>Cloud :</strong> structure générale de présentation, slides types.<br>
+    <strong>On-prem :</strong> chiffres finaux avant publication officielle.</p>
+    <div class="example">
+      <div class="example-label">Étape 1 : Cloud — structure de présentation</div>
+      <pre>Prépare la structure d'une présentation IR pour une entreprise B2B :
+
+Slides :
+1. Titre (entreprise, période)
+2. Executive summary (3 messages clés)
+3. Positionnement marché (TAM/SAM/SOM, tendances)
+4. Ligne de produits (catégories, différenciation)
+5. Résultats financiers [PRÉCISER : chiffres spécifiques]
+6. Base clients (diversification, rétention)
+7. Stratégie de croissance (organique, M&A, nouveaux marchés)
+8. ESG et développement durable
+9. Risques et mesures d'atténuation
+10. Prévision financière [PRÉCISER : chiffres spécifiques]
+11. Thèse d'investissement (pourquoi investir)
+12. Contacts du service IR
+
+Pour chaque slide : message clé, questions typiques d'analystes, comment répondre.</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">Étape 2 : On-prem — données finales</div>
+      <pre>Remplis la présentation IR avec les données finales :
+
+Données préliminaires (non publiques) :
+- Chiffre d'affaires S1 : [INDIQUEZ]
+- EBITDA : [INDIQUEZ]
+- Marge : [INDIQUEZ]%
+- Nouveaux clients : [INDIQUEZ]
+- Transactions perdues : [INDIQUEZ]
+- Prévision annuelle : [INDIQUEZ]
+
+Rédige :
+1. Texte pour chaque slide (avec chiffres)
+2. Notes de présentation (quoi dire à voix haute)
+3. Réponses aux questions attendues
+4. Appendix (détail pour analystes)</pre>
+    </div>
+    <p><strong>Économie :</strong> structure dans le cloud (2 heures) + remplissage en on-prem (2 heures).</p>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif : tâches hybrides</h2>
+    <table>
+      <tr><th>Tâche</th><th>Cloud</th><th>On-prem</th><th>Économie</th></tr>
+      <tr><td>Proposition commerciale</td><td>Modèle, structure</td><td>Prix, conditions, client</td><td>1,5 + 1 h</td></tr>
+      <tr><td>Négociations</td><td>Méthodologie, scénarios</td><td>Chiffres réels, BATNA</td><td>1,5 + 1,5 h</td></tr>
+      <tr><td>Emailing</td><td>Modèle, variantes A/B</td><td>Personnalisation client</td><td>1 + 0,5 h</td></tr>
+      <tr><td>Matériaux IR</td><td>Structure, slides types</td><td>Chiffres finaux</td><td>2 + 2 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Quel est le principe de l'hybride pour les propositions commerciales ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Structure à l\'extérieur, prix et conditions à l\'intérieur.'">Modèle général dans le cloud, prix et conditions finaux en on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Les prix sont toujours en interne.'">Toute la proposition peut se faire dans le cloud si on anonymise le nom du client</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. L\'hybride suppose les deux contours.'">Toute la proposition — uniquement en on-prem, car contient un secret commercial</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> Email de prospection — quelle étape en on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> La personnalisation avec données réelles — en interne.'">Personnalisation : nom, entreprise, contexte, offre spécifique</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Le modèle — dans le cloud.'">Rédaction du modèle d'email général</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Les tests A/B — méthodologie publique.'">Tests A/B des variantes d'email</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3 :</strong> Que faut-il obligatoirement retirer avant le cloud ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Prix, clients, volumes — à retirer.'">Prix spécifiques, noms de clients, volumes de transactions</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Le type de produit — information générale.'">Type de produit (par exemple, "logiciel")</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Le secteur — information publique.'">Secteur du client (par exemple, "industrie")</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../14-2-cloud/index.html" class="nav-btn">← 14.2 Tâches externes</a>
+    <a href="../14-4-summary/index.html" class="nav-btn primary">14.4 Conclusion pratique →</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>

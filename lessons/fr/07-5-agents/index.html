@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.5 Scénarios d'agents pour les Achats — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 7 — Achats</div>
+    <h1>7.5 Scénarios d'agents pour les Achats</h1>
+    <div class="meta">⏱ 12 min · comment les agents automatisent les processus d'achat</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>En quoi un agent diffère-t-il d'un modèle de langage ?</strong><br>
+    Le LLM répond à des requêtes individuelles. <span class="highlight">L'agent</span> travaille de manière cyclique : il se fixe des tâches, appelle des outils, obtient des résultats et décide quoi faire ensuite. Un agent peut visiter un site web, télécharger un fichier, envoyer un email — sans intervention humaine à chaque étape.
+    <p style="margin-top:8px;">Plus sur les agents — <a href="../../lessons/4-1-agents/index.html" style="color:var(--accent2);">Niveau 4 : Agents et orchestration</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>Scénario 1 : Agent de monitoring des appels d'offres (n8n + LLM)</h2>
+    <p><strong>Tâche :</strong> vérifier quotidiennement les marchés publics et appels d'offres commerciaux, filtrer par mots-clés, envoyer un bref digest à l'acheteur.</p>
+    
+    <h3>Architecture de l'agent</h3>
+    <div class="arch">
+[n8n Cron : quotidien à 9h00]<br>
+  ↓<br>
+[Requête HTTP : plateforme marchés publics / API client]<br>
+  ↓<br>
+[LLM Node : filtrage par mots-clés, évaluation pertinence]<br>
+  ↓<br>
+[Telegram / Email : digest « 5 appels d'offres aujourd'hui »]<br>
+  ↓<br>
+[Google Sheets : enregistrement pour analyse]
+    </div>
+
+    <h3>Ce que fait l'agent</h3>
+    <ul>
+      <li>Télécharge XML/JSON de la plateforme de marchés publics</li>
+      <li>Le LLM lit les descriptions de lots, compare avec le profil de l'acheteur</li>
+      <li>Évalue la pertinence sur une échelle 1–10</li>
+      <li>Envoie uniquement les appels d'offres avec score ≥7</li>
+      <li>Enregistre dans un tableau pour statistiques d'efficacité</li>
+    </ul>
+
+    <div class="card card-success">
+      <strong>Résultat :</strong> l'acheteur reçoit un digest prêt au lieu de 2 heures de consultation manuelle des plateformes. Économie de 10 heures par semaine.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Scénario 2 : Agent d'analyse des fournisseurs (style OpenClaw)</h2>
+    <p><strong>Tâche :</strong> à la réception d'une demande pour un nouveau fournisseur — collecter automatiquement les informations publiques et préparer un profil de due diligence.</p>
+    
+    <h3>Architecture de l'agent</h3>
+    <div class="arch">
+[Demande dans le système : nom de l'entreprise, SIRET]<br>
+  ↓<br>
+[Agent OpenClaw : appels parallèles]<br>
+  ├─→ [Navigateur : site de l'entreprise → extraire activité, contacts]<br>
+  ├─→ [API : registre des entreprises → vérifier statut, fondateurs]<br>
+  ├─→ [API : bureau de crédit → indicateurs financiers]<br>
+  └─→ [Recherche : actualités, litiges]<br>
+  ↓<br>
+[LLM On-prem : synthèse en profil unifié]<br>
+  ↓<br>
+[Rapport PDF dans dossier + notification à l'acheteur]
+    </div>
+
+    <h3>Sécurité du contour</h3>
+    <ul>
+      <li>Collecte publique de données — contour externe (navigateur, API)</li>
+      <li>Synthèse du profil, évaluation des risques — LLM on-prem</li>
+      <li>Décision d'admission — humain (human-in-the-loop)</li>
+    </ul>
+
+    <div class="card card-warning">
+      <strong>Important :</strong> le fait même de vérifier un fournisseur et ses résultats est une information interne. Le profil est préparé en on-prem, même si les données sont collectées depuis des sources publiques.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Scénario 3 : Agent de comparaison de propositions commerciales (hybride)</h2>
+    <p><strong>Tâche :</strong> recevoir les propositions de 3+ fournisseurs, structurer, comparer, identifier les risques cachés, préparer une recommandation.</p>
+    
+    <h3>Architecture de l'agent</h3>
+    <div class="arch">
+[Intégration Email : nouveau mail avec sujet « Proposition »]<br>
+  ↓<br>
+[Agent : extraction des pièces jointes (PDF, Excel, Word)]<br>
+  ↓<br>
+[LLM On-prem : extraction des paramètres des propositions]<br>
+  ├─ Prix, délais, conditions de paiement<br>
+  ├─ Garanties, pénalités, force majeure<br>
+  └─ Conditions cachées (reconduction automatique, arbitrage exclusif)<br>
+  ↓<br>
+[LLM : tableau comparatif + SWOT de chaque proposition]<br>
+  ↓<br>
+[Notification à l'acheteur : « Propositions prêtes pour comparaison »]
+    </div>
+
+    <h3>Caractéristique clé</h3>
+    <p>L'agent travaille à l'intérieur du contour : reçoit les emails, traite les documents, n'envoie pas le contenu des propositions à l'extérieur. Le LLM analyse les conditions sans voir les noms des concurrents lors de la comparaison (si une confidentialité supplémentaire est requise).</p>
+
+    <div class="card card-success">
+      <strong>Résultat :</strong> comparaison de 5 propositions en 15 minutes au lieu de 3–4 heures d'analyse manuelle. L'agent ne manque pas les petits caractères et les conditions cachées.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Comparaison des approches</h2>
+    <table style="width:100%;border-collapse:collapse;margin:14px 0;font-size:0.9rem;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">Approche</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">Quand utiliser</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">Complexité</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n + API LLM</td><td style="padding:10px;border-bottom:1px solid var(--border);">Scénarios simples : parsing, filtrage, notifications</td><td style="padding:10px;border-bottom:1px solid var(--border);">Faible</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Agent OpenClaw</td><td style="padding:10px;border-bottom:1px solid var(--border);">Tâches complexes multi-étapes avec prise de décisions</td><td style="padding:10px;border-bottom:1px solid var(--border);">Moyenne</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Agent hybride</td><td style="padding:10px;border-bottom:1px solid var(--border);">Tâches avec données sensibles + sources publiques</td><td style="padding:10px;border-bottom:1px solid var(--border);">Élevée</td></tr>
+    </table>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-3-hybrid/index.html" class="nav-btn">← 7.3 Approche hybride</a>
+    <a href="../../catalog.html" class="nav-btn primary">Catalogue</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>

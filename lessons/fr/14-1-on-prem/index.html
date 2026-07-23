@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.1 Tâches internes ventes et marketing — on-prem — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 14 — Ventes et marketing</div>
+    <h1>14.1 Tâches internes : on-prem</h1>
+    <div class="meta">⏱ 25 min · pour chefs de vente, directeurs commerciaux, marketeurs</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Contour fermé (on-prem)</strong><br>
+    Toutes les tâches de cette leçon travaillent avec <span class="highlight">des prix réels, des conditions de transaction, des données clients, des prévisions commerciales</span>. Utilisez le modèle interne ou un LLM local.
+  </div>
+
+  <div class="section">
+    <h2>Pourquoi l'on-prem est critique pour les ventes</h2>
+    <p>Les ventes sont la fonction miroir des achats : là où vous êtes acheteur avec votre position de négociation, ici vous êtes vendeur avec une sensibilité aux données symétriquement construite. Le prix, la remise, les conditions de paiement — secret commercial indépendamment du côté de la transaction.</p>
+    <p>De plus, la prévision de la demande et la planification des ventes fuient directement dans la planification de production, donc cette tâche est plus sensible qu'elle n'y paraît à première vue.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Quand l'on-prem est obligatoire :</strong>
+    <ul>
+      <li>Fixation des prix et calcul des remises individuelles (base de la position de négociation)</li>
+      <li>Préparation et vérification des contrats de vente (conditions réelles de transaction)</li>
+      <li>Analyse de la base clients — segmentation, potentiel, attrition (dépendance vis-à-vis des clients)</li>
+      <li>Prévision de la demande et planification des ventes (données opérationnelles internes)</li>
+      <li>Préparation aux négociations avec les clients clés (stratégie de négociation)</li>
+      <li>Notes CRM et résumé d'appels avec clients (données personnelles + information commerciale)</li>
+      <li>Réponses aux RFQ/RFP des clients (prix réels avant soumission)</li>
+      <li>Analyse win/loss sur des transactions spécifiques (révèle les raisons de perte de clients)</li>
+      <li>Rapports d'exécution du plan de ventes (information financière de gestion)</li>
+      <li>Analyse d'efficacité des campagnes sur des métriques internes réelles (budgets, ROI)</li>
+      <li>Pitches pour investisseurs/analystes avant publication officielle (information privilégiée)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. Fixation des prix et calcul des conditions individuelles</h2>
+    <p>Le calcul du prix pour un client spécifique tenant compte du volume, des remises, des conditions de paiement et de la logistique — secret commercial.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (on-prem)</div>
+      <pre>Prépare une proposition commerciale pour le client [INDIQUEZ LE NOM] :
+
+Données initiales :
+- Produit : [INDIQUEZ LE PRODUIT]
+- Volume : [INDIQUEZ LE VOLUME] unités/mois
+- Prix de base : [INDIQUEZ LE PRIX] €/unité
+- Historique des transactions : [INDIQUEZ L'HISTORIQUE DES REMISES]
+- Concurrents : proposent [INDIQUEZ LES PRIX CONCURRENTS]
+- Conditions de paiement : [INDIQUEZ LES CONDITIONS]
+- Logistique : livraison à [INDIQUEZ L'ADRESSE]
+
+Calcule :
+1. Le prix tenant compte de la remise de volume
+2. Variantes : prépaiement vs délai de paiement (impact sur le prix)
+3. Comparaison avec les concurrents (positionnement)
+4. Prix minimum (seuil inférieur de rentabilité)
+5. Recommandation de stratégie de négociation</pre>
+    </div>
+    <p><strong>Résultat :</strong> prix justifié avec seuil inférieur, économise 2–3 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Analyse de la base clients</h2>
+    <p>La segmentation, l'évaluation du potentiel de croissance, le risque d'attrition — information stratégique.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Analyse la base clients et donne des recommandations :
+
+Données (anonymisées / internes) :
+- Client A : chiffre d'affaires [INDIQUEZ], marge [INDIQUEZ], retard 0 jour, croissance +15%/an
+- Client B : chiffre d'affaires [INDIQUEZ], marge [INDIQUEZ], retard 45 jours, stabilité
+- Client C : chiffre d'affaires [INDIQUEZ], marge [INDIQUEZ], retard 0, baisse -20%/an
+- Client D : nouveau, potentiel [INDIQUEZ], secteur [INDIQUEZ]
+
+Fais :
+1. Segmentation ABC (par chiffre d'affaires et marge)
+2. Évaluation du risque d'attrition (par tendances)
+3. Potentiel de croissance par segment
+4. Recommandations : qui retenir, qui développer, qui laisser partir
+5. Plan d'actions pour le trimestre</pre>
+    </div>
+    <p><strong>Résultat :</strong> segmentation avec plan, économise 4–5 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Prévision de la demande et planification des ventes</h2>
+    <p>Le raisonnement textuel sur des données préparées — la prévision influence directement la planification de production.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une prévision de demande et un plan de ventes pour T4 2026 :
+
+Historique des ventes (données internes) :
+- T1 : [INDIQUEZ LE VOLUME] unités, chiffre d'affaires [INDIQUEZ]
+- T2 : [INDIQUEZ LE VOLUME] unités, chiffre d'affaires [INDIQUEZ]
+- T3 (prévision) : [INDIQUEZ LE VOLUME] unités
+
+Facteurs :
+- Saisonnalité : T4 traditionnellement +[INDIQUEZ]% vs T3
+- Nouveaux clients : [INDIQUEZ LE NOMBRE] dans l'entonnoir
+- Risques : [INDIQUEZ LES FACTEURS CONCURRENTIELS]
+- Activité marketing : [INDIQUEZ LE PLAN]
+
+Fais :
+1. Prévision volume et chiffre d'affaires par mois
+2. Plan par clients (top-10)
+3. Risques et mesures d'atténuation
+4. Besoins en production/stocks</pre>
+    </div>
+    <p><strong>Résultat :</strong> prévision justifiée, économise 3–4 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Préparation aux négociations avec un client clé</h2>
+    <p>Stratégie de négociation, BATNA, leviers — comme en achats, mais de l'autre côté de la table.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une stratégie de négociations avec le client [INDIQUEZ LE NOM] :
+
+Contexte :
+- Contrat actuel : [INDIQUEZ LES CONDITIONS], expire le [INDIQUEZ LA DATE]
+- Volume : [INDIQUEZ] unités/an
+- Réclamations client : [INDIQUEZ LES RÉCLAMATIONS]
+- Concurrents : [INDIQUEZ QUI] propose [INDIQUEZ LES CONDITIONS]
+- Notre position : [INDIQUEZ LES OBJECTIFS]
+
+Établis :
+1. BATNA (notre meilleure alternative)
+2. ZOPA (zone d'accord possible)
+3. Leviers de pression (ce qu'on peut offrir / ce qu'on risque)
+4. Scénarios : optimiste, réaliste, pessimiste
+5. Réponses aux objections typiques
+6. Plan de négociations (étape par étape)</pre>
+    </div>
+    <p><strong>Résultat :</strong> stratégie prête, économise 3 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Notes CRM et résumé de réunions</h2>
+    <p>Traitement automatique des enregistrements d'appels et de réunions — données personnelles + information commerciale.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Résume la réunion avec le client sur la base des notes :
+
+Données initiales (CRM + notes du manager) :
+- Date : [INDIQUEZ]
+- Participants : [INDIQUEZ NOM CLIENT, FONCTION]
+- Sujet : discussion des conditions du contrat [INDIQUEZ LE NUMÉRO]
+- Points clés :
+  * Le client veut un délai de 30 à 60 jours
+  * Le client n'est pas satisfait de la qualité du lot [INDIQUEZ]
+  * Le client envisage un concurrent [INDIQUEZ]
+  * Le client est prêt à augmenter le volume de 20% en cas de baisse de prix de 5%
+
+Fais :
+1. Résumé court (3 phrases)
+2. Liste des accords
+3. Questions ouvertes
+4. Risques et signaux d'alerte
+5. Prochaines étapes (qui, quoi, quand)
+6. Recommandations à la direction</pre>
+    </div>
+    <p><strong>Résultat :</strong> note CRM structurée, économise 30 min.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Réponses aux appels d'offres (RFQ/RFP)</h2>
+    <p>Préparation de la réponse à une demande de cotation — prix réels et conditions avant soumission.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une réponse au RFQ du client [INDIQUEZ LE NOM] :
+
+Exigences client :
+- Produit : [INDIQUEZ]
+- Volume : [INDIQUEZ] unités
+- Conditions de livraison : [INDIQUEZ Incoterms]
+- Délai : [INDIQUEZ]
+- Exigences qualité : [INDIQUEZ LES NORMES]
+- Format de réponse : [INDIQUEZ LES EXIGENCES]
+
+Nos données :
+- Coût de revient : [INDIQUEZ]
+- Marge minimum : [INDIQUEZ]%
+- Capacité de production : [INDIQUEZ]
+- Charge actuelle : [INDIQUEZ]%
+
+Établis :
+1. Proposition technique
+2. Conditions commerciales (prix, remises, paiement)
+3. Calendrier de livraisons
+4. Avantages vs concurrents
+5. Risques et contraintes</pre>
+    </div>
+    <p><strong>Résultat :</strong> réponse à l'appel d'offres prête, économise 4–5 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Analyse win/loss</h2>
+    <p>Analyse des raisons de gain ou de perte d'une transaction — information critique et sensible.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Mène une analyse win/loss de la transaction [INDIQUEZ LE NUMÉRO] :
+
+Données de la transaction :
+- Client : [INDIQUEZ LE NOM]
+- Produit : [INDIQUEZ]
+- Volume : [INDIQUEZ]
+- Notre prix : [INDIQUEZ]
+- Prix du concurrent gagnant : [INDIQUEZ] (si connu)
+- Résultat : [win/loss]
+- Retour client : [INDIQUEZ]
+
+Fais :
+1. Chronologie de la transaction (étapes, participants)
+2. Facteurs de décision (prix, qualité, délais, relations)
+3. Nos forces
+4. Nos faiblesses
+5. Ce que le concurrent a fait différemment
+6. Leçons et recommandations (processus, produit, prix)
+7. Plan d'actions d'amélioration</pre>
+    </div>
+    <p><strong>Résultat :</strong> analyse structurée, économise 3 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Pitch pour investisseurs (avant publication)</h2>
+    <p>Matériaux IR avec chiffres finaux avant divulgation officielle — information privilégiée.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare la structure d'un pitch pour investisseurs sur la base des données internes :
+
+Données (préliminaires, non publiques) :
+- Chiffre d'affaires S1 : [INDIQUEZ] (croissance [INDIQUEZ]%)
+- EBITDA : [INDIQUEZ]
+- Nouveaux clients : [INDIQUEZ]
+- Transactions perdues : [INDIQUEZ]
+- Prévision annuelle : [INDIQUEZ]
+- Risques clés : [INDIQUEZ]
+
+Établis :
+1. Executive summary (3 slides)
+2. Résultats financiers (métriques clés)
+3. Réalisations opérationnelles
+4. Stratégie pour le second semestre
+5. Risques et mesures d'atténuation
+6. Réponses aux questions difficiles (ce que les analystes peuvent demander)
+
+Ton : professionnel, confiant, sans effet de hype.</pre>
+    </div>
+    <p><strong>Résultat :</strong> pitch prêt, économise 5–6 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif</h2>
+    <table>
+      <tr><th>Tâche</th><th>Ce qu'il faut</th><th>Format de sortie</th><th>Économie</th></tr>
+      <tr><td>Fixation des prix</td><td>Historique, concurrents, conditions</td><td>Calcul prix + stratégie</td><td>2–3 h</td></tr>
+      <tr><td>Analyse base clients</td><td>Données CRM</td><td>Segmentation + plan</td><td>4–5 h</td></tr>
+      <tr><td>Prévision demande</td><td>Historique, facteurs</td><td>Plan de ventes</td><td>3–4 h</td></tr>
+      <tr><td>Négociations</td><td>Contexte transaction</td><td>Stratégie + scénarios</td><td>3 h</td></tr>
+      <tr><td>Notes CRM</td><td>Notes, enregistrements</td><td>Résumé + todo</td><td>30 min</td></tr>
+      <tr><td>RFQ/RFP</td><td>Exigences client</td><td>Réponse à l'appel d'offres</td><td>4–5 h</td></tr>
+      <tr><td>Analyse win/loss</td><td>Données transaction</td><td>Analyse + recommandations</td><td>3 h</td></tr>
+      <tr><td>Pitch IR</td><td>Données financières</td><td>Présentation investisseurs</td><td>5–6 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Pourquoi la prévision de demande est-elle en on-prem et pas en IA externe ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> La prévision influence directement la planification de production et contient des données opérationnelles.'">Parce qu'elle influence directement la planification de production et contient des données opérationnelles</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Ce n\'est pas seulement le prix.'">Parce qu'elle contient le prix du produit</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. La méthodologie de prévision est publique.'">Uniquement si la prévision inclut des données historiques de plus de 3 ans</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> Peut-on faire l'analyse win/loss en IA externe ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. L\'analyse win/loss révèle des faiblesses stratégiques.'">Oui, si on anonymise les noms de clients</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> L\'analyse win/loss contient des informations stratégiques sur les faiblesses.'">Non, elle révèle les raisons de perte de clients au profit des concurrents — information critique</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Toute analyse win/loss contient des informations précieuses.'">Uniquement pour les transactions perdues avec des clients importants</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3 :</strong> Quel contour pour les notes CRM après une réunion avec un client ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Le CRM contient des données personnelles et des informations commerciales.'">IA externe — c'est juste un résumé textuel</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Le CRM contient des données personnelles et des secrets commerciaux.'">On-prem — données personnelles des contacts + information commerciale</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. L\'anonymisation des données CRM perd son sens.'">Hybride — anonymiser et envoyer dans le cloud</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">Accueil</a>
+    <a href="../14-2-cloud/index.html" class="nav-btn primary">14.2 Tâches externes →</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>
