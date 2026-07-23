@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>11.5 质量智能体场景 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第11级 — 质量</div>
+    <h1>11.5 质量智能体场景</h1>
+    <div class="meta">⏱ 12分钟 · 质量控制和投诉处理智能体</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>智能体与语言模型有何不同？</strong><br>
+    LLM按请求进行分析。<span class="highlight">智能体</span>持续工作：接收数据、分类、分配路线、跟踪期限——无需人工参与。详情见<a href="../../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">第4级</a>。
+  </div>
+
+  <div class="section">
+    <h2>场景1：投诉处理智能体 (n8n + LLM)</h2>
+    <p><strong>任务：</strong>收到投诉时——分类、指定负责人、跟踪期限。</p>
+    <div class="arch">
+[邮件/电子文档管理系统：客户新投诉]<br>
+  ↓<br>
+[n8n：提取附件和文本]<br>
+  ↓<br>
+[LLM：分类]<br>
+  ├─→ 类型：产品质量/物流/文件/价格<br>
+  ├─→ 紧急程度：紧急/严重/标准<br>
+  └─→ 潜在损失金额<br>
+  ↓<br>
+[按通讯录指定负责人]<br>
+  ↓<br>
+[在电子文档管理系统中创建带截止日期的任务]<br>
+  ├─ 紧急：24小时<br>
+  ├─ 严重：72小时<br>
+  └─ 标准：5天<br>
+  ↓<br>
+[通知负责人+紧急时通知主管]<br>
+  ↓<br>
+[每日监控：逾期→升级]
+    </div>
+    <div class="card card-success">
+      <strong>结果：</strong>投诉响应时间从1-2天缩短到数小时。无一投诉遗漏。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景2：根因分析智能体 (OpenClaw智能体)</h2>
+    <p><strong>任务：</strong>收到缺陷数据时——自动进行原因分析，构建石川图，提出解决方案。</p>
+    <div class="arch">
+[输入：缺陷描述+数据（照片、工艺参数）]<br>
+  ↓<br>
+[本地部署智能体：收集历史数据]<br>
+  ├─→ 同期类似缺陷<br>
+  ├─→ 工艺变更（原料、设备、人员）<br>
+  └─→ 相关性（温度、压力、速度）<br>
+  ↓<br>
+[LLM：构建石川图]<br>
+  ├─→ 6M：人、机、料、法、测、环<br>
+  ├─→ 可能的根因及论证<br>
+  └─→ 参考类似案例<br>
+  ↓<br>
+[提出纠正措施]<br>
+  ├─ 短期（消除后果）<br>
+  └─ 长期（防止再发）<br>
+  ↓<br>
+[质量工程师报告]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景3：8D报告准备智能体 (混合)</h2>
+    <p><strong>任务：</strong>收集8D各阶段数据，形成报告，跟踪措施执行情况。</p>
+    <div class="arch">
+[触发条件：系统中创建8D卡片]<br>
+  ↓<br>
+[智能体：按阶段收集数据]<br>
+  D1：团队→负责人名单<br>
+  D2：问题描述→从申请中提取<br>
+  D3：临时措施→检查执行情况<br>
+  D4：根因→来自根因分析智能体<br>
+  D5-D7：纠正措施→跟踪<br>
+  D8：团队祝贺→形成<br>
+  ↓<br>
+[LLM：形成报告文本]<br>
+  ↓<br>
+[PDF + 通知团队]<br>
+  ↓<br>
+[监控：D5-D7未按时完成→提醒]
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../11-3-hybrid/index.html" class="nav-btn">← 11.3 混合方案</a>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 生产企业</p></div></footer>
+</body></html>

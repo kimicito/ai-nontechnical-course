@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.5 采购的智能体场景 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第7级 — 采购</div>
+    <h1>7.5 采购的智能体场景</h1>
+    <div class="meta">⏱ 12分钟 · 智能体如何自动化采购流程</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>智能体与语言模型有什么区别？</strong><br>
+    LLM回复单个请求。<span class="highlight">智能体</span>循环工作：自主设定任务、调用工具、获取结果并决定下一步。智能体可以访问网站、下载文件、发送邮件——无需人工介入每一步。
+    <p style="margin-top:8px;">详细了解智能体 — <a href="../../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">第4级：智能体与编排</a>。</p>
+  </div>
+
+  <div class="section">
+    <h2>场景1：招标监控智能体（n8n + LLM）</h2>
+    <p><strong>任务：</strong>每日检查政府采购和商业招标，按关键词过滤，向采购员发送简短摘要。</p>
+    
+    <h3>智能体架构</h3>
+    <div class="arch">
+[n8n Cron: 每日9:00]<br>
+  ↓<br>
+[HTTP请求: zakupki.gov.ru / 客户API]<br>
+  ↓<br>
+[LLM节点: 按关键词过滤，评估相关性]<br>
+  ↓<br>
+[Telegram / 邮件: 摘要「今日5个招标」]<br>
+  ↓<br>
+[Google表格: 记录到登记簿用于分析]
+    </div>
+
+    <h3>智能体做什么</h3>
+    <ul>
+      <li>从政府采购平台下载XML/JSON</li>
+      <li>LLM读取标书描述，与采购员档案对比</li>
+      <li>按1-10分评估相关性</li>
+      <li>仅发送评分≥7的招标</li>
+      <li>记录到表格用于效率统计</li>
+    </ul>
+
+    <div class="card card-success">
+      <strong>结果：</strong>采购员收到现成摘要，无需手动浏览平台2小时。每周节省10小时。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景2：供应商分析智能体（OpenClaw风格）</h2>
+    <p><strong>任务：</strong>收到新供应商申请时，自动收集公开信息并准备尽职调查档案。</p>
+    
+    <h3>智能体架构</h3>
+    <div class="arch">
+[系统申请：公司名称、税号]<br>
+  ↓<br>
+[OpenClaw智能体：并行调用]<br>
+  ├─→ [浏览器：公司网站 → 提取业务活动、联系方式]<br>
+  ├─→ [API：国家法人登记簿 → 检查状态、创始人]<br>
+  ├─→ [API：SPARK/Kontur → 财务指标]<br>
+  └─→ [搜索：新闻、诉讼案件]<br>
+  ↓<br>
+[本地部署LLM：整合为统一档案]<br>
+  ↓<br>
+[PDF报告存入文件夹 + 通知采购员]
+    </div>
+
+    <h3>安全边界</h3>
+    <ul>
+      <li>公开数据收集 — 外部边界（浏览器、API）</li>
+      <li>档案整合、风险评估 — 本地部署LLM</li>
+      <li>准入决策 — 人工（human-in-the-loop）</li>
+    </ul>
+
+    <div class="card card-warning">
+      <strong>重要：</strong>供应商检查的事实及其结果属于内部信息。即使数据来自公开来源，档案也在本地部署准备。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景3：商业报价比较智能体（混合）</h2>
+    <p><strong>任务：</strong>获取3个以上供应商的商业报价，结构化、比较、识别隐藏风险、准备建议。</p>
+    
+    <h3>智能体架构</h3>
+    <div class="arch">
+[邮件集成：主题为「商业报价」的新邮件]<br>
+  ↓<br>
+[智能体：提取附件（PDF、Excel、Word）]<br>
+  ↓<br>
+[本地部署LLM：从商业报价中提取参数]<br>
+  ├─ 价格、期限、付款条件<br>
+  ├─ 保证、罚款、不可抗力<br>
+  └─ 隐藏条件（自动延期、独任仲裁）<br>
+  ↓<br>
+[LLM：比较表 + 每个商业报价的SWOT分析]<br>
+  ↓<br>
+[通知采购员：「商业报价已准备好比较」]
+    </div>
+
+    <h3>关键特点</h3>
+    <p>智能体在内部边界内工作：接收邮件、处理文件，不将商业报价内容发送到外部。LLM分析条件，比较时看不到竞争对手名称（如需额外保密）。</p>
+
+    <div class="card card-success">
+      <strong>结果：</strong>15分钟内比较5份商业报价，而手动分析需要3-4小时。智能体不会遗漏小字体和隐藏条件。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>方法比较</h2>
+    <table style="width:100%;border-collapse:collapse;margin:14px 0;font-size:0.9rem;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">方法</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">何时使用</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">复杂度</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n + LLM API</td><td style="padding:10px;border-bottom:1px solid var(--border);">简单场景：解析、过滤、通知</td><td style="padding:10px;border-bottom:1px solid var(--border);">低</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">OpenClaw智能体</td><td style="padding:10px;border-bottom:1px solid var(--border);">复杂多步骤决策任务</td><td style="padding:10px;border-bottom:1px solid var(--border);">中</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">混合智能体</td><td style="padding:10px;border-bottom:1px solid var(--border);">敏感数据+公开来源的任务</td><td style="padding:10px;border-bottom:1px solid var(--border);">高</td></tr>
+    </table>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../07-3-hybrid/index.html" class="nav-btn">← 7.3 混合方法</a>
+    <a href="../../../catalog.html" class="nav-btn primary">返回目录</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 生产企业</p></div></footer>
+</body></html>

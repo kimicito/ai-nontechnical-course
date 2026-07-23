@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>12.5 维护与维修智能体场景 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第12级 — 维护与维修</div>
+    <h1>12.5 维护与维修智能体场景</h1>
+    <div class="meta">⏱ 12分钟 · 维修计划和预测智能体</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>智能体与语言模型有何不同？</strong><br>
+    LLM按请求进行分析。<span class="highlight">智能体</span>持续工作：跟踪运行时长，生成申请单，订购备件——无需下达「检查设备」的指令。详情见<a href="../../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">第4级</a>。
+  </div>
+
+  <div class="section">
+    <h2>场景1：维护计划智能体 (n8n + ERP)</h2>
+    <p><strong>任务：</strong>跟踪设备运行时长，接近标准时生成维护申请单。</p>
+    <div class="arch">
+[定时任务：每天6:00]<br>
+  ↓<br>
+[SQL查询ERP/CMMS]<br>
+  ├─→ 每台设备运行时长<br>
+  ├─→ 上次维护日期<br>
+  └─→ 标准间隔<br>
+  ↓<br>
+[智能体：计算距维护剩余量]<br>
+  ├─→ >80%标准：预警<br>
+  └─→ >95%标准：创建维护申请单<br>
+  ↓<br>
+[在CMMS中自动创建申请单]<br>
+  ├─→ 设备名称<br>
+  ├─→ 维护类型（维护-1、维护-2、维护-3）<br>
+  └─→ 计划日期<br>
+  ↓<br>
+[通知机械师+计划员]<br>
+  ↓<br>
+[每周报告：本周维护计划]
+    </div>
+    <div class="card card-success">
+      <strong>结果：</strong>不会出现遗漏维护的情况。计划自动执行，机械师提前收到申请单。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景2：故障预测智能体 (OpenClaw智能体)</h2>
+    <p><strong>任务：</strong>分析传感器和日志数据，发现故障前的模式，发出预警。</p>
+    <div class="arch">
+[与SCADA/IoT平台集成]<br>
+  ↓<br>
+[智能体：每15分钟收集数据]<br>
+  ├─→ 轴承温度<br>
+  ├─→ 振动<br>
+  ├─→ 油压<br>
+  └─→ 能耗<br>
+  ↓<br>
+[本地部署智能体：趋势分析]<br>
+  ├─→ 与标准对比<br>
+  ├─→ 发现劣化（偏差逐渐增大）<br>
+  └─→ 与历史故障的相关性<br>
+  ↓<br>
+[故障风险评估]<br>
+  ├─→ 绿色：在正常范围内<br>
+  ├─→ 黄色：需要关注（计划检查）<br>
+  └─→ 红色：非计划故障高风险<br>
+  ↓<br>
+[通知+建议]<br>
+  ├─ 黄色：「请在3天内安排检查」<br>
+  └─ 红色：「建议在24小时内停机」<br>
+  ↓<br>
+[在CMMS中创建紧急申请单]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景3：备件管理智能体 (混合)</h2>
+    <p><strong>任务：</strong>监控关键备件库存，在临界水平时订购，分析消耗量。</p>
+    <div class="arch">
+[定时任务：每天]<br>
+  ↓<br>
+[SQL查询：仓库库存]<br>
+  ↓<br>
+[智能体：与最小/最大水平对比]<br>
+  ├─→ 备件低于最小值：创建采购申请单<br>
+  ├─→ 备件高于最大值：超储预警<br>
+  └─→ 关键备件（交货期长）：提前规划<br>
+  ↓<br>
+[LLM：形成采购申请单]<br>
+  ├─ 名称、数量<br>
+  ├─ 首选供应商（来自历史）<br>
+  └─ 理由（消耗预测）<br>
+  ↓<br>
+[通知采购员/向批准供应商自动下单]<br>
+  ↓<br>
+[月度报告：库存ABC/XYZ分析]
+    </div>
+    <div class="card card-warning">
+      <strong>重要：</strong>库存和供应商数据属于内部信息。智能体在本地部署运行或通过ERP安全集成。
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../12-3-hybrid/index.html" class="nav-btn">← 12.3 混合方案</a>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 生产企业</p></div></footer>
+</body></html>

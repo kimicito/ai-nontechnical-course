@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>9.5 审计的智能体场景 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第9级 — 审计</div>
+    <h1>9.5 审计的智能体场景</h1>
+    <div class="meta">⏱ 12分钟 · 用于内部控制和审计的智能体</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>智能体与语言模型有什么区别？</strong><br>
+    LLM回复请求。<span class="highlight">智能体</span>持续工作：监控、比较、预警、记录——无需「现在检查一下」的指令。详细了解 — <a href="../../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">第4级</a>。
+  </div>
+
+  <div class="section">
+    <h2>场景1：异常监控智能体（n8n + SQL）</h2>
+    <p><strong>任务：</strong>每日扫描交易，发现偏离正常值的情况，向审计员发送预警。</p>
+    <div class="arch">
+[Cron: 每日8:00]<br>
+  ↓<br>
+[SQL查询ERP：昨日交易]<br>
+  ↓<br>
+[智能体：统计分析]<br>
+  ├─→ 偏离平均值2σ的金额<br>
+  ├─→ 重复付款<br>
+  ├─→ 非工作时间付款<br>
+  └─→ 新交易对手大额付款<br>
+  ↓<br>
+[LLM：生成带上下文的意见]<br>
+  ↓<br>
+[邮件给审计员：「7月23日5项异常」]<br>
+  ↓<br>
+[Google表格：异常日志]
+    </div>
+    <div class="card card-success">
+      <strong>结果：</strong>异常在当天被发现，而非季度核对时。反应时间从数周缩短至数小时。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景2：合同审计智能体（OpenClaw智能体）</h2>
+    <p><strong>任务：</strong>收到合同审批时，自动检查典型风险、模板符合性、必备条款。</p>
+    <div class="arch">
+[邮件 / 电子文档管理系统：新合同待审批]<br>
+  ↓<br>
+[智能体：提取文本（PDF则OCR）]<br>
+  ↓<br>
+[本地部署LLM：按清单检查]<br>
+  ├─→ 符合公司模板<br>
+  ├─→ 必备条款（保险、罚款、不可抗力）<br>
+  ├─→ 风险表述（自动延期、独任仲裁）<br>
+  ├─→ 符合法规<br>
+  └─→ 与国家法人登记簿核对信息<br>
+  ↓<br>
+[生成检查报告]<br>
+  ├─ 带条款引用的意见<br>
+  ├─ 修改建议<br>
+  └─ 风险评估（低 / 中 / 高）<br>
+  ↓<br>
+[通知审计员 + 法务]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景3：审计准备智能体（混合）</h2>
+    <p><strong>任务：</strong>外部审计前收集所有必要文件，检查完整性，准备计划。</p>
+    <div class="arch">
+[请求：「准备Q2增值税审计」]<br>
+  ↓<br>
+[智能体：在电子文档管理系统/档案中搜索文件]<br>
+  ├─→ 发票<br>
+  ├─→ 进项/销项登记簿<br>
+  ├─→ 银行对账单<br>
+  └─→ 与交易对手的合同<br>
+  ↓<br>
+[按审计员清单检查完整性]<br>
+  ↓<br>
+[LLM：分析已找到/缺失的文件]<br>
+  ↓<br>
+[生成准备计划]<br>
+  ├─ 已准备就绪的<br>
+  ├─ 缺失的 + 责任人<br>
+  └─ 期限<br>
+  ↓<br>
+[通知主管 + 责任人]
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../09-compliance-fraud/index.html" class="nav-btn">← 合规与反欺诈</a>
+    <a href="../../../catalog.html" class="nav-btn primary">返回目录</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 生产企业</p></div></footer>
+</body></html>

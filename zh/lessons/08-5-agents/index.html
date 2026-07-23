@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.5 建筑领域的智能体场景 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第8级 — 建筑</div>
+    <h1>8.5 建筑领域的智能体场景</h1>
+    <div class="meta">⏱ 12分钟 · 用智能体自动化建筑流程</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>智能体与语言模型有什么区别？</strong><br>
+    LLM回复单个请求。<span class="highlight">智能体</span>循环工作：获取数据、分析、做决策、执行操作——无需人工介入每一步。详细了解 — <a href="../../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">第4级</a>。
+  </div>
+
+  <div class="section">
+    <h2>场景1：缺陷追踪智能体（n8n + Vision API）</h2>
+    <p><strong>任务：</strong>接收工地照片，分类缺陷，指派责任人，跟踪整改。</p>
+    <div class="arch">
+[工地Telegram机器人：照片 + 缺陷描述]<br>
+  ↓<br>
+[n8n：接收消息]<br>
+  ↓<br>
+[Vision LLM：缺陷分类（裂缝、不平整、材料瑕疵）]<br>
+  ↓<br>
+[LLM：确定严重程度（严重 / 重大 / 轻微）]<br>
+  ↓<br>
+[Notion/Bitrix24：创建带照片、描述、截止日期的任务]<br>
+  ↓<br>
+[按手册指派责任人：缺陷类型 → 部门]<br>
+  ↓<br>
+[Telegram通知责任人]
+    </div>
+    <div class="card card-success">
+      <strong>结果：</strong>缺陷在2分钟内记录完毕，而非2小时（照片 → 纸质单据 → 录入日志 → 分派）。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景2：预算检查智能体（OpenClaw智能体）</h2>
+    <p><strong>任务：</strong>上传预算，检查是否符合规范（FER/GESN），发现错误，准备意见。</p>
+    <div class="arch">
+[上传预算文件（Excel、PDF）到系统]<br>
+  ↓<br>
+[本地部署智能体：提取项目]<br>
+  ├─→ 检查：是否符合FER/GESN（内部数据库）<br>
+  ├─→ 检查：工程量计算<br>
+  ├─→ 检查：系数和调整<br>
+  └─→ 检查：地区单价<br>
+  ↓<br>
+[LLM：生成检查报告]<br>
+  ├─ 发现的错误<br>
+  ├─ 修正建议<br>
+  └─ 规范文件引用<br>
+  ↓<br>
+[PDF报告 + 通知预算员]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景3：工期管控智能体（混合）</h2>
+    <p><strong>任务：</strong>监控施工进度表，分析延期风险，预警责任人。</p>
+    <div class="arch">
+[与Project / MS Project / Primavera集成]<br>
+  ↓<br>
+[智能体：每日读取状态]<br>
+  ├─→ 计划/实际对比<br>
+  ├─→ 关键路径分析<br>
+  └─→ 识别有延期风险的任务（偏差>3天）<br>
+  ↓<br>
+[LLM：生成预警通知]<br>
+  ├─ 哪项工作有风险<br>
+  ├─ 原因（根据数据）<br>
+  └─ 怎么办（可选方案）<br>
+  ↓<br>
+[邮件给项目经理 + 更新仪表盘]
+    </div>
+    <div class="card card-warning">
+      <strong>重要：</strong>施工进度数据属于内部信息。智能体完全在本地部署工作，或通过带过滤的DMZ。
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-4-dev-agents/index.html" class="nav-btn">← 8.4 开发智能体</a>
+    <a href="../../../catalog.html" class="nav-btn primary">返回目录</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 生产企业</p></div></footer>
+</body></html>

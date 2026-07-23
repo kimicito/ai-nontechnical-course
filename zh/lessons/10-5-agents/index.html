@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.5 PR智能体场景 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第10级 — PR</div>
+    <h1>10.5 PR智能体场景</h1>
+    <div class="meta">⏱ 12分钟 · 媒体监控、危机沟通、ESG</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>智能体与语言模型有何不同？</strong><br>
+    LLM按请求撰写文本。<span class="highlight">智能体</span>24/7工作：扫描数百个来源，分类，发出警报，准备草稿——无需下达「检查一下他们在写什么」的指令。详情见<a href="../../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">第4级</a>。
+  </div>
+
+  <div class="section">
+    <h2>场景1：媒体监控智能体 (n8n + RSS/API)</h2>
+    <p><strong>任务：</strong>跟踪公司、竞争对手、行业的提及；分析情感倾向；形成摘要。</p>
+    <div class="arch">
+[定时任务：每2小时]<br>
+  ↓<br>
+[并行查询来源]<br>
+  ├─→ RSS媒体（商业日报、消息报、RBC）<br>
+  ├─→ 行业Telegram频道<br>
+  ├─→ Google News API<br>
+  └─→ YouTube（视频中的提及）<br>
+  ↓<br>
+[LLM：按相关性过滤]<br>
+  ├─→ 直接提及公司<br>
+  ├─→ 提及竞争对手<br>
+  ├─→ 监管变化<br>
+  └─→ 行业趋势<br>
+  ↓<br>
+[LLM：情感分析（正面/中性/负面）]<br>
+  ↓<br>
+[形成摘要]<br>
+  ├─ Top 5新闻<br>
+  ├─ 情感倾向<br>
+  └─ 应对建议<br>
+  ↓<br>
+[发送邮件给PR总监 + 企业Slack帖子]
+    </div>
+    <div class="card card-success">
+      <strong>结果：</strong>PR收到摘要，无需手动浏览50+个来源。每天节省3-4小时。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景2：危机沟通智能体 (OpenClaw智能体)</h2>
+    <p><strong>任务：</strong>发现负面舆情时——快速评估规模，准备回应建议，转交审批。</p>
+    <div class="arch">
+[触发条件：1小时内>10条负面提及 或 联邦媒体提及]<br>
+  ↓<br>
+[智能体：紧急收集]<br>
+  ├─→ 爆发点在哪里（平台、地域）<br>
+  ├─→ 关键信息/表情包<br>
+  ├─→ 推动话题的网红<br>
+  └─→ 与现实事件的关联<br>
+  ↓<br>
+[本地部署LLM：风险分析]<br>
+  ├─→ 威胁级别（低/中/高）<br>
+  ├─→ 发展情景<br>
+  └─→ 回应建议（沉默/辟谣/道歉/行动）<br>
+  ↓<br>
+[回应草稿]<br>
+  ├─ 面向媒体<br>
+  ├─ 面向社交媒体<br>
+  └─ 内部员工备忘录<br>
+  ↓<br>
+[通知PR总监：「危机：级别X，建议已附上」]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景3：ESG报告智能体 (混合)</h2>
+    <p><strong>任务：</strong>从不同系统收集数据，按照GRI/SASB标准形成ESG报告草稿。</p>
+    <div class="arch">
+[请求：「准备年度ESG报告」]<br>
+  ↓<br>
+[智能体：从内部系统收集数据]<br>
+  ├─→ ERP：能耗、排放<br>
+  ├─→ HR：性别平等、培训<br>
+  ├─→ 采购：供应链、本地化<br>
+  └─→ 生产：安全、废弃物<br>
+  ↓<br>
+[外部AI LLM：按GRI标准分析]<br>
+  ├─→ 覆盖了哪些指标<br>
+  ├─→ 缺少哪些数据<br>
+  └─→ 与去年对比<br>
+  ↓<br>
+[本地部署LLM：形成报告文本]<br>
+  ↓<br>
+[PDF草稿 + 改进清单]
+    </div>
+    <div class="card card-warning">
+      <strong>重要：</strong>内部数据（工资、工伤、排放）——使用本地部署。按GRI标准的分析可以在匿名化数据上使用外部AI进行。
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../10-4-dev-agents/index.html" class="nav-btn">← 10.4 开发智能体</a>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 生产企业</p></div></footer>
+</body></html>
