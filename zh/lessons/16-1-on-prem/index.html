@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.1 合规内部任务 — 本地部署 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第16级 — 合规</div>
+    <h1>16.1 内部任务：本地部署</h1>
+    <div class="meta">⏱ 25分钟 · 面向合规官、律师、首席合规官</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>封闭式环境（本地部署）</strong><br>
+    本课程中的所有任务都涉及<span class="highlight">具体姓名、交易、交易对手、个人数据、举报者投诉、调查</span>。本地部署是合规工作的默认规则。
+  </div>
+
+  <div class="section">
+    <h2>为什么合规是最封闭职能之一</h2>
+    <p>合规兼具多个职能的敏感性：像内部控制一样——存在漏洞地图和举报者风险；像律师一样——享有特权并与监管后果相关；像安全部门一样——调查具体人员。其特殊之处在于："具体调查了谁以及为什么"这一事实本身就是敏感信息，无论调查结果如何。</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>本地部署的强制适用场景：</strong>
+    <ul>
+      <li>分析制裁限制对具体交易/交易对手的适用性</li>
+      <li>KYC/KYB——收集关于具体交易对手的信息（受益所有人、股权结构）</li>
+      <li>交易分析以识别可疑活动迹象（金融数据）</li>
+      <li>准备SAR/STR——向监管机构提交的可疑交易报告</li>
+      <li>交易监控警报调查</li>
+      <li>第三方反腐尽职调查（具体合作伙伴）</li>
+      <li>礼品/招待费用分析（员工个人数据）</li>
+      <li>腐败信号调查（与内部控制部门合作）</li>
+      <li>热线投诉的初步分析（举报者身份泄露风险）</li>
+      <li>调查材料整理、管理层报告</li>
+      <li>董事会/审计委员会的合规报告</li>
+      <li>回应监管机构问询</li>
+      <li>准备外部合规审计（内部流程全貌）</li>
+      <li>针对真实业务流程的合规风险评估（漏洞地图）</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. 交易制裁适用性分析</h2>
+    <p>解释针对具体交易对手和交易的筛查结果——决定是否可以进行操作。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（本地部署）</div>
+      <pre>分析制裁限制对交易的适用性：
+
+交易数据（机密）：
+- 交易对手：[请填写名称]
+- 交易对手所在国：[请填写]
+- 商品原产国：[请填写]
+- 商品/服务类型：[请填写]
+- 金额：[请填写]
+- 币种：[请填写]
+- 支付方式：[请填写]
+
+筛查结果（内部系统）：
+- OFAC：[请填写]
+- 欧盟：[请填写]
+- 英国：[请填写]
+- 国家名单：[请填写]
+
+请完成：
+1. 交易风险评估（高/中/低/禁止）
+2. 适用的限制性措施
+3. 需要进行的额外核查
+4. 交易可行条件（如可行）
+5. 合规委员会依据
+6. 文档记录（需记录内容）</pre>
+    </div>
+    <p><strong>结果：</strong>有据可依的交易决策，节省2–3小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>2. 交易对手KYC/KYB</h2>
+    <p>收集和整理关于受益所有人、股权结构、关联方的信息。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>对交易对手进行KYC/KYB分析：
+
+交易对手：[请填写名称]
+
+内部数据：
+- 创始人：[请填写]
+- 受益所有人：[请填写]
+- 股权结构：[请填写]
+- 关联方：[请填写]
+- 变更历史：[请填写]
+
+请完成：
+1. 股权结构图（文字描述）
+2. 最终受益所有人（UBO）
+3. 关联方及其状态（PEP、制裁）
+4. 风险评估（高/中/低）
+5. 合作条件建议
+6. 信息更新计划</pre>
+    </div>
+    <p><strong>结果：</strong>结构化的交易对手档案，节省3–4小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>3. 交易可疑活动分析</h2>
+    <p>解释交易监控警报，准备论证依据。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>分析交易监控警报：
+
+警报（内部系统）：
+- ID：[请填写]
+- 类型：[请填写：结构化/循环流动/交易量骤增]
+- 账户：[请填写（如需要可匿名化）]
+- 期间：[请填写]
+- 金额：[请填写]
+- 交易对手：[请填写]
+
+账户历史：
+- 月均交易额：[请填写]
+- 典型交易对手：[请填写]
+- 业务依据：[请填写]
+
+请完成：
+1. 可疑模式描述
+2. 与账户典型行为对比
+3. 可能解释（合法与非法）
+4. 需要的额外数据
+5. 建议（SAR/进一步分析/关闭）
+6. 档案论证</pre>
+    </div>
+    <p><strong>结果：</strong>有据可依的警报结论，节省2–3小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>4. SAR/STR准备</h2>
+    <p>向监管机构提交的可疑交易报告——具有法律意义的文件。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>准备SAR（可疑活动报告）：
+
+操作数据（机密）：
+- 操作日期：[请填写]
+- 金额：[请填写]
+- 币种：[请填写]
+- 发送方：[请填写]
+- 接收方：[请填写]
+- 怀疑依据：[请填写]
+- 关系历史：[请填写]
+- 既往警报：[请填写]
+
+请完成：
+1. 可疑活动摘要
+2. 交易详细描述（时间线）
+3. 怀疑论证（为何认为可疑）
+4. 关联方和账户
+5. 既往历史（如有）
+6. 公司已采取措施
+7. 附件（文件清单）
+
+格式：符合[请填写监管机构]要求</pre>
+    </div>
+    <p><strong>结果：</strong>完成的SAR，节省3–4小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>5. 腐败信号调查</h2>
+    <p>整理材料，为道德委员会准备结论。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>对腐败信号进行调查：
+
+信号来源：[请填写：热线/审计/内部控制]
+
+信号内容：
+[请填写要点（如为举报者则隐去身份）]
+
+内部数据：
+- 涉事人员：[请填写]
+- 礼品/招待费用历史：[请填写]
+- 交易对手：[请填写]
+- 文件：[请填写]
+
+请完成：
+1. 事件时间线
+2. 事实分析（哪些可确认，哪些不可）
+3. 违规评估（违反了哪些政策）
+4. 涉及人员
+5. 建议（纪律/行政/刑事）
+6. 整改措施计划
+7. 道德委员会报告</pre>
+    </div>
+    <p><strong>结果：</strong>结构化的调查报告，节省4–5小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>6. 热线投诉分析</h2>
+    <p>对举报者投诉进行初步分类和优先级排序。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>分析热线投诉：
+
+投诉（匿名）：
+[请插入投诉文本]
+
+请完成：
+1. 违规类别（腐败/金融舞弊/安全违规/歧视/其他）
+2. 严重程度（严重/高/中/低）
+3. 投诉中提及的部门/人员
+4. 调查所需初步步骤
+5. 风险（报复、泄露、声誉）
+6. 调查期限建议
+7. 相对于其他案件的优先级
+
+注意：保护举报者匿名性。</pre>
+    </div>
+    <p><strong>结果：</strong>分类和行动方案，节省1–2小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>7. 董事会合规报告</h2>
+    <p>为最高管理机构准备结构化报告。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>准备董事会合规报告：
+
+期间：[请填写]
+
+内部数据：
+- 检查次数：[请填写]
+- 发现的违规：[请填写]
+- 已提交SAR/STR：[请填写]
+- 制裁警报：[请填写]
+- 热线投诉：[请填写]
+- 调查：[请填写]
+- 培训完成率：[请填写]%
+
+请完成：
+1. 执行摘要（1页）
+2. 本期关键风险
+3. 趋势（与上期对比）
+4. 重大事件（匿名化）
+5. 整改措施状态
+6. 管理层建议
+7. 下期计划
+
+语气：专业、冷静、聚焦风险。</pre>
+    </div>
+    <p><strong>结果：</strong>完成的报告，节省3–4小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>总结表</h2>
+    <table>
+      <tr><th>任务</th><th>所需资料</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>交易制裁分析</td><td>交易数据、筛查结果</td><td>合规决策</td><td>2–3小时</td></tr>
+      <tr><td>KYC/KYB</td><td>交易对手数据</td><td>风险档案</td><td>3–4小时</td></tr>
+      <tr><td>交易分析</td><td>警报、账户历史</td><td>警报结论</td><td>2–3小时</td></tr>
+      <tr><td>SAR/STR</td><td>操作数据、依据</td><td>完成的报告</td><td>3–4小时</td></tr>
+      <tr><td>腐败调查</td><td>信号、内部文件</td><td>调查报告</td><td>4–5小时</td></tr>
+      <tr><td>举报者投诉</td><td>投诉文本</td><td>分类+方案</td><td>1–2小时</td></tr>
+      <tr><td>董事会报告</td><td>期间统计数据</td><td>执行摘要</td><td>3–4小时</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识测验</h2>
+    <p><strong>问题1：</strong>为什么举报者投诉的初步分析必须仅在本地部署进行？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>举报者身份泄露的风险至关重要。'">存在举报者身份泄露和整个热线系统被渗透的风险</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。数量不是主要因素。'">仅当月投诉少于10件时</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。举报者投诉几乎无法匿名化。'">如果匿名化投诉文本，可以在云端进行</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>问题2：</strong>SAR/STR适用哪种环境？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>SAR包含具体操作的机密数据。'">本地部署——具有法律意义的文件，包含机密数据</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。SAR不是公开文件。'">外部AI——监管机构公布了SAR要求</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。结构可以，但内容不行。'">混合——结构在云端，事实在内部</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>问题3：</strong>为什么KYC/KYB必须在本地部署进行？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>受益所有人和股权结构属于个人数据。'">受益所有人和股权结构属于个人数据</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。公开登记信息可以获取，但集中整理会构成档案。'">公开登记信息人人可得，因此可以在云端进行</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。即使匿名化的KYC也包含敏感信息。'">如果匿名化名称，可以在云端进行</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">返回首页</a>
+    <a href="../16-2-cloud/index.html" class="nav-btn primary">16.2 外部任务 →</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 制造公司</p></div></footer>
+</body></html>

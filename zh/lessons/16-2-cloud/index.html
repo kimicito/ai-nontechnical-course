@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.2 合规外部任务 — 外部AI — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第16级 — 合规</div>
+    <h1>16.2 外部任务：外部AI</h1>
+    <div class="meta">⏱ 20分钟 · 面向合规官</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>公开数据（外部AI）</strong><br>
+    本课程中的所有任务都涉及<span class="highlight">公开制裁名单、法规文件、公开框架、标准政策</span>。可以使用Claude、ChatGPT、Gemini。
+  </div>
+
+  <div class="section">
+    <h2>可以在外部AI中做什么</h2>
+    <p>外部AI在以下场景中是安全的：以法规领域本身为工作对象——存在哪些名单、监管机构要求什么、方法论如何构建——在将其应用于真实姓名或交易之前。</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>主要规则：</strong>如果请求中没有具体姓名、公司名称、金额、账户号码、交易日期——可以使用外部AI。
+  </div>
+
+  <div class="section">
+    <h2>1. 制裁制度监控</h2>
+    <p>汇总OFAC、欧盟、英国、联合国和国家监管机构制裁名单的变化。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（外部AI + 网络搜索）</div>
+      <pre>分析过去一个月的制裁制度变化：
+
+司法管辖区：OFAC（美国）、欧盟、英国、联合国
+
+请完成：
+1. 新加入名单的个人/组织
+2. 行业制裁的变化
+3. 商品/技术的新限制
+4. 监管机构的解释（指导更新）
+5. 趋势（值得关注的内容）
+6. 对公司的普遍建议
+
+格式：分析备忘录（1-2页）</pre>
+    </div>
+    <p><strong>结果：</strong>变化概览，节省3–4小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>2. 出口管制结论（通用）</h2>
+    <p>以通用形式分析出口管制规范的适用性，不涉及具体交易。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>解释出口管制的适用性：
+
+主题：[请填写：两用商品/技术限制/军事用途]
+司法管辖区：[请填写：美国/欧盟/俄罗斯/中国]
+
+请完成：
+1. 适用的出口管制制度
+2. 商品/技术类别
+3. 许可要求
+4. 例外和豁免
+5. 许可获取程序
+6. 实践建议（通用）
+7. 法规依据链接
+
+注意：不涉及公司具体交易。</pre>
+    </div>
+    <p><strong>结果：</strong>出口管制参考，节省2–3小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>3. 基于标准框架的合规政策制定</h2>
+    <p>基于国际标准（ISO 37001、英国《反贿赂法》、美国《反海外腐败法》）制定政策。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>基于国际标准制定合规政策：
+
+政策类型：[请填写：反腐败/反洗钱/制裁/利益冲突]
+基础框架：[请填写：ISO 37001/英国《反贿赂法》/美国《反海外腐败法》指导]
+
+请完成：
+1. 政策结构（章节）
+2. 主要条款（原则）
+3. 员工义务（按层级）
+4. 文件记录程序
+5. 违规调查程序
+6. 违规处罚
+7. 审查周期
+8. 附件（表格、检查清单）
+
+格式：可供公司调整使用的现成文件。</pre>
+    </div>
+    <p><strong>结果：</strong>政策草稿，节省4–5小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>4. 商业道德准则</h2>
+    <p>基于最佳实践制定准则的通用部分。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>制定商业道德准则：
+
+公司：大型制造企业（B2B）
+地域：国际业务
+
+请完成：
+1. 公司价值观（5-7条）
+2. 与交易对手交往行为规范
+3. 礼品和招待规则
+4. 利益冲突（定义、示例）
+5. 资产和信息保护
+6. 职业道德（歧视、骚扰）
+7. 报告违规的义务
+8. 调查程序
+9. 责任
+
+语气：易懂、具体示例、不抽象。</pre>
+    </div>
+    <p><strong>结果：</strong>完成的准则，节省3–4小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>5. 合规培训项目</h2>
+    <p>准备通用内容的培训材料。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>制定合规培训课程：
+
+主题：[请填写：反洗钱/反腐败/制裁/利益冲突]
+受众：[请填写：全体员工/管理层/财务部门]
+格式：10页幻灯片 + 测试（5题）
+
+请完成：
+1. 培训目标
+2. 基本概念（简单语言）
+3. 员工义务
+4. 警示信号（示例）
+5. 怀疑时的处理方式
+6. 测试（5道选择题）
+7. 自查清单
+
+语气：易懂、结合生活实例。</pre>
+    </div>
+    <p><strong>结果：</strong>培训现成材料，节省3–4小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>6. 行业合规实践基准测试</h2>
+    <p>基于公开数据与国际集团比较合规实践。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（网络搜索）</div>
+      <pre>进行合规实践基准测试：
+
+行业：[请填写]
+参数：
+- 合规职能结构
+- 技术应用（筛查自动化）
+- 培训项目（每员工小时数）
+- 举报者渠道
+- 外部审计（频率）
+- 公开报告（ESG/反腐败报告）
+
+请完成：
+1. 3-5家国际公司实践概览
+2. 对比表
+3. 最佳实践
+4. 改进建议
+5. 合规职能趋势
+
+来源：公开报告、ESG披露、道德准则。</pre>
+    </div>
+    <p><strong>结果：</strong>行业实践概览，节省4–5小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>总结表：外部任务</h2>
+    <table>
+      <tr><th>任务</th><th>所需资料</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>制裁监控</td><td>司法管辖区、期间</td><td>分析备忘录</td><td>3–4小时</td></tr>
+      <tr><td>出口管制</td><td>主题、司法管辖区</td><td>参考文件</td><td>2–3小时</td></tr>
+      <tr><td>合规政策</td><td>类型、框架</td><td>政策草稿</td><td>4–5小时</td></tr>
+      <tr><td>道德准则</td><td>公司类型</td><td>完成的准则</td><td>3–4小时</td></tr>
+      <tr><td>培训项目</td><td>主题、受众</td><td>演示文稿 + 测试</td><td>3–4小时</td></tr>
+      <tr><td>基准测试</td><td>行业、参数</td><td>对比分析</td><td>4–5小时</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识测验</h2>
+    <p><strong>问题1：</strong>可以在外部AI中检查具体交易对手是否在制裁名单上吗？</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。具体姓名属于敏感信息。'">可以，名单是公开的</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>"检查过谁"这一事实本身属于敏感信息。'">不行，"检查过谁"这一事实本身属于敏感信息</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。匿名化无济于事，如果请求包含具体数据。'">如果匿名化名称，就可以</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>问题2：</strong>基于ISO 37001制定合规政策——适用哪种环境？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>ISO 37001是公开标准。'">外部AI——框架是公开的</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。ISO标准是公开的，草稿可以在外部完成。'">本地部署——政策是内部的</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。结构是公开的，调整是内部的，但制定本身在外部。'">混合——结构在云端，调整在内部</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>问题3：</strong>合规实践基准测试——适用哪种环境？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>ESG报告和道德准则都是公开的。'">外部AI——使用公开报告</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。基准测试是与公开数据比较。'">本地部署——与竞争对手比较</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。公开数据不属于混合范畴。'">混合——公开数据 + 内部分析</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../16-1-on-prem/index.html" class="nav-btn">← 16.1 内部任务</a>
+    <a href="../16-3-hybrid/index.html" class="nav-btn primary">16.3 混合任务 →</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 制造公司</p></div></footer>
+</body></html>

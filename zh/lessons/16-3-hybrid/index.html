@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.3 合规混合任务 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第16级 — 合规</div>
+    <h1>16.3 混合任务</h1>
+    <div class="meta">⏱ 20分钟 · 面向合规官</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>混合方法</strong><br>
+    通用的<span class="highlight">方法论、结构、标准逻辑</span>在外部AI中准备。<br>
+    <span class="highlight">具体姓名、交易、交易、战略决策</span>——在本地部署处理。
+  </div>
+
+  <div class="section">
+    <h2>合规混合方法原则</h2>
+    <p>合规兼具多个职能的敏感性。混合方法允许在外部AI中处理方法论和通用逻辑，同时将机密数据保留在内部。</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>云端匿名化规则：</strong>
+    <table>
+      <tr><th>必须移除的内容</th><th>可以保留的内容</th></tr>
+      <tr><td>交易对手公司名称</td><td>交易对手类型（供应商/买方/代理商）</td></tr>
+      <tr><td>具体交易金额</td><td>模式分析方法论</td></tr>
+      <tr><td>受益所有人/PEP姓名</td><td>风险类型（PEP/制裁/腐败）</td></tr>
+      <tr><td>账户号码、交易日期</td><td>行业典型期限</td></tr>
+      <tr><td>公司部门名称</td><td>流程类型（采购/销售/招聘）</td></tr>
+      <tr><td>董事会战略决策</td><td>通用治理原则</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>1. 制裁筛查（混合）</h2>
+    <p>筛查本身通过专业系统进行（非生成式AI）。结果解释——在外部AI中使用匿名化数据，最终决策——在本地部署。</p>
+    <div class="example">
+      <div class="example-label">步骤1：云端——基于匿名化数据的解释</div>
+      <pre>分析制裁筛查场景：
+
+场景（匿名化）：
+- 交易对手类型：个人
+- 国家：[如敏感请填写地区而非具体国家]
+- 警报：姓名与OFAC名单人物部分匹配
+- 补充数据：出生日期不匹配，国家不同
+
+请完成：
+1. 匹配程度分析（OFAC标准）
+2. 误报概率
+3. 需要进行的额外核查
+4. 决策方法论（通过/拒绝/进一步核查）
+5. 文档记录（需记录内容）
+
+注意：不涉及具体姓名，仅方法论。</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">步骤2：本地部署——最终决策</div>
+      <pre>对具体交易对手做出决策：
+
+交易对手：[请填写姓名]
+筛查结果：[请插入]
+方法论（来自云端）：[请插入]
+
+补充内部数据：
+- 合作历史：[请填写]
+- 业务依据：[请填写]
+- 拒绝风险：[请填写]
+
+做出决策：
+1. 批准 / 附条件批准 / 拒绝
+2. 依据（关联具体事实）
+3. 条件（如适用）
+4. 文档办理
+5. 复核期限</pre>
+    </div>
+    <p><strong>节省时间：</strong>云端方法论（1小时）+ 本地部署决策（1小时）。</p>
+  </div>
+
+  <div class="section">
+    <h2>2. 合规风险评估（混合）</h2>
+    <p>通用方法论和风险矩阵在外部准备，应用于真实业务单元——在内部。</p>
+    <div class="example">
+      <div class="example-label">步骤1：云端——方法论和矩阵</div>
+      <pre>制定合规风险评估方法论：
+
+参数（通用）：
+- 行业：[请填写类型，不含公司名称]
+- 业务地域：[请填写地区]
+- 交易对手类型：[请填写：政府机构/私营/代理商]
+- 产品/服务：[请填写类型]
+
+请完成：
+1. 风险矩阵（因素：国家、交易对手、产品、渠道）
+2. 评估方法论（因素权重）
+3. 风险类别（高/中/低）
+4. 每类控制措施
+5. 复核频率
+6. 评估模板（表格）
+
+注意：方法论不涉及具体公司。</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">步骤2：本地部署——应用于真实流程</div>
+      <pre>将方法论应用于真实业务流程：
+
+方法论（来自云端）：[请插入]
+
+公司业务流程：
+- 流程1：[请填写名称]——国家[请填写]，交易对手[请填写]
+- 流程2：[请填写名称]——国家[请填写]，交易对手[请填写]
+- 流程3：[请填写名称]——国家[请填写]，交易对手[请填写]
+
+请完成：
+1. 每个流程的风险评估
+2. 漏洞地图
+3. 强化控制优先级
+4. 行动计划（谁、做什么、何时）
+5. 复核期限</pre>
+    </div>
+    <p><strong>节省时间：</strong>云端方法论（2小时）+ 本地部署应用（2小时）。</p>
+  </div>
+
+  <div class="section">
+    <h2>3. 基于真实案例的培训场景（混合）</h2>
+    <p>真实案例的结构匿名化后在外部处理，完整真实案例——在内部。</p>
+    <div class="example">
+      <div class="example-label">步骤1：云端——匿名化案例</div>
+      <pre>制定合规培训场景：
+
+案例（匿名化）：
+- 情境：[请填写职能]部门员工收到潜在交易对手的"礼品"提议
+- 交易对手：来自[请填写腐败风险等级]国家的公司
+- "礼品"金额：[请填写范围，不含具体金额]
+- 背景：公司正在就[请填写交易类型]进行谈判
+
+请完成：
+1. 培训情境描述
+2. 讨论关键问题
+3. 正确和错误行为
+4. 法律后果
+5. 员工处理程序
+6. 管理者角色
+
+注意：不含名称、日期、金额。</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">步骤2：本地部署——内部使用的真实案例</div>
+      <pre>将场景调整为真实事件：
+
+真实案例（内部）：
+[请填写事件事实]
+
+场景（来自云端）：[请插入]
+
+请完成：
+1. 包含真实细节的适配场景
+2. 额外细节（公司特殊性）
+3. 内部政策依据
+4. 联系方式
+5. 决策记录表
+
+注意：仅限内部使用，不用于外部培训。</pre>
+    </div>
+    <p><strong>节省时间：</strong>云端匿名化案例（1.5小时）+ 本地部署真实适配（1小时）。</p>
+  </div>
+
+  <div class="section">
+    <h2>4. 交易对手尽职调查（混合）</h2>
+    <p>公开部分（公开登记、法院、媒体）——通过外部AI作为调研。与内部风险评估结合——在本地部署。</p>
+    <div class="example">
+      <div class="example-label">步骤1：云端——公开调研</div>
+      <pre>对典型交易对手进行公开尽职调查：
+
+交易对手类型：[请填写：代理商/中介/政府供应商]
+国家：[请填写]
+行业：[请填写]
+
+公开来源：
+1. 法人登记
+2. 法院数据库
+3. 媒体和新闻
+4. 制裁名单
+5. PEP数据库（公开）
+
+请完成：
+1. 公开核查清单
+2. 该类交易对手典型警示信号
+3. 风险评估方法论
+4. 公开部分报告模板
+
+注意：不涉及具体公司名称。</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">步骤2：本地部署——内部评估</div>
+      <pre>将结果与内部评估结合：
+
+交易对手：[请填写名称]
+公开数据（来自云端）：[请插入]
+
+内部数据：
+- 合作历史：[请填写]
+- 交易额：[请填写]
+- 关联方：[请填写]
+- 内部风险：[请填写]
+
+请完成：
+1. 风险汇总表
+2. 最终评估（批准/附条件/拒绝）
+3. 建议条件
+4. 监控计划</pre>
+    </div>
+    <p><strong>节省时间：</strong>云端公开部分（1.5小时）+ 本地部署内部评估（1小时）。</p>
+  </div>
+
+  <div class="section">
+    <h2>总结表：混合任务</h2>
+    <table>
+      <tr><th>任务</th><th>云端</th><th>本地部署</th><th>节省时间</th></tr>
+      <tr><td>制裁筛查</td><td>解释方法论</td><td>针对具体姓名的决策</td><td>1 + 1小时</td></tr>
+      <tr><td>风险评估</td><td>矩阵和方法论</td><td>应用于真实流程</td><td>2 + 2小时</td></tr>
+      <tr><td>培训场景</td><td>匿名化案例</td><td>内部使用的真实案例</td><td>1.5 + 1小时</td></tr>
+      <tr><td>尽职调查</td><td>公开调研</td><td>内部风险评估</td><td>1.5 + 1小时</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识测验</h2>
+    <p><strong>问题1：</strong>为什么制裁筛查是混合的，而不是完全在云端？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>方法论是公开的，但针对具体姓名的决策是机密的。'">因为方法论是公开的，而针对具体姓名的决策是机密的</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。筛查不是生成式AI，而是基于规则的系统。'">因为筛查需要专业软件</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。结果是内部信息。'">如果匿名化，可以完全在云端</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>问题2：</strong>合规风险评估——什么在本地部署？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>真实流程属于内部信息。'">应用于真实业务流程和部门</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。矩阵是通用方法论。'">制定风险矩阵</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。因素权重属于方法论。'">确定风险因素权重</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>问题3：</strong>培训场景——为什么要匿名化？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>事件属于内部信息。'">为了不泄露真实事件和涉事人员</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。匿名化不是为了保险，而是为了保密。'">为了保险公司不知道</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。匿名化与受众无关。'">为了让员工不知道这是真实案例</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../16-2-cloud/index.html" class="nav-btn">← 16.2 外部任务</a>
+    <a href="../16-4-summary/index.html" class="nav-btn primary">16.4 实践总结 →</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 制造公司</p></div></footer>
+</body></html>
