@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.1 Tâches internes juridiques — on-prem — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 15 — Fonction juridique</div>
+    <h1>15.1 Tâches internes : on-prem</h1>
+    <div class="meta">⏱ 25 min · pour juristes, secrétaires d'entreprise, spécialistes compliance</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Contour fermé (on-prem)</strong><br>
+    Toutes les tâches de ce cours travaillent avec <span class="highlight">le secret professionnel, l'information privilégiée, les données personnelles, les plans stratégiques de l'entreprise</span>. Utilisez un modèle interne ou un LLM local.
+  </div>
+
+  <div class="section">
+    <h2>Pourquoi l'on-prem est critique pour les juristes</h2>
+    <p>La fonction juridique est l'une des plus fermées par défaut. Le secret professionnel, le privilège attorney-client, l'information privilégiée sur les transactions et les litiges — tout cela exige un contrôle d'accès strict. Si les documents d'une affaire ou la position de négociation d'un litige sont demandés par un tribunal ou un régulateur, l'utilisation d'un service cloud externe peut créer une question de violation de confidentialité et affecter la défense du privilège dans certaines juridictions.</p>
+    <p><strong>Règle par défaut :</strong> si un document est lié à un litige spécifique, une transaction, un contrepartie ou un employé — uniquement on-prem. Dans le contour externe, on peut sortir uniquement le travail avec le champ juridique ouvert.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Quand l'on-prem est obligatoire :</strong>
+    <ul>
+      <li>Vérification des contrats entrants et préparation des amendements (conditions commerciales réelles, stratégie de négociation)</li>
+      <li>Due diligence du contrepartie et transactions M&A (information privilégiée, fuite = manipulation de marché)</li>
+      <li>Préparation des demandes en justice, mémoires en réponse, pourvois (secret professionnel, stratégie de défense)</li>
+      <li>Formation de la position juridique sur un litige (role-playing d'interrogatoire de témoin/adversaire)</li>
+      <li>Constitution de la base probatoire, systématisation des documents du dossier (litige spécifique)</li>
+      <li>Correspondance précontentieuse sur des affaires réelles (montants spécifiques, violations, exigences)</li>
+      <li>Documents corporatifs (procès-verbaux, décisions) — information de gestion avant publication</li>
+      <li>Screening compliance sanctions sur des contreparties/transactions spécifiques</li>
+      <li>Réponses aux demandes des régulateurs (stratégiquement sensible)</li>
+      <li>Consultations juridiques sur des questions spécifiques du business (faits réels, montants, risques)</li>
+      <li>Litiges du travail, position de l'employeur (données personnelles, conflit potentiel)</li>
+      <li>Tenue du registre des contrats (liste complète des relations commerciales)</li>
+      <li>Réorganisations et création de structures filiales (stratégiquement sensible)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. Vérification des contrats entrants</h2>
+    <p>Comparaison du contrat entrant avec le standard de l'entreprise, identification des clauses à risque, préparation des amendements.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (on-prem)</div>
+      <pre>Vérifie le contrat entrant selon les standards de l'entreprise :
+
+Contrat entrant (texte) :
+[INSÉREZ LE TEXTE DU CONTRAT]
+
+Standard de l'entreprise (dispositions clés) :
+- Responsabilité du fournisseur : au moins [INDIQUEZ]% de la valeur du lot
+- Délai de paiement : pas avant [INDIQUEZ] jours à compter de la livraison
+- Force majeure : selon [INDIQUEZ LA LÉGISLATION]
+- Délai de réclamation : [INDIQUEZ] jours
+- Arbitrage : [INDIQUEZ LE LIEU]
+
+Fais :
+1. Liste des écarts par rapport au standard (avec indication des articles)
+2. Évaluation du risque de chaque écart (élevé/moyen/faible)
+3. Amendements proposés (texte)
+4. Argumentation pour les négociations avec le contrepartie
+5. Formulations alternatives (de compromis)</pre>
+    </div>
+    <p><strong>Résultat :</strong> contrat vérifié avec amendements, économie de 2–3 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Due diligence du contrepartie</h2>
+    <p>Analyse du contrepartie selon les données internes + sources ouvertes, évaluation des risques de la transaction.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Mène une due diligence du contrepartie [INDIQUEZ LE NOM] :
+
+Données internes :
+- Historique de collaboration : depuis [INDIQUEZ L'ANNÉE], chiffre d'affaires [INDIQUEZ], retards [INDIQUEZ]
+- Obligations actuelles : [INDIQUEZ LE MONTANT]
+- Litiges : [INDIQUEZ]
+- Parties liées : [INDIQUEZ]
+
+Données publiques (vérifiées séparément) :
+- Registre : [INDIQUEZ LE STATUT]
+- Affaires judiciaires : [INDIQUEZ]
+- Listes de sanctions : [INDIQUEZ]
+
+Fais :
+1. Résumé des risques (élevés/moyens/faibles)
+2. Recommandation sur la transaction (oui/oui avec conditions/non)
+3. Conditions nécessaires pour minimiser les risques
+4. Facteurs d'alerte (red flags)
+5. Plan de suivi après la transaction</pre>
+    </div>
+    <p><strong>Résultat :</strong> analyse des risques avec recommandation, économie de 3–4 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Préparation de la demande en justice</h2>
+    <p>Structuration de la position, préparation des documents, répétition en rôle.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une demande en justice pour le litige :
+
+Contexte :
+- Partie demanderesse : [INDIQUEZ LE NOM DE L'ENTREPRISE]
+- Partie défenderesse : [INDIQUEZ]
+- Objet du litige : [INDIQUEZ : inexécution du contrat, recouvrement de créance, etc.]
+- Faits principaux :
+  * [INDIQUEZ LE FAIT 1]
+  * [INDIQUEZ LE FAIT 2]
+  * [INDIQUEZ LE FAIT 3]
+- Preuves : [INDIQUEZ LA LISTE]
+- Exigences : [INDIQUEZ]
+- Montant de la demande : [INDIQUEZ]
+
+Fais :
+1. Structure de la demande en justice
+2. Exposé des faits (avec citations du contrat)
+3. Fondement juridique (normes, jurisprudence)
+4. Liste des documents annexés
+5. Répétition en rôle : questions typiques du juge et réponses</pre>
+    </div>
+    <p><strong>Résultat :</strong> demande en justice prête, économie de 4–5 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Screening compliance sanctions</h2>
+    <p>Vérification des contreparties et transactions sur les risques sanitaires, interprétation des résultats.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Analyse les risques sanitaires de la transaction :
+
+Données de la transaction :
+- Contrepartie : [INDIQUEZ LE NOM]
+- Pays du contrepartie : [INDIQUEZ]
+- Pays d'origine du produit : [INDIQUEZ]
+- Pays de destination : [INDIQUEZ]
+- Type de produit/service : [INDIQUEZ]
+- Montant : [INDIQUEZ]
+- Devise : [INDIQUEZ]
+- Mode de paiement : [INDIQUEZ]
+
+Résultats du screening (systèmes internes) :
+- OFAC : [INDIQUEZ LE RÉSULTAT]
+- UE : [INDIQUEZ LE RÉSULTAT]
+- UK : [INDIQUEZ LE RÉSULTAT]
+- Listes nationales : [INDIQUEZ LE RÉSULTAT]
+
+Fais :
+1. Évaluation du risque de la transaction (élevé/moyen/faible)
+2. Mesures restrictives applicables
+3. Vérifications complémentaires nécessaires
+4. Recommandation (approuver/approuver avec conditions/refuser)
+5. Justification pour le comité compliance</pre>
+    </div>
+    <p><strong>Résultat :</strong> analyse des risques sanitaires, économie de 2–3 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Réponse à la demande du régulateur</h2>
+    <p>Préparation d'une réponse structurée à la demande d'une autorité antitrust, fiscale ou autre régulateur.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare la réponse à la demande [INDIQUEZ LE RÉGULATEUR] :
+
+Demande :
+[INSÉREZ LE TEXTE DE LA DEMANDE]
+
+Données initiales (internes) :
+- Faits : [INDIQUEZ]
+- Documents : [INDIQUEZ LA LISTE]
+- Position juridique : [INDIQUEZ]
+- Risques : [INDIQUEZ]
+
+Fais :
+1. Structure de la réponse (par points de la demande)
+2. Texte de réponse à chaque point
+3. Références aux normes juridiques
+4. Annexes (liste)
+5. Analyse des risques : que peut demander le régulateur ensuite
+6. Recommandations à la direction</pre>
+    </div>
+    <p><strong>Résultat :</strong> réponse prête à la demande, économie de 3–4 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Consultation juridique (legal opinion)</h2>
+    <p>Analyse d'une situation juridique spécifique avec recommandations pour le business.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare un legal opinion sur la question :
+
+Question :
+[INDIQUEZ LA QUESTION SPÉCIFIQUE]
+
+Faits (internes) :
+- [INDIQUEZ LE FAIT 1]
+- [INDIQUEZ LE FAIT 2]
+- [INDIQUEZ LE FAIT 3]
+
+Droit applicable : [INDIQUEZ LA JURIDICTION]
+
+Fais :
+1. Bref exposé des faits
+2. Analyse juridique (normes applicables)
+3. Jurisprudence (affaires analogues)
+4. Risques et leur évaluation
+5. Recommandations (options d'action)
+6. Plan de mise en œuvre des recommandations</pre>
+    </div>
+    <p><strong>Résultat :</strong> consultation structurée, économie de 4–5 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Litige du travail — position de l'employeur</h2>
+    <p>Préparation de la position sur un litige du travail en tenant compte des données personnelles de l'employé.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare la position de l'employeur sur le litige du travail :
+
+Données de l'employé (confidentielles) :
+- Poste : [INDIQUEZ]
+- Ancienneté : [INDIQUEZ]
+- Réclamation de l'employé : [INDIQUEZ]
+- Historique des sanctions disciplinaires : [INDIQUEZ]
+- Documents : [INDIQUEZ]
+
+Exigences de l'employé :
+[INDIQUEZ]
+
+Fais :
+1. Analyse juridique des exigences (fondement)
+2. Position de l'employeur (argumentation)
+3. Risques de défaite (probabilité, montant)
+4. Options de règlement (tribunal/transaction/précontentieux)
+5. Recommandation sur la stratégie</pre>
+    </div>
+    <p><strong>Résultat :</strong> position prête, économie de 2–3 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif</h2>
+    <table>
+      <tr><th>Tâche</th><th>Ce qu'il faut</th><th>Format de sortie</th><th>Économie</th></tr>
+      <tr><td>Vérification du contrat</td><td>Contrat entrant, standard</td><td>Amendements + risques</td><td>2–3 h</td></tr>
+      <tr><td>Due diligence</td><td>Données du contrepartie</td><td>Analyse des risques</td><td>3–4 h</td></tr>
+      <tr><td>Demande en justice</td><td>Faits, preuves</td><td>Demande prête</td><td>4–5 h</td></tr>
+      <tr><td>Screening sanctions</td><td>Données de la transaction, résultats des vérifications</td><td>Décision compliance</td><td>2–3 h</td></tr>
+      <tr><td>Réponse au régulateur</td><td>Demande, données internes</td><td>Réponse structurée</td><td>3–4 h</td></tr>
+      <tr><td>Legal opinion</td><td>Question, faits</td><td>Consultation + recommandations</td><td>4–5 h</td></tr>
+      <tr><td>Litige du travail</td><td>Données de l'employé, réclamation</td><td>Position + stratégie</td><td>2–3 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Pourquoi la préparation de la demande en justice — uniquement on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> La demande contient le secret professionnel et la stratégie de défense.'">Parce qu'elle contient le secret professionnel, la stratégie du litige et des faits confidentiels</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. La jurisprudence est publique, mais une demande spécifique — non.'">Uniquement si le litige concerne un montant supérieur à un certain seuil</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Le privilège attorney-client ne concerne pas seulement l\'argent.'">On peut le faire dans le cloud si on anonymise les noms des parties</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> Peut-on faire le screening sanctions dans le cloud ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Les listes — oui, mais l\'interprétation — non.'">Oui, les listes de sanctions sont des données publiques</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Le screening des listes est public, mais l\'interprétation pour un contrepartie et une transaction spécifiques — information interne.'">Non — l'interprétation des résultats pour un contrepartie et une transaction spécifiques est une information interne</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. L\'hybride est possible, mais pas le cloud complet.'">Hybride — listes à l'extérieur, décision à l'intérieur</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3 :</strong> Pourquoi les réponses aux demandes des régulateurs — on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. La forme n\'est pas l\'essentiel, le contenu l\'est.'">Parce qu'une forme de réponse particulière est requise</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> La réponse révèle la position stratégique de l\'entreprise.'">Parce qu'elles révèlent la position stratégique de l'entreprise et peuvent influencer les litiges en cours</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Ce n\'est pas une question de délais.'">Uniquement si la réponse est requise dans les 24 heures</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">Accueil</a>
+    <a href="../15-2-cloud/index.html" class="nav-btn primary">15.2 Tâches externes →</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>
