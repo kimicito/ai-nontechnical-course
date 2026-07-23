@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.2 外部任务：外部AI — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第14级 — 销售与营销</div>
+    <h1>14.2 外部任务：外部AI</h1>
+    <div class="meta">⏱ 20分钟 · 面向营销人员、SMM经理、内容经理</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>公开数据（外部AI）</strong><br>
+    本节课的所有任务都涉及<span class="highlight">公开内容、开放来源、通用方法论</span>。可以使用Claude、ChatGPT、Gemini。
+  </div>
+
+  <div class="section">
+    <h2>为什么营销是使用外部AI最安全的领域之一</h2>
+    <p>营销内容本质上是公开的。最终产品（帖子、宣传册、广告文案）面向广泛的受众。只要不泄露内部预算、价格和战略计划，商业机密泄露的风险极小。</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>重要：发送到云端之前，请检查</strong>请求中是否包含真实价格、预算、客户数据、战略计划。如果有，请去标识化或发送到本地部署。
+  </div>
+
+  <div class="section">
+    <h2>1. 内容规划开发</h2>
+    <p>生成创意、专栏、发布日历——这是生成式AI的天然领地。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（Claude带网页搜索）</div>
+      <pre>为B2B公司准备一个月的内容计划，行业为【请填写行业】：
+
+参数：
+- 渠道：LinkedIn、企业博客、邮件通讯
+- 目标受众：【请填写：采购人员、工程师、总监】
+- 主题板块：专业知识、案例、趋势、产品
+- 频率：每周3篇LinkedIn帖子、每月2篇文章、4封邮件
+
+请完成：
+1. 每篇帖子的主题（标题 + 格式：轮播、文字、视频）
+2. 发布日历
+3. 每个主题的吸引点（什么能抓住注意力）
+4. 行动号召（CTA）
+5. 各渠道之间的交叉链接</pre>
+    </div>
+    <p><strong>效果：</strong>生成即用内容计划，节省4-5小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>2. 广告活动文案撰写</h2>
+    <p>生成标题变体、广告文案、描述——不含真实预算。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>为B2B受众撰写5个广告文案变体：
+
+产品：【请填写产品类型】，面向【请填写行业】
+独特卖点：【请填写核心优势】
+目标受众：【请填写职位】，【请填写公司规模】
+格式：Google Ads（3个标题各30字符、2个描述各90字符）
+
+额外要求：
+- 3个LinkedIn变体（更专业的语气）
+- 3个邮件通讯变体（个性化）
+- A/B测试假设：测试什么（标题、CTA、优惠）</pre>
+    </div>
+    <p><strong>效果：</strong>一套测试广告文案，节省2-3小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>3. 内容SEO优化</h2>
+    <p>生成元描述、H1-H3标题、alt文本——公开内容。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>优化文本以提升SEO：
+
+原始文本（博客文章）：
+【请粘贴文章文本】
+
+关键词（优先级）：
+1. 【请填写关键词1】
+2. 【请填写关键词2】
+3. 【请填写关键词3】
+
+请完成：
+1. H1标题（60字符，含关键词）
+2. 元描述（150字符，含CTA）
+3. H2-H3结构（含关键词嵌入）
+4. 3张图片的alt文本
+5. 内部优化检查清单（内链）</pre>
+    </div>
+    <p><strong>效果：</strong>优化后的文本，节省1.5小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>4. 基于公开数据的竞争对手分析</h2>
+    <p>产品线、定位、公开价格——这些信息都在公开渠道。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（网页搜索）</div>
+      <pre>对【请填写市场】细分市场中的3个竞争对手进行分析：
+
+竞争对手：
+1. 【请填写公司1】
+2. 【请填写公司2】
+3. 【请填写公司3】
+
+需收集的数据（公开来源）：
+- 产品线（类别、SKU）
+- 定位（他们如何定位自己）
+- 公开价格（如网站上有）
+- 推广渠道（他们在哪里做广告）
+- 优势（根据评论、案例）
+- 劣势（投诉、空白点）
+
+请完成：
+1. 对比表
+2. 定位地图（他们如何看待自己 vs 客户如何看待他们）
+3. 空白点（竞争对手未覆盖的领域——我们的机会）
+4. 差异化建议</pre>
+    </div>
+    <p><strong>效果：</strong>竞争对手概览，节省6-8小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>5. 展会材料准备</h2>
+    <p>展位演示文稿、宣传册文本、销售经理脚本——公开材料。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>为【请填写展会名称】准备一套展会材料：
+
+参数：
+- 行业：【请填写】
+- 受众：【请填写】
+- 产品：【请填写】
+- 展会目标：【请填写：线索、品牌、产品】
+
+材料清单：
+1. 展位口号（3个变体，5-7个字）
+2. 宣传册文本（A4一页，结构：问题-解决方案-结果）
+3. 销售经理脚本（问候 → 资格确认 → 演示 → CTA）
+4. 易拉宝文本（2个变体，50字）
+5. 展位见面后的跟进邮件
+
+语气：专业，不咄咄逼人。</pre>
+    </div>
+    <p><strong>效果：</strong>一套完整材料，节省4-5小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>6. 营销材料本地化</h2>
+    <p>针对不同市场调整内容——语言、文化、法规。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>将营销文本适配到本地市场：
+
+原始文本（俄语）：
+【请粘贴文本】
+
+目标市场：【请填写国家】
+语言：【请填写语言】
+
+请适配：
+1. 考虑行业术语的翻译
+2. 文化细节（什么在这个市场有效）
+3. 法规限制（什么不能承诺）
+4. 示例和案例（如可能，替换为本地案例）
+5. CTA（适合该市场的行动号召）
+
+格式：表格"原文 → 适配 → 备注"</pre>
+    </div>
+    <p><strong>效果：</strong>本地化文本，节省3-4小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>7. 行业趋势分析</h2>
+    <p>汇总公开分析、新闻、分析师报告。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（网页搜索）</div>
+      <pre>分析【请填写】行业2025-2026年的趋势：
+
+来源（公开）：
+- 行业媒体
+- 分析师报告（McKinsey、BCG、Deloitte）
+- 大型企业的动态新闻
+- LinkedIn上专家的文章
+
+问题：
+1. 关键趋势（前5）
+2. 技术变革
+3. 法规变化
+4. 客户行为变化
+5. 新商业模式
+6. 对我司的风险和机会
+7. 定位建议
+
+格式：分析备忘录（1-2页）</pre>
+    </div>
+    <p><strong>效果：</strong>趋势概览，节省5-6小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>8. 基于交易所报价的价格分析</h2>
+    <p>监控公开交易所数据用于定价策略。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（网页搜索）</div>
+      <pre>对原材料市场进行价格分析：
+
+指标：
+1. LME铝（3个月期货）— 6个月动态
+2. 波罗的海干散货指数（BDI）— 运费趋势
+3. 美元/人民币汇率（如相关）
+4. 制造业PMI指数
+
+问题：
+- 原材料价格走势如何？
+- 这对【请填写产品】的成本有何影响？
+- 下季度预测（根据分析师）
+- 定价策略建议（通用，不含具体数字）
+
+格式：分析简报</pre>
+    </div>
+    <p><strong>效果：</strong>市场概览，节省2-3小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>外部任务汇总表</h2>
+    <table>
+      <tr><th>任务</th><th>需要什么</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>内容计划</td><td>主题、渠道、受众</td><td>发布日历</td><td>4-5小时</td></tr>
+      <tr><td>文案撰写</td><td>产品、独特卖点、目标受众</td><td>广告文案</td><td>2-3小时</td></tr>
+      <tr><td>SEO优化</td><td>文本、关键词</td><td>优化后的文本</td><td>1.5小时</td></tr>
+      <tr><td>竞争对手分析</td><td>竞争对手名称</td><td>对比表</td><td>6-8小时</td></tr>
+      <tr><td>展会材料</td><td>产品、受众、目标</td><td>宣传册、脚本、口号</td><td>4-5小时</td></tr>
+      <tr><td>本地化</td><td>文本、目标市场</td><td>适配后的文本</td><td>3-4小时</td></tr>
+      <tr><td>趋势分析</td><td>行业、时期</td><td>分析备忘录</td><td>5-6小时</td></tr>
+      <tr><td>价格分析</td><td>原材料指标</td><td>市场简报</td><td>2-3小时</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识检查</h2>
+    <p><strong>问题1：</strong>为什么内容计划开发适合外部AI？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>内容计划是公开方法论，最终产品本质上是公开的。'">因为最终产品（帖子、文章）本质上是公开的</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。内容计划不包含价格。'">因为不包含商业价格</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。预算是内部信息，但计划本身是公开的。'">只要不指定广告预算就可以</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>问题2：</strong>竞争对手分析属于哪个范围？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>公开价格、产品、定位——都是公开数据。'">外部AI — 产品和价格的公开数据</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。竞争对手自己发布这些信息。'">本地部署 — 商业情报</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。公开数据不需要混合方案。'">混合 — 数据在外部，结论在内部</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>问题3：</strong>可以在外部AI中准备投资者推介材料吗？</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。结构可以，但数字不行。'">可以，如果是不含财务数据的一般结构</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>结构和方法论可以在外部准备，数字只能在本地。'">混合 — 结构文本在外部，最终数字在本地部署</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。任何推介材料都包含财务信息。'">不行，推介材料总是包含内部信息</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../14-1-on-prem/index.html" class="nav-btn">← 14.1 内部任务</a>
+    <a href="../14-3-hybrid/index.html" class="nav-btn primary">14.3 混合任务 →</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 生产企业</p></div></footer>
+</body></html>

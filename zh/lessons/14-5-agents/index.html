@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.5 销售智能体场景 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第14级 — 销售</div>
+    <h1>14.5 销售智能体场景</h1>
+    <div class="meta">⏱ 12分钟 · 评分、报价、预测</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>智能体与语言模型有何区别？</strong><br>
+    LLM按请求写文本。<span class="highlight">智能体</span>循环工作：读取CRM、评估线索、生成报价、发送——每一步无需经理参与。详见<a href="../../lessons/4-1-agents/index.html" style="color:var(--accent2);">第4级</a>。
+  </div>
+
+  <div class="section">
+    <h2>场景1：线索评分智能体（n8n + CRM）</h2>
+    <p><strong>任务：</strong>评估CRM中的新线索、排序优先级、分配给经理。</p>
+    <div class="arch">
+[触发器：CRM中的新线索]<br>
+  ↓<br>
+[n8n：收集线索数据]<br>
+  ├─→ 来源（网站、展会、推荐）<br>
+  ├─→ 公司数据（行业、规模）<br>
+  ├─→ 需求（产品、数量、时间）<br>
+  └─→ 互动历史<br>
+  ↓<br>
+[LLM：评分]<br>
+  ├─→ 预算（1-5分）<br>
+  ├─→ 权限（1-5分）<br>
+  ├─→ 需求（1-5分）<br>
+  ├─→ 时间（1-5分）<br>
+  └─→ BANT总分<br>
+  ↓<br>
+[优先级排序]<br>
+  ├─→ A（≥80分）：紧急 → 资深经理<br>
+  ├─→ B（50-79分）：当天 → 经理<br>
+  └─→ C（<50分）：培育 → 邮件发送<br>
+  ↓<br>
+[在CRM中创建任务 + 通知]
+    </div>
+    <div class="card card-success">
+      <strong>效果：</strong>经理将时间花在转化率>30%的线索上，而不是所有线索。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景2：报价准备智能体（OpenClaw智能体）</h2>
+    <p><strong>任务：</strong>根据客户请求自动生成个性化商业报价。</p>
+    <div class="arch">
+[客户请求：邮件 / 网站表单 / CRM]<br>
+  ↓<br>
+[智能体：提取需求]<br>
+  ├─→ 产品、数量<br>
+  ├─→ 特殊要求（证书、包装）<br>
+  ├─→ 时间<br>
+  └─→ 客户购买历史<br>
+  ↓<br>
+[本地部署LLM：生成报价]<br>
+  ├─→ 按上下文称呼<br>
+  ├─→ 考虑历史的报价<br>
+  ├─→ 条件（价格、时间、付款）<br>
+  ├─→ 该客户的优势<br>
+  └─→ 行动号召<br>
+  ↓<br>
+[PDF生成]<br>
+  ↓<br>
+[发送给客户 + 经理任务："报价已发送，关注回复"]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景3：需求预测智能体（混合）</h2>
+    <p><strong>任务：</strong>分析销售历史、市场数据，为规划形成预测。</p>
+    <div class="arch">
+[Cron：每周]<br>
+  ↓<br>
+[数据收集]<br>
+  ├─→ 销售历史（ERP）<br>
+  ├─→ 订单组合（CRM）<br>
+  ├─→ 季节性<br>
+  └─→ 市场数据（外部：指数、行业统计）<br>
+  ↓<br>
+[本地部署智能体：趋势分析]<br>
+  ├─→ 各产品增减<br>
+  ├─→ 新趋势<br>
+  └─→ 异常（大额一次性订单）<br>
+  ↓<br>
+[LLM：形成预测]<br>
+  ├─→ 月度<br>
+  ├─→ 季度<br>
+  └─→ 风险和场景<br>
+  ↓<br>
+[报告：销售部 + 生产部 + 采购部]
+    </div>
+    <div class="card card-warning">
+      <strong>重要：</strong>销售历史和订单组合是商业机密。趋势分析——本地部署。市场数据可以从外部获取。
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../14-4-summary/index.html" class="nav-btn">← 14.4 实践总结</a>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 生产企业</p></div></footer>
+</body></html>

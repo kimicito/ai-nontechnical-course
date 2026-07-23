@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.4 实践总结 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第14级 — 销售与营销</div>
+    <h1>14.4 实践总结</h1>
+    <div class="meta">⏱ 15分钟 · 第14级总结</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>第14级的核心原则</strong><br>
+    销售与营销是采购的镜像功能。数据敏感性对称（价格、折扣、条件 = 交易双方任何一方的商业秘密）。同时，营销是使用外部AI最安全的领域之一。
+  </div>
+
+  <div class="section">
+    <h2>关键结论</h2>
+    
+    <h3>1. 销售 = 采购的镜像</h3>
+    <p>在采购中您是买方，有自己的谈判立场；在销售中您是卖方，数据敏感性结构完全相同：</p>
+    <ul>
+      <li><strong>价格和折扣</strong> — 商业机密，与交易方无关</li>
+      <li><strong>付款条件</strong> — 公司财务政策</li>
+      <li><strong>谈判策略</strong> — BATNA、ZOPA、杠杆不适合外部讨论</li>
+      <li><strong>客户群</strong> — 战略资产，对关键客户的依赖</li>
+    </ul>
+
+    <h3>2. 营销 — 使用外部AI的安全领域</h3>
+    <p>营销内容本质上是面向公众的：</p>
+    <ul>
+      <li>帖子、文章、宣传册 — 本质上是公开的</li>
+      <li>SEO优化 — 处理公开内容</li>
+      <li>基于公开数据的竞争对手分析 — 合法且安全</li>
+      <li>广告活动文案撰写 — 最终产品是公开的</li>
+    </ul>
+    <p><strong>唯一限制：</strong>不要向外部AI传递内部预算、战略计划、发布前的定价政策。</p>
+
+    <h3>3. 需求预测比看起来敏感</h3>
+    <p>销售预测直接渗透到生产计划、原材料采购、库存管理中。预测泄露 = 公司运营计划泄露。始终使用本地部署。</p>
+
+    <h3>4. 混合是效率的基础</h3>
+    <p>最常见的任务（报价、谈判、邮件发送、IR材料）采用混合方案：</p>
+    <ul>
+      <li>模板、结构、方法论 — 在外部AI中（快速、优质）</li>
+      <li>数字、客户、条件 — 在本地部署中（安全）</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>销售与营销最终矩阵</h2>
+    <table>
+      <tr><th>任务</th><th>本地部署</th><th>外部AI</th><th>混合</th></tr>
+      <tr><td>定价</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>销售合同</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>客户群分析</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>需求预测</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>谈判（策略）</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>CRM备注</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>询价/招标</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>输赢分析</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>销售计划报告</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>IR材料（发布前）</td><td>✅</td><td>❌</td><td>✅（结构）</td></tr>
+      <tr><td>内容计划</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>文案撰写</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>SEO优化</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>竞争对手分析</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>展会材料</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>本地化</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>趋势分析</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>交易所分析</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>商业报价</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>邮件发送</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>谈判准备</td><td>❌</td><td>❌</td><td>✅</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>本级别排除的内容（及原因）</h2>
+    <div class="card card-warning">
+      <p><strong>线索评分和流失预测分析</strong> — 基于CRM数据的有监督机器学习。生成式AI只能解释结果，无法替代模型。</p>
+      <p><strong>推荐个性化</strong> — 推荐系统（机器学习/协同过滤）。GenAI可以基于现成推荐生成文本。</p>
+      <p><strong>程序化广告购买</strong> — 算法交易、实时竞价。GenAI可以帮助创意，但不负责购买。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>销售人员和营销人员检查清单</h2>
+    <div class="card card-success">
+      <p><strong>向外部AI发送请求前，请检查：</strong></p>
+      <ul>
+        <li>❌ 是否包含具体价格、折扣、付款条件？</li>
+        <li>❌ 是否包含客户名称、联系方式、电话？</li>
+        <li>❌ 是否包含具体交易数量？</li>
+        <li>❌ 是否包含公司财务指标？</li>
+        <li>❌ 是否包含销售预测、计划、预算？</li>
+        <li>❌ 是否包含具体交易的输赢分析？</li>
+        <li>❌ 是否包含发布前的战略计划？</li>
+      </ul>
+      <p><strong>如果有任何一项未通过——去标识化或发送到本地部署。</strong></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>本级别时间节省</h2>
+    <table>
+      <tr><th>类别</th><th>任务数</th><th>平均节省</th></tr>
+      <tr><td>本地部署（销售）</td><td>8</td><td>每项2-4小时</td></tr>
+      <tr><td>外部AI（营销）</td><td>8</td><td>每项2-5小时</td></tr>
+      <tr><td>混合</td><td>4</td><td>每项合计1.5-3小时</td></tr>
+    </table>
+    <p><strong>总计：</strong>20个任务，3-5人团队每月累计节省40-80小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>知识检查 — 最终测验</h2>
+    <p><strong>问题1：</strong>为什么营销比销售更安全适合外部AI？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>营销内容本质上是公开的。'">因为最终产品（帖子、宣传册）面向公众</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。营销人员也处理敏感信息。'">因为营销人员无法访问价格</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。这不是技术限制。'">因为外部模型更擅长生成创意</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>问题2：</strong>基于内部指标的营销活动效果分析属于哪个范围？</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。预算和投资回报率是内部信息。'">外部AI — 指标只是数字</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>预算、转化率、投资回报率——管理信息。'">本地部署 — 包含预算、转化率、投资回报率</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。指标是数据，不是方法论。'">混合 — 分析方法论在外部，指标在内部</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>问题3：</strong>如果去标识化客户，输赢分析可以在云端做吗？</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。即使去标识化的输赢分析也会暴露战略弱点。'">可以，如果移除客户名称和具体价格</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>输赢分析包含失败原因——战略敏感。'">不行，它会揭示交易失败的原因——高度敏感</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。输赢分析的意义在于交易细节。'">仅对赢单</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../14-3-hybrid/index.html" class="nav-btn">← 14.3 混合任务</a>
+    <a href="../../index.html" class="nav-btn primary">返回首页</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 生产企业</p></div></footer>
+</body></html>

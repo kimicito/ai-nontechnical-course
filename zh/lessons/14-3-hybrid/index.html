@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.3 混合任务：销售与营销 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第14级 — 销售与营销</div>
+    <h1>14.3 混合任务</h1>
+    <div class="meta">⏱ 20分钟 · 面向销售人员和营销人员</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>混合方案</strong><br>
+    在外部AI中准备<span class="highlight">结构和方法论</span>。<br>
+    <span class="highlight">真实数据</span>（价格、客户、条件）添加到本地部署中。
+  </div>
+
+  <div class="section">
+    <h2>销售与营销混合方案的核心原则</h2>
+    <p>关键规则：<strong>数据越敏感</strong>（具体价格、交易条件、客户个人数据）——越要严格使用本地部署。通用方法论（文档结构、典型场景）可以安全地放在外部范围。</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>云端去标识化规则：</strong>
+    <table>
+      <tr><th>必须移除</th><th>可以保留</th></tr>
+      <tr><td>具体价格和折扣</td><td>定价方法论</td></tr>
+      <tr><td>客户名称和联系方式</td><td>客户类型（大客户、中型、关键客户）</td></tr>
+      <tr><td>个别付款条件</td><td>典型付款形式</td></tr>
+      <tr><td>具体交易数量</td><td>数量计算方法论</td></tr>
+      <tr><td>公司财务指标</td><td>行业基准</td></tr>
+      <tr><td>具体交易日期</td><td>季节性、典型周期</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>1. 商业报价（混合）</h2>
+    <p><strong>云端：</strong>通用模板和报价结构。<br>
+    <strong>本地部署：</strong>最终价格、条件、客户个性化。</p>
+    <div class="example">
+      <div class="example-label">步骤1：云端 — 报价模板</div>
+      <pre>为B2B销售准备商业报价结构：
+
+报价结构：
+1. 封面（标志、联系方式、日期）
+2. 公司简介（2-3句话）
+3. 理解客户需求
+4. 产品/解决方案（描述、规格）
+5. 交付条件【请填写：具体条件】
+6. 价格【请填写：按客户计算】
+7. 优势和保障
+8. 工作流程（阶段、时间）
+9. 附件（规格、证书）
+
+每个部分写什么、常见错误、表述示例。
+
+【请填写：客户行业、产品类型、地区】</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">步骤2：本地部署 — 按客户填写</div>
+      <pre>为【请填写客户名称】填写报价：
+
+客户数据：
+- 行业：【请填写】
+- 消费量：【请填写】
+- 合作历史：从【请填写年份】起合作，营业额【请填写】
+- 当前条件：【请填写】
+- 需求：【请填写】
+
+我方数据：
+- 价格：【请填写】（基础），量达到【请填写】时折扣【请填写】%
+- 付款条件：【请填写】
+- 交付时间：【请填写】
+- 保障：【请填写】
+
+编制最终个性化报价。</pre>
+    </div>
+    <p><strong>节省：</strong>云端模板（1.5小时）+ 本地部署填写报价（1小时）。</p>
+  </div>
+
+  <div class="section">
+    <h2>2. 谈判准备（混合）</h2>
+    <p><strong>云端：</strong>通用谈判方法论、典型场景。<br>
+    <strong>本地部署：</strong>真实数字、具体客户、BATNA。</p>
+    <div class="example">
+      <div class="example-label">步骤1：云端 — 方法论</div>
+      <pre>为B2B销售准备谈判方法论：
+
+谈判阶段：
+1. 侦察（提哪些问题以了解需求）
+2. 方案演示（如何将产品与需求关联）
+3. 处理异议（典型异议及回应）
+4. 条件讨论（价格、折扣、付款、物流）
+5. 成交（哪些信号表明客户准备就绪）
+
+方法论：
+- BATNA：如何确定和使用
+- ZOPA：如何扩大协议区域
+- 杠杆：我们可以提供什么（除价格外）
+- 典型陷阱（过早折扣、无条件同意）
+
+【请填写：行业、产品类型、平均客单价】</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">步骤2：本地部署 — 具体交易</div>
+      <pre>将方法论应用于与【请填写客户】的谈判：
+
+背景：
+- 当前合同：【请填写】，到期【请填写日期】
+- 数量：【请填写】单位/年
+- 投诉：【请填写】
+- 竞争对手提供：【请填写条件】
+- 我方目标：【请填写】
+
+请编制：
+1. BATNA（如果无法达成协议）
+2. ZOPA（可接受范围）
+3. 杠杆（我们可以提供什么）
+4. 场景：乐观、现实、悲观
+5. 预期异议的回应</pre>
+    </div>
+    <p><strong>节省：</strong>云端方法论（1.5小时）+ 本地部署策略（1.5小时）。</p>
+  </div>
+
+  <div class="section">
+    <h2>3. 向潜在客户发送邮件（混合）</h2>
+    <p><strong>云端：</strong>通用邮件模板、A/B变体。<br>
+    <strong>本地部署：</strong>用客户真实数据进行个性化。</p>
+    <div class="example">
+      <div class="example-label">步骤1：云端 — 邮件模板</div>
+      <pre>为B2B冷邮件编写模板：
+
+参数：
+- 产品：【请填写类型】
+- 目标受众：【请填写职位】，【请填写公司规模】
+- 目标：获得会面/演示
+
+变体：
+1. 简短版（3句话，移动端格式）
+2. 中等版（段落 + 要点 + CTA）
+3. 带案例链接（社会证明）
+
+每个版本：
+- 邮件主题（3个变体）
+- 吸引点（什么能抓住注意力）
+- CTA（具体行动）
+- 签名
+
+【请填写：行业、目标受众核心痛点】</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">步骤2：本地部署 — 个性化</div>
+      <pre>为【请填写姓名】，【请填写职位】，【请填写公司】个性化邮件：
+
+客户数据：
+- 行业：【请填写】
+- 近期事件：【请填写：扩张、新产品、发布】
+- 可能的需求：【请填写】
+- 互动历史：【请填写】
+
+模板：【请粘贴云端模板】
+
+请调整：
+1. 提及具体事件/背景
+2. 将产品与他们的需求关联
+3. 添加相关案例
+4. 提出具体的会面时间</pre>
+    </div>
+    <p><strong>节省：</strong>云端模板（1小时）+ 本地部署个性化（30分钟）。</p>
+  </div>
+
+  <div class="section">
+    <h2>4. 投资者关系材料（混合）</h2>
+    <p><strong>云端：</strong>通用演示结构、典型幻灯片。<br>
+    <strong>本地部署：</strong>正式发布前的最终数据。</p>
+    <div class="example">
+      <div class="example-label">步骤1：云端 — 演示结构</div>
+      <pre>为B2B公司准备IR演示结构：
+
+幻灯片：
+1. 封面（公司、期间）
+2. 执行摘要（3个关键信息）
+3. 市场定位（TAM/SAM/SOM、趋势）
+4. 产品线（类别、差异化）
+5. 财务结果【请填写：具体数字】
+6. 客户群（多元化、留存率）
+7. 增长战略（有机增长、并购、新市场）
+8. ESG和可持续发展
+9. 风险与缓解措施
+10. 财务预测【请填写：具体数字】
+11. 投资论点（为什么值得投资）
+12. IR部门联系方式
+
+每张幻灯片：关键信息、分析师常见问题、如何回答。</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">步骤2：本地部署 — 最终数据</div>
+      <pre>用最终数据填充IR演示：
+
+初步数据（非公开）：
+- 上半年收入：【请填写】
+- EBITDA：【请填写】
+- 利润率：【请填写】%
+- 新客户：【请填写】
+- 丢失交易：【请填写】
+- 年度预测：【请填写】
+
+请编制：
+1. 每张幻灯片的文本（含数字）
+2. 演讲备注（口头说什么）
+3. 预期问题的回答
+4. 附录（给分析师的详细分解）</pre>
+    </div>
+    <p><strong>节省：</strong>云端结构（2小时）+ 本地部署填写（2小时）。</p>
+  </div>
+
+  <div class="section">
+    <h2>混合任务汇总表</h2>
+    <table>
+      <tr><th>任务</th><th>云端</th><th>本地部署</th><th>节省时间</th></tr>
+      <tr><td>商业报价</td><td>模板、结构</td><td>价格、条件、客户</td><td>1.5 + 1小时</td></tr>
+      <tr><td>谈判</td><td>方法论、场景</td><td>真实数字、BATNA</td><td>1.5 + 1.5小时</td></tr>
+      <tr><td>邮件发送</td><td>模板、A/B变体</td><td>客户个性化</td><td>1 + 0.5小时</td></tr>
+      <tr><td>IR材料</td><td>结构、典型幻灯片</td><td>最终数字</td><td>2 + 2小时</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识检查</h2>
+    <p><strong>问题1：</strong>商业报价的混合原则是什么？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>结构在外部，价格和条件在内部。'">通用模板在云端，最终价格和条件在本地部署</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。价格始终在内部。'">如果去标识化客户名称，整个报价都可以在云端完成</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。混合方案包含两个范围。'">整个报价只能在本地部署，因为包含商业秘密</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>问题2：</strong>向潜在客户的邮件发送——本地部署负责哪一步？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>用真实数据个性化——在内部完成。'">个性化：姓名、公司、背景、具体优惠</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。模板在云端。'">编写通用邮件模板</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。A/B测试是公开方法论。'">邮件变体的A/B测试</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>问题3：</strong>以下哪项发送到云端前必须移除？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>价格、客户、交易量——都要移除。'">具体价格、客户名称、交易数量</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。产品类型是通用信息。'">产品类型（例如"软件"）</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。行业是公开信息。'">客户行业（例如"制造业"）</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../14-2-cloud/index.html" class="nav-btn">← 14.2 外部任务</a>
+    <a href="../14-4-summary/index.html" class="nav-btn primary">14.4 实践总结 →</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 生产企业</p></div></footer>
+</body></html>
