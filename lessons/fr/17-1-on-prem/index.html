@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.1 Tâches internes RH — on-prem — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .prompt-box { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: 'Segoe UI', monospace; font-size: 0.9rem; line-height: 1.5; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 17 — Ressources humaines</div>
+    <h1>17.1 Tâches internes RH : on-prem</h1>
+    <div class="meta">⏱ 20 min · tâches impliquant une personne spécifique</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Principe principal de la leçon</strong><br>
+    Les RH travaillent avec des données personnelles dans presque chaque tâche. Règle : si le texte contient un nom, un salaire, une évaluation ou une situation personnelle d'une personne spécifique — <span class="highlight">uniquement on-prem</span>.
+  </div>
+
+  <div class="section">
+    <h2>Tâche 1 : Sélection des CV et évaluation des candidats</h2>
+    <p><strong>Pourquoi on-prem :</strong> les CV contiennent des données personnelles (nom, contacts, emplois précédents, salaire). Même l'analyse de conformité aux exigences est un traitement de données personnelles.</p>
+    <h3>Ce que fait l'IA</h3>
+    <ul>
+      <li>Compare le CV aux exigences du poste</li>
+      <li>Identifie les forces et faiblesses du candidat</li>
+      <li>Rédige un résumé pour les RH</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Exigences du poste : [texte des exigences].<br>
+      CV du candidat : [texte du CV].<br><br>
+      Analyse la conformité pour chaque exigence. Identifie les forces, les risques, les questions pour l'entretien. Rédige un résumé (max. 150 mots).
+    </div>
+    <div class="card card-success">
+      <strong>Résultat :</strong> économie de 10–15 minutes par CV. Une équipe de 3 RH peut traiter 2 fois plus de candidats.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 2 : Préparation des ordres de personnel</h2>
+    <p><strong>Pourquoi on-prem :</strong> les ordres contiennent des noms, des salaires, des postes, des dates — l'ensemble des données personnelles. Documents juridiquement significatifs.</p>
+    <h3>Ce que fait l'IA</h3>
+    <ul>
+      <li>Génère le texte de l'ordre selon le modèle</li>
+      <li>Vérifie la conformité au droit du travail (ou à la législation locale)</li>
+      <li>Forme la liste des pièces jointes</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Rédige un ordre d'embauche. Données : nom [prénom nom], poste [titre], département [nom], salaire [montant], date d'embauche [date], période d'essai [durée]. Vérifie la conformité au droit du travail. Indique les pièces jointes nécessaires.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 3 : Tenue et structuration des dossiers du personnel</h2>
+    <p><strong>Pourquoi on-prem :</strong> les dossiers du personnel sont des données personnelles au sens plein. Même la partie textuelle contient des informations biographiques.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Structure les documents suivants du dossier du personnel [nom] dans un format standardisé : [liste des documents]. Pour chaque document, indique la date, le type, la conformité aux exigences de la gestion du personnel.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 4 : Rapports RH (turnover, organigramme)</h2>
+    <p><strong>Pourquoi on-prem :</strong> l'analytique par départements, les noms des démissionnaires, les raisons du départ — informations de gestion sensibles.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Données sur le turnover pour [période] : [tableau avec données]. Analyse : tendances par départements, durée moyenne d'emploi, principales raisons de départ (par catégories). Rédige une synthèse pour la direction avec recommandations.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 5 : Évaluation du personnel (performance review)</h2>
+    <p><strong>Pourquoi on-prem :</strong> l'évaluation de salariés réels — information extrêmement sensible. Influence la carrière, la rémunération, la motivation de personnes spécifiques.</p>
+    <h3>Ce que fait l'IA</h3>
+    <ul>
+      <li>Structure les retours d'information des évaluations 360°</li>
+      <li>Forme une synthèse par compétences</li>
+      <li>Prépare des formulations pour l'entretien d'évaluation</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Résultats de l'évaluation 360° du salarié [nom] pour [période] : [données d'évaluation]. Structure les retours par compétences. Identifie les forces, les zones de développement, les recommandations. Prépare des formulations pour l'entretien d'évaluation.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 6 : Plans de développement individuel (PDI)</h2>
+    <p><strong>Pourquoi on-prem :</strong> le PDI est lié à un salarié spécifique, à son évaluation, à ses objectifs de carrière.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Rédige un PDI pour le salarié [nom] pour [période]. Données : poste actuel [titre], résultats d'évaluation [données], objectifs du salarié [objectifs]. Inclus : compétences à développer, activités, délais, critères de réussite, soutien du manager.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 7 : Programme de succession et de réserve de talents</h2>
+    <p><strong>Pourquoi on-prem :</strong> « qui prétend à quel poste » — information politiquement sensible au sein de l'entreprise. Une fuite peut provoquer des conflits et un départ de salariés clés.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Sur la base de la matrice du potentiel et de l'évaluation des salariés clés : [données anonymisées — sans noms, uniquement ID], forme des propositions pour la réserve de talents sur les postes critiques. Indique : postes, compétences requises, délais de préparation, risques d'absence de successeur.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 8 : Calcul et justification de la masse salariale, grading</h2>
+    <p><strong>Pourquoi on-prem :</strong> les salaires réels, les grades des postes spécifiques — information confidentielle. L'IA traite la partie textuelle de la justification, pas le calcul mathématique.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Justifie la proposition de grading du poste [titre]. Données : grade actuel [numéro], médiane du marché [fourchette], équité interne (ratio avec des rôles similaires). Formule des arguments pour la direction.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 9 : Analyse des raisons de départ (entretiens de sortie)</h2>
+    <p><strong>Pourquoi on-prem :</strong> les entretiens de sortie peuvent contenir des critiques de la direction, des raisons personnelles, des plaintes — tout cela constitue des données personnelles + risque de désanonymisation.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Effectue une analyse des raisons de départ sur la base des entretiens de sortie pour [période] : [textes d'entretiens, anonymisés]. Groupe les raisons par catégories. Identifie les problèmes systémiques et les recommandations pour leur élimination.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 10 : Mesures disciplinaires</h2>
+    <p><strong>Pourquoi on-prem :</strong> documents juridiquement significatifs avec des données personnelles. Exigent une précision des formulations.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Rédige un projet d'ordre de mesure disciplinaire. Données : nom [prénom nom], poste [titre], violation [description], date [date], témoins [liste]. Vérifie la conformité au droit du travail, articles sur la discipline. Indique les fondements juridiques.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 11 : Litiges du travail, position de l'employeur</h2>
+    <p><strong>Pourquoi on-prem :</strong> salarié spécifique, son litige du travail, stratégie de défense de l'entreprise — secret professionnel + secret commercial.</p>
+    <div class="prompt-box">
+      <strong>Prompt (avec le juriste) :</strong><br>
+      Situation : le salarié [nom] a présenté une demande [objet de la demande]. Faits : [contexte]. Prépare la position de l'employeur : fondement juridique, risques, scénarios possibles de résolution. Identifie les points faibles de la position.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 12 : Plaintes de harcèlement/discrimination</h2>
+    <p><strong>Pourquoi on-prem :</strong> sensibilité maximale. Risque de désanonymisation du plaignant, traumatisme secondaire, risques réputationnels pour l'entreprise.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Rédige un plan de traitement initial de la plainte pour [type : harcèlement/discrimination]. Inclus : étapes de l'enquête, documents nécessaires, exigences de confidentialité, délais, forme du document final. Indique ce qui nécessite l'implication d'un juriste externe.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 13 : Rapports pour la direction sur les métriques RH</h2>
+    <p><strong>Pourquoi on-prem :</strong> information de gestion : masse salariale, turnover par départements, productivité du travail — données stratégiques.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Sur la base des métriques RH pour [période] : [données], rédige une synthèse analytique pour la direction. Inclus : tendances clés, écarts par rapport au plan, risques, recommandations. Format : 1 page, structuré, avec conclusions.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 14 : Vérification des références (reference check) de candidats spécifiques</h2>
+    <p><strong>Pourquoi on-prem :</strong> la vérification des références inclut des données personnelles non seulement du candidat, mais aussi de tiers (recommandeurs, anciens managers).</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Résultats de la vérification des références du candidat [nom] : [comptes-rendus d'entretiens/lettres de recommandation]. Structure l'information par catégories : qualités professionnelles, communication, fiabilité, zones de développement. Forme une synthèse pour la prise de décision.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Pourquoi même la préparation d'un simple certificat sur demande d'un salarié — on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Le certificat contient le nom, le poste, le salaire — données personnelles.'">Contient des données personnelles (nom, poste, salaire)</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Formellement ce sont des données personnelles, mais la raison est plus large.'">Parce que le certificat est un document interne</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Ce n\'est pas la principale raison.'">Parce que les certificats sont rarement demandés</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> Quelle tâche RH est la plus sensible parmi celles listées ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Important, mais pas le plus sensible.'">Évaluation du personnel (performance review)</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Risque de désanonymisation, de traumatisme secondaire, de risques réputationnels — sensibilité maximale.'">Plaintes de harcèlement/discrimination</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Important, mais moins sensible que le harcèlement.'">Réserve de talents et succession</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3 :</strong> Pourquoi le benchmarking des salaires du marché — tâche pour l'IA externe, et pas on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Analyse des études de salaires publiques, sources ouvertes — pas des données personnelles.'">On analyse des études de salaires publiques, pas les salaires spécifiques des salariés</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. La méthodologie — partie de la tâche, mais pas la raison du choix du contour.'">Parce que la méthodologie est universelle</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Le benchmarking peut être précis, mais ce n\'est pas ce qui détermine le contour.'">Parce que l'IA externe est plus précise dans les calculs</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../catalog.html" class="nav-btn">← Au catalogue</a>
+    <a href="../17-2-cloud/index.html" class="nav-btn primary">17.2 Tâches externes RH →</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>

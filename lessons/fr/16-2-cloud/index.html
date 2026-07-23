@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.2 Tâches externes compliance — IA externe — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 16 — Compliance</div>
+    <h1>16.2 Tâches externes : IA externe</h1>
+    <div class="meta">⏱ 20 min · pour officiers compliance</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>Données ouvertes (IA externe)</strong><br>
+    Toutes les tâches de ce cours — avec <span class="highlight">des listes de sanctions publiques, des cadres normatifs publics, des rapports sectoriels, des matériaux de formation généraux</span>. Vous pouvez utiliser Claude, ChatGPT, Gemini.
+  </div>
+
+  <div class="section">
+    <h2>Ce qu'on peut faire en IA externe</h2>
+    <p>Contrairement aux tâches avec des noms, transactions et enquêtes spécifiques, le travail avec le champ normatif ouvert est sûr et efficace :</p>
+    <ul>
+      <li>Surveillance des changements dans les listes de sanctions (sources publiques)</li>
+      <li>Conclusions sur le contrôle à l'exportation (normes générales)</li>
+      <li>Développement de politiques basées sur des cadres publics (ISO 37001, UK Bribery Act)</li>
+      <li>Code d'éthique des affaires (structure générale)</li>
+      <li>Programmes de formation (contenu général)</li>
+      <li>Benchmarking des pratiques compliance (données publiques)</li>
+    </ul>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Règle principale :</strong> si la requête ne contient pas de noms d'entreprises, de montants, de dates concrètes, de données personnelles, de plans stratégiques — vous pouvez utiliser l'IA externe.
+  </div>
+
+  <div class="section">
+    <h2>1. Surveillance des listes de sanctions</h2>
+    <p>Analyse des changements dans les listes de sanctions (OFAC, UE, ONU, listes nationales).</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (IA externe + recherche web)</div>
+      <pre>Analyse les changements dans les listes de sanctions pour le [INDIQUEZ LE MOIS] :
+
+Listes à surveiller :
+- OFAC (SDN, Non-SDN)
+- Liste de sanctions de l'UE
+- Liste du Conseil de sécurité de l'ONU
+- Listes nationales [INDIQUEZ LE PAYS]
+
+Secteur d'activité : [INDIQUEZ]
+
+Fais :
+1. Nouvelles désignations (noms, dates, motifs)
+2. Retraits de la liste
+3. Modifications des entrées existantes
+4. Impact sur le secteur [INDIQUEZ]
+5. Recommandations pour la mise à jour des processus de screening
+6. Délai d'entrée en vigueur des nouvelles restrictions
+
+Format : note analytique (1-2 pages)</pre>
+    </div>
+    <p><strong>Résultat :</strong> revue des changements, économie de 3–4 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Conclusions sur le contrôle à l'exportation</h2>
+    <p>Analyse des normes générales de contrôle à l'exportation (EAR, ITAR, contrôle du transfert de technologies).</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare une conclusion sur le contrôle à l'exportation :
+
+Produit/technologie : [INDIQUEZ LE TYPE sans spécifications techniques détaillées]
+Régime de contrôle : [INDIQUEZ : EAR/ITAR/contrôle national]
+Pays de destination : [INDIQUEZ LA RÉGION]
+
+Fais :
+1. Classification du produit selon les listes de contrôle
+2. Analyse des restrictions applicables
+3. Licences requises (types)
+4. Risques de non-conformité
+5. Recommandations pour l'obtention des licences
+6. Plan de conformité
+
+Important : conclusion préliminaire basée sur des normes publiques, ne remplace pas un avis juridique spécialisé.</pre>
+    </div>
+    <p><strong>Résultat :</strong> analyse préliminaire, économie de 2–3 heures (ne remplace pas un avis spécialisé).</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Développement de politiques compliance basées sur des cadres publics</h2>
+    <p>Adaptation des normes publiques (ISO 37001, UK Bribery Act, FCPA) aux besoins de l'entreprise.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Développe une politique anticorruption basée sur ISO 37001 :
+
+Paramètres :
+- Taille de l'entreprise : [INDIQUEZ : grande/moyenne/petite]
+- Secteur : [INDIQUEZ]
+- Géographie des opérations : [INDIQUEZ LES RÉGIONS]
+- Cadre de référence : ISO 37001 + [INDIQUEZ LA LÉGISLATION NATIONALE]
+
+Rédige :
+1. Champ d'application de la politique
+2. Principes généraux (interdictions, obligations)
+3. Processus de due diligence des contreparties
+4. Cadeaux et invitations (règles, limites types)
+5. Agents et intermédiaires (contrôle)
+6. Signalement des violations (canaux, protection)
+7. Sanctions pour les violations
+8. Revue et mise à jour de la politique
+
+Format : document structuré pour approbation par la direction</pre>
+    </div>
+    <p><strong>Résultat :</strong> ébauche de politique, économie de 4–5 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Code d'éthique des affaires</h2>
+    <p>Rédaction d'un code d'éthique basé sur des pratiques sectorielles publiques.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Rédige un code d'éthique des affaires :
+
+Paramètres :
+- Secteur : [INDIQUEZ]
+- Valeurs de l'entreprise : [INDIQUEZ]
+- Thèmes obligatoires : [INDIQUEZ : intégrité/concurrence loyale/confidentialité/diversité]
+
+Structure :
+1. Message du PDG (modèle)
+2. Nos valeurs (formulation)
+3. Conduite en affaires (règles)
+4. Relations avec les contreparties (règles)
+5. Conflits d'intérêts (définition, procédure)
+6. Protection des actifs (règles)
+7. Signalement des violations (canaux)
+8. Conséquences des violations
+9. Questions fréquentes (5-7 scénarios)
+
+Ton : accessible, sans jargon juridique, traduit en [INDIQUEZ LES LANGUES]</pre>
+    </div>
+    <p><strong>Résultat :</strong> code d'éthique prêt, économie de 3–4 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Programmes de formation compliance</h2>
+    <p>Développement de matériels de formation sur des thèmes compliance de caractère général.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Développe un programme de formation compliance :
+
+Thème : [INDIQUEZ : anticorruption/sanctions/blanchiment/protection des données]
+Audience : [INDIQUEZ : tous les employés/managers/équipes commerciales]
+Format : présentation (10 diapositives) + test (5 questions)
+
+Rédige :
+1. Objectifs de la formation (ce que l'employé doit savoir)
+2. Dispositions principales (en langage simple)
+3. Exemples de situations (hypothétiques, pas réels)
+4. Règles de comportement (do's and don'ts)
+5. Responsabilité en cas de violation
+6. Test (5 questions avec options de réponse)
+7. Check-list d'auto-évaluation
+
+Ton : accessible, sans jargon juridique.</pre>
+    </div>
+    <p><strong>Résultat :</strong> matériel prêt pour la formation, économie de 3–4 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Benchmarking des pratiques compliance du secteur</h2>
+    <p>Comparaison des programmes compliance avec des entreprises similaires selon des données publiques.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (recherche web)</div>
+      <pre>Mène un benchmarking des pratiques compliance dans le secteur :
+
+Secteur : [INDIQUEZ]
+Paramètres de comparaison :
+- Structure du département compliance
+- Utilisation du compliance tech
+- Ressources compliance internes vs externes
+- Types d'incidents (données publiques)
+- Coût des programmes compliance (données publiques)
+- Pratiques de reporting
+
+Sources : rapports sectoriels, publications, conférences
+
+Fais :
+1. Revue des pratiques de 3-5 entreprises du secteur (données publiques)
+2. Tableau comparatif
+3. Meilleures pratiques (best practices)
+4. Recommandations pour l'optimisation du programme compliance
+
+Important : uniquement des données publiques, sans détails sur des incidents spécifiques.</pre>
+    </div>
+    <p><strong>Résultat :</strong> revue des pratiques sectorielles, économie de 4–5 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif : tâches externes</h2>
+    <table>
+      <tr><th>Tâche</th><th>Ce qu'il faut</th><th>Format de sortie</th><th>Économie</th></tr>
+      <tr><td>Surveillance des sanctions</td><td>Listes publiques, secteur</td><td>Note analytique</td><td>3–4 h</td></tr>
+      <tr><td>Contrôle à l'exportation</td><td>Type de produit, pays</td><td>Conclusion préliminaire</td><td>2–3 h</td></tr>
+      <tr><td>Politiques compliance</td><td>Cadre de référence, secteur</td><td>Ébauche de politique</td><td>4–5 h</td></tr>
+      <tr><td>Code d'éthique</td><th>Valeurs, thèmes</th><td>Code structuré</td><td>3–4 h</td></tr>
+      <tr><td>Formation</td><td>Thème, audience</td><td>Présentation + test</td><td>3–4 h</td></tr>
+      <tr><td>Benchmarking</td><td>Secteur, paramètres</td><td>Analyse comparative</td><td>4–5 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Peut-on surveiller les listes de sanctions en IA externe ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Les listes de sanctions sont des données publiques.'">Oui, les listes de sanctions sont publiques</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Les listes sont publiées par les gouvernements.'">Non, c'est une information confidentielle</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. L\'hybride n\'est pas nécessaire pour des listes publiques.'">Uniquement en hybride</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> Le contrôle à l'exportation — quel contour ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Les normes de contrôle à l\'exportation sont publiques.'">IA externe — les normes sont publiques</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'; document.getElementById('q2-result').innerHTML='Réfléchissez encore. Les classifications sont publiées.'">On-prem — les classifications sont sensibles</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Les normes générales — dans le cloud.'">Hybride — normes à l'extérieur, produit spécifique à l'intérieur</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3 :</strong> Le benchmarking compliance — quel contour ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Les rapports sectoriels et les publications sont des données publiques.'">IA externe — rapports sectoriels et publications publiques</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Les données publiques — dans le cloud.'">On-prem — données sur les incidents de l'entreprise</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Les données publiques ne nécessitent pas d\'hybride.'">Hybride — données publiques à l'extérieur, données internes à l'intérieur</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../16-1-on-prem/index.html" class="nav-btn">← 16.1 Tâches internes</a>
+    <a href="../16-3-hybrid/index.html" class="nav-btn primary">16.3 Tâches hybrides →</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>

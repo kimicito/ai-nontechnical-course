@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.5 Scénarios agents pour les RH — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 17 — Ressources humaines</div>
+    <h1>17.5 Scénarios agents pour les RH</h1>
+    <div class="meta">⏱ 20 min · agents pour l'intégration, le recrutement, l'évaluation 360°</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Agent vs LLM</strong><br>
+    Un <span class="highlight">LLM</span> répond à une question isolée. Un <span class="highlight">agent</span> effectue une séquence d'actions : surveille, analyse, alerte, crée des tâches. Pour les scénarios agents RH, voir <a href="../../lessons/4-1-agents/index.html">Niveau 4 — Qu'est-ce qu'un agent</a>.
+  </div>
+
+  <div class="section">
+    <h2>Scénario 1 : Agent d'intégration (onboarding) (n8n/no-code)</h2>
+    <p><strong>Problème :</strong> les nouveaux salariés reçoivent des informations éparses et manquent des étapes importantes d'intégration.</p>
+    <h3>Architecture de l'agent</h3>
+    <div class="example">
+      <div class="example-label">Flux de données</div>
+      <pre>1. Déclencheur : nouveau salarié ajouté dans le système RH
+2. Vérification : le salarié a-t-il reçu tous les matériels d'intégration ?
+3. Action (si non) : envoi automatique des matériels manquants
+4. Rappel (jour 3) : demande de feedback sur la première semaine
+5. Rappel (jour 7) : vérification de l'accès aux systèmes
+6. Rappel (jour 30) : entretien de suivi programmé
+7. Notification : alerte au manager si des étapes sont manquées</pre>
+    </div>
+    <p><strong>Données sensibles :</strong> les données du salarié (nom, poste, département) — on-prem. Les matériels d'intégration généraux — peuvent être dans le cloud.</p>
+  </div>
+
+  <div class="section">
+    <h2>Scénario 2 : Agent de recrutement (full AI agent)</h2>
+    <p><strong>Problème :</strong> le flux de CV est élevé, la sélection manuelle prend trop de temps.</p>
+    <h3>Architecture de l'agent</h3>
+    <div class="example">
+      <div class="example-label">Flux de données</div>
+      <pre>1. Déclencheur : nouveau CV dans le système
+2. Extraction : texte du CV (OCR si nécessaire)
+3. Analyse LLM : comparaison avec les exigences du poste
+4. Évaluation : score de conformité (0–100%)
+5. Filtrage : CV au-dessus du seuil → entretien
+6. Action : création d'une tâche pour le recruteur
+7. Notification : alerte avec le résumé du candidat</pre>
+    </div>
+    <p><strong>Données sensibles :</strong> tous les CV contiennent des données personnelles — uniquement on-prem.</p>
+  </div>
+
+  <div class="section">
+    <h2>Scénario 3 : Agent d'évaluation 360° (hybride)</h2>
+    <p><strong>Problème :</strong> la collecte et l'analyse des évaluations 360° prennent beaucoup de temps et sont sujettes à des biais.</p>
+    <h3>Architecture de l'agent</h3>
+    <div class="example">
+      <div class="example-label">Flux de données</div>
+      <pre>1. Déclencheur : début de la période d'évaluation
+2. Action (cloud) : envoi des questionnaires types aux répondants
+3. Collecte (on-prem) : stockage des réponses dans le système interne
+4. Analyse LLM (on-prem) :
+   - Agrégation des scores par compétence
+   - Analyse des commentaires ouverts
+   - Identification des tendances
+5. Action : génération d'un rapport pour le manager
+6. Notification : rapport prêt pour l'entretien d'évaluation</pre>
+    </div>
+    <p><strong>Sécurité :</strong> les questionnaires types — peuvent être dans le cloud. Les réponses et l'analyse — uniquement on-prem (données personnelles).</p>
+  </div>
+
+  <div class="section">
+    <h2>Tableau comparatif des scénarios</h2>
+    <table>
+      <tr><th>Scénario</th><th>Type d'agent</th><th>Contour</th><th>Économie</th></tr>
+      <tr><td>Intégration</td><td>n8n/no-code</td><td>Hybride (matériels généraux → données salarié internes)</td><td>1–2 h par salarié</td></tr>
+      <tr><td>Recrutement</td><td>Agent IA complet</td><td>On-prem (CV confidentiels)</td><td>50–70% du temps de sélection</td></tr>
+      <tr><td>Évaluation 360°</td><td>Hybride</td><td>Questionnaires à l'extérieur, réponses à l'intérieur</td><td>3–4 h par évaluation</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Pourquoi l'agent de recrutement — uniquement on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Les CV contiennent des données personnelles.'">Parce que les CV contiennent des données personnelles</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'; document.getElementById('q1-result').innerHTML='Réfléchissez encore. L\'anonymisation des CV est impossible.'">On peut anonymiser les CV pour le cloud</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'; document.getElementById('q1-result').innerHTML='Réfléchissez encore. Ce n\'est pas la raison principale.'">Parce que le recrutement nécessite une précision maximale</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> L'agent d'intégration — quel contour pour les matériels ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Les matériels généraux sur l\'entreprise sont publics.'">Cloud — matériels généraux sur l'entreprise</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'; document.getElementById('q2-result').classList.add('show'; document.getElementById('q2-result').innerHTML='Réfléchissez encore. Les matériels généraux ne sont pas sensibles.'">On-prem — tous les matériels contiennent des données internes</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'; document.querySelectorAll('.quiz-option')[3].classList.add('disabled'; document.querySelectorAll('.quiz-option')[4].classList.add('disabled'; document.getElementById('q2-result').classList.add('show'; document.getElementById('q2-result').innerHTML='Réfléchissez encore. Les matériels généraux — dans le cloud.'">Hybride — matériels à l'extérieur, données salarié à l'intérieur</div>
+    <div id="q2-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../17-4-summary/index.html" class="nav-btn">← 17.4 Conclusion</a>
+    <a href="../../index.html" class="nav-btn primary">Accueil</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>

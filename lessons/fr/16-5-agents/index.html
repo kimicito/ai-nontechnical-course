@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.5 Scénarios agents pour le compliance — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 16 — Compliance</div>
+    <h1>16.5 Scénarios agents pour le compliance</h1>
+    <div class="meta">⏱ 20 min · agents pour la surveillance des sanctions, l'analyse AML, le traitement des signalements whistleblower</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Agent vs LLM</strong><br>
+    Un <span class="highlight">LLM</span> répond à une question isolée. Un <span class="highlight">agent</span> effectue une séquence d'actions : surveille, analyse, alerte, crée des tâches. Pour les scénarios agents compliance, voir <a href="../../lessons/4-1-agents/index.html">Niveau 4 — Qu'est-ce qu'un agent</a>.
+  </div>
+
+  <div class="section">
+    <h2>Scénario 1 : Agent de surveillance des sanctions (n8n/no-code)</h2>
+    <p><strong>Problème :</strong> les listes de sanctions changent quotidiennement, et les mises à jour manuelles prennent trop de temps.</p>
+    <h3>Architecture de l'agent</h3>
+    <div class="example">
+      <div class="example-label">Flux de données</div>
+      <pre>1. Sources : listes publiques OFAC, UE, ONU, listes nationales
+2. Déclencheur : mise à jour des listes (webhook/API)
+3. Filtrage : correspondance avec la base de contreparties de l'entreprise
+4. Analyse LLM : évaluation du risque (anonymisée)
+5. Action : création d'une alerte dans le système compliance
+6. Notification : alerte à l'officier compliance</pre>
+    </div>
+    <p><strong>Données sensibles :</strong> la liste des contreparties de l'entreprise — information interne. Le matching avec des noms spécifiques — on-prem.</p>
+  </div>
+
+  <div class="section">
+    <h2>Scénario 2 : Agent d'analyse AML (full AI agent)</h2>
+    <p><strong>Problème :</strong> le volume des transactions nécessite une analyse automatique des patterns suspects.</p>
+    <h3>Architecture de l'agent</h3>
+    <div class="example">
+      <div class="example-label">Flux de données</div>
+      <pre>1. Déclencheur : nouvelle transaction dans le système
+2. Analyse rule-based : vérification automatique des seuils
+3. Analyse LLM : comparaison avec le profil du client
+4. Évaluation : niveau de risque (faible/moyen/élevé)
+5. Action : génération d'un rapport préliminaire SAR/STR
+6. Notification : tâche pour l'analyste AML avec priorité</pre>
+    </div>
+    <p><strong>Données sensibles :</strong> toutes les données des transactions, les profils des clients — uniquement on-prem.</p>
+  </div>
+
+  <div class="section">
+    <h2>Scénario 3 : Agent de traitement des signalements whistleblower (hybride)</h2>
+    <p><strong>Problème :</strong> les signalements arrivent via différents canaux et nécessitent une analyse structurée rapide.</p>
+    <h3>Architecture de l'agent</h3>
+    <div class="example">
+      <div class="example-label">Flux de données</div>
+      <pre>1. Déclencheur : nouveau signalement (formulaire web, email, téléphone)
+2. Extraction : texte du signalement
+3. Analyse LLM (on-prem) :
+   - Résumé des allégations
+   - Évaluation de la crédibilité
+   - Classification du risque
+4. Recherche interne (on-prem) :
+   - Historique des incidents similaires
+   - Politiques applicables
+5. Action : création d'une tâche d'enquête avec priorité
+6. Notification : alerte au responsable compliance</pre>
+    </div>
+    <p><strong>Sécurité :</strong> tout le traitement — on-prem. Les signalements contiennent des allégations sensibles sur des personnes spécifiques.</p>
+  </div>
+
+  <div class="section">
+    <h2>Tableau comparatif des scénarios</h2>
+    <table>
+      <tr><th>Scénario</th><th>Type d'agent</th><th>Contour</th><th>Économie</th></tr>
+      <tr><td>Surveillance des sanctions</td><td>n8n/no-code</td><td>Hybride (listes publiques → matching interne)</td><td>2–3 h/jour</td></tr>
+      <tr><td>Analyse AML</td><td>Agent IA complet</td><td>On-prem (données transactions)</td><td>60–80% du temps</td></tr>
+      <tr><td>Whistleblower</td><td>Hybride</td><td>On-prem (allégations sensibles)</td><td>2–3 h par signalement</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Pourquoi l'analyse AML — uniquement on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Les transactions et les profils clients — données confidentielles.'">Parce que les transactions et les profils clients sont confidentiels</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'; document.getElementById('q1-result').innerHTML='Réfléchissez encore. L\'anonymisation des transactions est impossible.'">On peut anonymiser les transactions pour le cloud</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'; document.getElementById('q1-result').innerHTML='Réfléchissez encore. Ce n\'est pas la raison principale.'">Parce que l'AML nécessite une vitesse maximale</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> L'agent de surveillance des sanctions — quel contour pour les listes ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Les listes de sanctions sont publiées par les gouvernements.'">Cloud — les listes de sanctions sont publiques</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'; document.getElementById('q2-result').classList.add('show'; document.getElementById('q2-result').innerHTML='Réfléchissez encore. Les listes sont publiquement disponibles.'">On-prem — les listes peuvent contenir des données sensibles</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'; document.getElementById('q2-result').classList.add('show'; document.getElementById('q2-result').innerHTML='Réfléchissez encore. Les listes publiques ne nécessitent pas d\'hybride.'">Hybride — listes à l'extérieur, matching à l'intérieur</div>
+    <div id="q2-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../16-4-summary/index.html" class="nav-btn">← 16.4 Conclusion</a>
+    <a href="../../index.html" class="nav-btn primary">Accueil</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>

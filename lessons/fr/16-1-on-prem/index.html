@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>16.1 Tâches internes compliance — on-prem — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 16 — Compliance</div>
+    <h1>16.1 Tâches internes : on-prem</h1>
+    <div class="meta">⏱ 25 min · pour officiers compliance, juristes, auditeurs</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Contour fermé (on-prem)</strong><br>
+    Toutes les tâches de ce cours travaillent avec <span class="highlight">des informations classifiées, des données personnelles, des stratégies d'enquête, des rapports au conseil et des détails de transactions spécifiques</span>. Utilisez un modèle interne ou un LLM local.
+  </div>
+
+  <div class="section">
+    <h2>Pourquoi l'on-prem est critique pour le compliance</h2>
+    <p>Le compliance combine la sensibilité de plusieurs fonctions : la sécurité économique (carte des vulnérabilités, whistleblower), la fonction juridique (privilège attorney-client, conséquences réglementaires) et la sécurité (enquêtes sur les personnes). Toute fuite peut entraîner des poursuites pénales, des sanctions réglementaires et une atteinte à la réputation.</p>
+    <p><strong>Règle par défaut :</strong> si une tâche concerne un nom spécifique, une transaction, un contrepartie, une enquête ou un rapport au conseil — uniquement on-prem.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Quand l'on-prem est obligatoire :</strong>
+    <ul>
+      <li>Analyse des transactions suspectes et rédaction de SAR/STR</li>
+      <li>Enquêtes sur la corruption et la fraude</li>
+      <li>Traitement des signalements whistleblower</li>
+      <li>Due diligence des contreparties spécifiques</li>
+      <li>Screening sanctions de transactions spécifiques</li>
+      <li>KYC/KYB (connaissance du client)</li>
+      <li>Rapports au conseil et au comité d'audit</li>
+      <li>Réponses aux demandes des régulateurs</li>
+      <li>Préparation aux audits internes et externes</li>
+      <li>Cartographie des risques (données réelles)</li>
+      <li>Évaluation de l'efficacité des contrôles</li>
+      <li>Documents pour les comités compliance</li>
+      <li>Gestion des conflits d'intérêts</li>
+      <li>Contrôle des paiements à des agents/intermédiaires</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. Analyse des transactions suspectes (SAR/STR)</h2>
+    <p>Rédaction de rapports sur des opérations suspectes pour les autorités de régulation.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (on-prem)</div>
+      <pre>Prépare un rapport SAR/STR sur la transaction suspecte :
+
+Données de la transaction :
+- ID de la transaction : [INDIQUEZ]
+- Montant : [INDIQUEZ]
+- Date : [INDIQUEZ]
+- Contrepartie : [INDIQUEZ]
+- Type d'opération : [INDIQUEZ]
+- Motif de suspicion : [INDIQUEZ]
+
+Historique :
+- Transactions antérieures du même contrepartie : [INDIQUEZ]
+- Alerte du système AML : [INDIQUEZ]
+
+Fais :
+1. Description des faits (chronologie)
+2. Analyse des indicateurs de suspicion
+3. Comparaison avec le profil du client
+4. Conclusion (suspicion confirmée/non confirmée)
+5. Recommandation (notification des autorités/renforcement du suivi)
+6. Annexes (liste des documents)</pre>
+    </div>
+    <p><strong>Résultat :</strong> rapport SAR/STR prêt, économie de 3–4 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Enquête sur la corruption/fraude</h2>
+    <p>Structuration des matériaux d'enquête, préparation de conclusions.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Structure les matériaux de l'enquête sur la corruption :
+
+Contexte de l'enquête :
+- Incident : [INDIQUEZ LA NATURE]
+- Personnes impliquées : [INDIQUEZ]
+- Documents : [INDIQUEZ LA LISTE]
+- Témoignages : [INDIQUEZ]
+- Preuves : [INDIQUEZ]
+
+Fais :
+1. Chronologie des événements
+2. Tableau des faits (qui, quoi, quand, où)
+3. Analyse des preuves (force/faiblesse)
+4. Violations identifiées (normes, politiques)
+5. Personnes responsables (degré de culpabilité)
+6. Recommandations (mesures disciplinaires, renforcement des contrôles)
+7. Plan de prévention des incidents futurs</pre>
+    </div>
+    <p><strong>Résultat :</strong> matériaux structurés, économie de 4–5 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Traitement des signalements whistleblower</h2>
+    <p>Analyse des signalements anonymes, préparation des actions de suivi.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Analyse le signalement whistleblower :
+
+Signalement (anonymisé si nécessaire) :
+[INDIQUEZ LE TEXTE DU SIGNALEMENT]
+
+Données internes :
+- Documents pertinents : [INDIQUEZ]
+- Historique des incidents similaires : [INDIQUEZ]
+- Politiques applicables : [INDIQUEZ]
+
+Fais :
+1. Résumé des allégations
+2. Évaluation de la crédibilité (échelle 1-5)
+3. Vérifications nécessaires (liste)
+4. Risques pour l'entreprise (élevé/moyen/faible)
+5. Plan d'action (qui, quoi, quand)
+6. Recommandation sur la confidentialité de l'enquête
+7. Communication (qui doit être informé)</pre>
+    </div>
+    <p><strong>Résultat :</strong> plan d'action prêt, économie de 2–3 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Due diligence du contrepartie (compliance)</h2>
+    <p>Analyse du contrepartie du point de vue compliance : risques de corruption, sanctions, PEP.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Mène une due diligence compliance du contrepartie [INDIQUEZ LE NOM] :
+
+Données du contrepartie :
+- Type : [INDIQUEZ : entreprise/physique/PEP]
+- Pays : [INDIQUEZ]
+- Secteur : [INDIQUEZ]
+- Structure de propriété : [INDIQUEZ]
+- Bénéficiaires effectifs : [INDIQUEZ]
+
+Données internes :
+- Historique des relations : [INDIQUEZ]
+- Volume des transactions : [INDIQUEZ]
+- Aléas antérieurs : [INDIQUEZ]
+
+Fais :
+1. Évaluation des risques (corruption/sanctions/PEP/blanchiment)
+2. Red flags identifiés
+3. Niveau de diligence requis (standard/renforcée)
+4. Mesures d'atténuation recommandées
+5. Recommandation (approuver/conditions/refuser)
+6. Délai de réexamen</pre>
+    </div>
+    <p><strong>Résultat :</strong> analyse compliance, économie de 3–4 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Rapport au conseil / comité d'audit</h2>
+    <p>Préparation de rapports structurés pour la direction et le conseil.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare le rapport compliance pour le conseil :
+
+Période : [INDIQUEZ]
+
+Données (internes) :
+- Incidents : [INDIQUEZ]
+- Aléas : [INDIQUEZ]
+- Mesures prises : [INDIQUEZ]
+- Métriques : [INDIQUEZ]
+
+Fais :
+1. Résumé exécutif (1 page)
+2. État du programme compliance (points forts/faiblesses)
+3. Risques clés (avec évaluation)
+4. Incidents et leur résolution
+5. Métriques (tendances)
+6. Recommandations pour le conseil
+7. Plan pour la période suivante</pre>
+    </div>
+    <p><strong>Résultat :</strong> rapport prêt, économie de 4–5 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Cartographie des risques compliance</h2>
+    <p>Évaluation des risques pour les processus métier réels de l'entreprise.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Évalue les risques compliance des processus de l'entreprise :
+
+Processus :
+1. [INDIQUEZ LE NOM DU PROCESSUS] — pays [INDIQUEZ], contreparties [INDIQUEZ]
+2. [INDIQUEZ LE NOM DU PROCESSUS] — pays [INDIQUEZ], contreparties [INDIQUEZ]
+3. [INDIQUEZ LE NOM DU PROCESSUS] — pays [INDIQUEZ], contreparties [INDIQUEZ]
+
+Fais :
+1. Matrice des risques par processus (corruption/sanctions/PEP/blanchiment)
+2. Carte des vulnérabilités
+3. Priorités pour le renforcement du contrôle
+4. Plan d'action (qui, quoi, quand)
+5. Délai de révision</pre>
+    </div>
+    <p><strong>Résultat :</strong> carte des risques, économie de 3–4 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Réponse à la demande du régulateur</h2>
+    <p>Préparation d'une réponse structurée à une demande d'autorité de régulation.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare la réponse à la demande [INDIQUEZ LE RÉGULATEUR] :
+
+Demande :
+[INSÉREZ LE TEXTE DE LA DEMANDE]
+
+Données (internes) :
+- Faits : [INDIQUEZ]
+- Documents : [INDIQUEZ LA LISTE]
+- Position : [INDIQUEZ]
+- Risques : [INDIQUEZ]
+
+Fais :
+1. Structure de la réponse (par points de la demande)
+2. Texte de réponse à chaque point
+3. Références aux normes juridiques
+4. Annexes (liste)
+5. Analyse des risques : que peut demander le régulateur ensuite
+6. Recommandations à la direction</pre>
+    </div>
+    <p><strong>Résultat :</strong> réponse prête, économie de 3–4 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif</h2>
+    <table>
+      <tr><th>Tâche</th><th>Ce qu'il faut</th><th>Format de sortie</th><th>Économie</th></tr>
+      <tr><td>SAR/STR</td><td>Données de la transaction, historique</td><td>Rapport réglementaire</td><td>3–4 h</td></tr>
+      <tr><td>Enquête corruption</td><td>Matériaux de l'enquête</td><td>Conclusions structurées</td><td>4–5 h</td></tr>
+      <tr><td>Whistleblower</td><td>Signalement, données internes</td><td>Plan d'action</td><td>2–3 h</td></tr>
+      <tr><td>Due diligence</td><td>Données du contrepartie, historique</td><td>Évaluation des risques</td><td>3–4 h</td></tr>
+      <tr><td>Rapport au conseil</td><td>Données de la période</td><td>Rapport exécutif</td><td>4–5 h</td></tr>
+      <tr><td>Carte des risques</td><td>Processus métier, données</td><td>Matrice des risques</td><td>3–4 h</td></tr>
+      <tr><td>Réponse au régulateur</td><td>Demande, données internes</td><td>Réponse structurée</td><td>3–4 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Pourquoi le SAR/STR — uniquement on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Le SAR contient des détails sur des transactions spécifiques et des personnes.'">Parce qu'il contient des détails sur des transactions spécifiques et des personnes</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. La forme du rapport n\'est pas le facteur déterminant.'">Parce que c'est un document juridiquement contraignant</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. La structure du SAR est publique, mais le contenu ne l\'est pas.'">On peut utiliser l'IA externe pour la structure du rapport</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> Les signalements whistleblower — quel contour ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Les signalements contiennent des allégations sensibles sur des personnes spécifiques.'">On-prem — informations sensibles sur des personnes spécifiques</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Les signalements contiennent des faits réels sur des personnes.'">IA externe — si le signalement est anonyme</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. L\'hybride n\'est pas approprié pour les signalements.'">Hybride — structure dans le cloud, faits à l'intérieur</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3 :</strong> Le rapport au conseil — pourquoi on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. La forme n\'est pas l\'essentiel.'">Parce qu'une forme de rapport particulière est requise</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Le rapport contient des données stratégiques sensibles.'">Parce qu'il contient des données stratégiques sensibles sur l'entreprise</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Ce n\'est pas une question de délais.'">Uniquement si le rapport est confidentiel</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">Accueil</a>
+    <a href="../16-2-cloud/index.html" class="nav-btn primary">16.2 Tâches externes →</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>

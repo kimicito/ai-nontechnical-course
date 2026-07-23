@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.3 Tâches hybrides RH — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .prompt-box { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: 'Segoe UI', monospace; font-size: 0.9rem; line-height: 1.5; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 17 — Ressources humaines</div>
+    <h1>17.3 Tâches hybrides RH</h1>
+    <div class="meta">⏱ 15 min · type/anonymisé à l'extérieur, personnel à l'intérieur</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Principe de l'hybride pour les RH</strong><br>
+    La structure générale, la méthodologie, les formulations types — <span class="highlight">à l'extérieur</span>. Les noms spécifiques, salaires, évaluations, faits sur le salarié — <span class="highlight">à l'intérieur</span>.
+  </div>
+
+  <div class="section">
+    <h2>Tâche 1 : Vérification des références — structure des questions à l'extérieur, évaluation avec nom à l'intérieur</h2>
+    <p><strong>Hybride :</strong> la structure type de la vérification des références et les critères d'évaluation — universels. L'évaluation finale du candidat spécifique sur la base des réponses réelles des recommandeurs — on-prem.</p>
+    
+    <h3>Étape 1 — IA externe (structure)</h3>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Développe la structure de la vérification des références pour le poste [titre] de niveau [junior/middle/senior]. Inclus : cercle des recommandeurs (manager, collègues, clients), questions par compétences [liste], échelle d'évaluation, format d'enregistrement des résultats. Format : modèle prêt pour les RH.
+    </div>
+    
+    <h3>Étape 2 — On-prem (évaluation du candidat spécifique)</h3>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Résultats de la vérification des références du candidat [nom] selon la structure ci-dessus : [enregistrements]. Effectue l'évaluation pour chaque compétence. Forme une conclusion finale avec recommandation (embauche/refus/entretien complémentaire).
+    </div>
+    <div class="card card-success">
+      <strong>Économie :</strong> 30–40 minutes pour la préparation de la structure (faite 1 fois par type de poste). Évaluation d'un candidat spécifique — 10 minutes au lieu de 30.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 2 : Plan de développement individuel — modèle à l'extérieur, lien au salarié à l'intérieur</h2>
+    <p><strong>Hybride :</strong> le modèle général du PDI, les parcours de développement types — universels. Le lien aux résultats d'évaluation du salarié spécifique — on-prem.</p>
+    
+    <h3>Étape 1 — IA externe (modèle)</h3>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Développe un modèle de PDI pour [niveau : spécialiste/manager] pour [période]. Inclus : structure (objectifs, compétences, activités, délais, critères), parcours de développement types (techniques, managériales, soft skills). Format : modèle à compléter.
+    </div>
+    
+    <h3>Étape 2 — On-prem (personnalisation)</h3>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Complète le modèle de PDI pour le salarié [nom]. Données : poste [titre], résultats d'évaluation [données], objectifs du salarié [objectifs]. Rédige un plan concret avec des critères mesurables.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 3 : Enquêtes d'engagement — questions à l'extérieur, analyse des réponses à l'intérieur</h2>
+    <p><strong>Hybride :</strong> les formulations des questions — types, peuvent être publiques. L'analyse des réponses réelles des salariés — données personnelles + sensibilité de gestion.</p>
+    
+    <h3>Étape 1 — IA externe (questions)</h3>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Développe une enquête d'engagement des salariés. 15 questions : 10 fermées (échelle 1–5), 5 ouvertes. Thèmes : satisfaction au travail, relations avec le manager, développement, équilibre travail/vie personnelle, recommandation de l'entreprise comme employeur. Format : questionnaire prêt.
+    </div>
+    
+    <h3>Étape 2 — On-prem (analyse)</h3>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Analyse les résultats de l'enquête d'engagement pour [période]. Données : [résultats agrégés, sans noms par réponse individuelle]. Identifie : indice général, zones problématiques par départements, tendances vs période précédente, recommandations.
+    </div>
+    <div class="card card-warning">
+      <strong>Important :</strong> l'analyse des réponses ouvertes, où les salariés peuvent indiquer des noms ou décrire des situations concrètes — uniquement on-prem.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 4 : Retour d'information sur l'évaluation — principes à l'extérieur, faits sur le salarié à l'intérieur</h2>
+    <p><strong>Hybride :</strong> les principes généraux de formulation d'un retour constructif — universels. Le contenu avec des faits réels sur le salarié spécifique — on-prem.</p>
+    
+    <h3>Étape 1 — IA externe (méthodologie)</h3>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Développe un guide pour le manager sur la conduite d'un entretien d'évaluation. Inclus : structure de la conversation, exemples de retour constructif (modèle SBI : Situation-Behavior-Impact), exemples de formulations pour différents scénarios (dépassement des attentes, conformité, zone de développement). Format : aide-mémoire du manager.
+    </div>
+    
+    <h3>Étape 2 — On-prem (préparation d'un entretien spécifique)</h3>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Prépare les talking points pour l'entretien d'évaluation avec le salarié [nom]. Données : poste [titre], résultats d'évaluation [données], objectifs de la période [objectifs]. Utilise le modèle SBI. Formule le retour pour chaque compétence.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 5 : Offres et contrats de travail — modèle à l'extérieur, conditions réelles à l'intérieur</h2>
+    <p><strong>Hybride :</strong> le modèle type d'offre/contrat — universel. Les conditions réelles (salaire, nom, date) — on-prem.</p>
+    
+    <h3>Étape 1 — IA externe (modèle)</h3>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Rédige un modèle type d'offre pour le poste [titre] dans [secteur]. Inclus : structure, sections obligatoires (poste, salaire, période d'essai, avantages sociaux), formulations sur la confidentialité, conditions de temps partiel (si applicable). Format : modèle avec marqueurs [NOM], [SALAIRE].
+    </div>
+    
+    <h3>Étape 2 — On-prem (remplissage)</h3>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Remplis le modèle d'offre pour le candidat [nom]. Données : poste [titre], salaire [montant], date d'entrée [date], période d'essai [durée]. Vérifie la conformité au droit du travail.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Pourquoi l'enquête d'engagement — hybride, et pas entièrement on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Questions types — dans le cloud, analyse des réponses — données personnelles.'">Questions types (peuvent être dans le cloud), analyse des réponses — on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'; document.getElementById('q1-result').innerHTML='Réfléchissez encore. Le format ne détermine pas le contour.'">Parce que l'enquête se déroule en ligne</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. L\'anonymat — pas une garantie d\'absence de données personnelles dans les réponses.'">Parce que l'enquête est anonyme</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> Quelle étape de la vérification des références — on-prem ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'; document.getElementById('q2-result').innerHTML='Réfléchissez encore. La structure — universelle, peut être dans le cloud.'">Développement de la structure des questions</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> L\'évaluation du candidat spécifique contient des données personnelles.'">Évaluation du candidat spécifique sur la base des réponses réelles</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. L\'échelle — partie de la structure, universelle.'">Choix de l'échelle d'évaluation (1–5)</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3 :</strong> Pourquoi le PDI — hybride ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'; document.getElementById('q3-result').innerHTML='Réfléchissez encore. Les objectifs personnels — partie de l\'on-prem, mais pas la raison de l\'hybride.'">Parce que les objectifs sont personnels</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Le modèle est universel, le lien au salarié — données personnelles.'">Le modèle est universel (cloud), le lien au salarié spécifique — on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'; document.getElementById('q3-result').innerHTML='Réfléchissez encore. Les délais — neutres, ne déterminent pas le contour.'">Parce que les délais sont différents pour tout le monde</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../17-2-cloud/index.html" class="nav-btn">← 17.2 Tâches externes</a>
+    <a href="../17-4-summary/index.html" class="nav-btn primary">17.4 Conclusion pratique →</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>

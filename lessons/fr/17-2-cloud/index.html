@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.2 Tâches externes RH — IA externe — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .prompt-box { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: 'Segoe UI', monospace; font-size: 0.9rem; line-height: 1.5; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 17 — Ressources humaines</div>
+    <h1>17.2 Tâches externes RH : IA externe</h1>
+    <div class="meta">⏱ 15 min · méthodologie universelle sans données personnelles</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Principe principal de la leçon</strong><br>
+    Dans le contour externe, on peut transférer en toute sécurité uniquement ce qui <span class="highlight">n'est pas personnalisé</span> : méthodologie, modèles, analytique publique du marché du travail.
+  </div>
+
+  <div class="section">
+    <h2>Tâche 1 : Rédaction d'offres d'emploi et descriptions de postes</h2>
+    <p><strong>Pourquoi l'IA externe :</strong> contenu public par définition. L'offre est publiée sur des sites d'emploi, dans les réseaux sociaux, sur le site de l'entreprise.</p>
+    <h3>Ce que fait l'IA</h3>
+    <ul>
+      <li>Formule une description attractive sur la base des exigences</li>
+      <li>Adapte au ton de l'entreprise</li>
+      <li>Ajoute des accents ESG/DEI si nécessaire</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Rédige une description d'offre d'emploi pour le poste [titre] dans [secteur]. Exigences clés : [liste]. Niveau : [junior/middle/senior]. Format : attractif, avec accent sur le développement et la culture d'entreprise. Ajoute les sections "Ce que vous ferez", "Ce que nous attendons", "Ce que nous proposons".
+    </div>
+    <div class="card card-success">
+      <strong>Résultat :</strong> économie de 20–30 minutes par offre. Les RH peuvent publier 2–3 fois plus d'offres.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 2 : Préparation des questions d'entretien (méthodologie)</h2>
+    <p><strong>Pourquoi l'IA externe :</strong> méthodologie générale pour un type de poste — sans lien à un candidat réel. Contenu réutilisable.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Développe la structure d'un entretien comportemental pour le poste [titre] dans [secteur]. Niveau : [junior/middle/senior]. Inclus : questions d'ouverture, comportementales (STAR), cas pratiques, questions sur la culture, questions de vérification des compétences [liste des compétences].
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 3 : Développement de programmes d'évaluation type (performance review, 360°)</h2>
+    <p><strong>Pourquoi l'IA externe :</strong> méthodologie d'évaluation — structure universelle. Les évaluations réelles de salariés spécifiques — on-prem.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Développe la structure d'un programme d'évaluation 360° pour [niveau : manager/spécialiste]. Inclus : compétences à évaluer, échelle, catégories de répondants (manager, collègues, subordonnés), format des retours, délais de réalisation.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 4 : Développement de programmes de formation et matériels</h2>
+    <p><strong>Pourquoi l'IA externe :</strong> matériels de formation de contenu général — partie publique. Peuvent être publiés sur le portail corporate.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Développe un programme de formation sur le thème [titre] pour les salariés de niveau [junior/middle/senior]. Format : structure modulaire, 4–6 séances de 2 heures. Pour chaque module : objectifs, contenu, méthodes, évaluation. Inclus des exercices pratiques.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 5 : Préparation de tests et matériels d'évaluation</h2>
+    <p><strong>Pourquoi l'IA externe :</strong> tests de type général — non liés à un salarié spécifique. Peuvent être types pour tous les candidats à un poste.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Rédige un test de connaissances sur [sujet/compétence] pour les candidats au poste [titre]. 10 questions : 5 théoriques, 3 cas pratiques, 2 de logique. Indique les bonnes réponses et les critères d'évaluation.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 6 : Matériels d'intégration (onboarding) de caractère général</h2>
+    <p><strong>Pourquoi l'IA externe :</strong> matériels sur l'entreprise, la culture, les processus — partie publique. Ne contiennent pas de données personnelles.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Rédige un guide d'intégration pour un nouveau salarié. Sections : premier jour, première semaine, premier mois. Inclus : rencontre avec l'équipe, processus clés, outils, culture d'entreprise, points de contact RH. Format : amical, structuré.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 7 : Benchmarking des salaires du marché</h2>
+    <p><strong>Pourquoi l'IA externe :</strong> analyse d'études de salaires publiques (Indeed, Glassdoor, études sectorielles) — sources ouvertes. Ne contient pas les salaires réels des salariés.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Sur la base de données ouvertes (Indeed, Glassdoor, études sectorielles) pour [période], analyse les salaires du marché pour le poste [titre] dans [région/secteur]. Indique : médiane, P25, P75, P90. Compare avec la période précédente. Identifie les tendances.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 8 : Matrices de compétences pour des postes types</h2>
+    <p><strong>Pourquoi l'IA externe :</strong> compétences types — méthodologie universelle. Le lien à un salarié spécifique — on-prem.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Développe une matrice de compétences pour le poste [titre]. Inclus : compétences techniques, soft skills, qualités de leadership (pour les managers). Pour chacune : description, niveaux de développement (1–5), indicateurs de comportement. Format : tableau.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 9 : Benchmarking des pratiques RH du secteur</h2>
+    <p><strong>Pourquoi l'IA externe :</strong> analyse de rapports publics, cas, études — données ouvertes.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Effectue un benchmarking des pratiques RH dans [secteur] selon les directions : recrutement, formation, motivation, engagement. Utilise les rapports publics Deloitte, McKinsey, études sectorielles. Identifie les meilleures pratiques et les tendances.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Tâche 10 : Stratégie RH de forme générale (workforce planning)</h2>
+    <p><strong>Pourquoi l'IA externe :</strong> méthodologie de planification des effectifs — universelle. Les chiffres réels de l'effectif — on-prem.</p>
+    <div class="prompt-box">
+      <strong>Prompt :</strong><br>
+      Développe une stratégie RH pour une entreprise dans [secteur] pour [période]. Inclus : analyse de l'état actuel (problèmes types), objectifs, initiatives clés (recrutement, développement, rétention), métriques de succès, risques. Format : plan structuré.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Pourquoi les matériels d'intégration peuvent être préparés dans le cloud ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Matériels généraux sur l\'entreprise et les processus — partie publique.'">Ils décrivent l'entreprise et les processus, pas un salarié spécifique</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Le format ne détermine pas le contour.'">Parce qu'ils sont au format PDF</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Le temps — pas un critère de choix du contour.'">Parce que l'intégration est une tâche rapide</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> Pourquoi la matrice de compétences peut être préparée dans le cloud ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Compétences types — méthodologie universelle, non liée à une personne.'">C'est une méthodologie universelle, non liée à un salarié spécifique</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Les niveaux — partie de la matrice, mais pas la raison du choix du contour.'">Parce que la matrice indique les niveaux 1–5</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. L\'accessibilité publique — conséquence, pas raison.'">Parce que les compétences sont un concept public</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3 :</strong> Quelle tâche de la liste NE convient PAS au cloud ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. La structure de l\'évaluation — méthodologie, convient au cloud.'">Développement de la structure de l'évaluation 360°</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> La synthèse contient des données personnelles et des évaluations de personnes réelles.'">Analyse des résultats de l'évaluation 360° de salariés réels</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'; document.getElementById('q3-result').innerHTML='Réfléchissez encore. Le benchmarking — données publiques, convient au cloud.'">Benchmarking des pratiques RH du secteur</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../17-1-on-prem/index.html" class="nav-btn">← 17.1 Tâches internes</a>
+    <a href="../17-3-hybrid/index.html" class="nav-btn primary">17.3 Tâches hybrides →</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>
