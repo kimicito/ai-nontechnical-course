@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>7.5 Агентские сценарии для Закупок — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 7 — Закупки</div>
+    <h1>7.5 Агентские сценарии для Закупок</h1>
+    <div class="meta">⏱ 12 мин · как агенты автоматизируют закупочные процессы</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Чем агент отличается от языковой модели?</strong><br>
+    LLM отвечает на одиночные запросы. <span class="highlight">Агент</span> работает циклически: сам ставит задачи, вызывает инструменты, получает результат и решает, что делать дальше. Агент может зайти на сайт, скачать файл, отправить письмо — без участия человека в каждом шаге.
+    <p style="margin-top:8px;">Подробнее об агентах — <a href="../../lessons/4-1-agents/index.html" style="color:var(--accent2);">Уровень 4: Агенты и оркестрация</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>Сценарий 1: Агент мониторинга тендеров (n8n + LLM)</h2>
+    <p><strong>Задача:</strong> ежедневно проверять госзакупки и коммерческие тендеры, фильтровать по ключевым словам, присылать короткий дайджест закупщику.</p>
+    
+    <h3>Архитектура агента</h3>
+    <div class="arch">
+[n8n Cron: ежедневно в 9:00]<br>
+  ↓<br>
+[HTTP Request: zakupki.gov.ru / API заказчика]<br>
+  ↓<br>
+[LLM Node: фильтрация по ключевым словам, оценка релевантности]<br>
+  ↓<br>
+[Telegram / Email: дайджест «5 тендеров на сегодня»]<br>
+  ↓<br>
+[Google Sheets: запись в реестр для аналитики]
+    </div>
+
+    <h3>Что делает агент</h3>
+    <ul>
+      <li>Скачивает XML/JSON с площадки госзакупок</li>
+      <li>LLM читает описания лотов, сравнивает с профилем закупщика</li>
+      <li>Оценивает релевантность по шкале 1–10</li>
+      <li>Отправляет только тендеры с оценкой ≥7</li>
+      <li>Записывает в таблицу для статистики эффективности</li>
+    </ul>
+
+    <div class="card card-success">
+      <strong>Результат:</strong> закупщик получает готовый дайджест вместо 2 часов ручного просмотра площадок. Экономия 10 часов в неделю.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Сценарий 2: Агент анализа поставщиков (OpenClaw-стиль агент)</h2>
+    <p><strong>Задача:</strong> при поступлении заявки на нового поставщика — автоматически собрать публичную информацию и подготовить due diligence-профиль.</p>
+    
+    <h3>Архитектура агента</h3>
+    <div class="arch">
+[Заявка в систему: название компании, ИНН]<br>
+  ↓<br>
+[Агент OpenClaw: параллельные вызовы]<br>
+  ├─→ [Браузер: сайт компании → извлечь деятельность, контакты]<br>
+  ├─→ [API: ЕГРЮЛ → проверить статус, учредителей]<br>
+  ├─→ [API: СПАРК/Контур → финансовые показатели]<br>
+  └─→ [Поиск: новости, судебные дела]<br>
+  ↓<br>
+[LLM On-prem: сведение в единый профиль]<br>
+  ↓<br>
+[PDF-отчёт в папку + уведомление закупщику]
+    </div>
+
+    <h3>Безопасность контура</h3>
+    <ul>
+      <li>Публичный сбор данных — внешний контур (браузер, API)</li>
+      <li>Сведение профиля, оценка рисков — on-prem LLM</li>
+      <li>Решение о допуске — человек (human-in-the-loop)</li>
+    </ul>
+
+    <div class="card card-warning">
+      <strong>Важно:</strong> сам факт проверки поставщика и её результаты — внутренняя информация. Профиль готовится на on-prem, даже если данные собраны из публичных источников.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Сценарий 3: Агент сравнения коммерческих предложений (гибрид)</h2>
+    <p><strong>Задача:</strong> получить КП от 3+ поставщиков, структурировать, сравнить, выявить скрытые риски, подготовить рекомендацию.</p>
+    
+    <h3>Архитектура агента</h3>
+    <div class="arch">
+[Email-интеграция: новое письмо с темой «КП»]<br>
+  ↓<br>
+[Агент: извлечение вложений (PDF, Excel, Word)]<br>
+  ↓<br>
+[On-prem LLM: извлечение параметров из КП]<br>
+  ├─ Цена, сроки, условия оплаты<br>
+  ├─ Гарантии, штрафы, форс-мажор<br>
+  └─ Скрытые условия (автопролонгация, единоличный арбитраж)<br>
+  ↓<br>
+[LLM: сравнительная таблица + SWOT каждого КП]<br>
+  ↓<br>
+[Уведомление закупщику: «КП готовы к сравнению»]
+    </div>
+
+    <h3>Ключевая особенность</h3>
+    <p>Агент работает внутри контура: получает письма, обрабатывает документы, не отправляет содержимое КП наружу. LLM анализирует условия, не видя названий конкурентов при сравнении (если требуется дополнительная конфиденциальность).</p>
+
+    <div class="card card-success">
+      <strong>Результат:</strong> сравнение 5 КП за 15 минут вместо 3–4 часов ручного разбора. Агент не пропускает мелкий шрифт и скрытые условия.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Сравнение подходов</h2>
+    <table style="width:100%;border-collapse:collapse;margin:14px 0;font-size:0.9rem;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">Подход</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">Когда использовать</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">Сложность</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n + LLM API</td><td style="padding:10px;border-bottom:1px solid var(--border);">Простые сценарии: парсинг, фильтрация, уведомления</td><td style="padding:10px;border-bottom:1px solid var(--border);">Низкая</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">OpenClaw-агент</td><td style="padding:10px;border-bottom:1px solid var(--border);">Сложные многошаговые задачи с принятием решений</td><td style="padding:10px;border-bottom:1px solid var(--border);">Средняя</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Гибридный агент</td><td style="padding:10px;border-bottom:1px solid var(--border);">Задачи с чувствительными данными + публичными источниками</td><td style="padding:10px;border-bottom:1px solid var(--border);">Высокая</td></tr>
+    </table>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../7-4-summary/index.html" class="nav-btn">← 7.4 Практический вывод</a>
+    <a href="../../catalog.html" class="nav-btn primary">К каталогу</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

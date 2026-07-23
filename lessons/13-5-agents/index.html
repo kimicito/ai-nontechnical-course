@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>13.5 Агентские сценарии для Логистики — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 13 — Логистика</div>
+    <h1>13.5 Агентские сценарии для Логистики</h1>
+    <div class="meta">⏱ 12 мин · отслеживание грузов, маршруты, претензии</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Чем агент отличается от языковой модели?</strong><br>
+    LLM отвечает на вопросы. <span class="highlight">Агент</span> работает постоянно: отслеживает грузы, анализирует задержки, предупреждает — без команды «где мой груз?». Подробнее — <a href="../../lessons/4-1-agents/index.html" style="color:var(--accent2);">Уровень 4</a>.
+  </div>
+
+  <div class="section">
+    <h2>Сценарий 1: Агент отслеживания грузов (n8n + TMS API)</h2>
+    <p><strong>Задача:</strong> отслеживать статусы грузов, предупреждать о задержках, обновлять клиентов.</p>
+    <div class="arch">
+[Cron: каждые 30 минут]<br>
+  ↓<br>
+[API TMS / перевозчика: статусы активных рейсов]<br>
+  ↓<br>
+[Агент: анализ отклонений]<br>
+  ├─→ Груз в пути дольше нормы: предупреждение<br>
+  ├─→ Статус не обновлялся >24ч: запрос у перевозчика<br>
+  └─→ Груз прибыл: уведомление клиенту<br>
+  ↓<br>
+[Автоматические уведомления]<br>
+  ├─ Клиенту: «Груз прибыл в пункт Х, ожидайте доставку ЗАВТРА»<br>
+  ├─ Логисту: «Рейс N задерживается на 2 дня, причина: [из API]»<br>
+  └─ Складу: «Планируйте приёмку на [дата]»<br>
+  ↓<br>
+[Ежедневный дашборд: все рейсы, статусы, риски]
+    </div>
+    <div class="card card-success">
+      <strong>Результат:</strong> клиенты узнают о задержках до того, как начнут звонить. Экономия 20–30 звонков в день.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Сценарий 2: Агент оптимизации маршрутов (OpenClaw-агент)</h2>
+    <p><strong>Задача:</strong> анализировать исторические данные по маршрутам, предлагать альтернативы, оценивать стоимость.</p>
+    <div class="arch">
+[Запрос: «Оптимизировать маршрут Москва → Новосибирск»]<br>
+  ↓<br>
+[Агент: сбор данных]<br>
+  ├─→ Исторические маршруты (время, стоимость, инциденты)<br>
+  ├─→ Текущие тарифы перевозчиков<br>
+  ├─→ Пограничные условия (очереди, погода)<br>
+  └─→ Требования клиента (срок, температура)<br>
+  ↓<br>
+[On-prem LLM: сравнительный анализ]<br>
+  ├─→ Вариант А: ЖД, срок, стоимость, риски<br>
+  ├─→ Вариант Б: Авто, срок, стоимость, риски<br>
+  └─→ Вариант В: Мультимодальный, срок, стоимость, риски<br>
+  ↓<br>
+[Рекомендация с обоснованием]<br>
+  ├─ Оптимальный по цене<br>
+  ├─ Оптимальный по сроку<br>
+  └─ Оптимальный по риску<br>
+  ↓<br>
+[Отчёт логисту]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Сценарий 3: Агент претензий перевозчикам (гибридный)</h2>
+    <p><strong>Задача:</strong> собирать данные по просрочкам и повреждениям, готовить претензии, отслеживать сроки ответа.</p>
+    <div class="arch">
+[Триггер: статус рейса = «доставлен»]<br>
+  ↓<br>
+[Агент: сбор данных]<br>
+  ├─→ Плановая vs фактическая дата доставки<br>
+  ├─→ Акты осмотра (повреждения)<br>
+  ├─→ Трекинг: фактический маршрут<br>
+  └─→ Переписка с перевозчиком<br>
+  ↓<br>
+[On-prem LLM: оценка оснований для претензии]<br>
+  ├─→ Задержка > допустимой: расчёт штрафа<br>
+  ├─→ Повреждение: оценка по акту<br>
+  └─→ Недостача: сверка по накладной<br>
+  ↓<br>
+[Автоматическая генерация претензии]<br>
+  ├─→ Ссылки на договор, пункты<br>
+  ├─→ Расчёт суммы требования<br>
+  └─→ Срок для ответа<br>
+  ↓<br>
+[Отправка перевозчику + создание задачи в СЭД]<br>
+  ↓<br>
+[Мониторинг: ответ не получен в срок → эскалация]
+    </div>
+    <div class="card card-warning">
+      <strong>Важно:</strong> претензии содержат коммерческую информацию (суммы, условия договоров). Вся обработка — on-prem.
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../13-4-summary/index.html" class="nav-btn">← 13.4 Практический вывод</a>
+    <a href="../../catalog.html" class="nav-btn primary">К каталогу</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

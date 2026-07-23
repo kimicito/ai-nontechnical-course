@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>8.5 Агентские сценарии для Стройки — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 8 — Стройка</div>
+    <h1>8.5 Агентские сценарии для Стройки</h1>
+    <div class="meta">⏱ 12 мин · автоматизация строительных процессов агентами</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Чем агент отличается от языковой модели?</strong><br>
+    LLM отвечает на одиночные запросы. <span class="highlight">Агент</span> работает циклически: получает данные, анализирует, принимает решения, выполняет действия — без участия человека в каждом шаге. Подробнее — <a href="../../lessons/4-1-agents/index.html" style="color:var(--accent2);">Уровень 4</a>.
+  </div>
+
+  <div class="section">
+    <h2>Сценарий 1: Агент отслеживания дефектов (n8n + Vision API)</h2>
+    <p><strong>Задача:</strong> получать фото с объекта, классифицировать дефекты, назначать ответственных, отслеживать устранение.</p>
+    <div class="arch">
+[Telegram-бот на объекте: фото + описание дефекта]<br>
+  ↓<br>
+[n8n: приём сообщения]<br>
+  ↓<br>
+[Vision LLM: классификация дефекта (трещина, неровность, брак материала)]<br>
+  ↓<br>
+[LLM: определение критичности (критический / серьёзный / косметический)]<br>
+  ↓<br>
+[Notion/Битрикс24: создание задачи с фото, описанием, дедлайном]<br>
+  ↓<br>
+[Назначение ответственного по справочнику: тип дефекта → отдел]<br>
+  ↓<br>
+[Уведомление ответственному в Telegram]
+    </div>
+    <div class="card card-success">
+      <strong>Результат:</strong> дефект фиксируется за 2 минуты вместо 2 часов (фото → бумажный акт → внесение в журнал → маршрутизация).
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Сценарий 2: Агент проверки смет (OpenClaw-агент)</h2>
+    <p><strong>Задача:</strong> загрузить смету, проверить на соответствие нормативам (ФЕР/ГЭСН), найти ошибки, подготовить замечания.</p>
+    <div class="arch">
+[Загрузка файла сметы (Excel, PDF) в систему]<br>
+  ↓<br>
+[On-prem агент: извлечение позиций]<br>
+  ├─→ Проверка: соответствие ФЕР/ГЭСН (внутренняя база)<br>
+  ├─→ Проверка: расчёт объёмов<br>
+  ├─→ Проверка: коэффициенты и поправки<br>
+  └─→ Проверка: расценки по региону<br>
+  ↓<br>
+[LLM: формирование протокола проверки]<br>
+  ├─ Найденные ошибки<br>
+  ├─ Рекомендации по корректировке<br>
+  └─ Ссылки на нормативные документы<br>
+  ↓<br>
+[PDF-протокол + уведомление сметчику]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Сценарий 3: Агент контроля сроков (гибридный)</h2>
+    <p><strong>Задача:</strong> мониторить график работ, анализировать риски просрочки, предупреждать ответственных.</p>
+    <div class="arch">
+[Интеграция с Project / MS Project / Primavera]<br>
+  ↓<br>
+[Агент: ежедневное чтение статусов]<br>
+  ├─→ Сравнение план/факт<br>
+  ├─→ Анализ критического пути<br>
+  └─→ Выявление задач с риском просрочки (>3 дней отклонение)<br>
+  ↓<br>
+[LLM: формулировка предупреждения]<br>
+  ├─ Какая работа рискует<br>
+  ├─ Почему (причины по данным)<br>
+  └─ Что делать (варианты)<br>
+  ↓<br>
+[Email руководителю проекта + обновление дашборда]
+    </div>
+    <div class="card card-warning">
+      <strong>Важно:</strong> данные графика работ — внутренняя информация. Агент работает полностью on-prem или через DMZ с фильтрацией.
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../8-4-summary/index.html" class="nav-btn">← 8.4 Практический вывод</a>
+    <a href="../../catalog.html" class="nav-btn primary">К каталогу</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

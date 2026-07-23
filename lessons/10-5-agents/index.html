@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>10.5 Агентские сценарии для PR — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 10 — PR</div>
+    <h1>10.5 Агентские сценарии для PR</h1>
+    <div class="meta">⏱ 12 мин · медиа-мониторинг, кризис-коммуникации, ESG</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Чем агент отличается от языковой модели?</strong><br>
+    LLM пишет текст по запросу. <span class="highlight">Агент</span> работает 24/7: сканирует сотни источников, классифицирует, алертит, готовит черновики — без команды «проверь, что пишут». Подробнее — <a href="../../lessons/4-1-agents/index.html" style="color:var(--accent2);">Уровень 4</a>.
+  </div>
+
+  <div class="section">
+    <h2>Сценарий 1: Агент медиа-мониторинга (n8n + RSS/API)</h2>
+    <p><strong>Задача:</strong> отслеживать упоминания компании, конкурентов, отрасли; анализировать тональность; формировать дайджест.</p>
+    <div class="arch">
+[Cron: каждые 2 часа]<br>
+  ↓<br>
+[Параллельный опрос источников]<br>
+  ├─→ RSS СМИ (Коммерсант, Ведомости, РБК)<br>
+  ├─→ Telegram-каналы отрасли<br>
+  ├─→ Google News API<br>
+  └─→ YouTube (упоминания в видео)<br>
+  ↓<br>
+[LLM: фильтрация по релевантности]<br>
+  ├─→ Прямые упоминания компании<br>
+  ├─→ Упоминания конкурентов<br>
+  ├─→ Регуляторные изменения<br>
+  └─→ Тренды отрасли<br>
+  ↓<br>
+[LLM: анализ тональности (позитив / нейтрал / негатив)]<br>
+  ↓<br>
+[Формирование дайджеста]<br>
+  ├─ Топ-5 новостей<br>
+  ├─ Тональность<br>
+  └─ Рекомендации по реакции<br>
+  ↓<br>
+[Email PR-директору + пост в корп. Slack]
+    </div>
+    <div class="card card-success">
+      <strong>Результат:</strong> PR получает дайджест вместо ручного просмотра 50+ источников. Экономия 3–4 часа в день.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Сценарий 2: Агент кризис-коммуникаций (OpenClaw-агент)</h2>
+    <p><strong>Задача:</strong> при обнаружении негативной волны — быстро оценить масштаб, подготовить предложения по ответу, маршрутизировать на согласование.</p>
+    <div class="arch">
+[Триггер: >10 негативных упоминаний за час ИЛИ упоминание в федеральном СМИ]<br>
+  ↓<br>
+[Агент: экстренный сбор]<br>
+  ├─→ Где вспышка (площадки, география)<br>
+  ├─→ Ключевые сообщения / мемы<br>
+  ├─→ Инфлюенсеры, разгоняющие тему<br>
+  └─→ Связь с реальными событиями<br>
+  ↓<br>
+[On-prem LLM: анализ риска]<br>
+  ├─→ Уровень угрозы (низкий / средний / критический)<br>
+  ├─→ Сценарии развития<br>
+  └─→ Рекомендации по ответу (молчание / опровержение / извинение / действие)<br>
+  ↓<br>
+[Черновики ответов]<br>
+  ├─ Для СМИ<br>
+  ├─ Для соцсетей<br>
+  └─ Внутренняя памятка сотрудникам<br>
+  ↓<br>
+[Уведомление PR-директору: «Кризис: уровень Х, предложения прилагаются»]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Сценарий 3: Агент ESG-отчётности (гибридный)</h2>
+    <p><strong>Задача:</strong> собирать данные из разных систем, формировать черновик ESG-отчёта по стандартам GRI/SASB.</p>
+    <div class="arch">
+[Запрос: «Подготовить ESG-отчёт за год»]<br>
+  ↓<br>
+[Агент: сбор данных из внутренних систем]<br>
+  ├─→ ERP: энергопотребление, выбросы<br>
+  ├─→ HR: гендерное равенство, обучение<br>
+  ├─→ Закупки: цепочка поставок, локализация<br>
+  └─→ Производство: безопасность, отходы<br>
+  ↓<br>
+[Внешний LLM: анализ по стандарту GRI]<br>
+  ├─→ Какие индикаторы покрыты<br>
+  ├─→ Какие данные отсутствуют<br>
+  └─→ Сравнение с прошлым годом<br>
+  ↓<br>
+[On-prem LLM: формирование текста отчёта]<br>
+  ↓<br>
+[Черновик PDF + список доработок]
+    </div>
+    <div class="card card-warning">
+      <strong>Важно:</strong> внутренние данные (зарплаты, травмы, выбросы) — on-prem. Анализ по стандарту GRI можно делать внешним ИИ на обезличенных данных.
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../10-4-summary/index.html" class="nav-btn">← 10.4 Практический вывод</a>
+    <a href="../../catalog.html" class="nav-btn primary">К каталогу</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>
