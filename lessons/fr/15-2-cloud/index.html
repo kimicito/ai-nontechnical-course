@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.2 Tâches externes juridiques — IA externe — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 15 — Fonction juridique</div>
+    <h1>15.2 Tâches externes : IA externe</h1>
+    <div class="meta">⏱ 20 min · pour juristes, spécialistes compliance</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>Données ouvertes (IA externe)</strong><br>
+    Toutes les tâches de ce cours — avec <span class="highlight">des modèles types, la législation publique, les décisions judiciaires ouvertes, les matériaux de formation</span>. Vous pouvez utiliser Claude, ChatGPT, Gemini.
+  </div>
+
+  <div class="section">
+    <h2>Ce qu'on peut faire en IA externe</h2>
+    <p>Contrairement aux tâches avec des affaires et des contreparties spécifiques, le travail avec le champ juridique ouvert est sûr et efficace :</p>
+    <ul>
+      <li>Rédaction de modèles de contrats types (sans conditions réelles)</li>
+      <li>Surveillance des changements législatifs (sources publiques)</li>
+      <li>Analyse de la jurisprudence (décisions ouvertes)</li>
+      <li>Recherche de brevets (bases ouvertes)</li>
+      <li>Matériaux de formation (caractère général)</li>
+      <li>Benchmarking des pratiques juridiques (données publiques)</li>
+    </ul>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Règle principale :</strong> si la requête ne contient pas de noms d'entreprises, de montants, de dates concrètes, de données personnelles, de plans stratégiques — vous pouvez utiliser l'IA externe.
+  </div>
+
+  <div class="section">
+    <h2>1. Modèles types de contrats</h2>
+    <p>Rédaction de la structure d'un contrat type sans conditions réelles — méthodologie publique.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (IA externe)</div>
+      <pre>Prépare un modèle de contrat de fourniture :
+
+Paramètres (sans conditions concrètes) :
+- Type : contrat de fourniture de marchandises
+- Système juridique : [INDIQUEZ LE PAYS]
+- Partie acheteur : grande entreprise (B2B)
+- Partie fournisseur : fabricant
+- Objet : [INDIQUEZ LE TYPE DE PRODUIT sans quantité/prix]
+
+Rédige :
+1. Préambule (type)
+2. Objet du contrat (structure de la description)
+3. Prix et modalités de règlement (formulations types)
+4. Livraison et transfert des risques (Incoterms — types)
+5. Qualité et réception (conditions types)
+6. Responsabilité des parties (sans pénalités concrètes)
+7. Force majeure (article type)
+8. Règlement des litiges (variantes types)
+9. Dispositions finales
+
+Format : pour chaque article — texte de base + alternatives</pre>
+    </div>
+    <p><strong>Résultat :</strong> modèle type pour le service juridique, économie de 3–4 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Surveillance des changements législatifs</h2>
+    <p>Synthèse des changements législatifs sur des thèmes spécifiques.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (recherche web)</div>
+      <pre>Analyse les changements législatifs des 6 derniers mois :
+
+Thèmes :
+1. [INDIQUEZ LE SECTEUR : droit des sociétés/fiscal/du travail/antitrust]
+2. [INDIQUEZ LE DEUXIÈME THÈME]
+3. [INDIQUEZ LE TROISIÈME THÈME]
+
+Juridiction : [INDIQUEZ LE PAYS/RÉGION]
+
+Fais :
+1. Liste des changements clés (date, numéro du document, substance)
+2. Analyse de l'impact sur le business (général, sans lien à une entreprise spécifique)
+3. Délais d'entrée en vigueur
+4. Actions nécessaires pour les entreprises en général
+5. Recommandations de préparation
+
+Format : note analytique (1-2 pages)</pre>
+    </div>
+    <p><strong>Résultat :</strong> revue des changements, économie de 4–5 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Analyse de la jurisprudence</h2>
+    <p>Recherche et analyse des décisions judiciaires ouvertes sur des questions analogues.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (recherche web)</div>
+      <pre>Analyse la jurisprudence sur la question :
+
+Question : [INDIQUEZ LA QUESTION JURIDIQUE sans lien à une affaire spécifique]
+Juridiction : [INDIQUEZ]
+Période : 2 dernières années
+
+Fais :
+1. Sélection d'affaires pertinentes (5-10 décisions)
+2. Résumé de chaque affaire
+3. Position du tribunal (conclusions clés)
+4. Tendances dans la pratique (comment évolue l'approche des tribunaux)
+5. Risques pour les entreprises en général
+6. Recommandations pour minimiser les risques
+
+Important : uniquement des décisions publiques, sans mention d'entreprises spécifiques si ce n'est pas une affaire publique.</pre>
+    </div>
+    <p><strong>Résultat :</strong> revue de la pratique, économie de 5–6 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Recherche de brevets et analyse de liberté d'exploitation</h2>
+    <p>Recherche dans les bases de brevets ouvertes, analyse de la liberté d'exploitation.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (recherche web)</div>
+      <pre>Mène une recherche de brevets sur la technologie :
+
+Technologie : [INDIQUEZ LE DOMAINE sans détails spécifiques du produit]
+Mots-clés : [INDIQUEZ 3-5 TERMES]
+Classes IPC : [INDIQUEZ si connues]
+Juridictions : [INDIQUEZ : FR, US, EP, CN, etc.]
+
+Fais :
+1. Recherche de brevets pertinents (5-10)
+2. Analyse de chaque brevet (ce qui est protégé, durée, statut)
+3. Analyse de la liberté d'exploitation (y a-t-il des obstacles)
+4. Recommandations pour des solutions de contournement (s'il y en a)
+5. Recommandation pour les prochaines étapes
+
+Important : c'est une analyse préliminaire, elle ne remplace pas un conseil en propriété industrielle.</pre>
+    </div>
+    <p><strong>Résultat :</strong> analyse préliminaire, économie de 3–4 heures (mais ne remplace pas un conseil en propriété industrielle).</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Matériaux de formation pour les employés</h2>
+    <p>Préparation de matériels de formation sur des thèmes juridiques de caractère général.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt</div>
+      <pre>Prépare un matériel de formation pour les employés :
+
+Thème : [INDIQUEZ : secret commercial/anticorruption/concurrence/données personnelles]
+Audience : [INDIQUEZ : tous les employés/managers/équipes commerciales]
+Format : présentation (10 diapositives) + test (5 questions)
+
+Rédige :
+1. Objectifs de la formation (ce que l'employé doit savoir)
+2. Dispositions principales (en langage simple)
+3. Exemples de situations (hypothétiques, pas réels)
+4. Règles de comportement (do's and don'ts)
+5. Responsabilité en cas de violation
+6. Test (5 questions avec options de réponse)
+7. Check-list d'auto-évaluation
+
+Ton : accessible, sans jargon juridique.</pre>
+    </div>
+    <p><strong>Résultat :</strong> matériel prêt pour la formation, économie de 3–4 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Benchmarking des pratiques juridiques du secteur</h2>
+    <p>Comparaison des processus juridiques avec des entreprises similaires selon des données publiques.</p>
+    <div class="example">
+      <div class="example-label">Exemple de prompt (recherche web)</div>
+      <pre>Mène un benchmarking des pratiques juridiques dans le secteur :
+
+Secteur : [INDIQUEZ]
+Paramètres de comparaison :
+- Structure du département juridique
+- Utilisation du legal tech
+- Juristes externes vs internes
+- Charge contentieuse (litiges types)
+- Coût des services juridiques (données publiques)
+- Pratiques compliance
+
+Sources : rapports sectoriels, publications, conférences
+
+Fais :
+1. Revue des pratiques de 3-5 entreprises du secteur (données publiques)
+2. Tableau comparatif
+3. Meilleures pratiques (best practices)
+4. Recommandations pour l'optimisation de la fonction juridique
+
+Important : uniquement des données publiques, sans montants de contrats spécifiques.</pre>
+    </div>
+    <p><strong>Résultat :</strong> revue des pratiques sectorielles, économie de 4–5 heures.</p>
+  </div>
+
+  <div class="section">
+    <h2>Tableau récapitulatif : tâches externes</h2>
+    <table>
+      <tr><th>Tâche</th><th>Ce qu'il faut</th><th>Format de sortie</th><th>Économie</th></tr>
+      <tr><td>Modèles types</td><td>Type de contrat, système juridique</td><td>Modèle prêt</td><td>3–4 h</td></tr>
+      <tr><td>Surveillance des lois</td><td>Thèmes, juridiction</td><td>Note analytique</td><td>4–5 h</td></tr>
+      <tr><td>Jurisprudence</td><td>Question juridique</td><td>Revue des décisions</td><td>5–6 h</td></tr>
+      <tr><td>Recherche de brevets</td><td>Technologie, mots-clés</td><td>Analyse des brevets</td><td>3–4 h</td></tr>
+      <tr><td>Matériaux de formation</td><td>Thème, audience</td><td>Présentation + test</td><td>3–4 h</td></tr>
+      <tr><td>Benchmarking</td><td>Secteur, paramètres</td><td>Analyse comparative</td><td>4–5 h</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances</h2>
+    <p><strong>Question 1 :</strong> Peut-on rédiger un contrat de fourniture avec un prix spécifique en IA externe ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Le prix spécifique — secret commercial.'">Oui, si c'est un contrat type</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Le prix spécifique — secret commercial, uniquement on-prem.'">Non, le prix spécifique est un secret commercial et va en on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. La taille de l\'entreprise n\'affecte pas la sensibilité du prix.'">Oui, mais uniquement pour des entreprises de petite taille</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> L'analyse de la jurisprudence — quel contour ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Les décisions judiciaires sont des données publiques.'">IA externe — les décisions judiciaires sont publiques</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. Les décisions judiciaires sont publiées en accès libre.'">On-prem — la jurisprudence est confidentielle</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. L\'analyse de la pratique n\'est pas une affaire spécifique.'">Hybride — anonymiser les noms des entreprises</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3 :</strong> La recherche de brevets — quel contour ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Les bases de brevets sont des données publiques.'">IA externe — les bases de brevets sont publiques</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Les brevets sont publiés spécifiquement pour un accès public.'">On-prem — c'est la propriété intellectuelle de l'entreprise</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. La recherche dans des bases ouvertes ne nécessite pas d\'hybride.'">Hybride — bases à l'extérieur, analyse à l'intérieur</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../15-1-on-prem/index.html" class="nav-btn">← 15.1 Tâches internes</a>
+    <a href="../15-3-hybrid/index.html" class="nav-btn primary">15.3 Tâches hybrides →</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>

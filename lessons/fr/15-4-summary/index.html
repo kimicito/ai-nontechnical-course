@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.4 Conclusion pratique — IA pour non-spécialistes IT</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour non-spécialistes IT</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 15 — Fonction juridique</div>
+    <h1>15.4 Conclusion pratique</h1>
+    <div class="meta">⏱ 15 min · résumé final du niveau</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Principe principal du niveau 15</strong><br>
+    La fonction juridique est <span class="highlight">l'une des plus fermées par défaut</span>. Le secret professionnel, le privilège attorney-client, l'information privilégiée sur les transactions et les litiges exigent un contrôle strict. La décision sur le contour doit être prise non seulement par le CISO, mais aussi par le chef juriste.
+  </div>
+
+  <div class="section">
+    <h2>Conclusions clés</h2>
+    
+    <h3>1. On-prem — règle par défaut</h3>
+    <p>Pour les juristes, l'on-prem n'est pas une exception, mais la norme :</p>
+    <ul>
+      <li><strong>Tous les documents sur des affaires spécifiques</strong> — demandes, mémoires, réclamations, positions juridiques</li>
+      <li><strong>Due diligence de contreparties spécifiques</strong> — particulièrement M&A (information privilégiée)</li>
+      <li><strong>Documents corporatifs avant publication</strong> — procès-verbaux, décisions, réorganisations</li>
+      <li><strong>Réponses aux régulateurs</strong> — position stratégique de l'entreprise</li>
+      <li><strong>Screening sanctions de transactions spécifiques</strong> — interprétation des risques</li>
+      <li><strong>Litiges du travail</strong> — données personnelles, position de l'employeur</li>
+    </ul>
+
+    <h3>2. IA externe — uniquement le champ juridique ouvert</h3>
+    <p>Tâches sûres pour le cloud :</p>
+    <ul>
+      <li>Modèles types de contrats (sans conditions réelles)</li>
+      <li>Surveillance des changements législatifs (sources publiques)</li>
+      <li>Analyse de la jurisprudence (décisions ouvertes)</li>
+      <li>Recherche de brevets (bases ouvertes)</li>
+      <li>Matériaux de formation (caractère général)</li>
+      <li>Benchmarking des pratiques juridiques (données publiques)</li>
+    </ul>
+
+    <h3>3. Hybride — pour les tâches complexes</h3>
+    <p>Trois tâches fonctionnent selon un schéma hybride :</p>
+    <ul>
+      <li><strong>Legal opinion</strong> — logique juridique à l'extérieur, faits à l'intérieur</li>
+      <li><strong>Demandes en justice</strong> — structure à l'extérieur, affaire spécifique à l'intérieur</li>
+      <li><strong>Due diligence</strong> — partie publique à l'extérieur, évaluation interne à l'intérieur</li>
+    </ul>
+
+    <h3>4. Facteur unique — attorney-client privilege</h3>
+    <p>L'utilisation d'un service cloud externe pour les documents d'une affaire peut créer une question de violation de confidentialité et affecter la défense du privilège dans certaines juridictions. C'est un argument distinct (juridique, pas seulement de sécurité IT) en faveur de l'on-prem.</p>
+  </div>
+
+  <div class="section">
+    <h2>Matrice finale : fonction juridique</h2>
+    <table>
+      <tr><th>Tâche</th><th>On-prem</th><th>IA externe</th><th>Hybride</th></tr>
+      <tr><td>Vérification des contrats entrants</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Due diligence M&A</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Demandes en justice</td><td>✅</td><td>❌</td><td>✅ (structure)</td></tr>
+      <tr><td>Position juridique sur le litige</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Base probatoire</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Correspondance précontentieuse</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Documents corporatifs</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Screening sanctions (spécifique)</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Réponses aux régulateurs</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Legal opinion (spécifique)</td><td>✅</td><td>❌</td><td>✅ (logique)</td></tr>
+      <tr><td>Litiges du travail</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Registre des contrats</td><td>✅</td><td>❌</td><td>❌</td></tr>
+      <tr><td>Modèles types</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Surveillance des lois</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Jurisprudence (générale)</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Recherche de brevets</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Matériaux de formation</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Benchmarking</td><td>❌</td><td>✅</td><td>❌</td></tr>
+      <tr><td>Legal opinion (type)</td><td>❌</td><td>❌</td><td>✅</td></tr>
+      <tr><td>Due diligence (partie publique)</td><td>❌</td><td>❌</td><td>✅</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Ce qui est exclu du niveau (et pourquoi)</h2>
+    <div class="card card-warning">
+      <p><strong>Scoring automatique du contrepartie par bases de données</strong> — systèmes de screening rule-based/ML (OFAC, UE, listes nationales). C'est le résultat de l'intégration avec des bases de données, l'IA générative se connecte uniquement à l'interprétation/formatage du résultat prêt.</p>
+      <p><strong>Analyse juridique basée sur le big data</strong> — analytique prédictive des décisions judiciaires, modèles ML d'évaluation des risques. La GenAI peut interpréter les résultats, mais ne remplace pas le modèle.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Check-list pour le juriste avant l'IA externe</h2>
+    <div class="card card-success">
+      <p><strong>Avant d'envoyer une requête en IA externe, vérifiez :</strong></p>
+      <ul>
+        <li>❌ Pas de noms d'entreprises-parties ?</li>
+        <li>❌ Pas de montants et prix spécifiques ?</li>
+        <li>❌ Pas de dates et délais de transactions spécifiques ?</li>
+        <li>❌ Pas de noms d'employés, de témoins ?</li>
+        <li>❌ Pas de numéros de dossiers, de numéros de registre ?</li>
+        <li>❌ Pas de position stratégique sur le litige ?</li>
+        <li>❌ Pas de données personnelles ?</li>
+        <li>❌ Pas d'information privilégiée sur M&A ?</li>
+      </ul>
+      <p><strong>Si au moins un point ne passe pas — uniquement on-prem.</strong></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Économie de temps par niveau</h2>
+    <table>
+      <tr><th>Catégorie</th><th>Tâches</th><th>Économie moyenne</th></tr>
+      <tr><td>On-prem (principales)</td><td>12</td><td>2–5 heures chacune</td></tr>
+      <tr><td>IA externe (auxiliaires)</td><td>6</td><td>3–5 heures chacune</td></tr>
+      <tr><td>Hybride</td><td>3</td><td>2–3 heures (cumulé)</td></tr>
+    </table>
+    <p><strong>Total :</strong> 21 tâches, économie cumulée 40–90 heures par mois pour une équipe de 2–4 juristes.</p>
+  </div>
+
+  <div class="section">
+    <h2>Vérification des connaissances — quiz final</h2>
+    <p><strong>Question 1 :</strong> Pourquoi la fonction juridique est-elle l'une des plus fermées ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Secret professionnel, privilege, information privilégiée.'">Secret professionnel, attorney-client privilege, information privilégiée sur les transactions</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Ce n\'est pas la raison principale.'">Parce que les juristes sont conservateurs et n'aiment pas les nouvelles technologies</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Les sanctions sont un thème, mais pas la seule raison.'">Uniquement à cause des risques sanitaires</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Question 2 :</strong> Peut-on utiliser l'IA externe pour la due diligence d'une transaction M&A ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. M&A — information privilégiée.'">Oui, si on anonymise les noms des entreprises</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> M&A contient de l\'information privilégiée, fuite = manipulation de marché.'">Non, M&A contient de l'information privilégiée — uniquement on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. La partie publique — oui, mais pas tout le DD.'">Hybride — partie publique dans le cloud, évaluation interne à l'intérieur</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Question 3 :</strong> La recherche de brevets — quel contour ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Les bases de brevets sont ouvertes et publiques.'">IA externe — les bases de brevets sont publiques</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Les brevets sont publiés pour un accès public.'">On-prem — c'est la propriété intellectuelle de l'entreprise</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. La recherche dans des bases ouvertes ne nécessite pas d\'hybride.'">Hybride — bases à l'extérieur, analyse à l'intérieur</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../15-3-hybrid/index.html" class="nav-btn">← 15.3 Tâches hybrides</a>
+    <a href="../../index.html" class="nav-btn primary">Accueil</a>
+  </div>
+</div>
+<footer><div class="container"><p>IA pour non-spécialistes IT · Entreprise industrielle</p></div></footer>
+</body></html>
