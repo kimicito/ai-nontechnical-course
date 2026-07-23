@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>14.1 销售与营销内部任务 — 本地部署 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第14级 — 销售与营销</div>
+    <h1>14.1 内部任务：本地部署</h1>
+    <div class="meta">⏱ 25分钟 · 面向销售经理、商务总监、营销人员</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>封闭环境（本地部署）</strong><br>
+    本节课的所有任务均涉及<span class="highlight">真实价格、交易条件、客户数据、商业预测</span>。请使用内部模型或本地大语言模型。
+  </div>
+
+  <div class="section">
+    <h2>为什么本地部署对销售至关重要</h2>
+    <p>销售是采购的镜像功能：在采购中您是买方，拥有自己的谈判立场；而在销售中您是卖方，数据敏感性是对称的。价格、折扣、付款条件——无论从交易的哪一方来看，都是商业秘密。</p>
+    <p>此外，需求预测和销售计划直接影响生产计划，因此这项任务比乍看之下更为敏感。</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>必须本地部署的场景：</strong>
+    <ul>
+      <li>定价和计算个性化折扣（谈判立场的基础）</li>
+      <li>销售合同的准备和审核（真实交易条件）</li>
+      <li>客户群分析——细分、潜力、流失（客户依赖性）</li>
+      <li>需求预测和销售计划（内部运营数据）</li>
+      <li>与关键客户的谈判准备（谈判策略）</li>
+      <li>CRM记录和通话摘要（个人数据 + 商业信息）</li>
+      <li>回复客户的RFQ/RFP（提交前的真实价格）</li>
+      <li>具体交易的输赢分析（揭示客户流失原因）</li>
+      <li>销售计划执行报告（管理财务信息）</li>
+      <li>基于真实内部指标的活动效果分析（预算、ROI）</li>
+      <li>正式披露前的投资者/分析师推介（内幕信息）</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. 定价和计算个性化条件</h2>
+    <p>针对特定客户计算价格，考虑数量、折扣、付款条件和物流——属于商业秘密。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（本地部署）</div>
+      <pre>为[请填写客户名称]准备商业报价：
+
+基础数据：
+- 产品：[请填写产品]
+- 数量：[请填写数量] 单位/月
+n- 基础价格：[请填写价格] 美元/单位
+- 交易历史：[请填写折扣历史]
+- 竞争对手：报价[请填写竞争对手价格]
+- 付款条件：[请填写条件]
+- 物流：送货至[请填写地址]
+
+请计算：
+1. 考虑数量折扣的价格
+2. 方案：预付款 vs 延期付款（对价格的影响）
+3. 与竞争对手的比较（定位）
+4. 最低价格（盈利能力的下限）
+5. 谈判策略建议</pre>
+    </div>
+    <p><strong>成果：</strong>有据可依的价格和下限，节省2–3小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>2. 客户群分析</h2>
+    <p>细分、增长潜力评估、流失风险——战略信息。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>分析客户群并给出建议：
+
+数据（匿名化/内部）：
+- 客户A：营业额[请填写]，利润率[请填写]，逾期0天，年增长+15%
+- 客户B：营业额[请填写]，利润率[请填写]，逾期45天，保持稳定
+- 客户C：营业额[请填写]，利润率[请填写]，逾期0天，下降-20%/年
+- 客户D：新客户，潜力[请填写]，行业[请填写]
+
+请完成：
+1. ABC细分（按营业额和利润率）
+2. 流失风险评估（按趋势）
+3. 每个细分领域的增长潜力
+4. 建议：保留谁、发展谁、放弃谁
+5. 季度行动计划</pre>
+    </div>
+    <p><strong>成果：</strong>带计划的细分，节省4–5小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>3. 需求预测和销售计划</h2>
+    <p>基于现成数据的文本推理——预测直接影响生产计划。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>准备2026年第四季度的需求预测和销售计划：
+
+销售历史（内部数据）：
+- Q1：[请填写数量] 单位，收入[请填写]
+- Q2：[请填写数量] 单位，收入[请填写]
+- Q3（预测）：[请填写数量] 单位
+
+影响因素：
+- 季节性：第四季度通常比Q3+[请填写]%
+- 新客户：漏斗中有[请填写数量]个
+- 风险：[请填写竞争因素]
+- 营销活动：[请填写计划]
+
+请完成：
+1. 按月的数量和收入预测
+2. 客户计划（前10名）
+3. 风险和缓解措施
+4. 对生产/库存的要求</pre>
+    </div>
+    <p><strong>成果：</strong>有据可依的预测，节省3–4小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>4. 与关键客户的谈判准备</h2>
+    <p>谈判策略、BATNA、杠杆——如同采购，只是坐在桌子的另一边。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>准备与[请填写客户名称]的谈判策略：
+
+背景：
+- 当前合同：[请填写条件]，到期日[请填写日期]
+- 数量：[请填写] 单位/年
+- 客户投诉：[请填写诉求]
+- 竞争对手：[请填写对手]提供[请填写条件]
+- 我方立场：[请填写目标]
+
+请制定：
+1. BATNA（我方最佳替代方案）
+2. ZOPA（可能达成协议的区域）
+3. 压力杠杆（我们能提供什么/我们面临什么风险）
+4. 情景：乐观、现实、悲观
+5. 对典型反对意见的回应
+6. 谈判计划（分阶段）</pre>
+    </div>
+    <p><strong>成果：</strong>现成的策略，节省3小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>5. CRM记录和会议摘要</h2>
+    <p>自动处理通话记录和会议记录——个人数据 + 商业信息。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>根据笔记总结与客户的面谈：
+
+基础数据（CRM + 经理笔记）：
+- 日期：[请填写]
+- 参与者：[请填写客户姓名、职位]
+- 主题：讨论合同[请填写编号]的条件
+- 关键要点：
+  * 客户希望将付款期限从30天延长到60天
+  * 客户对[请填写]批次质量不满意
+  * 客户正在考虑竞争对手[请填写]
+  * 客户准备在价格降低5%的情况下增加20%的采购量
+
+请完成：
+1. 简要摘要（3句话）
+2. 已达成协议清单
+3. 未解决问题
+4. 风险和危险信号
+5. 下一步行动（谁、什么、何时）
+6. 给管理层的建议</pre>
+    </div>
+    <p><strong>成果：</strong>结构化的CRM记录，节省30分钟。</p>
+  </div>
+
+  <div class="section">
+    <h2>6. 回复招标询价（RFQ/RFP）</h2>
+    <p>准备询价回复——提交前的真实价格和条件。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>准备回复[请填写客户名称]的RFQ：
+
+客户要求：
+- 产品：[请填写]
+- 数量：[请填写] 单位
+- 交货条件：[请填写国际贸易术语]
+- 期限：[请填写]
+- 质量要求：[请填写标准]
+- 回复格式：[请填写要求]
+
+我方数据：
+- 成本：[请填写]
+- 最低利润率：[请填写]%
+- 生产能力：[请填写]
+- 当前负荷：[请填写]%
+
+请制定：
+1. 技术方案
+2. 商业条件（价格、折扣、付款）
+3. 交货时间表
+4. 相对于竞争对手的优势
+5. 风险和限制</pre>
+    </div>
+    <p><strong>成果：</strong>现成的招标回复，节省4–5小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>7. 输赢分析</h2>
+    <p>分析交易输赢原因——极度敏感的信息。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>对交易[请填写编号]进行输赢分析：
+
+交易数据：
+- 客户：[请填写名称]
+- 产品：[请填写]
+- 数量：[请填写]
+- 我方价格：[请填写]
+- 获胜竞争对手价格：[请填写]（如已知）
+- 结果：[赢/输]
+- 客户反馈：[请填写]
+
+请完成：
+1. 交易时间线（阶段、参与者）
+2. 决策因素（价格、质量、期限、关系）
+3. 我方优势
+4. 我方劣势
+5. 竞争对手做得不同的地方
+6. 教训和建议（流程、产品、价格）
+7. 改进行动计划</pre>
+    </div>
+    <p><strong>成果：</strong>结构化分析，节省3小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>8. 投资者推介（发布前）</h2>
+    <p>包含最终数据的IR材料，在官方披露前——内幕信息。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>基于内部数据准备投资者推介结构：
+
+数据（初步，非公开）：
+- 上半年收入：[请填写]（增长[请填写]%）
+- EBITDA：[请填写]
+- 新客户：[请填写]
+- 丢失交易：[请填写]
+- 年度预测：[请填写]
+- 关键风险：[请填写]
+
+请制定：
+1. 执行摘要（3页）
+2. 财务结果（关键指标）
+3. 运营成就
+4. 下半年战略
+5. 风险和缓解措施
+6. 对复杂问题的回答（分析师可能会问什么）
+
+语气：专业、自信、不夸大。</pre>
+    </div>
+    <p><strong>成果：</strong>现成的推介，节省5–6小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>汇总表</h2>
+    <table>
+      <tr><th>任务</th><th>所需条件</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>定价</td><td>历史、竞争对手、条件</td><td>价格计算 + 策略</td><td>2–3小时</td></tr>
+      <tr><td>客户群分析</td><td>CRM数据</td><td>细分 + 计划</td><td>4–5小时</td></tr>
+      <tr><td>需求预测</td><td>历史、因素</td><td>销售计划</td><td>3–4小时</td></tr>
+      <tr><td>谈判</td><td>交易背景</td><td>策略 + 情景</td><td>3小时</td></tr>
+      <tr><td>CRM记录</td><td>笔记、记录</td><td>摘要 + 待办</td><td>30分钟</td></tr>
+      <tr><td>RFQ/RFP</td><td>客户要求</td><td>招标回复</td><td>4–5小时</td></tr>
+      <tr><td>输赢分析</td><td>交易数据</td><td>分析 + 建议</td><td>3小时</td></tr>
+      <tr><td>IR推介</td><td>财务数据</td><td>投资者演示文稿</td><td>5–6小时</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识测验</h2>
+    <p><strong>问题1：</strong>为什么需求预测需要本地部署，而不是外部AI？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>预测直接影响生产计划，包含运营数据。'">因为它直接影响生产计划，包含运营数据</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。不仅仅是关于价格本身。'">因为它包含产品价格</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。预测方法论是公开的。'">仅当预测包含超过3年的历史数据时</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>问题2：</strong>可以在外部AI中进行输赢分析吗？</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。输赢分析揭示了战略弱点。'">可以，如果匿名化客户名称</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>输赢分析包含客户流失给竞争对手的原因——极度敏感。'">不行，它揭示了客户流失给竞争对手的原因——极度敏感</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。任何输赢分析都包含有价值的信息。'">仅针对与大客户输掉的交易</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>问题3：</strong>与客户会面后的CRM记录应该使用哪种部署方式？</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。CRM包含个人数据和商业信息。'">外部AI——这只是文本摘要</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>CRM包含联系人个人数据和商业秘密。'">本地部署——联系人个人数据 + 商业信息</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。匿名化CRM数据会失去意义。'">混合模式——匿名化后发送到云端</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">返回首页</a>
+    <a href="../14-2-cloud/index.html" class="nav-btn primary">14.2 外部任务 →</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 生产型企业</p></div></footer>
+</body></html>
