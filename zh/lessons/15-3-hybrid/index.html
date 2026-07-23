@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.3 混合任务 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第15级 — 法务职能</div>
+    <h1>15.3 混合任务</h1>
+    <div class="meta">⏱ 20分钟 · 面向律师</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>混合方法</strong><br>
+    通用<span class="highlight">法律逻辑、文件结构、标准论证</span>在外部AI中准备。<br>
+    <span class="highlight">真实事实、金额、当事人名称、战略立场</span>在本地部署中添加。
+  </div>
+
+  <div class="section">
+    <h2>律师的混合方法原则</h2>
+    <p>法务职能需要特别谨慎：律师保密义务和 attorney-client privilege 在使用外部服务时可能受到威胁。混合方法允许在不违反保密性的前提下发挥两个回路的优势。</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>云端匿名化规则：</strong>
+    <table>
+      <tr><th>必须删除</th><th>可以保留</th></tr>
+      <tr><td>当事人公司名称</td><td>当事人类型（供应商、买方、雇主）</td></tr>
+      <tr><td>具体金额和价格</td><td>损失计算方法</td></tr>
+      <tr><td>具体交易的日期和期限</td><td>行业典型期限</td></tr>
+      <tr><td>员工、证人姓名</td><td>参与者职位</td></tr>
+      <tr><td>案件编号、登记号</td><td>案件类型（追讨、未履行）</td></tr>
+      <tr><td>争议中的战略立场</td><td>通用法律逻辑</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>1. 法律意见书（混合模式）</h2>
+    <p><strong>云端：</strong>通用法律逻辑、适用条款、类似实践。<br>
+    <strong>本地部署：</strong>真实事实、金额、具体业务风险。</p>
+    <div class="example">
+      <div class="example-label">步骤1：云端——法律逻辑</div>
+      <pre>准备典型情况的法律分析：
+
+情况（匿名化）：
+[填写行业类型]行业的公司面临以下问题：
+[填写通用法律问题]
+
+司法管辖区：[填写]
+
+请完成：
+1. 适用法律条款（条文、法律）
+2. 类似问题的司法实践（匿名化）
+3. "支持"与"反对"的论证
+4. 典型风险
+5. 通用建议（不针对具体事实）
+
+格式：法律分析（2–3页）</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">步骤2：本地部署——最终意见书</div>
+      <pre>用真实数据完善法律意见书：
+
+法律分析（来自云端）：
+[粘贴云端结果]
+
+真实事实：
+- 公司：[填写名称]
+- 交易金额：[填写]
+- 交易对手：[填写]
+- 关系历史：[填写]
+- 具体风险：[填写]
+
+请调整分析：
+1. 将法律逻辑应用于真实事实
+2. 添加具体数字（罚款、违约金、期限）
+3. 评估风险概率
+4. 提供具体优先建议
+5. 行动计划（谁、做什么、何时）</pre>
+    </div>
+    <p><strong>节省时间：</strong>云端分析（2小时）+ 本地部署最终意见书（1.5小时）。</p>
+  </div>
+
+  <div class="section">
+    <h2>2. 起诉状 / 法律立场（混合模式）</h2>
+    <p><strong>云端：</strong>文件结构、该类型案件的典型论证。<br>
+    <strong>本地部署：</strong>真实事实、证据、金额、当事人名称。</p>
+    <div class="example">
+      <div class="example-label">步骤1：云端——结构与论证</div>
+      <pre>准备某类案件起诉状的结构：
+
+案件类型：[填写：追讨欠款/合同未履行/劳动争议]
+司法管辖区：[填写]
+
+请编制：
+1. 起诉状结构（逐条）
+2. 原告典型论据
+3. 被告典型反驳
+4. 通常需要的证据
+5. 通常适用的法律条款
+6. 司法实践（典型法院做法）
+
+[补充：行业、典型合同条件]</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">步骤2：本地部署——具体案件</div>
+      <pre>将结构适配到具体案件：
+
+案件：
+- 原告：[填写]
+- 被告：[填写]
+- 标的：[填写]
+- 诉讼金额：[填写]
+- 事实：[填写]
+- 证据：[填写]
+
+结构（来自云端）：
+[粘贴结构]
+
+请编制：
+1. 事实陈述（附日期、引用）
+2. 法律依据（附具体条款）
+3. 证据基础（附事实关联）
+4. 诉讼金额计算（附公式）
+5. 角色扮演：法官问题及回答</pre>
+    </div>
+    <p><strong>节省时间：</strong>云端结构（1.5小时）+ 本地部署案件（2小时）。</p>
+  </div>
+
+  <div class="section">
+    <h2>3. 尽职调查（混合模式）</h2>
+    <p><strong>云端：</strong>公开部分（登记册、媒体、司法数据库、典型风险）。<br>
+    <strong>本地部署：</strong>结合内部风险评估、战略决策。</p>
+    <div class="example">
+      <div class="example-label">步骤1：云端——公开调研</div>
+      <pre>对典型交易对手进行公开尽职调查：
+
+交易对手类型：[填写：生产商/分销商/承包商]
+行业：[填写]
+国家：[填写]
+
+公开来源：
+1. 国家企业登记/类似登记
+2. 仲裁案件（公开数据库）
+3. 媒体与新闻
+4. 制裁名单（公开）
+5. 行业评级
+
+请完成：
+1. 公开核查清单
+2. 行业典型 red flags
+3. 风险评估方法论
+4. 公开部分 DD 报告模板</pre>
+    </div>
+    <div class="example">
+      <div class="example-label">步骤2：本地部署——内部评估</div>
+      <pre>将结果与内部评估结合：
+
+交易对手：[填写名称]
+公开数据（来自云端）：
+[粘贴结果]
+
+内部数据：
+- 合作历史：[填写]
+- 当前负债：[填写]
+- 关联方：[填写]
+- 内部风险：[填写]
+
+请完成：
+1. 风险汇总表（公开+内部）
+2. 最终评估（批准/有条件批准/拒绝）
+3. 建议交易条件
+4. 签约后监控计划</pre>
+    </div>
+    <p><strong>节省时间：</strong>云端公开部分（2小时）+ 本地部署内部评估（1.5小时）。</p>
+  </div>
+
+  <div class="section">
+    <h2>混合任务汇总表</h2>
+    <table>
+      <tr><th>任务</th><th>云端</th><th>本地部署</th><th>节省时间</th></tr>
+      <tr><td>法律意见书</td><td>法律逻辑、条款</td><td>事实、金额、风险</td><td>2 + 1.5小时</td></tr>
+      <tr><td>起诉状</td><td>结构、典型论证</td><td>具体案件、证据</td><td>1.5 + 2小时</td></tr>
+      <tr><td>尽职调查</td><td>公开登记册、媒体</td><td>内部风险评估</td><td>2 + 1.5小时</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识检验</h2>
+    <p><strong>问题1：</strong>法律意见书的混合原则是什么？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>法律逻辑在外部，具体事实在内部。'">法律逻辑和条款在云端，真实事实和金额在本地部署</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。全部放在云端违反保密性。'">只要匿名化处理，整个法律意见书都可以在云端完成</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。司法实践是公开的，但分析不是。'">法律意见书始终只能在本地部署</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>问题2：</strong>起诉状——哪些步骤在本地部署？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>事实、金额、名称——都在内部。'">具体事实、金额、当事人名称、证据</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。结构在云端。'">文件结构和典型论据</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。适用条款是通用知识。'">适用法律条款</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>问题3：</strong>尽职调查——在放入云端前需要删除什么？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>名称、金额、编号——都要删除。'">公司名称、交易金额、合同编号</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。交易对手类型是通用信息。'">交易对手类型（供应商/买方）</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。国家是公开信息。'">交易对手注册国家</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../15-2-cloud/index.html" class="nav-btn">← 15.2 外部任务</a>
+    <a href="../15-4-summary/index.html" class="nav-btn primary">15.4 实践总结 →</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 制造公司</p></div></footer>
+</body></html>

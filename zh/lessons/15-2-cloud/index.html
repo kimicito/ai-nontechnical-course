@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.2 外部任务：外部AI — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第15级 — 法务职能</div>
+    <h1>15.2 外部任务：外部AI</h1>
+    <div class="meta">⏱ 20分钟 · 面向律师、合规专员</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>公开数据（外部AI）</strong><br>
+    本课所有任务涉及<span class="highlight">标准模板、公开立法、公开司法判决、培训材料</span>。可以使用 Claude、ChatGPT、Gemini。
+  </div>
+
+  <div class="section">
+    <h2>可以在外部AI中做什么</h2>
+    <p>与涉及具体案件和交易对手的任务不同，与公开法律领域打交道既安全又高效：</p>
+    <ul>
+      <li>按模板编制标准合同（不含真实条款）</li>
+      <li>立法变更监控（公开来源）</li>
+      <li>司法实践分析（公开判决）</li>
+      <li>专利检索（公开数据库）</li>
+      <li>培训材料（通用性质）</li>
+      <li>法律实践对标（公开数据）</li>
+    </ul>
+  </div>
+
+  <div class="card card-warning">
+    <strong>核心规则：</strong>如果请求中没有公司名称、金额、具体日期、个人数据、战略规划——可以使用外部AI。
+  </div>
+
+  <div class="section">
+    <h2>1. 标准合同模板</h2>
+    <p>编制不含真实条款的标准合同结构是公开的方法论。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（外部AI）</div>
+      <pre>准备一份标准供货合同：
+
+参数（不含具体条款）：
+- 类型：货物供应合同
+- 法律体系：[填写国家]
+- 买方：大型企业（B2B）
+- 供应商：生产商
+- 标的：[填写商品类型，不含数量/价格]
+
+请编制：
+1. 前言（标准版）
+2. 合同标的（描述结构）
+3. 价格与结算方式（标准措辞）
+4. 交货与风险转移（Incoterms——标准版）
+5. 质量与验收（标准条款）
+6. 双方责任（不含具体罚款）
+7. 不可抗力（标准条款）
+8. 争议解决程序（标准选项）
+9. 最终条款
+
+格式：每条——基础文本+备选方案</pre>
+    </div>
+    <p><strong>结果：</strong>法务部门的标准模板，节省3–4小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>2. 立法变更监控</h2>
+    <p>按具体主题汇总立法变更。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（网络搜索）</div>
+      <pre>分析过去6个月的立法变更：
+
+主题：
+1. [填写领域：公司法/税务/劳动法/反垄断]
+2. [填写第二主题]
+3. [填写第三主题]
+
+司法管辖区：[填写国家/地区]
+
+请完成：
+1. 关键变更清单（日期、文件编号、核心内容）
+2. 对业务的影响分析（通用，不针对特定公司）
+3. 生效日期
+4. 企业一般需采取的行动
+5. 准备建议
+
+格式：分析报告（1–2页）</pre>
+    </div>
+    <p><strong>结果：</strong>变更概览，节省4–5小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>3. 司法实践分析</h2>
+    <p>检索和分析类似问题的公开司法判决。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（网络搜索）</div>
+      <pre>分析以下问题的司法实践：
+
+问题：[填写法律问题，不针对具体案件]
+司法管辖区：[填写]
+期间：最近2年
+
+请完成：
+1. 相关案例精选（5–10个判决）
+2. 每个案例的简要内容
+3. 法院立场（关键结论）
+4. 实践趋势（法院做法的变化）
+5. 对企业的普遍风险
+6. 风险最小化建议
+
+注意：仅限公开判决，若非公开案件不得提及具体公司名称。</pre>
+    </div>
+    <p><strong>结果：</strong>实践概览，节省5–6小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>4. 专利检索与自由实施分析</h2>
+    <p>检索公开专利数据库，分析自由实施空间。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（网络搜索）</div>
+      <pre>对以下技术进行专利检索：
+
+技术：[填写领域，不含产品具体细节]
+关键词：[填写3–5个术语]
+IPC分类号：[如已知请填写]
+司法管辖区：[填写：俄罗斯、美国、欧洲、中国等]
+
+请完成：
+1. 检索相关专利（5–10项）
+2. 每项专利分析（保护范围、期限、状态）
+3. 自由实施分析（是否存在障碍）
+4. 规避建议（如有）
+5. 后续行动建议
+
+注意：此为初步分析，不能替代专利代理人。</pre>
+    </div>
+    <p><strong>结果：</strong>初步分析，节省3–4小时（但不能替代专利代理人）。</p>
+  </div>
+
+  <div class="section">
+    <h2>5. 员工培训材料</h2>
+    <p>准备通用法律主题的培训材料。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>为员工准备培训材料：
+
+主题：[填写：商业秘密/反腐败/竞争/个人数据]
+受众：[填写：全体员工/经理/销售人员]
+格式：演示文稿（10页）+测试（5题）
+
+请编制：
+1. 培训目标（员工应掌握什么）
+2. 核心条款（通俗易懂）
+3. 情境示例（假设性，非真实案例）
+4. 行为准则（该做与不该做）
+5. 违规责任
+6. 测试（5道选择题）
+7. 自查清单
+
+语气：易懂，避免法律术语。</pre>
+    </div>
+    <p><strong>结果：</strong>现成的培训材料，节省3–4小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>6. 行业法律实践对标</h2>
+    <p>基于公开数据与同类公司比较法律流程。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（网络搜索）</div>
+      <pre>对行业法律实践进行对标：
+
+行业：[填写]
+对标参数：
+- 法务部门结构
+- 法律科技工具使用
+- 外部律师 vs 内部法务
+- 诉讼负荷（典型争议）
+- 法律服务成本（公开数据）
+- 合规实践
+
+来源：行业报告、出版物、会议
+
+请完成：
+1. 行业3–5家公司的实践概览（公开数据）
+2. 对比表
+3. 最佳实践（best practices）
+4. 法务职能优化建议
+
+注意：仅限公开数据，不得涉及具体合同金额。</pre>
+    </div>
+    <p><strong>结果：</strong>行业实践概览，节省4–5小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>外部任务汇总表</h2>
+    <table>
+      <tr><th>任务</th><th>所需输入</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>标准模板</td><td>合同类型、法律体系</td><td>完整模板</td><td>3–4小时</td></tr>
+      <tr><td>立法监控</td><td>主题、司法管辖区</td><td>分析报告</td><td>4–5小时</td></tr>
+      <tr><td>司法实践</td><td>法律问题</td><td>判决概览</td><td>5–6小时</td></tr>
+      <tr><td>专利检索</td><td>技术、关键词</td><td>专利分析</td><td>3–4小时</td></tr>
+      <tr><td>培训材料</td><td>主题、受众</td><td>演示文稿+测试</td><td>3–4小时</td></tr>
+      <tr><td>对标分析</td><td>行业、参数</td><td>对比分析</td><td>4–5小时</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识检验</h2>
+    <p><strong>问题1：</strong>可以在外部AI中编制含具体价格的供货合同吗？</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。具体价格是商业秘密。'">可以，如果是标准合同</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>具体价格是商业秘密，仅限本地部署。'">不行，具体价格是商业秘密，应使用本地部署</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。公司规模不影响价格敏感度。'">可以，但仅限小型公司</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>问题2：</strong>司法实践分析——哪个回路？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>司法判决是公开数据。'">外部AI——司法判决是公开的</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。司法判决公开发布。'">本地部署——司法实践是保密的</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。实践分析不是具体案件。'">混合——匿名化公司名称</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>问题3：</strong>专利检索——哪个回路？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>专利数据库是公开数据。'">外部AI——专利数据库是公开的</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。专利就是专门公开供公众查阅的。'">本地部署——这是公司知识产权</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。公开数据库的检索不需要混合模式。'">混合——数据库在外部，分析在内部</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../15-1-on-prem/index.html" class="nav-btn">← 15.1 内部任务</a>
+    <a href="../15-3-hybrid/index.html" class="nav-btn primary">15.3 混合任务 →</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 制造公司</p></div></footer>
+</body></html>

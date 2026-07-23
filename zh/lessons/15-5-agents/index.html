@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.5 律师的智能体场景 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第15级 — 律师</div>
+    <h1>15.5 律师的智能体场景</h1>
+    <div class="meta">⏱ 12分钟 · 立法监控、合同审查、尽职调查</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>智能体与语言模型的区别是什么？</strong><br>
+    LLM按请求分析文档。<span class="highlight">智能体</span>持续工作：监控法律变更、审查新合同、风险出现时发出预警——无需"检查这个"的指令。更多详情——<a href="../../lessons/4-1-agents/index.html" style="color:var(--accent2);">第4级</a>。
+  </div>
+
+  <div class="section">
+    <h2>场景1：立法监控智能体（n8n + RSS）</h2>
+    <p><strong>任务：</strong>追踪法律变更、司法实践、监管行为；为律师生成摘要。</p>
+    <div class="arch">
+[Cron：每日8:00]<br>
+  ↓<br>
+[并行查询来源]<br>
+  ├─→ RSS prav.gov.ru（新命令）<br>
+  ├─→ 俄罗斯宪法法院（新判决）<br>
+  ├─→ 俄罗斯最高法院（司法实践综述）<br>
+  ├─→ GARANT / Consultant（法律草案）<br>
+  └─→ 国际制裁名单<br>
+  ↓<br>
+[LLM：按公司画像过滤]<br>
+  ├─→ 行业法律<br>
+  ├─→ 公司法<br>
+  ├─→ 劳动法<br>
+  └─→ 制裁（如适用）<br>
+  ↓<br>
+[对公司影响评估]<br>
+  ├─→ 关键：需要立即行动<br>
+  ├─→ 重要：需要分析<br>
+  └─→ 参考：供了解<br>
+  ↓<br>
+[摘要："22.07立法变更"]<br>
+  ↓<br>
+[邮件通知律师 + 发布到企业知识库]
+    </div>
+    <div class="card card-success">
+      <strong>结果：</strong>律师在一天内而非一个月后获知变更。公司率先应对监管风险。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景2：合同审查智能体（OpenClaw-智能体）</h2>
+    <p><strong>任务：</strong>合同进入审批流程时——自动检查风险、是否符合模板、准备审查纪要。</p>
+    <div class="arch">
+[ECM：新合同进入]<br>
+  ↓<br>
+[智能体：文本提取]<br>
+  ├─→ 扫描件则 OCR<br>
+  └─→ Word/PDF 则解析<br>
+  ↓<br>
+[本地部署 LLM：审查]<br>
+  ├─→ 是否符合公司模板<br>
+  ├─→ 是否包含必备条款<br>
+  ├─→ 风险措辞<br>
+  ├─→ 是否违反立法<br>
+  └─→ 交易对手审查（数据库集成）<br>
+  ↓<br>
+[审查纪要]<br>
+  ├─→ 附条款引用的意见<br>
+  ├─→ 风险等级<br>
+  ├─→ 建议<br>
+  └─→ 与历史版本对比<br>
+  ↓<br>
+[通知律师 + ECM 批注]
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景3：尽职调查智能体（混合模式）</h2>
+    <p><strong>任务：</strong>收到交易对手核查请求时——收集公开数据、形成画像、评估风险。</p>
+    <div class="arch">
+[请求："核查ООО Ромашка，ИНН 7701234567"]<br>
+  ↓<br>
+[智能体：收集公开数据]<br>
+  ├─→ 国家企业登记：状态、创始人、管理人<br>
+  ├─→ SPARK/Contour：财务、仲裁案件<br>
+  ├─→ 公司网站：业务、客户<br>
+  ├─→ 新闻：负面信息、并购<br>
+  └─→ 制裁名单：核查<br>
+  ↓<br>
+[本地部署 LLM：风险分析]<br>
+  ├─→ 财务稳定性<br>
+  ├─→ 声誉风险<br>
+  ├─→ 制裁风险<br>
+  └─→ 建议（准入/限制/拒绝）<br>
+  ↓<br>
+[PDF 交易对手画像]<br>
+  ↓<br>
+[通知采购/律师]
+    </div>
+    <div class="card card-warning">
+      <strong>重要：</strong>公开数据从外部收集，但画像和风险评估在内部形成。核查行为本身也是内部信息。
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../15-4-summary/index.html" class="nav-btn">← 15.4 实践总结</a>
+    <a href="../../catalog.html" class="nav-btn primary">进入目录</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 制造公司</p></div></footer>
+</body></html>

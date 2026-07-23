@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>15.1 内部任务：本地部署 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第15级 — 法务职能</div>
+    <h1>15.1 内部任务：本地部署</h1>
+    <div class="meta">⏱ 25分钟 · 面向律师、公司秘书、合规专员</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>封闭回路（本地部署）</strong><br>
+    本课所有任务涉及<span class="highlight">律师保密义务、内幕信息、个人数据、公司战略规划</span>。请使用内部模型或本地大语言模型。
+  </div>
+
+  <div class="section">
+    <h2>为什么本地部署对律师至关重要</h2>
+    <p>法务职能是默认最封闭的领域之一。律师保密义务、attorney-client privilege、交易和争议的内幕信息——所有这些都要求严格的访问控制。如果案件材料或争议中的谈判立场被法院或监管机构要求提供，使用外部云服务可能会引发保密性违规的问题，并在某些司法管辖区影响 privilege 的保护。</p>
+    <p><strong>默认规则：</strong>如果材料与具体争议、交易、交易对手或员工相关——仅限本地部署。只能将涉及公开法律领域的工作放在外部回路中。</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>本地部署的强制场景：</strong>
+    <ul>
+      <li>审查 incoming 合同并准备修改意见（真实商业条款、谈判策略）</li>
+      <li>交易对手的尽职调查及并购交易（内幕信息，泄露=市场操纵）</li>
+      <li>准备起诉状、答辩状、上诉状（律师保密义务、辩护策略）</li>
+      <li>形成争议中的法律立场（证人/对方律师角色扮演演练）</li>
+      <li>准备证据基础，系统化案件文件（具体争议）</li>
+      <li>真实案件的索赔函往来（具体金额、违规行为、要求）</li>
+      <li>公司文件（会议纪要、决议）——发布前的管理信息</li>
+      <li>针对具体交易对手/交易的制裁合规筛查</li>
+      <li>回复监管机构问询（战略敏感）</li>
+      <li>针对具体业务问题的法律意见（真实事实、金额、风险）</li>
+      <li>劳动争议，雇主立场（个人数据、潜在冲突）</li>
+      <li>合同登记簿管理（完整商业关系清单）</li>
+      <li>重组及设立子公司（战略敏感）</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>1. 审查 incoming 合同</h2>
+    <p>将 incoming 合同与公司标准对比，识别风险条款，准备修改意见。</p>
+    <div class="example">
+      <div class="example-label">提示词示例（本地部署）</div>
+      <pre>审查 incoming 合同是否符合公司标准：
+
+Incoming 合同（文本）：
+[请粘贴合同文本]
+
+公司标准（核心条款）：
+- 供应商责任：不低于批次价值的[填写]%
+- 付款期限：不得早于交付后[填写]天
+- 不可抗力：依据[填写法律]
+- 索赔程序：[填写期限]天
+- 仲裁地：[填写地点]
+
+请完成：
+1. 偏离标准条款的清单（注明条款编号）
+2. 每项偏离的风险评估（高/中/低）
+3. 建议的修改文本
+4. 与交易对手谈判的论据
+5. 替代措辞（折中方案）</pre>
+    </div>
+    <p><strong>结果：</strong>审查完毕的合同及修改意见，节省2–3小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>2. 交易对手尽职调查</h2>
+    <p>基于内部数据+公开来源分析交易对手，评估交易风险。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>对交易对手[填写名称]进行尽职调查：
+
+内部数据：
+- 合作历史：自[填写年份]起，营业额[填写]，逾期[填写]
+- 当前负债：[填写金额]
+- 诉讼纠纷：[填写]
+- 关联方：[填写]
+
+公开数据（另行核实）：
+- 国家企业登记：状态[填写]
+- 仲裁案件：[填写]
+- 制裁名单：[填写]
+
+请完成：
+1. 风险摘要（高/中/低）
+2. 交易建议（同意/有条件同意/拒绝）
+3. 最小化风险的必要条件
+4. 预警信号（red flags）
+5. 交易后的持续监控计划</pre>
+    </div>
+    <p><strong>结果：</strong>附带建议的风险分析，节省3–4小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>3. 准备起诉状</h2>
+    <p>构建立场、准备文件、角色扮演排练。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>为以下争议准备起诉状：
+
+背景：
+- 原告方：[填写公司名称]
+- 被告方：[填写]
+- 争议标的：[填写：合同未履行、追讨欠款等]
+- 主要事实：
+  * [填写事实1]
+  * [填写事实2]
+  * [填写事实3]
+- 证据：[填写清单]
+- 诉求：[填写]
+- 诉讼金额：[填写]
+
+请完成：
+1. 起诉状结构
+2. 事实陈述（附合同引文）
+3. 法律依据（条款、司法实践）
+4. 附件清单
+5. 角色扮演：法官典型问题及回答</pre>
+    </div>
+    <p><strong>结果：</strong>准备就绪的起诉状，节省4–5小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>4. 制裁合规筛查</h2>
+    <p>检查交易对手及交易中的制裁风险，解读结果。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>分析交易的制裁风险：
+
+交易数据：
+- 交易对手：[填写名称]
+- 交易对手所在国：[填写]
+- 商品原产国：[填写]
+- 目的国：[填写]
+- 商品/服务类型：[填写]
+- 金额：[填写]
+- 币种：[填写]
+- 付款方式：[填写]
+
+筛查结果（内部系统）：
+- OFAC：[填写结果]
+- 欧盟：[填写结果]
+- 英国：[填写结果]
+- 国内名单：[填写结果]
+
+请完成：
+1. 交易风险评估（高/中/低）
+2. 适用的限制性措施
+3. 需进行的额外核查
+4. 建议（批准/有条件批准/拒绝）
+5. 合规委员会审议依据</pre>
+    </div>
+    <p><strong>结果：</strong>制裁风险分析，节省2–3小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>5. 回复监管机构问询</h2>
+    <p>准备对反垄断机构、税务机关或其他监管机构问询的结构化回复。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>准备回复[填写监管机构]的问询：
+
+问询：
+[请粘贴问询文本]
+
+原始数据（内部）：
+- 事实：[填写]
+- 文件：[填写清单]
+- 法律立场：[填写]
+- 风险：[填写]
+
+请完成：
+1. 回复结构（按问询要点逐一回复）
+2. 每个要点的回复文本
+3. 法律依据引用
+4. 附件（清单）
+5. 风险分析：监管机构后续可能追问什么
+6. 管理层建议</pre>
+    </div>
+    <p><strong>结果：</strong>准备好的回复，节省3–4小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>6. 法律意见书（legal opinion）</h2>
+    <p>分析具体法律情况并为业务提供建议。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>准备以下问题的法律意见书：
+
+问题：
+[填写具体问题]
+
+事实（内部）：
+- [填写事实1]
+- [填写事实2]
+- [填写事实3]
+
+适用法律：[填写司法管辖区]
+
+请完成：
+1. 事实简述
+2. 法律分析（适用条款）
+3. 司法实践（类似案例）
+4. 风险及其评估
+5. 建议（行动方案）
+6. 建议实施计划</pre>
+    </div>
+    <p><strong>结果：</strong>结构化的意见书，节省4–5小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>7. 劳动争议 — 雇主立场</h2>
+    <p>结合员工个人数据准备劳动争议立场。</p>
+    <div class="example">
+      <div class="example-label">提示词示例</div>
+      <pre>准备劳动争议中雇主的立场：
+
+员工数据（保密）：
+- 职位：[填写]
+- 工龄：[填写]
+- 员工诉求：[填写]
+- 纪律处分记录：[填写]
+- 文件：[填写]
+
+员工要求：
+[填写]
+
+请完成：
+1. 要求的法律分析（合理性）
+2. 雇主立场（论据）
+3. 败诉风险（概率、金额）
+4. 和解方案（诉讼/调解/庭前）
+5. 策略建议</pre>
+    </div>
+    <p><strong>结果：</strong>准备就绪的立场，节省2–3小时。</p>
+  </div>
+
+  <div class="section">
+    <h2>汇总表</h2>
+    <table>
+      <tr><th>任务</th><th>所需输入</th><th>输出格式</th><th>节省时间</th></tr>
+      <tr><td>合同审查</td><td>Incoming 合同、标准模板</td><td>修改意见+风险评估</td><td>2–3小时</td></tr>
+      <tr><td>尽职调查</td><td>交易对手数据</td><td>风险分析</td><td>3–4小时</td></tr>
+      <tr><td>起诉状</td><td>事实、证据</td><td>完整诉状</td><td>4–5小时</td></tr>
+      <tr><td>制裁筛查</td><td>交易数据、核查结果</td><td>合规决定</td><td>2–3小时</td></tr>
+      <tr><td>回复监管机构</td><td>问询函、内部数据</td><td>结构化回复</td><td>3–4小时</td></tr>
+      <tr><td>法律意见书</td><td>问题、事实</td><td>意见书+建议</td><td>4–5小时</td></tr>
+      <tr><td>劳动争议</td><td>员工数据、诉求</td><td>立场+策略</td><td>2–3小时</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>知识检验</h2>
+    <p><strong>问题1：</strong>为什么准备起诉状必须本地部署？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>诉状包含律师保密义务和辩护策略。'">因为包含律师保密义务、争议策略和保密事实</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。司法实践是公开的，但具体诉状不是。'">仅在诉讼金额超过特定门槛时才需要</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。Attorney-client privilege 不仅关乎金钱。'">如果在云端匿名化处理当事人名称就可以</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>问题2：</strong>制裁筛查可以在云端进行吗？</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。名单是公开的，但解读不是。'">可以，制裁名单是公开数据</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>筛查名单是公开的，但针对具体交易对手和交易的解读具有战略敏感性。'">不行——针对具体交易对手和交易的结果解读属于内部信息</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。混合模式可行，但完全云端不行。'">混合模式——名单在外部，决定内部</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>问题3：</strong>为什么回复监管机构问询必须本地部署？</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。格式不是重点，内容才是。'">因为需要特殊格式的回复</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>回复揭示了公司的战略立场。'">因为揭示了公司的战略立场，可能影响当前争议</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。这与时间限制无关。'">仅当要求24小时内回复时才需要</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../index.html" class="nav-btn">返回首页</a>
+    <a href="../15-2-cloud/index.html" class="nav-btn primary">15.2 外部任务 →</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 制造公司</p></div></footer>
+</body></html>
