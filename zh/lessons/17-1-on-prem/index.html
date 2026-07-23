@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.1 HR内部任务：本地部署 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .prompt-box { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: 'Segoe UI', monospace; font-size: 0.9rem; line-height: 1.5; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第17级 — 人力资源</div>
+    <h1>17.1 HR内部任务：本地部署</h1>
+    <div class="meta">⏱ 20分钟 · 涉及具体人员的任务</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>本课核心原则</strong><br>
+    HR几乎在每项任务中都处理个人数据。规则是：如果文本中包含姓名、薪资、评估或某个具体人员的个人情况 — <span class="highlight">仅限本地部署</span>。
+  </div>
+
+  <div class="section">
+    <h2>任务1：简历筛选与候选人评估</h2>
+    <p><strong>为什么本地部署：</strong>简历包含个人数据（姓名、联系方式、过往工作经历、薪资）。即使是对照职位要求进行分析 — 也属于个人数据处理。</p>
+    <h3>AI的作用</h3>
+    <ul>
+      <li>将简历与职位要求进行对比</li>
+      <li>突出候选人的优势和劣势</li>
+      <li>为HR生成简要摘要</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      职位要求：[要求文本]。<br>
+      候选人简历：[简历文本]。<br><br>
+      按每项要求分析匹配度。突出优势、风险、面试问题。编写简要摘要（最多150字）。
+    </div>
+    <div class="card card-success">
+      <strong>结果：</strong>每份简历节省10–15分钟。3人HR团队可以处理的候选人数量翻倍。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务2：人事命令准备</h2>
+    <p><strong>为什么本地部署：</strong>命令包含姓名、薪资、职位、日期 — 完整的个人数据集。具有法律效力的文件。</p>
+    <h3>AI的作用</h3>
+    <ul>
+      <li>根据模板生成命令文本</li>
+      <li>检查是否符合劳动法（或当地法规）</li>
+      <li>生成附件清单</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      起草入职命令。数据：姓名[姓名]，职位[名称]，部门[名称]，薪资[金额]，入职日期[日期]，试用期[期限]。检查是否符合劳动法。列出所需附件。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务3：人事档案管理与结构化</h2>
+    <p><strong>为什么本地部署：</strong>人事档案 — 严格意义上的个人数据。即使是文本部分也包含个人生平信息。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      将以下[姓名]的人事档案文件整理为标准格式：[文件清单]。为每份文件注明：日期、类型、是否符合人事档案管理要求。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务4：人事报表（人员流动、组织架构）</h2>
+    <p><strong>为什么本地部署：</strong>按部门分析、离职人员姓名、离职原因 — 管理敏感信息。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      [期间]人员流动数据：[数据表格]。分析：各部门趋势、平均工作年限、主要离职原因（按类别）。为管理层编写摘要并提出建议。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务5：人员评估（绩效评估）</h2>
+    <p><strong>为什么本地部署：</strong>对实际员工的评估 — 极其敏感的信息。影响特定人员的职业生涯、薪酬和激励。</p>
+    <h3>AI的作用</h3>
+    <ul>
+      <li>整理360度评估反馈</li>
+      <li>按能力维度生成摘要</li>
+      <li>为面谈准备措辞</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      [期间][姓名]的360度评估结果：[评估数据]。按能力维度整理反馈。突出优势、成长领域、建议。为面谈准备措辞。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务6：个人发展计划（IDP）</h2>
+    <p><strong>为什么本地部署：</strong>IDP与特定员工、其评估结果和职业目标相关联。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      为[姓名]制定[期间]的个人发展计划。数据：当前职位[名称]，评估结果[数据]，员工目标[目标]。包含：需发展的能力、活动、期限、成功标准、管理者支持。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务7：人才梯队与继任计划</h2>
+    <p><strong>为什么本地部署：</strong>"谁接替谁" — 公司内部具有政治敏感性的信息。泄露可能引发冲突并导致核心员工流失。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      基于潜力矩阵和关键员工评估结果：[去标识化数据 — 无姓名，仅ID]，为关键岗位提出人才梯队建议。注明：岗位、所需能力、培养期限、无继任者的风险。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务8：薪资总额计算与职级论证</h2>
+    <p><strong>为什么本地部署：</strong>实际薪资、具体职位的职级 — 机密信息。AI处理的是论证的文本部分，而非数学计算。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      论证[名称]职位的职级建议。数据：当前职级[编号]，市场薪资中位数[范围]，内部公平性（与类似角色的比例）。为管理层形成论据。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务9：离职原因分析（离职面谈）</h2>
+    <p><strong>为什么本地部署：</strong>离职面谈可能包含对管理的批评、个人原因、投诉 — 所有这些都是个人数据 + 存在去匿名化风险。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      基于[期间]离职面谈记录进行离职原因分析：[去标识化访谈文本]。按类别分组原因。找出系统性问题并提出消除建议。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务10：纪律处分</h2>
+    <p><strong>为什么本地部署：</strong>具有个人数据的、具有法律效力的文件。要求措辞准确。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      起草纪律处分命令。数据：姓名[姓名]，职位[名称]，违规行为[描述]，日期[日期]，证人[名单]。检查是否符合劳动法第192、193条。注明法律依据。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务11：劳动纠纷、雇主立场</h2>
+    <p><strong>为什么本地部署：</strong>具体员工、其劳动纠纷、公司辩护策略 — 律师保密特权 + 商业秘密。</p>
+    <div class="prompt-box">
+      <strong>提示词（与律师共同使用）：</strong><br>
+      情况：员工[姓名]提出[要求内容]。事实：[背景]。准备雇主立场：法律依据、风险、可能的解决方案。指出立场中的薄弱环节。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务12：骚扰/歧视投诉</h2>
+    <p><strong>为什么本地部署：</strong>敏感性极高。存在投诉人去匿名化风险、二次伤害风险、公司声誉风险。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      制定[类型：骚扰/歧视]投诉的初步处理计划。包含：调查阶段、所需文件、保密要求、期限、最终文件形式。注明需要外部律师介入的事项。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务13：面向管理层的HR指标报告</h2>
+    <p><strong>为什么本地部署：</strong>管理信息：薪资总额、各部门人员流动、劳动生产率 — 战略数据。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      基于[期间]的HR指标：[数据]，为管理层编写分析摘要。包含：关键趋势、与计划的偏差、风险、建议。格式：1页，结构化，附结论。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务14：特定候选人的背景调查</h2>
+    <p><strong>为什么本地部署：</strong>背景调查不仅包含候选人的个人数据，还包含第三方（推荐人、前主管）的个人数据。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      整理候选人[姓名]的背景调查结果：[谈话记录/推荐信]。按类别整理信息：专业能力、沟通能力、可靠性、成长领域。形成决策摘要。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>知识检测</h2>
+    <p><strong>问题1：</strong>为什么即使是根据员工请求准备一份简单的证明也属于本地部署？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>证明包含姓名、职位、薪资 — 受个人信息保护法（如GDPR）监管的个人数据。'">包含个人数据（姓名、职位、薪资）</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。形式上这是个人数据，但原因更广泛。'">因为证明是内部文件</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。这不是主要原因。'">因为证明很少被请求</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>问题2：</strong>以下哪项HR任务最敏感？</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。虽然重要，但不是最敏感的。'">人员评估（绩效评估）</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>存在去匿名化风险、二次伤害风险、声誉风险 — 敏感性最高。'">骚扰/歧视投诉</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。很重要，但不如骚扰敏感。'">人才梯队与继任计划</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>问题3：</strong>为什么市场薪资分析（基准对比）是外部AI的任务，而不是本地部署？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>公开薪资报告、开放数据源 — 非个人数据。'">分析的是公开薪资报告，而非员工的具体薪资</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。方法论是任务的一部分，但不是选择环境的原因。'">因为方法论是通用的</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。基准对比可以精确，但这不能决定部署环境。'">因为外部AI在计算方面更准确</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../catalog.html" class="nav-btn">← 返回目录</a>
+    <a href="../17-2-cloud/index.html" class="nav-btn primary">17.2 HR外部任务 →</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 制造企业</p></div></footer>
+</body></html>

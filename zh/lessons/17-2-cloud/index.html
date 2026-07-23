@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.2 HR外部任务：云端 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .prompt-box { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: 'Segoe UI', monospace; font-size: 0.9rem; line-height: 1.5; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第17级 — 人力资源</div>
+    <h1>17.2 HR外部任务：云端</h1>
+    <div class="meta">⏱ 15分钟 · 无个人数据的通用方法论</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>本课核心原则</strong><br>
+    只有<span class="highlight">非个人化</span>的内容可以安全地放到外部环境：方法论、模板、公开劳动力市场分析。
+  </div>
+
+  <div class="section">
+    <h2>任务1：职位描述与岗位说明编写</h2>
+    <p><strong>为什么云端：</strong>公开内容。职位发布在招聘网站、社交媒体、公司官网上。</p>
+    <h3>AI的作用</h3>
+    <ul>
+      <li>基于要求拟定有吸引力的描述</li>
+      <li>适应公司的语言风格</li>
+      <li>根据需要添加ESG/DEI元素</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      为[行业]的[名称]职位编写职位描述。关键要求：[清单]。级别：[初级/中级/高级]。格式：有吸引力，侧重发展和企业文化。添加"你将做什么"、"我们期待什么"、"我们提供什么"板块。
+    </div>
+    <div class="card card-success">
+      <strong>结果：</strong>每个职位节省20–30分钟。HR可以发布2–3倍数量的职位。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务2：面试问题准备（方法论）</h2>
+    <p><strong>为什么云端：</strong>针对某类职位的通用方法论 — 不涉及真实候选人。可重复使用的通用内容。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      为[行业]的[名称]职位设计行为面试结构。级别：[初级/中级/高级]。包含：开场问题、行为问题（STAR法）、案例问题、文化契合问题、验证[能力清单]中能力的问题。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务3：典型评估方案开发（绩效评估、360度）</h2>
+    <p><strong>为什么云端：</strong>评估方法论 — 通用结构。具体员工的实际评估 — 本地部署。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      为[级别：管理者/专业人员]设计360度评估方案结构。包含：需评估的能力、评分量表、评估者类别（主管、同事、下属）、反馈格式、评估期限。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务4：培训计划和材料开发</h2>
+    <p><strong>为什么云端：</strong>通用培训内容 — 公开部分。可以发布在企业门户上。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      为[级别：初级/中级/高级]员工开发[主题]培训计划。格式：模块化结构，4–6节课，每节2小时。每节课包含：目标、内容、方法、评估。包含实践练习。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务5：测试和评估材料准备</h2>
+    <p><strong>为什么云端：</strong>通用类型测试 — 不绑定具体员工。可以是该职位所有候选人的通用测试。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      为[名称]职位候选人编写[学科/技能]测试。10道题：5道理论题、3道案例题、2道逻辑题。注明正确答案和评分标准。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务6：通用入职材料</h2>
+    <p><strong>为什么云端：</strong>关于公司、文化、流程的材料 — 公开部分。不包含个人数据。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      为新员工编写入职指南。板块：第一天、第一周、第一个月。包含：团队介绍、关键流程、工具、公司文化、HR联系点。格式：友好、结构化。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务7：市场薪资基准对比</h2>
+    <p><strong>为什么云端：</strong>分析公开薪资报告（前程无忧、Glassdoor、行业研究） — 开放数据源。不包含员工的实际薪资。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      基于[期间]的公开数据（前程无忧、Glassdoor、行业报告），分析[地区/行业]的[名称]职位市场薪资。注明：中位数、P25、P75、P90。与上一期间对比。突出趋势。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务8：典型岗位胜任力矩阵</h2>
+    <p><strong>为什么云端：</strong>典型胜任力 — 通用方法论。绑定具体员工 — 本地部署。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      为[名称]职位开发胜任力矩阵。包含：技术能力、软技能、领导力（针对管理者）。每项包含：描述、发展级别（1–5）、行为指标。格式：表格。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务9：行业HR实践基准对比</h2>
+    <p><strong>为什么云端：</strong>分析公开报告、案例、研究 — 公开数据。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      对[行业]的HR实践进行基准对比，方向包括：招聘、培训、激励、敬业度。使用德勤、麦肯锡、前程无忧的公开报告。突出最佳实践和趋势。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>任务10：HR总体策略（人力规划）</h2>
+    <p><strong>为什么云端：</strong>人力规划方法论 — 通用。实际员工人数 — 本地部署。</p>
+    <div class="prompt-box">
+      <strong>提示词：</strong><br>
+      为[行业]公司制定[期间]的HR策略。包含：现状分析（典型问题）、目标、关键举措（招聘、发展、保留）、成功指标、风险。格式：结构化计划。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>知识检测</h2>
+    <p><strong>问题1：</strong>为什么可以在云端准备入职材料？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>通用材料描述的是公司和流程，而非具体员工。'">它们描述的是公司和流程，而非具体员工</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。格式不能决定部署环境。'">因为它们是PDF格式</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。时间不是选择环境的标准。'">因为入职是快速任务</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>问题2：</strong>为什么可以在云端准备胜任力矩阵？</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>典型胜任力是通用方法论，不绑定个人。'">这是通用方法论，不绑定具体员工</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。级别是矩阵的一部分，但不是选择环境的原因。'">因为矩阵中有1–5的级别</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。通用性是结果，不是原因。'">因为胜任力是公开概念</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>问题3：</strong>以下哪项任务不适合放在云端？</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。评估结构是方法论，适合云端。'">360度评估结构开发</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>摘要包含个人数据和具体人员的评估。'">真实员工的360度评估结果分析</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。基准对比是公开数据，适合云端。'">行业HR实践基准对比</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../17-1-on-prem/index.html" class="nav-btn">← 17.1 内部任务</a>
+    <a href="../17-3-hybrid/index.html" class="nav-btn primary">17.3 混合任务 →</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI · 制造企业</p></div></footer>
+</body></html>

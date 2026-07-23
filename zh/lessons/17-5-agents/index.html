@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.5 HR智能体场景 — 非IT人员的AI</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第17级 — 人力资源</div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+    <h1>17.5 HR智能体场景</h1>
+    <div class="meta">⏱ 12分钟 · 入职、招聘、360度评估</div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+  </div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+
+  <div class="card card-accent">
+    <strong>智能体与语言模型的区别是什么？</strong><br>
+    LLM按请求写作。<span class="highlight">智能体</span>循环工作：发送材料、检查完成情况、收集反馈、安排面试 — HR无需参与每一步。更多详情 — <a href="../../lessons/4-1-agents/index.html" style="color:var(--accent2);">第4级</a>。
+  </div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+
+  <div class="section">
+    <h2>场景1：入职智能体（n8n + LMS）</h2>
+    <p><strong>任务：</strong>自动化新员工的前几天：发送材料、检查完成情况、收集反馈。</p>
+    <div class="arch">
+[触发器：入职命令（HR系统）]<br>
+  ↓<br>
+[智能体：创建入职跟踪器]<br>
+  ├─→ 第1天：欢迎邮件、权限、办公室地图<br>
+  ├─→ 第2天：团队介绍（自动发送给同事）<br>
+  ├─→ 第1周：学习模块（LMS）<br>
+  ├─→ 第2周：与主管会面（自动安排）<br>
+  ├─→ 第1个月：中期反馈<br>
+  └─→ 第3个月：最终评估<br>
+  ↓<br>
+[完成情况监控]<br>
+  ├─→ 模块未按时完成 → 提醒<br>
+  ├─→ 测试未通过 → 提供补考<br>
+  └─→ 所有模块完成 → 通知HR<br>
+  ↓<br>
+[反馈收集（第7天、第30天、第90天自动调查）]<br>
+  ↓<br>
+[月度HR报告：新员工入职状态]
+    </div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+    <div class="card card-success">
+      <strong>结果：</strong>HR不花费时间处理入职事务。新员工获得连贯的计划，不会遗漏任何环节。
+    </div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+  </div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+
+  <div class="section">
+    <h2>场景2：招聘智能体（OpenClaw智能体）</h2>
+    <p><strong>任务：</strong>分析收到的简历、进行初筛、安排面试、管理候选人。</p>
+    <div class="arch">
+[简历到达（邮件、招聘网站、推荐）]<br>
+  ↓<br>
+[智能体：数据提取]<br>
+  ├─→ 简历解析（结构化）<br>
+  ├─→ 与职位要求对比<br>
+  ├─→ 检查必备标准<br>
+  └─→ 经验评估（相关性、深度）<br>
+  ↓<br>
+[本地部署LLM：初筛]<br>
+  ├─→ 匹配度：是 / 否 / 部分<br>
+  ├─→ 优势<br>
+  ├─→ 风险和面试问题<br>
+  └─→ 建议（面试 / 拒绝 / 备选）<br>
+  ↓<br>
+[建议为"面试"时]<br>
+  ├─→ 自动检查HR和主管的日程<br>
+  ├─→ 向候选人发送邀请<br>
+  └─→ 在HR系统中创建任务<br>
+  ↓<br>
+[拒绝时：发送个性化感谢信]<br>
+  ↓<br>
+[周报：漏斗、转化率、平均时间]
+    </div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+  </div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+
+  <div class="section">
+    <h2>场景3：360度评估智能体（混合式）</h2>
+    <p><strong>任务：</strong>收集评估、分析、准备报告、跟踪完成情况。</p>
+    <div class="arch">
+[触发器：启动360度评估轮次]<br>
+  ↓<br>
+[智能体：发送调查]<br>
+  ├─→ 发给主管<br>
+  ├─→ 发给同事（3–5人）<br>
+  ├─→ 发给下属（如有）<br>
+  └─→ 自我评估<br>
+  ↓<br>
+[完成情况监控]<br>
+  ├─→ 3天未填写 → 提醒<br>
+  ├─→ 7天未填写 → 提醒主管<br>
+  └─→ 全部填写 → 启动分析<br>
+  ↓<br>
+[本地部署LLM：分析]<br>
+  ├─→ 按能力汇总<br>
+  ├─→ 与上一期间对比<br>
+  ├─→ 识别差距（自我评估 vs 他人评估）<br>
+  └─→ 形成面谈要点<br>
+  ↓<br>
+[PDF报告：个人 + 团队汇总]<br>
+  ↓<br>
+[通知主管 + HR]
+    </div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+    <div class="card card-warning">
+      <strong>重要：</strong>所有评估都是个人数据。收集和分析严格在本地部署进行。去标识化指标（公司平均值）可以对外用于基准对比。
+    </div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+  </div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+
+  <div class="nav-footer">
+    <a href="../17-4-summary/index.html" class="nav-btn">← 17.4 实践总结</a>
+    <a href="../../index.html" class="nav-btn primary">返回首页</a>
+  </div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+</div>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+<footer><div class="container"><p>非IT人员的AI · 制造企业</p></div></footer>
+</body></html>
