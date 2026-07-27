@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>4.6 Skills: расширяем агента — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 4 — Агенты и оркестрация</div>
+    <h1>4.6 Skills: расширяем возможности агента</h1>
+    <div class="meta">⏱ 10 мин · как находить и устанавливать готовые навыки</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Что такое Skill?</strong><br>
+    <span class="highlight">Skill</span> — это готовый модуль (инструкция + скрипты), который учит агента новому действию: проверять сайт, анализировать PDF, писать email, считать метрики. Вместо того чтобы объяснять агенту с нуля — просто устанавливаете skill и говорите «используй».
+  </div>
+
+  <div class="section">
+    <h2>🗂️ Где искать skills</h2>
+    <p>Основной каталог — <strong><a href="https://clawhub.ai/" target="_blank" style="color:var(--accent2);">ClawHub</a></strong>:</p>
+    <ul>
+      <li><strong>90 000+ skills</strong> из 12 реестров</li>
+      <li>Фильтры по категориям: бизнес, разработка, креатив, исследования</li>
+      <li>Проверено сообществом — рейтинги и отзывы</li>
+      <li>Установка в одну команду</li>
+    </ul>
+    <div class="card card-success">
+      <strong>Примеры полезных skills:</strong>
+      <ul>
+        <li>📊 <strong>financial-statement-analyzer</strong> — анализ отчётности</li>
+        <li>🔍 <strong>seo-audit</strong> — проверка сайта на SEO</li>
+        <li>📧 <strong>professional-email-composer</strong> — деловые письма</li>
+        <li>📄 <strong>pdf</strong> — создание и редактирование PDF</li>
+        <li>🌐 <strong>translation-craft</strong> — качественный перевод</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>⚡ Как установить skill</h2>
+    <h3>Способ 1: Через ClawHub (рекомендуется)</h3>
+    <pre>clawhub install &lt;название-skill&gt;</pre>
+    <p>Пример:</p>
+    <pre>clawhub install financial-statement-analyzer</pre>
+    <p>Агент скачает skill, прочитает инструкцию и будет готов использовать.</p>
+
+    <h3>Способ 2: Через Hermes Skills Hub</h3>
+    <p>Каталог <a href="https://hermes-agent.nousresearch.com/docs/skills/" target="_blank" style="color:var(--accent2);">Hermes Agent Skills Hub</a> — 90 000+ skills из разных источников:</p>
+    <pre>npx skills add &lt;автор&gt;/&lt;skill&gt; -g</pre>
+    <p>Например:</p>
+    <pre>npx skills add bradautomates/claude-video -g</pre>
+
+    <h3>Способ 3: Вручную из GitHub</h3>
+    <p>Если skill на GitHub — склонируйте репозиторий в папку <code>skills/</code> вашего workspace:</p>
+    <pre>cd ~/.openclaw/workspace/skills
+git clone https://github.com/автор/skill-name.git</pre>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Как использовать установленный skill</h2>
+    <p>После установки просто скажите агенту:</p>
+    <div class="card">
+      <em>«Проанализируй баланс компании за 2024 год используя financial-statement-analyzer»</em>
+    </div>
+    <p>Или:</p>
+    <div class="card">
+      <em>«Проверь сайт logistoria.com на SEO-ошибки»</em>
+    </div>
+    <p>Агент сам прочитает SKILL.md, поймёт контракт и выполнит задачу.</p>
+  </div>
+
+  <div class="section">
+    <h2>🔐 Безопасность: проверяйте перед установкой</h2>
+    <div class="card card-warning">
+      <ul>
+        <li>✅ Читайте <code>SKILL.md</code> перед установкой — что делает skill</li>
+        <li>✅ Проверяйте источник — доверенный автор или реестр</li>
+        <li>✅ Смотрите, какие инструменты использует — только нужные</li>
+        <li>❌ Не устанавливайте skills с подозрительных сайтов</li>
+        <li>❌ Не давайте skills доступ к чувствительным данным без проверки</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>📋 Чеклист: первая установка</h2>
+    <ol>
+      <li>Определите задачу (что хотите автоматизировать)</li>
+      <li>Поищите skill на <a href="https://clawhub.ai/" target="_blank" style="color:var(--accent2);">ClawHub</a></li>
+      <li>Прочитайте описание и отзывы</li>
+      <li>Установите: <code>clawhub install &lt;name&gt;</code></li>
+      <li>Протестируйте на безопасных данных</li>
+      <li>Используйте в работе</li>
+    </ol>
+  </div>
+
+  <div class="card card-success">
+    <h3>🎯 Главное</h3>
+    <p>Skills — это «приложения» для вашего AI-агента. Вместо того чтобы программировать с нуля — находите готовое, проверяйте и используйте. ClawHub и Hermes Hub — ваши магазины skills.</p>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../04-mcp/index.html" class="nav-btn">← 4.5 MCP</a>
+    <a href="../../catalog.html" class="nav-btn primary">К каталогу</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

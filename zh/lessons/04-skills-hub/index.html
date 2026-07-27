@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>4.6 Skills：扩展智能体能力 — 非IT人员的AI课程</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI课程</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">第4级 — 智能体与编排</div>
+    <h1>4.6 Skills：扩展智能体能力</h1>
+    <div class="meta">⏱ 10 分钟 · 如何查找和安装现成技能</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>什么是 Skill？</strong><br>
+    <span class="highlight">Skill</span> 是一个现成的模块（指令 + 脚本），教智能体执行新操作：检查网站、分析PDF、写邮件、计算指标。无需从头解释 — 只需安装 skill 并说"使用它"。
+  </div>
+
+  <div class="section">
+    <h2>🗂️ 在哪里查找 Skills</h2>
+    <p>主要目录 — <strong><a href="https://clawhub.ai/" target="_blank" style="color:var(--accent2);">ClawHub</a></strong>：</p>
+    <ul>
+      <li><strong>90,000+ skills</strong> 来自 12 个注册表</li>
+      <li>按类别筛选：商业、开发、创意、研究</li>
+      <li>社区验证 — 评分和评论</li>
+      <li>一键安装</li>
+    </ul>
+    <div class="card card-success">
+      <strong>有用的 skills 示例：</strong>
+      <ul>
+        <li>📊 <strong>financial-statement-analyzer</strong> — 财务报表分析</li>
+        <li>🔍 <strong>seo-audit</strong> — 网站SEO检查</li>
+        <li>📧 <strong>professional-email-composer</strong> — 商务邮件</li>
+        <li>📄 <strong>pdf</strong> — PDF创建和编辑</li>
+        <li>🌐 <strong>translation-craft</strong> — 高质量翻译</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>⚡ 如何安装 Skill</h2>
+    <h3>方法 1：通过 ClawHub（推荐）</h3>
+    <pre>clawhub install &lt;skill名称&gt;</pre>
+    <p>示例：</p>
+    <pre>clawhub install financial-statement-analyzer</pre>
+    <p>智能体将下载 skill，阅读说明并准备使用。</p>
+
+    <h3>方法 2：通过 Hermes Skills Hub</h3>
+    <p><a href="https://hermes-agent.nousresearch.com/docs/skills/" target="_blank" style="color:var(--accent2);">Hermes Agent Skills Hub</a> — 90,000+ skills 来自各种来源：</p>
+    <pre>npx skills add &lt;作者&gt;/&lt;skill&gt; -g</pre>
+    <p>例如：</p>
+    <pre>npx skills add bradautomates/claude-video -g</pre>
+
+    <h3>方法 3：从 GitHub 手动安装</h3>
+    <p>如果 skill 在 GitHub 上 — 将仓库克隆到 <code>skills/</code> 文件夹：</p>
+    <pre>cd ~/.openclaw/workspace/skills
+git clone https://github.com/作者/skill-name.git</pre>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ 如何使用已安装的 Skill</h2>
+    <p>安装后，只需告诉智能体：</p>
+    <div class="card">
+      <em>"使用 financial-statement-analyzer 分析公司2024年资产负债表"</em>
+    </div>
+    <p>智能体会读取 SKILL.md，理解合约并完成任务。</p>
+  </div>
+
+  <div class="section">
+    <h2>🔐 安全：安装前检查</h2>
+    <div class="card card-warning">
+      <ul>
+        <li>✅ 安装前阅读 <code>SKILL.md</code> — 了解 skill 功能</li>
+        <li>✅ 检查来源 — 可信作者或注册表</li>
+        <li>✅ 查看使用的工具 — 仅必要的工具</li>
+        <li>❌ 不要从可疑网站安装 skills</li>
+        <li>❌ 未经核实不要让 skills 访问敏感数据</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card card-success">
+    <h3>🎯 要点</h3>
+    <p>Skills 是 AI 智能体的"应用程序"。无需从头编程 — 找到现成的，验证后使用。ClawHub 和 Hermes Hub 是您的 skill 商店。</p>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../04-mcp/index.html" class="nav-btn">← 4.5 MCP</a>
+    <a href="../../catalog.html" class="nav-btn primary">返回目录</a>
+  </div>
+</div>
+<footer><div class="container"><p>非IT人员的AI课程</p></div></footer>
+</body></html>
