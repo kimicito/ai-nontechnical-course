@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>4.7 Harness : comment l'IA obtient des mains — IA pour Non-Techniciens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; background: var(--card); }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } table { font-size: 0.8rem; } th, td { padding: 8px; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour Non-Techniciens</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Niveau 4 — Agents et orchestration</div>
+    <h1>4.7 Harness : comment l'IA obtient des mains</h1>
+    <div class="meta">⏱ 12 min · pourquoi le prompt n'est que 5% du résultat</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Illusion principale :</strong> écrire un «prompt intelligent" et l'IA résoudra la tâche. <br><br>
+    En réalité, le prompt représente <span class="highlight">5% du résultat</span>. Les 95% restants sont la mémoire, les outils, les cycles et le contrôle. C'est le <strong>Harness</strong>.
+  </div>
+
+  <div class="section">
+    <h2>🧑‍💼 Le stagiaire amnésique</h2>
+    <p>Imaginez un stagiaire brillant. Incroyablement instruit — la moitié d'Internet. Mais il a des problèmes :</p>
+    <ul>
+      <li><strong>Amnésie</strong> — ne se souvient pas de la discussion d'hier. À chaque fois — à partir de zéro.</li>
+      <li><strong>Pas de mains</strong> — ne peut pas ouvrir Excel, visiter un site, envoyer un email.</li>
+      <li><strong>Confiant et faux</strong> — parle magnifiquement, mais peut inventer des faits.</li>
+      <li><strong>Travail en une fois</strong> — donne une réponse et disparaît. Pas de «essayer → échouer → corriger».</li>
+    </ul>
+    <div class="card card-warning">
+      <strong>Question :</strong> combien de tâches réelles confieriez-vous à ce stagiaire avec seulement un bon brief (prompt) ?
+      <p style="margin-top:8px"><strong>Réponse :</strong> presque aucune. Il a besoin d'un environnement. Cet environnement est le <strong>Harness</strong>.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔧 5 parties du Harness</h2>
+
+    <h3>1. Mémoire et contexte — «le secrétaire du stagiaire»</h3>
+    <p>Quelqu'un doit préparer un dossier avant chaque réunion : «Voici le contrat, la correspondance précédente, le règlement.» Le Harness choisit quoi montrer au modèle parmi des milliers de documents.</p>
+    <div class="card">
+      <strong>Exemple :</strong> «Mets à jour notre proposition commerciale.» Un prompt ne décide pas — laquelle des 40 propositions, où elle se trouve, quelle version est la dernière. Le système environnant le fait.
+    </div>
+
+    <h3>2. Outils — «les mains du stagiaire»</h3>
+    <p>Le modèle ne génère que du texte. Il ne peut pas :</p>
+    <ul>
+      <li>chercher le taux de change sur Google</li>
+      <li>ouvrir votre CRM</li>
+      <li>calculer dans le vrai Excel</li>
+      <li>envoyer un email</li>
+    </ul>
+    <p>Le Harness donne des boutons : «rechercher», «calculatrice», «lire fichier», «envoyer email».</p>
+    <div class="card card-success">
+      <strong>Différence :</strong> un consultant dit «vous devez vérifier 50 contrats." Un employé <em>les a vérifiés</em> et a apporté un tableau.
+    </div>
+
+    <h3>3. Cycle de travail — «pas une réponse, mais une journée de travail»</h3>
+    <p>Les tâches complexes se résolvent en boucle :</p>
+    <pre>Réfléchir → faire une étape → regarder le résultat → repérer l'erreur → corriger → prochaine étape…</pre>
+    <p>Un prompt, c'est comme une seule respiration. On ne peut pas courir un marathon en une respiration. Le Harness fait tourner la boucle 10, 50, 100 fois.</p>
+    <div class="card">
+      <strong>Exemple :</strong> «Analyse 200 avis clients.» Un prompt — donne un résumé beau mais inventé. Un agent Harness — lit par lots, compte, vérifie et montre sur quels avis il s'est appuyé.
+    </div>
+
+    <h3>4. Contrôle qualité — «le chef qui signe»</h3>
+    <p>Le stagiaire se trompe avec assurance. Il faut donc des vérifications : sources, second regard avant envoi au client.</p>
+    <div class="card card-warning">
+      «S'il te plaît, ne te trompe pas" dans un prompt, c'est comme un autocollant «ne t'inquiète pas" sur le bureau. Il faut un <strong>mécanisme</strong>, pas une requête.
+    </div>
+
+    <h3>5. Limites et sécurité — «accès et règlements»</h3>
+    <p>On ne donne pas les clés du coffre-fort à un stagiaire le premier jour. Le Harness définit : quels fichiers lire, où écrire, combien de tentatives, quand demander à un humain.</p>
+    <div class="card card-danger">
+      Sans limites, un agent peut : supprimer les mauvais fichiers, boucler à l'infini, envoyer un email à la mauvaise personne.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👁️ Ce que vous voyez vs ce qui se passe vraiment</h2>
+    <table>
+      <tr><th>Ce que vous voyez</th><th>Ce qui se passe vraiment</th></tr>
+      <tr><td>«J'ai écrit un prompt intelligent"</td><td>Le système a rassemblé le contexte depuis vos fichiers et historique</td></tr>
+      <tr><td>«L'IA a cherché sur Internet"</td><td>Le Harness a appelé l'outil recherche et donné les résultats au modèle</td></tr>
+      <tr><td>«L'IA a corrigé son erreur"</td><td>Le Harness a lancé un cycle : tentative → erreur → retry</td></tr>
+      <tr><td>«L'IA a fait un rapport en 20 min"</td><td>Le Harness a exécuté 100 étapes que vous n'avez pas vues</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🧪 Expérience en direct</h2>
+    <p><strong>Tâche :</strong> «Collecte les prix des concurrents sur 15 sites, compare avec les nôtres, trouve où nous sommes 10%+ plus chers, et formate un tableau."</p>
+    <div class="card card-danger">
+      <h4>Tentative 1 — prompt nu dans le chat</h4>
+      <p>L'IA donne un beau texte de réflexion, des chiffres inventés, et des conseils sur «comment on ferait ça." Elle n'a pas accès aux sites, pas de mémoire de vos prix, aucun moyen de vérifier.</p>
+    </div>
+    <div class="card card-success">
+      <h4>Tentative 2 — agent avec Harness</h4>
+      <p>Le système visite les sites, extrait les prix, calcule les différences dans un tableau, vérifie, et livre un fichier.</p>
+    </div>
+    <p>La différence n'est pas «un autre modèle" ou «un meilleur prompt". <strong>Une autre infrastructure</strong> autour du même modèle.</p>
+  </div>
+
+  <div class="section">
+    <h2>🧠 À retenir</h2>
+    <div class="card card-accent" style="text-align:center; font-size:1.1rem;">
+      <p><strong>Le prompt</strong> — c'est une conversation avec un cerveau.</p>
+      <p><strong>Le Harness</strong> — c'est le corps, la mémoire, les mains et les règles qui transforment un cerveau intelligent en employé utile.</p>
+      <p style="margin-top:12px; color:var(--accent2);">Débattre «quel prompt est meilleur" c'est comme débattre de quelle voix utiliser pour parler à une personne sans mains.</p>
+      <p><strong>D'abord, donnez-lui des mains.</strong></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Exemples de Harness réels</h2>
+    <div class="card">
+      <h4>📐 FreeCAD Harness</h4>
+      <p>L'IA dit : «Crée un cube 10×10×10 cm, ajoute un trou de 5 mm au centre." Le Harness traduit en commandes CAD — et le dessin est prêt.</p>
+    </div>
+    <div class="card">
+      <h4>📊 Excel Harness</h4>
+      <p>L'IA dit : «Calcule la marge moyenne par région pour le trimestre, construis un tableau croisé." Le Harness ouvre le fichier, exécute les formules, sauvegarde.</p>
+    </div>
+    <div class="card">
+      <h4>🎬 Kdenlive Harness</h4>
+      <p>L'IA dit : «Assemble une vidéo à partir de ces clips, ajoute des transitions, superpose la musique." Le Harness contrôle la timeline, rend la vidéo.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Checklist</h2>
+    <ul>
+      <li>Je comprends pourquoi le prompt n'est qu'un début</li>
+      <li>Je peux expliquer le Harness en termes simples à un collègue</li>
+      <li>Je connais les 5 parties du Harness : mémoire, outils, cycle, contrôle, sécurité</li>
+      <li>Je comprends la différence entre «répondu dans le chat" et «fait le travail"</li>
+      <li>Je peux donner un exemple de Harness pour mon programme (Excel, SAP, CAD)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Quiz</h2>
+    <div class="card" style="border-left:4px solid var(--accent2);">
+      <p><strong>Question :</strong> Vous demandez à l'IA «d'analyser le rapport trimestriel". Quelle tâche ne relève PAS du Harness ?</p>
+      <ol style="margin-top:10px;">
+        <li>Trouver le bon fichier dans les dossiers de l'entreprise</li>
+        <li>Lire le rapport et extraire les chiffres</li>
+        <li>Trouver un beau titre pour le rapport</li>
+        <li>Vérifier les chiffres par rapport au trimestre précédent</li>
+      </ol>
+      <p style="margin-top:12px; color:var(--accent2);"><em>Bonne réponse : 3. Le titre est le travail du modèle (génération de texte), pas du Harness. Le reste — trouver, lire, vérifier — fait partie de l'infrastructure.</em></p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../04-skills-hub/index.html" class="nav-btn">← 4.6 Skills Hub</a>
+    <a href="../../catalog.html" class="nav-btn primary">Vers le catalogue →</a>
+  </div>
+</div>
+<footer><div class="container"><p>© 2026 IA pour Non-Techniciens</p></div></footer>
+</body>
+</html>

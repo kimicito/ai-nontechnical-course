@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>4.7 Harness: How AI Gets Hands — AI for Non-Technical Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; background: var(--card); }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } table { font-size: 0.8rem; } th, td { padding: 8px; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 4 — Agents and Orchestration</div>
+    <h1>4.7 Harness: How AI Gets Hands</h1>
+    <div class="meta">⏱ 12 min · why the prompt is only 5% of the result</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Main illusion:</strong> write a "smart prompt" and AI will solve the task. <br><br>
+    In reality, the prompt is <span class="highlight">5% of the result</span>. The other 95% is memory, tools, cycles, and control. That is <strong>Harness</strong>.
+  </div>
+
+  <div class="section">
+    <h2>🧑‍💼 The Intern with Amnesia</h2>
+    <p>Imagine a brilliant intern. Incredibly well-read — half the internet. But he has problems:</p>
+    <ul>
+      <li><strong>Amnesia</strong> — doesn't remember yesterday's discussion. Every time — from scratch.</li>
+      <li><strong>No hands</strong> — can't open Excel, visit a website, send an email.</li>
+      <li><strong>Confidently wrong</strong> — speaks beautifully, but may invent facts.</li>
+      <li><strong>One-shot worker</strong> — gives an answer and disappears. No "try → fail → fix".</li>
+    </ul>
+    <div class="card card-warning">
+      <strong>Question:</strong> how many real tasks would you trust to this intern with just a good brief (prompt)?
+      <p style="margin-top:8px"><strong>Answer:</strong> almost none. He needs an environment. That environment is <strong>Harness</strong>.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔧 5 Parts of Harness</h2>
+
+    <h3>1. Memory and Context — "the intern's secretary"</h3>
+    <p>Someone must prepare a folder before each meeting: "Here's the contract, the previous correspondence, the regulations." Harness chooses what to show the model from thousands of documents.</p>
+    <div class="card">
+      <strong>Example:</strong> "Update our commercial proposal." A prompt doesn't decide — which of the 40 proposals, where it lives, which version is latest. The surrounding system does.
+    </div>
+
+    <h3>2. Tools — "the intern's hands"</h3>
+    <p>The model only generates text. It cannot:</p>
+    <ul>
+      <li>Google the exchange rate</li>
+      <li>Open your CRM</li>
+      <li>Calculate in real Excel</li>
+      <li>Send an email</li>
+    </ul>
+    <p>Harness gives buttons: "search", "calculator", "read file", "send email".</p>
+    <div class="card card-success">
+      <strong>Difference:</strong> a consultant says "you need to check 50 contracts." An employee <em>checked</em> them and brought a table.
+    </div>
+
+    <h3>3. Work Cycle — "not one answer, but a workday"</h3>
+    <p>Complex tasks are solved in a loop:</p>
+    <pre>Think → do step → look at result → spot error → fix → next step…</pre>
+    <p>One prompt is like one breath. You can't run a marathon on one breath. Harness spins the loop 10, 50, 100 times.</p>
+    <div class="card">
+      <strong>Example:</strong> "Analyze 200 customer reviews." A prompt — gives beautiful but made-up summary. A harness agent — reads in batches, counts, verifies, and shows which reviews it relied on.
+    </div>
+
+    <h3>4. Quality Control — "the boss who signs off"</h3>
+    <p>The intern confidently makes mistakes. So you need checks: source verification, second look before sending to the client.</p>
+    <div class="card card-warning">
+      "Please don't make mistakes" in a prompt is like a "don't worry" sticker on the desk. You need a <strong>mechanism</strong>, not a request.
+    </div>
+
+    <h3>5. Boundaries and Safety — "access and regulations"</h3>
+    <p>You don't give a new intern the safe keys on day one. Harness defines: which files to read, where to write, how many attempts, when to ask a human.</p>
+    <div class="card card-danger">
+      Without boundaries an agent may: delete the wrong files, loop forever, send an email to the wrong person.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👁️ What You See vs What Actually Happens</h2>
+    <table>
+      <tr><th>What you see</th><th>What actually happens</th></tr>
+      <tr><td>"I wrote a smart prompt"</td><td>The system gathered context from your files and history</td></tr>
+      <tr><td>"AI searched the internet"</td><td>Harness called a search tool and fed results to the model</td></tr>
+      <tr><td>"AI fixed its own mistake"</td><td>Harness ran a cycle: attempt → error → retry</td></tr>
+      <tr><td>"AI made a report in 20 min"</td><td>Harness executed 100 steps you didn't see</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🧪 Live Experiment</h2>
+    <p><strong>Task:</strong> "Collect competitor prices from 15 websites, compare with ours, find where we're 10%+ more expensive, and format a table."</p>
+    <div class="card card-danger">
+      <h4>Attempt 1 — bare prompt in chat</h4>
+      <p>AI gives a beautiful reasoning text, invented numbers, and advice on "how you'd do it." It has no access to websites, no memory of your prices, no way to verify.</p>
+    </div>
+    <div class="card card-success">
+      <h4>Attempt 2 — agent with Harness</h4>
+      <p>The system visits websites, extracts prices, calculates differences in a table, verifies, and delivers a file.</p>
+    </div>
+    <p>The difference is not "a different model" or "a better prompt." <strong>Different infrastructure</strong> around the same model.</p>
+  </div>
+
+  <div class="section">
+    <h2>🧠 Remember</h2>
+    <div class="card card-accent" style="text-align:center; font-size:1.1rem;">
+      <p><strong>Prompt</strong> — is a conversation with a brain.</p>
+      <p><strong>Harness</strong> — is the body, memory, hands, and rules that turn a smart brain into a useful employee.</p>
+      <p style="margin-top:12px; color:var(--accent2);">Arguing "which prompt is better" is like arguing how loudly to talk to a person with no hands.</p>
+      <p><strong>First, give them hands.</strong></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ Real-World Harness Examples</h2>
+    <div class="card">
+      <h4>📐 FreeCAD Harness</h4>
+      <p>AI says: "Create a 10×10×10 cm cube, add a 5 mm hole in the center." Harness translates this into CAD commands — and the drawing is ready.</p>
+    </div>
+    <div class="card">
+      <h4>📊 Excel Harness</h4>
+      <p>AI says: "Calculate average margin by region for the quarter, build a pivot table." Harness opens the file, runs formulas, saves.</p>
+    </div>
+    <div class="card">
+      <h4>🎬 Kdenlive Harness</h4>
+      <p>AI says: "Assemble a video from these clips, add transitions, overlay music." Harness controls the timeline, renders the video.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ Checklist</h2>
+    <ul>
+      <li>I understand why a prompt is just the beginning</li>
+      <li>I can explain Harness in simple words to a colleague</li>
+      <li>I know the 5 parts of Harness: memory, tools, cycle, control, safety</li>
+      <li>I understand the difference between "answered in chat" and "did the work"</li>
+      <li>I can give an example of Harness for my program (Excel, SAP, CAD)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 Quiz</h2>
+    <div class="card" style="border-left:4px solid var(--accent2);">
+      <p><strong>Question:</strong> You ask AI to "analyze the quarterly report." What is NOT a Harness task?</p>
+      <ol style="margin-top:10px;">
+        <li>Find the right file in company folders</li>
+        <li>Read the report and extract numbers</li>
+        <li>Come up with a beautiful title for the report</li>
+        <li>Verify numbers against last quarter</li>
+      </ol>
+      <p style="margin-top:12px; color:var(--accent2);"><em>Correct answer: 3. The title is the model's job (text generation), not Harness. The rest — finding, reading, verifying — is surrounding infrastructure.</em></p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../04-skills-hub/index.html" class="nav-btn">← 4.6 Skills Hub</a>
+    <a href="../../catalog.html" class="nav-btn primary">To catalog →</a>
+  </div>
+</div>
+<footer><div class="container"><p>© 2026 AI for Non-Technical Professionals</p></div></footer>
+</body>
+</html>

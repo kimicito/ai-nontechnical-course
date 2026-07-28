@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>4.7 Harness: как ИИ получает руки — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; background: var(--card); }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } table { font-size: 0.8rem; } th, td { padding: 8px; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 4 — Агенты и оркестрация</div>
+    <h1>4.7 Harness: как ИИ получает руки</h1>
+    <div class="meta">⏱ 12 мин · почему промпт — это только 5% результата</div>
+  </div>
+
+  <!-- ВВОДНАЯ -->
+  <div class="card card-accent">
+    <strong>Главная иллюзия:</strong> написать «умный промпт» — и ИИ решит задачу. <br><br>
+    На самом деле промпт — это <span class="highlight">5% результата</span>. Остальные 95% — память, инструменты, циклы и контроль. Это и есть <strong>Harness</strong>.
+  </div>
+
+  <!-- АНАЛОГИЯ -->
+  <div class="section">
+    <h2>🧑‍💼 Стажёр с амнезией</h2>
+    <p>Представьте гениального стажёра. Он невероятно начитан — прочитал половину интернета. Но у него есть проблемы:</p>
+    <ul>
+      <li><strong>Амнезия</strong> — не помнит, что обсуждали вчера. Каждый раз — с чистого листа.</li>
+      <li><strong>Нет рук</strong> — не может открыть Excel, зайти на сайт, отправить письмо.</li>
+      <li><strong>Уверенно ошибается</strong> — говорит красиво, но факты может придумать.</li>
+      <li><strong>Работает за один присест</strong> — выдал ответ и исчез. Нет «попробовал → ошибся → исправил».</li>
+    </ul>
+    <div class="card card-warning">
+      <strong>Вопрос:</strong> сколько реальных задач вы доверите такому стажёру, если дать ему только хорошее ТЗ (промпт)?
+      <p style="margin-top:8px"><strong>Ответ:</strong> почти ни одной. Ему нужна среда. Эта среда и есть <strong>Harness</strong>.</p>
+    </div>
+  </div>
+
+  <!-- 5 ЧАСТЕЙ -->
+  <div class="section">
+    <h2>🔧 5 частей Harness</h2>
+
+    <h3>1. Память и контекст — «секретарь стажёра»</h3>
+    <p>Кто-то должен перед каждой встречей собрать папку: «Вот договор, вот прошлая переписка, вот регламент». Harness выбирает, что показать модели из тысяч документов.</p>
+    <div class="card">
+      <strong>Пример:</strong> «Обнови наше коммерческое предложение». Промпт не решает — какое из 40 КП, где оно лежит, какая версия последняя. Это делает система вокруг.
+    </div>
+
+    <h3>2. Инструменты — «руки стажёра»</h3>
+    <p>Модель умеет только генерировать текст. Не может:</p>
+    <ul>
+      <li>загуглить курс валюты</li>
+      <li>открыть CRM</li>
+      <li>посчитать в настоящем Excel</li>
+      <li>отправить письмо</li>
+    </ul>
+    <p>Harness даёт кнопки: «поиск», «калькулятор», «прочитать файл», «отправить email».</p>
+    <div class="card card-success">
+      <strong>Разница:</strong> консультант говорит «вам надо проверить 50 контрактов». Сотрудник <em>проверил</em> и принёс таблицу.
+    </div>
+
+    <h3>3. Цикл работы — «не один ответ, а рабочий день»</h3>
+    <p>Сложная задача решается циклом:</p>
+    <pre>Подумал → сделал шаг → посмотрел на результат → понял ошибку → исправил → следующий шаг…</pre>
+    <p>Один промпт — как один вдох. Нельзя пробежать марафон на одном вдохе. Harness крутит цикл 10, 50, 100 раз.</p>
+    <div class="card">
+      <strong>Пример:</strong> «Проанализируй 200 отзывов клиентов». Промпт — выдаст красивое, но выдуманное резюме. Harness-агент — прочитает пачками, посчитает, сверит и покажет, на какие отзывы опирался.
+    </div>
+
+    <h3>4. Контроль качества — «начальник, который подписывает»</h3>
+    <p>Стажёр уверенно ошибается. Значит, нужна проверка: сверка с источниками, второй взгляд перед отправкой клиенту.</p>
+    <div class="card card-warning">
+      «Пожалуйста, не ошибайся» в промпте — как наклейка «не волнуйся» на столе. Нужен <strong>механизм</strong>, а не просьба.
+    </div>
+
+    <h3>5. Границы и безопасность — «доступы и регламенты»</h3>
+    <p>Стажёру не дают ключи от сейфа в первый день. Harness определяет: какие файлы читать, куда писать, сколько попыток, когда спросить человека.</p>
+    <div class="card card-danger">
+      Без границ агент может: удалить лишнее, уйти в бесконечный цикл, отправить письмо не тому.
+    </div>
+  </div>
+
+  <!-- ТАБЛИЦА -->
+  <div class="section">
+    <h2>👁️ Что видит человек vs что происходит на самом деле</h2>
+    <table>
+      <tr><th>Что видит человек</th><th>Что происходит на самом деле</th></tr>
+      <tr><td>«Я написал умный промпт»</td><td>Система собрала контекст из ваших файлов и истории</td></tr>
+      <tr><td>«ИИ поискал в интернете»</td><td>Harness вызвал инструмент поиска и вставил результаты модели</td></tr>
+      <tr><td>«ИИ сам исправил ошибку»</td><td>Harness прогнал цикл: попытка → ошибка → новая попытка</td></tr>
+      <tr><td>«ИИ сделал отчёт за 20 минут»</td><td>Harness выполнил 100 шагов, которые вы не видели</td></tr>
+    </table>
+  </div>
+
+  <!-- ЖИВОЙ ПРИМЕР -->
+  <div class="section">
+    <h2>🧪 Живой эксперимент</h2>
+    <p><strong>Задача:</strong> «Собери цены конкурентов с 15 сайтов, сравни с нашими, найди, где мы дороже на 10%+, и оформи таблицу».</p>
+
+    <div class="card card-danger">
+      <h4>Попытка 1 — голый промпт в чате</h4>
+      <p>ИИ выдаст красивый текст-рассуждение, придуманные цифры и советы «как бы это сделать». У него нет ни доступа к сайтам, ни памяти о ваших ценах, ни способа проверить себя.</p>
+    </div>
+
+    <div class="card card-success">
+      <h4>Попытка 2 — агент с Harness</h4>
+      <p>Система сама зайдёт на сайты, выпишет цены, посчитает разницу в таблице, проверит и отдаст файл.</p>
+    </div>
+
+    <p>Разница — не «другая модель» или «лучший промпт». <strong>Другая инфраструктура</strong> вокруг той же модели.</p>
+  </div>
+
+  <!-- ФОРМУЛА -->
+  <div class="section">
+    <h2>🧠 Запомнить</h2>
+    <div class="card card-accent" style="text-align:center; font-size:1.1rem;">
+      <p><strong>Промпт</strong> — это разговор с мозгом.</p>
+      <p><strong>Harness</strong> — это тело, память, руки и правила, которые превращают умный мозг в полезного сотрудника.</p>
+      <p style="margin-top:12px; color:var(--accent2);">Спор «какой промпт лучше» — это спор о том, как громко говорить с человеком без рук.</p>
+      <p><strong>Сначала дайте ему руки.</strong></p>
+    </div>
+  </div>
+
+  <!-- ПРИМЕРЫ HARNESS -->
+  <div class="section">
+    <h2>🛠️ Примеры Harness в жизни</h2>
+    <div class="card">
+      <h4>📐 FreeCAD Harness</h4>
+      <p>ИИ говорит: «Создай куб 10×10×10 см, добавь отверстие диаметром 5 мм по центру». Harness переводит это в команды CAD — и чертёж готов.</p>
+    </div>
+    <div class="card">
+      <h4>📊 Excel Harness</h4>
+      <p>ИИ говорит: «Посчитай среднюю маржу по регионам за квартал, построй сводную таблицу». Harness открывает файл, выполняет формулы, сохраняет.</p>
+    </div>
+    <div class="card">
+      <h4>🎬 Kdenlive Harness</h4>
+      <p>ИИ говорит: «Собери ролик из этих клипов, добавь переходы, наложи музыку». Harness управляет timeline, рендерит видео.</p>
+    </div>
+  </div>
+
+  <!-- ЧЕКЛИСТ -->
+  <div class="section">
+    <h2>✅ Чеклист</h2>
+    <ul>
+      <li>Понимаю, почему промпт — это только начало</li>
+      <li>Могу объяснить Harness простыми словами коллеге</li>
+      <li>Знаю 5 частей Harness: память, инструменты, цикл, контроль, безопасность</li>
+      <li>Понимаю разницу между «ответил в чате» и «сделал работу»</li>
+      <li>Могу привести пример Harness для своей программы (Excel, 1С, CAD)</li>
+    </ul>
+  </div>
+
+  <!-- КВИЗ -->
+  <div class="section">
+    <h2>📝 Квиз</h2>
+    <div class="card" style="border-left:4px solid var(--accent2);">
+      <p><strong>Вопрос:</strong> Вы просите ИИ «проанализируй отчёт за квартал». Что НЕ входит в задачу Harness?</p>
+      <ol style="margin-top:10px;">
+        <li>Найти нужный файл в папках компании</li>
+        <li>Прочитать отчёт и извлечь цифры</li>
+        <li>Придумать красивое название для отчёта</li>
+        <li>Сверить цифры с прошлым кварталом</li>
+      </ol>
+      <p style="margin-top:12px; color:var(--accent2);"><em>Правильный ответ: 3. Название — это работа модели (генерация текста), не Harness. Остальное — поиск файла, чтение, сверка — это инфраструктура вокруг.</em></p>
+    </div>
+  </div>
+
+  <!-- НАВИГАЦИЯ -->
+  <div class="nav-footer">
+    <a href="../04-skills-hub/index.html" class="nav-btn">← 4.6 Skills</a>
+    <a href="../../catalog.html" class="nav-btn primary">К каталогу →</a>
+  </div>
+</div>
+<footer><div class="container"><p>© 2026 AI для не ИТ-специалистов</p></div></footer>
+</body>
+</html>

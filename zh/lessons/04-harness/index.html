@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>4.7 Harness：AI如何获得双手 — 非技术人员AI课程</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; background: var(--card); }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } table { font-size: 0.8rem; } th, td { padding: 8px; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">非技术人员AI课程</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">级别 4 — 智能体与编排</div>
+    <h1>4.7 Harness：AI如何获得双手</h1>
+    <div class="meta">⏱ 12 分钟 · 为什么提示词只占结果的5%</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>主要幻觉：</strong>写一个「聪明的提示词」，AI就会解决任务。<br><br>
+    实际上，提示词只占<span class="highlight">结果的5%</span>。另外95%是记忆、工具、循环和控制。这就是<strong>Harness</strong>。
+  </div>
+
+  <div class="section">
+    <h2>🧑‍💼 失忆的实习生</h2>
+    <p>想象一个才华横溢的实习生。他博览群书——读了半个互联网。但他有问题：</p>
+    <ul>
+      <li><strong>失忆</strong>——不记得昨天的讨论。每次——从零开始。</li>
+      <li><strong>没有手</strong>——不能打开Excel、访问网站、发送邮件。</li>
+      <li><strong>自信地犯错</strong>——说得漂亮，但可能编造事实。</li>
+      <li><strong>一次性工作</strong>——给出答案就消失了。没有「尝试→失败→修正」。</li>
+    </ul>
+    <div class="card card-warning">
+      <strong>问题：</strong>如果只给这个实习生一份好的简报（提示词），你会把多少实际任务交给他？
+      <p style="margin-top:8px"><strong>答案：</strong>几乎没有。他需要一个环境。这个环境就是<strong>Harness</strong>。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🔧 Harness的5个组成部分</h2>
+
+    <h3>1. 记忆和上下文 ——「实习生的秘书」</h3>
+    <p>每次会议前必须有人准备文件夹：「这是合同、之前的通信、规章制度。」Harness从数千份文档中选择向模型展示什么。</p>
+    <div class="card">
+      <strong>例子：</strong>「更新我们的商业提案。」提示词不会决定——40份提案中的哪一份、它在哪里、哪个版本是最新的。周围的系统会决定。
+    </div>
+
+    <h3>2. 工具 ——「实习生的手」</h3>
+    <p>模型只能生成文本。它不能：</p>
+    <ul>
+      <li>谷歌搜索汇率</li>
+      <li>打开你的CRM</li>
+      <li>在真正的Excel中计算</li>
+      <li>发送邮件</li>
+    </ul>
+    <p>Harness提供按钮：「搜索」「计算器」「读取文件」「发送邮件」。</p>
+    <div class="card card-success">
+      <strong>区别：</strong>顾问说「你需要检查50份合同。」员工<em>检查了</em>并带来了一张表格。
+    </div>
+
+    <h3>3. 工作循环 ——「不是一个答案，而是一整天的工作」</h3>
+    <p>复杂任务以循环方式解决：</p>
+    <pre>思考 → 做一步 → 看结果 → 发现错误 → 修正 → 下一步…</pre>
+    <p>一个提示词就像一次呼吸。你不能靠一次呼吸跑完马拉松。Harness将循环运行10、50、100次。</p>
+    <div class="card">
+      <strong>例子：</strong>「分析200条客户评论。」提示词——给出漂亮但虚构的总结。Harness智能体——分批阅读、计数、验证，并展示依据了哪些评论。
+    </div>
+
+    <h3>4. 质量控制 ——「签字的主管」</h3>
+    <p>实习生 confidently 犯错。因此需要检查：与来源核对、在发给客户之前再看一遍。</p>
+    <div class="card card-warning">
+      提示词中的「请不要犯错」就像桌上的「别担心」贴纸。你需要的是<strong>机制</strong>，不是请求。
+    </div>
+
+    <h3>5. 边界和安全 ——「访问权限和规章制度」</h3>
+    <p>你不会在第一天给实习生保险箱的钥匙。Harness定义：可以读取哪些文件、在哪里写入、多少次尝试、何时询问人类。</p>
+    <div class="card card-danger">
+      没有边界，智能体可能：删除错误的文件、无限循环、把邮件发给错误的人。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>👁️ 你看到的 vs 实际发生的</h2>
+    <table>
+      <tr><th>你看到的</th><th>实际发生的</th></tr>
+      <tr><td>「我写了一个聪明的提示词」</td><td>系统从你的文件和历史中收集了上下文</td></tr>
+      <tr><td>「AI搜索了互联网」</td><td>Harness调用了搜索工具并将结果输入模型</td></tr>
+      <tr><td>「AI自己修正了错误」</td><td>Harness运行了循环：尝试 → 错误 → 重试</td></tr>
+      <tr><td>「AI在20分钟内完成了报告」</td><td>Harness执行了你没看到的100个步骤</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🧪 现场实验</h2>
+    <p><strong>任务：</strong>「从15个网站收集竞争对手的价格，与我们的比较，找出我们贵10%以上的地方，并格式化表格。」</p>
+    <div class="card card-danger">
+      <h4>尝试1 —— 聊天中的裸提示词</h4>
+      <p>AI给出漂亮的推理文本、虚构的数字和「怎么做」的建议。它无法访问网站、不记得你的价格、无法验证。</p>
+    </div>
+    <div class="card card-success">
+      <h4>尝试2 —— 带Harness的智能体</h4>
+      <p>系统访问网站、提取价格、在表格中计算差异、验证并交付文件。</p>
+    </div>
+    <p>区别不是「不同的模型」或「更好的提示词」。<strong>同一模型周围的不同基础设施</strong>。</p>
+  </div>
+
+  <div class="section">
+    <h2>🧠 记住</h2>
+    <div class="card card-accent" style="text-align:center; font-size:1.1rem;">
+      <p><strong>提示词</strong>——是与大脑的对话。</p>
+      <p><strong>Harness</strong>——是身体、记忆、手和规则，将聪明的大脑变成有用的员工。</p>
+      <p style="margin-top:12px; color:var(--accent2);">争论「哪个提示词更好」就像争论该用多大声对没有手的人说话。</p>
+      <p><strong>先给他手。</strong></p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>🛠️ 真实Harness示例</h2>
+    <div class="card">
+      <h4>📐 FreeCAD Harness</h4>
+      <p>AI说：「创建一个10×10×10厘米的立方体，在中心添加一个5毫米的孔。」Harness将其翻译成CAD命令——图纸就完成了。</p>
+    </div>
+    <div class="card">
+      <h4>📊 Excel Harness</h4>
+      <p>AI说：「计算季度按地区的平均利润率，构建数据透视表。」Harness打开文件、运行公式、保存。</p>
+    </div>
+    <div class="card">
+      <h4>🎬 Kdenlive Harness</h4>
+      <p>AI说：「从这些片段组装视频，添加转场，叠加音乐。」Harness控制时间线、渲染视频。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>✅ 检查清单</h2>
+    <ul>
+      <li>我理解为什么提示词只是开始</li>
+      <li>我能用简单的语言向同事解释Harness</li>
+      <li>我知道Harness的5个部分：记忆、工具、循环、控制、安全</li>
+      <li>我理解「在聊天中回答」和「完成工作」的区别</li>
+      <li>我能为我的程序（Excel、SAP、CAD）举出Harness的例子</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>📝 测验</h2>
+    <div class="card" style="border-left:4px solid var(--accent2);">
+      <p><strong>问题：</strong>你让AI「分析季度报告」。哪项任务不属于Harness？</p>
+      <ol style="margin-top:10px;">
+        <li>在公司文件夹中找到正确的文件</li>
+        <li>阅读报告并提取数字</li>
+        <li>为报告想一个漂亮的标题</li>
+        <li>与上季度核对数字</li>
+      </ol>
+      <p style="margin-top:12px; color:var(--accent2);"><em>正确答案：3。标题是模型的工作（文本生成），不是Harness。其余——查找、阅读、验证——属于周围基础设施。</em></p>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../04-skills-hub/index.html" class="nav-btn">← 4.6 Skills Hub</a>
+    <a href="../../catalog.html" class="nav-btn primary">前往目录 →</a>
+  </div>
+</div>
+<footer><div class="container"><p>© 2026 非技术人员AI课程</p></div></footer>
+</body>
+</html>
