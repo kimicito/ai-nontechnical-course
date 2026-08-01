@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>16.2 Внешние задачи комплаенса — внешний ИИ — AI для не ИТ-специалистов</title>
+<title>15.2 Внешние задачи юридической функции — внешний ИИ — AI для не ИТ-специалистов</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -53,171 +53,187 @@
 <header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Уровень 16 — Комплаенс</div>
-    <h1>16.2 Внешние задачи: внешний ИИ</h1>
-    <div class="meta">⏱ 20 мин · для комплаенс-офицеров</div>
+    <div class="phase">Уровень 15 — Юридическая функция</div>
+    <h1>15.2 Внешние задачи: внешний ИИ</h1>
+    <div class="meta">⏱ 20 мин · для юристов, compliance-специалистов</div>
   </div>
 
   <div class="card card-success">
     <strong>Открытые данные (внешний ИИ)</strong><br>
-    Все задачи этого урока — с <span class="highlight">публичными санкционными списками, нормативными актами, открытыми фреймворками, типовыми политиками</span>. Можно использовать Claude, ChatGPT, Gemini.
+    Все задачи этого урока — с <span class="highlight">типовыми шаблонами, публичным законодательством, открытыми судебными решениями, обучающими материалами</span>. Можно использовать Claude, ChatGPT, Gemini.
   </div>
 
   <div class="section">
     <h2>Что можно делать во внешнем ИИ</h2>
-    <p>Внешний ИИ безопасен там, где работа идёт с нормативным полем как таковым — какие списки существуют, что требует регулятор, как устроена методология — до того, как это применяется к реальному имени или сделке.</p>
+    <p>В отличие от задач с конкретными делами и контрагентами, работа с открытым правовым полем безопасна и эффективна:</p>
+    <ul>
+      <li>Составление типовых договоров по шаблонам (без реальных условий)</li>
+      <li>Мониторинг изменений законодательства (публичные источники)</li>
+      <li>Анализ судебной практики (открытые решения)</li>
+      <li>Патентный поиск (открытые базы)</li>
+      <li>Обучающие материалы (общего характера)</li>
+      <li>Бенчмаркинг юридических практик (публичные данные)</li>
+    </ul>
   </div>
 
   <div class="card card-warning">
-    <strong>Главное правило:</strong> если в запросе нет конкретных имён, названий компаний, сумм, номеров счетов, дат сделок — можно использовать внешний ИИ.
+    <strong>Главное правило:</strong> если в запросе нет названий компаний, сумм, конкретных дат, персональных данных, стратегических планов — можно использовать внешний ИИ.
   </div>
 
   <div class="section">
-    <h2>1. Мониторинг санкционных режимов</h2>
-    <p>Суммаризация изменений в санкционных списках OFAC, EU, UK, ООН и национальных регуляторов.</p>
+    <h2>1. Типовые шаблоны договоров</h2>
+    <p>Составление структуры типового договора без реальных условий — публичная методология.</p>
     <div class="example">
-      <div class="example-label">Пример промпта (внешний ИИ + веб-поиск)</div>
-      <pre>Проанализируй изменения санкционных режимов за последний месяц:
+      <div class="example-label">Пример промпта (внешний ИИ)</div>
+      <pre>Подготовь типовой договор поставки:
 
-Юрисдикции: OFAC (США), EU, UK, ООН
+Параметры (без конкретных условий):
+- Тип: договор поставки товара
+- Правовая система: [УКАЖИТЕ СТРАНУ]
+- Сторона покупатель: крупная компания (B2B)
+- Сторона поставщик: производитель
+- Объект: [УКАЖИТЕ ТИП ТОВАРА без количества/цен]
+
+Составь:
+1. Преамбула (типовая)
+2. Предмет договора (структура описания)
+3. Цена и порядок расчётов (типовые формулировки)
+4. Поставка и передача рисков (Incoterms — типовые)
+5. Качество и приёмка (типовые условия)
+6. Ответственность сторон (без конкретных штрафов)
+7. Форс-мажор (типовая статья)
+8. Порядок разрешения споров (типовые варианты)
+9. Заключительные положения
+
+Формат: для каждой статьи — базовый текст + альтернативы</pre>
+    </div>
+    <p><strong>Результат:</strong> типовой шаблон для юротдела, экономит 3–4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Мониторинг изменений законодательства</h2>
+    <p>Суммаризация изменений в законодательстве по конкретным темам.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проанализируй изменения законодательства за последние 6 месяцев:
+
+Темы:
+1. [УКАЖИТЕ ОТРАСЛЬ: корпоративное право/налоги/трудовое/антимонопольное]
+2. [УКАЖИТЕ ВТОРУЮ ТЕМУ]
+3. [УКАЖИТЕ ТРЕТЬЮ ТЕМУ]
+
+Юрисдикция: [УКАЖИТЕ СТРАНУ/РЕГИОН]
 
 Сделай:
-1. Новые лица/организации, добавленные в списки
-2. Изменения в секторальных санкциях
-3. Новые ограничения по товарам/технологиям
-4. Разъяснения регуляторов (guidance updates)
-5. Тренды (на что обращать внимание)
-6. Рекомендации для компаний в целом
+1. Список ключевых изменений (дата, номер документа, суть)
+2. Анализ влияния на бизнес (общий, без привязки к конкретной компании)
+3. Сроки вступления в силу
+3. Необходимые действия компаний в целом
+4. Рекомендации по подготовке
 
 Формат: аналитическая записка (1-2 страницы)</pre>
     </div>
-    <p><strong>Результат:</strong> обзор изменений, экономит 3–4 часа.</p>
+    <p><strong>Результат:</strong> обзор изменений, экономит 4–5 часов.</p>
   </div>
 
   <div class="section">
-    <h2>2. Заключения по экспортному контролю (общие)</h2>
-    <p>Анализ применимости норм экспортного контроля в общем виде, без привязки к конкретной сделке.</p>
+    <h2>3. Анализ судебной практики</h2>
+    <p>Поиск и анализ открытых судебных решений по аналогичным вопросам.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Объясни применимость экспортного контроля:
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проанализируй судебную практику по вопросу:
 
-Тема: [УКАЖИТЕ: dual-use товары/ограничения на технологии/военное назначение]
-Юрисдикции: [УКАЖИТЕ: США/ЕС/РФ/КНР]
+Вопрос: [УКАЖИТЕ ПРАВОВОЙ ВОПРОС без привязки к конкретному делу]
+Юрисдикция: [УКАЖИТЕ]
+Период: последние 2 года
 
 Сделай:
-1. Применимые режимы экспортного контроля
-2. Категории товаров/технологий
-3. Лицензионные требования
-4. Исключения и освобождения
-5. Процедура получения лицензии
-6. Практические рекомендации (общие)
-7. Ссылки на нормативные акты
+1. Подборка релевантных дел (5-10 решений)
+2. Краткое содержание каждого дела
+3. Позиция суда (ключевые выводы)
+4. Тренды в практике (как меняется подход судов)
+5. Риски для компаний в целом
+6. Рекомендации по минимизации рисков
 
-Важно: без привязки к конкретной сделке компании.</pre>
+Важно: только публичные решения, без упоминания конкретных компаний если не является публичным делом.</pre>
     </div>
-    <p><strong>Результат:</strong> справка по экспортному контролю, экономит 2–3 часа.</p>
+    <p><strong>Результат:</strong> обзор практики, экономит 5–6 часов.</p>
   </div>
 
   <div class="section">
-    <h2>3. Разработка комплаенс-политик по типовым фреймворкам</h2>
-    <p>Создание политик на основе международных стандартов (ISO 37001, UK Bribery Act, FCPA).</p>
+    <h2>4. Патентный поиск и анализ патентной чистоты</h2>
+    <p>Поиск по открытым патентным базам, анализ свободы действий.</p>
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Разработай комплаенс-политику на основе международных стандартов:
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проведи патентный поиск по технологии:
 
-Тип политики: [УКАЖИТЕ: антикоррупционная/AML/санкционная/конфликт интересов]
-Базовый фреймворк: [УКАЖИТЕ: ISO 37001/UK Bribery Act/FCPA guidance]
+Технология: [УКАЖИТЕ ОБЛАСТЬ без конкретных деталей продукта]
+Ключевые слова: [УКАЖИТЕ 3-5 ТЕРМИНОВ]
+Классы МПК: [УКАЖИТЕ если известны]
+Юрисдикции: [УКАЖИТЕ: РФ, США, ЕПВ, КНР и т.д.]
 
 Сделай:
-1. Структура политики (разделы)
-2. Основные положения (принципы)
-3. Обязанности сотрудников (по уровням)
-4. Процедуры документирования
-5. Порядок расследования нарушений
-6. Санкции за нарушения
-7. Периодичность пересмотра
-8. Приложения (формы, чек-листы)
+1. Поиск релевантных патентов (5-10)
+2. Анализ каждого патента (что охраняется, срок, статус)
+3. Анализ патентной чистоты (есть ли препятствия)
+4. Рекомендации по обходным решениям (если есть)
+5. Рекомендация по дальнейшим действиям
 
-Формат: готовый документ для адаптации под компанию.</pre>
+Важно: это предварительный анализ, не заменяет патентного поверенного.</pre>
     </div>
-    <p><strong>Результат:</strong> черновик политики, экономит 4–5 часов.</p>
+    <p><strong>Результат:</strong> предварительный анализ, экономит 3–4 часа (но не заменяет патентного поверенного).</p>
   </div>
 
   <div class="section">
-    <h2>4. Кодекс деловой этики</h2>
-    <p>Разработка общей части кодекса на основе лучших практик.</p>
+    <h2>5. Обучающие материалы для сотрудников</h2>
+    <p>Подготовка обучающих материалов по правовым темам общего характера.</p>
     <div class="example">
       <div class="example-label">Пример промпта</div>
-      <pre>Разработай кодекс деловой этики:
+      <pre>Подготовь обучающий материал для сотрудников:
 
-Компания: крупная производственная компания (B2B)
-География: международные операции
-
-Сделай:
-1. Ценности компании (5-7 пунктов)
-2. Поведение в отношениях с контрагентами
-3. Правила приёма подарков и гостеприимства
-4. Конфликт интересов (определение, примеры)
-5. Защита активов и информации
-6. Трудовая этика (дискриминация, домогательства)
-7. Обязанность сообщать о нарушениях
-8. Порядок расследования
-9. Ответственность
-
-Тон: понятный, конкретный примеры, без абстракций.</pre>
-    </div>
-    <p><strong>Результат:</strong> готовый кодекс, экономит 3–4 часа.</p>
-  </div>
-
-  <div class="section">
-    <h2>5. Обучающие программы по комплаенсу</h2>
-    <p>Подготовка обучающих материалов общего содержания.</p>
-    <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Разработай обучающий курс по комплаенсу:
-
-Тема: [УКАЖИТЕ: AML/антикоррупция/санкции/конфликт интересов]
-Аудитория: [УКАЖИТЕ: все сотрудники/менеджеры/финансовый отдел]
-Формат: 10 слайдов + тест (5 вопросов)
+Тема: [УКАЖИТЕ: коммерческая тайна/антикоррупция/конкуренция/персональные данные]
+Аудитория: [УКАЖИТЕ: все сотрудники/менеджеры/продавцы]
+Формат: презентация (10 слайдов) + тест (5 вопросов)
 
 Составь:
-1. Цели обучения
-2. Основные понятия (простым языком)
-3. Обязанности сотрудника
-4. Красные флаги (примеры)
-5. Что делать при подозрении
-6. Тест (5 вопросов с вариантами)
+1. Цели обучения (что должен знать сотрудник)
+2. Основные положения (простым языком)
+3. Примеры ситуаций (гипотетические, не реальные)
+4. Правила поведения (do's and don'ts)
+5. Ответственность за нарушение
+6. Тест (5 вопросов с вариантами ответов)
 7. Чек-лист для самопроверки
 
-Тон: доступный, с примерами из жизни.</pre>
+Тон: доступный, без юридического жаргона.</pre>
     </div>
     <p><strong>Результат:</strong> готовый материал для тренинга, экономит 3–4 часа.</p>
   </div>
 
   <div class="section">
-    <h2>6. Бенчмаркинг комплаенс-практик отрасли</h2>
-    <p>Сравнение комплаенс-практик с международными холдингами по публичным данным.</p>
+    <h2>6. Бенчмаркинг юридических практик отрасли</h2>
+    <p>Сравнение юридических процессов с аналогичными компаниями по публичным данным.</p>
     <div class="example">
       <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Проведи бенчмаркинг комплаенс-практик:
+      <pre>Проведи бенчмаркинг юридических практик в отрасли:
 
 Отрасль: [УКАЖИТЕ]
-Параметры:
-- Структура комплаенс-функции
-- Использование технологий (автоматизация скрининга)
-- Программа обучения (часы на сотрудника)
-- Whistleblower-каналы
-- Внешние аудиты (частота)
-- Публичная отчётность (ESG/anti-bribery reports)
+Параметры для сравнения:
+- Структура юридического департамента
+- Использование legal tech
+- Внешние юристы vs in-house
+- Судебная нагрузка (типичные споры)
+- Стоимость юридических услуг (публичные данные)
+- Compliance-практики
+
+Источники: отраслевые отчёты, публикации, конференции
 
 Сделай:
-1. Обзор практик 3-5 международных компаний
+1. Обзор практик 3-5 компаний отрасли (публичные данные)
 2. Сравнительная таблица
 3. Лучшие практики (best practices)
-4. Рекомендации по улучшению
-5. Тренды в комплаенс-функции
+4. Рекомендации по оптимизации юридической функции
 
-Источники: публичные отчёты, ESG-раскрытия, кодексы этики.</pre>
+Важно: только публичные данные, без конкретных сумм контрактов.</pre>
     </div>
     <p><strong>Результат:</strong> обзор отраслевых практик, экономит 4–5 часов.</p>
   </div>
@@ -226,39 +242,39 @@
     <h2>Итоговая таблица: внешние задачи</h2>
     <table>
       <tr><th>Задача</th><th>Что нужно</th><th>Формат выхода</th><th>Экономия</th></tr>
-      <tr><td>Мониторинг санкций</td><td>Юрисдикции, период</td><td>Аналитическая записка</td><td>3–4 ч</td></tr>
-      <tr><td>Экспортный контроль</td><td>Тема, юрисдикции</td><td>Справка</td><td>2–3 ч</td></tr>
-      <tr><td>Комплаенс-политики</td><td>Тип, фреймворк</td><td>Черновик политики</td><td>4–5 ч</td></tr>
-      <tr><td>Кодекс этики</td><td>Тип компании</td><td>Готовый кодекс</td><td>3–4 ч</td></tr>
-      <tr><td>Обучающие программы</td><td>Тема, аудитория</td><td>Презентация + тест</td><td>3–4 ч</td></tr>
+      <tr><td>Типовые шаблоны</td><td>Тип договора, правовая система</td><td>Готовый шаблон</td><td>3–4 ч</td></tr>
+      <tr><td>Мониторинг законов</td><td>Темы, юрисдикция</td><td>Аналитическая записка</td><td>4–5 ч</td></tr>
+      <tr><td>Судебная практика</td><td>Правовой вопрос</td><td>Обзор решений</td><td>5–6 ч</td></tr>
+      <tr><td>Патентный поиск</td><td>Технология, ключевые слова</td><td>Анализ патентов</td><td>3–4 ч</td></tr>
+      <tr><td>Обучающие материалы</td><td>Тема, аудитория</td><td>Презентация + тест</td><td>3–4 ч</td></tr>
       <tr><td>Бенчмаркинг</td><td>Отрасль, параметры</td><td>Сравнительный анализ</td><td>4–5 ч</td></tr>
     </table>
   </div>
 
   <div class="section">
     <h2>Проверка знаний</h2>
-    <p><strong>Вопрос 1:</strong> Можно ли во внешнем ИИ проверить конкретного контрагента по санкционным спискам?</p>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Конкретное имя — чувствительная информация.'">Да, списки публичны</div>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Сам факт проверки конкретного имени — чувствительно.'">Нет, сам факт "кого проверяли" — чувствительная информация</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Обезличивание не помогает, если запрос содержит конкретные данные.'">Только если обезличить имя</div>
+    <p><strong>Вопрос 1:</strong> Можно ли составить договор поставки с конкретной ценой во внешнем ИИ?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Конкретная цена — коммерческая тайна.'">Да, если это типовой договор</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Конкретная цена — коммерческая тайна, только on-prem.'">Нет, конкретная цена — коммерческая тайна и идёт в on-prem</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Размер компании не влияет на чувствительность цены.'">Да, но только для компаний небольшого размера</div>
     <div id="q1-result" class="result"></div>
 
-    <p><strong>Вопрос 2:</strong> Разработка комплаенс-политики по ISO 37001 — какой контур?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> ISO 37001 — публичный стандарт.'">Внешний ИИ — фреймворк публичен</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Стандарт ISO публичен, черновик можно делать снаружи.'">On-prem — политика внутренняя</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Структура — публична, адаптация — внутренняя, но сама разработка — снаружи.'">Гибрид — структура в облаке, адаптация внутри</div>
+    <p><strong>Вопрос 2:</strong> Анализ судебной практики — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Судебные решения — публичные данные.'">Внешний ИИ — судебные решения публичны</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Судебные решения публикуются в открытом доступе.'">On-prem — судебная практика конфиденциальна</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Анализ практики — это не конкретное дело.'">Гибрид — обезличить названия компаний</div>
     <div id="q2-result" class="result"></div>
 
-    <p><strong>Вопрос 3:</strong> Бенчмаркинг комплаенс-практик — какой контур?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> ESG-отчёты и кодексы этики — публичны.'">Внешний ИИ — используются публичные отчёты</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Бенчмаркинг — сравнение с публичными данными.'">On-prem — сравнение с конкурентами</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Публичные данные — не гибрид.'">Гибрид — публичные данные + внутренняя аналитика</div>
+    <p><strong>Вопрос 3:</strong> Патентный поиск — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Патентные базы — открытые данные.'">Внешний ИИ — патентные базы открыты</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Патенты публикуются специально для публичного доступа.'">On-prem — это интеллектуальная собственность компании</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Поиск по открытым базам не требует гибрида.'">Гибрид — базы снаружи, анализ внутри</div>
     <div id="q3-result" class="result"></div>
   </div>
 
   <div class="nav-footer">
-    <a href="../16-1-on-prem/index.html" class="nav-btn">← 16.1 Внутренние задачи</a>
-    <a href="../16-3-hybrid/index.html" class="nav-btn primary">16.3 Гибридные задачи →</a>
+    <a href="../15-1-on-prem/index.html" class="nav-btn">← 15.1 Внутренние задачи</a>
+    <a href="../15-3-hybrid/index.html" class="nav-btn primary">15.3 Гибридные задачи →</a>
   </div>
 </div>
 <footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>

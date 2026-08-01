@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.1 Внутренние задачи HR — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .prompt-box { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: 'Segoe UI', monospace; font-size: 0.9rem; line-height: 1.5; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 17 — Персонал</div>
+    <h1>17.1 Внутренние задачи HR: on-prem</h1>
+    <div class="meta">⏱ 20 мин · задачи, где фигурирует конкретный человек</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Главный принцип урока</strong><br>
+    HR работает с персональными данными почти в каждой задаче. Правило: если в тексте есть ФИО, оклад, оценка или личная ситуация конкретного человека — <span class="highlight">только on-prem</span>.
+  </div>
+
+  <div class="section">
+    <h2>Задача 1: Скрининг резюме и оценка кандидатов</h2>
+    <p><strong>Почему on-prem:</strong> резюме содержат персональные данные (ФИО, контакты, предыдущие места работы, зарплата). Даже анализ соответствия требованиям — обработка персональных данных.</p>
+    <h3>Что делает AI</h3>
+    <ul>
+      <li>Сравнивает резюме с требованиями вакансии</li>
+      <li>Выделяет сильные и слабые стороны кандидата</li>
+      <li>Формирует краткую аннотацию для HR</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Требования вакансии: [текст требований].<br>
+      Резюме кандидата: [текст резюме].<br><br>
+      Проанализируй соответствие по каждому требованию. Выдели сильные стороны, риски, вопросы для интервью. Составь краткую аннотацию (макс. 150 слов).
+    </div>
+    <div class="card card-success">
+      <strong>Результат:</strong> экономия 10–15 минут на каждое резюме. Команда из 3 HR может обрабатывать в 2 раза больше кандидатов.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 2: Подготовка кадровых приказов</h2>
+    <p><strong>Почему on-prem:</strong> приказы содержат ФИО, оклады, должности, даты — полный набор персональных данных. Юридически значимые документы.</p>
+    <h3>Что делает AI</h3>
+    <ul>
+      <li>Генерирует текст приказа по шаблону</li>
+      <li>Проверяет соответствие ТК РФ (или локальному законодательству)</li>
+      <li>Формирует список приложений</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Составь приказ о приёме на работу. Данные: ФИО [имя], должность [название], отдел [название], оклад [сумма], дата приёма [дата], испытательный срок [срок]. Проверь соответствие ТК РФ. Укажи необходимые приложения.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 3: Ведение и структурирование личных дел</h2>
+    <p><strong>Почему on-prem:</strong> личные дела — персональные данные в полном смысле. Даже текстовая часть содержит биографические сведения.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Структурируй следующие документы личного дела [ФИО] в стандартизированный формат: [список документов]. Для каждого документа укажи дату, тип, соответствие требованиям кадрового делопроизводства.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 4: Кадровая отчётность (текучесть, штатное расписание)</h2>
+    <p><strong>Почему on-prem:</strong> аналитика по подразделениям, фамилии уволившихся, причины ухода — управленческая чувствительная информация.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Данные по текучести за [период]: [таблица с данными]. Проанализируй: тренды по подразделениям, средний срок работы, основные причины ухода (по категориям). Составь сводку для руководства с рекомендациями.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 5: Оценка персонала (performance review)</h2>
+    <p><strong>Почему on-prem:</strong> оценка на реальных сотрудниках — крайне чувствительная информация. Влияет на карьеру, вознаграждение, мотивацию конкретных людей.</p>
+    <h3>Что делает AI</h3>
+    <ul>
+      <li>Структурирует обратную связь из 360-оценок</li>
+      <li>Формирует сводку по компетенциям</li>
+      <li>Подготавливает формулировки для review-встречи</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Результаты 360-оценки сотрудника [ФИО] за [период]: [данные оценок]. Структурируй обратную связь по компетенциям. Выдели сильные стороны, зоны роста, рекомендации. Подготовь формулировки для review-встречи.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 6: Индивидуальные планы развития (ИПР)</h2>
+    <p><strong>Почему on-prem:</strong> ИПР привязан к конкретному сотруднику, его оценке, карьерным целям.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Составь ИПР для сотрудника [ФИО] на [период]. Данные: текущая должность [название], результаты оценки [данные], цели сотрудника [цели]. Включи: развиваемые компетенции, мероприятия, сроки, критерии успеха, поддержку руководителя.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 7: Программы кадрового резерва и преемственности</h2>
+    <p><strong>Почему on-prem:</strong> «кто на кого претендует» — политически чувствительная информация внутри компании. Утечка может вызвать конфликты и отток ключевых сотрудников.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      На основе матрицы потенциала и оценки ключевых сотрудников: [данные обезличенные — без ФИО, только ID], сформируй предложения по кадровому резерву на критические позиции. Укажи: позиции, требуемые компетенции, сроки подготовки, риски отсутствия преемника.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 8: Расчёт и обоснование ФОТ, грейдирование</h2>
+    <p><strong>Почему on-prem:</strong> реальные оклады, грейды конкретных должностей — конфиденциальная информация. AI обрабатывает текстовую часть обоснования, а не математический расчёт.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Обоснуй предложение по грейдированию должности [название]. Данные: текущий грейд [номер], рыночная медиана [диапазон], внутренняя справедливость (соотношение с похожими ролями). Сформулируй аргументы для руководства.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 9: Анализ причин увольнений (exit-интервью)</h2>
+    <p><strong>Почему on-prem:</strong> exit-интервью могут содержать критику руководства, личные причины, жалобы — всё это персональные данные + риск деанонимизации.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Проведи анализ причин увольнений на основе exit-интервью за [период]: [тексты интервью, обезличенные]. Сгруппируй причины по категориям. Выдели системные проблемы и рекомендации по их устранению.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 10: Дисциплинарные взыскания</h2>
+    <p><strong>Почему on-prem:</strong> юридически значимые документы с персональными данными. Требуют точности формулировок.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Составь проект приказа о дисциплинарном взыскании. Данные: ФИО [имя], должность [название], нарушение [описание], дата [дата], свидетели [список]. Проверь соответствие ТК РФ, статьи 192, 193. Укажи правовые основания.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 11: Трудовые споры, позиция работодателя</h2>
+    <p><strong>Почему on-prem:</strong> конкретный сотрудник, его трудовой спор, стратегия защиты компании — адвокатская тайна + коммерческая тайна.</p>
+    <div class="prompt-box">
+      <strong>Промпт (совместно с юристом):</strong><br>
+      Ситуация: сотрудник [ФИО] обратился с требованием [суть требования]. Факты: [контекст]. Подготовь позицию работодателя: правовое обоснование, риски, возможные сценарии разрешения. Отметь слабые места позиции.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 12: Жалобы на харассмент/дискриминацию</h2>
+    <p><strong>Почему on-prem:</strong> максимальная чувствительность. Риск деанонимизации заявителя, вторичная травматизация, репутационные риски для компании.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Составь план первичной обработки жалобы на [тип: харассмент/дискриминацию]. Включи: этапы расследования, необходимые документы, требования к конфиденциальности, сроки, форму итогового документа. Укажи, что требует привлечения внешнего юриста.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 13: Отчёты для руководства по HR-метрикам</h2>
+    <p><strong>Почему on-prem:</strong> управленческая информация: ФОТ, текучесть по подразделениям, производительность труда — стратегические данные.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      На основе HR-метрик за [период]: [данные], составь аналитическую сводку для руководства. Включи: ключевые тренды, отклонения от плана, риски, рекомендации. Формат: 1 страница, структурировано, с выводами.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 14: Reference check конкретных кандидатов</h2>
+    <p><strong>Почему on-prem:</strong> reference check включает персональные данные не только кандидата, но и третьих лиц (рекомендателей, бывших руководителей).</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Результаты reference check кандидата [ФИО]: [записи разговоров/письма рекомендаций]. Структурируй информацию по категориям: профессиональные качества, коммуникация, надёжность, зоны роста. Сформируй сводку для принятия решения.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <p><strong>Вопрос 1:</strong> Почему даже подготовка простой справки по запросу сотрудника — on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Справка содержит ФИО, должность, оклад — персональные данные, регулируемые 152-ФЗ и GDPR.'">Содержит персональные данные (ФИО, должность, оклад)</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Формально это персональные данные, но причина шире.'">Потому что справка — внутренний документ</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Это не главная причина.'">Потому что справки редко запрашивают</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Какая HR-задача является наиболее чувствительной из перечисленных?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Хотя важно, но не самое чувствительное.'">Оценка персонала (performance review)</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Риск деанонимизации, вторичной травматизации, репутационных рисков — максимальная чувствительность.'">Жалобы на харассмент/дискриминацию</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Важно, но менее чувствительно, чем харассмент.'">Кадровое резервирование и преемственность</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> Почему анализ рыночных зарплат (бенчмаркинг) — задача для внешнего ИИ, а не on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Публичные обзоры зарплат, открытые источники — не персональные данные.'">Анализируются публичные обзоры зарплат, не конкретные оклады сотрудников</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Методология — часть задачи, но не причина выбора контура.'">Потому что методология универсальна</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Бенчмаркинг может быть точным, но это не определяет контур.'">Потому что внешний ИИ точнее в расчётах</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../../catalog.html" class="nav-btn">← К каталогу</a>
+    <a href="../17-2-cloud/index.html" class="nav-btn primary">17.2 Внешние задачи HR →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

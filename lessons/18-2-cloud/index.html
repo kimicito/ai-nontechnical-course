@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>17.2 Внешние задачи HR — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .prompt-box { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: 'Segoe UI', monospace; font-size: 0.9rem; line-height: 1.5; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+<header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 17 — Персонал</div>
+    <h1>17.2 Внешние задачи HR: облако</h1>
+    <div class="meta">⏱ 15 мин · универсальная методология без персональных данных</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Главный принцип урока</strong><br>
+    Во внешний контур безопасно выносить только то, что <span class="highlight">не персонализировано</span>: методология, шаблоны, публичная аналитика рынка труда.
+  </div>
+
+  <div class="section">
+    <h2>Задача 1: Составление вакансий и описаний должностей</h2>
+    <p><strong>Почему облако:</strong> публичный контент по определению. Вакансия публикуется на job-boards, в соцсетях, на сайте компании.</p>
+    <h3>Что делает AI</h3>
+    <ul>
+      <li>Формулирует привлекательное описание на основе требований</li>
+      <li>Адаптирует под tone of voice компании</li>
+      <li>Добавляет ESG/DEI-акценты при необходимости</li>
+    </ul>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Составь описание вакансии на позицию [название] для [отрасль]. Ключевые требования: [список]. Уровень: [junior/middle/senior]. Формат: привлекательный, с акцентом на развитие и культуру компании. Добави раздел "Что ты будешь делать", "Что мы ждём", "Что мы предлагаем".
+    </div>
+    <div class="card card-success">
+      <strong>Результат:</strong> экономия 20–30 минут на каждую вакансию. HR может публиковать в 2–3 раза больше вакансий.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 2: Подготовка вопросов для интервью (методология)</h2>
+    <p><strong>Почему облако:</strong> общая методология под тип позиции — без привязки к реальному кандидату. Повторно используемый контент.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Разработай структуру поведенческого интервью на позицию [название] в [отрасль]. Уровень: [junior/middle/senior]. Включи: открывающие вопросы, поведенческие (STAR), кейс-вопросы, вопросы на культуру, вопросы для проверки компетенций [список компетенций].
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 3: Разработка типовых программ оценки (performance review, 360)</h2>
+    <p><strong>Почему облако:</strong> методология оценки — универсальная структура. Реальные оценки конкретных сотрудников — on-prem.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Разработай структуру программы 360-оценки для [уровень: руководитель/специалист]. Включи: компетенции для оценки, шкалу, категории респондентов (руководитель, коллеги, подчинённые), формат обратной связи, сроки проведения.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 4: Разработка учебных программ и материалов</h2>
+    <p><strong>Почему облако:</strong> обучающие материалы общего содержания — публичная часть. Могут публиковаться на корпоративном портале.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Разработай учебную программу по теме [название] для сотрудников уровня [junior/middle/senior]. Формат: модульная структура, 4–6 занятий по 2 часа. Для каждого модуля: цели, содержание, методы, оценка. Включи практические упражнения.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 5: Подготовка тестов и оценочных материалов</h2>
+    <p><strong>Почему облако:</strong> тесты общего типа — не привязаны к конкретному сотруднику. Могут быть типовыми для всех кандидатов на позицию.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Составь тест на знание [предмет/навык] для кандидатов на позицию [название]. 10 вопросов: 5 теоретических, 3 кейсовых, 2 на логику. Укажи правильные ответы и критерии оценки.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 6: Онбординг-материалы общего характера</h2>
+    <p><strong>Почему облако:</strong> материалы о компании, культуре, процессах — публичная часть. Не содержат персональных данных.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Составь онбординг-гайд для нового сотрудника. Разделы: первый день, первая неделя, первый месяц. Включи: знакомство с командой, ключевые процессы, инструменты, культура компании, точки контакта HR. Формат: дружелюбный, структурированный.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 7: Бенчмаркинг рыночных зарплат</h2>
+    <p><strong>Почему облако:</strong> анализ публичных обзоров зарплат (HeadHunter, Glassdoor, отраслевые исследования) — открытые источники. Не содержит реальных окладов сотрудников.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      На основе открытых данных (HeadHunter, Glassdoor, отраслевые обзоры) за [период], проанализируй рыночные зарплаты на позицию [название] в [регион/отрасль]. Укажи: медиану, P25, P75, P90. Сравни с прошлым периодом. Выдели тренды.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 8: Матрицы компетенций под типовые должности</h2>
+    <p><strong>Почему облако:</strong> типовые компетенции — универсальная методология. Привязка к конкретному сотруднику — on-prem.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Разработай матрицу компетенций для позиции [название]. Включи: технические компетенции, soft skills, лидерские качества (для руководителей). Для каждой: описание, уровни развития (1–5), индикаторы поведения. Формат: таблица.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 9: Бенчмаркинг HR-практик отрасли</h2>
+    <p><strong>Почему облако:</strong> анализ публичных отчётов, кейсов, исследований — открытые данные.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Проведи бенчмаркинг HR-практик в [отрасль] по направлениям: подбор, обучение, мотивация, вовлечённость. Используй публичные отчёты Deloitte, McKinsey, HH.ru. Выдели лучшие практики и тренды.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Задача 10: HR-стратегия в общем виде (workforce planning)</h2>
+    <p><strong>Почему облако:</strong> методология планирования кадров — универсальная. Реальные цифры штата — on-prem.</p>
+    <div class="prompt-box">
+      <strong>Промпт:</strong><br>
+      Разработай HR-стратегию для компании в [отрасль] на [период]. Включи: анализ текущего состояния (типовые проблемы), цели, ключевые инициативы (подбор, развитие, удержание), метрики успеха, риски. Формат: структурированный план.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Проверка знаний</h2>
+    <p><strong>Вопрос 1:</strong> Почему онбординг-материалы можно готовить в облаке?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Общие материалы о компании и процессах — публичная часть.'">Они описывают компанию и процессы, а не конкретного сотрудника</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Формат не определяет контур.'">Потому что они в формате PDF</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Время — не критерий выбора контура.'">Потому что онбординг — быстрая задача</div>
+    <div id="q1-result" class="result"></div>
+
+    <p><strong>Вопрос 2:</strong> Почему матрицу компетенций можно готовить в облаке?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Типовые компетенции — универсальная методология, не привязана к человеку.'">Это универсальная методология, не привязана к конкретному сотруднику</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Уровни — часть матрицы, но не причина выбора контура.'">Потому что в матрице указаны уровни 1–5</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Общедоступность — следствие, не причина.'">Потому что компетенции — общедоступное понятие</div>
+    <div id="q2-result" class="result"></div>
+
+    <p><strong>Вопрос 3:</strong> Какая задача из списка НЕ подходит для облака?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Структура оценки — методология, подходит для облака.'">Разработка структуры 360-оценки</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Сводка содержит персональные данные и оценки конкретных людей.'">Анализ результатов 360-оценки реальных сотрудников</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Бенчмаркинг — публичные данные, подходит для облака.'">Бенчмаркинг HR-практик отрасли</div>
+    <div id="q3-result" class="result"></div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../17-1-on-prem/index.html" class="nav-btn">← 17.1 Внутренние задачи</a>
+    <a href="../17-3-hybrid/index.html" class="nav-btn primary">17.3 Гибридные задачи →</a>
+  </div>
+</div>
+<footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
+</body></html>

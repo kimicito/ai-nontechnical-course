@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>13.2 Внешние задачи логистики — внешний ИИ — AI для не ИТ-специалистов</title>
+<title>12.2 Внешние задачи ТОиР — внешний ИИ — AI для не ИТ-специалистов</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -33,6 +33,7 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
   .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
   .quiz-option:hover { border-color: var(--accent); }
   .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
@@ -53,9 +54,9 @@
 <header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Уровень 13 — Логистика</div>
-    <h1>13.2 Внешние задачи логистики</h1>
-    <div class="meta">⏱ 15 мин · для логистов и специалистов по цепочкам поставок</div>
+    <div class="phase">Уровень 12 — ТОиР (Ремонты и обслуживание)</div>
+    <h1>12.2 Внешние задачи ТОиР</h1>
+    <div class="meta">⏱ 15 мин · для инженеров по надёжности и механиков</div>
   </div>
 
   <div class="card card-success">
@@ -64,252 +65,224 @@
   </div>
 
   <div class="section">
-    <h2>Почему облако лучше on-prem для логистики</h2>
+    <h2>Почему облако лучше on-prem для ТОиР</h2>
     <p>Облачные модели выигрывают, когда нужно:</p>
     <ul>
-      <li><strong>Веб-поиск:</strong> мониторить фрахтовые индексы, тарифы РЖД, публичные ограничения</li>
-      <li><strong>Методология:</strong> разработать общую стратегию без реальных объёмов</li>
-      <li><strong>Бенчмаркинг:</strong> сравнить отраслевые практики 3PL, KPI</li>
-      <li><strong>Прогнозы:</strong> суммаризировать публичные прогнозы погоды/геополитики</li>
-      <li><strong>Шаблоны:</strong> создать типовые документы (CMR, заявки)</li>
+      <li><strong>Веб-поиск:</strong> мониторить стандарты ТОиР, ГОСТ на оборудование, отраслевые требования</li>
+      <li><strong>Перевод:</strong> работать с зарубежными каталогами запчастей, ISO, API</li>
+      <li><strong>Генерация:</strong> создать обучающие материалы с нуля, типовые регламенты</li>
+      <li><strong>Анализ публичных данных:</strong> LME на металлы, цены на оборудование, бенчмаркинг</li>
+      <li><strong>Поиск аналогов:</strong> импортозамещение, кросс-номера запчастей</li>
     </ul>
   </div>
 
   <div class="card card-warning">
-    <strong>Важно: перед отправкой в облако — проверь</strong>, что в запросе нет реальных объёмов, маршрутов, ставок, названий контрагентов. Если есть — обезличь или отправь в on-prem.
+    <strong>Важно: перед отправкой в облако — проверь</strong>, что в запросе нет конкретных инвентарных номеров, данных о простоях, финансовых показателей завода. Если есть — обезличь или отправь в on-prem.
   </div>
 
-  <div class="section">
-    <h2>1. Разработка логистической стратегии в общем виде</h2>
-    <p>Методология построения сети маршрутов — без привязки к конкретной компании.</p>
+    <div class="section">
+    <h2>1. Разработка и актуализация графиков ППР</h2>
+    <p>Общая методология планирования планово-предупредительных ремонтов — без привязки к конкретному заводу.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (внешний ИИ)</div>
+      <pre>Подготовь методологию разработки графика ППР для металлургического предприятия:
+
+1. Классификация оборудования по критичности (A — критичное, B — важное, C — вспомогательное)
+2. Определение периодичности ТО и ремонтов по типам оборудования
+   - Текущий ремонт: ежемесячно/ежеквартально
+   - Средний ремонт: 1–2 раза в год
+   - Капитальный ремонт: через наработку или календарный срок
+3. Резервирование ресурсов (бригады, запчасти, оборудование)
+4. Методика корректировки графика при внеплановых отказах
+5. KPI контроля выполнения (% выполнения по плану, простои)
+6. Формы документации (график, наряд, акт)
+
+Без конкретных инвентарных номеров и заводских данных.</pre>
+    </div>
+    <p><strong>Результат:</strong> методология для внедрения на предприятии, экономит 4–5 часов.</p>
+  </div>
+<div class="section">
+    <h2>2. Разработка регламентов ТОиР в общем виде</h2>
+    <p>Структура документа для типового оборудования (насос, мельница, компрессор) — без привязки к конкретному заводу.</p>
     <div class="example">
       <div class="example-label">Пример промпта (Claude с веб-поиском)</div>
-      <pre>Подготовь структуру логистической стратегии для металлургической компании:
+      <pre>Подготовь структуру регламента ТОиР для центробежного насоса горизонтального типа (общего назначения, перекачка воды/шлама):
 
-Разделы:
-1. Анализ текущей сети (типичные этапы: сырьё → производство → клиент)
-2. Выбор режима транспорта (море/ЖД/авто/морской контейнер) — критерии
-3. Резервирование и redundance (дублирование маршрутов)
-4. Управление запасами (safety stock, reorder point)
-5. 3PL vs in-house — критерии выбора
-6. IT-системы (TMS, WMS, EDI)
-7. KPI (OTIF, cost per ton, lead time, carbon footprint)
-8. Риск-менеджмент (сценарное планирование, insurance)
+Структура регламента:
+1. Область применения (типы насосов, условия эксплуатации)
+2. Типы и периодичность ТО (ежедневный осмотр, ТО-1, ТО-2, ТО-3, КР)
+3. Перечень работ для каждого типа ТО (контрольные точки)
+4. Нормативы допустимых параметров (вибрация, температура, расход)
+5. Критерии приёмки после ремонта
+6. Формы учёта (журнал осмотров, акты)
+7. Приложения (схема смазки, схема уплотнений)
 
-Без конкретных объёмов и маршрутов.</pre>
+Без конкретных инвентарных номеров и заводских данных.</pre>
     </div>
-    <p><strong>Результат:</strong> готовая стратегия, экономит 5–6 часов.</p>
+    <p><strong>Результат:</strong> готовая структура регламента, экономит 2–3 часа.</p>
   </div>
 
   <div class="section">
-    <h2>2. Мониторинг фрахтовых индексов</h2>
-    <p>Baltic Dry Index и аналоги — публичные данные для бенчмаркинга.</p>
-    <div class="example">
-      <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Проведи мониторинг фрахтовых индексов (июль 2026):
-
-Индексы:
-1. Baltic Dry Index (BDI) — динамика за 3 месяца
-2. Baltic Capesize Index (BCI)
-3. Baltic Panamax Index (BPI)
-4. China Containerized Freight Index (CCFI)
-
-Вопросы:
-- Какая динамика с начала года?
-- Какие факторы влияют (погода, геополитика, сезонность)?
-- Прогноз на Q3–Q4 2026 (по аналитикам)
-- Какие маршруты дорожают быстрее всего?
-- Рекомендации по хеджированию фрахтовых рисков
-
-Выведи таблицу с источниками.</pre>
-    </div>
-    <p><strong>Результат:</strong> обзор рынка фрахта, экономит 2–3 часа.</p>
-  </div>
-
-  <div class="section">
-    <h2>3. Анализ тарифов РЖД и китайских операторов</h2>
-    <p>Публичные тарифные сетки — сравнение, поиск оптимальных маршрутов.</p>
-    <div class="example">
-      <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Сравни тарифы на ЖД перевозку контейнеров:
-
-Маршрут (типовой): [УКАЖИТЕ СТАНЦИЮ] (РФ) → [УКАЖИТЕ СТАНЦИЮ] (КНР)
-
-Операторы:
-1. РЖД (контейнерные перевозки) — тариф за 40 футов
-2. Китайские операторы (CR, China Railway)
-3. Транзит через Казахстан (KTZ)
-4. Мультимодальные операторы (FESCO, TransContainer)
-
-Дополнительно:
-- Сроки доставки
-- Частота отправлений
-- Доступность вагонов/платформ
-- Дополнительные сборы (погранпереход, терминалы)
-
-Выведи сравнительную таблицу.</pre>
-    </div>
-    <p><strong>Результат:</strong> сравнение тарифов, экономит 2 часа.</p>
-  </div>
-
-  <div class="section">
-    <h2>4. Анализ узких мест на погранпереходах</h2>
-    <p>Общая ситуация по открытым источникам — не привязанная к конкретной поставке.</p>
-    <div class="example">
-      <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Проанализируй ситуацию на погранпереходах РФ–КНР (2026):
-
-Переходы:
-1. [УКАЖИТЕ ПЕРЕХОД 1]
-2. [УКАЖИТЕ ПЕРЕХОД 2]
-3. [УКАЖИТЕ ПЕРЕХОД 3]
-4. [УКАЖИТЕ ПЕРЕХОД 4]
-
-Данные для сбора:
-- Среднее время ожидания (дни)
-- Пропускная способность (вагонов/сутки)
-- Типичные проблемы (документы, очереди, погода)
-- Инфраструктура (склады, терминалы)
-- Планы развития (инвестиции, расширение)
-
-Источники: официальная статистика таможни, отраслевые СМИ, форумы перевозчиков.</pre>
-    </div>
-    <p><strong>Результат:</strong> обзор узких мест, экономит 3–4 часа.</p>
-  </div>
-
-  <div class="section">
-    <h2>5. Сбор и суммаризация прогнозов погоды/катаклизмов</h2>
-    <p>Генеративная функция — суммаризация публичных сводок, не прогноз как таковой.</p>
+    <h2>3. Инструкции по эксплуатации — общая часть</h2>
+    <p>Базовые принципы работы с оборудованием, если нет специфичных для завода модификаций.</p>
     <div class="example">
       <div class="example-label">Пример промпта</div>
-      <pre>Суммаризируй открытые прогнозы, влияющие на маршруты доставки в августе 2026:
+      <pre>Подготовь инструкцию по эксплуатации пластинчатого теплообменника (общего назначения):
 
-Регионы:
-- Южно-Китайское море (тайфуны)
-- Мыс Доброй Надежды (штормы)
-- Суэцкий канал (погода, геополитика)
-- Балтийское море (осенние шторма)
+Разделы:
+1. Назначение и принцип работы
+2. Технические характеристики (общие диапазоны)
+3. Требования к персоналу
+4. Порядок пуска и остановки
+5. Контрольные параметры в работе (температура, давление, перепад)
+6. Профилактический осмотр (что проверять, с какой периодичностью)
+7. Типичные неисправности и действия (без привязки к конкретным случаям)
+8. Требования безопасности
 
-Для каждого:
-1. Публичные прогнозы (метеорологические службы, NOAA)
-2. Период риска (даты)
-3. Вероятность и сила
-4. Влияние на судоходство (закрытие портов, ограничения)
-5. Рекомендации (избегать, обходить, резервировать)
-
-Формат: алерт для логистического отдела.</pre>
+Язык: простой, для операторов и механиков.</pre>
     </div>
-    <p><strong>Результат:</strong> сводка рисков, экономит 1.5 часа.</p>
+    <p><strong>Результат:</strong> готовая инструкция, экономит 3–4 часа.</p>
   </div>
 
   <div class="section">
-    <h2>6. Бенчмаркинг логистических затрат и практик</h2>
-    <p>Сравнение с отраслевыми стандартами — публичные данные.</p>
+    <h2>4. Обучающие материалы для ремонтного персонала</h2>
+    <p>Базовые принципы, безопасность, типовые процедуры — без привязки к реальным инцидентам завода.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Подготови обучающий модуль «Безопасность при ремонте вращающегося оборудования» для механиков:
+
+Формат: 10 слайдов (текст для каждого)
+Содержание:
+1. Типы опасностей (механические, электрические, химические)
+2. LOTO (Lockout/Tagout) — процедура отключения
+3. Средства индивидуальной защиты
+4. Контрольные вопросы (5 вопросов с ответами)
+
+Без конкретных случаев с завода — только общие принципы.</pre>
+    </div>
+    <p><strong>Результат:</strong> готовый модуль, экономит 4 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Поиск аналогов оборудования и запчастей (импортозамещение)</h2>
+    <p>Открытый рынок — поиск кросс-номеров, аналогов, заменителей.</p>
     <div class="example">
       <div class="example-label">Пример промпта (веб-поиск)</div>
-      <pre>Проведи бенчмаркинг логистических затрат в металлургии (2024–2026):
+      <pre>Найди аналоги подшипника SKF 22320 EK/C3 для импортозамещения:
+
+Требования:
+- Российский производитель или страны ЕАЭС
+- Аналогичные размеры: d=100, D=215, B=73 мм
+- Тип: сферический роликовый, с бронзовым сепаратором
+- Допустимая нагрузка: не ниже оригинала
+
+Выведи таблицу: производитель, обозначение, размеры, примерная цена, наличие на складе (если есть данные).</pre>
+    </div>
+    <p><strong>Результат:</strong> список аналогов для закупки, экономит 1–2 часа.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Бенчмаркинг практик ТОиР в отрасли (RCM, TPM)</h2>
+    <p>Открытая методология — лучшие практики в металлургии, ГОКах, энергетике.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проведи бенчмаркинг практик ТОиР в металлургии (2024–2026):
 
 Вопросы:
-1. Какой % от выручки составляют логистические расходы у крупных металлургов?
-2. Какие KPI используют лидеры отрасли (OTIF, cost per ton, carbon intensity)?
-3. Какие 3PL-провайдеры работают с металлургией (FESCO, TransContainer, DP World)?
-4. Какие IT-системы TMS внедрены (SAP TM, 1С Логистика, Ortec)?
-5. Какие тренды: green logistics, digital twin, blockchain в документообороте?
+1. Какие крупные металлургические компании внедрили RCM (Reliability-Centered Maintenance)?
+2. Какие результаты заявлены (снижение простоев, экономия)?
+3. Какие ИТ-системы используют для ТОиР (SAP PM, 1С ТОиР, Infor)?
+4. Какие показатели KPI применяют (MTBF, MTTR, OEE)?
+5. Какие конференции по ТОиР в металлургии проходят в 2026?
 
 Сделай структурированный отчёт с источниками.</pre>
     </div>
-    <p><strong>Результат:</strong> обзор отраслевых практик, экономит 4–5 часов.</p>
+    <p><strong>Результат:</strong> обзор отраслевых практик, экономит 3–4 часа.</p>
   </div>
 
   <div class="section">
-    <h2>7. Общий шаблон документов для международной автоперевозки</h2>
-    <p>CMR, типовые разрешения — без реальных грузов.</p>
+    <h2>7. Разработка методологии перехода на RCM/TPM</h2>
+    <p>Общий фреймворк — публичные подходы, без привязки к конкретному заводу.</p>
     <div class="example">
       <div class="example-label">Пример промпта</div>
-      <pre>Подготовь шаблон пакета документов для международной автоперевозки (РФ → ЕС):
+      <pre>Подготовь план внедрения TPM (Total Productive Maintenance) для металлургического предприятия:
 
-Документы:
-1. CMR (коносамент для авто) — обязательные поля
-2. ТТН (товарно-транспортная накладная)
-3. Инвойс (коммерческий счёт)
-4. Упаковочный лист
-5. Сертификат происхождения (Form A, EUR.1)
-6. Разрешение на перевозку (если опасный груз — ADR)
-7. Страховой полис (CMR-страхование)
-8. Доверенность на получение груза
+Этапы (по месяцам, 12-месячный план):
+1. Подготовка: обучение персонала, создание команды TPM
+2. Автономное обслуживание (операторы выполняют базовый уход)
+3. Плановое техническое обслуживание (графики, регламенты)
+4. Плановый ремонт (КР, ТР)
+5. Обучение и развитие (тренинги, сертификация)
+6. Раннее управление проектами (учёт надёжности при закупке)
+7. Безопасность и качество (5S, визуальный контроль)
 
-Для каждого: назначение, обязательные поля, типичные ошибки.
-Место для вставки реальных данных: [УТОЧНИТЬ].</pre>
+Для каждого этапа: цели, метрики успеха, типичные проблемы.</pre>
     </div>
-    <p><strong>Результат:</strong> готовый шаблон, экономит 2–3 часа.</p>
+    <p><strong>Результат:</strong> готовый план внедрения, экономит 5–6 часов.</p>
   </div>
 
   <div class="section">
-    <h2>8. Подготовка алертов по объезду/переносу отгрузки</h2>
-    <p>Общий сценарий маршрутизации — без привязки к конкретному грузу.</p>
+    <h2>8. Подготовка тендерной документации — общие разделы</h2>
+    <p>Типовые разделы ТЗ на ремонтные работы — без коммерческих условий конкретной сделки.</p>
     <div class="example">
       <div class="example-label">Пример промпта</div>
-      <pre>Подготовь методологию алертов и рекомендаций при сбоях в логистике:
+      <pre>Подготовь типовую структуру ТЗ на капитальный ремонт оборудования:
 
-Типовые сценарии:
-1. Шторм в порту погрузки — задержка на 3–5 дней
-2. Перегруз погранперехода — очередь 10+ дней
-3. Забастовка в порту выгрузки — неопределённая задержка
-4. Авария на ЖД путях — обход через альтернативный маршрут
-5. Регуляторные ограничения — внезапный запрет на заход в порт
+Разделы:
+1. Общие положения (область действия, нормативные ссылки)
+2. Техническое описание объекта (без конкретных инвентарных номеров)
+3. Перечень работ (типовые виды: дефектовка, ремонт, испытания)
+4. Требования к качеству (приёмочные критерии, испытания)
+5. Требования к документации (акты, сертификаты, фото)
+6. Гарантийные обязательства (типовые сроки)
+7. Требования безопасности
+8. Форма отчёта исполнителя
 
-Для каждого сценария:
-- Триггер алерта (что фиксируем)
-- Кто уведомляется (логист, закупщик, клиент)
-- Варианты действий (обход, перенос, замена)
-- Шаблон сообщения контрагенту
-- Срок принятия решения
-
-Методология без конкретных грузов и дат.</pre>
+Место для вставки конкретных данных: [УТОЧНИТЬ ПРОИЗВОДСТВО].</pre>
     </div>
-    <p><strong>Результат:</strong> готовая методология, экономит 3–4 часа.</p>
+    <p><strong>Результат:</strong> типовой шаблон ТЗ, экономит 2 часа.</p>
   </div>
 
   <div class="section">
     <h2>Итоговая таблица: внешние задачи</h2>
     <table>
       <tr><th>Задача</th><th>Что нужно</th><th>Формат выхода</th><th>Экономия</th></tr>
-      <tr><td>Логистическая стратегия</td><td>Тип компании</td><td>Структура стратегии</td><td>5–6 ч</td></tr>
-      <tr><td>Фрахтовые индексы</td><td>Период</td><td>Обзор рынка</td><td>2–3 ч</td></tr>
-      <tr><td>Тарифы РЖД/КНР</td><td>Маршрут</td><td>Сравнительная таблица</td><td>2 ч</td></tr>
-      <tr><td>Погранпереходы</td><td>Регион</td><td>Обзор узких мест</td><td>3–4 ч</td></tr>
-      <tr><td>Прогнозы погоды</td><td>Регион, период</td><td>Алерт рисков</td><td>1.5 ч</td></tr>
-      <tr><td>Бенчмаркинг</td><td>Отрасль</td><td>Отчёт с источниками</td><td>4–5 ч</td></tr>
-      <tr><td>Шаблоны документов</td><td>Тип перевозки</td><td>Пакет документов</td><td>2–3 ч</td></tr>
-      <tr><td>Алерты по сбоям</td><td>Сценарии</td><td>Методология реагирования</td><td>3–4 ч</td></tr>
+      <tr><td>Регламенты ТОиР</td><td>Тип оборудования</td><td>Структура документа</td><td>2–3 ч</td></tr>
+      <tr><td>Инструкции по эксплуатации</td><td>Тип оборудования</td><td>Инструкция</td><td>3–4 ч</td></tr>
+      <tr><td>Обучающие материалы</td><td>Тема, аудитория</td><td>Слайды/текст</td><td>4 ч</td></tr>
+      <tr><td>Поиск аналогов</td><td>Оригинальный номер</td><td>Таблица аналогов</td><td>1–2 ч</td></tr>
+      <tr><td>Бенчмаркинг RCM/TPM</td><td>Отрасль, период</td><td>Отчёт с источниками</td><td>3–4 ч</td></tr>
+      <tr><td>Методология RCM/TPM</td><td>Тип предприятия</td><td>План внедрения</td><td>5–6 ч</td></tr>
+      <tr><td>Тендерная документация</td><td>Тип работ</td><td>Шаблон ТЗ</td><td>2 ч</td></tr>
     </table>
   </div>
 
   <div class="section">
     <h2>Проверка знаний</h2>
-    <p><strong>Вопрос 1:</strong> Почему стратегия логистики — во внешний ИИ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Методология без реальных объёмов — публичное знание.'">Потому что это общая методология без конкретных объёмов и маршрутов</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Стратегия не содержит реальных данных.'">Потому что стратегия — это не документ, а концепция</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Любая стратегия может быть чувствительна.'">Только если обезличить название компании</div>
+    <p><strong>Вопрос 1:</strong> Почему поиск аналогов запчастей — во внешний ИИ?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Открытый рынок, публичные каталоги.'">Потому что это публичная информация — каталоги, кросс-номера, цены</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Поставщики — это on-prem.'">Потому что поставщики — внешние контрагенты</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Импортозамещение — публичная тема.'">Только если это импортозамещение</div>
     <div id="q1-result" class="result"></div>
 
-    <p><strong>Вопрос 2:</strong> Baltic Dry Index — какой контур?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> BDI — публичный индекс.'">Внешний ИИ — публичный фрахтовый индекс</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. BDI публикуется открыто.'">On-prem — коммерческая тайна</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. BDI — публичный, не нужен гибрид.'">Гибрид — индекс снаружи, интерпретация внутри</div>
+    <p><strong>Вопрос 2:</strong> Какая задача ТОиР точно в on-prem?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Инвестиционное решение с конкретными данными — внутри.'">Обоснование «ремонт vs замена» для конкретного компрессора</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Общая методология — во внешнем.'">Разработка методологии RCM для металлургии</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Типовой шаблон — во внешнем.'">Подготовка типовой структуры ТЗ на капремонт</div>
     <div id="q2-result" class="result"></div>
 
-    <p><strong>Вопрос 3:</strong> Шаблон CMR — какой контур?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Общий шаблон без реальных данных.'">Внешний ИИ — типовой документ без реальных грузов</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Шаблон — общий документ.'">On-prem — CMR содержит коммерческие данные</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Шаблон без данных — во внешнем.'">Гибрид — шаблон снаружи, данные внутри</div>
+    <p><strong>Вопрос 3:</strong> Обучающие материалы для механиков — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Общие принципы безопасности — публичные знания.'">Внешний ИИ — базовые принципы, без конкретных инцидентов завода</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Реальные кейсы — это on-prem.'">On-prem — любые материалы для персонала завода</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Гибрид — это сочетание.'">Гибрид — базовые принципы снаружи, кейсы завода внутри</div>
     <div id="q3-result" class="result"></div>
   </div>
 
   <div class="nav-footer">
-    <a href="../12-1-on-prem/index.html" class="nav-btn">← 13.1 Внутренние задачи</a>
-    <a href="../12-3-hybrid/index.html" class="nav-btn primary">13.3 Гибридные задачи →</a>
+    <a href="../11-1-on-prem/index.html" class="nav-btn">← 12.1 Внутренние задачи</a>
+    <a href="../11-3-hybrid/index.html" class="nav-btn primary">12.3 Гибридные задачи →</a>
   </div>
+
 </div>
 <footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
 </body></html>

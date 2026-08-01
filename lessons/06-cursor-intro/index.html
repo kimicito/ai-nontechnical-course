@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.1 Cursor vs чат с ИИ — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { padding: 8px 0; padding-left: 28px; position: relative; }
+  .checklist li:before { content: "☐"; position: absolute; left: 0; color: var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option + .quiz-option { margin-top: 8px; }
+  .card-accent:has(.quiz-option) { border-left: none; border-top: 3px solid var(--accent); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  .keyboard { background: var(--card); border: 1px solid var(--border); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.85rem; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">Каталог</a>
+  </div>
+</header>
+
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 6 — Программируем без ИТ-отдела</div>
+    <h1>6.1 Cursor vs чат с ИИ: теория и установка</h1>
+    <p class="meta">⏱ 15 минут • 📋 Теория + практика</p>
+  </div>
+
+  <!-- Введение -->
+  <div class="section">
+    <h2>🎯 В чём суть</h2>
+    <p>Вы уже умеете разговаривать с ИИ в чате. Cursor — это следующий уровень: ИИ не просто советует, а сам пишет программы, создаёт файлы и собирает готовые сайты и базы данных. Без единой строки кода, написанной вручную.</p>
+    
+    <div class="card card-accent">
+      <strong>Чем это отличается от чата:</strong>
+      <ul>
+        <li>В чате ИИ присылает код текстом — вы копируете вручную</li>
+        <li>В Cursor ИИ сам создаёт и сохраняет файлы в вашей папке</li>
+        <li>Cursor видит весь проект целиком и помнит, что делал раньше</li>
+        <li>Cursor сам находит и исправляет ошибки</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Сравнение -->
+  <div class="section">
+    <h2>⚔️ Чат с ИИ vs Cursor</h2>
+    
+    <table>
+      <tr>
+        <th>Что делаем</th>
+        <th>Обычный чат</th>
+        <th>Cursor</th>
+      </tr>
+      <tr>
+        <td>Создать файл</td>
+        <td>ИИ даёт код → вы копируете → создаёте файл → вставляете → сохраняете</td>
+        <td>Нажали Enter — файл уже создан и сохранён</td>
+      </tr>
+      <tr>
+        <td>Исправить ошибку</td>
+        <td>Вы пересказываете ошибку текстом</td>
+        <td>Cursor видит код и сообщение об ошибке — чинит сам</td>
+      </tr>
+      <tr>
+        <td>Помнит контекст</td>
+        <td>Каждый раз объясняете заново</td>
+        <td>Видит все файлы проекта и историю изменений</td>
+      </tr>
+      <tr>
+        <td>Скорость</td>
+        <td>Минуты на копирование и вставку</td>
+        <td>Секунды — нажали и готово</td>
+      </tr>
+    </table>
+
+    <div class="card card-success">
+      <strong>Аналогия для запоминания:</strong><br>
+      Чат с ИИ — это советчик по телефону: подскажет, а руками работаете вы.<br>
+      Cursor — это мастер в вашей мастерской: у него есть инструменты и материалы, он делает работу сам, а вы принимаете результат.
+    </div>
+  </div>
+
+  <!-- Как было и как стало -->
+  <div class="section">
+    <h2>📈 Как было → Как стало</h2>
+    
+    <div class="card">
+      <h3>Раньше</h3>
+      <p>Идея → заявка в ИТ → очередь → техзадание → разработчик → <strong>недели или месяцы</strong> → правки → ещё недели.</p>
+      <p>Маленькие задачи («нам бы табличку поставщиков с поиском») до разработчика просто не доходили.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Сейчас с Cursor</h3>
+      <p>Вы описываете задачу обычными словами → ИИ пишет код → вы смотрите результат → просите поправить → <strong>готово за вечер</strong>.</p>
+      <p>Типичный маленький проект: от получаса до одного вечера.</p>
+    </div>
+  </div>
+
+  <!-- Что такое Cursor -->
+  <div class="section">
+    <h2>🛠️ Что такое Cursor простыми словами</h2>
+    
+    <p>Cursor — это редактор для работы с файлами программ, внутри которого живёт ИИ-ассистент. Как Word, только вместо документов — файлы сайта или базы данных.</p>
+
+    <div class="card">
+      <h3>✅ Что Cursor умеет</h3>
+      <ul>
+        <li>Написать программу с нуля по описанию на русском языке</li>
+        <li>Дорабатывать по просьбам: «сделай кнопку заметнее», «добавь столбец ИНН»</li>
+        <li>Находить и исправлять ошибки</li>
+        <li>Объяснять простыми словами, что он сделал</li>
+      </ul>
+    </div>
+
+    <div class="card card-warning">
+      <h3>⚠️ Чего Cursor НЕ умеет</h3>
+      <ul>
+        <li>Читать мысли: всё, что вы не написали, он додумает сам — и может додумать не так</li>
+        <li>Гарантировать правильность: проверять глазами придётся вам</li>
+        <li>Отвечать за сохранность данных: копии делаете вы</li>
+      </ul>
+    </div>
+
+    <p>Cursor работает на Windows, macOS и Linux. Есть <strong>бесплатный тариф</strong> с ограничениями — для первых проектов его хватает.</p>
+  </div>
+
+  <!-- Установка -->
+  <div class="section">
+    <h2>📥 Установка и первый запуск</h2>
+    
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <strong>1. Скачайте программу</strong><br>
+        Зайдите на <a href="https://cursor.com" style="color: var(--accent2);">cursor.com</a> и нажмите Download. Сайт сам предложит версию под вашу систему.
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <strong>2. Установите как обычно</strong><br>
+        Запустите скачанный файл и нажимайте «Далее». Никаких специальных настроек не нужно.
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <strong>3. Зарегистрируйтесь</strong><br>
+        При первом запуске Cursor попросит войти в аккаунт. Подойдёт рабочая почта или Google-аккаунт.
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <strong>4. Создайте папку проекта</strong><br>
+        Создайте на компьютере пустую папку, например «Мой сайт», и откройте её в Cursor: <span class="keyboard">File → Open Folder</span>.
+      </div>
+    </div>
+
+    <div class="card card-success">
+      <strong>Как понять, что всё готово:</strong><br>
+      Cursor открыт, слева видна пустая панель с названием вашей папки. Всё — можно начинать разговор с ИИ.
+    </div>
+  </div>
+
+  <!-- Интерфейс -->
+  <div class="section">
+    <h2>🖥️ Интерфейс: три зоны</h2>
+    
+    <div class="card">
+      <h3>🗂️ Зона 1 — Файлы проекта</h3>
+      <p>Слева. Здесь Cursor показывает все файлы, которые он создал: <code>index.html</code>, <code>style.css</code>, <code>script.js</code> и другие.</p>
+    </div>
+
+    <div class="card">
+      <h3>💻 Зона 2 — Код</h3>
+      <p>В центре. Его пишет ИИ, вы можете сюда вообще не заглядывать. Но если интересно — можете посмотреть, что получилось.</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>💬 Зона 3 — Чат с ИИ (главная)</h3>
+      <p>Справа. Сюда вы пишете запросы. Рабочий приём: держите чат открытым всегда — 90% работы происходит именно там.</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">🔑 Горячие клавиши</div>
+      <p><span class="keyboard">Ctrl + L</span> — открыть чат с ИИ</p>
+      <p><span class="keyboard">Ctrl + I</span> — режим «агент»: ИИ сам создаёт и правит файлы</p>
+      <p><span class="keyboard">Ctrl + `</span> — панель снизу: видно ошибки</p>
+      <p><em>На Mac вместо Ctrl — Cmd</em></p>
+    </div>
+
+    <div class="card card-warning">
+      <strong>💡 Совет:</strong> Ничего не бойтесь сломать. Худшее, что случится — ИИ напишет не то. Тогда просто пишете в чат: «Отмени, верни как было».
+    </div>
+  </div>
+
+  <!-- Итог -->
+  <div class="section">
+    <h2>✅ Итог урока</h2>
+    <ul>
+      <li>Cursor — это редактор с встроенным ИИ, который сам пишет код по вашим словам</li>
+      <li>Отличается от чата тем, что сам создаёт файлы, видит проект целиком и чинит ошибки</li>
+      <li>Установка простая: скачал, установил, зарегистрировался, открыл папку</li>
+      <li>Главные клавиши: <span class="keyboard">Ctrl+I</span> для агента, <span class="keyboard">Ctrl+L</span> для чата</li>
+    </ul>
+  </div>
+
+  <!-- Квиз -->
+  <div class="section">
+    <h2>🧠 Проверь себя</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Чем Cursor отличается от обычного чата с ИИ?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Cursor работает быстрее</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) Cursor сам создаёт и сохраняет файлы в вашей папке</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Cursor понимает русский язык лучше</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Что делает клавиша Ctrl+I?</p>
+      <div class="quiz-option" onclick="checkAnswer2(this, true)">A) Включает режим агента, который сам создаёт файлы</div>
+      <div class="quiz-option" onclick="checkAnswer2(this, false)">B) Открывает чат с ИИ</div>
+      <div class="quiz-option" onclick="checkAnswer2(this, false)">C) Показывает ошибки</div>
+      <div class="result" id="result2"></div>
+    </div>
+  </div>
+
+  <!-- Навигация -->
+  <div class="nav-footer">
+    <a href="../../lessons/05-scaling/index.html" class="nav-btn">← 5.3 Масштабирование</a>
+    <a href="../06-cursor-prompts/index.html" class="nav-btn primary">6.2 Промптинг для программирования →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>Курс «AI для не ИТ-специалистов»</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const parent = el.parentElement;
+  const options = parent.querySelectorAll('.quiz-option');
+  const result = parent.querySelector('.result');
+  
+  options.forEach(opt => opt.classList.add('disabled'));
+  
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Правильно! Cursor сам создаёт файлы — это главное отличие от чата.';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.border = '1px solid var(--success)';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Не совсем. Главное отличие — Cursor сам создаёт и сохраняет файлы в вашей папке.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.border = '1px solid var(--danger)';
+  }
+  result.classList.add('show');
+}
+
+function checkAnswer2(el, isCorrect) {
+  const parent = el.parentElement;
+  const options = parent.querySelectorAll('.quiz-option');
+  const result = parent.querySelector('.result');
+  
+  options.forEach(opt => opt.classList.add('disabled'));
+  
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Правильно! Ctrl+I включает режим агента — ИИ сам создаёт и правит файлы.';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.border = '1px solid var(--success)';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Нет. Ctrl+I — это режим агента. Чат открывается через Ctrl+L.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.border = '1px solid var(--danger)';
+  }
+  result.classList.add('show');
+}
+</script>
+
+</body>
+</html>

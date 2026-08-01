@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.4 Проект: база поставщиков — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .rule-number { display: inline-block; width: 28px; height: 28px; background: var(--accent); color: white; border-radius: 50%; text-align: center; line-height: 28px; font-weight: 600; font-size: 0.85rem; margin-right: 8px; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">Каталог</a>
+  </div>
+</header>
+
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 6 — Программируем без ИТ-отдела</div>
+    <h1>6.4 Проект: база поставщиков + безопасность</h1>
+    <p class="meta">⏱ 25 минут • 🛠️ Практика + теория</p>
+  </div>
+
+  <!-- Введение -->
+  <div class="section">
+    <h2>🎯 Цель проекта</h2>
+    <p>Создать свою «1С в миниатюре» — базу поставщиков в браузере с поиском, фильтрами и выгрузкой в Excel. Вместо бесконечных файлов «поставщики_итог_v7.xlsx».</p>
+    
+    <div class="card card-accent">
+      <strong>Что получится:</strong> страница в браузере с таблицей поставщиков, формой добавления, поиском, фильтрами и кнопкой «Выгрузить в Excel».
+    </div>
+  </div>
+
+  <!-- Проблема -->
+  <div class="section">
+    <h2>😫 Знакомая боль</h2>
+    
+    <div class="card card-warning">
+      <ul>
+        <li>Список поставщиков живёт в Excel: десять версий файла</li>
+        <li>Нет поиска по статусу, контакты устарели</li>
+        <li>Фильтры ломаются</li>
+        <li>Коллега редактирует свою копию — ничего не совпадает</li>
+      </ul>
+    </div>
+
+    <p>Полноценная система закупок — дорого и долго. А вот маленький аккуратный инструмент под свою задачу вы теперь можете сделать сами.</p>
+  </div>
+
+  <!-- Шаг 1 -->
+  <div class="section">
+    <h2>🚀 Шаг 1. Создаём базу одним запросом</h2>
+    
+    <div class="example">
+      <div class="example-label">📋 ГОТОВЫЙ ЗАПРОС ДЛЯ CURSOR (Ctrl+I)</div>
+      <pre>«Создай в этой папке простую базу поставщиков — одну страницу, которая открывается в браузере и хранит данные в localStorage.
+
+Поля поставщика: название, ИНН, категория (сырьё / упаковка / транспорт / услуги), город, контактное лицо, телефон, почта, статус (в работе / на паузе / заблокирован), комментарий.
+
+Функции: добавить поставщика через форму; редактировать и удалять; искать по названию; фильтровать по категории и статусу; выгружать всё в CSV для Excel.
+
+Стиль: аккуратная таблица, русский язык, без регистрации и сервера. Добавь 3 примера поставщиков, чтобы было видно, как это выглядит».</pre>
+    </div>
+
+    <div class="card card-success">
+      <h3>Почему запрос именно такой</h3>
+      <ul>
+        <li><strong>«Одна страница, localStorage»</strong> — чтобы ИИ не строил сложную систему с сервером</li>
+        <li><strong>Поля перечислены полностью</strong> — это ваши столбцы из Excel, только строже</li>
+        <li><strong>Статусы заданы списком</strong> — иначе каждый раз будут варианты «активен/Активный/акт.»</li>
+        <li><strong>«3 примера»</strong> — сразу видно, что всё работает</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Проверка -->
+  <div class="section">
+    <h2>✅ Проверка работы</h2>
+    
+    <div class="card">
+      <ol>
+        <li>Откройте страницу в браузере</li>
+        <li>Добавьте своего поставщика через форму</li>
+        <li>Найдите его через поиск</li>
+        <li>Отфильтруйте по статусу</li>
+        <li>Закройте и откройте браузер — данные на месте</li>
+        <li>Нажмите «Выгрузить в CSV» — файл откроется в Excel</li>
+      </ol>
+    </div>
+
+    <div class="card card-warning">
+      <strong>⚠️ Важно понимать: где живут данные</strong>
+      <p>Простая версия хранит данные в вашем браузере (это называется <strong>localStorage</strong>): на вашем компьютере они сохраняются между запусками, но коллеги их не видят.</p>
+      <p>Это <strong>личный инструмент</strong>. Совместная база для всего отдела — следующий уровень: ИИ поможет и с ней, но там уже нужен сервер, и лучше посоветоваться с ИТ.</p>
+    </div>
+  </div>
+
+  <!-- Доработка -->
+  <div class="section">
+    <h2>🔧 Доработка базы: что просить дальше</h2>
+    
+    <div class="example">
+      <div class="example-label">📝 Типичные полезные доработки</div>
+      <ul>
+        <li>«Добавь сортировку по названию и по городу»</li>
+        <li>«Подсвечивай заблокированных поставщиков красным, а на паузе — серым»</li>
+        <li>«Добавь счётчик: всего поставщиков, в работе, на паузе, заблокировано»</li>
+        <li>«При удалении спрашивай подтверждение»</li>
+        <li>«Добавь кнопку «Импорт из CSV», чтобы загрузить мой старый Excel»</li>
+        <li>«Сделай поле «дата последней закупки» и покажи тех, у кого она старше 6 месяцев»</li>
+      </ul>
+    </div>
+
+    <div class="card card-accent">
+      <h3>Как понять, что хватит дорабатывать</h3>
+      <p>Задайте себе вопрос: <strong>я этой кнопкой буду пользоваться каждую неделю?</strong></p>
+      <p>Если нет — не просите её у ИИ. Маленький инструмент, которым реально пользуются, лучше большого, в котором половина функций мешает.</p>
+      <p><em>Хороший ориентир: 5–7 доработок после первой версии.</em></p>
+    </div>
+
+    <div class="card card-success">
+      <h3>💾 Привычка, которая спасёт ваши данные</h3>
+      <p>Перед большой переделкой <strong>скопируйте папку проекта</strong> и назовите копию «база_резерв_01-08». Если ИИ сломает что-то важное — просто вернётесь к копии.</p>
+    </div>
+  </div>
+
+  <!-- Ошибки -->
+  <div class="section">
+    <h2>🛠️ Когда что-то пошло не так</h2>
+    
+    <div class="card">
+      <h3>Универсальный цикл ремонта</h3>
+      <ol>
+        <li>Что-то не работает или выглядит сломанным</li>
+        <li>Копируете текст ошибки или описываете, что именно не так</li>
+        <li>Пишете в чат: «Исправь: …»</li>
+        <li>Проверяете в браузере. Не помогло — повторяете</li>
+      </ol>
+    </div>
+
+    <div class="example">
+      <div class="example-label">🔴 Три самые частые ситуации</div>
+      
+      <p><strong>1. Белый экран вместо сайта</strong></p>
+      <p>Откройте панель ошибок (Ctrl+`), скопируйте красный текст и отправьте: «При открытии страницы белый экран, вот ошибка: …»</p>
+      
+      <p><strong>2. Кнопка не работает</strong></p>
+      <p>Напишите точно: «Нажимаю «Добавить поставщика» — ничего не происходит. Исправь». Чем точнее описание, тем быстрее починка.</p>
+      
+      <p><strong>3. «Пропали данные»</strong></p>
+      <p>Чаще всего вы просто открыли страницу в другом браузере — localStorage привязан к браузеру. Откройте в том же, где вносили данные.</p>
+    </div>
+
+    <div class="card card-warning">
+      <h3>Если три раза подряд не получается</h3>
+      <p>Не крутите одну и ту же просьбу. Напишите:</p>
+      <p><em>«Объясни простыми словами, в чём проблема и какие есть варианты её решить».</em></p>
+      <p>Или вернитесь к резервной копии папки и попробуйте сформулировать задачу иначе.</p>
+    </div>
+  </div>
+
+  <!-- Безопасность -->
+  <div class="section">
+    <h2>🛡️ Пять правил безопасности</h2>
+    
+    <div class="card card-danger">
+      <p><span class="rule-number">1</span> <strong>Никаких паролей и ключей в чате.</strong> Если ИИ просит вставить пароль или «ключ доступа» — стоп, этого не делаем. Для ваших проектов они не нужны.</p>
+    </div>
+
+    <div class="card card-warning">
+      <p><span class="rule-number">2</span> <strong>Осторожно с реальными данными.</strong> Цены из контрактов, персональные данные, условия договоров — это коммерческая информация. Уточните в компании, какие данные можно отправлять в облачные ИИ-сервисы. На старте тренируйтесь на вымышленных поставщиках.</p>
+    </div>
+
+    <div class="card">
+      <p><span class="rule-number">3</span> <strong>Проверяйте результат глазами.</strong> ИИ пишет код уверенно, но уверенность — не гарантия. Каждую функцию щёлкните руками, прежде чем показывать коллегам.</p>
+    </div>
+
+    <div class="card card-success">
+      <p><span class="rule-number">4</span> <strong>Делайте резервные копии.</strong> Перед большими правками — копия папки. Раз в неделю — выгрузка базы в Excel. Дёшево, а спасает.</p>
+    </div>
+
+    <div class="card card-accent">
+      <p><span class="rule-number">5</span> <strong>Знайте границу.</strong> Внутренние инструменты и прототипы — можно самим. Системы с клиентскими данными, оплатами, интеграцией с 1С или требованиями по защите информации — только через ИТ. Ваш прототип станет для них готовым техзаданием.</p>
+    </div>
+
+    <div class="card">
+      <strong>Общий принцип:</strong> ИИ — это стажёр с феноменальной скоростью и без чувства ответственности. Скорость используем, ответственность оставляем себе.
+    </div>
+  </div>
+
+  <!-- Шпаргалка -->
+  <div class="section">
+    <h2>📋 Шпаргалка</h2>
+    
+    <div class="card card-accent">
+      <h3>Формула любого запроса</h3>
+      <p style="font-size: 1.1rem; text-align: center; font-weight: 600;">ЧТО делаем + ДЛЯ КОГО + ЧТО ВНУТРИ (списком) + КАК ВЫГЛЯДИТ</p>
+    </div>
+
+    <div class="card">
+      <h3>Чек-лист рабочего дня с Cursor</h3>
+      <ul>
+        <li>☐ Создал отдельную папку под задачу и открыл её в Cursor</li>
+        <li>☐ Написал первый запрос по формуле выше</li>
+        <li>☐ Проверил результат в браузере своими глазами</li>
+        <li>☐ Правки пишу по одной, а не списком из пяти</li>
+        <li>☐ Ошибку скопировал текстом и попросил «Исправь: …»</li>
+        <li>☐ Перед большой переделкой сделал копию папки</li>
+        <li>☐ Пароли и реальные контрактные данные в чат не вставлял</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <div class="example-label">🔑 Три горячие клавиши</div>
+      <p><strong>Ctrl+L</strong> — чат с ИИ</p>
+      <p><strong>Ctrl+I</strong> — агент: создаёт и правит файлы</p>
+      <p><strong>F5</strong> — обновить страницу в браузере</p>
+      <p><em>На Mac вместо Ctrl — Cmd</em></p>
+    </div>
+
+    <div class="card card-success">
+      <h3>Волшебные фразы</h3>
+      <ul>
+        <li>«Объясни простыми словами, что ты сделал»</li>
+        <li>«Отмени последнее изменение»</li>
+        <li>«В чём проблема и какие есть варианты?»</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Итог -->
+  <div class="section">
+    <h2>✅ Итог урока</h2>
+    <ul>
+      <li>Создали базу поставщиков с поиском, фильтрами и выгрузкой в Excel</li>
+      <li>Поняли разницу между личным инструментом (localStorage) и командной системой</li>
+      <li>Научились чинить ошибки: копировать текст ошибки → «Исправь: …»</li>
+      <li>Запомнили 5 правил безопасности: никаких паролей, проверяем глазами, делаем бэкапы</li>
+      <li>Взяли на вооружение шпаргалку и волшебные фразы</li>
+    </ul>
+  </div>
+
+  <!-- Что делать завтра -->
+  <div class="section">
+    <h2>🚀 Что делать завтра утром</h2>
+    
+    <div class="card card-success">
+      <ol>
+        <li><strong>Скачайте Cursor</strong> с <a href="https://cursor.com" style="color: var(--accent2);">cursor.com</a> и зарегистрируйтесь</li>
+        <li><strong>Сделайте базу поставщиков</strong> по запросу выше — на вымышленных данных</li>
+        <li><strong>Пройдите официальный курс:</strong> <a href="https://cursor.com/ru/learn" style="color: var(--accent2);">cursor.com/ru/learn</a> — он бесплатный и на русском</li>
+      </ol>
+      <br>
+      <p><strong>Первая программа, которую вы «напишете», займёт вечер. Вторая — час. Дальше вы просто перестанете ждать ИТ-отдел по мелочам.</strong></p>
+    </div>
+  </div>
+
+  <!-- Квиз -->
+  <div class="section">
+    <h2>🧠 Проверь себя</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Где хранятся данные в простой версии базы?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) На сервере компании</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) В браузере (localStorage)</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) В облаке Cursor</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Что делать перед большой переделкой проекта?</p>
+      <div class="quiz-option" onclick="checkAnswer2(this, true)">A) Скопировать папку проекта с датой в названии</div>
+      <div class="quiz-option" onclick="checkAnswer2(this, false)">B) Ничего, Cursor всё сохраняет автоматически</div>
+      <div class="quiz-option" onclick="checkAnswer2(this, false)">C) Написать ИИ: «Сохрани резервную копию»</div>
+      <div class="result" id="result2"></div>
+    </div>
+  </div>
+
+  <!-- Навигация -->
+  <div class="nav-footer">
+    <a href="../06-cursor-website/index.html" class="nav-btn">← 6.3 Проект: сайт</a>
+    <a href="../../lessons/07-1-on-prem/index.html" class="nav-btn primary">7.1 AI для закупщика →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>Курс «AI для не ИТ-специалистов»</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const parent = el.parentElement;
+  const options = parent.querySelectorAll('.quiz-option');
+  const result = parent.querySelector('.result');
+  
+  options.forEach(opt => opt.classList.add('disabled'));
+  
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Правильно! Простая версия хранит данные в браузере (localStorage).';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.border = '1px solid var(--success)';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Нет. Простая версия хранит данные в браузере через localStorage.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.border = '1px solid var(--danger)';
+  }
+  result.classList.add('show');
+}
+
+function checkAnswer2(el, isCorrect) {
+  const parent = el.parentElement;
+  const options = parent.querySelectorAll('.quiz-option');
+  const result = parent.querySelector('.result');
+  
+  options.forEach(opt => opt.classList.add('disabled'));
+  
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Правильно! Всегда копируйте папку перед большими изменениями.';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.border = '1px solid var(--success)';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Нет. Cursor не делает автоматических бэкапов. Копируйте папку сами.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.border = '1px solid var(--danger)';
+  }
+  result.classList.add('show');
+}
+</script>
+
+</body>
+</html>

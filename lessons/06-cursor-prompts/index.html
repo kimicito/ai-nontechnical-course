@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.2 Промптинг для программирования — AI для не ИТ-специалистов</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .formula-box { background: rgba(139,92,246,0.1); border: 2px solid var(--accent); border-radius: 12px; padding: 20px; margin: 20px 0; text-align: center; }
+  .formula-box .label { color: var(--accent); font-size: 0.8rem; font-weight: 600; margin-bottom: 8px; }
+  .formula-box .formula { font-size: 1.2rem; font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">🧠 AI для не ИТ-специалистов</a>
+    <a href="../../catalog.html" style="color: var(--muted); text-decoration: none; font-size: 0.9rem;">Каталог</a>
+  </div>
+</header>
+
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">Уровень 6 — Программируем без ИТ-отдела</div>
+    <h1>6.2 Промптинг для программирования</h1>
+    <p class="meta">⏱ 15 минут • 📋 Теория + практика</p>
+  </div>
+
+  <!-- Введение -->
+  <div class="section">
+    <h2>🎯 В чём суть</h2>
+    <p>В Cursor вы общаетесь с ИИ на русском языке. Но чтобы получить хороший результат, нужно уметь правильно формулировать задачу. Это называется <strong>промптинг</strong> — искусство писать запросы к ИИ.</p>
+    
+    <div class="card card-accent">
+      <strong>Ключевой принцип:</strong> ИИ не видит вашу голову. Всё, что вы не написали, он придумает сам — и часто не так, как вы хотели.
+    </div>
+  </div>
+
+  <!-- Формула -->
+  <div class="section">
+    <h2>🧪 Формула хорошего промпта</h2>
+    
+    <div class="formula-box">
+      <div class="label">ФОРМУЛА ЛЮБОГО ЗАПРОСА</div>
+      <div class="formula">ЧТО делаем + ДЛЯ КОГО + ЧТО ВНУТРИ (списком) + КАК ВЫГЛЯДИТ</div>
+    </div>
+
+    <div class="card">
+      <h3>📋 ЧТО — Тип результата</h3>
+      <p>Сайт, таблица, форма, маленькая программа.</p>
+      <p><em>Пример: «Сделай одностраничный сайт…»</em></p>
+    </div>
+
+    <div class="card">
+      <h3>👥 ДЛЯ КОГО — Целевая аудитория</h3>
+      <p>Кто будет пользоваться и какую задачу решает.</p>
+      <p><em>Пример: «…для поставщиков, чтобы они видели контакты и статус заявки»</em></p>
+    </div>
+
+    <div class="card">
+      <h3>📦 ЧТО ВНУТРИ — Содержимое</h3>
+      <p>Перечислите разделы, поля, кнопки — по списку.</p>
+      <p><em>Пример: «Разделы: о нас, услуги, контакты. На странице — форма заявки»</em></p>
+    </div>
+
+    <div class="card">
+      <h3>🎨 КАК — Внешний вид</h3>
+      <p>Стиль, цвета, настроение. Можно ссылаться на примеры.</p>
+      <p><em>Пример: «Спокойный стиль, белый фон, фирменный синий, без анимаций»</em></p>
+    </div>
+
+    <div class="card card-success">
+      <strong>Проверка перед отправкой:</strong><br>
+      Если бы вы дали этот текст коллеге-стажёру, он бы понял задачу без уточняющих вопросов?<br>
+      Если да — промпт хороший.
+    </div>
+  </div>
+
+  <!-- Примеры -->
+  <div class="section">
+    <h2>⚠️ Плохо vs Хорошо</h2>
+    
+    <div class="card card-danger">
+      <h3>❌ Так писать НЕ стоит</h3>
+      <p><strong>«Сделай сайт»</strong></p>
+      <p>Что получится: ИИ выдумает всё сам — компанию, разделы, тексты и стиль. Почти наверняка не то, что вам нужно, и переделывать придётся дольше, чем писать запрос подробно.</p>
+    </div>
+
+    <div class="card card-success">
+      <h3>✅ Так — правильно</h3>
+      <p><strong>«Сделай одностраничный сайт логистической компании «Волга-Транс».</strong></p>
+      <p><strong>Для кого:</strong> для клиентов и партнёров.</p>
+      <p><strong>Разделы:</strong> шапка с названием и телефоном; услуги (доставка по РФ, склад, страхование); калькулятор стоимости (простой: город откуда, куда, вес); контакты с формой заявки.</p>
+      <p><strong>Стиль:</strong> строгий, белый фон, тёмно-синие заголовки, без анимаций. Тексты напиши сам, на русском».</p>
+      <br>
+      <p><em>Почему это работает: есть все четыре части — что, кому, что внутри, как выглядит. ИИ не приходится гадать.</em></p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">💡 Совет</div>
+      <p>Компания «Волга-Транс» — учебный пример. Подставьте свою компанию, свои разделы и свой стиль.</p>
+    </div>
+  </div>
+
+  <!-- Правила работы -->
+  <div class="section">
+    <h2>🔄 Рабочий цикл: от запроса к результату</h2>
+    
+    <div class="card">
+      <ol>
+        <li><strong>Пишете первый запрос</strong> — подробно, по формуле</li>
+        <li><strong>Смотрите результат</strong> — открываете в браузере</li>
+        <li><strong>Замечаете, что не так</strong> — записываете одну правку</li>
+        <li><strong>Пишете одну правку в чат</strong> — не списком из пяти</li>
+        <li><strong>Обновляете страницу</strong> — F5 в браузере</li>
+        <li><strong>Повторяете</strong> — 5-10 итераций для хорошего результата</li>
+      </ol>
+    </div>
+
+    <div class="card card-warning">
+      <h3>⚠️ Главное правило</h3>
+      <p><strong>Одна просьба — одно изменение.</strong> Не пишите пять правок одним сообщением. ИИ лучше справляется с конкретными, точными задачами.</p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">📝 Примеры хороших правок</div>
+      <ul>
+        <li>«Сделай шапку тёмно-синей, а текст в ней белым»</li>
+        <li>«В таблице контактов добавь столбец «рабочие часы»»</li>
+        <li>«Замени придуманные тексты в разделе «О нас» на этот текст: …»</li>
+        <li>«Кнопку «Отправить заявку» сделай крупнее и оранжевой»</li>
+        <li>«Убери раздел «Новости» совсем»</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Итог -->
+  <div class="section">
+    <h2>✅ Итог урока</h2>
+    <ul>
+      <li>Хороший промпт = ЧТО + ДЛЯ КОГО + ЧТО ВНУТРИ + КАК ВЫГЛЯДИТ</li>
+      <li>Чем подробнее запрос — тем меньше додумок ИИ</li>
+      <li>Правки давайте по одной, не списком</li>
+      <li>Рабочий цикл: запрос → смотреть → править → F5 → повторить</li>
+    </ul>
+  </div>
+
+  <!-- Квиз -->
+  <div class="section">
+    <h2>🧠 Проверь себя</h2>
+    
+    <div class="card card-accent">
+      <p><strong>Вопрос 1:</strong> Какая формула хорошего промпта?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A) Что + Когда + Почему</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">B) ЧТО + ДЛЯ КОГО + ЧТО ВНУТРИ + КАК ВЫГЛЯДИТ</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">C) Кто + Где + Сколько стоит</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Вопрос 2:</strong> Сколько правок лучше давать за раз?</p>
+      <div class="quiz-option" onclick="checkAnswer2(this, false)">A) Все сразу списком — экономит время</div>
+      <div class="quiz-option" onclick="checkAnswer2(this, true)">B) По одной — ИИ лучше справляется с конкретными задачами</div>
+      <div class="quiz-option" onclick="checkAnswer2(this, false)">C) Не более трёх за раз</div>
+      <div class="result" id="result2"></div>
+    </div>
+  </div>
+
+  <!-- Навигация -->
+  <div class="nav-footer">
+    <a href="../06-cursor-intro/index.html" class="nav-btn">← 6.1 Cursor vs чат</a>
+    <a href="../06-cursor-website/index.html" class="nav-btn primary">6.3 Проект: сайт отдела закупок →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>Курс «AI для не ИТ-специалистов»</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const parent = el.parentElement;
+  const options = parent.querySelectorAll('.quiz-option');
+  const result = parent.querySelector('.result');
+  
+  options.forEach(opt => opt.classList.add('disabled'));
+  
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Правильно! Формула: ЧТО + ДЛЯ КОГО + ЧТО ВНУТРИ + КАК ВЫГЛЯДИТ.';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.border = '1px solid var(--success)';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Нет. Правильная формула: ЧТО + ДЛЯ КОГО + ЧТО ВНУТРИ + КАК ВЫГЛЯДИТ.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.border = '1px solid var(--danger)';
+  }
+  result.classList.add('show');
+}
+
+function checkAnswer2(el, isCorrect) {
+  const parent = el.parentElement;
+  const options = parent.querySelectorAll('.quiz-option');
+  const result = parent.querySelector('.result');
+  
+  options.forEach(opt => opt.classList.add('disabled'));
+  
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Правильно! Одна просьба — одно изменение. ИИ лучше справляется с конкретными задачами.';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.border = '1px solid var(--success)';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Нет. Лучше давать правки по одной. ИИ точнее выполняет конкретные запросы.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.border = '1px solid var(--danger)';
+  }
+  result.classList.add('show');
+}
+</script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>17.2 Внешние задачи HR — AI для не ИТ-специалистов</title>
+<title>16.2 Внешние задачи комплаенса — внешний ИИ — AI для не ИТ-специалистов</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -24,8 +24,10 @@
   .card-accent { border-left: 4px solid var(--accent); }
   .card-success { border-left: 4px solid var(--success); }
   .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
   .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
-  .prompt-box { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: 'Segoe UI', monospace; font-size: 0.9rem; line-height: 1.5; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
   .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
   .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
   .nav-btn:hover { border-color: var(--accent); }
@@ -38,6 +40,7 @@
   .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
   .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
   .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
   ul, ol { padding-left: 20px; }
   li { margin: 4px 0; }
   table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
@@ -50,139 +53,212 @@
 <header><div class="container"><a href="../../index.html" class="logo">AI для не ИТ-специалистов</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Уровень 17 — Персонал</div>
-    <h1>17.2 Внешние задачи HR: облако</h1>
-    <div class="meta">⏱ 15 мин · универсальная методология без персональных данных</div>
+    <div class="phase">Уровень 16 — Комплаенс</div>
+    <h1>16.2 Внешние задачи: внешний ИИ</h1>
+    <div class="meta">⏱ 20 мин · для комплаенс-офицеров</div>
   </div>
 
-  <div class="card card-accent">
-    <strong>Главный принцип урока</strong><br>
-    Во внешний контур безопасно выносить только то, что <span class="highlight">не персонализировано</span>: методология, шаблоны, публичная аналитика рынка труда.
-  </div>
-
-  <div class="section">
-    <h2>Задача 1: Составление вакансий и описаний должностей</h2>
-    <p><strong>Почему облако:</strong> публичный контент по определению. Вакансия публикуется на job-boards, в соцсетях, на сайте компании.</p>
-    <h3>Что делает AI</h3>
-    <ul>
-      <li>Формулирует привлекательное описание на основе требований</li>
-      <li>Адаптирует под tone of voice компании</li>
-      <li>Добавляет ESG/DEI-акценты при необходимости</li>
-    </ul>
-    <div class="prompt-box">
-      <strong>Промпт:</strong><br>
-      Составь описание вакансии на позицию [название] для [отрасль]. Ключевые требования: [список]. Уровень: [junior/middle/senior]. Формат: привлекательный, с акцентом на развитие и культуру компании. Добави раздел "Что ты будешь делать", "Что мы ждём", "Что мы предлагаем".
-    </div>
-    <div class="card card-success">
-      <strong>Результат:</strong> экономия 20–30 минут на каждую вакансию. HR может публиковать в 2–3 раза больше вакансий.
-    </div>
+  <div class="card card-success">
+    <strong>Открытые данные (внешний ИИ)</strong><br>
+    Все задачи этого урока — с <span class="highlight">публичными санкционными списками, нормативными актами, открытыми фреймворками, типовыми политиками</span>. Можно использовать Claude, ChatGPT, Gemini.
   </div>
 
   <div class="section">
-    <h2>Задача 2: Подготовка вопросов для интервью (методология)</h2>
-    <p><strong>Почему облако:</strong> общая методология под тип позиции — без привязки к реальному кандидату. Повторно используемый контент.</p>
-    <div class="prompt-box">
-      <strong>Промпт:</strong><br>
-      Разработай структуру поведенческого интервью на позицию [название] в [отрасль]. Уровень: [junior/middle/senior]. Включи: открывающие вопросы, поведенческие (STAR), кейс-вопросы, вопросы на культуру, вопросы для проверки компетенций [список компетенций].
-    </div>
+    <h2>Что можно делать во внешнем ИИ</h2>
+    <p>Внешний ИИ безопасен там, где работа идёт с нормативным полем как таковым — какие списки существуют, что требует регулятор, как устроена методология — до того, как это применяется к реальному имени или сделке.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Главное правило:</strong> если в запросе нет конкретных имён, названий компаний, сумм, номеров счетов, дат сделок — можно использовать внешний ИИ.
   </div>
 
   <div class="section">
-    <h2>Задача 3: Разработка типовых программ оценки (performance review, 360)</h2>
-    <p><strong>Почему облако:</strong> методология оценки — универсальная структура. Реальные оценки конкретных сотрудников — on-prem.</p>
-    <div class="prompt-box">
-      <strong>Промпт:</strong><br>
-      Разработай структуру программы 360-оценки для [уровень: руководитель/специалист]. Включи: компетенции для оценки, шкалу, категории респондентов (руководитель, коллеги, подчинённые), формат обратной связи, сроки проведения.
+    <h2>1. Мониторинг санкционных режимов</h2>
+    <p>Суммаризация изменений в санкционных списках OFAC, EU, UK, ООН и национальных регуляторов.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (внешний ИИ + веб-поиск)</div>
+      <pre>Проанализируй изменения санкционных режимов за последний месяц:
+
+Юрисдикции: OFAC (США), EU, UK, ООН
+
+Сделай:
+1. Новые лица/организации, добавленные в списки
+2. Изменения в секторальных санкциях
+3. Новые ограничения по товарам/технологиям
+4. Разъяснения регуляторов (guidance updates)
+5. Тренды (на что обращать внимание)
+6. Рекомендации для компаний в целом
+
+Формат: аналитическая записка (1-2 страницы)</pre>
     </div>
+    <p><strong>Результат:</strong> обзор изменений, экономит 3–4 часа.</p>
   </div>
 
   <div class="section">
-    <h2>Задача 4: Разработка учебных программ и материалов</h2>
-    <p><strong>Почему облако:</strong> обучающие материалы общего содержания — публичная часть. Могут публиковаться на корпоративном портале.</p>
-    <div class="prompt-box">
-      <strong>Промпт:</strong><br>
-      Разработай учебную программу по теме [название] для сотрудников уровня [junior/middle/senior]. Формат: модульная структура, 4–6 занятий по 2 часа. Для каждого модуля: цели, содержание, методы, оценка. Включи практические упражнения.
+    <h2>2. Заключения по экспортному контролю (общие)</h2>
+    <p>Анализ применимости норм экспортного контроля в общем виде, без привязки к конкретной сделке.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Объясни применимость экспортного контроля:
+
+Тема: [УКАЖИТЕ: dual-use товары/ограничения на технологии/военное назначение]
+Юрисдикции: [УКАЖИТЕ: США/ЕС/РФ/КНР]
+
+Сделай:
+1. Применимые режимы экспортного контроля
+2. Категории товаров/технологий
+3. Лицензионные требования
+4. Исключения и освобождения
+5. Процедура получения лицензии
+6. Практические рекомендации (общие)
+7. Ссылки на нормативные акты
+
+Важно: без привязки к конкретной сделке компании.</pre>
     </div>
+    <p><strong>Результат:</strong> справка по экспортному контролю, экономит 2–3 часа.</p>
   </div>
 
   <div class="section">
-    <h2>Задача 5: Подготовка тестов и оценочных материалов</h2>
-    <p><strong>Почему облако:</strong> тесты общего типа — не привязаны к конкретному сотруднику. Могут быть типовыми для всех кандидатов на позицию.</p>
-    <div class="prompt-box">
-      <strong>Промпт:</strong><br>
-      Составь тест на знание [предмет/навык] для кандидатов на позицию [название]. 10 вопросов: 5 теоретических, 3 кейсовых, 2 на логику. Укажи правильные ответы и критерии оценки.
+    <h2>3. Разработка комплаенс-политик по типовым фреймворкам</h2>
+    <p>Создание политик на основе международных стандартов (ISO 37001, UK Bribery Act, FCPA).</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Разработай комплаенс-политику на основе международных стандартов:
+
+Тип политики: [УКАЖИТЕ: антикоррупционная/AML/санкционная/конфликт интересов]
+Базовый фреймворк: [УКАЖИТЕ: ISO 37001/UK Bribery Act/FCPA guidance]
+
+Сделай:
+1. Структура политики (разделы)
+2. Основные положения (принципы)
+3. Обязанности сотрудников (по уровням)
+4. Процедуры документирования
+5. Порядок расследования нарушений
+6. Санкции за нарушения
+7. Периодичность пересмотра
+8. Приложения (формы, чек-листы)
+
+Формат: готовый документ для адаптации под компанию.</pre>
     </div>
+    <p><strong>Результат:</strong> черновик политики, экономит 4–5 часов.</p>
   </div>
 
   <div class="section">
-    <h2>Задача 6: Онбординг-материалы общего характера</h2>
-    <p><strong>Почему облако:</strong> материалы о компании, культуре, процессах — публичная часть. Не содержат персональных данных.</p>
-    <div class="prompt-box">
-      <strong>Промпт:</strong><br>
-      Составь онбординг-гайд для нового сотрудника. Разделы: первый день, первая неделя, первый месяц. Включи: знакомство с командой, ключевые процессы, инструменты, культура компании, точки контакта HR. Формат: дружелюбный, структурированный.
+    <h2>4. Кодекс деловой этики</h2>
+    <p>Разработка общей части кодекса на основе лучших практик.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Разработай кодекс деловой этики:
+
+Компания: крупная производственная компания (B2B)
+География: международные операции
+
+Сделай:
+1. Ценности компании (5-7 пунктов)
+2. Поведение в отношениях с контрагентами
+3. Правила приёма подарков и гостеприимства
+4. Конфликт интересов (определение, примеры)
+5. Защита активов и информации
+6. Трудовая этика (дискриминация, домогательства)
+7. Обязанность сообщать о нарушениях
+8. Порядок расследования
+9. Ответственность
+
+Тон: понятный, конкретный примеры, без абстракций.</pre>
     </div>
+    <p><strong>Результат:</strong> готовый кодекс, экономит 3–4 часа.</p>
   </div>
 
   <div class="section">
-    <h2>Задача 7: Бенчмаркинг рыночных зарплат</h2>
-    <p><strong>Почему облако:</strong> анализ публичных обзоров зарплат (HeadHunter, Glassdoor, отраслевые исследования) — открытые источники. Не содержит реальных окладов сотрудников.</p>
-    <div class="prompt-box">
-      <strong>Промпт:</strong><br>
-      На основе открытых данных (HeadHunter, Glassdoor, отраслевые обзоры) за [период], проанализируй рыночные зарплаты на позицию [название] в [регион/отрасль]. Укажи: медиану, P25, P75, P90. Сравни с прошлым периодом. Выдели тренды.
+    <h2>5. Обучающие программы по комплаенсу</h2>
+    <p>Подготовка обучающих материалов общего содержания.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта</div>
+      <pre>Разработай обучающий курс по комплаенсу:
+
+Тема: [УКАЖИТЕ: AML/антикоррупция/санкции/конфликт интересов]
+Аудитория: [УКАЖИТЕ: все сотрудники/менеджеры/финансовый отдел]
+Формат: 10 слайдов + тест (5 вопросов)
+
+Составь:
+1. Цели обучения
+2. Основные понятия (простым языком)
+3. Обязанности сотрудника
+4. Красные флаги (примеры)
+5. Что делать при подозрении
+6. Тест (5 вопросов с вариантами)
+7. Чек-лист для самопроверки
+
+Тон: доступный, с примерами из жизни.</pre>
     </div>
+    <p><strong>Результат:</strong> готовый материал для тренинга, экономит 3–4 часа.</p>
   </div>
 
   <div class="section">
-    <h2>Задача 8: Матрицы компетенций под типовые должности</h2>
-    <p><strong>Почему облако:</strong> типовые компетенции — универсальная методология. Привязка к конкретному сотруднику — on-prem.</p>
-    <div class="prompt-box">
-      <strong>Промпт:</strong><br>
-      Разработай матрицу компетенций для позиции [название]. Включи: технические компетенции, soft skills, лидерские качества (для руководителей). Для каждой: описание, уровни развития (1–5), индикаторы поведения. Формат: таблица.
+    <h2>6. Бенчмаркинг комплаенс-практик отрасли</h2>
+    <p>Сравнение комплаенс-практик с международными холдингами по публичным данным.</p>
+    <div class="example">
+      <div class="example-label">Пример промпта (веб-поиск)</div>
+      <pre>Проведи бенчмаркинг комплаенс-практик:
+
+Отрасль: [УКАЖИТЕ]
+Параметры:
+- Структура комплаенс-функции
+- Использование технологий (автоматизация скрининга)
+- Программа обучения (часы на сотрудника)
+- Whistleblower-каналы
+- Внешние аудиты (частота)
+- Публичная отчётность (ESG/anti-bribery reports)
+
+Сделай:
+1. Обзор практик 3-5 международных компаний
+2. Сравнительная таблица
+3. Лучшие практики (best practices)
+4. Рекомендации по улучшению
+5. Тренды в комплаенс-функции
+
+Источники: публичные отчёты, ESG-раскрытия, кодексы этики.</pre>
     </div>
+    <p><strong>Результат:</strong> обзор отраслевых практик, экономит 4–5 часов.</p>
   </div>
 
   <div class="section">
-    <h2>Задача 9: Бенчмаркинг HR-практик отрасли</h2>
-    <p><strong>Почему облако:</strong> анализ публичных отчётов, кейсов, исследований — открытые данные.</p>
-    <div class="prompt-box">
-      <strong>Промпт:</strong><br>
-      Проведи бенчмаркинг HR-практик в [отрасль] по направлениям: подбор, обучение, мотивация, вовлечённость. Используй публичные отчёты Deloitte, McKinsey, HH.ru. Выдели лучшие практики и тренды.
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Задача 10: HR-стратегия в общем виде (workforce planning)</h2>
-    <p><strong>Почему облако:</strong> методология планирования кадров — универсальная. Реальные цифры штата — on-prem.</p>
-    <div class="prompt-box">
-      <strong>Промпт:</strong><br>
-      Разработай HR-стратегию для компании в [отрасль] на [период]. Включи: анализ текущего состояния (типовые проблемы), цели, ключевые инициативы (подбор, развитие, удержание), метрики успеха, риски. Формат: структурированный план.
-    </div>
+    <h2>Итоговая таблица: внешние задачи</h2>
+    <table>
+      <tr><th>Задача</th><th>Что нужно</th><th>Формат выхода</th><th>Экономия</th></tr>
+      <tr><td>Мониторинг санкций</td><td>Юрисдикции, период</td><td>Аналитическая записка</td><td>3–4 ч</td></tr>
+      <tr><td>Экспортный контроль</td><td>Тема, юрисдикции</td><td>Справка</td><td>2–3 ч</td></tr>
+      <tr><td>Комплаенс-политики</td><td>Тип, фреймворк</td><td>Черновик политики</td><td>4–5 ч</td></tr>
+      <tr><td>Кодекс этики</td><td>Тип компании</td><td>Готовый кодекс</td><td>3–4 ч</td></tr>
+      <tr><td>Обучающие программы</td><td>Тема, аудитория</td><td>Презентация + тест</td><td>3–4 ч</td></tr>
+      <tr><td>Бенчмаркинг</td><td>Отрасль, параметры</td><td>Сравнительный анализ</td><td>4–5 ч</td></tr>
+    </table>
   </div>
 
   <div class="section">
     <h2>Проверка знаний</h2>
-    <p><strong>Вопрос 1:</strong> Почему онбординг-материалы можно готовить в облаке?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Общие материалы о компании и процессах — публичная часть.'">Они описывают компанию и процессы, а не конкретного сотрудника</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Формат не определяет контур.'">Потому что они в формате PDF</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Время — не критерий выбора контура.'">Потому что онбординг — быстрая задача</div>
+    <p><strong>Вопрос 1:</strong> Можно ли во внешнем ИИ проверить конкретного контрагента по санкционным спискам?</p>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Конкретное имя — чувствительная информация.'">Да, списки публичны</div>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Верно!</strong> Сам факт проверки конкретного имени — чувствительно.'">Нет, сам факт "кого проверяли" — чувствительная информация</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Подумай ещё раз. Обезличивание не помогает, если запрос содержит конкретные данные.'">Только если обезличить имя</div>
     <div id="q1-result" class="result"></div>
 
-    <p><strong>Вопрос 2:</strong> Почему матрицу компетенций можно готовить в облаке?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> Типовые компетенции — универсальная методология, не привязана к человеку.'">Это универсальная методология, не привязана к конкретному сотруднику</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Уровни — часть матрицы, но не причина выбора контура.'">Потому что в матрице указаны уровни 1–5</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Общедоступность — следствие, не причина.'">Потому что компетенции — общедоступное понятие</div>
+    <p><strong>Вопрос 2:</strong> Разработка комплаенс-политики по ISO 37001 — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Верно!</strong> ISO 37001 — публичный стандарт.'">Внешний ИИ — фреймворк публичен</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Стандарт ISO публичен, черновик можно делать снаружи.'">On-prem — политика внутренняя</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Подумай ещё раз. Структура — публична, адаптация — внутренняя, но сама разработка — снаружи.'">Гибрид — структура в облаке, адаптация внутри</div>
     <div id="q2-result" class="result"></div>
 
-    <p><strong>Вопрос 3:</strong> Какая задача из списка НЕ подходит для облака?</p>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Структура оценки — методология, подходит для облака.'">Разработка структуры 360-оценки</div>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> Сводка содержит персональные данные и оценки конкретных людей.'">Анализ результатов 360-оценки реальных сотрудников</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Бенчмаркинг — публичные данные, подходит для облака.'">Бенчмаркинг HR-практик отрасли</div>
+    <p><strong>Вопрос 3:</strong> Бенчмаркинг комплаенс-практик — какой контур?</p>
+    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Верно!</strong> ESG-отчёты и кодексы этики — публичны.'">Внешний ИИ — используются публичные отчёты</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Бенчмаркинг — сравнение с публичными данными.'">On-prem — сравнение с конкурентами</div>
+    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Подумай ещё раз. Публичные данные — не гибрид.'">Гибрид — публичные данные + внутренняя аналитика</div>
     <div id="q3-result" class="result"></div>
   </div>
 
   <div class="nav-footer">
-    <a href="../17-1-on-prem/index.html" class="nav-btn">← 17.1 Внутренние задачи</a>
-    <a href="../17-3-hybrid/index.html" class="nav-btn primary">17.3 Гибридные задачи →</a>
+    <a href="../16-1-on-prem/index.html" class="nav-btn">← 16.1 Внутренние задачи</a>
+    <a href="../16-3-hybrid/index.html" class="nav-btn primary">16.3 Гибридные задачи →</a>
   </div>
 </div>
 <footer><div class="container"><p>AI для не ИТ-специалистов · Производственная компания</p></div></footer>
