@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.2 Prompting for Coding</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .logo a { color: var(--accent); text-decoration: none; }
+  h1 { font-size: 1.8rem; margin: 32px 0 16px; }
+  h2 { font-size: 1.3rem; margin: 28px 0 12px; color: var(--accent2); }
+  .highlight { background: rgba(139,92,246,0.1); border-left: 3px solid var(--accent); padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .example { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .example h4 { margin: 0 0 8px; color: var(--accent); }
+  pre { background: #1a1f2e; padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.9rem; }
+  .nav-footer { display: flex; justify-content: space-between; margin: 40px 0; padding-top: 20px; border-top: 1px solid var(--border); }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<header><div class="container"><div class="logo"><a href="../../index.html">🧠 AI for Non-IT</a></div></div></header>
+
+<div class="container">
+  <h1>6.2 Prompting for Coding</h1>
+  
+  <div class="highlight">
+    <strong>Goal:</strong> Learn to write prompts that make Cursor build exactly what you need.
+  </div>
+
+  <h2>🎯 The 5 Rules of Coding Prompts</h2>
+  
+  <div class="example">
+    <h4>1. Context First</h4>
+    <p>❌ <em>"Create a form"</em></p>
+    <p>✅ <em>"Create a supplier registration form with fields: company name, INN, contact person, email. Style: corporate, colors blue and white."</em></p>
+  </div>
+
+  <div class="example">
+    <h4>2. Specify Format</h4>
+    <p>❌ <em>"Make a table"</em></p>
+    <p>✅ <em>"Create an HTML table with sortable columns: Supplier | Product | Price | Delivery time. Add search filter at the top."</em></p>
+  </div>
+
+  <div class="example">
+    <h4>3. Describe Behavior</h4>
+    <p>❌ <em>"Add a button"</em></p>
+    <p>✅ <em>"Add 'Export to Excel' button. When clicked, download current table data as .xlsx file."</em></p>
+  </div>
+
+  <div class="example">
+    <h4>4. Provide Examples</h4>
+    <p>"Create a dashboard like this: [screenshot]. Top: 3 KPI cards. Middle: bar chart of monthly purchases. Bottom: recent transactions table."</p>
+  </div>
+
+  <div class="example">
+    <h4>5. Iterate Step by Step</h4>
+    <p>Don't ask for everything at once. Build in iterations:</p>
+    <ol>
+      <li>"Create basic HTML page with header"</li>
+      <li>"Add supplier table with 3 columns"</li>
+      <li>"Add search and sort functionality"</li>
+      <li>"Style with corporate colors"</li>
+    </ol>
+  </div>
+
+  <h2>🔧 Cursor Special: Composer Mode</h2>
+  <p>In Composer (Ctrl+I), you can:</p>
+  <ul>
+    <li>Write prompts in natural language</li>
+    <li>Reference files with @filename</li>
+    <li>Ask AI to edit specific functions</li>
+    <li>Get explanations of any code block</li>
+  </ul>
+
+  <h2>🎯 Practice</h2>
+  <p><strong>Task:</strong> Create a simple task tracker with: add task, mark complete, delete. Use step-by-step prompting.</p>
+
+  <div class="nav-footer">
+    <a href="../06-cursor-intro/index.html" class="nav-btn">← 6.1 Cursor vs Chat</a>
+    <a href="../06-cursor-website/index.html" class="nav-btn primary">6.3 Project: Procurement Website →</a>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:32px 16px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px;">
+  <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+</footer>
+</body>
+</html>

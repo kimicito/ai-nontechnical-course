@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.4 Project: Supplier Database + Security</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .logo a { color: var(--accent); text-decoration: none; }
+  h1 { font-size: 1.8rem; margin: 32px 0 16px; }
+  h2 { font-size: 1.3rem; margin: 28px 0 12px; color: var(--accent2); }
+  .highlight { background: rgba(139,92,246,0.1); border-left: 3px solid var(--accent); padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .warning { background: rgba(239,68,68,0.1); border-left: 3px solid #EF4444; padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .step { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .step h4 { margin: 0 0 8px; color: var(--accent); }
+  .nav-footer { display: flex; justify-content: space-between; margin: 40px 0; padding-top: 20px; border-top: 1px solid var(--border); }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<header><div class="container"><div class="logo"><a href="../../index.html">🧠 AI for Non-IT</a></div></div></header>
+
+<div class="container">
+  <h1>6.4 Project: Supplier Database + Security</h1>
+  
+  <div class="highlight">
+    <strong>Goal:</strong> Build a supplier database with search, filtering, and export. Learn to avoid common errors and security mistakes.
+  </div>
+
+  <h2>🗄️ Database Structure</h2>
+  <pre style="background:#1a1f2e;padding:12px;border-radius:6px;overflow-x:auto;">
+Supplier Database:
+- ID (auto)
+- Company Name
+- INN/Tax ID
+- Contact Person
+- Email
+- Phone
+- Products (array)
+- Rating (1-5)
+- Status (Active/Inactive)</pre>
+
+  <h2>📝 Build Steps</h2>
+  
+  <div class="step">
+    <h4>Step 1: Database Page</h4>
+    <p><strong>Prompt:</strong> "Create database.html with supplier table. Columns: Company, INN, Contact, Products, Rating. Add search by company name and filter by product category."</p>
+  </div>
+
+  <div class="step">
+    <h4>Step 2: Add/Edit Forms</h4>
+    <p><strong>Prompt:</strong> "Add 'Add Supplier' button that opens modal form. Fields: Company, INN, Contact, Email, Phone, Products (comma-separated), Rating. Save to localStorage."</p>
+  </div>
+
+  <div class="step">
+    <h4>Step 3: Export</h4>
+    <p><strong>Prompt:</strong> "Add 'Export to Excel' button. Download all supplier data as .xlsx file with proper formatting."</p>
+  </div>
+
+  <h2>⚠️ Common Errors & Fixes</h2>
+  
+  <div class="warning">
+    <h4>🐛 Error 1: Data Loss on Refresh</h4>
+    <p><strong>Fix:</strong> Use localStorage or connect to backend. Ask Cursor: "Save data to localStorage so it persists after page refresh."</p>
+  </div>
+
+  <div class="warning">
+    <h4>🐛 Error 2: Search Not Working</h4>
+    <p><strong>Fix:</strong> Check case sensitivity. Ask: "Make search case-insensitive and search across all fields."</p>
+  </div>
+
+  <div class="warning">
+    <h4>🐛 Error 3: Form Validation Missing</h4>
+    <p><strong>Fix:</strong> Add validation. Ask: "Add validation: email format, phone number format, required fields. Show error messages."</p>
+  </div>
+
+  <h2>🔒 Security Basics</h2>
+  <ul>
+    <li><strong>Never</strong> store passwords in code</li>
+    <li><strong>Always</strong> validate user input</li>
+    <li>Use HTTPS for production</li>
+    <li>Sanitize data before saving</li>
+    <li>Regular backups</li>
+  </ul>
+
+  <h2>🎯 Practice</h2>
+  <p><strong>Task:</strong> Build supplier database with: add/edit/delete, search, filter by rating, export to Excel. Add 10 real suppliers.</p>
+
+  <div class="nav-footer">
+    <a href="../06-cursor-website/index.html" class="nav-btn">← 6.3 Website</a>
+    <a href="../../lessons/07-confidential-data/index.html" class="nav-btn primary">7.1 Confidential Data →</a>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:32px 16px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px;">
+  <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+</footer>
+</body>
+</html>

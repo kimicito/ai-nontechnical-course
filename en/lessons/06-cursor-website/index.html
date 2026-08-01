@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.3 Project: Procurement Department Website</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .logo a { color: var(--accent); text-decoration: none; }
+  h1 { font-size: 1.8rem; margin: 32px 0 16px; }
+  h2 { font-size: 1.3rem; margin: 28px 0 12px; color: var(--accent2); }
+  .highlight { background: rgba(139,92,246,0.1); border-left: 3px solid var(--accent); padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .step { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .step h4 { margin: 0 0 8px; color: var(--accent); }
+  .nav-footer { display: flex; justify-content: space-between; margin: 40px 0; padding-top: 20px; border-top: 1px solid var(--border); }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<header><div class="container"><div class="logo"><a href="../../index.html">🧠 AI for Non-IT</a></div></div></header>
+
+<div class="container">
+  <h1>6.3 Project: Procurement Department Website</h1>
+  
+  <div class="highlight">
+    <strong>Goal:</strong> Build a complete procurement department website: homepage, supplier list, request form, contact page.
+  </div>
+
+  <h2>🏗️ Project Structure</h2>
+  <pre style="background:#1a1f2e;padding:12px;border-radius:6px;overflow-x:auto;">
+procurement-site/
+├── index.html          # Homepage
+├── suppliers.html      # Supplier list
+├── request.html        # Procurement request form
+├── contacts.html       # Contact page
+└── style.css           # Styling</pre>
+
+  <h2>📝 Step-by-Step Build</h2>
+  
+  <div class="step">
+    <h4>Step 1: Create Homepage</h4>
+    <p><strong>Prompt:</strong> "Create index.html for procurement department. Header: company logo and navigation (Home, Suppliers, Request, Contacts). Hero section: title 'Procurement Department', subtitle 'Efficient purchasing for your business'. Footer: contact email."</p>
+  </div>
+
+  <div class="step">
+    <h4>Step 2: Supplier List</h4>
+    <p><strong>Prompt:</strong> "Create suppliers.html with table: Company | Products | Contact | Rating. Add 5 sample suppliers. Make table sortable by rating."</p>
+  </div>
+
+  <div class="step">
+    <h4>Step 3: Request Form</h4>
+    <p><strong>Prompt:</strong> "Create request.html with form: Product name, Quantity, Budget, Deadline, Comments. Add validation: all fields required. Style with corporate colors."</p>
+  </div>
+
+  <div class="step">
+    <h4>Step 4: Styling</h4>
+    <p><strong>Prompt:</strong> "Create style.css with: blue (#2563EB) and white theme, responsive design, professional fonts, hover effects on buttons."</p>
+  </div>
+
+  <h2>🎯 Practice</h2>
+  <p><strong>Task:</strong> Build the procurement website with Cursor. Add your real company name and 3 real supplier contacts.</p>
+
+  <div class="nav-footer">
+    <a href="../06-cursor-prompts/index.html" class="nav-btn">← 6.2 Prompting</a>
+    <a href="../06-cursor-database/index.html" class="nav-btn primary">6.4 Project: Supplier Database →</a>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:32px 16px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px;">
+  <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+</footer>
+</body>
+</html>

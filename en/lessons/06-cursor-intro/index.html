@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.1 Cursor vs AI Chat: Theory & Setup</title>
+<style>
+  :root {
+    --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF;
+    --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08);
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .logo a { color: var(--accent); text-decoration: none; }
+  h1 { font-size: 1.8rem; margin: 32px 0 16px; }
+  h2 { font-size: 1.3rem; margin: 28px 0 12px; color: var(--accent2); }
+  p { margin: 0 0 16px; }
+  .highlight { background: rgba(139,92,246,0.1); border-left: 3px solid var(--accent); padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .step { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .step h4 { margin: 0 0 8px; color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); }
+  .nav-footer { display: flex; justify-content: space-between; margin: 40px 0; padding-top: 20px; border-top: 1px solid var(--border); }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<header><div class="container"><div class="logo"><a href="../../index.html">🧠 AI for Non-IT</a></div></div></header>
+
+<div class="container">
+  <h1>6.1 Cursor vs AI Chat: Theory & Setup</h1>
+  
+  <div class="highlight">
+    <strong>Goal:</strong> Understand the difference between Cursor (agentic IDE) and chat-based AI. Install Cursor and make your first program.
+  </div>
+
+  <h2>🤖 Why Cursor Changes Everything</h2>
+  <p>You already know how to chat with AI. Cursor is the next level: AI doesn't just advise — it writes programs, creates files, and builds complete websites and databases. Without writing a single line of code by hand.</p>
+
+  <h2>📊 Chat vs Cursor: What's the Difference?</h2>
+  <table>
+    <tr><th>Feature</th><th>Chat (ChatGPT, Claude)</th><th>Cursor</th></tr>
+    <tr><td>Where it works</td><td>Browser, app</td><td>Inside code editor</td></tr>
+    <tr><td>What it does</td><td>Answers, explains</td><td>Writes code, creates files</td></tr>
+    <tr><td>File access</td><td>Upload files manually</td><td>Sees entire project</td></tr>
+    <tr><td>Execution</td><td>You copy-paste</td><td>Runs directly</td></tr>
+    <tr><td>Best for</td><td>Questions, analysis</td><td>Building applications</td></tr>
+  </table>
+
+  <h2>⚡ What You Can Build in 1 Hour</h2>
+  <ul>
+    <li>🌐 Website for your procurement department with supplier database</li>
+    <li>📊 Dashboard with charts and analytics</li>
+    <li>🤖 Bot that answers questions about company policies</li>
+    <li>📝 Form that saves data to Google Sheets</li>
+  </ul>
+
+  <h2>🛠️ Installation</h2>
+  <div class="step">
+    <h4>Step 1: Download Cursor</h4>
+    <p>Go to <a href="https://cursor.com" style="color: var(--accent2);">cursor.com</a> and click Download. The site will auto-detect your OS.</p>
+  </div>
+  <div class="step">
+    <h4>Step 2: Install & Launch</h4>
+    <p>Run installer, follow wizard. On first launch — connect your AI provider (OpenAI, Anthropic, or local Ollama).</p>
+  </div>
+  <div class="step">
+    <h4>Step 3: Create Project</h4>
+    <p>File → New Folder → name it "my-first-project". That's it — your workspace is ready!</p>
+  </div>
+
+  <h2>🎯 Practice</h2>
+  <p><strong>Task:</strong> Install Cursor, create a new project, and ask AI to create a simple HTML page with your company name. Try both chat and composer modes.</p>
+
+  <div class="nav-footer">
+    <a href="../05-scaling/index.html" class="nav-btn">← 5.4 Scaling</a>
+    <a href="../06-cursor-prompts/index.html" class="nav-btn primary">6.2 Prompting for Coding →</a>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:32px 16px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px;">
+  <p>© 2026 Artur A. · AI for Non-IT Professionals</p>
+</footer>
+</body>
+</html>
