@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.3 项目：采购部门网站</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .logo a { color: var(--accent); text-decoration: none; }
+  h1 { font-size: 1.8rem; margin: 32px 0 16px; }
+  h2 { font-size: 1.3rem; margin: 28px 0 12px; color: var(--accent2); }
+  .highlight { background: rgba(139,92,246,0.1); border-left: 3px solid var(--accent); padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .step { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .step h4 { margin: 0 0 8px; color: var(--accent); }
+  .nav-footer { display: flex; justify-content: space-between; margin: 40px 0; padding-top: 20px; border-top: 1px solid var(--border); }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<header><div class="container"><div class="logo"><a href="../../index-zh.html">🧠 非IT人员的AI</a></div></div></header>
+
+<div class="container">
+  <h1>6.3 项目：采购部门网站</h1>
+  
+  <div class="highlight">
+    <strong>目标：</strong>构建完整的采购部门网站：首页、供应商列表、申请表单、联系页面。
+  </div>
+
+  <h2>🏗️ 项目结构</h2>
+  <pre style="background:#1a1f2e;padding:12px;border-radius:6px;overflow-x:auto;">
+采购网站/
+├── index.html          # 首页
+├── suppliers.html      # 供应商列表
+├── request.html        # 采购申请表单
+├── contacts.html       # 联系页面
+└── style.css           # 样式</pre>
+
+  <h2>📝 分步构建</h2>
+  
+  <div class="step">
+    <h4>步骤1：创建首页</h4>
+    <p><strong>提示词：</strong>"为采购部门创建index.html。页眉：公司logo和导航（首页、供应商、申请、联系）。主视觉区：标题'采购部门'，副标题'为您的企业高效采购'。页脚：联系邮箱。"</p>
+  </div>
+
+  <div class="step">
+    <h4>步骤2：供应商列表</h4>
+    <p><strong>提示词：</strong>"创建suppliers.html，包含表格：公司 | 产品 | 联系人 | 评分。添加5个示例供应商。使表格可按评分排序。"</p>
+  </div>
+
+  <div class="step">
+    <h4>步骤3：申请表单</h4>
+    <p><strong>提示词：</strong>"创建request.html，包含表单：产品名称、数量、预算、截止日期、备注。添加验证：所有字段必填。使用企业色彩风格。"</p>
+  </div>
+
+  <div class="step">
+    <h4>步骤4：样式</h4>
+    <p><strong>提示词：</strong>"创建style.css，包含：蓝色(#2563EB)和白色主题、响应式设计、专业字体、按钮悬停效果。"</p>
+  </div>
+
+  <h2>🎯 练习</h2>
+  <p><strong>任务：</strong>用Cursor构建采购网站。添加您的真实公司名称和3个真实供应商联系人。</p>
+
+  <div class="nav-footer">
+    <a href="../06-cursor-prompts/index.html" class="nav-btn">← 6.2 提示词</a>
+    <a href="../06-cursor-database/index.html" class="nav-btn primary">6.4 项目：供应商数据库 →</a>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:32px 16px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px;">
+  <p>© 2026 Artur A. · 非IT专业人员的AI</p>
+</footer>
+</body>
+</html>

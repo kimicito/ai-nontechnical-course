@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.2 编程提示词</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .logo a { color: var(--accent); text-decoration: none; }
+  h1 { font-size: 1.8rem; margin: 32px 0 16px; }
+  h2 { font-size: 1.3rem; margin: 28px 0 12px; color: var(--accent2); }
+  .highlight { background: rgba(139,92,246,0.1); border-left: 3px solid var(--accent); padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .example { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .example h4 { margin: 0 0 8px; color: var(--accent); }
+  .nav-footer { display: flex; justify-content: space-between; margin: 40px 0; padding-top: 20px; border-top: 1px solid var(--border); }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<header><div class="container"><div class="logo"><a href="../../index-zh.html">🧠 非IT人员的AI</a></div></div></header>
+
+<div class="container">
+  <h1>6.2 编程提示词</h1>
+  
+  <div class="highlight">
+    <strong>目标：</strong>学习编写提示词，让Cursor准确构建您需要的内容。
+  </div>
+
+  <h2>🎯 编程提示词的5个规则</h2>
+  
+  <div class="example">
+    <h4>1. 先给上下文</h4>
+    <p>❌ <em>"创建一个表单"</em></p>
+    <p>✅ <em>"创建一个供应商注册表单，包含字段：公司名称、税号、联系人、邮箱。风格：企业风格，蓝色和白色。"</em></p>
+  </div>
+
+  <div class="example">
+    <h4>2. 指定格式</h4>
+    <p>❌ <em>"做一个表格"</em></p>
+    <p>✅ <em>"创建一个HTML表格，带可排序列：供应商 | 产品 | 价格 | 交货时间。顶部添加搜索过滤器。"</em></p>
+  </div>
+
+  <div class="example">
+    <h4>3. 描述行为</h4>
+    <p>❌ <em>"添加一个按钮"</em></p>
+    <p>✅ <em>"添加'导出到Excel'按钮。点击时，下载当前表格数据为.xlsx文件。"</em></p>
+  </div>
+
+  <div class="example">
+    <h4>4. 提供示例</h4>
+    <p>"创建这样的仪表板：[截图]。顶部：3个KPI卡片。中间：月度采购柱状图。底部：最近交易表格。"</p>
+  </div>
+
+  <div class="example">
+    <h4>5. 逐步迭代</h4>
+    <p>不要一次性要求所有内容。分步构建：</p>
+    <ol>
+      <li>"创建带标题的基本HTML页面"</li>
+      <li>"添加3列的供应商表格"</li>
+      <li>"添加搜索和排序功能"</li>
+      <li>"应用企业色彩风格"</li>
+    </ol>
+  </div>
+
+  <h2>🔧 Cursor特别功能：编辑器模式</h2>
+  <p>在编辑器中 (Ctrl+I)，您可以：</p>
+  <ul>
+    <li>用自然语言编写提示词</li>
+    <li>用@文件名引用文件</li>
+    <li>让AI编辑特定函数</li>
+    <li>获取任何代码块的解释</li>
+  </ul>
+
+  <h2>🎯 练习</h2>
+  <p><strong>任务：</strong>创建一个简单的任务追踪器：添加任务、标记完成、删除。使用分步提示词。</p>
+
+  <div class="nav-footer">
+    <a href="../06-cursor-intro/index.html" class="nav-btn">← 6.1 Cursor vs 聊天</a>
+    <a href="../06-cursor-website/index.html" class="nav-btn primary">6.3 项目：采购网站 →</a>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:32px 16px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px;">
+  <p>© 2026 Artur A. · 非IT专业人员的AI</p>
+</footer>
+</body>
+</html>

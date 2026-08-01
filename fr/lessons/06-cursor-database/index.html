@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.4 Projet : Base de Données Fournisseurs + Sécurité</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .logo a { color: var(--accent); text-decoration: none; }
+  h1 { font-size: 1.8rem; margin: 32px 0 16px; }
+  h2 { font-size: 1.3rem; margin: 28px 0 12px; color: var(--accent2); }
+  .highlight { background: rgba(139,92,246,0.1); border-left: 3px solid var(--accent); padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .warning { background: rgba(239,68,68,0.1); border-left: 3px solid #EF4444; padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .step { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .step h4 { margin: 0 0 8px; color: var(--accent); }
+  .nav-footer { display: flex; justify-content: space-between; margin: 40px 0; padding-top: 20px; border-top: 1px solid var(--border); }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<header><div class="container"><div class="logo"><a href="../../index-fr.html">🧠 IA pour Non-IT</a></div></div></header>
+
+<div class="container">
+  <h1>6.4 Projet : Base de Données Fournisseurs + Sécurité</h1>
+  
+  <div class="highlight">
+    <strong>Objectif :</strong> Construire une base de données fournisseurs avec recherche, filtres et export. Apprendre à éviter les erreurs courantes et les failles de sécurité.
+  </div>
+
+  <h2>🗄️ Structure de la Base de Données</h2>
+  <pre style="background:#1a1f2e;padding:12px;border-radius:6px;overflow-x:auto;">
+Base de Données Fournisseurs :
+- ID (auto)
+- Nom Entreprise
+- Numéro SIRET
+- Contact
+- Email
+- Téléphone
+- Produits (tableau)
+- Note (1-5)
+- Statut (Actif/Inactif)</pre>
+
+  <h2>📝 Étapes de Construction</h2>
+  
+  <div class="step">
+    <h4>Étape 1 : Page Base de Données</h4>
+    <p><strong>Prompt :</strong> "Créez database.html avec un tableau fournisseurs. Colonnes : Entreprise, SIRET, Contact, Produits, Note. Ajoutez la recherche par nom d'entreprise et le filtre par catégorie de produit."</p>
+  </div>
+
+  <div class="step">
+    <h4>Étape 2 : Formulaires Ajout/Édition</h4>
+    <p><strong>Prompt :</strong> "Ajoutez un bouton 'Ajouter Fournisseur' qui ouvre un formulaire modal. Champs : Entreprise, SIRET, Contact, Email, Téléphone, Produits (séparés par virgules), Note. Enregistrez dans localStorage."</p>
+  </div>
+
+  <div class="step">
+    <h4>Étape 3 : Export</h4>
+    <p><strong>Prompt :</strong> "Ajoutez un bouton 'Exporter vers Excel'. Téléchargez toutes les données fournisseurs en fichier .xlsx avec un formatage correct."</p>
+  </div>
+
+  <h2>⚠️ Erreurs Courantes & Corrections</h2>
+  
+  <div class="warning">
+    <h4>🐛 Erreur 1 : Perte de Données au Rafraîchissement</h4>
+    <p><strong>Correction :</strong> Utilisez localStorage ou connectez un backend. Demandez : "Enregistrez les données dans localStorage pour qu'elles persistent après le rafraîchissement de la page."</p>
+  </div>
+
+  <div class="warning">
+    <h4>🐛 Erreur 2 : Recherche Qui Ne Fonctionne Pas</h4>
+    <p><strong>Correction :</strong> Vérifiez la sensibilité à la casse. Demandez : "Rendez la recherche insensible à la casse et recherchez dans tous les champs."</p>
+  </div>
+
+  <div class="warning">
+    <h4>🐛 Erreur 3 : Validation du Formulaire Absente</h4>
+    <p><strong>Correction :</strong> Ajoutez la validation. Demandez : "Ajoutez la validation : format email, format téléphone, champs obligatoires. Affichez les messages d'erreur."</p>
+  </div>
+
+  <h2>🔒 Bases de Sécurité</h2>
+  <ul>
+    <li><strong>Ne jamais</strong> stocker les mots de passe dans le code</li>
+    <li><strong>Toujours</strong> valider les entrées utilisateur</li>
+    <li>Utilisez HTTPS en production</li>
+    <li>Assainissez les données avant enregistrement</li>
+    <li>Sauvegardes régulières</li>
+  </ul>
+
+  <h2>🎯 Pratique</h2>
+  <p><strong>Tâche :</strong> Construisez la base de données fournisseurs avec : ajout/édition/suppression, recherche, filtre par note, export vers Excel. Ajoutez 10 vrais fournisseurs.</p>
+
+  <div class="nav-footer">
+    <a href="../06-cursor-website/index.html" class="nav-btn">← 6.3 Site Web</a>
+    <a href="../../lessons/07-confidential-data/index.html" class="nav-btn primary">7.1 Données Confidentielles →</a>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:32px 16px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px;">
+  <p>© 2026 Artur A. · IA pour Professionnels Non-IT</p>
+</footer>
+</body>
+</html>

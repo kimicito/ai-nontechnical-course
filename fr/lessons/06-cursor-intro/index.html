@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.1 Cursor vs Chat IA : Théorie & Installation</title>
+<style>
+  :root {
+    --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF;
+    --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08);
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .logo a { color: var(--accent); text-decoration: none; }
+  h1 { font-size: 1.8rem; margin: 32px 0 16px; }
+  h2 { font-size: 1.3rem; margin: 28px 0 12px; color: var(--accent2); }
+  .highlight { background: rgba(139,92,246,0.1); border-left: 3px solid var(--accent); padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .step { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .step h4 { margin: 0 0 8px; color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); }
+  .nav-footer { display: flex; justify-content: space-between; margin: 40px 0; padding-top: 20px; border-top: 1px solid var(--border); }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<header><div class="container"><div class="logo"><a href="../../index-fr.html">🧠 IA pour Non-IT</a></div></div></header>
+
+<div class="container">
+  <h1>6.1 Cursor vs Chat IA : Théorie & Installation</h1>
+  
+  <div class="highlight">
+    <strong>Objectif :</strong> Comprendre la différence entre Cursor (IDE agentique) et les chats IA. Installer Cursor et créer votre premier programme.
+  </div>
+
+  <h2>🤖 Pourquoi Cursor Change Tout</h2>
+  <p>Vous savez déjà discuter avec l'IA. Cursor est le niveau supérieur : l'IA ne se contente pas de conseiller — elle écrit des programmes, crée des fichiers et construit des sites web et bases de données complets. Sans écrire une seule ligne de code à la main.</p>
+
+  <h2>📊 Chat vs Cursor : Quelle Différence ?</h2>
+  <table>
+    <tr><th>Fonctionnalité</th><th>Chat (ChatGPT, Claude)</th><th>Cursor</th></tr>
+    <tr><td>Où ça fonctionne</td><td>Navigateur, app</td><td>Dans l'éditeur de code</td></tr>
+    <tr><td>Ce que ça fait</td><td>Répond, explique</td><td>Écrit du code, crée des fichiers</td></tr>
+    <tr><td>Accès aux fichiers</td><td>Upload manuel</td><td>Voit tout le projet</td></tr>
+    <tr><td>Exécution</td><td>Vous copiez-collez</td><td>Exécute directement</td></tr>
+    <tr><td>Idéal pour</td><td>Questions, analyse</td><td>Construire des applications</td></tr>
+  </table>
+
+  <h2>⚡ Ce Que Vous Pouvez Construire en 1 Heure</h2>
+  <ul>
+    <li>🌐 Site web pour votre service achats avec base de fournisseurs</li>
+    <li>📊 Tableau de bord avec graphiques et analyses</li>
+    <li>🤖 Bot qui répond aux questions sur les politiques d'entreprise</li>
+    <li>📝 Formulaire qui enregistre les données dans Google Sheets</li>
+  </ul>
+
+  <h2>🛠️ Installation</h2>
+  <div class="step">
+    <h4>Étape 1 : Télécharger Cursor</h4>
+    <p>Rendez-vous sur <a href="https://cursor.com" style="color: var(--accent2);">cursor.com</a> et cliquez sur Télécharger. Le site détectera automatiquement votre système.</p>
+  </div>
+  <div class="step">
+    <h4>Étape 2 : Installer & Lancer</h4>
+    <p>Exécutez l'installateur, suivez l'assistant. Au premier lancement — connectez votre fournisseur d'IA (OpenAI, Anthropic, ou Ollama local).</p>
+  </div>
+  <div class="step">
+    <h4>Étape 3 : Créer un Projet</h4>
+    <p>Fichier → Nouveau Dossier → nommez-le "mon-premier-projet". C'est prêt — votre espace de travail est opérationnel !</p>
+  </div>
+
+  <h2>🎯 Pratique</h2>
+  <p><strong>Tâche :</strong> Installez Cursor, créez un nouveau projet, et demandez à l'IA de créer une page HTML simple avec le nom de votre entreprise. Essayez les modes chat et composer.</p>
+
+  <div class="nav-footer">
+    <a href="../05-scaling/index.html" class="nav-btn">← 5.3 Mise à l'échelle</a>
+    <a href="../06-cursor-prompts/index.html" class="nav-btn primary">6.2 Prompting pour le Code →</a>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:32px 16px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px;">
+  <p>© 2026 Artur A. · IA pour Professionnels Non-IT</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.1 Cursor vs AI聊天：理论与安装</title>
+<style>
+  :root {
+    --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF;
+    --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08);
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .logo a { color: var(--accent); text-decoration: none; }
+  h1 { font-size: 1.8rem; margin: 32px 0 16px; }
+  h2 { font-size: 1.3rem; margin: 28px 0 12px; color: var(--accent2); }
+  .highlight { background: rgba(139,92,246,0.1); border-left: 3px solid var(--accent); padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .step { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .step h4 { margin: 0 0 8px; color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); }
+  .nav-footer { display: flex; justify-content: space-between; margin: 40px 0; padding-top: 20px; border-top: 1px solid var(--border); }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<header><div class="container"><div class="logo"><a href="../../index-zh.html">🧠 非IT人员的AI</a></div></div></header>
+
+<div class="container">
+  <h1>6.1 Cursor vs AI聊天：理论与安装</h1>
+  
+  <div class="highlight">
+    <strong>目标：</strong>理解Cursor（智能IDE）与聊天式AI的区别。安装Cursor并创建您的第一个程序。
+  </div>
+
+  <h2>🤖 为什么Cursor改变一切</h2>
+  <p>您已经知道如何与AI聊天。Cursor是下一个级别：AI不只是建议——它编写程序、创建文件、构建完整的网站和数据库。无需手写一行代码。</p>
+
+  <h2>📊 聊天 vs Cursor：有什么区别？</h2>
+  <table>
+    <tr><th>功能</th><th>聊天 (ChatGPT, Claude)</th><th>Cursor</th></tr>
+    <tr><td>工作环境</td><td>浏览器、应用</td><td>代码编辑器内</td></tr>
+    <tr><td>功能</td><td>回答、解释</td><td>编写代码、创建文件</td></tr>
+    <tr><td>文件访问</td><td>手动上传</td><td>查看整个项目</td></tr>
+    <tr><td>执行</td><td>您复制粘贴</td><td>直接运行</td></tr>
+    <tr><td>最适合</td><td>问题、分析</td><td>构建应用</td></tr>
+  </table>
+
+  <h2>⚡ 您可以在1小时内构建什么</h2>
+  <ul>
+    <li>🌐 采购部门网站，带供应商数据库</li>
+    <li>📊 带图表和分析的仪表板</li>
+    <li>🤖 回答公司政策问题的机器人</li>
+    <li>📝 保存数据到Google表格的表单</li>
+  </ul>
+
+  <h2>🛠️ 安装</h2>
+  <div class="step">
+    <h4>步骤1：下载Cursor</h4>
+    <p>访问 <a href="https://cursor.com" style="color: var(--accent2);">cursor.com</a> 点击下载。网站会自动检测您的系统。</p>
+  </div>
+  <div class="step">
+    <h4>步骤2：安装并启动</h4>
+    <p>运行安装程序，按照向导操作。首次启动时——连接您的AI提供商（OpenAI、Anthropic或本地Ollama）。</p>
+  </div>
+  <div class="step">
+    <h4>步骤3：创建项目</h4>
+    <p>文件 → 新建文件夹 → 命名为"my-first-project"。完成——您的工作区已准备好！</p>
+  </div>
+
+  <h2>🎯 练习</h2>
+  <p><strong>任务：</strong>安装Cursor，创建新项目，让AI创建一个包含您公司名称的简单HTML页面。尝试聊天和编辑器模式。</p>
+
+  <div class="nav-footer">
+    <a href="../05-scaling/index.html" class="nav-btn">← 5.3 扩展</a>
+    <a href="../06-cursor-prompts/index.html" class="nav-btn primary">6.2 编程提示词 →</a>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:32px 16px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px;">
+  <p>© 2026 Artur A. · 非IT专业人员的AI</p>
+</footer>
+</body>
+</html>

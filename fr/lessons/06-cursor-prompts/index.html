@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.2 Prompting pour la Programmation</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .logo a { color: var(--accent); text-decoration: none; }
+  h1 { font-size: 1.8rem; margin: 32px 0 16px; }
+  h2 { font-size: 1.3rem; margin: 28px 0 12px; color: var(--accent2); }
+  .highlight { background: rgba(139,92,246,0.1); border-left: 3px solid var(--accent); padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .example { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .example h4 { margin: 0 0 8px; color: var(--accent); }
+  .nav-footer { display: flex; justify-content: space-between; margin: 40px 0; padding-top: 20px; border-top: 1px solid var(--border); }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<header><div class="container"><div class="logo"><a href="../../index-fr.html">🧠 IA pour Non-IT</a></div></div></header>
+
+<div class="container">
+  <h1>6.2 Prompting pour la Programmation</h1>
+  
+  <div class="highlight">
+    <strong>Objectif :</strong> Apprendre à rédiger des prompts qui font construire à Cursor exactement ce dont vous avez besoin.
+  </div>
+
+  <h2>🎯 Les 5 Règles du Prompting de Code</h2>
+  
+  <div class="example">
+    <h4>1. Contexte d'Abord</h4>
+    <p>❌ <em>"Créez un formulaire"</em></p>
+    <p>✅ <em>"Créez un formulaire d'enregistrement fournisseur avec les champs : nom de l'entreprise, numéro SIRET, contact, email. Style : corporate, couleurs bleu et blanc."</em></p>
+  </div>
+
+  <div class="example">
+    <h4>2. Spécifiez le Format</h4>
+    <p>❌ <em>"Faites un tableau"</em></p>
+    <p>✅ <em>"Créez un tableau HTML avec colonnes triables : Fournisseur | Produit | Prix | Délai de livraison. Ajoutez un filtre de recherche en haut."</em></p>
+  </div>
+
+  <div class="example">
+    <h4>3. Décrivez le Comportement</h4>
+    <p>❌ <em>"Ajoutez un bouton"</em></p>
+    <p>✅ <em>"Ajoutez un bouton 'Exporter vers Excel'. Au clic, téléchargez les données du tableau actuel en fichier .xlsx."</em></p>
+  </div>
+
+  <div class="example">
+    <h4>4. Fournissez des Exemples</h4>
+    <p>"Créez un tableau de bord comme ceci : [capture d'écran]. Haut : 3 cartes KPI. Milieu : graphique à barres des achats mensuels. Bas : tableau des transactions récentes."</p>
+  </div>
+
+  <div class="example">
+    <h4>5. Itérez Étape par Étape</h4>
+    <p>Ne demandez pas tout d'un coup. Construisez par itérations :</p>
+    <ol>
+      <li>"Créez une page HTML de base avec un en-tête"</li>
+      <li>"Ajoutez un tableau fournisseur avec 3 colonnes"</li>
+      <li>"Ajoutez la recherche et le tri"</li>
+      <li>"Appliquez les couleurs corporate"</li>
+    </ol>
+  </div>
+
+  <h2>🔧 Spécial Cursor : Mode Composer</h2>
+  <p>Dans Composer (Ctrl+I), vous pouvez :</p>
+  <ul>
+    <li>Écrire des prompts en langage naturel</li>
+    <li>Référencer des fichiers avec @nomfichier</li>
+    <li>Demander à l'IA d'éditer des fonctions spécifiques</li>
+    <li>Obtenir des explications de n'importe quel bloc de code</li>
+  </ul>
+
+  <h2>🎯 Pratique</h2>
+  <p><strong>Tâche :</strong> Créez un suivi de tâches simple avec : ajouter une tâche, marquer comme terminée, supprimer. Utilisez le prompting étape par étape.</p>
+
+  <div class="nav-footer">
+    <a href="../06-cursor-intro/index.html" class="nav-btn">← 6.1 Cursor vs Chat</a>
+    <a href="../06-cursor-website/index.html" class="nav-btn primary">6.3 Projet : Site Achats →</a>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:32px 16px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px;">
+  <p>© 2026 Artur A. · IA pour Professionnels Non-IT</p>
+</footer>
+</body>
+</html>

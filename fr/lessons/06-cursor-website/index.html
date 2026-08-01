@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>6.3 Projet : Site du Service Achats</title>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
+  .logo a { color: var(--accent); text-decoration: none; }
+  h1 { font-size: 1.8rem; margin: 32px 0 16px; }
+  h2 { font-size: 1.3rem; margin: 28px 0 12px; color: var(--accent2); }
+  .highlight { background: rgba(139,92,246,0.1); border-left: 3px solid var(--accent); padding: 16px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .step { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .step h4 { margin: 0 0 8px; color: var(--accent); }
+  .nav-footer { display: flex; justify-content: space-between; margin: 40px 0; padding-top: 20px; border-top: 1px solid var(--border); }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+</style>
+</head>
+<body>
+<header><div class="container"><div class="logo"><a href="../../index-fr.html">🧠 IA pour Non-IT</a></div></div></header>
+
+<div class="container">
+  <h1>6.3 Projet : Site du Service Achats</h1>
+  
+  <div class="highlight">
+    <strong>Objectif :</strong> Construire un site web complet pour le service achats : page d'accueil, liste fournisseurs, formulaire de demande, page de contact.
+  </div>
+
+  <h2>🏗️ Structure du Projet</h2>
+  <pre style="background:#1a1f2e;padding:12px;border-radius:6px;overflow-x:auto;">
+site-achats/
+├── index.html          # Page d'accueil
+├── fournisseurs.html   # Liste fournisseurs
+├── demande.html        # Formulaire demande d'achat
+├── contacts.html       # Page contact
+└── style.css           # Style</pre>
+
+  <h2>📝 Construction Étape par Étape</h2>
+  
+  <div class="step">
+    <h4>Étape 1 : Créer la Page d'Accueil</h4>
+    <p><strong>Prompt :</strong> "Créez index.html pour le service achats. En-tête : logo entreprise et navigation (Accueil, Fournisseurs, Demande, Contacts). Section héro : titre 'Service Achats', sous-titre 'Achats efficaces pour votre entreprise'. Pied de page : email de contact."</p>
+  </div>
+
+  <div class="step">
+    <h4>Étape 2 : Liste des Fournisseurs</h4>
+    <p><strong>Prompt :</strong> "Créez fournisseurs.html avec un tableau : Entreprise | Produits | Contact | Note. Ajoutez 5 fournisseurs exemple. Rendez le tableau triable par note."</p>
+  </div>
+
+  <div class="step">
+    <h4>Étape 3 : Formulaire de Demande</h4>
+    <p><strong>Prompt :</strong> "Créez demande.html avec un formulaire : Nom du produit, Quantité, Budget, Date butoir, Commentaires. Ajoutez la validation : tous les champs obligatoires. Style avec les couleurs corporate."</p>
+  </div>
+
+  <div class="step">
+    <h4>Étape 4 : Style</h4>
+    <p><strong>Prompt :</strong> "Créez style.css avec : thème bleu (#2563EB) et blanc, design responsive, polices professionnelles, effets hover sur les boutons."</p>
+  </div>
+
+  <h2>🎯 Pratique</h2>
+  <p><strong>Tâche :</strong> Construisez le site achats avec Cursor. Ajoutez votre vrai nom d'entreprise et 3 contacts fournisseurs réels.</p>
+
+  <div class="nav-footer">
+    <a href="../06-cursor-prompts/index.html" class="nav-btn">← 6.2 Prompting</a>
+    <a href="../06-cursor-database/index.html" class="nav-btn primary">6.4 Projet : Base Fournisseurs →</a>
+  </div>
+</div>
+
+<footer style="text-align:center;padding:32px 16px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px;">
+  <p>© 2026 Artur A. · IA pour Professionnels Non-IT</p>
+</footer>
+</body>
+</html>
