@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>🆕 更新内容 — 非IT人员的AI</title>
+<style>
+  :root {
+    --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF;
+    --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
+  .logo a { color: var(--accent); text-decoration: none; }
+
+  .desktop-nav { display: flex; align-items: center; gap: 20px; }
+  .desktop-nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; }
+  .desktop-nav a:hover, .desktop-nav a.active { color: var(--text); }
+
+  .lang-dropdown { position: relative; }
+  .lang-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; gap: 6px; }
+  .lang-menu { position: absolute; top: 100%; right: 0; margin-top: 4px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 4px; min-width: 100px; display: none; z-index: 200; }
+  .lang-menu.show { display: block; }
+  .lang-menu a { display: block; padding: 6px 12px; color: var(--muted); text-decoration: none; font-size: 0.85rem; border-radius: 4px; }
+  .lang-menu a:hover, .lang-menu a.active { background: rgba(139,92,246,0.15); color: var(--text); }
+
+  .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 4px; }
+  .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+  .mobile-nav { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg); z-index: 300; padding: 80px 20px 20px; }
+  .mobile-nav.show { display: block; }
+  .mobile-nav a { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid var(--border); }
+  .mobile-nav a.active { color: var(--accent); }
+  .close-menu { position: absolute; top: 16px; right: 16px; font-size: 1.5rem; background: none; border: none; color: var(--text); cursor: pointer; }
+
+  @media (max-width: 768px) {
+    .desktop-nav { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  .hero { padding: 60px 0 30px; }
+  .hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; background: linear-gradient(135deg, #8B5CF6, #06B6D4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { font-size: 1.1rem; color: var(--muted); max-width: 600px; }
+
+  .update-section { margin-bottom: 40px; }
+  .update-section h2 { font-size: 1.5rem; color: var(--accent); margin-bottom: 20px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .update-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+  .update-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .badge { padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+  .badge-new { background: rgba(16,185,129,0.15); color: #34D399; }
+  .update-item h3 { font-size: 1.1rem; margin-bottom: 8px; }
+  .update-item h3 a { color: var(--text); text-decoration: none; }
+  .update-item h3 a:hover { color: var(--accent); }
+  .update-item p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+  .update-item p a { color: var(--accent); }
+
+  footer { padding: 30px 0; border-top: 1px solid var(--border); margin-top: 40px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--muted); text-decoration: none; margin: 0 8px; }
+  footer a:hover { color: var(--text); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo"><a href="index.html">🧠 非IT人员的AI</a></div>
+    <nav class="desktop-nav">
+      <a href="catalog.html">课程目录</a>
+      <a href="glossary.html">术语表</a>
+      <a href="updates.html" class="active">更新内容</a>
+      <div class="lang-dropdown">
+        <button class="lang-btn" onclick="toggleLang()">🌐 中文 ▼</button>
+        <div class="lang-menu" id="langMenu">
+          <a href="../index.html">RU</a>
+          <a href="../en/index.html">EN</a>
+          <a href="../fr/index.html">FR</a>
+          <a href="index.html" class="active">中文</a>
+        </div>
+      </div>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <button class="close-menu" onclick="toggleMenu()">✕</button>
+  <a href="catalog.html">课程目录</a>
+  <a href="glossary.html">术语表</a>
+  <a href="updates.html" class="active">更新内容</a>
+  <div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--border);">
+    <a href="../index.html">RU</a>
+    <a href="../en/index.html">EN</a>
+    <a href="../fr/index.html">FR</a>
+    <a href="index.html">中文</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <h1>🆕 更新内容</h1>
+    <p>课程更新历史。新课程、改进和修复。</p>
+  </div>
+</section>
+
+<section class="container">
+
+  <div class="update-section">
+    <h2>2026年8月</h2>
+
+    <div class="update-item">
+      <div class="update-header">
+        <span class="badge badge-new">🆕 新增</span>
+        <span style="color:var(--muted);font-size:0.85rem;">8月1日</span>
+      </div>
+      <h3><a href="catalog.html#level6">级别 6 — 无需IT部门编程</a></h3>
+      <p>新级别：Cursor vs AI聊天、编程提示词、采购部门网站和供应商数据库。4节课。所有现有级别向后推移+1。</p>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div class="container">
+    <a href="../index.html">RU</a> |
+    <a href="../en/index.html">EN</a> |
+    <a href="../fr/index.html">FR</a> |
+    <a href="index.html">中文</a>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() { document.getElementById('mobileNav').classList.toggle('show'); }
+function toggleLang() { document.getElementById('langMenu').classList.toggle('show'); }
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.lang-dropdown')) document.getElementById('langMenu').classList.remove('show');
+});
+</script>
+
+</body>
+</html>
