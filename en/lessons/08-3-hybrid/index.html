@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>8.3 Hybrid Procurement Tasks — De-identification — AI for Non-Technical Professionals</title>
-<link rel="stylesheet" href="../../../style.css">
+<title>8.3 Hybrid Tasks — AI for Non-Technical Professionals</title>
+<link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; }
@@ -19,12 +19,10 @@
   .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
   .section { margin: 28px 0; }
   .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
   .card-accent { border-left: 4px solid var(--accent); }
   .card-success { border-left: 4px solid var(--success); }
   .card-warning { border-left: 4px solid var(--warning); }
-  .card-danger { border-left: 4px solid var(--danger); }
   .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
   .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
   .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -33,25 +31,9 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .card + .card { margin-top: 40px; }
-  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
-  .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
-  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
-  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
-  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
-  .result.show { display: block; }
-  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
   ul, ol { padding-left: 20px; }
   li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) {
-    .lesson-header h1 { font-size: 1.4rem; }
-    .nav-footer { flex-direction: column; }
-    .nav-btn { width: 100%; text-align: center; }
-  }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -60,265 +42,104 @@
    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
+   ym(111617413, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<header>
-  <div class="container">
-    <a href="../../index.html" class="logo">AI for Non-Technical Professionals</a>
-  </div>
-</header>
-
-<main class="container">
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
+<div class="container">
   <div class="lesson-header">
     <div class="phase">Level 8 — Procurement</div>
-    <h1>8.3 Hybrid Tasks: De-identification</h1>
-    <div class="meta">15 min · for procurement specialists · boundary of perimeters</div>
+    <h1>8.3 Hybrid Tasks</h1>
+    <div class="meta">⏱ 20 min · for procurement specialists</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Hybrid approach</strong><br>
+    General <span class="highlight">structure and methodology</span> in external AI.<br>
+    <span class="highlight">Real data</span> (prices, supplier names, volumes) in on-prem.
   </div>
 
   <div class="section">
-    <p>Some tasks sit on the boundary: they can be done in the cloud, but only if the data is de-identified. Replace the supplier name with "Supplier A", remove specific prices — and the task becomes safe for an external model.</p>
-    <p>This lesson covers how to de-identify data, which tasks are acceptable in hybrid mode, and how to prepare a request for developers for automation.</p>
+    <h2>Principle: methodology outside, data inside</h2>
+    <p>The more sensitive the data (prices, contract terms, negotiation positions) — the stricter the on-prem. General methodology (document structure, analysis categories) goes to external AI.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Anonymization rules for cloud:</strong>
+    <ul>
+      <li><strong>Remove:</strong> real prices, supplier names, contract terms, volumes</li>
+      <li><strong>Keep:</strong> product categories, general requirements, methodologies</li>
+      <li><strong>Replace:</strong> "Supplier X" instead of real names</li>
+    </ul>
   </div>
 
   <div class="section">
-    <h2>The Rule: De-identify Before the Cloud</h2>
-    <div class="card card-danger">
-      <strong>What CANNOT be sent to the cloud (even partially):</strong>
-      <ul>
-        <li>Specific prices from quotations</li>
-        <li>Supplier names (unless they are giants like Siemens)</li>
-        <li>Purchase volumes for specific items</li>
-        <li>Contract terms (penalties, discounts, deferrals)</li>
-        <li>Negotiation position, BATNA, supplier weak points</li>
-      </ul>
-    </div>
-    <div class="card card-success">
-      <strong>What CAN be sent after de-identification:</strong>
-      <ul>
-        <li>Comparison of quotation structure (without prices) — "Supplier A vs Supplier B"</li>
-        <li>Analysis of response completeness to TS (without names)</li>
-        <li>Role-play negotiation rehearsal (anonymous scenario)</li>
-        <li>Compilation of general arguments (without specific numbers)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>De-identification Checklist (5 Steps)</h2>
-    <div class="card">
-      <ol>
-        <li><strong>Replace names:</strong> "LLC PromTekhSnab" → "Supplier A"</li>
-        <li><strong>Replace prices with relative ones:</strong> "1,200,000 ₽" → "base price +20%" or "Price X"</li>
-        <li><strong>Remove volumes:</strong> "50 units" → "medium-sized batch"</li>
-        <li><strong>Remove contract dates:</strong> "until 31.12.2025" → "contract until year-end"</li>
-        <li><strong>Check:</strong> if you show the de-identified text to a colleague — will they understand what it's about but not know the supplier? If yes — it can go to the cloud.</li>
-      </ol>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>1. Role-Play Negotiation Rehearsal</h2>
-    <p>A procurement specialist is preparing for difficult negotiations. Need to run through a scenario. You can de-identify the data and use a cloud model as the "opponent."</p>
-    
+    <h2>1. Tender document preparation (hybrid)</h2>
+    <p><strong>Cloud:</strong> general tender structure, evaluation criteria, legal requirements.<br>
+    <strong>On-prem:</strong> specific technical requirements, commercial terms, evaluation weights.</p>
     <div class="example">
-      <div class="example-label">Prompt example (de-identified)</div>
-      <pre>Проведи со мной ролевую репетицию переговоров.
+      <div class="example-label">Step 1: Cloud — general template</div>
+      <pre>Prepare a tender document template for industrial equipment:
 
-Сценарий (обезличенный):
-- Я закупщик в промышленной компании
-- Мне нужно снизить цену на поставку оборудования
-- У меня есть 2 альтернативных поставщика с ценой на 15% ниже
-- Текущий поставщик (Поставщик А) задержал поставку в прошлый раз
-- Мне нужен срок 3 недели, у него стандартно 6 недель
-- Я готов обсуждать объём, но не раскрывать конкретные цифры
+1. General provisions
+2. Technical requirements [SPECIFY]
+3. Commercial terms [SPECIFY]
+4. Bidder qualification requirements
+5. Evaluation criteria [SPECIFY]
+6. Contract draft
 
-Ты играешь роль Поставщика А. Твоя цель — удержать цену и сроки.
-Моя цель — снизить цену и ускорить срок.
-
-Начни переговоры. Отвечай как реальный поставщик — 
-с возражениями, контраргументами, попытками уйти от темы.</pre>
+Placeholders for company data: [SPECIFY].</pre>
     </div>
-
-    <div class="card card-accent">
-      <strong>Result:</strong> 15–20 minutes of rehearsal with a "live" opponent. The procurement specialist practices arguments, learns to deflect objections, and prepares for the real conversation.
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>2. Quotation Structure Comparison (Without Prices)</h2>
-    <p>You need to understand which supplier responded to the TS more fully, not who is cheaper. Prices are removed; only structure and completeness are compared.</p>
-    
     <div class="example">
-      <div class="example-label">Prompt example (de-identified)</div>
-      <pre>Сравни 3 коммерческих предложения по структуре и полноте ответа.
+      <div class="example-label">Step 2: On-prem — fill with real data</div>
+      <pre>Fill the tender document template:
 
-Данные обезличены:
-- Поставщик А, Поставщик Б, Поставщик В
-- Цены удалены, только относительные: "ниже рынка", "рынок", "выше рынка"
+Equipment: [SPECIFY]
+Budget: [SPECIFY]
+Delivery terms: [SPECIFY]
+Payment terms: [SPECIFY]
+Evaluation weights: [SPECIFY]
 
-Сравни по критериям:
-1. Полнота ответа на ТЗ (все ли пункты покрыты)
-2. Наличие технических описаний (да/нет, качество)
-3. Наличие сертификатов (перечень)
-4. Условия гарантии (сроки, объём)
-5. Дополнительные услуги (монтаж, обучение, сервис)
-
-Не называй конкретные цены. Дай рекомендацию по полноте.</pre>
+All data from internal sources.</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>3. Compilation of General Arguments</h2>
-    <p>A procurement specialist needs a list of arguments for negotiations in general form — not tied to a specific deal. A cloud model generates the base, then on-premise adds specifics.</p>
-    
+    <h2>2. Supplier evaluation scorecard (hybrid)</h2>
+    <p><strong>Cloud:</strong> general evaluation criteria, industry benchmarks.<br>
+    <strong>On-prem:</strong> real supplier data, internal scoring.</p>
     <div class="example">
-      <div class="example-label">Prompt example (de-identified)</div>
-      <pre>Я готовлюсь к переговорам по закупке промышленного оборудования.
+      <div class="example-label">Step 1: Cloud — evaluation framework</div>
+      <pre>Develop a supplier evaluation scorecard for manufacturing:
 
-Контекст (обезличенный):
-- Рынок: 3–4 крупных поставщика, конкуренция высокая
-- Моя позиция: крупный заказчик, регулярные закупки
-- Проблема: поставщик хочет повысить цену и сроки
+Categories:
+1. Price competitiveness (weight: 30%)
+2. Quality history (weight: 25%)
+3. Delivery reliability (weight: 20%)
+4. Financial stability (weight: 15%)
+5. Service level (weight: 10%)
 
-Подготовь общие аргументы для переговоров:
-1. Аргументы для снижения цены (рынок, объёмы, конкуренция)
-2. Аргументы для ускорения сроков (планирование, резервы, штрафы)
-3. Контраргументы на типичные возражения поставщиков
-4. Вежливые формулировки для твёрдой позиции
-
-Без конкретных цен, названий, объёмов. 
-Только шаблоны, которые я потом адаптирую.</pre>
+Scoring: 1–5 for each category
+Benchmarks: industry averages for [SPECIFY INDUSTRY]</pre>
     </div>
-  </div>
+    <div class="example">
+      <div class="example-label">Step 2: On-prem — real scoring</div>
+      <pre>Evaluate suppliers using the scorecard:
 
-  <div class="section">
-    <h2>Request to Developers for De-identification Automation</h2>
-    <p>If procurement specialists frequently de-identify documents manually — this can be automated. Here is a template request for the IT team.</p>
-    
-    <div class="card card-accent">
-      <div class="example-label">Developer request template</div>
-      <pre>Задача: создать скрипт/приложение для обезличивания 
-закупочных документов перед отправкой в облачные LLM.
+Supplier A: [SPECIFY DATA]
+Supplier B: [SPECIFY DATA]
+Supplier C: [SPECIFY DATA]
 
-Вход: файл (PDF, Word, Excel) с коммерческим предложением.
-Выход: тот же файл с заменёнными данными.
-
-Правила замены:
-1. Названия компаний → "Поставщик А", "Поставщик Б" и т.д.
-2. Суммы → относительные ("базовая цена", "+15%", "-20%")
-3. Объёмы → "партия малого/среднего/крупного размера"
-4. Даты → относительные ("в текущем квартале", "до конца года")
-5. Контактные данные → удалить полностью
-6. Номера договоров → "Договор N"
-
-Дополнительно: проверка — что в выходном файле 
-не осталось оригинальных данных (поиск по ключевым словам).
-
-Интеграция: drag-and-drop файл → получить обезличенную версию 
-за 5 секунд. Сохранение истории обезличиваний.
-
-Приоритет: высокий (используется ежедневно 5–10 закупщиками).</pre>
-    </div>
-    
-    <div class="card card-warning">
-      <strong>💡 Tip:</strong> even if IT cannot build a full application, you can start with a simple Python script. It will replace 80% of manual work. Then improve it.
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Summary Table: Hybrid Tasks</h2>
-    <table>
-      <tr><th>Task</th><th>What to De-identify</th><th>Where to Run</th><th>Time Saved</th></tr>
-      <tr><td>Role-play rehearsal</td><td>Names, prices, volumes</td><td>Cloud (ChatGPT, Claude)</td><td>2 hours → 20 min</td></tr>
-      <tr><td>Quotation structure comparison</td><td>Prices, names, volumes</td><td>Cloud</td><td>1 hour → 10 min</td></tr>
-      <tr><td>General arguments</td><td>All specific data</td><td>Cloud → refinement on-premise</td><td>3 hours → 20 min</td></tr>
-      <tr><td>Document de-identification</td><td>Auto-replacement by rules</td><td>Script (on-premise) → cloud</td><td>30 min → 5 sec</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>Knowledge Check</h2>
-    <div class="card card-accent">
-      <p><strong>Question 1:</strong> Which of these CANNOT be sent to the cloud even after de-identification?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Supplier name → "Supplier A"</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Specific penalty clauses from an active contract</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">"Price above market by 10%"</div>
-      <div class="result" id="result1"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 2:</strong> What is the first step of the de-identification checklist?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Remove all dates</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Replace company names with "Supplier A", "Supplier B"</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Remove all numbers from the document</div>
-      <div class="result" id="result2"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 3:</strong> How do you check if a document is de-identified enough?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Send it to the cloud and see if the system blocks it</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Show it to a colleague — do they understand the gist but not know the supplier?</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Remove all numbers and names — that's enough</div>
-      <div class="result" id="result3"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 4:</strong> Which task from the list is hybrid (de-identification + cloud)?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Checking a contract against a template for deviations</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Role-play negotiation rehearsal with an anonymous scenario</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Searching for new suppliers on the internet</div>
-      <div class="result" id="result4"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 5:</strong> What should you do if procurement specialists constantly de-identify documents manually?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Prepare a request to developers for script-based automation</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Continue manually — it's more reliable</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Send originals to the cloud — it's faster</div>
-      <div class="result" id="result5"></div>
+Calculate total scores and rankings.</pre>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../08-2-cloud/index.html" class="nav-btn">← Previous lesson</a>
-    <a href="../08-5-agents/index.html" class="nav-btn primary">Next lesson →</a>
+    <a href="../08-2-cloud/index.html" class="nav-btn">← 8.2 External Tasks</a>
+    <a href="../../index.html" class="nav-btn primary">Home</a>
   </div>
-</main>
-
-<footer>
-  <div class="container">
-    <p>AI for Non-Technical Professionals · Manufacturing Company</p>
-  </div>
-</footer>
-
-<script>
-function checkAnswer(el, isCorrect) {
-  const card = el.closest('.card');
-  const options = card.querySelectorAll('.quiz-option');
-  const result = card.querySelector('.result');
-  options.forEach(o => o.classList.add('disabled'));
-  if (isCorrect) {
-    el.classList.add('correct');
-    result.textContent = '✅ Correct!';
-    result.style.background = 'rgba(16,185,129,0.1)';
-    result.style.color = '#10B981';
-  } else {
-    el.classList.add('wrong');
-    result.textContent = '❌ Incorrect. Think again.';
-    result.style.background = 'rgba(239,68,68,0.1)';
-    result.style.color = '#EF4444';
-  }
-  result.classList.add('show');
-}
-</script>
-</body>
-</html>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
+</body></html>

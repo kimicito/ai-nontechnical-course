@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>8.2 External Procurement Tasks — Cloud — AI for Non-Technical Professionals</title>
-<link rel="stylesheet" href="../../../style.css">
+<title>8.2 External Tasks: Cloud — AI for Non-Technical Professionals</title>
+<link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; }
@@ -19,12 +19,10 @@
   .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
   .section { margin: 28px 0; }
   .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
   .card-accent { border-left: 4px solid var(--accent); }
   .card-success { border-left: 4px solid var(--success); }
   .card-warning { border-left: 4px solid var(--warning); }
-  .card-danger { border-left: 4px solid var(--danger); }
   .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
   .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
   .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -33,25 +31,9 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .card + .card { margin-top: 40px; }
-  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
-  .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
-  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
-  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
-  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
-  .result.show { display: block; }
-  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
   ul, ol { padding-left: 20px; }
   li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) {
-    .lesson-header h1 { font-size: 1.4rem; }
-    .nav-footer { flex-direction: column; }
-    .nav-btn { width: 100%; text-align: center; }
-  }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -60,287 +42,116 @@
    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
+   ym(111617413, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<header>
-  <div class="container">
-    <a href="../../index.html" class="logo">AI for Non-Technical Professionals</a>
-  </div>
-</header>
-
-<main class="container">
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
+<div class="container">
   <div class="lesson-header">
     <div class="phase">Level 8 — Procurement</div>
     <h1>8.2 External Tasks: Cloud</h1>
-    <div class="meta">15 min · for procurement specialists · open data</div>
+    <div class="meta">⏱ 15 min · for procurement specialists</div>
+  </div>
+
+  <div class="card card-success">
+    <strong>Open data (external AI)</strong><br>
+    All tasks in this lesson use <span class="highlight">public sources, general methodologies, open standards</span>. You can use Claude, ChatGPT, or Gemini.
   </div>
 
   <div class="section">
-    <p>This lesson covers tasks where a procurement specialist works with public information: searching for suppliers, benchmarking prices, preparing de-identified documents. This data does not contain trade secrets — it can be sent to cloud-based models.</p>
-    <p><strong>Solution:</strong> cloud APIs: Claude, ChatGPT, Kimi, Qwen API. If web search is needed — the model must be connected to the internet.</p>
+    <h2>Why cloud is better for external procurement tasks</h2>
+    <ul>
+      <li><strong>Web search:</strong> supplier market analysis, pricing benchmarks</li>
+      <li><strong>Methodologies:</strong> developing general templates (RFQ, RFP, tender documents)</li>
+      <li><strong>Benchmarking:</strong> comparing procurement practices across industries</li>
+      <li><strong>Standards:</strong> ISO, INCOTERMS, trade terms</li>
+    </ul>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Important: before sending to cloud — check</strong> that the request contains no real prices, supplier names, or contract details. If it does — anonymize or use on-prem.
   </div>
 
   <div class="section">
-    <h2>When Cloud is Better Than On-Premise</h2>
-    <div class="card card-success">
-      <strong>Cloud models win when you need:</strong>
-      <ul>
-        <li><strong>Web search:</strong> find new suppliers, check market prices</li>
-        <li><strong>Translation:</strong> work with foreign documents</li>
-        <li><strong>Generation:</strong> create a template text from scratch</li>
-        <li><strong>Public data analysis:</strong> commodity indices, exchange rates, customs codes</li>
-      </ul>
-    </div>
-    <div class="card card-warning">
-      <strong>Important:</strong> before sending to the cloud — check that the request contains no specific prices, supplier names, or volumes. If it does — de-identify or send to on-premise.
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>1. Finding Analogs and Alternative Suppliers</h2>
-    <p>A procurement specialist knows 2–3 suppliers for a position. Need to find more — for competition or backup. On-premise has no internet access; the cloud does.</p>
-    
+    <h2>1. Market analysis and supplier search</h2>
     <div class="example">
       <div class="example-label">Prompt example (Claude with web search)</div>
-      <pre>Найди производителей промышленных центробежных насосов 
-серии 32-160 в России и ближнем зарубежье (Казахстан, Беларусь).
+      <pre>Find pump suppliers for industrial applications:
 
-Укажи:
-- Название компании и сайт
-- Где производство (город)
-- Есть ли сертификаты (ГОСТ, ISO)
-- Примерный диапазон цен (если публично)
-- Контакты для закупок (отдел продаж)
+Requirements:
+- Flow rate: [SPECIFY] m³/h
+- Head: [SPECIFY] m
+- Medium: [SPECIFY]
 
-Сделай таблицу сравнения.</pre>
+Tasks:
+1. Top 5 global manufacturers
+2. Model range with specs and approximate prices
+3. Authorized dealers in [SPECIFY REGION]
+4. Lead times
+5. Warranty terms
+
+No need for specific supplier quotes — general market overview.</pre>
     </div>
-
-    <div class="card card-accent">
-      <strong>Result:</strong> table of potential suppliers with contacts. The procurement specialist spends 10 minutes instead of 2 hours of manual searching.
-    </div>
+    <p><strong>Result:</strong> market overview with sources. Saves 2–3 hours.</p>
   </div>
 
   <div class="section">
-    <h2>2. Market Price and Commodity Index Benchmarking</h2>
-    <p>A procurement specialist negotiates a price but doesn't know where the market is. An LLM with web search finds current indices.</p>
-    
+    <h2>2. Developing RFQ/RFP templates</h2>
     <div class="example">
       <div class="example-label">Prompt example</div>
-      <pre>Какие сейчас (2024-2025) рыночные цены на:
-1. Стальную арматуру А500С (опт, тонна)
-2. Портландцемент М500 (опт, тонна)
-3. Медь катодную (LME + премия)
+      <pre>Prepare a template RFQ for industrial equipment procurement:
 
-Также укажи:
-- Динамику за последние 6 месяцев (рост/падение %)
-- Прогноз на ближайший квартал (если есть)
-- Основные факторы, влияющие на цену</pre>
-    </div>
+1. General provisions (scope, timeline)
+2. Technical requirements [SPECIFY]
+3. Commercial terms (price format, delivery, payment)
+4. Qualification requirements for bidders
+5. Evaluation criteria (price, technical compliance, delivery time)
+6. Required documentation
+7. Submission format and deadline
 
-    <div class="card card-warning">
-      <strong>Important:</strong> the request does not contain specific prices from your suppliers — only market benchmarks. This is safe for the cloud.
+Placeholders for company-specific data: [SPECIFY].</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>3. Preparing a De-identified Technical Specification (Draft)</h2>
-    <p>A TS with specific numbers — goes to on-premise. But a draft structure of the TS, general requirements, typical parameters — can be done in the cloud, then finalized internally.</p>
-    
+    <h2>3. Benchmarking procurement KPIs</h2>
     <div class="example">
       <div class="example-label">Prompt example</div>
-      <pre>Подготовь структуру технического задания на закупку 
-промышленного насосного оборудования для химического производства.
+      <pre>Benchmark procurement KPIs for manufacturing industry (2024–2026):
 
-Без конкретных цифр (объёмов, цен, сроков). 
-Только типовые параметры и требования.
+Questions:
+1. What procurement cost-to-revenue ratios do leaders have?
+2. Average savings from competitive bidding (%)
+3. Typical supplier consolidation ratios
+4. Payment terms benchmarks (days)
+5. Digital procurement adoption rates
 
-Структура:
-1. Общие требования
-2. Технические параметры (мощность, производительность, материалы)
-3. Требования к качеству и сертификации
-4. Условия поставки (типовые)
-5. Требования к документации
-6. Критерии приёмки
-
-Укажи, какие пункты нужно будет дополнить конкретными данными внутри компании.</pre>
+Structured report with sources.</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>4. Tender Documentation (General Sections)</h2>
-    <p>Instructions for participants, evaluation criteria, application form — all of this is template-based and does not contain data from a specific deal.</p>
-    
+    <h2>4. INCOTERMS and trade terms explanation</h2>
     <div class="example">
       <div class="example-label">Prompt example</div>
-      <pre>Создай шаблон тендерной документации для закупки 
-промышленного оборудования методом открытого конкурса.
+      <pre>Explain INCOTERMS 2020 rules for procurement:
 
-Включи:
-1. Инструкция для участников (правила подачи, сроки)
-2. Форма заявки (общие поля)
-3. Критерии оценки (цена, сроки, опыт) — без весовых коэффициентов
-4. Форма договора (типовые условия)
-5. Перечень документов для заявки
+Focus on:
+- EXW, FOB, CIF, DAP, DDP — risk transfer points
+- Who pays for what (transport, insurance, customs)
+- Most common terms for [SPECIFY REGION] imports
+- Common mistakes in contract drafting
 
-Укажи, какие разделы нужно согласовать с юристом и заказчиком.</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>5. Auto-Responses to Clients and Platforms</h2>
-    <p>Shipment status, delivery times, quotation requests — often template-based. An LLM generates a response based on ERP status but without specific numbers.</p>
-    
-    <div class="example">
-      <div class="example-label">Prompt example</div>
-      <pre>Напиши шаблон письма ответа на запрос статуса поставки.
-
-Условия:
-- Заказ в пути
-- Поставщик сообщил о задержке
-- Нужно извиниться, объяснить причину, назвать новый срок
-- Предложить компенсацию (типовая)
-
-Без конкретных дат, сумм, названий поставщиков. 
-Получатель: заказчик внутри компании.</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>6. Document Translation and Localization</h2>
-    <p>Foreign suppliers send instructions, specifications, and contracts in English, Chinese, or German. Cloud translation is faster and more accurate than standard translators for technical texts.</p>
-    
-    <div class="example">
-      <div class="example-label">Prompt example</div>
-      <pre>Переведи с английского на русский техническую спецификацию 
-на промышленный насос (файл Spec.pdf).
-
-Требования:
-- Сохрани структуру и нумерацию разделов
-- Технические термины — по ГОСТ/ISO
-- Единицы измерения — в СИ (м³/ч, бар, кВт)
-- Сохрани таблицы в формате markdown
-- Отметь непонятные места для уточнения у поставщика</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>7. Customs Requirements Check (General Regulations)</h2>
-    <p>HS code, certification requirements, duties — this is public information. An LLM finds current requirements for a product category.</p>
-    
-    <div class="example">
-      <div class="example-label">Prompt example</div>
-      <pre>Какие таможенные требования и сертификаты нужны 
-для ввоза в РФ промышленных центробежных насосов (код ТН ВЭД 8413 70)?
-
-Укажи:
-- Обязательная сертификация (ГОСТ-Р, ТР ТС)
-- Нужен ли СБКТС
-- Таможенная пошлина (ставка)
-- НДС при ввозе
-- Требования к документам поставщика (инвойс, упаковочный лист)
-- Особенности для конкретных стран (КНР, Германия, Италия)
-
-Без конкретного груза и сумм — только общая нормативка.</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Summary Table: External Tasks</h2>
-    <table>
-      <tr><th>Task</th><th>Model</th><th>Why Cloud</th><th>Time Saved</th></tr>
-      <tr><td>Supplier Search</td><td>Claude, ChatGPT, Kimi</td><td>Web search required</td><td>2 hours → 10 min</td></tr>
-      <tr><td>Price Benchmarking</td><td>Claude, ChatGPT</td><td>Current market data</td><td>1 hour → 5 min</td></tr>
-      <tr><td>TS Draft (de-identified)</td><td>ChatGPT, Kimi, Qwen API</td><td>Generation from scratch</td><td>3 hours → 15 min</td></tr>
-      <tr><td>Tender Documentation</td><td>ChatGPT, Kimi</td><td>Templates without data</td><td>4 hours → 20 min</td></tr>
-      <tr><td>Auto-responses</td><td>Any cloud model</td><td>Template generation</td><td>15 min → 1 min</td></tr>
-      <tr><td>Translations</td><td>Claude, GPT-4, Kimi</td><td>Technical texts</td><td>2 hours → 10 min</td></tr>
-      <tr><td>Customs Regulations</td><td>Claude with web search</td><td>Current codes and rates</td><td>1 hour → 5 min</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>Knowledge Check</h2>
-    <div class="card card-accent">
-      <p><strong>Question 1:</strong> Why is searching for new suppliers better done in the cloud than on-premise?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Because on-premise has no internet access for searching</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Because on-premise works slower</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Because the cloud is free</div>
-      <div class="result" id="result1"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 2:</strong> Which model should NOT be used for price benchmarking?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Claude with web search</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">On-premise LLM without internet</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT with browsing</div>
-      <div class="result" id="result2"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 3:</strong> Which request is safe for the cloud?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">"Compare prices of my 3 suppliers: A, B, C" (with specific amounts)</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">"What are the market prices for rebar A500C in 2025?"</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">"Check the contract with supplier X against the template"</div>
-      <div class="result" id="result3"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 4:</strong> Which task can be done in the cloud if the TS contains specific volumes?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Send the full TS with volumes to ChatGPT</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Create a draft TS structure without numbers, then add volumes on-premise</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">You cannot use AI for a TS at all</div>
-      <div class="result" id="result4"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 5:</strong> Which model is best for translating technical specifications?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Claude or GPT-4 — they handle technical terms better</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Any free model — translation is a simple task</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Only on-premise model, because specifications may contain prices</div>
-      <div class="result" id="result5"></div>
+Practical examples with cost allocation.</pre>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../08-1-on-prem/index.html" class="nav-btn">← Previous lesson</a>
-    <a href="../08-3-hybrid/index.html" class="nav-btn primary">Next lesson →</a>
+    <a href="../08-1-on-prem/index.html" class="nav-btn">← 8.1 Internal Tasks</a>
+    <a href="../08-3-hybrid/index.html" class="nav-btn primary">8.3 Hybrid Tasks →</a>
   </div>
-</main>
-
-<footer>
-  <div class="container">
-    <p>AI for Non-Technical Professionals · Manufacturing Company</p>
-  </div>
-</footer>
-
-<script>
-function checkAnswer(el, isCorrect) {
-  const card = el.closest('.card');
-  const options = card.querySelectorAll('.quiz-option');
-  const result = card.querySelector('.result');
-  options.forEach(o => o.classList.add('disabled'));
-  if (isCorrect) {
-    el.classList.add('correct');
-    result.textContent = '✅ Correct!';
-    result.style.background = 'rgba(16,185,129,0.1)';
-    result.style.color = '#10B981';
-  } else {
-    el.classList.add('wrong');
-    result.textContent = '❌ Incorrect. Think again.';
-    result.style.background = 'rgba(239,68,68,0.1)';
-    result.style.color = '#EF4444';
-  }
-  result.classList.add('show');
-}
-</script>
-</body>
-</html>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
+</body></html>

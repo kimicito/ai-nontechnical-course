@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>8.1 Internal Procurement Tasks — On-Premise — AI for Non-Technical Professionals</title>
-<link rel="stylesheet" href="../../../style.css">
+<title>8.1 Internal Tasks: On-Prem — AI for Non-Technical Professionals</title>
+<link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; }
@@ -33,7 +33,6 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .card + .card { margin-top: 40px; }
   .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
   .quiz-option:hover { border-color: var(--accent); }
   .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
@@ -47,11 +46,7 @@
   table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
   th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
   th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) {
-    .lesson-header h1 { font-size: 1.4rem; }
-    .nav-footer { flex-direction: column; }
-    .nav-btn { width: 100%; text-align: center; }
-  }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -71,52 +66,39 @@
 <!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<header>
-  <div class="container">
-    <a href="../../index.html" class="logo">AI for Non-Technical Professionals</a>
-  </div>
-</header>
-
-<main class="container">
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
+<div class="container">
   <div class="lesson-header">
     <div class="phase">Level 8 — Procurement</div>
-    <h1>8.1 Internal Tasks: On-Premise</h1>
-    <div class="meta">15 min · for procurement specialists · closed loop</div>
+    <h1>8.1 Internal Tasks: On-Prem</h1>
+    <div class="meta">⏱ 15 min · for procurement specialists · closed loop</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Closed loop (on-prem)</strong><br>
+    All tasks in this lesson work with <span class="highlight">real supplier data, prices, contracts, and negotiation positions</span>. Use your internal model or local LLM.
   </div>
 
   <div class="section">
-    <p>This lesson covers tasks that a procurement specialist performs inside the company with data that cannot be sent to the internet. Prices, terms, negotiation positions — all of this is trade secret.</p>
-    <p><strong>Solution:</strong> on-premise LLM (e.g., Qwen) within the company's closed perimeter. Data never leaves the perimeter.</p>
+    <h2>Why on-prem is critical for procurement</h2>
+    <p>Procurement operates with sensitive data: supplier prices, contract terms, negotiation strategies, volumes. Sending this to external AI creates risks for competitors and regulators.</p>
+  </div>
+
+  <div class="card card-danger">
+    <strong>What must stay on-prem:</strong>
+    <ul>
+      <li>Commercial proposals with real prices</li>
+      <li>Contract terms and penalties</li>
+      <li>Negotiation position (BATNA, leverage)</li>
+      <li>Purchase volumes by item</li>
+      <li>Supplier performance history</li>
+      <li>Internal procurement analytics</li>
+    </ul>
   </div>
 
   <div class="section">
-    <h2>Why On-Premise for Procurement</h2>
-    <div class="card card-danger">
-      <strong>What cannot be sent to the cloud:</strong>
-      <ul>
-        <li>Specific supplier prices from quotations</li>
-        <li>Contract terms and penalties</li>
-        <li>Negotiation position (BATNA, leverage)</li>
-        <li>Purchase volumes by item</li>
-        <li>Historical supplier data</li>
-      </ul>
-    </div>
-    <div class="card card-success">
-      <strong>What can be done on-premise:</strong>
-      <ul>
-        <li>Compare 5 quotations by price, lead time, and terms — in 2 minutes</li>
-        <li>Check if an offer matches the technical specification</li>
-        <li>Prepare arguments for negotiations</li>
-        <li>Find deviations in a contract from the template</li>
-        <li>Analyze purchasing patterns over 2 years</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>1. Comparative Quotation Analysis</h2>
-    <p>A procurement specialist receives 3–5 quotations. Previously: manually compile in Excel, compare price, delivery time, payment terms, warranties. Now: upload to an on-premise LLM and ask a question.</p>
-    
+    <h2>1. Comparative analysis of commercial proposals</h2>
+    <p>The procurement specialist receives 3–5 proposals. Previously: manually compile in Excel, compare price, delivery time, payment terms, warranties. Now: upload to on-prem LLM and ask.</p>
     <div class="example">
       <div class="example-label">Prompt example</div>
       <pre>У меня 3 коммерческих предложения на поставку насосов. 
@@ -131,16 +113,12 @@
 
 Выдели лучшее предложение по каждому критерию и итоговый победитель.</pre>
     </div>
-
-    <div class="card card-accent">
-      <strong>Result:</strong> comparison table + visual highlighting of best positions. The procurement specialist saves 20–30 minutes of routine work.
-    </div>
+    <p><strong>Result:</strong> comparison table + visual highlighting of best options. Saves 20–30 minutes.</p>
   </div>
 
   <div class="section">
-    <h2>2. Checking an Offer Against the Technical Specification</h2>
-    <p>Often a supplier responds to a technical specification, but with caveats or deviations. An LLM can find these deviations faster than a human.</p>
-    
+    <h2>2. Verification against technical specifications</h2>
+    <p>Suppliers often respond to specs with caveats or deviations. LLM finds these faster than humans.</p>
     <div class="example">
       <div class="example-label">Prompt example</div>
       <pre>Сравни техническое задание (файл ТЗ.docx) и ответ поставщика (файл Ответ.docx).
@@ -155,9 +133,8 @@
   </div>
 
   <div class="section">
-    <h2>3. Preparation for Negotiations</h2>
-    <p>This is the most sensitive task. BATNA (best alternative to a negotiated agreement), pressure leverage, supplier weak points — none of this can be exposed in the cloud. On-premise solves this problem.</p>
-    
+    <h2>3. Negotiation preparation</h2>
+    <p>The most sensitive task. BATNA, leverage, supplier weak points — none of this can go to the cloud. On-prem solves this.</p>
     <div class="example">
       <div class="example-label">Prompt example</div>
       <pre>Я готовлюсь к переговорам с поставщиком X по закупке оборудования.
@@ -177,9 +154,8 @@
   </div>
 
   <div class="section">
-    <h2>4. Contract Verification</h2>
-    <p>A lawyer checks a contract for a week. An LLM finds deviations from the template in minutes — the lawyer then validates the findings.</p>
-    
+    <h2>4. Contract review</h2>
+    <p>Legal reviews contracts for a week. LLM finds deviations from template in minutes — legal then validates findings.</p>
     <div class="example">
       <div class="example-label">Prompt example</div>
       <pre>Сравни договор поставщика (файл Договор.docx) и наш стандартный шаблон (файл Шаблон.docx).
@@ -196,9 +172,8 @@
   </div>
 
   <div class="section">
-    <h2>5. SKU Normalization</h2>
-    <p>Within a company, 5 departments may call the same product differently: "насос Grundfos 32-160", "насос Грюндфос 32-160", "GRUNDFOS 32-160". An LLM brings them to a unified form.</p>
-    
+    <h2>5. SKU normalization</h2>
+    <p>Five departments call the same product differently. LLM standardizes naming.</p>
     <div class="example">
       <div class="example-label">Prompt example</div>
       <pre>Вот список номенклатуры из 3 подразделений (файл Номенклатура.xlsx).
@@ -214,9 +189,7 @@
   </div>
 
   <div class="section">
-    <h2>6. Purchase History Analysis</h2>
-    <p>A procurement specialist wants to understand: are prices from a regular supplier rising? Is there seasonality? Which items are getting more expensive the fastest?</p>
-    
+    <h2>6. Purchase history analysis</h2>
     <div class="example">
       <div class="example-label">Prompt example</div>
       <pre>У меня история закупок за 2 года (файл История.xlsx).
@@ -231,159 +204,22 @@
   </div>
 
   <div class="section">
-    <h2>7. Supplier Risk Scoring</h2>
-    <p>Combining internal supplier data with a risk assessment template. The LLM calculates the score and explains why.</p>
-    
-    <div class="example">
-      <div class="example-label">Prompt example</div>
-      <pre>Оцени риск поставщика "ПромТехСнаб" по данным:
-
-- Работаем 3 года
-- 2 задержки поставок за последний год (на 5 и 12 дней)
-- 1 претензия по качеству (брак 3%, устранили за свой счёт)
-- Цена на 8% ниже рынка
-- Финансовые показатели: выручка растёт, нет судебных дел
-- Контракт до конца года, потом перетендер
-
-По шкале от 1 до 10:
-1. Общий риск-профиль
-2. Риск операционный (срыв сроков)
-3. Риск финансовый
-4. Риск качества
-
-Дай рекомендацию: продлевать, перетендеровать, искать резерв.</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>8. Transport Document Parsing</h2>
-    <p>Waybills, invoices, CMR — an LLM extracts data and cross-checks it against the order. All within the internal perimeter.</p>
-    
-    <div class="example">
-      <div class="example-label">Prompt example</div>
-      <pre>Файл ТТН.pdf — разбери содержимое:
-
-- Номер ТТН, дата
-- Отправитель и получатель
-- Перечень груза с количеством и весом
-- Сумма груза
-- Дата отгрузки и дата доставки (факт vs план)
-
-Сверь с заказом (файл Заказ.xlsx) и выяви:
-- Недостачи
-- Пересорты
-- Отклонения по срокам</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>9. Management Reports</h2>
-    <p>A procurement specialist spends an evening on PowerPoint. An LLM produces a draft in 10 minutes — only the numbers need to be verified.</p>
-    
-    <div class="example">
-      <div class="example-label">Prompt example</div>
-      <pre>На основе данных из файла Закупки_Q3.xlsx подготовь черновик отчёта для совета директоров:
-
-1. Общий объём закупок (сумма, рост vs Q2)
-2. Топ-5 категорий по сумме
-3. Статус по ключевым проектам (в срок / с рисками / просрочены)
-4. Рекомендации по 2–3 проблемным зонам
-5. План на Q4 (кратко)
-
-Формат: структурированный текст, готовый к вставке в презентацию.</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Summary Table: Internal Tasks</h2>
+    <h2>Summary table</h2>
     <table>
-      <tr><th>Task</th><th>Input Format</th><th>Output Format</th><th>Time Saved</th></tr>
-      <tr><td>Quotation Comparison</td><td>3–5 quotation files</td><td>Comparison table + winner</td><td>30 min → 2 min</td></tr>
-      <tr><td>Cross-check with TS</td><td>TS + supplier response</td><td>List of deviations</td><td>45 min → 5 min</td></tr>
-      <tr><td>Negotiations</td><td>BATNA data</td><td>Scenario + arguments</td><td>2 hours → 15 min</td></tr>
-      <tr><td>Contract check</td><td>Contract + template</td><td>Deviation list + risks</td><td>4 hours → 10 min</td></tr>
-      <tr><td>SKU normalization</td><td>Excel with items</td><td>Unified table</td><td>3 hours → 10 min</td></tr>
+      <tr><th>Task</th><th>Input format</th><th>Output format</th><th>Time saved</th></tr>
+      <tr><td>CP comparison</td><td>3–5 proposal files</td><td>Comparison table + winner</td><td>30 min → 2 min</td></tr>
+      <tr><td>Spec verification</td><td>Specs + supplier response</td><td>Deviation list</td><td>45 min → 5 min</td></tr>
+      <tr><td>Negotiation prep</td><td>BATNA data</td><td>Scenario + arguments</td><td>2 hr → 15 min</td></tr>
+      <tr><td>Contract review</td><td>Contract + template</td><td>Deviation list + risks</td><td>4 hr → 10 min</td></tr>
+      <tr><td>SKU normalization</td><td>Excel with items</td><td>Unified table</td><td>3 hr → 10 min</td></tr>
       <tr><td>History analysis</td><td>Excel with purchases</td><td>Trends + recommendations</td><td>1 day → 10 min</td></tr>
-      <tr><td>Risk scoring</td><td>Supplier data</td><td>Risk score 1–10 + recommendation</td><td>2 hours → 5 min</td></tr>
-      <tr><td>Transport documents</td><td>Waybill, invoice (PDF)</td><td>Cross-check with order</td><td>30 min → 3 min</td></tr>
-      <tr><td>Management report</td><td>Purchase data</td><td>Draft report</td><td>3 hours → 10 min</td></tr>
     </table>
   </div>
 
-  <div class="section">
-    <h2>Knowledge Check</h2>
-    <div class="card card-accent">
-      <p><strong>Question 1:</strong> Why can't quotation comparison be sent to cloud-based ChatGPT?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Because ChatGPT works slowly</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Because supplier prices are trade secrets</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Because ChatGPT cannot read Excel</div>
-      <div class="result" id="result1"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 2:</strong> Which tool should be used for BATNA-based negotiation preparation?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Google Docs</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">On-premise LLM in a closed loop</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT with data deletion afterwards</div>
-      <div class="result" id="result2"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 3:</strong> How much time does an LLM save on comparing 5 quotations?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">It doesn't save time; manual is faster</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">30 minutes → 2 minutes</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">5 minutes → 4 minutes</div>
-      <div class="result" id="result3"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 4:</strong> What is supplier risk scoring?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Risk assessment on a 1–10 scale based on internal data</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Credit history check at a bank</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Searching for supplier reviews online</div>
-      <div class="result" id="result4"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 5:</strong> Which of these documents definitely belongs on-premise?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Draft TS without prices</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Contract with specific penalties and terms</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Translation of an instruction from English</div>
-      <div class="result" id="result5"></div>
-    </div>
-  </div>
-
   <div class="nav-footer">
-    <a href="../07-hallucinations/index.html" class="nav-btn">← Previous lesson</a>
-    <a href="../08-2-cloud/index.html" class="nav-btn primary">Next lesson →</a>
+    <a href="../../index.html" class="nav-btn">Home</a>
+    <a href="../08-2-cloud/index.html" class="nav-btn primary">8.2 External Tasks →</a>
   </div>
-</main>
-
-<footer>
-  <div class="container">
-    <p>AI for Non-Technical Professionals · Manufacturing Company</p>
-  </div>
-</footer>
-
-<script>
-function checkAnswer(el, isCorrect) {
-  const card = el.closest('.card');
-  const options = card.querySelectorAll('.quiz-option');
-  const result = card.querySelector('.result');
-  options.forEach(o => o.classList.add('disabled'));
-  if (isCorrect) {
-    el.classList.add('correct');
-    result.textContent = '✅ Correct!';
-    result.style.background = 'rgba(16,185,129,0.1)';
-    result.style.color = '#10B981';
-  } else {
-    el.classList.add('wrong');
-    result.textContent = '❌ Incorrect. Think again.';
-    result.style.background = 'rgba(239,68,68,0.1)';
-    result.style.color = '#EF4444';
-  }
-  result.classList.add('show');
-}
-</script>
-</body>
-</html>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
+</body></html>
