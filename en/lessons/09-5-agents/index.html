@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>9.5 Agent Scenarios for Audit — AI for Non-Technical Specialists</title>
+<title>9.5 Agent Scenarios for Construction — AI for Non-Technical Professionals</title>
 <link rel="stylesheet" href="../../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -53,97 +53,100 @@
 <!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Level 9 — Audit</div>
-    <h1>9.5 Agent Scenarios for Audit</h1>
-    <div class="meta">⏱ 12 min · agents for internal control and audit</div>
+    <div class="phase">Level 9 — Construction</div>
+    <h1>9.5 Agent Scenarios for Construction</h1>
+    <div class="meta">⏱ 12 min · automating construction processes with agents</div>
   </div>
 
   <div class="card card-accent">
     <strong>How is an agent different from a language model?</strong><br>
-    LLM answers requests. <span class="highlight">Agent</span> works continuously: monitors, compares, alerts, documents — without command "check now". More — <a href="../../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">Level 4</a>.
+    An LLM answers single requests. <span class="highlight">An agent</span> works cyclically: receives data, analyzes, makes decisions, performs actions — without human involvement at each step. More — <a href="../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">Level 4</a>.
   </div>
 
   <div class="section">
-    <h2>Scenario 1: Anomaly Monitoring Agent (n8n + SQL)</h2>
-    <p><strong>Task:</strong> daily scan transactions, detect deviations from norm, send alerts to auditors.</p>
+    <h2>Scenario 1: Defect Tracking Agent (n8n + Vision API)</h2>
+    <p><strong>Task:</strong> receive photos from the site, classify defects, assign responsible parties, track resolution.</p>
     <div class="arch">
-[Cron: daily at 8:00]<br>
+[Telegram bot on site: photo + defect description]<br>
   ↓<br>
-[SQL query to ERP: yesterday's transactions]<br>
+[n8n: receive message]<br>
   ↓<br>
-[Agent: statistical analysis]<br>
-  ├─→ Amounts 2σ from average<br>
-  ├─→ Duplicate payments<br>
-  ├─→ Payments outside working hours<br>
-  └─→ New counterparties with large amounts<br>
+[Vision LLM: classify defect (crack, unevenness, material defect)]<br>
   ↓<br>
-[LLM: formulate remark with context]<br>
+[LLM: determine criticality (critical / serious / cosmetic)]<br>
   ↓<br>
-[Email to auditor: "5 anomalies for 23.07"]<br>
+[Notion/Bitrix24: create task with photo, description, deadline]<br>
   ↓<br>
-[Google Sheets: anomaly log]
+[Assign responsible per directory: defect type → department]<br>
+  ↓<br>
+[Notify responsible in Telegram]
     </div>
     <div class="card card-success">
-      <strong>Result:</strong> anomalies detected within a day, not at quarterly reconciliation. Reaction time reduced from weeks to hours.
+      <strong>Result:</strong> defect is recorded in 2 minutes instead of 2 hours (photo → paper act → journal entry → routing).
     </div>
   </div>
 
   <div class="section">
-    <h2>Scenario 2: Contract Audit Agent (OpenClaw Agent)</h2>
-    <p><strong>Task:</strong> upon contract submission for approval — automatically check for typical risks, template compliance, mandatory conditions.</p>
+    <h2>Scenario 2: Estimate Verification Agent (OpenClaw-style Agent)</h2>
+    <p><strong>Task:</strong> upload an estimate, check against norms (FER/GESN), find errors, prepare comments.</p>
     <div class="arch">
-[Email / ECM: new contract for approval]<br>
+[Upload estimate file (Excel, PDF) to system]<br>
   ↓<br>
-[Agent: text extraction (OCR if PDF)]<br>
+[On-premise agent: extract items]<br>
+  ├─→ Check: compliance with FER/GESN (internal database)<br>
+  ├─→ Check: volume calculation<br>
+  ├─→ Check: coefficients and adjustments<br>
+  └─→ Check: regional rates<br>
   ↓<br>
-[On-prem LLM: checklist verification]<br>
-  ├─→ Compliance with company template<br>
-  ├─→ Mandatory conditions presence (insurance, penalties, force majeure)<br>
-  ├─→ Risky wording (auto-renewal, sole arbitration)<br>
-  ├─→ Legislative compliance<br>
-  └─→ Details check against business registry<br>
-  ↓<br>
-[Verification protocol formation]<br>
-  ├─ Remarks with item references<br>
+[LLM: form verification protocol]<br>
+  ├─ Found errors<br>
   ├─ Correction recommendations<br>
-  └─ Risk assessment (low / medium / high)<br>
+  └─ References to normative documents<br>
   ↓<br>
-[Notification to auditor + lawyer]
+[PDF protocol + notification to estimator]
     </div>
   </div>
 
   <div class="section">
-    <h2>Scenario 3: Audit Preparation Agent (Hybrid)</h2>
-    <p><strong>Task:</strong> before external audit collect all required documents, check completeness, prepare plan.</p>
+    <h2>Scenario 3: Schedule Control Agent (Hybrid)</h2>
+    <p><strong>Task:</strong> monitor work schedules, analyze delay risks, warn responsible parties.</p>
     <div class="arch">
-[Request: "Preparing for Q2 VAT audit"]<br>
+[Integration with Project / MS Project / Primavera]<br>
   ↓<br>
-[Agent: document search in ECM / archive]<br>
-  ├─→ Invoices<br>
-  ├─→ Purchase/sales ledger<br>
-  ├─→ Bank statements<br>
-  └─→ Counterparty contracts<br>
+[Agent: daily status reading]<br>
+  ├─→ Plan/fact comparison<br>
+  ├─→ Critical path analysis<br>
+  └─→ Identify tasks at risk of delay (>3 days deviation)<br>
   ↓<br>
-[Completeness check by auditor's list]<br>
+[LLM: formulate warning]<br>
+  ├─ Which work is at risk<br>
+  ├─ Why (causes per data)<br>
+  └─ What to do (options)<br>
   ↓<br>
-[LLM: analysis of found / missing documents]<br>
-  ↓<br>
-[Preparation plan formation]<br>
-  ├─ What's ready<br>
-  ├─ What's missing + responsible persons<br>
-  └─ Deadlines<br>
-  ↓<br>
-[Notification to manager + responsible persons]
+[Email to project manager + dashboard update]
     </div>
+    <div class="card card-warning">
+      <strong>Important:</strong> schedule data is internal information. The agent works fully on-premise or through DMZ with filtering.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Approach Comparison</h2>
+    <table style="width:100%;border-collapse:collapse;margin:14px 0;font-size:0.9rem;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">Approach</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">When to Use</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">Complexity</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n + Vision API</td><td style="padding:10px;border-bottom:1px solid var(--border);">Simple scenarios: photo intake, classification, notifications</td><td style="padding:10px;border-bottom:1px solid var(--border);">Low</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">OpenClaw agent</td><td style="padding:10px;border-bottom:1px solid var(--border);">Complex multi-step tasks with decision-making</td><td style="padding:10px;border-bottom:1px solid var(--border);">Medium</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Hybrid agent</td><td style="padding:10px;border-bottom:1px solid var(--border);">Tasks with sensitive data + public sources</td><td style="padding:10px;border-bottom:1px solid var(--border);">High</td></tr>
+    </table>
   </div>
 
   <div class="nav-footer">
-    <a href="../09-compliance-fraud/index.html" class="nav-btn">← Compliance and Fraud</a>
-    <a href="../../catalog.html" class="nav-btn primary">Catalog</a>
+    <a href="../09-3-hybrid/index.html" class="nav-btn">← Previous lesson</a>
+    <a href="../10-1-on-prem/index.html" class="nav-btn primary">Next lesson →</a>
   </div>
 </div>
-<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Construction Company</p></div></footer>
 </body></html>

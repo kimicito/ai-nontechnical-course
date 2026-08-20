@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>9.1 Internal Construction Tasks — On-Premise — AI for Non-Technical Professionals</title>
+<link rel="stylesheet" href="../../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  .card + .card { margin-top: 40px; }
+  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
+  .quiz-option:hover { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
+  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
+  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
+  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
+  .result.show { display: block; }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
+  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--accent); font-weight: 600; }
+  @media (max-width: 768px) {
+    .lesson-header h1 { font-size: 1.4rem; }
+    .nav-footer { flex-direction: column; }
+    .nav-btn { width: 100%; text-align: center; }
+  }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(111617413, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+<header>
+  <div class="container">
+    <a href="../../index.html" class="logo">AI for Non-Technical Professionals</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="phase">Level 9 — Construction</div>
+    <h1>9.1 Internal Tasks: On-Premise</h1>
+    <div class="meta">15 min · for construction engineers · closed loop</div>
+  </div>
+
+  <div class="section">
+    <p><strong>Main thesis of this lesson:</strong> an estimate is not text. An LLM cannot calculate using GESN/FER, does not know coefficients, and does not understand the resource method. If you feed an estimate to a neural network as text and expect an accurate calculation — you are doomed to hallucinations.</p>
+    <p>But this doesn't mean AI is useless in construction. It is useful — but in tasks where precise normative calculation is not needed. Let's break down where it works now and where it doesn't yet.</p>
+  </div>
+
+  <div class="section">
+    <h2>Why Construction is Harder Than Procurement</h2>
+    <p>In procurement, there are concrete numbers: price, lead time, quantity. An LLM compares 5 quotations and does it well. In construction, everything is different:</p>
+
+    <div class="card card-danger">
+      <strong>What makes construction difficult for LLM:</strong>
+      <ul>
+        <li><strong>Normative bases:</strong> GESN, FER, TSN, FSSC — tens of thousands of items with coefficients</li>
+        <li><strong>Resource method:</strong> cost = norm × resource price × coefficients. The LLM doesn't know current resource prices</li>
+        <li><strong>Coefficients:</strong> Kp (profit), Knr (taxes), Kpz (loading), conversion indices — they vary by region and year</li>
+        <li><strong>Local estimates:</strong> each project is unique, no two estimates are identical</li>
+        <li><strong>Estimate norms ≠ market prices:</strong> GESN provides labor and machine norms, but material prices are market-based</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What Cannot Be Sent to the Cloud</h2>
+    <div class="card card-danger">
+      <strong>Confidential construction data:</strong>
+      <ul>
+        <li>Estimates, KS-2, KS-3 with prices and volumes</li>
+        <li>Claims and claim correspondence with contractors</li>
+        <li>As-built documentation and concealed work records</li>
+        <li>Meeting minutes with commercial terms</li>
+        <li>Design specifications with budget constraints</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>What can be done on-premise:</strong>
+      <ul>
+        <li>Draft a claim with argumentation — in 10 minutes</li>
+        <li>Check as-built documentation for completeness</li>
+        <li>Compose meeting minutes from audio recordings or notes</li>
+        <li>Check KS-2/KS-3 against actual volumes</li>
+        <li>Write design specifications and construction control specifications</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Claim Work — Drafting Arguments</h2>
+    <p>A PTO engineer or foreman prepares a claim to a contractor for schedule delays, poor workmanship, or material shortages. Previously: hours of document review + legal consultation. Now: LLM prepares a draft, the lawyer validates.</p>
+
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Я готовлю претензию подрядчику ООО «СтройМонтаж».
+
+Исходные данные:
+- Договор подряда № 45 от 15.02.2026, срок окончания: 30.06.2026
+- Фактическое окончание: 15.08.2026 (задержка 46 дней)
+- Причины задержки по моей версии: задержка поставки арматуры подрядчиком (10 дней), нехватка рабочих (остальные 36 дней)
+- Неустойка по договору: 0,1% от цены договора за каждый день просрочки
+- Цена договора: 15 000 000 ₽
+- Я направлял уведомление о риске срыва сроков 15.05.2026
+
+Подготовь:
+1. Аргументацию претензии со ссылками на пункты типового договора подряда
+2. Расчёт неустойки
+3. Требования: устранить недостатки + уплатить неустойку
+4. Срок ответа: 10 рабочих дней
+5. Ссылки на ФЗ-44 или ГК РФ (по применимости)
+
+Формат: готовый черновик письма для валидации юристом.</pre>
+    </div>
+
+    <div class="card card-accent">
+      <strong>Result:</strong> structured claim draft with penalty calculation, references to legislation and contract. The engineer saves 2–3 hours; the lawyer spends 15 minutes reviewing instead of 2 hours writing from scratch.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. Checking As-Built Documentation for Completeness</h2>
+    <p>Before handing over the facility to the client or before the work completion certificate, the engineer checks whether all as-built documentation is collected. OCS sheets, concealed work acts, material certificates, logs — dozens of items.</p>
+
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Проверь комплектность исполнительной документации на объект «Торговый центр, корпус А».
+
+Вот перечень документов, которые я собрал (файл ОКС_список.xlsx):
+- Исполнительные схемы (листы 1–45)
+- Акты скрытых работ (листы 1–120)
+- Сертификаты на материалы (папка /certs/)
+- Журнал работ (журнал_2026.docx)
+- Журнал входного контроля
+- Исполнительный геодезический журнал
+- Протоколы испытаний
+
+Требования по комплектности:
+- По каждому виду работ должен быть акт скрытых работ
+- Каждый материал должен иметь сертификат сроком действия на дату использования
+- Геодезическая съёмка должна быть на всех этапах
+
+Проверь:
+1. Каких документов не хватает по сравнению с требованиями
+2. Какие сертификаты просрочены
+3. Какие акты скрытых работ не имеют соответствующих схем
+4. Список недостающего с указанием приоритета</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Meeting Minutes from Notes</h2>
+    <p>After a site meeting, the foreman or engineer needs to formalize the minutes. Previously: remember what was said, re-listen to audio, write manually. With on-premise LLM: upload an audio recording or notes — get ready minutes.</p>
+
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Оформи протокол рабочего совещания на стройплощадке.
+
+Исходные данные:
+Дата: 14.07.2026
+Место: стройплощадка, офис прораба
+Участники:
+- Иванов А.П. (представитель заказчика)
+- Петров С.В. (главный инженер проекта, ГИП)
+- Сидоров К.М. (прораб, подрядчик ООО «СтройМонтаж»)
+- Кузнецова Л.В. (инженер ПТО, генподрядчик)
+
+Темы обсуждения (заметки):
+1. Отставание по монолитным работам на 12 дней. Причина: задержка поставки опалубки. Решение: привлечь вторую бригаду, работать в 2 смены с 20.07.
+2. Претензия по качеству штукатурки на 3-м этаже. Необходимо частичное демонтаж и переделка. Срок: до 25.07.
+3. Согласована замена поставщика плитки с «Керама» на «ГранитСтрой» — цена ниже на 8%, срок поставки 14 дней.
+4. Следующее совещание: 28.07.2026.
+
+Оформи:
+- Стандартный протокол с фиксацией решений
+- Поручения с ответственными и сроками
+- Отдельно: список рисков, которые нужно довести до руководства</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Analysis of KS-2/KS-3 Against Actuals</h2>
+    <p>A contractor submits KS-2 (work completion certificate) and KS-3 (estimate). The engineer must check whether the volumes in the certificates match the actuals. Previously: manually cross-check against logs, plans, photos. With on-premise: upload documents and ask.</p>
+
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Проверь соответствие КС-2 и КС-3 фактическим объёмам работ.
+
+Входные данные:
+- КС-2 за июнь 2026 (файл КС2_июнь.pdf)
+- КС-3 за июнь 2026 (файл КС3_июнь.pdf)
+- Журнал учёта выполненных работ (файл журнал_июнь.xlsx)
+- Фотоотчёт с объекта (папка /фото/июнь/)
+
+Проверь:
+1. Объёмы бетонирования по КС-2 vs факт по журналу (разница в м³)
+2. Объёмы арматуры: принятая по КС-3 vs фактически смонтированная
+3. Наличие работ, которые не подтверждены фотоотчётом
+4. Соответствие единичных расценок КС-3 смете договора
+5. Сверхурочные работы: есть ли подтверждение приказом
+
+Выведи:
+- Список расхождений с указанием сумм
+- Рекомендации: что принять, что отклонить
+- Какие документы нужно запросить у подрядчика для устранения</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Design Specifications</h2>
+    <p>A client prepares technical specifications for a designer or for an organization that will perform construction control. Previously: search for templates, adapt, check for completeness. With on-premise LLM: describe the task — get a structured specification.</p>
+
+    <div class="example">
+      <div class="example-label">Prompt example — Design Specification</div>
+      <pre>Подготовь техническое задание на проектирование торгового центра.
+
+Исходные данные:
+- Площадь земельного участка: 1,2 га
+- Площадь застройки: 8 500 м²
+- Этажность: 2 этажа + подвал
+- Назначение: торговые площади, склад, парковка
+- Климатический район: III-B (средняя полоса России)
+- Сейсмичность: 6 баллов
+- Требуемая энергоэффективность: класс B
+- Бюджет проектирования: до 5 000 000 ₽
+- Срок: 4 месяца
+- Этапы: эскизный проект → ПД → РД
+
+ТЗ должно включать:
+1. Общие положения
+2. Исходные данные (градостроительный план, геологические изыскания)
+3. Состав проектной документации по перечню
+4. Требования к конструктивным решениям
+5. Требования к инженерным системам
+6. Требования к энергоэффективности
+7. Требования к благоустройству и озеленению
+8. Сроки и этапы
+9. Порядок согласования и приёмки
+10. Ограничения и запреты</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Quick Wins: What Works Now</h2>
+    <div class="card card-success">
+      <strong>Tasks an LLM handles without additional development:</strong>
+      <ul>
+        <li><strong>Normative search:</strong> "In which GESN collection can I find bored pile installation?"</li>
+        <li><strong>Estimate item decoding:</strong> "What does FERm 01-01-001-01 mean?"</li>
+        <li><strong>Work volume statement to text:</strong> "From the work volume statement, compose a technological map"</li>
+        <li><strong>Document generation:</strong> explanatory notes, technological maps, letters</li>
+        <li><strong>Estimate logic check (not calculation!):</strong> "In a foundation estimate, there are roofing works — is this an error?"</li>
+        <li><strong>Drawing data extraction (OCR):</strong> recognize dimensions, grades, quantities</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What NOT to Do with LLM in Construction</h2>
+    <div class="card card-danger">
+      <strong>Red flags — tasks where LLM will deceive you:</strong>
+      <ul>
+        <li><strong>Calculate an estimate "from scratch" from text:</strong> LLM doesn't know current resource prices, indices, and coefficients</li>
+        <li><strong>Check arithmetic of complex estimates:</strong> may miss an error in a coefficient but "confirm" the total</li>
+        <li><strong>Select norms from work description:</strong> LLM may suggest a similar but incorrect rate</li>
+        <li><strong>Use for estimate justification in court or expertise:</strong> LLM conclusions have no legal force</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>Safety rule:</strong> LLM is an estimator's assistant, not a replacement. It accelerates routine (search, text, logic check), but accurate calculation remains with the human and estimate software (GRAND-Estimate, A0, Smeta.ru).
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Summary Table: Internal Tasks</h2>
+    <table>
+      <tr><th>Task</th><th>Input Format</th><th>Output Format</th><th>Time Saved</th></tr>
+      <tr><td>Claim drafting</td><td>Contract data, violation facts</td><td>Draft claim with calculation</td><td>3 h → 15 min</td></tr>
+      <tr><td>As-built doc check</td><td>List of collected docs + requirements</td><td>List of missing items with priorities</td><td>4 h → 20 min</td></tr>
+      <tr><td>Meeting minutes</td><td>Audio/notes from meeting</td><td>Ready minutes with action items</td><td>1.5 h → 10 min</td></tr>
+      <tr><td>KS-2/KS-3 analysis</td><td>Certificates, logs, photo reports</td><td>Deviation table + recommendations</td><td>6 h → 30 min</td></tr>
+      <tr><td>Design specifications</td><td>Object description and requirements</td><td>Structured specification per GOST</td><td>6 h → 20 min</td></tr>
+      <tr><td>Normative search</td><td>Work description</td><td>Collection and rate reference</td><td>30–60 min → 2–5 min</td></tr>
+      <tr><td>Explanatory note</td><td>Estimate or project data</td><td>Structured note per template</td><td>2–4 h → 10–15 min</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Knowledge Check</h2>
+    <div class="card card-accent">
+      <p><strong>Question 1:</strong> Why can't an LLM accurately calculate an estimate using GESN/FER?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because GESN prohibits the use of AI</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because LLM doesn't know current resource prices, coefficients, and indices</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because estimates are too long for the context</div>
+      <div class="result" id="result1"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 2:</strong> Which task belongs to "quick wins" — what works now?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Checking if an estimate contains work items inappropriate for renovation</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Automatic estimate calculation from a work volume statement with norm selection</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Predicting final project cost from a rough work volume statement</div>
+      <div class="result" id="result2"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 3:</strong> Why can't claims and KS-2/KS-3 be sent to cloud ChatGPT?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because ChatGPT cannot read PDFs</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because this is trade secret and confidential data</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because construction documents are too large</div>
+      <div class="result" id="result3"></div>
+    </div>
+
+    <div class="card card-accent">
+      <p><strong>Question 4:</strong> What is the safety rule when using LLM in construction?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">LLM fully replaces the estimator</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">LLM is an estimator's assistant; accurate calculation remains with the human</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">LLM can be used for estimate justification in court</div>
+      <div class="result" id="result4"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../08-5-agents/index.html" class="nav-btn">← Previous lesson</a>
+    <a href="../09-2-cloud/index.html" class="nav-btn primary">Next lesson →</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>AI for Non-Technical Professionals · Construction Company</p>
+  </div>
+</footer>
+
+<script>
+function checkAnswer(el, isCorrect) {
+  const card = el.closest('.card');
+  const options = card.querySelectorAll('.quiz-option');
+  const result = card.querySelector('.result');
+  options.forEach(o => o.classList.add('disabled'));
+  if (isCorrect) {
+    el.classList.add('correct');
+    result.textContent = '✅ Correct!';
+    result.style.background = 'rgba(16,185,129,0.1)';
+    result.style.color = '#10B981';
+  } else {
+    el.classList.add('wrong');
+    result.textContent = '❌ Incorrect. Think again.';
+    result.style.background = 'rgba(239,68,68,0.1)';
+    result.style.color = '#EF4444';
+  }
+  result.classList.add('show');
+}
+</script>
+</body>
+</html>
