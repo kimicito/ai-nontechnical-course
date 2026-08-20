@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>9.3 Hybrid Construction Tasks — De-identification — AI for Non-Technical Professionals</title>
-<link rel="stylesheet" href="../../../style.css">
+<title>9.3 Hybrid Tasks — AI for Non-Technical Professionals</title>
+<link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; }
@@ -19,12 +19,9 @@
   .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
   .section { margin: 28px 0; }
   .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
   .card-accent { border-left: 4px solid var(--accent); }
-  .card-success { border-left: 4px solid var(--success); }
   .card-warning { border-left: 4px solid var(--warning); }
-  .card-danger { border-left: 4px solid var(--danger); }
   .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
   .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
   .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -33,25 +30,9 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .card + .card { margin-top: 40px; }
-  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
-  .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
-  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
-  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
-  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
-  .result.show { display: block; }
-  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
   ul, ol { padding-left: 20px; }
   li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) {
-    .lesson-header h1 { font-size: 1.4rem; }
-    .nav-footer { flex-direction: column; }
-    .nav-btn { width: 100%; text-align: center; }
-  }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -60,262 +41,69 @@
    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
+   ym(111617413, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<header>
-  <div class="container">
-    <a href="../../index.html" class="logo">AI for Non-Technical Professionals</a>
-  </div>
-</header>
-
-<main class="container">
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
+<div class="container">
   <div class="lesson-header">
     <div class="phase">Level 9 — Construction</div>
-    <h1>9.3 Hybrid Tasks: De-identification</h1>
-    <div class="meta">15 min · for construction specialists · boundary of perimeters</div>
+    <h1>9.3 Hybrid Tasks</h1>
+    <div class="meta">⏱ 20 min · for construction managers</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Hybrid approach</strong><br>
+    General <span class="highlight">methodology and standards</span> in external AI.<br>
+    <span class="highlight">Real project data</span> (estimates, schedules, contractor data) in on-prem.
   </div>
 
   <div class="section">
-    <p>Some construction tasks sit on the boundary between on-premise and cloud. They can be done in the cloud, but only if the data is de-identified. Replace the facility address with "Object A", remove specific contract amounts — and the task becomes safe for an external model.</p>
-    <p>This lesson covers how to de-identify construction data, which tasks are acceptable in hybrid mode, and how to prepare a request for automation.</p>
+    <h2>1. Tender document preparation (hybrid)</h2>
+    <p><strong>Cloud:</strong> general tender structure, legal requirements, evaluation criteria.<br>
+    <strong>On-prem:</strong> specific technical requirements, budgets, contractor qualifications.</p>
   </div>
 
   <div class="section">
-    <h2>The Rule: De-identify Before the Cloud</h2>
-    <div class="card card-danger">
-      <strong>What CANNOT be sent to the cloud (even partially):</strong>
-      <ul>
-        <li>Specific contract amounts and estimate totals</li>
-        <li>Contractor names (unless they are major market players)</li>
-        <li>Geodetic coordinates and exact addresses</li>
-        <li>Subcontract terms (penalties, bonuses, deferrals)</li>
-        <li>Work completion certificates with actual volumes</li>
-        <li>Photos showing security zones or strategic objects</li>
-      </ul>
-    </div>
-    <div class="card card-success">
-      <strong>What CAN be sent after de-identification:</strong>
-      <ul>
-        <li>General construction technology questions</li>
-        <li>Structural element checks without specific dimensions</li>
-        <li>Standard specification templates</li>
-        <li>Textual concept descriptions without prices</li>
-        <li>General regulatory compliance checks</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>De-identification Checklist for Construction (5 Steps)</h2>
-    <div class="card">
-      <ol>
-        <li><strong>Replace facility names:</strong> "Office Center, Building A, Moscow" → "Object A"</li>
-        <li><strong>Remove specific amounts:</strong> "15,000,000 ₽" → "contract amount X" or "base amount +20%"</li>
-        <li><strong>Remove geodetic data:</strong> coordinates, exact addresses, elevation marks</li>
-        <li><strong>Replace contractor names:</strong> "LLC StroyMontazh" → "Contractor A"</li>
-        <li><strong>Check:</strong> if you show the de-identified text to a colleague — will they understand what it's about but not know the facility or contractor? If yes — it can go to the cloud.</li>
-      </ol>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>1. De-identified Equipment Search</h2>
-    <p>Need to find an analog for a failed pump but can't share the facility details. De-identify the parameters and search in the cloud.</p>
-    
+    <h2>2. Project risk assessment (hybrid)</h2>
+    <p><strong>Cloud:</strong> general risk categories for construction projects, mitigation strategies.<br>
+    <strong>On-prem:</strong> specific project risks with real data, probability/impact assessment.</p>
     <div class="example">
-      <div class="example-label">Prompt example (de-identified)</div>
-      <pre>На объекте А установлен циркуляционный насос европейского производства, модель устаревшая.
-Производитель больше не поставляет в РФ.
+      <div class="example-label">Step 1: Cloud — risk framework</div>
+      <pre>Develop a risk assessment framework for industrial construction:
 
-Найди аналоги российского производства с параметрами:
-- Производительность: до 8 м³/ч
-- Напор: до 6 м
-- Монтажная длина: 180 мм
-- Тип ротора: мокрый
-- Питание: 1×230 В
+Risk categories:
+1. Schedule risks (weather, permits, contractor delays)
+2. Cost risks (material price fluctuations, scope changes)
+3. Quality risks (defects, non-compliance)
+4. Safety risks (accidents, regulatory violations)
+5. External risks (geological, environmental)
 
-Для каждого аналога укажи:
-- Производитель и модель
-- Примерную цену (ориентировочно)
-- Отличия от оригинала</pre>
+Assessment: probability × impact matrix
+Mitigation strategies for each category</pre>
     </div>
-
-    <div class="card card-accent">
-      <strong>Result:</strong> list of analogs without revealing the facility, original supplier, or procurement prices. Safe for the cloud.
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>2. De-identified Price Benchmarking</h2>
-    <p>Need to benchmark construction work prices but can't share estimate details. Use relative figures and general descriptions.</p>
-    
     <div class="example">
-      <div class="example-label">Prompt example (de-identified)</div>
-      <pre>Получено КП на монтаж системы вентиляции в офисном здании.
-Площадь: 2000 м², 4 этажа.
-Субподрядчик назвал цену (только монтаж, без материалов).
+      <div class="example-label">Step 2: On-prem — real risk assessment</div>
+      <pre>Apply the risk framework to our warehouse project:
 
-Сделай рыночный бенчмаркинг по Московскому региону, 2025 год:
-- Монтаж приточно-вытяжной системы с рекуперацией
-- Примерно 8000 м² воздуховодов
-- 20 вентиляционных установок
-- Автоматика и диспетчеризация
+Project data:
+- Budget: [SPECIFY] million rubles
+- Duration: [SPECIFY] months
+- Location: [SPECIFY]
+- Contractor: [SPECIFY]
+- Season: [SPECIFY]
 
-Укажи диапазон рыночных цен (нижняя/средняя/верхняя граница).
-Без конкретных сумм из моего КП — только ориентиры.</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>3. General Technical Specifications</h2>
-    <p>Need a standard TS for a typical construction element. De-identify the object and generate in the cloud, then adapt on-premise.</p>
-    
-    <div class="example">
-      <div class="example-label">Prompt example (de-identified)</div>
-      <pre>Подготовь техническое задание на проектирование многофункционального здания.
-
-Общие параметры (без адреса и конкретных бюджетов):
-- Площадь участка: 1–2 га
-- Площадь застройки: 8000–10000 м²
-- Этажность: 2 этажа + подвал
-- Назначение: торговые площади, склад, парковка
-- Климатический район: III-B (средняя полоса)
-- Сейсмичность: 6 баллов
-- Энергоэффективность: класс B
-
-ТЗ должно включать:
-1. Общие положения
-2. Состав проектной документации
-3. Требования к конструктивным решениям
-4. Требования к инженерным системам
-5. Сроки и этапы
-6. Порядок согласования и приёмки
-
-Укажи, какие разделы нужно дополнить конкретными данными внутри компании.</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Request to Developers for De-identification Automation</h2>
-    <p>If construction specialists frequently de-identify documents manually — this can be automated. Here's a template request for the IT team.</p>
-    
-    <div class="card card-accent">
-      <div class="example-label">Developer request template</div>
-      <pre>Задача: создать скрипт/приложение для обезличивания 
-строительных документов перед отправкой в облачные LLM.
-
-Вход: файл (PDF, Word, Excel) со сметой, КС-2, или техническим описанием.
-Выход: тот же файл с заменёнными данными.
-
-Правила замены:
-1. Названия объектов → "Объект А", "Объект Б"
-2. Названия подрядчиков → "Подрядчик А", "Подрядчик Б"
-3. Суммы → относительные ("базовая сумма", "+15%", "-20%")
-4. Объёмы → "небольшой/средний/крупный объём"
-5. Адреса и координаты → удалить полностью
-6. Номера договоров → "Договор N"
-7. Даты → относительные ("в текущем квартале", "до конца года")
-
-Дополнительно: проверка — что в выходном файле 
-не осталось оригинальных данных (поиск по ключевым словам).
-
-Интеграция: drag-and-drop файл → получить обезличенную версию 
-за 5 секунд. Сохранение истории обезличиваний.
-
-Приоритет: высокий (используется ежедневно 3–5 инженерами).</pre>
-    </div>
-    
-    <div class="card card-warning">
-      <strong>💡 Tip:</strong> even if IT cannot build a full application, you can start with a simple Python script. It will replace 80% of manual work. Then improve it.
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Summary Table: Hybrid Tasks</h2>
-    <table>
-      <tr><th>Task</th><th>What to De-identify</th><th>Where to Run</th><th>Time Saved</th></tr>
-      <tr><td>Equipment analog search</td><td>Facility, original supplier, prices</td><td>Cloud (ChatGPT, Claude)</td><td>2–3 h → 10 min</td></tr>
-      <tr><td>Price benchmarking</td><td>Specific amounts, contractor names</td><td>Cloud</td><td>1–2 days → 10 min</td></tr>
-      <tr><td>General specifications</td><td>Address, budget, specific dimensions</td><td>Cloud → refinement on-premise</td><td>4–6 h → 20 min</td></tr>
-      <tr><td>Document de-identification</td><td>Auto-replacement by rules</td><td>Script (on-premise) → cloud</td><td>30 min → 5 sec</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>Knowledge Check</h2>
-    <div class="card card-accent">
-      <p><strong>Question 1:</strong> What from the list CANNOT be sent to the cloud even after de-identification?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">General equipment parameters without brand names</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Specific penalty clauses from an active subcontract</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">"Price above market by 10%"</div>
-      <div class="result" id="result1"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 2:</strong> What is the first step of construction de-identification?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Remove all dates</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Replace facility names with "Object A", "Object B"</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Remove all numbers from the document</div>
-      <div class="result" id="result2"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 3:</strong> How do you check if a construction document is de-identified enough?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Send it to the cloud and see if the system blocks it</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Show it to a colleague — do they understand the gist but not know the facility?</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Remove all numbers and names — that's enough</div>
-      <div class="result" id="result3"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 4:</strong> What should you do if engineers constantly de-identify documents manually?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Prepare a request to developers for script-based automation</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Continue manually — it's more reliable</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Send originals to the cloud — it's faster</div>
-      <div class="result" id="result4"></div>
+Assess each risk category with real data.
+Calculate overall project risk score.</pre>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../09-2-cloud/index.html" class="nav-btn">← Previous lesson</a>
-    <a href="../09-5-agents/index.html" class="nav-btn primary">Next lesson →</a>
+    <a href="../09-2-cloud/index.html" class="nav-btn">← 9.2 External Tasks</a>
+    <a href="../../index.html" class="nav-btn primary">Home</a>
   </div>
-</main>
-
-<footer>
-  <div class="container">
-    <p>AI for Non-Technical Professionals · Construction Company</p>
-  </div>
-</footer>
-
-<script>
-function checkAnswer(el, isCorrect) {
-  const card = el.closest('.card');
-  const options = card.querySelectorAll('.quiz-option');
-  const result = card.querySelector('.result');
-  options.forEach(o => o.classList.add('disabled'));
-  if (isCorrect) {
-    el.classList.add('correct');
-    result.textContent = '✅ Correct!';
-    result.style.background = 'rgba(16,185,129,0.1)';
-    result.style.color = '#10B981';
-  } else {
-    el.classList.add('wrong');
-    result.textContent = '❌ Incorrect. Think again.';
-    result.style.background = 'rgba(239,68,68,0.1)';
-    result.style.color = '#EF4444';
-  }
-  result.classList.add('show');
-}
-</script>
-</body>
-</html>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
+</body></html>
