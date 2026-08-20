@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>8.5 Agent Scenarios for Construction — AI for Non-Technical Specialists</title>
+<title>8.5 Agent Scenarios for Procurement — AI for Non-Technical Professionals</title>
 <link rel="stylesheet" href="../../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -53,90 +53,124 @@
 <!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Level 8 — Construction</div>
-    <h1>8.5 Agent Scenarios for Construction</h1>
-    <div class="meta">⏱ 12 min · automating construction processes with agents</div>
+    <div class="phase">Level 8 — Procurement</div>
+    <h1>8.5 Agent Scenarios for Procurement</h1>
+    <div class="meta">⏱ 12 min · how agents automate procurement processes</div>
   </div>
 
   <div class="card card-accent">
     <strong>How is an agent different from a language model?</strong><br>
-    LLM answers individual requests. <span class="highlight">Agent</span> works cyclically: receives data, analyzes, makes decisions, takes actions — without human involvement at each step. More — <a href="../../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">Level 4</a>.
+    An LLM answers single requests. <span class="highlight">An agent</span> works cyclically: it sets tasks itself, calls tools, gets results, and decides what to do next. An agent can visit a website, download a file, send an email — without human involvement at each step.
+    <p style="margin-top:8px;">More about agents — <a href="../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">Level 4: Agents and Orchestration</a>.</p>
   </div>
 
   <div class="section">
-    <h2>Scenario 1: Defect Tracking Agent (n8n + Vision API)</h2>
-    <p><strong>Task:</strong> receive photos from site, classify defects, assign responsible persons, track resolution.</p>
+    <h2>Scenario 1: Tender Monitoring Agent (n8n + LLM)</h2>
+    <p><strong>Task:</strong> daily check of government and commercial tenders, filter by keywords, send a brief digest to the procurement specialist.</p>
+    
+    <h3>Agent Architecture</h3>
     <div class="arch">
-[Telegram bot on site: photo + defect description]<br>
+[n8n Cron: daily at 9:00]<br>
   ↓<br>
-[n8n: receive message]<br>
+[HTTP Request: zakupki.gov.ru / customer API]<br>
   ↓<br>
-[Vision LLM: classify defect (crack, unevenness, material defect)]<br>
+[LLM Node: filter by keywords, assess relevance]<br>
   ↓<br>
-[LLM: determine criticality (critical / serious / cosmetic)]<br>
+[Telegram / Email: digest "5 tenders for today"]<br>
   ↓<br>
-[Notion/Bitrix24: create task with photo, description, deadline]<br>
-  ↓<br>
-[Assign responsible by directory: defect type → department]<br>
-  ↓<br>
-[Notification to responsible in Telegram]
+[Google Sheets: record in registry for analytics]
     </div>
+
+    <h3>What the agent does</h3>
+    <ul>
+      <li>Downloads XML/JSON from the government procurement platform</li>
+      <li>LLM reads lot descriptions, compares with the procurement specialist's profile</li>
+      <li>Assesses relevance on a 1–10 scale</li>
+      <li>Sends only tenders with a score ≥7</li>
+      <li>Records in a spreadsheet for effectiveness statistics</li>
+    </ul>
+
     <div class="card card-success">
-      <strong>Result:</strong> defect is recorded in 2 minutes instead of 2 hours (photo → paper act → journal entry → routing).
+      <strong>Result:</strong> the procurement specialist receives a ready digest instead of 2 hours of manual platform browsing. Saves 10 hours per week.
     </div>
   </div>
 
   <div class="section">
-    <h2>Scenario 2: Estimate Checking Agent (OpenClaw Agent)</h2>
-    <p><strong>Task:</strong> upload estimate, check compliance with standards (local norms), find errors, prepare remarks.</p>
+    <h2>Scenario 2: Supplier Analysis Agent (OpenClaw-style agent)</h2>
+    <p><strong>Task:</strong> when a request for a new supplier comes in — automatically collect public information and prepare a due diligence profile.</p>
+    
+    <h3>Agent Architecture</h3>
     <div class="arch">
-[Upload estimate file (Excel, PDF) to system]<br>
+[Request in system: company name, TIN]<br>
   ↓<br>
-[On-prem agent: extract positions]<br>
-  ├─→ Check: compliance with standards (internal base)<br>
-  ├─→ Check: volume calculations<br>
-  ├─→ Check: coefficients and adjustments<br>
-  └─→ Check: regional pricing<br>
+[OpenClaw Agent: parallel calls]<br>
+  ├─→ [Browser: company website → extract activity, contacts]<br>
+  ├─→ [API: Unified State Register → check status, founders]<br>
+  ├─→ [API: SPARK/Contour → financial indicators]<br>
+  └─→ [Search: news, court cases]<br>
   ↓<br>
-[LLM: form verification protocol]<br>
-  ├─ Found errors<br>
-  ├─ Correction recommendations<br>
-  └─ References to regulatory documents<br>
+[LLM On-premise: compile into unified profile]<br>
   ↓<br>
-[PDF protocol + notification to estimator]
+[PDF report in folder + notification to procurement specialist]
     </div>
-  </div>
 
-  <div class="section">
-    <h2>Scenario 3: Schedule Control Agent (Hybrid)</h2>
-    <p><strong>Task:</strong> monitor work schedule, analyze delay risks, warn responsible persons.</p>
-    <div class="arch">
-[Integration with Project / MS Project / Primavera]<br>
-  ↓<br>
-[Agent: daily status reading]<br>
-  ├─→ Plan vs actual comparison<br>
-  ├─→ Critical path analysis<br>
-  └─→ Identify tasks with delay risk (>3 days deviation)<br>
-  ↓<br>
-[LLM: formulate warning]<br>
-  ├─ Which work is at risk<br>
-  ├─ Why (reasons from data)<br>
-  └─ What to do (options)<br>
-  ↓<br>
-[Email to project manager + dashboard update]
-    </div>
+    <h3>Perimeter Security</h3>
+    <ul>
+      <li>Public data collection — external perimeter (browser, API)</li>
+      <li>Profile compilation, risk assessment — on-premise LLM</li>
+      <li>Admission decision — human (human-in-the-loop)</li>
+    </ul>
+
     <div class="card card-warning">
-      <strong>Important:</strong> schedule data is internal information. Agent works fully on-prem or through DMZ with filtering.
+      <strong>Important:</strong> the very fact of checking a supplier and its results is internal information. The profile is prepared on-premise, even if data is collected from public sources.
     </div>
+  </div>
+
+  <div class="section">
+    <h2>Scenario 3: Quotation Comparison Agent (Hybrid)</h2>
+    <p><strong>Task:</strong> receive quotations from 3+ suppliers, structure, compare, identify hidden risks, prepare a recommendation.</p>
+    
+    <h3>Agent Architecture</h3>
+    <div class="arch">
+[Email integration: new email with subject "Quotation"]<br>
+  ↓<br>
+[Agent: extract attachments (PDF, Excel, Word)]<br>
+  ↓<br>
+[On-premise LLM: extract parameters from quotations]<br>
+  ├─ Price, lead times, payment terms<br>
+  ├─ Warranties, penalties, force majeure<br>
+  └─ Hidden conditions (auto-renewal, sole arbitration)<br>
+  ↓<br>
+[LLM: comparison table + SWOT for each quotation]<br>
+  ↓<br>
+[Notification to procurement specialist: "Quotations ready for comparison"]
+    </div>
+
+    <h3>Key Feature</h3>
+    <p>The agent works inside the perimeter: receives emails, processes documents, does not send quotation content outside. The LLM analyzes conditions without seeing competitor names during comparison (if additional confidentiality is required).</p>
+
+    <div class="card card-success">
+      <strong>Result:</strong> comparison of 5 quotations in 15 minutes instead of 3–4 hours of manual analysis. The agent doesn't miss fine print and hidden conditions.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Approach Comparison</h2>
+    <table style="width:100%;border-collapse:collapse;margin:14px 0;font-size:0.9rem;">
+      <tr><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">Approach</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">When to Use</th><th style="padding:10px;text-align:left;border-bottom:1px solid var(--border);color:var(--accent);font-weight:600;">Complexity</th></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">n8n + LLM API</td><td style="padding:10px;border-bottom:1px solid var(--border);">Simple scenarios: parsing, filtering, notifications</td><td style="padding:10px;border-bottom:1px solid var(--border);">Low</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">OpenClaw agent</td><td style="padding:10px;border-bottom:1px solid var(--border);">Complex multi-step tasks with decision-making</td><td style="padding:10px;border-bottom:1px solid var(--border);">Medium</td></tr>
+      <tr><td style="padding:10px;border-bottom:1px solid var(--border);">Hybrid agent</td><td style="padding:10px;border-bottom:1px solid var(--border);">Tasks with sensitive data + public sources</td><td style="padding:10px;border-bottom:1px solid var(--border);">High</td></tr>
+    </table>
   </div>
 
   <div class="nav-footer">
-    <a href="../08-4-dev-agents/index.html" class="nav-btn">← 8.4 Agents for Development</a>
-    <a href="../../catalog.html" class="nav-btn primary">Catalog</a>
+    <a href="../08-3-hybrid/index.html" class="nav-btn">← Previous lesson</a>
+    <a href="../09-1-on-prem/index.html" class="nav-btn primary">Next lesson →</a>
   </div>
 </div>
-<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
 </body></html>

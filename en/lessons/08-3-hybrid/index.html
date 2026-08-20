@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>11.3 Hybrid Quality Tasks Дирекции по качеству — anonymized data — AI for Non-IT Professionals</title>
+<title>8.3 Hybrid Procurement Tasks — De-identification — AI for Non-Technical Professionals</title>
 <link rel="stylesheet" href="../../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -73,287 +73,230 @@
 <body>
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+    <a href="../../index.html" class="logo">AI for Non-Technical Professionals</a>
   </div>
 </header>
 
 <main class="container">
   <div class="lesson-header">
-    <div class="phase">Level 11 — Quality Management</div>
-    <h1>11.3 Hybrid Quality Tasks: anonymized data</h1>
-    <div class="meta">15 min · for quality specialists · cloud + on-prem combination</div>
+    <div class="phase">Level 8 — Procurement</div>
+    <h1>8.3 Hybrid Tasks: De-identification</h1>
+    <div class="meta">15 min · for procurement specialists · boundary of perimeters</div>
   </div>
 
   <div class="section">
-    <p>Гибридные задачи — это сценарии, где часть работы делается в облаке (общая структура, методология, литературный обзор), а финальная версия с реальными данными — в on-prem (закрытом контуре).</p>
-    <p><strong>Принцип:</strong> Обезличенное описание + общая методология → облако. Конкретные параметры, рецептура, номера партий → on-prem.</p>
+    <p>Some tasks sit on the boundary: they can be done in the cloud, but only if the data is de-identified. Replace the supplier name with "Supplier A", remove specific prices — and the task becomes safe for an external model.</p>
+    <p>This lesson covers how to de-identify data, which tasks are acceptable in hybrid mode, and how to prepare a request for developers for automation.</p>
   </div>
 
   <div class="section">
-    <h2>Hybrid Approach Diagram</h2>
+    <h2>The Rule: De-identify Before the Cloud</h2>
+    <div class="card card-danger">
+      <strong>What CANNOT be sent to the cloud (even partially):</strong>
+      <ul>
+        <li>Specific prices from quotations</li>
+        <li>Supplier names (unless they are giants like Siemens)</li>
+        <li>Purchase volumes for specific items</li>
+        <li>Contract terms (penalties, discounts, deferrals)</li>
+        <li>Negotiation position, BATNA, supplier weak points</li>
+      </ul>
+    </div>
+    <div class="card card-success">
+      <strong>What CAN be sent after de-identification:</strong>
+      <ul>
+        <li>Comparison of quotation structure (without prices) — "Supplier A vs Supplier B"</li>
+        <li>Analysis of response completeness to TS (without names)</li>
+        <li>Role-play negotiation rehearsal (anonymous scenario)</li>
+        <li>Compilation of general arguments (without specific numbers)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>De-identification Checklist (5 Steps)</h2>
+    <div class="card">
+      <ol>
+        <li><strong>Replace names:</strong> "LLC PromTekhSnab" → "Supplier A"</li>
+        <li><strong>Replace prices with relative ones:</strong> "1,200,000 ₽" → "base price +20%" or "Price X"</li>
+        <li><strong>Remove volumes:</strong> "50 units" → "medium-sized batch"</li>
+        <li><strong>Remove contract dates:</strong> "until 31.12.2025" → "contract until year-end"</li>
+        <li><strong>Check:</strong> if you show the de-identified text to a colleague — will they understand what it's about but not know the supplier? If yes — it can go to the cloud.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>1. Role-Play Negotiation Rehearsal</h2>
+    <p>A procurement specialist is preparing for difficult negotiations. Need to run through a scenario. You can de-identify the data and use a cloud model as the "opponent."</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example (de-identified)</div>
+      <pre>Проведи со мной ролевую репетицию переговоров.
+
+Сценарий (обезличенный):
+- Я закупщик в промышленной компании
+- Мне нужно снизить цену на поставку оборудования
+- У меня есть 2 альтернативных поставщика с ценой на 15% ниже
+- Текущий поставщик (Поставщик А) задержал поставку в прошлый раз
+- Мне нужен срок 3 недели, у него стандартно 6 недель
+- Я готов обсуждать объём, но не раскрывать конкретные цифры
+
+Ты играешь роль Поставщика А. Твоя цель — удержать цену и сроки.
+Моя цель — снизить цену и ускорить срок.
+
+Начни переговоры. Отвечай как реальный поставщик — 
+с возражениями, контраргументами, попытками уйти от темы.</pre>
+    </div>
+
     <div class="card card-accent">
-      <pre style="background:transparent;">┌─────────────────────────────────────────┐
-│  ОБЛАКО (публичные данные)              │
-│  • Структура метода                     │
-│  • Литературный обзор                   │
-│  • Общие принципы                       │
-│  • Шаблоны без данных                   │
-└─────────────────┬───────────────────────┘
-                  │
-                  ▼
-┌─────────────────────────────────────────┐
-│  ON-PREM (производственная тайна)       │
-│  • Реальные параметры процесса            │
-│  • Batch numbers, клиенты                │
-│  • Рецептура, химсостав                │
-│  • Экспериментальные данные             │
-└─────────────────────────────────────────┘</pre>
+      <strong>Result:</strong> 15–20 minutes of rehearsal with a "live" opponent. The procurement specialist practices arguments, learns to deflect objections, and prepares for the real conversation.
     </div>
   </div>
 
   <div class="section">
-    <h2>1. Root-Cause + FMEA (Hybrid)</h2>
-    <p><strong>Cloud:</strong> Ishikawa diagram structure, 8D template, FMEA matrix. <strong>On-Prem:</strong> filling with real parameters of a specific batch.</p>
+    <h2>2. Quotation Structure Comparison (Without Prices)</h2>
+    <p>You need to understand which supplier responded to the TS more fully, not who is cheaper. Prices are removed; only structure and completeness are compared.</p>
     
     <div class="example">
-      <div class="example-label">Step 1: Cloud — Template Preparation</div>
-      <pre>Prepare an 8D investigation template for metallurgical production:
+      <div class="example-label">Prompt example (de-identified)</div>
+      <pre>Сравни 3 коммерческих предложения по структуре и полноте ответа.
 
-D0: Launch criteria (when to start 8D)
-D1: Team roles (manager, quality engineer, technologist, production, laboratory)
-D2: Problem description form (5W2H)
-D3: Temporary containment action options
-D4: Ishikawa template (6M: Man, Machine, Material, Method, Milieu, Measurement)
-D5-D7: Formats for corrective and preventive actions
-D8: Closure criteria
+Данные обезличены:
+- Поставщик А, Поставщик Б, Поставщик В
+- Цены удалены, только относительные: "ниже рынка", "рынок", "выше рынка"
 
-All fields — fill with placeholder'ами [SPECIFY].</pre>
-    </div>
+Сравни по критериям:
+1. Полнота ответа на ТЗ (все ли пункты покрыты)
+2. Наличие технических описаний (да/нет, качество)
+3. Наличие сертификатов (перечень)
+4. Условия гарантии (сроки, объём)
+5. Дополнительные услуги (монтаж, обучение, сервис)
 
-    <div class="example">
-      <div class="example-label">Step 2: On-Prem — Fill with Real Data</div>
-      <pre>Fill the 8D template for a specific case:
-
-- Партия: Batch-2026-1847
-- Defect: cavities on ingot surface
-- Линия: №3
-- Date: 2026-07-15
-- Parameters: [actual data from MES]
-
-Conduct root-cause, fill Ishikawa, 5 Why, D5-D7.</pre>
-    </div>
-
-    <div class="card card-success">
-      <strong>Результат:</strong> ready template in cloud (saves 2 hours) + filled 8D in on-prem (saves another 4 hours).
+Не называй конкретные цены. Дай рекомендацию по полноте.</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>2. Technical Specifications (Hybrid)</h2>
-    <p><strong>Cloud:</strong> general document structure, typical sections. <strong>On-Prem:</strong> specific technical parameters, tolerances, recipe.</p>
+    <h2>3. Compilation of General Arguments</h2>
+    <p>A procurement specialist needs a list of arguments for negotiations in general form — not tied to a specific deal. A cloud model generates the base, then on-premise adds specifics.</p>
     
     <div class="example">
-      <div class="example-label">Шаг 1: Облако — структура ТУ</div>
-      <pre>Prepare a ТУ structure for an aluminum alloy for aviation:
+      <div class="example-label">Prompt example (de-identified)</div>
+      <pre>Я готовлюсь к переговорам по закупке промышленного оборудования.
 
-1. Application area (example: aircraft structural parts)
-2. Technical requirements:
-   - Chemical composition (table: element, min, nominal, max)
-   - Mechanical properties (σв, δ, HB, E)
-   - Dimensional tolerances
-3. Control methods (list of standard methods)
-4. Packaging and marking (general requirements)
-5. Technological instructions (without specific parameters — [SPECIFY])
-6. Acceptance criteria (statistical, 100%)
+Контекст (обезличенный):
+- Рынок: 3–4 крупных поставщика, конкуренция высокая
+- Моя позиция: крупный заказчик, регулярные закупки
+- Проблема: поставщик хочет повысить цену и сроки
 
-All numerical values — [SPECIFY PRODUCTION].</pre>
-    </div>
+Подготовь общие аргументы для переговоров:
+1. Аргументы для снижения цены (рынок, объёмы, конкуренция)
+2. Аргументы для ускорения сроков (планирование, резервы, штрафы)
+3. Контраргументы на типичные возражения поставщиков
+4. Вежливые формулировки для твёрдой позиции
 
-    <div class="example">
-      <div class="example-label">Шаг 2: On-prem — заполнение параметрами</div>
-      <pre>Fill ТУ for alloy "SuperAlum-3000":
-
-Chemical composition:
-- Al: [94.0-95.0]% — nominal 94.5%
-- Mg: [2.5-3.0]% — nominal 2.8%
-- Si: [0.8-1.5]% — nominal 1.2%
-... [specific data from laboratory]
-
-Mechanical properties:
-- σв: ≥350 MPa (our data: 385)
-- δ: ≥10% (our data: 13%)
-... [specific data from tests]
-
-Technological instructions:
-- Casting temperature: 720-740°C (optimum 730°C)
-- Cooling rate: 15-20°C/min
-... [specific parameters from MES]</pre>
+Без конкретных цен, названий, объёмов. 
+Только шаблоны, которые я потом адаптирую.</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>3. Alloy R&D (Hybrid)</h2>
-    <p><strong>Cloud:</strong> literature review, general metallurgical principles. <strong>On-Prem:</strong> comparison with real experimental data and decision making.</p>
+    <h2>Request to Developers for De-identification Automation</h2>
+    <p>If procurement specialists frequently de-identify documents manually — this can be automated. Here is a template request for the IT team.</p>
     
-    <div class="example">
-      <div class="example-label">Шаг 1: Облако — литературный обзор</div>
-      <pre>Conduct a literature review on aluminum alloys with Scandium (Sc):
+    <div class="card card-accent">
+      <div class="example-label">Developer request template</div>
+      <pre>Задача: создать скрипт/приложение для обезличивания 
+закупочных документов перед отправкой в облачные LLM.
 
-1. What Sc alloys are described in literature (2020-2026)?
-2. What mechanical properties are claimed (σв, δ, fatigue)?
-3. What production methods (casting, rolling, extrusion)?
-4. What application areas (aviation, automotive, sports)?
-5. What problems (weldability, corrosion, Sc cost)?
-6. Which companies are implementing (public information)?
+Вход: файл (PDF, Word, Excel) с коммерческим предложением.
+Выход: тот же файл с заменёнными данными.
 
-Make a comparison table: alloy × properties × problems.</pre>
+Правила замены:
+1. Названия компаний → "Поставщик А", "Поставщик Б" и т.д.
+2. Суммы → относительные ("базовая цена", "+15%", "-20%")
+3. Объёмы → "партия малого/среднего/крупного размера"
+4. Даты → относительные ("в текущем квартале", "до конца года")
+5. Контактные данные → удалить полностью
+6. Номера договоров → "Договор N"
+
+Дополнительно: проверка — что в выходном файле 
+не осталось оригинальных данных (поиск по ключевым словам).
+
+Интеграция: drag-and-drop файл → получить обезличенную версию 
+за 5 секунд. Сохранение истории обезличиваний.
+
+Приоритет: высокий (используется ежедневно 5–10 закупщиками).</pre>
     </div>
-
-    <div class="example">
-      <div class="example-label">Step 2: On-Prem — Compare with Our Data</div>
-      <pre>Compare our experimental data with literature:
-
-Our alloy: Al-Mg-Sc (0.3% Sc)
-Our data:
-- σв = 428 MPa (average, 3 batches)
-- δ = 10%
-- Problem: cracking during welding (2/3 batches)
-
-Literature data: [from cloud review]
-
-Сделай:
-1. Do our results match literature?
-2. If not — what are the differences and why?
-3. Recommendation: continue / change composition / abandon?
-4. Next experimental steps (if continuing)</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>4. Training Materials (Hybrid)</h2>
-    <p><strong>Cloud:</strong> basic content, general principles. <strong>On-Prem:</strong> cases with real plant incidents as illustrations.</p>
     
-    <div class="example">
-      <div class="example-label">Шаг 1: Облако — базовый контент</div>
-      <pre>Prepare a training module "Quality Control in Melting":
-
-1. Main melting defects (types, causes, signs)
-   - Gas inclusions
-   - Oxide films
-   - Chemical composition non-uniformity
-   - Cavities (internal and surface)
-2. Control methods (visual, UT, chemical analysis)
-3. Acceptance criteria (general, without specific numbers)
-4. Actions when defect is found (general algorithm)
-
-Without reference to a specific plant — only general principles.</pre>
-    </div>
-
-    <div class="example">
-      <div class="example-label">Step 2: On-Prem — Add Real Cases</div>
-      <pre>Add real cases from our plant to the module:
-
-Case 1: "Gas inclusions in batch Batch-2026-1847"
-- What happened: [description, anonymized]
-- Cause: [real cause from investigation]
-- How found: [control method]
-- What was done: [corrective actions]
-- What we learned: [lesson for other masters]
-
-Case 2: "Chemical composition non-uniformity in batch П-2026-1956"
-- [similar structure]
-
-Important: anonymize (remove names, specific customers, exact parameters if sensitive).</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Anonymization Rules for Cloud</h2>
     <div class="card card-warning">
-      <strong>What must be removed before sending to cloud:</strong>
-      <ul>
-        <li>Customer names ("AutoProm LLC" → "Client A")</li>
-        <li>Batch numbers ("Batch-2026-1847" → "Batch X")</li>
-        <li>Specific chemical compositions ("Al ~94.5%" → "main element ~95%")</li>
-        <li>Supplier names ("UralRaw" → "Supplier 1")</li>
-        <li>Employee names ("Ivanov P.S." → "shift master 2")</li>
-        <li>Geolocation ("shop #3" → "shop Y")</li>
-      </ul>
-    </div>
-    <div class="card card-success">
-      <strong>What Can Stay:</strong>
-      <ul>
-        <li>Defect type ("cavities", "porosity")</li>
-        <li>General process type ("melting", "rolling")</li>
-        <li>General control methods ("UT", "chemical analysis")</li>
-        <li>Document structure (ТУ sections, 8D form)</li>
-      </ul>
+      <strong>💡 Tip:</strong> even if IT cannot build a full application, you can start with a simple Python script. It will replace 80% of manual work. Then improve it.
     </div>
   </div>
 
   <div class="section">
     <h2>Summary Table: Hybrid Tasks</h2>
     <table>
-      <tr><th>Task</th><th>Облако (общее)</th><th>On-prem (реальные данные)</th></th>Экономия</th></tr>
-      <tr><td>Root-cause + FMEA</td><td>Шаблон Ishikawa, 8D, FMEA-матрица</td><td>Заполнение параметрами конкретной партии</td><td>6 часов → 1 час</td></tr>
-      <tr><td>ТУ на продукцию</td><td>General document structure</td><td>Конкретные параметры, допуски, рецептура</td><td>3 дня → 4 часа</td></tr>
-      <tr><td>R&D сплавов</td><td>Литературный обзор, общие принципы</td><td>Сопоставление с экспериментальными данными</td><td>5 дней → 1 день</td></tr>
-      <tr><td>Обучающие материалы</td><td>Базовый контент, общие принципы</td><td>Кейсы с реальными инцидентами (обезличенные)</td><td>2 дня → 3 часа</td></tr>
+      <tr><th>Task</th><th>What to De-identify</th><th>Where to Run</th><th>Time Saved</th></tr>
+      <tr><td>Role-play rehearsal</td><td>Names, prices, volumes</td><td>Cloud (ChatGPT, Claude)</td><td>2 hours → 20 min</td></tr>
+      <tr><td>Quotation structure comparison</td><td>Prices, names, volumes</td><td>Cloud</td><td>1 hour → 10 min</td></tr>
+      <tr><td>General arguments</td><td>All specific data</td><td>Cloud → refinement on-premise</td><td>3 hours → 20 min</td></tr>
+      <tr><td>Document de-identification</td><td>Auto-replacement by rules</td><td>Script (on-premise) → cloud</td><td>30 min → 5 sec</td></tr>
     </table>
   </div>
 
   <div class="section">
     <h2>Knowledge Check</h2>
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> What is the hybrid approach principle?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Do everything in cloud, then delete data</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">General structure in cloud, real data in on-prem</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Do everything in on-prem, cloud not needed</div>
+      <p><strong>Question 1:</strong> Which of these CANNOT be sent to the cloud even after de-identification?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Supplier name → "Supplier A"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Specific penalty clauses from an active contract</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">"Price above market by 10%"</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Can FMEA for a real process be prepared in the cloud?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Yes, FMEA is a public method</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">No, template only. Real process data — in on-prem</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Yes, if plant name is anonymized</div>
+      <p><strong>Question 2:</strong> What is the first step of the de-identification checklist?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Remove all dates</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Replace company names with "Supplier A", "Supplier B"</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Remove all numbers from the document</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> What from the list must be anonymized before cloud?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Batch numbers, customer names, specific chemical compositions</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Типы дефектов ("cavities", "porosity")</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">General control methods ("UT", "chemical analysis")</div>
+      <p><strong>Question 3:</strong> How do you check if a document is de-identified enough?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Send it to the cloud and see if the system blocks it</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Show it to a colleague — do they understand the gist but not know the supplier?</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Remove all numbers and names — that's enough</div>
       <div class="result" id="result3"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 4:</strong> Which R&D alloy step is done in on-prem?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Literature review on Scandium alloys</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Comparison of our experimental data with literature</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Patent search on Al-Mg-Sc</div>
+      <p><strong>Question 4:</strong> Which task from the list is hybrid (de-identification + cloud)?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Checking a contract against a template for deviations</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Role-play negotiation rehearsal with an anonymous scenario</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Searching for new suppliers on the internet</div>
       <div class="result" id="result4"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 5:</strong> What format of training materials is hybrid?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Everything in on-prem, including basic principles</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Basic content in cloud + real cases (anonymized) in on-prem</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Everything in cloud, cases without anonymization</div>
+      <p><strong>Question 5:</strong> What should you do if procurement specialists constantly de-identify documents manually?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Prepare a request to developers for script-based automation</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Continue manually — it's more reliable</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Send originals to the cloud — it's faster</div>
       <div class="result" id="result5"></div>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../08-2-cloud/index.html" class="nav-btn">← 11.2 External Tasks</a>
-    <a href="../../index.html" class="nav-btn primary">Home →</a>
+    <a href="../08-2-cloud/index.html" class="nav-btn">← Previous lesson</a>
+    <a href="../08-5-agents/index.html" class="nav-btn primary">Next lesson →</a>
   </div>
 </main>
 
 <footer>
   <div class="container">
-    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+    <p>AI for Non-Technical Professionals · Manufacturing Company</p>
   </div>
 </footer>
 

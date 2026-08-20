@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>11.1 Internal Quality Tasks Дирекции по качеству — on-prem — AI for Non-IT Professionals</title>
+<title>8.1 Internal Procurement Tasks — On-Premise — AI for Non-Technical Professionals</title>
 <link rel="stylesheet" href="../../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -73,388 +73,295 @@
 <body>
 <header>
   <div class="container">
-    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
+    <a href="../../index.html" class="logo">AI for Non-Technical Professionals</a>
   </div>
 </header>
 
 <main class="container">
   <div class="lesson-header">
-    <div class="phase">Level 11 — Quality Management</div>
-    <h1>11.1 Internal Quality Tasks: on-prem</h1>
-    <div class="meta">20 min · for quality specialists · confidential data</div>
+    <div class="phase">Level 8 — Procurement</div>
+    <h1>8.1 Internal Tasks: On-Premise</h1>
+    <div class="meta">15 min · for procurement specialists · closed loop</div>
   </div>
 
   <div class="section">
-    <p>In this lesson — tasks Дирекции по качеству, которые выполняются с реальными производственными данными. Дефекты, рецептура, параметры процессов, клиентские претензии — всё это производственная тайна и коммерчески чувствительная информация.</p>
-    <p><strong>Solution:</strong> on-prem LLM в закрытом контуре компании. Данные не покидают периметр.</p>
+    <p>This lesson covers tasks that a procurement specialist performs inside the company with data that cannot be sent to the internet. Prices, terms, negotiation positions — all of this is trade secret.</p>
+    <p><strong>Solution:</strong> on-premise LLM (e.g., Qwen) within the company's closed perimeter. Data never leaves the perimeter.</p>
   </div>
 
   <div class="section">
-    <h2>Зачем on-prem для дирекции по качеству</h2>
+    <h2>Why On-Premise for Procurement</h2>
     <div class="card card-danger">
-      <strong>Что нельзя отправлять в облако:</strong>
+      <strong>What cannot be sent to the cloud:</strong>
       <ul>
-        <li>Конкретные параметры технологических процессов (температуры, скорости, составы)</li>
-        <li>Рецептура сплавов и химический состав партий</li>
-        <li>Данные лабораторных испытаний с номерами партий</li>
-        <li>Реальные претензии клиентов с объёмами и суммами</li>
-        <li>Исторические данные о дефектах по конкретным линиям</li>
-        <li>Контрактные условия с поставщиками сырья</li>
+        <li>Specific supplier prices from quotations</li>
+        <li>Contract terms and penalties</li>
+        <li>Negotiation position (BATNA, leverage)</li>
+        <li>Purchase volumes by item</li>
+        <li>Historical supplier data</li>
       </ul>
     </div>
     <div class="card card-success">
-      <strong>Что можно сделать в on-prem:</strong>
+      <strong>What can be done on-premise:</strong>
       <ul>
-        <li>Root-cause анализ дефектов по фактическим параметрам процесса</li>
-        <li>Подготовка 8D-отчётов и ответов на рекламации</li>
-        <li>Анализ повторяемости претензий по линиям/партиям/клиентам</li>
-        <li>Внутренний аудит СМК и карта слабых мест</li>
-        <li>Аудит поставщиков сырья по внутренним данным</li>
-        <li>Разработка ТУ с реальными техническими параметрами</li>
-        <li>R&D новых сплавов с экспериментальными данными</li>
-        <li>Cost of quality и KPI для руководства</li>
+        <li>Compare 5 quotations by price, lead time, and terms — in 2 minutes</li>
+        <li>Check if an offer matches the technical specification</li>
+        <li>Prepare arguments for negotiations</li>
+        <li>Find deviations in a contract from the template</li>
+        <li>Analyze purchasing patterns over 2 years</li>
       </ul>
     </div>
   </div>
 
   <div class="section">
-    <h2>1. Root-Cause Analysis of Defects (Ishikawa, 5 Why)</h2>
-    <p>Дефект на линии. Нужно понять корневую причину. LLM анализирует фактические параметры процесса и строит дерево причин.</p>
+    <h2>1. Comparative Quotation Analysis</h2>
+    <p>A procurement specialist receives 3–5 quotations. Previously: manually compile in Excel, compare price, delivery time, payment terms, warranties. Now: upload to an on-premise LLM and ask a question.</p>
     
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>На линии №3 произошёл дефект "cavities на поверхности слитка" в партии Batch-2026-1847.
+      <div class="example-label">Prompt example</div>
+      <pre>У меня 3 коммерческих предложения на поставку насосов. 
+Приложены файлы КП1, КП2, КП3.
 
-Фактические параметры процесса:
-- Температура заливки: 1480°C (норма 1450-1470°C)
-- Скорость охлаждения: 12°C/мин (норма 8-10°C/мин)
-- Состав шлака: Al2O3 45%, SiO2 32% (норма Al2O3 40-42%, SiO2 28-30%)
-- Время между заливкой и началом прокатки: 4.5 часа (норма 3-4 часа)
-- Текущий поставщик флюса: ООО "МеталлургХим"
+Сделай сравнительную таблицу:
+- Цена за единицу
+- Срок поставки
+- Условия оплаты
+- Гарантийный срок
+- Стоимость доставки
 
-Проведи root-cause анализ:
-1. Построй Ishikawa-диаграмму (6M: Man, Machine, Material, Method, Milieu, Measurement)
-2. Примени 5 Why к главной ветке
-3. Оцени вероятность каждой причины (высокая/средняя/низкая)
-4. Дай рекомендации по устранению</pre>
+Выдели лучшее предложение по каждому критерию и итоговый победитель.</pre>
     </div>
 
     <div class="card card-accent">
-      <strong>Результат:</strong> структурированный анализ с деревом причин, приоритизацией и конкретными рекомендациями. Экономия 2-4 часа инженера.
+      <strong>Result:</strong> comparison table + visual highlighting of best positions. The procurement specialist saves 20–30 minutes of routine work.
     </div>
   </div>
 
   <div class="section">
-    <h2>2. Обработка рекламаций и 8D-отчёты</h2>
-    <p>Клиент прислал претензию. Нужно подготовить 8D-ответ с расследованием, корректирующими действиями и превентивными мерами.</p>
+    <h2>2. Checking an Offer Against the Technical Specification</h2>
+    <p>Often a supplier responds to a technical specification, but with caveats or deviations. An LLM can find these deviations faster than a human.</p>
     
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Клиент "AutoProm LLC" прислал претензию на партию АП-2026-0523:
-"В 15% слитков выявлено превышение допустимого содержания серы (факт 0.045%, ТУ ≤ 0.035%)"
+      <div class="example-label">Prompt example</div>
+      <pre>Сравни техническое задание (файл ТЗ.docx) и ответ поставщика (файл Ответ.docx).
 
-Внутренние данные:
-- Партия произведена на линии №2, 12-15 июня 2026
-- Поставщик чугуна: ООО "UralRaw" (партия УС-2026-4412)
-- Лабораторные данные: сера в чугуне 0.038% (по сертификату поставщика 0.025%)
-- Данные десульфурации: расход флюса 12 кг/т (норма 15-18 кг/т)
-- Технолог: Ivanov P.S. (смена 2, опыт 2 года)
+Найди:
+1. Полные отклонения от ТЗ (что не соответствует)
+2. Частичные отклонения (что соответствует с оговорками)
+3. Пропущенные пункты (на что поставщик не ответил)
 
-Подготовь 8D-отчёт:
-D0: Подготовка (проверка критичности)
-D1: Команда (роли)
-D2: Описание проблемы (5W2H)
-D3: Временное сдерживающее действие
-D4: Root-cause (Ishikawa + 5 Why)
-D5: Корректирующее действие
-D6: Проверка эффективности (критерии)
-D7: Превентивные действия
-D8: Поздравление команды и закрытие</pre>
+Сделай список с указанием конкретных пунктов ТЗ.</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>3. Анализ повторяемости претензий</h2>
-    <p>Репутационно и коммерчески чувствительно. Нужно понять: по каким линиям/клиентам/партиям претензии повторяются.</p>
+    <h2>3. Preparation for Negotiations</h2>
+    <p>This is the most sensitive task. BATNA (best alternative to a negotiated agreement), pressure leverage, supplier weak points — none of this can be exposed in the cloud. On-premise solves this problem.</p>
     
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>У меня реестр претензий за 2025-2026 годы (файл Претензии.xlsx).
-Колонки: дата, клиент, линия, тип дефекта, партия, сумма убытка, статус.
+      <div class="example-label">Prompt example</div>
+      <pre>Я готовлюсь к переговорам с поставщиком X по закупке оборудования.
+
+Вот мои данные:
+- Есть 2 альтернативных поставщика с ценами на 15% ниже
+- Текущий поставщик задержал поставку в прошлом квартале на 2 недели
+- Мне нужна поставка за 3 недели, а у него стандартно 6 недель
+- Объём закупки — 50 единиц, это крупный заказ для его категории
+
+Подготовь:
+1. Мои аргументы для снижения цены
+2. Рычаги давления (вежливо, но убедительно)
+3. BATNA — что делать, если не договоримся
+4. Сценарий переговоров (по шагам)</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Contract Verification</h2>
+    <p>A lawyer checks a contract for a week. An LLM finds deviations from the template in minutes — the lawyer then validates the findings.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Сравни договор поставщика (файл Договор.docx) и наш стандартный шаблон (файл Шаблон.docx).
+
+Найди отклонения по:
+- Ответственности сторон
+- Штрафным санкциям
+- Срокам поставки
+- Условиям оплаты
+- Порядку разрешения споров
+
+Для каждого отклонения укажи: где в шаблоне, где в договоре, риск для нас.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. SKU Normalization</h2>
+    <p>Within a company, 5 departments may call the same product differently: "насос Grundfos 32-160", "насос Грюндфос 32-160", "GRUNDFOS 32-160". An LLM brings them to a unified form.</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Вот список номенклатуры из 3 подразделений (файл Номенклатура.xlsx).
+
+Приведи к единому виду:
+- Унифицируй названия брендов (латиница)
+- Стандартизируй единицы измерения
+- Убери дубли
+- Создай таблицу соответствия: старое название → новое название
+
+Сохрани результат в Excel.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Purchase History Analysis</h2>
+    <p>A procurement specialist wants to understand: are prices from a regular supplier rising? Is there seasonality? Which items are getting more expensive the fastest?</p>
+    
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>У меня история закупок за 2 года (файл История.xlsx).
 
 Проанализируй:
-1. Топ-3 клиента по частоте претензий (количество)
-2. Топ-3 типа дефекта по сумме убытка
-3. Линии с максимальной повторяемостью (какие линии "болеют")
-4. Сезонность претензий (месяцы пиков)
-5. Динамика: растёт/падает количество претензий YoY
-6. Корреляция: тип дефекта vs линия vs поставщик сырья
-7. Рекомендации: на что сфокусировать ресурсы качества</pre>
+1. Динамика цен по топ-10 поставщикам (тренд роста/падения)
+2. Сезонность (какие месяцы дороже)
+3. Топ-5 позиций с максимальным ростом цены
+4. Среднее время между заказом и поставкой по поставщикам
+5. Рекомендации: где есть риск роста цен, на что обратить внимание</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>4. Внутренний аудит СМК</h2>
-    <p>Карта слабых мест системы менеджмента качества. LLM анализирует результаты внутренних аудитов и находит системные проблемы.</p>
+    <h2>7. Supplier Risk Scoring</h2>
+    <p>Combining internal supplier data with a risk assessment template. The LLM calculates the score and explains why.</p>
     
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Результаты внутренних аудитов СМК за 2025-2026 (файл Аудиты.xlsx):
-Колонки: дата аудита, подразделение, пункт ISO 9001, найденное несоответствие, оценка риска, срок устранения, факт устранения, просрочено (да/нет).
+      <div class="example-label">Prompt example</div>
+      <pre>Оцени риск поставщика "ПромТехСнаб" по данным:
 
-Сделай:
-1. Карта слабых мест: какие пункты ISO чаще всего нарушаются
-2. Подразделения с наибольшим количеством несоответствий
-3. Процент просроченных мероприятий по подразделениям
-4. Тренд: улучшается или ухудшается ситуация
-5. Системные проблемы (повторяющиеся несоответствия в разных подразделениях)
-6. Рекомендации по усилению СМК</pre>
+- Работаем 3 года
+- 2 задержки поставок за последний год (на 5 и 12 дней)
+- 1 претензия по качеству (брак 3%, устранили за свой счёт)
+- Цена на 8% ниже рынка
+- Финансовые показатели: выручка растёт, нет судебных дел
+- Контракт до конца года, потом перетендер
+
+По шкале от 1 до 10:
+1. Общий риск-профиль
+2. Риск операционный (срыв сроков)
+3. Риск финансовый
+4. Риск качества
+
+Дай рекомендацию: продлевать, перетендеровать, искать резерв.</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>5. Аудит поставщиков сырья</h2>
-    <p>Коммерческая информация о контрагентах. Анализ истории поставок, качества, своевременности.</p>
+    <h2>8. Transport Document Parsing</h2>
+    <p>Waybills, invoices, CMR — an LLM extracts data and cross-checks it against the order. All within the internal perimeter.</p>
     
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Данные по поставщикам сырья за 2 года (файл Поставщики.xlsx):
-Колонки: поставщик, материал, количество поставок, количество отклонений по качеству, процент брака, среднее отклонение по химсоставу, просрочки поставки, цена за тонну, сертификация ISO.
+      <div class="example-label">Prompt example</div>
+      <pre>Файл ТТН.pdf — разбери содержимое:
 
-Оцени каждого поставщика:
-1. Общий скоринг качества (1-10)
-2. Скоринг надёжности (1-10)
-3. Скоринг соотношения цена/качество (1-10)
-4. Риск-статус: зелёный/жёлтый/красный
-5. Рекомендация: продолжать, усилить контроль, заменить
-6. Для "красных" — конкретные риски и обоснование</pre>
+- Номер ТТН, дата
+- Отправитель и получатель
+- Перечень груза с количеством и весом
+- Сумма груза
+- Дата отгрузки и дата доставки (факт vs план)
+
+Сверь с заказом (файл Заказ.xlsx) и выяви:
+- Недостачи
+- Пересорты
+- Отклонения по срокам</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>6. Разработка ТУ на новую продукцию</h2>
-    <p>Рецептура, режимы, ноу-хау — всё это конфиденциально. On-prem LLM помогает структурировать ТУ.</p>
+    <h2>9. Management Reports</h2>
+    <p>A procurement specialist spends an evening on PowerPoint. An LLM produces a draft in 10 minutes — only the numbers need to be verified.</p>
     
     <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Разрабатываем ТУ на новый сплав "SuperAlum-3000" для авиапрома.
+      <div class="example-label">Prompt example</div>
+      <pre>На основе данных из файла Закупки_Q3.xlsx подготовь черновик отчёта для совета директоров:
 
-Экспериментальные данные (5 партий):
-- Chemical composition: Al 94.2%, Mg 2.8%, Si 1.5%, Cu 0.8%, Fe 0.4%, остальное
-- Механические свойства: σв = 380-420 МПа, δ = 12-15%, HB = 110-120
-- Casting temperature: 720-740°C (optimum 730°C)
-- Скорость кристаллизации: 15-20°C/мин
-- Брак по раковинам: 3% (при 730°C), 8% (при 720°C), 5% (при 740°C)
+1. Общий объём закупок (сумма, рост vs Q2)
+2. Топ-5 категорий по сумме
+3. Статус по ключевым проектам (в срок / с рисками / просрочены)
+4. Рекомендации по 2–3 проблемным зонам
+5. План на Q4 (кратко)
 
-Подготовь структуру ТУ:
-1. Область применения
-2. Технические требования (химсостав, мехсвойства, допуски)
-3. Методы контроля (испытания, частота, оборудование)
-4. Упаковка и маркировка
-5. Технологические указания (режимы, но без точных параметров процесса — вставить [SPECIFY ПРОИЗВОДСТВО])
-6. Критерии приёмки
-
-Сохрани в формате, готовом для согласования с производством.</pre>
+Формат: структурированный текст, готовый к вставке в презентацию.</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>7. R&D новых сплавов</h2>
-    <p>Сопоставление экспериментальных данных с литературными. Помогает принять решение о масштабировании.</p>
-    
-    <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Эксперимент: сплав Al-Mg-Sc (0.3% Sc) для повышения прочности.
-
-Наши данные (3 партии):
-- σв = 420, 435, 428 МПа (среднее 428)
-- δ = 10, 11, 9% (среднее 10%)
-- Твердость: 135, 142, 138 HB
-- Стоимость добавки Sc: +15% к цене сплава
-- Проблема: склонность к растрескиванию при сварке (2 из 3 партий)
-
-Сравни с литературными данными (если известны) и дай:
-1. Соответствие ли наши результаты ожидаемым для Al-Mg-Sc
-2. Окупается ли прирост прочности (+15% vs базовый Al-Mg) дополнительной стоимостью
-3. Риски: свариваемость, коррозия, стабильность свойств
-4. Рекомендация: продолжить R&D / промышленные испытания / отказаться</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>8. Подготовка сертификатов качества</h2>
-    <p>Для реальных отгрузок. LLM генерирует сертификат по данным партии.</p>
-    
-    <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Подготовь сертификат качества для партии П-2026-2105, отгрузка клиенту "АвиаМаш ООО".
-
-Данные партии:
-- Номер: П-2026-2105
-- Дата производства: 2026-07-10
-- Линия: №3
-- Сплав: АМг6
-- Chemical composition: Al 93.8%, Mg 6.0%, Si 0.3%, Cu 0.2%, Fe 0.15%, Mn 0.5%
-- Mechanical properties: σв = 325 МПа, δ = 14%, HB = 95
-- ГОСТ: ГОСТ 22233-2018
-- ТУ: ТУ 1-2-123-2025
-- Результаты UT: дефекты не обнаружены (класс 1)
-- Вес партии: 12.5 тонн
-- Количество слитков: 25 шт
-
-Сформируй сертификат в формате ГОСТ. Включи все обязательные поля.</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>9. Cost of Quality и KPI</h2>
-    <p>Отчёты для совета директоров. Сколько стоит качество: превентивные затраты, оценка, внутренние отказы, внешние отказы.</p>
-    
-    <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Данные по качеству за 2026 год (файл CoQ.xlsx):
-Колонки: месяц, превентивные затраты (обучение, плановое ТО), затраты на оценку (лаборатория, аудиты), внутренние отказы (брак, передел), внешние отказы (претензии, возвраты), объём производства (тонны).
-
-Подготовь отчёт для совета директоров:
-1. Cost of Quality (COQ) по категориям: превентивные, оценка, внутренние отказы, внешние отказы
-2. COQ как % от объёма производства (тренд по месяцам)
-3. Соотношение "хорошие" затраты (превентивные + оценка) vs "плохие" (отказы)
-4. Топ-3 источника потерь по сумме
-5. Динамика: улучшение vs ухудшение vs прошлый год
-6. KPI качества: процент брака, PPM (parts per million), стоимость претензий на тонну
-7. Рекомендации: куда направить инвестиции в качество</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>10. Скоринг качества поставщиков (текстовый)</h2>
-    <p>LLM-рассуждение над текстовым досье поставщика (не числовая ML-модель).</p>
-    
-    <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Оцени поставщика "МеталлургХим" на основе текстового досье:
-
-- Работаем с 2019 года
-- Поставляет флюс для десульфурации
-- За 2 года: 2 претензии по качеству (нестабильный химсостав, отклонения до 15%)
-- Просрочка поставок: 3 из 24 (средняя задержка 5 дней)
-- Предоставил сертификат ISO 9001 (2023), но аудит не проводился
-- Цена ниже рынка на 12%
-- Финансовое состояние: неизвестно (не публичная компания)
-- Конкуренты: ООО "ФлюсПром" (цена +8%, но 0 претензий за 3 года)
-
-Оцени по шкале 1-10:
-1. Качество продукции
-2. Надёжность поставок
-3. Финансовая стабильность
-4. Потенциал улучшения
-
-Дай рекомендацию: продолжать, усилить контроль, искать замену.</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>11. Интерпретация лабораторных испытаний</h2>
-    <p>Рецептура и производственная тайна. LLM помогает интерпретировать результаты.</p>
-    
-    <div class="example">
-      <div class="example-label">Пример промпта</div>
-      <pre>Результаты лабораторных испытаний партии П-2026-2107:
-
-Химический состав:
-- Al: 94.5% (ТУ: 94.0-95.0%) ✓
-- Mg: 2.8% (ТУ: 2.5-3.0%) ✓
-- Si: 1.2% (ТУ: 0.8-1.5%) ✓
-- Cu: 0.9% (ТУ: 0.5-1.0%) ⚠️ — близко к верхней границе
-- Fe: 0.35% (ТУ: ≤0.4%) ✓
-- Ti: 0.08% (ТУ: 0.05-0.12%) ✓
-- Прочие: 0.15% (ТУ: ≤0.3%) ✓
-
-Механические свойства:
-- σв: 385 МПа (ТУ: ≥350) ✓
-- δ: 13% (ТУ: ≥10%) ✓
-- HB: 105 (ТУ: 95-115) ✓
-
-UT: класс 2 (ТУ: класс 1-2) ✓
-
-Интерпретируй:
-1. Все показатели в норме? Какие требуют внимания?
-2. Критичность Cu на верхней границе: влияет ли на свариваемость?
-3. Рекомендации по партии: отгрузка, дополнительные испытания, передел?
-4. Какие параметры стоит мониторить в следующих партиях</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Summary Table: внутренние задачи Дирекции по качеству</h2>
+    <h2>Summary Table: Internal Tasks</h2>
     <table>
-      <tr><th>Task</th><th>Формат входа</th><th>Output format</th><th>Time savings</th></tr>
-      <tr><td>Root-cause анализ</td><td>Параметры процесса, описание дефекта</td><td>Ishikawa + 5 Why + рекомендации</td><td>4 часа → 30 мин</td></tr>
-      <tr><td>8D-отчёт</td><td>Данные претензии, внутренние данные</td><td>Полный 8D-отчёт</td><td>1 день → 2 часа</td></tr>
-      <tr><td>Анализ претензий</td><td>Реестр претензий (Excel)</td><td>Аналитика + тренды + рекомендации</td><td>1 день → 30 мин</td></tr>
-      <tr><td>Аудит СМК</td><td>Результаты аудитов</td><td>Карта слабых мест + рекомендации</td><td>2 дня → 2 часа</td></tr>
-      <tr><td>Аудит поставщиков</td><td>Данные о поставках</td><td>Скоринг + риск-статус</td><td>1 день → 1 час</td></tr>
-      <tr><td>Разработка ТУ</td><td>Экспериментальные данные</td><td>Структура ТУ</td><td>2 дня → 4 часа</td></tr>
-      <tr><td>R&D сплавов</td><td>Экспериментальные данные</td><td>Сравнение + рекомендация</td><td>3 дня → 2 часа</td></tr>
-      <tr><td>Сертификаты</td><td>Данные партии</td><td>Готовый сертификат</td><td>1 час → 10 мин</td></tr>
-      <tr><td>Cost of Quality</td><td>Финансовые данные</td><td>Отчёт для совета директоров</td><td>2 дня → 2 часа</td></tr>
-      <tr><td>Скоринг поставщиков</td><td>Текстовое досье</td><td>Оценка 1-10 + рекомендация</td><td>3 часа → 20 min</td></tr>
-      <tr><td>Интерпретация лаборатории</td><td>Результаты испытаний</td><td>Интерпретация + рекомендации</td><td>2 часа → 20 min</td></tr>
+      <tr><th>Task</th><th>Input Format</th><th>Output Format</th><th>Time Saved</th></tr>
+      <tr><td>Quotation Comparison</td><td>3–5 quotation files</td><td>Comparison table + winner</td><td>30 min → 2 min</td></tr>
+      <tr><td>Cross-check with TS</td><td>TS + supplier response</td><td>List of deviations</td><td>45 min → 5 min</td></tr>
+      <tr><td>Negotiations</td><td>BATNA data</td><td>Scenario + arguments</td><td>2 hours → 15 min</td></tr>
+      <tr><td>Contract check</td><td>Contract + template</td><td>Deviation list + risks</td><td>4 hours → 10 min</td></tr>
+      <tr><td>SKU normalization</td><td>Excel with items</td><td>Unified table</td><td>3 hours → 10 min</td></tr>
+      <tr><td>History analysis</td><td>Excel with purchases</td><td>Trends + recommendations</td><td>1 day → 10 min</td></tr>
+      <tr><td>Risk scoring</td><td>Supplier data</td><td>Risk score 1–10 + recommendation</td><td>2 hours → 5 min</td></tr>
+      <tr><td>Transport documents</td><td>Waybill, invoice (PDF)</td><td>Cross-check with order</td><td>30 min → 3 min</td></tr>
+      <tr><td>Management report</td><td>Purchase data</td><td>Draft report</td><td>3 hours → 10 min</td></tr>
     </table>
   </div>
 
   <div class="section">
     <h2>Knowledge Check</h2>
     <div class="card card-accent">
-      <p><strong>Question 1:</strong> Почему root-cause анализ дефектов нельзя делать в облачном ChatGPT?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что ChatGPT не знает метод Ishikawa</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Потому что параметры процесса и рецептура — производственная тайна</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Потому что ChatGPT работает медленно</div>
+      <p><strong>Question 1:</strong> Why can't quotation comparison be sent to cloud-based ChatGPT?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because ChatGPT works slowly</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Because supplier prices are trade secrets</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Because ChatGPT cannot read Excel</div>
       <div class="result" id="result1"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 2:</strong> Какой инструмент использовать для 8D-отчёта с реальными данными клиента?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT с удалением после</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">On-prem LLM в закрытом контуре</div>
+      <p><strong>Question 2:</strong> Which tool should be used for BATNA-based negotiation preparation?</p>
       <div class="quiz-option" onclick="checkAnswer(this, false)">Google Docs</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">On-premise LLM in a closed loop</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">ChatGPT with data deletion afterwards</div>
       <div class="result" id="result2"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 3:</strong> Что такое Cost of Quality (COQ)?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Только затраты на исправление брака</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Сумма превентивных, оценочных затрат и потерь от отказов</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Цена сертификата ISO</div>
+      <p><strong>Question 3:</strong> How much time does an LLM save on comparing 5 quotations?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">It doesn't save time; manual is faster</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">30 minutes → 2 minutes</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">5 minutes → 4 minutes</div>
       <div class="result" id="result3"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 4:</strong> Какой риск при содержании Cu на верхней границе ТУ?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Ухудшение свариваемости</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Увеличение пластичности</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Снижение коррозионной стойкости</div>
+      <p><strong>Question 4:</strong> What is supplier risk scoring?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Risk assessment on a 1–10 scale based on internal data</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Credit history check at a bank</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Searching for supplier reviews online</div>
       <div class="result" id="result4"></div>
     </div>
 
     <div class="card card-accent">
-      <p><strong>Question 5:</strong> Какой документ из списка точно в on-prem?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Шаблон сертификата качества</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">New alloy recipe с экспериментальными данными</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Перевод стандарта ISO с английского</div>
+      <p><strong>Question 5:</strong> Which of these documents definitely belongs on-premise?</p>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Draft TS without prices</div>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Contract with specific penalties and terms</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Translation of an instruction from English</div>
       <div class="result" id="result5"></div>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../07-3-hybrid/index.html" class="nav-btn">← 7.3 Гибридные задачи</a>
-    <a href="../08-2-cloud/index.html" class="nav-btn primary">11.2 External Tasks →</a>
+    <a href="../07-hallucinations/index.html" class="nav-btn">← Previous lesson</a>
+    <a href="../08-2-cloud/index.html" class="nav-btn primary">Next lesson →</a>
   </div>
 </main>
 
 <footer>
   <div class="container">
-    <p>AI for Non-IT Professionals · Manufacturing Company</p>
+    <p>AI for Non-Technical Professionals · Manufacturing Company</p>
   </div>
 </footer>
 
