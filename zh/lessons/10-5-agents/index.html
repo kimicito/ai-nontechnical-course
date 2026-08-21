@@ -3,48 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>10.5 智能体场景 — 非技术人员的AI课程</title>
+<title>10.5 审计代理场景 — AI for Non-Technical Professionals</title>
 <link rel="stylesheet" href="../../style.css">
-<style>:root{--bg:#0B0F19;--card:#111827;--text:#F3F4F6;--muted:#9CA3AF;--accent:#8B5CF6;--accent2:#06B6D4;--border:rgba(255,255,255,0.08);--success:#10B981;--danger:#EF4444;}
-*{box-sizing:border-box;}body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;margin:0;}
-.container{max-width:800px;margin:0 auto;padding:0 16px;}
-header{padding:16px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:100;}
-.logo{font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;}
-.lesson-header{padding:32px 0 16px;}.lesson-header .phase{color:var(--accent);font-size:.85rem;font-weight:600;}
-.lesson-header h1{margin:8px 0;font-size:1.8rem;}.lesson-header .meta{color:var(--muted);font-size:.9rem;}
-.section{margin:28px 0;}.section h2{color:var(--accent);font-size:1.2rem;}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:14px 0;}
-.card-accent{border-left:4px solid var(--accent);}.card-danger{border-left:4px solid var(--danger);}.card-success{border-left:4px solid var(--success);}
-.highlight{background:rgba(139,92,246,0.1);padding:2px 6px;border-radius:4px;}
-.example{background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:14px;margin:12px 0;}
-.example-label{color:var(--accent2);font-size:.75rem;font-weight:600;text-transform:uppercase;}
-.nav-footer{display:flex;justify-content:space-between;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap;gap:8px;}
-.nav-btn{padding:10px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;}
-.nav-btn.primary{background:var(--accent);border-color:var(--accent);}
-footer{padding:32px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border);}
-ul{padding-left:20px;}li{margin:4px 0;}
-.arch{background:#1a1f2e;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:.85rem;line-height:1.6;}
-@media(max-width:768px){.lesson-header h1{font-size:1.4rem;}.nav-footer{flex-direction:column;}}</style>
-<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(111617413,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(111617413, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">非技术人员的AI课程</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">级别 10 — 审计</div>
-    <h1>10.5 智能体场景</h1>
-    <div class="meta">⏱ 10 min · alertes automatisées</div>
+    <div class="phase">第10级 — 审计</div>
+    <h1>10.5 审计代理场景</h1>
+    <div class="meta">⏱ 12 分钟 · 持续监控、异常检测、合规性</div>
   </div>
-  <div class="card card-accent"><strong>智能体和语言模型有什么区别？</strong><br>Un LLM répond. Un <span class="highlight">agent</span> travaille en continu.</div>
+
+  <div class="card card-accent">
+    <strong>代理与语言模型有何不同？</strong><br>
+    LLM响应请求。<span class="highlight">代理</span>持续工作：监控交易、检测异常、警告审计师——无需"立即检查"命令。更多详情——<a href="../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">第4级</a>。
+  </div>
+
   <div class="section">
-    <h2>场景 : Agent compliance — отслеживает...</h2>
-    <div class="arch">[Trigger] → [Données] → [LLM on-prem] → [Alertes] → [Actions]</div>
-    <div class="card card-success"><strong>结果:</strong> anticipation, intervention proactive.</div>
+    <h2>场景1：交易监控代理（n8n + SQL + LLM）</h2>
+    <p><strong>任务：</strong>每日监控所有交易，自动检测异常，风险评分。</p>
+    <div class="arch">
+[定时任务：每日7:00]<br>
+  ↓<br>
+[ERP / 会计系统]<br>
+  ├─→ 昨日所有付款<br>
+  ├─→ 新供应商<br>
+  ├─→ 大额交易<br>
+  └─→ 周末/节假日付款<br>
+  ↓<br>
+[本地LLM：异常检测]<br>
+  ├─→ 统计异常值（2σ规则）<br>
+  ├─→ 重复付款<br>
+  ├─→ 整数金额付款<br>
+  ├─→ 向新供应商付款<br>
+  └─→ 分拆付款（同一供应商，同一天）<br>
+  ↓<br>
+[风险评分：1-10]<br>
+  ├─→ 低（1-3）：仅记录日志<br>
+  ├─→ 中（4-6）：日报<br>
+  └─→ 高（7-10）：立即预警<br>
+  ↓<br>
+[通知审计团队]
+    </div>
+    <div class="card card-success">
+      <strong>结果：</strong>24小时内检测异常，而非季度审查。预防欺诈而非事后发现。
+    </div>
   </div>
+
+  <div class="section">
+    <h2>场景2：合同合规代理</h2>
+    <p><strong>任务：</strong>监控所有活跃合同的合规性，预警偏差，跟踪续约日期。</p>
+    <div class="arch">
+[定时任务：每周]<br>
+  ↓<br>
+[合同数据库]<br>
+  ├─→ 活跃合同<br>
+  ├─→ 付款计划<br>
+  ├─→ 交付里程碑<br>
+  └─→ 续约日期（30/60/90天）<br>
+  ↓<br>
+[本地LLM：合规检查]<br>
+  ├─→ 付款 vs 合同限额<br>
+  ├─→ 交付 vs 计划<br>
+  ├─→ 缺失审批<br>
+  ├─→ 过期证书/许可证<br>
+  └─→ 自动续约条款临近<br>
+  ↓<br>
+[仪表板 + 预警]<br>
+  ├─→ 绿色：合规<br>
+  ├─→ 黄色：需要关注<br>
+  └─→ 红色：发现违规
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>场景3：审计证据收集代理</h2>
+    <p><strong>任务：</strong>在现场工作前自动收集和整理审计证据。</p>
+    <div class="arch">
+[触发器：审计已安排]<br>
+  ↓<br>
+[证据需求清单]<br>
+  ├─→ 财务报表<br>
+  ├─→ 银行对账单<br>
+  ├─→ 合同<br>
+  ├─→ 发票<br>
+  ├─→ 审批矩阵<br>
+  └─→ 以往审计报告<br>
+  ↓<br>
+[系统自动收集]<br>
+  ├─→ ERP导出<br>
+  ├─→ 文档管理系统<br>
+  ├─→ 邮件存档<br>
+  └─→ 共享驱动器<br>
+  ↓<br>
+[整理和索引]<br>
+  ├─→ 按审计目标<br>
+  ├──→ 按风险区域<br>
+  └─→ 按时间顺序<br>
+  ↓<br>
+[通知审计团队："证据已就绪"]
+    </div>
+  </div>
+
   <div class="nav-footer">
     <a href="../../catalog.html" class="nav-btn">← 目录</a>
     <a href="../../catalog.html" class="nav-btn primary">目录</a>
   </div>
 </div>
-<footer><div class="container"><p>非技术人员的AI课程 · 制造企业</p></div></footer>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
 </body></html>
