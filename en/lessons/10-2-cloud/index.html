@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>10.5 Agent Scenarios for Audit — AI for Non-Technical Professionals</title>
+<title>10.2 External Tasks: Cloud — AI for Non-Technical Professionals</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -23,6 +23,8 @@
   .card-accent { border-left: 4px solid var(--accent); }
   .card-success { border-left: 4px solid var(--success); }
   .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
   .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
   .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
   .nav-btn:hover { border-color: var(--accent); }
@@ -30,7 +32,6 @@
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
   ul, ol { padding-left: 20px; }
   li { margin: 4px 0; }
-  .arch { background: #1a1f2e; border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; font-family: monospace; font-size: 0.85rem; line-height: 1.6; }
   @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
 </style>
 <!-- Yandex.Metrika counter -->
@@ -49,104 +50,66 @@
 <div class="container">
   <div class="lesson-header">
     <div class="phase">Level 10 — Audit</div>
-    <h1>10.5 Agent Scenarios for Audit</h1>
-    <div class="meta">⏱ 12 min · continuous monitoring, anomaly detection, compliance</div>
+    <h1>10.2 External Tasks: Cloud</h1>
+    <div class="meta">⏱ 15 min · for auditors</div>
   </div>
 
-  <div class="card card-accent">
-    <strong>How is an agent different from a language model?</strong><br>
-    An LLM answers requests. An <span class="highlight">agent</span> works continuously: monitors transactions, detects anomalies, alerts auditors — without the command "check now". More details — <a href="../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">Level 4</a>.
+  <div class="card card-success">
+    <strong>Open data (external AI)</strong><br>
+    Tasks using <span class="highlight">public standards, audit methodologies, and regulatory requirements</span>. Use Claude, ChatGPT, or Gemini.
   </div>
 
   <div class="section">
-    <h2>Scenario 1: Transaction Monitoring Agent (n8n + SQL + LLM)</h2>
-    <p><strong>Task:</strong> daily monitoring of all transactions, automatic anomaly detection, risk scoring.</p>
-    <div class="arch">
-[Cron: daily at 7:00]<br>
-  ↓<br>
-[ERP / Accounting system]<br>
-  ├─→ All payments for yesterday<br>
-  ├─→ New vendors<br>
-  ├─→ Large transactions<br>
-  └─→ Weekend/holiday payments<br>
-  ↓<br>
-[On-prem LLM: anomaly detection]<br>
-  ├─→ Statistical outliers (2σ rule)<br>
-  ├─→ Duplicate payments<br>
-  ├─→ Round-sum payments<br>
-  ├─→ Payments to new vendors<br>
-  └─→ Split payments (same vendor, same day)<br>
-  ↓<br>
-[Risk scoring: 1–10]<br>
-  ├─→ Low (1–3): log only<br>
-  ├─→ Medium (4–6): daily report<br>
-  └─→ High (7–10): immediate alert<br>
-  ↓<br>
-[Notification to audit team]
-    </div>
-    <div class="card card-success">
-      <strong>Result:</strong> anomalies detected within 24 hours instead of quarterly reviews. Fraud prevention instead of detection.
+    <h2>1. Audit standards and methodology research</h2>
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Explain ISA (International Standards on Auditing) requirements for:
+
+1. Risk assessment procedures (ISA 315)
+2. Internal control evaluation (ISA 330)
+3. Audit evidence requirements (ISA 500)
+4. Going concern assessment (ISA 570)
+5. Related party transactions (ISA 550)
+
+Include practical application examples for manufacturing companies.</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>Scenario 2: Contract Compliance Agent</h2>
-    <p><strong>Task:</strong> monitor all active contracts for compliance, alert on deviations, track renewal dates.</p>
-    <div class="arch">
-[Cron: weekly]<br>
-  ↓<br>
-[Contract database]<br>
-  ├─→ Active contracts<br>
-  ├─→ Payment schedules<br>
-  ├─→ Delivery milestones<br>
-  └─→ Renewal dates (30/60/90 days)<br>
-  ↓<br>
-[On-prem LLM: compliance check]<br>
-  ├─→ Payments vs contract limits<br>
-  ├─→ Deliveries vs schedule<br>
-  ├─→ Missing approvals<br>
-  ├─→ Expired certificates/licenses<br>
-  └─→ Auto-renewal clauses approaching<br>
-  ↓<br>
-[Dashboard + Alerts]<br>
-  ├─→ Green: compliant<br>
-  ├─→ Yellow: attention needed<br>
-  └─→ Red: violation detected
+    <h2>2. Regulatory compliance research</h2>
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Research Russian regulatory requirements for internal audit:
+
+1. Federal Law 307-FZ requirements
+2. Bank of Russia regulations (for financial institutions)
+3. Corporate governance code provisions
+4. Reporting requirements to audit committee
+5. Whistleblower protection regulations
+
+Structured summary with compliance checklist.</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>Scenario 3: Audit Evidence Collection Agent</h2>
-    <p><strong>Task:</strong> automatically collect and organize audit evidence before fieldwork.</p>
-    <div class="arch">
-[Trigger: audit scheduled]<br>
-  ↓<br>
-[Evidence request list]<br>
-  ├─→ Financial statements<br>
-  ├─→ Bank statements<br>
-  ├─→ Contracts<br>
-  ├─→ Invoices<br>
-  ├─→ Approval matrices<br>
-  └─→ Previous audit reports<br>
-  ↓<br>
-[Auto-collection from systems]<br>
-  ├─→ ERP exports<br>
-  ├─→ Document management system<br>
-  ├─→ Email archives<br>
-  └─→ Shared drives<br>
-  ↓<br>
-[Organization and indexing]<br>
-  ├─→ By audit objective<br>
-  ├──→ By risk area<br>
-  └─→ Chronological<br>
-  ↓<br>
-[Audit team notification: "Evidence ready"]
+    <h2>3. Benchmarking audit practices</h2>
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Benchmark internal audit practices for manufacturing industry:
+
+1. Audit plan coverage (% of processes audited annually)
+2. Staffing ratios (auditors per 1000 employees)
+3. Technology adoption (data analytics, continuous auditing)
+4. Reporting lines (to CEO, Audit Committee, Board)
+5. Key performance indicators for audit function
+
+Include industry averages and best practices.</pre>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../../catalog.html" class="nav-btn">← Catalog</a>
-    <a href="../../catalog.html" class="nav-btn primary">Catalog</a>
+    <a href="../10-1-on-prem/index.html" class="nav-btn">← 10.1 Internal Tasks</a>
+    <a href="../10-3-hybrid/index.html" class="nav-btn primary">10.3 Hybrid Tasks →</a>
   </div>
 </div>
 <footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
