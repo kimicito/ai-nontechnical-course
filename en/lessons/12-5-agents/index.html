@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>12.5 Agent Scenarios for Maintenance — AI for Non-Technical Specialists</title>
-<link rel="stylesheet" href="../../../style.css">
+<title>12.5 Agent Scenarios for Quality — AI for Non-Technical Professionals</title>
+<link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; }
@@ -19,11 +19,9 @@
   .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
   .section { margin: 28px 0; }
   .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
   .card-accent { border-left: 4px solid var(--accent); }
   .card-success { border-left: 4px solid var(--success); }
-  .card-warning { border-left: 4px solid var(--warning); }
   .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
   .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
   .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
@@ -42,120 +40,80 @@
    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
+   ym(111617413, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Specialists</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Level 12 — Maintenance</div>
-    <h1>12.5 Agent Scenarios for Maintenance</h1>
-    <div class="meta">⏱ 12 min · agents for maintenance planning and forecasting</div>
+    <div class="phase">Level 12 — Quality Management</div>
+    <h1>12.5 Agent Scenarios for Quality</h1>
+    <div class="meta">⏱ 10 min · automated quality monitoring, predictive alerts</div>
   </div>
 
   <div class="card card-accent">
     <strong>How is an agent different from a language model?</strong><br>
-    LLM analyzes on request. <span class="highlight">Agent</span> works continuously: tracks operating hours, generates requests, orders spare parts — without command "check equipment". More — <a href="../../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">Level 4</a>.
+    An LLM answers requests. An <span class="highlight">agent</span> works continuously: monitors quality metrics, predicts issues, alerts on deviations — without the command "check now". More details — <a href="../../lessons/04-what-is-agent/index.html" style="color:var(--accent2);">Level 4</a>.
   </div>
 
   <div class="section">
-    <h2>Scenario 1: Maintenance Planning Agent (n8n + ERP)</h2>
-    <p><strong>Task:</strong> track equipment operating hours, generate maintenance requests when approaching norm.</p>
+    <h2>Scenario 1: Real-Time Quality Monitoring Agent</h2>
+    <p><strong>Task:</strong> monitor production quality data in real-time, detect trends, predict defects.</p>
     <div class="arch">
-[Cron: daily at 6:00]<br>
+[Trigger: new measurement data]<br>
   ↓<br>
-[SQL query to ERP/CMMS]<br>
-  ├─→ Operating hours per equipment unit<br>
-  ├─→ Date of last maintenance<br>
-  └─→ Normative interval<br>
+[Quality Management System / SPC database]<br>
+  ├─→ Measurement values<br>
+  ├─→ Control limits<br>
+  ├─→ Specification limits<br>
+  └─→ Historical trends<br>
   ↓<br>
-[Agent: calculate remaining to maintenance]<br>
-  ├─→ >80% norm: warning<br>
-  └─→ >95% norm: create maintenance request<br>
+[On-prem LLM: analysis]<br>
+  ├─→ Control chart rules (Western Electric)<br>
+  ├─→ Trend detection<br>
+  ├─→ Process shift detection<br>
+  └─→ Predictive: "Cpk will drop below 1.33 in 3 days"<br>
   ↓<br>
-[Automatic request creation in CMMS]<br>
-  ├─→ Equipment name<br>
-  ├─→ Maintenance type (M-1, M-2, M-3)<br>
-  └─→ Planned date<br>
+[Alerts]<br>
+  ├─→ Green: process stable<br>
+  ├─→ Yellow: trend detected, investigate<br>
+  └─→ Red: out of control, stop production<br>
   ↓<br>
-[Notify mechanic + scheduler]<br>
-  ↓<br>
-[Weekly report: maintenance plan for week]
+[Notify: operator + quality engineer + production manager]
     </div>
     <div class="card card-success">
-      <strong>Result:</strong> no missed maintenance. Planning happens automatically, mechanic receives requests in advance.
+      <strong>Result:</strong> defects prevented rather than detected. Proactive intervention instead of reactive rework.
     </div>
   </div>
 
   <div class="section">
-    <h2>Scenario 2: Failure Prediction Agent (OpenClaw Agent)</h2>
-    <p><strong>Task:</strong> analyze sensor and log data, identify pre-failure patterns, warn.</p>
+    <h2>Scenario 2: Supplier Quality Alert Agent</h2>
+    <p><strong>Task:</strong> monitor incoming inspection results, alert on supplier quality degradation.</p>
     <div class="arch">
-[Integration with SCADA / IoT platform]<br>
+[Cron: daily after incoming inspection]<br>
   ↓<br>
-[Agent: data collection every 15 minutes]<br>
-  ├─→ Bearing temperature<br>
-  ├─→ Vibration<br>
-  ├─→ Oil pressure<br>
-  └─→ Power consumption<br>
+[Incoming inspection data]<br>
+  ├─→ Defect rates by supplier<br>
+  ├─→ Defect types<br>
+  ├─→ PPM trends<br>
+  └─→ Lot acceptance/rejection<br>
   ↓<br>
-[On-prem agent: trend analysis]<br>
-  ├─→ Comparison with norms<br>
-  ├─→ Degradation detection (gradual deviation growth)<br>
-  └─→ Correlation with historical failures<br>
+[On-prem LLM: trend analysis]<br>
+  ├─→ Supplier performance scorecard<br>
+  ├─→ Degradation alerts (2 consecutive worsening lots)<br>
+  ├─→ PPM trend vs target<br>
+  └─→ Recommended actions<br>
   ↓<br>
-[Failure risk assessment]<br>
-  ├─→ Green: within norm<br>
-  ├─→ Yellow: requires attention (planned check)<br>
-  └─→ Red: high unplanned failure risk<br>
-  ↓<br>
-[Notification + recommendations]<br>
-  ├─ Yellow: "Schedule check within 3 days"<br>
-  └─ Red: "Equipment shutdown recommended within 24 hours"<br>
-  ↓<br>
-[Create emergency request in CMMS]
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Scenario 3: Spare Parts Management Agent (Hybrid)</h2>
-    <p><strong>Task:</strong> monitor critical spare parts balances, order at critical level, analyze consumption.</p>
-    <div class="arch">
-[Cron: daily]<br>
-  ↓<br>
-[SQL query: warehouse balances]<br>
-  ↓<br>
-[Agent: comparison with min/max levels]<br>
-  ├─→ Part below minimum: create procurement request<br>
-  ├─→ Part above maximum: excess warning<br>
-  └─→ Critical part (long lead time): early planning<br>
-  ↓<br>
-[LLM: form procurement request]<br>
-  ├─ Name, quantity<br>
-  ├─ Preferred suppliers (from history)<br>
-  └─ Justification (consumption forecast)<br>
-  ↓<br>
-[Notify procurement / auto-order from approved supplier]<br>
-  ↓<br>
-[Monthly report: ABC/XYZ inventory analysis]
-    </div>
-    <div class="card card-warning">
-      <strong>Important:</strong> balance and supplier data is internal. Agent works on-prem or through secure ERP integration.
+[Dashboard + Alerts to procurement + quality]
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../12-3-hybrid/index.html" class="nav-btn">← 12.3 Hybrid Approach</a>
+    <a href="../../catalog.html" class="nav-btn">← Catalog</a>
     <a href="../../catalog.html" class="nav-btn primary">Catalog</a>
   </div>
 </div>
-<footer><div class="container"><p>AI for Non-Technical Specialists · Manufacturing Company</p></div></footer>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
 </body></html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>12.1 Internal Tasks: On-Prem — AI for Non-Technical Professionals</title>
+<title>13.1 Internal Tasks: On-Prem — AI for Non-Technical Professionals</title>
 <link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
@@ -50,90 +50,92 @@
 <header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Level 12 — Quality Management</div>
-    <h1>12.1 Internal Tasks: On-Prem</h1>
-    <div class="meta">⏱ 20 min · for quality managers · closed loop</div>
+    <div class="phase">Level 13 — MRO &amp; Maintenance</div>
+    <h1>13.1 Internal Tasks: On-Prem</h1>
+    <div class="meta">⏱ 20 min · for maintenance managers · closed loop</div>
   </div>
 
   <div class="card card-accent">
     <strong>Closed loop (on-prem)</strong><br>
-    All tasks work with <span class="highlight">real quality data, inspection reports, non-conformance records, supplier quality metrics</span>. Use internal model or local LLM.
+    All tasks work with <span class="highlight">real equipment data, maintenance history, spare parts inventory, downtime records</span>. Use internal model or local LLM.
   </div>
 
   <div class="card card-danger">
     <strong>What must stay on-prem:</strong>
     <ul>
-      <li>Quality inspection reports and test results</li>
-      <li>Non-conformance (NCR) and corrective action (CAPA) records</li>
-      <li>Supplier quality audits and ratings</li>
-      <li>Customer complaints and returns data</li>
-      <li>Process capability studies (Cp/Cpk)</li>
-      <li>Internal audit findings</li>
+      <li>Equipment maintenance history and MTBF/MTTR data</li>
+      <li>Spare parts inventory and procurement records</li>
+      <li>Downtime logs and production loss calculations</li>
+      <li>Maintenance schedules and resource allocation</li>
+      <li>Equipment specifications and warranties</li>
+      <li>Vendor service contracts</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>1. Non-conformance analysis</h2>
+    <h2>1. Predictive maintenance analysis</h2>
     <div class="example">
       <div class="example-label">Prompt example</div>
-      <pre>Проанализируй несоответствия за квартал (файл NCR.xlsx):
+      <pre>Проанализируй данные по оборудованию (файл Оборудование.xlsx):
 
-1. Топ-10 типов дефектов по частоте
-2. Распределение по подразделениям
-3. Среднее время закрытия CAPA
-4. Повторяющиеся несоответствия (trend)
-5. Корреляция с поставщиками/материалами
-6. Рекомендации по приоритетным улучшениям
+1. Рассчитай MTBF (среднее время между отказами) для каждого агрегата
+2. Определи топ-5 проблемных единиц (по частоте простоев)
+3. Рассчитай стоимость простоя (потеря производства × стоимость часа)
+4. Найди корреляцию между типом работ и повторными отказами
+5. Составь приоритетный план капитального ремонта
 
-Формат: презентация для совещания качества</pre>
+Формат: таблица + график + рекомендации</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>2. Supplier quality scorecard</h2>
+    <h2>2. Spare parts inventory optimization</h2>
     <div class="example">
       <div class="example-label">Prompt example</div>
-      <pre>Создай рейтинг поставщиков по качеству на основе:
-
-- Данные входного контроля (файл Входной_контроль.xlsx)
-- Рекламации (файл Рекламации.xlsx)
-- Аудиты поставщиков (папка Аудиты/)
-- ОТК отбраковка по партиям
-
-Критерии:
-- PPM (parts per million defects)
-- Своевременность поставок
-- Реакция на рекламации
-- Результаты аудитов
-
-Результат: таблица рейтинга + рекомендации</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>3. Process capability analysis</h2>
-    <div class="example">
-      <div class="example-label">Prompt example</div>
-      <pre>Рассчитай Cp и Cpk для процесса [УКАЖИТЕ]:
+      <pre>Оптимизируй запасы запчастей:
 
 Данные:
-- Измерения за период (файл Измерения.xlsx)
-- Допуски: верхний [УКАЖИТЕ], нижний [УКАЖИТЕ]
-- Целевое значение: [УКАЖИТЕ]
+- Остатки на складе (файл Склад.xlsx)
+- История отказов по узлам
+- Сроки поставки от поставщиков
+- Стоимость хранения (% от стоимости запчасти в год)
+- Критичность оборудования (A/B/C классификация)
 
 Рассчитай:
-- Cp, Cpk, Pp, Ppk
-- Гистограмму распределения
-- Тренд за период
-- Рекомендации по улучшению
+1. Минимальный запас (safety stock) для критичных узлов
+2. Точку заказа (reorder point)
+3. Оптимальный размер заказа (EOQ)
+4. Запчасти с избыточным запасом
+5. Запчасти с риском дефицита
 
-P.S. Если Cpk < 1.33 — процесс требует улучшения</pre>
+Результат: ABC/XYZ-анализ + рекомендации по закупкам</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Maintenance schedule optimization</h2>
+    <div class="example">
+      <div class="example-label">Prompt example</div>
+      <pre>Составь оптимальный график ТОиР на квартал:
+
+Данные:
+- План производства (файл Производство.xlsx)
+- Нормативы ТО (файл Нормативы.pdf)
+- Доступность бригад (файл График_смен.xlsx)
+- История отказов
+
+Ограничения:
+- Не более [УКАЖИТЕ] единиц в ремонте одновременно
+- Критичное оборудование — только в плановые остановки
+- Сезонность спроса (пиковые месяцы: [УКАЖИТЕ])
+
+Результат: график ТОиР с минимизацией потерь производства</pre>
     </div>
   </div>
 
   <div class="nav-footer">
     <a href="../../index.html" class="nav-btn">Home</a>
-    <a href="../12-2-cloud/index.html" class="nav-btn primary">12.2 External Tasks →</a>
+    <a href="../13-2-cloud/index.html" class="nav-btn primary">13.2 External Tasks →</a>
   </div>
 </div>
 <footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
