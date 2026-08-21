@@ -3,444 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>13.1 Tâches internes de logistique — on-prem — IA pour Non-Informaticiens</title>
-<link rel="stylesheet" href="../../../style.css">
-<style>
-  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
-  * { box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
-  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
-  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
-  header .container { display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-  .lesson-header { padding: 32px 0 16px; }
-  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
-  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
-  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
-  .section { margin: 28px 0; }
-  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
-  .card-accent { border-left: 4px solid var(--accent); }
-  .card-success { border-left: 4px solid var(--success); }
-  .card-warning { border-left: 4px solid var(--warning); }
-  .card-danger { border-left: 4px solid var(--danger); }
-  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
-  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
-  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
-  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
-  .nav-btn:hover { border-color: var(--accent); }
-  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
-  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
-  .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
-  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
-  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
-  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
-  .result.show { display: block; }
-  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
-  ul, ol { padding-left: 20px; }
-  li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
-</style>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+<title>12.1 Tâches internes : On-Prem — IA pour Non-Techniciens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>:root{--bg:#0B0F19;--card:#111827;--text:#F3F4F6;--muted:#9CA3AF;--accent:#8B5CF6;--accent2:#06B6D4;--border:rgba(255,255,255,0.08);--success:#10B981;--danger:#EF4444;}
+*{box-sizing:border-box;}body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;margin:0;}
+.container{max-width:800px;margin:0 auto;padding:0 16px;}
+header{padding:16px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:100;}
+.logo{font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.lesson-header{padding:32px 0 16px;}.lesson-header .phase{color:var(--accent);font-size:.85rem;font-weight:600;}
+.lesson-header h1{margin:8px 0;font-size:1.8rem;}.lesson-header .meta{color:var(--muted);font-size:.9rem;}
+.section{margin:28px 0;}.section h2{color:var(--accent);font-size:1.2rem;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:14px 0;}
+.card-accent{border-left:4px solid var(--accent);}.card-danger{border-left:4px solid var(--danger);}.card-success{border-left:4px solid var(--success);}
+.highlight{background:rgba(139,92,246,0.1);padding:2px 6px;border-radius:4px;}
+.example{background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:14px;margin:12px 0;}
+.example-label{color:var(--accent2);font-size:.75rem;font-weight:600;text-transform:uppercase;}
+.nav-footer{display:flex;justify-content:space-between;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap;gap:8px;}
+.nav-btn{padding:10px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;}
+.nav-btn.primary{background:var(--accent);border-color:var(--accent);}
+footer{padding:32px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border);}
+ul{padding-left:20px;}li{margin:4px 0;}
+.arch{background:#1a1f2e;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:.85rem;line-height:1.6;}
+@media(max-width:768px){.lesson-header h1{font-size:1.4rem;}.nav-footer{flex-direction:column;}}</style>
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(111617413,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">IA pour Non-Informaticiens</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour Non-Techniciens</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Niveau 13 — Logistique</div>
-    <h1>13.1 Tâches internes de logistique</h1>
-    <div class="meta">⏱ 20 min · pour logisticiens et spécialistes de la chaîne d'approvisionnement</div>
+    <div class="phase">Niveau 12 — Gestion de la qualité</div>
+    <h1>12.1 Tâches internes : On-Prem</h1>
+    <div class="meta">⏱ 20 min · Boucle fermée (on-prem)</div>
   </div>
+  <div class="card card-accent"><strong>Boucle fermée (on-prem)</strong><br>Tâches avec <span class="highlight">données réelles</span>.</div>
+  <div class="card card-danger"><strong>Ce qui doit rester on-prem</strong><ul><li>NCR/CAPA</li><li>Данные входного контроля</li><li>Аудиты поставщиков</li><li>Процессные данные</li></ul></div>
+<div class="section"><h2>Analyse NCR</h2><div class="example"><div class="example-label">Prompt example</div><pre>Проанализируй несоответствия:
 
-  <div class="card card-accent">
-    <strong>Circuit fermé (on-prem)</strong><br>
-    Toutes les tâches de cette leçon traitent des <span class="highlight">volumes réels, itinéraires, tarifs, partenaires commerciaux</span>. Utilisez un modèle interne ou un LLM local.
-  </div>
+1. Топ-5 дефектов
+2. Распределение по поставщикам
+3. Тренды по месяцам
 
-  <div class="section">
-    <h2>Pourquoi l'on-prem est critique pour la logistique</h2>
-    <p>La logistique manipule des données sensibles : tarifs commerciaux, conditions contractuelles, itinéraires d'approvisionnement, données des partenaires. Le transfert de ces informations vers des services externes crée des risques de fuite et de concurrence déloyale.</p>
-  </div>
+Результат: графики + рекомендации</pre></div></div>
+<div class="section"><h2>Score fournisseurs</h2><div class="example"><div class="example-label">Prompt example</div><pre>Оцени поставщиков:
 
-  <div class="card card-warning">
-    <strong>Quand l'on-prem est obligatoire :</strong>
-    <ul>
-      <li>Planification de scénarios pour les chaînes d'approvisionnement (volumes réels, itinéraires, dépendances)</li>
-      <li>Cotations de fret (conditions commerciales, négociations)</li>
-      <li>Connaissements affrétés (conditions juridiquement contraignantes)</li>
-      <li>Correspondance avec courtiers/armateurs concernant les tarifs réels</li>
-      <li>Demandes de transport ferroviaire avec volumes réels/directions</li>
-      <li>Planification d'itinéraires en tenant compte des restrictions réglementaires</li>
-      <li>Correspondance avec les transporteurs concernant les conditions réelles</li>
-      <li>Évaluation du risque de retard d'une livraison spécifique</li>
-      <li>Rapports d'efficacité (données commerciales)</li>
-      <li>Gestion des réclamations (juridiquement significative)</li>
-      <li>Cahier des charges pour l'externalisation logistique avec volumes réels</li>
-      <li>Plans de réservation de capacités pour la saison de pointe</li>
-    </ul>
-  </div>
+KPI: PPM, OTD, рейтинг качества
 
-  <div class="section">
-    <h2>1. Planification de scénarios pour les chaînes d'approvisionnement</h2>
-    <p>Et si un port fermait ? Un point de transit était surchargé ? Développons des scénarios alternatifs.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt (on-prem)</div>
-      <pre>Réalise une planification de scénarios pour une livraison de métaux en Europe au T4 2026 :
-
-Scénario de base : expédition depuis [INDIQUEZ LE PORT DE DÉPART] → [INDIQUEZ LE PORT DE DESTINATION], 45 000 t
-Risques :
-- [INDIQUEZ LE PORT] : restrictions possibles (vérifiez les contrats des manutentionnaires)
-- [INDIQUEZ LE POINT DE TRANSIT] : renforcement des contrôles prévu à partir du 01.10.2026
-- Alternative : [INDIQUEZ LE PORT ALT.] → [INDIQUEZ LE PORT DE DESTINATION] (surcoût de 8 $/t)
-
-Scénarios :
-1. Base (probabilité 60 %)
-2. Report vers un port alternatif (probabilité 30 %)
-3. Itinéraire ferroviaire via [INDIQUEZ LE PAYS] → [INDIQUEZ LE PAYS] (probabilité 10 %, surcoût de 35 $/t)
-
-Pour chacun : volume, délai, coût, risques, déclencheur de basculement.</pre>
-    </div>
-    <p><strong>Résultat :</strong> matrice de scénarios pour le conseil d'administration, économise 3–4 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>2. Analyse et comparaison des cotations de fret</h2>
-    <p>Comparaison des tarifs d'affrètement, choix de l'offre optimale — analyse textuelle + recommandation.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Compare les cotations de fret pour le transport de 55 000 t de [INDIQUEZ LA MARCHANDISE] ([INDIQUEZ LE PORT] → [INDIQUEZ LE PORT], octobre 2026) :
-
-Cotations :
-1. Courtier A : 18,5 $/t, Capesize, chargement [INDIQUEZ LE PORT], déchargement [INDIQUEZ LE PORT], 45 jours
-2. Courtier B : 16,8 $/t, Panamax (2 navires), chargement [INDIQUEZ LE PORT], déchargement [INDIQUEZ LE PORT], 52 jours
-3. Courtier C : 19,2 $/t, Capesize, chargement [INDIQUEZ LE PORT], déchargement [INDIQUEZ LE PORT] + fer, 38 jours
-
-Supplémentaire :
-- Pénalité d'immobilisation du navire : 18 000 $/jour
-- Assurance marchandise : 0,12 % de la valeur
-- Risque de retard au port de chargement : 20 % de probabilité +5 jours
-
-Fais une analyse comparative (CAPEX + OPEX + risques) et une recommandation.</pre>
-    </div>
-    <p><strong>Résultat :</strong> choix justifié, économise 2 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>3. Préparation et vérification des connaissements affrétés</h2>
-    <p>Le connaissement affrété est un document juridiquement significatif. Le LLM aide à vérifier les conditions non standard et à formuler les risques en texte.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Vérifie la conformité du connaissement affrété aux conditions types et identifie les risques :
-
-Texte du connaissement (extraits) :
-- Type de navire : Capesize, dwt 180 000
-- Marchandise : [INDIQUEZ LA MARCHANDISE], 55 000 t (+/- 10 %)
-- Port de chargement : [INDIQUEZ LE PORT] (1 port sûr)
-- Port de déchargement : [INDIQUEZ LE PORT] (1 port sûr)
-- Tarif de fret : 18,5 $/t, FIOST
-- Temps de séjour : 5 jours chargement, 4 jours déchargement, dimanches/jours fériés exclus
-- Surestaries : 18 000 $/jour
-- Condition : « Le propriétaire n'est pas responsable des manquants de marchandise si les balances à quai diffèrent de l'arpentage par le tirant d'eau de plus de 0,5 % »
-
-Vérifie :
-1. Conditions non standard/risquées (vs GENCON standard)
-2. Points manquants (standards pour les vraquiers)
-3. Formulations conflictuelles
-4. Recommandations d'ajouts/modifications</pre>
-    </div>
-    <p><strong>Résultat :</strong> connaissement vérifié avec risques identifiés, économise 3–4 heures d'avocat.</p>
-  </div>
-
-  <div class="section">
-    <h2>4. Correspondance avec les courtiers et les armateurs</h2>
-    <p>Correspondance professionnelle concernant les tarifs, délais, conditions — génération de texte.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Prépare une lettre à un courtier pour une demande de fret :
-
-Objet : Demande de tarif pour vraquier Capesize, itinéraire [INDIQUEZ LE PORT] → [INDIQUEZ LE PORT], octobre 2026
-
-Exigences :
-- Marchandise : [INDIQUEZ LA MARCHANDISE], 55 000 t (+/- 10 %)
-- Chargement : [INDIQUEZ LE PORT], disponibilité 15–25 octobre
-- Déchargement : [INDIQUEZ LE PORT], 1 port sûr
-- Conditions : FIOST, surestaries 18 000 $/jour
-- Restrictions : [INDIQUEZ LES RESTRICTIONS RÉGLEMENTAIRES]
-
-Demande :
-1. Le tarif de fret en $/t
-2. Le type de navire et l'année de construction
-3. L'ETA au chargement
-4. La commission du courtier
-5. La confirmation de conformité aux restrictions</pre>
-    </div>
-    <p><strong>Résultat :</strong> lettre prête à l'envoi, économise 30 min.</p>
-  </div>
-
-  <div class="section">
-    <h2>5. Demandes de transport ferroviaire avec volumes réels</h2>
-    <p>Préparation des demandes et documents d'accompagnement — génération de formulaires textuels.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Prépare une demande de transport ferroviaire :
-
-Expéditeur : [INDIQUEZ L'ENTREPRISE], gare [INDIQUEZ LA GARE]
-Destinataire : [INDIQUEZ L'ENTREPRISE], gare [INDIQUEZ LA GARE]
-Marchandise : [INDIQUEZ LA MARCHANDISE], 3 200 t (64 wagons)
-Période d'expédition : 2026-08-15 – 2026-08-20
-Conditions spéciales : [INDIQUEZ LE TYPE DE WAGONS], régime thermique
-
-Prépare :
-1. La demande selon le formulaire des chemins de fer
-2. La spécification de la marchandise (codes NCM, dangerosité)
-3. La liste des documents nécessaires à l'enregistrement
-4. Le calcul du coût (tarif ferroviaire + frais)</pre>
-    </div>
-    <p><strong>Résultat :</strong> demande prête, économise 1,5 heure.</p>
-  </div>
-
-  <div class="section">
-    <h2>6. Planification d'itinéraires de transport routier international</h2>
-    <p>Routage en tenant compte des poids et dimensions et des restrictions réglementaires — génération d'analyse comparative.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Planifie l'itinéraire de livraison de [INDIQUEZ LA MARCHANDISE] de [INDIQUEZ LA VILLE] vers [INDIQUEZ LE PAYS] ([INDIQUEZ LA VILLE]) :
-
-Données de base :
-- Marchandise : [INDIQUEZ LA MARCHANDISE], 28 t (2 conteneurs de 20 pieds)
-- Expéditeur : [INDIQUEZ L'ENTREPÔT]
-- Destinataire : [INDIQUEZ LE DESTINATAIRE]
-- Restrictions : [INDIQUEZ LES RESTRICTIONS RÉGLEMENTAIRES], nécessité d'éviter certaines juridictions
-- Autorisations : TIR requis, autorisation de transit via [INDIQUEZ LES PAYS]
-- Poids et dimensions : conteneurs ≤ 24 t chacun
-
-Variantes d'itinéraire :
-1. [INDIQUEZ LA VILLE] → [INDIQUEZ LA VILLE] → port → [INDIQUEZ LA VILLE] (mer)
-2. [INDIQUEZ LA VILLE] → [INDIQUEZ LE PORT] → port [INDIQUEZ LA VILLE] (mer)
-3. [INDIQUEZ LA VILLE] → [INDIQUEZ LA RÉGION] → [INDIQUEZ LE PAYS] (difficile en raison des restrictions réglementaires)
-
-Pour chacun : distance, délai, coût, risques, documents nécessaires.</pre>
-    </div>
-    <p><strong>Résultat :</strong> analyse comparative des itinéraires, économise 3–4 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>7. Correspondance avec les transporteurs selon les conditions réelles</h2>
-    <p>Négociation des tarifs, délais, documents — génération de lettres professionnelles.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Prépare une lettre au transporteur [INDIQUEZ L'ENTREPRISE] :
-
-Objet : Précision des conditions de transport de [INDIQUEZ LA MARCHANDISE] ([INDIQUEZ LA VILLE] → [INDIQUEZ LA VILLE])
-
-Contexte :
-- Contrat n° [INDIQUEZ LE NUMÉRO] du [INDIQUEZ LA DATE]
-- Délai de livraison prévu : 18 jours
-- Statut actuel : marchandise en transit, retard à la frontière [INDIQUEZ LE PAYS]–[INDIQUEZ LE PAYS] (3 jours)
-- Risque : retard de livraison au contrat avec l'acheteur (pénalité 2 000 $/jour)
-
-Ton : professionnel, urgence. Demande :
-1. La cause du retard et le délai prévu
-2. Une compensation (selon les conditions du contrat — pénalités de retard)
-3. Des mesures d'accélération (itinéraire alternatif, changement de chauffeur)</pre>
-    </div>
-    <p><strong>Résultat :</strong> lettre prête à l'envoi, économise 30 min.</p>
-  </div>
-
-  <div class="section">
-    <h2>8. Évaluation du risque de retard d'une livraison spécifique</h2>
-    <p>Génération d'un texte analytique lié à une marchandise et un navire réels.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Évalue le risque de retard de la livraison de [INDIQUEZ LA MARCHANDISE] :
-
-Voyage : vraquier « [INDIQUEZ LE NOM DU NAVIRE] », chargement [INDIQUEZ LE PORT] 2026-08-10
-- Statut actuel : navire en route, prévu à [INDIQUEZ LE POINT] 2026-08-25
-- Prévisions météo : tempête dans la région [INDIQUEZ LA RÉGION], vagues jusqu'à 7 m (25–27 août)
-- Alternative : détour via [INDIQUEZ LA RÉGION] (+4 jours, +45 000 $ de carburant)
-- Contrat du destinataire : pénalité de retard 3 000 $/jour après 2026-09-05
-
-Évalue :
-1. La probabilité de retard en raison de la tempête
-2. Les scénarios : itinéraire standard vs détour
-3. La comparaison financière (pénalités vs frais supplémentaires du détour)
-4. Une recommandation (continuer ou modifier l'itinéraire)</pre>
-    </div>
-    <p><strong>Résultat :</strong> décision justifiée, économise 2 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>9. Rapport consolidé sur l'efficacité logistique</h2>
-    <p>Génération d'un résumé exécutif textuel pour la direction sur la base des KPI.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Prépare un rapport trimestriel de logistique pour le T2 2026 sous forme de texte pour le directeur :
-
-Indicateurs clés :
-- Expéditions : 127 voyages (prévu : 120)
-- OTIF (On Time In Full) : 78 % (prévu : 85 %, il y a un an : 82 %)
-- Coût moyen de transport : 23,4 $/t (prévu : 21 $, il y a un an : 19,8 $)
-- Immobilisations dans les ports : moyenne 3,2 jours (norme 2)
-- Réclamations : 12 (trimestre précédent : 7)
-
-Fais :
-1. Un bref résumé (3 phrases) — le principal problème
-2. Une analyse des tendances (ce qui s'est amélioré, ce qui s'est dégradé vs trimestre précédent et vs prévisions)
-3. Des recommandations textuelles (3 actions concrètes)
-4. Les risques du T3 (ce qui pourrait mal tourner)
-
-Ton : professionnel, sans tableaux — uniquement du texte.</pre>
-    </div>
-    <p><strong>Résultat :</strong> rapport textuel prêt, économise 1,5 heure.</p>
-  </div>
-
-  <div class="section">
-    <h2>10. Gestion des réclamations suite à des retards de livraison</h2>
-    <p>Génération d'un texte de réclamation juridiquement correct.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Prépare une réclamation à l'attention du transporteur :
-
-Voyage : vraquier « [INDIQUEZ LE NOM DU NAVIRE] », transport de [INDIQUEZ LA MARCHANDISE] [INDIQUEZ LE PORT] → [INDIQUEZ LE PORT]
-Contrat d'affrètement : n° [INDIQUEZ LE NUMÉRO] du [INDIQUEZ LA DATE]
-
-Manquement :
-- Date d'arrivée réelle : 2026-06-28 (prévu : 2026-06-20)
-- Retard : 8 jours
-- Cause déclarée par le navire : panne du moteur principal
-- Vérification : la panne s'est produite le 2026-06-18 (2 jours après la date prévue), et le navire n'a pas réduit sa vitesse avant la panne
-
-Pertes :
-- Pénalité selon le contrat avec l'acheteur : 24 000 $
-- Immobilisation de l'équipement de déchargement : 8 000 $
-- Frais d'entreposage supplémentaires : 3 200 $
-
-Demandes : indemnisation des pertes 35 200 $ + pénalités contractuelles 8 000 $.</pre>
-    </div>
-    <p><strong>Résultat :</strong> réclamation juridiquement correcte, économise 2 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>11. Cahier des charges pour l'externalisation logistique (3PL, expéditeurs)</h2>
-    <p>Génération d'un cahier des charges complet pour un appel d'offres.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Prépare un cahier des charges pour l'externalisation de la logistique de [INDIQUEZ LA MARCHANDISE] :
-
-Volume : [INDIQUEZ LE VOLUME] t/an
-Itinéraires :
-- [INDIQUEZ LE PAYS] ([INDIQUEZ LE PORT]) → [INDIQUEZ LE PAYS] ([INDIQUEZ LE PORT]) : [INDIQUEZ LE VOLUME] t/an (mer)
-- [INDIQUEZ LA VILLE] → [INDIQUEZ LA VILLE] : [INDIQUEZ LE VOLUME] t/an (fer)
-- [INDIQUEZ LA VILLE] → [INDIQUEZ LA VILLE] : [INDIQUEZ LE VOLUME] t/an (route/mer)
-
-Exigences :
-- 3PL avec expérience dans [INDIQUEZ LE SECTEUR]/matières premières
-- Assurance marchandise (110 % de la valeur)
-- Suivi de marchandise (en ligne, API)
-- SLA : OTIF ≥ 90 %, gestion des réclamations
-- Rapports : mensuels (KPI, analyses)
-- Durée du contrat : 2 ans + prorogation
-
-Critères d'évaluation (poids) : prix (40 %), expérience (25 %), IT (15 %), géographie (10 %), références (10 %).</pre>
-    </div>
-    <p><strong>Résultat :</strong> cahier des charges prêt pour l'appel d'offres, économise 4–5 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>12. Plans de réservation de capacités pour la saison de pointe</h2>
-    <p>Génération d'un plan stratégique de réservation — document textuel.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Prépare un plan de réservation pour le T4 2026 (saison de pointe) :
-
-Historique du T4 :
-- T4 2024 : volume de pointe +35 % vs la moyenne, problèmes : pénurie de wagons, surcharge [INDIQUEZ LE PORT]
-- T4 2025 : pointe +28 %, problèmes : retards de fret, pénurie d'espaces d'entreposage
-
-Prévision T4 2026 : croissance des volumes de 20 % vs T3
-
-Capacités actuelles :
-- Entrepôt [INDIQUEZ L'ENTREPÔT] : 85 % d'occupation (reste [INDIQUEZ] t)
-- Wagons ferroviaires : 90 % d'occupation (réserve [INDIQUEZ] wagons)
-- Fret : contrats pour 60 % du volume de pointe
-
-Élabore un plan :
-1. Capacités d'entreposage supplémentaires (location ?)
-2. Réserve de wagons ferroviaires (demande aux chemins de fer, délai)
-3. Réserve de fret (cotations supplémentaires)
-4. Personnel (équipes, sous-traitants de manutention)
-5. Déclencheurs d'activation de la réserve
-6. Budget de réservation</pre>
-    </div>
-    <p><strong>Résultat :</strong> plan de réservation, économise 3 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>Tableau récapitulatif</h2>
-    <table>
-      <tr><th>Tâche</th><th>Ce qu'il faut</th><th>Format de sortie</th><th>Économie</th></tr>
-      <tr><td>Planification de scénarios</td><td>Volumes, itinéraires, risques</td><td>Matrice de scénarios</td><td>3–4 h</td></tr>
-      <tr><td>Cotations de fret</td><td>Tarifs, conditions</td><td>Analyse comparative</td><td>2 h</td></tr>
-      <tr><td>Connaissements affrétés</td><td>Texte du connaissement</td><td>Vérification + risques</td><td>3–4 h</td></tr>
-      <tr><td>Correspondance avec courtiers</td><td>Exigences</td><td>Lettre</td><td>30 min</td></tr>
-      <tr><td>Demandes de transport ferroviaire</td><td>Paramètres de la marchandise</td><td>Demande ferroviaire</td><td>1,5 h</td></tr>
-      <tr><td>Itinéraires routiers</td><td>Marchandise, restrictions</td><td>Comparaison d'itinéraires</td><td>3–4 h</td></tr>
-      <tr><td>Correspondance avec transporteurs</td><td>Contexte</td><td>Lettre</td><td>30 min</td></tr>
-      <tr><td>Évaluation du risque de retard</td><td>Données du voyage</td><td>Analyse + recommandation</td><td>2 h</td></tr>
-      <tr><td>Rapport consolidé</td><td>KPI sur la période</td><td>Texte pour le directeur</td><td>1,5 h</td></tr>
-      <tr><td>Gestion des réclamations</td><td>Données du retard</td><td>Réclamation</td><td>2 h</td></tr>
-      <tr><td>Cahier des charges d'externalisation</td><td>Volumes, exigences</td><td>CDS pour appel d'offres</td><td>4–5 h</td></tr>
-      <tr><td>Réservation de capacités</td><td>Prévision, capacités</td><td>Plan de réservation</td><td>3 h</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>Vérification des connaissances</h2>
-    <p><strong>Question 1 :</strong> Pourquoi la planification d'itinéraires avec des restrictions réglementaires est-elle en on-prem ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> La logique de l\'itinéraire est une information commercialement sensible.'">Parce que cela décrit la logique de déplacement des marchandises de l'entreprise — risque commercial</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchis encore. Ce n\'est pas le prix qui est en cause.'">Parce que cela contient les tarifs commerciaux des transporteurs</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchis encore. La méthodologie est publique.'">Uniquement si l'itinéraire traverse des pays de l'UE</div>
-    <div id="q1-result" class="result"></div>
-
-    <p><strong>Question 2 :</strong> Peut-on surveiller le Baltic Dry Index dans le cloud ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Le BDI est un indice public.'">Oui, c'est un indice de fret accessible au public</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchis encore. Le BDI n\'est pas un secret commercial.'">Non, les indices de fret sont un secret commercial</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchis encore. Le BDI est public.'">Uniquement s'il s'agit de données historiques, pas des données actuelles</div>
-    <div id="q2-result" class="result"></div>
-
-    <p><strong>Question 3 :</strong> Le cahier des charges pour l'externalisation — quel circuit ?</p>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchis encore. Les volumes réels faussent les appels d\'offres.'">On-prem — tout contient un secret commercial</div>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Le modèle à l\'extérieur, les chiffres à l\'intérieur.'">Hybride — modèle anonymisé dans le cloud, volumes réels en on-prem</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchis encore. La structure générale est publique.'">IA externe — la structure du CDS est commune à toutes les entreprises</div>
-    <div id="q3-result" class="result"></div>
-  </div>
-
+Результат: рейтинговая таблица</pre></div></div>
   <div class="nav-footer">
     <a href="../../index.html" class="nav-btn">Accueil</a>
-    <a href="../12-2-cloud/index.html" class="nav-btn primary">13.2 Tâches externes →</a>
+    <a href="../12-2-cloud/index.html" class="nav-btn primary">→ 12.2 Tâches externes : Cloud →</a>
   </div>
 </div>
-<footer><div class="container"><p>IA pour Non-Informaticiens · Entreprise industrielle</p></div></footer>
+<footer><div class="container"><p>IA pour Non-Techniciens · Entreprise industrielle</p></div></footer>
 </body></html>

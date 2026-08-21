@@ -3,291 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>13.3 Problèmes logistiques hybrides — IA pour Non-Informaticiens</title>
-<link rel="stylesheet" href="../../../style.css">
-<style>
-  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
-  * { box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
-  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
-  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
-  header .container { display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-  .lesson-header { padding: 32px 0 16px; }
-  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
-  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
-  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
-  .section { margin: 28px 0; }
-  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
-  .card-accent { border-left: 4px solid var(--accent); }
-  .card-success { border-left: 4px solid var(--success); }
-  .card-warning { border-left: 4px solid var(--warning); }
-  .card-danger { border-left: 4px solid var(--danger); }
-  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
-  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
-  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
-  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
-  .nav-btn:hover { border-color: var(--accent); }
-  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
-  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
-  .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
-  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
-  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
-  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
-  .result.show { display: block; }
-  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
-  ul, ol { padding-left: 20px; }
-  li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
-</style>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+<title>12.3 Tâches hybrides — IA pour Non-Techniciens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>:root{--bg:#0B0F19;--card:#111827;--text:#F3F4F6;--muted:#9CA3AF;--accent:#8B5CF6;--accent2:#06B6D4;--border:rgba(255,255,255,0.08);--success:#10B981;--danger:#EF4444;}
+*{box-sizing:border-box;}body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;margin:0;}
+.container{max-width:800px;margin:0 auto;padding:0 16px;}
+header{padding:16px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:100;}
+.logo{font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.lesson-header{padding:32px 0 16px;}.lesson-header .phase{color:var(--accent);font-size:.85rem;font-weight:600;}
+.lesson-header h1{margin:8px 0;font-size:1.8rem;}.lesson-header .meta{color:var(--muted);font-size:.9rem;}
+.section{margin:28px 0;}.section h2{color:var(--accent);font-size:1.2rem;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:14px 0;}
+.card-accent{border-left:4px solid var(--accent);}.card-danger{border-left:4px solid var(--danger);}.card-success{border-left:4px solid var(--success);}
+.highlight{background:rgba(139,92,246,0.1);padding:2px 6px;border-radius:4px;}
+.example{background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:14px;margin:12px 0;}
+.example-label{color:var(--accent2);font-size:.75rem;font-weight:600;text-transform:uppercase;}
+.nav-footer{display:flex;justify-content:space-between;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap;gap:8px;}
+.nav-btn{padding:10px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;}
+.nav-btn.primary{background:var(--accent);border-color:var(--accent);}
+footer{padding:32px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border);}
+ul{padding-left:20px;}li{margin:4px 0;}
+.arch{background:#1a1f2e;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:.85rem;line-height:1.6;}
+@media(max-width:768px){.lesson-header h1{font-size:1.4rem;}.nav-footer{flex-direction:column;}}</style>
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(111617413,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">IA pour Non-Informaticiens</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour Non-Techniciens</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Niveau 13 — Logistique</div>
-    <h1>13.3 Problèmes logistiques hybrides</h1>
-    <div class="meta">⏱ 20 min · pour logisticiens</div>
+    <div class="phase">Niveau 12 — Gestion de la qualité</div>
+    <h1>12.3 Tâches hybrides</h1>
+    <div class="meta">⏱ 15 min</div>
   </div>
-
-  <div class="card card-accent">
-    <strong>Approche hybride</strong><br>
-    La <span class="highlight">structure et la méthodologie</span> générales sont préparées dans l'IA externe.<br>
-    Les <span class="highlight">données réelles</span> (marchandises, dates, tarifs, itinéraires) sont ajoutées en local.
-  </div>
-
-  <div class="section">
-    <h2>Principe de l'approche hybride pour la logistique</h2>
-    <p>Règle clé : <strong>plus les données sont sensibles</strong> (contrats spécifiques, indicateurs financiers) — plus le traitement local est strict. La méthodologie générale (structure du document, catégories d'analyse) peut être traitée dans le cloud.</p>
-  </div>
-
-  <div class="card card-warning">
-    <strong>Règles d'anonymisation pour le cloud :</strong>
-    <table>
-      <tr><th>Éléments à supprimer obligatoirement</th><th>Éléments pouvant rester</th></tr>
-      <tr><td>Noms de ports (s'ils sont uniques à l'entreprise)</td><td>Types de ports (vrac, conteneur)</td></tr>
-      <tr><td>Noms des contreparties (courtiers, transporteurs)</td><td>Type de contrepartie (courtier, 3PL, transitaire)</td></tr>
-      <tr><td>Volumes spécifiques (tonnes, EVP)</td><td>Méthodologie de calcul</td></tr>
-      <tr><td>Tarifs financiers, taux</td><td>Structure du tarif (base + suppléments)</td></tr>
-      <tr><td>Itinéraires liés à l'entreprise</td><td>Concepts logistiques généraux</td></tr>
-      <tr><td>Dates spécifiques d'expédition</td><td>Saisonnalité, délais types</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>1. Évaluation du risque de retard (hybride)</h2>
-    <p><strong>Cloud :</strong> logique générale — "si tempête au port X, comment cela affecte-t-il typiquement une cargaison vrac".<br>
-    <strong>Local :</strong> lier à un navire spécifique, une cargaison, un client.</p>
-    <div class="example">
-      <div class="example-label">Étape 1 : Cloud — méthodologie d'évaluation</div>
-      <pre>Prépare une méthodologie d'évaluation du risque de retard d'une livraison maritime :
-
-Facteurs :
-1. Météo sur la zone de route (tempêtes, typhons)
-2. Encombrement des ports (files d'attente, manutention)
-3. Géopolitique (restrictions, interdictions)
-4. État technique du navire (âge, classe)
-5. Saisonnalité (périodes de pointe)
-
-Échelle de risque : faible (retard ≤1 jour) / moyen (2–3 jours) / élevé (≥4 jours)
-
-Méthode de calcul de l'impact : coût du retard = pénalités + immobilisation + coûts alternatifs
-
-[PRÉCISER : navire spécifique, cargaison, itinéraire, dates]</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">Étape 2 : Local — remplissage avec des données réelles</div>
-      <pre>Remplis l'évaluation du risque pour une rotation :
-
-Navire : "[INDIQUER LE NOM]", cargaison : [INDIQUER LA CARGAISON] 55 000 t
-Itinéraire : [INDIQUER LE PORT] → [INDIQUER LE PORT]
-Date de chargement : 10-08-2026
-
-Données :
-- Prévision météo : tempête au [INDIQUER LE POINT] les 25–27 août
-- Position actuelle : prévu au [INDIQUER LE POINT] le 25 août
-- Alternative : détour par [INDIQUER LA RÉGION] (+4 jours, +45 000 $ de carburant)
-- Pénalité de retard : 3 000 $/jour après le 05-09-2026
-
-Calcule le risque et recommande.</pre>
-    </div>
-    <p><strong>Économie :</strong> méthodologie dans le cloud (1 heure) + évaluation en local (1 heure).</p>
-  </div>
-
-  <div class="section">
-    <h2>2. Alertes de déroutement/report (hybride)</h2>
-    <p><strong>Cloud :</strong> scénario général de routage externe.<br>
-    <strong>Local :</strong> décision finale avec les dates et marchandises réelles.</p>
-    <div class="example">
-      <div class="example-label">Étape 1 : Cloud — scénarios de réponse</div>
-      <pre>Prépare des scénarios de réponse à un retard dans le port de chargement :
-
-Scénario : retard de chargement de 5 jours (tempête, panne d'équipement)
-
-Options :
-A. Attendre (garder le navire au port) — risque : surestaries
-B. Réorienter vers un port alternatif — risque : +distance, +carburant
-C. Changer pour un navire plus disponible — risque : transbordement, avarie
-D. Reporter l'expédition sur la prochaine fenêtre — risque : pénalité de l'acheteur
-
-Critères de choix : coût, délai, risque d'avarie de la marchandise, réputation.
-
-[PRÉCISER : cargaison spécifique, volume, contrat, dates]</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">Étape 2 : Local — prise de décision</div>
-      <pre>Prends une décision pour une rotation :
-
-Cargaison : [INDIQUER LA CARGAISON], 2 850 t (conteneurs)
-Navire : retard à [INDIQUER LE PORT] de 5 jours (tempête)
-Contrat : livraison avant le 10-09-2026, pénalité 2 000 $/jour
-
-Options :
-A. Attendre — surestaries 12 000 $, mais pas de pénalité
-B. Réorienter vers [INDIQUER LE PORT] — +8 000 $, +2 jours
-C. Transport aérien (partie de la cargaison) — +45 000 $, mais dans les délais
-
-Calcule et recommande.</pre>
-    </div>
-    <p><strong>Économie :</strong> scénarios dans le cloud (1,5 heure) + décision en local (1 heure).</p>
-  </div>
-
-  <div class="section">
-    <h2>3. Cahier des charges pour l'externalisation (hybride)</h2>
-    <p><strong>Cloud :</strong> modèle anonymisé de cahier des charges.<br>
-    <strong>Local :</strong> volumes réels, itinéraires, exigences.</p>
-    <div class="example">
-      <div class="example-label">Étape 1 : Cloud — modèle de cahier des charges</div>
-      <pre>Prépare un cahier des charges type pour l'externalisation logistique (3PL) :
-
-1. Dispositions générales (périmètre, durée)
-2. Volume de trafic [PRÉCISER : tonnes/EVP par an]
-3. Itinéraires [PRÉCISER : directions types]
-4. Exigences de transport (mer/fer/route/multimodal)
-5. SLA (OTIF, délai de livraison, réclamations)
-6. Intégration IT (API, EDI, suivi)
-7. Reporting (KPI, périodicité)
-8. Assurance (110% de la valeur)
-9. Exigences du personnel (certification)
-10. Critères d'évaluation (prix, expérience, géographie, IT)
-
-Emplacement à insérer : [PRÉCISER L'USINE].</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">Étape 2 : Local — remplissage</div>
-      <pre>Remplis le cahier des charges pour l'appel d'offres :
-
-Entreprise : [notre nom]
-Volume : [INDIQUER LE VOLUME] t/an [INDIQUER LA CARGAISON]
-Itinéraires :
-- [INDIQUER LE PAYS] ([INDIQUER LE PORT]) → [INDIQUER LE PAYS] ([INDIQUER LE PORT]) : [INDIQUER LE VOLUME] t/an (mer)
-- [INDIQUER LA VILLE] → [INDIQUER LA VILLE] : [INDIQUER LE VOLUME] t/an (fer)
-- [INDIQUER LA VILLE] → [INDIQUER LA VILLE] : [INDIQUER LE VOLUME] t/an (route/mer)
-
-SLA : OTIF ≥90%, reporting mensuel
-Critères : prix 40%, expérience 25%, IT 15%, géographie 10%, références 10%
-
-Tous les paramètres proviennent des données internes.</pre>
-    </div>
-    <p><strong>Économie :</strong> modèle dans le cloud (2 heures) + cahier des charges complété en local (1,5 heure).</p>
-  </div>
-
-  <div class="section">
-    <h2>4. Gestion des réclamations (hybride)</h2>
-    <p><strong>Cloud :</strong> structure et méthodologie de justification de la réclamation.<br>
-    <strong>Local :</strong> faits réels, dates, montants.</p>
-    <div class="example">
-      <div class="example-label">Étape 1 : Cloud — méthodologie</div>
-      <pre>Prépare la structure d'une réclamation pour non-respect des délais de livraison :
-
-1. Coordonnées des parties [PRÉCISER]
-2. Contrat, spécification [PRÉCISER]
-3. Conditions de transport réelles [PRÉCISER]
-4. Manquement (réel vs prévu) [PRÉCISER]
-5. Cause (selon documents/déclaration) [PRÉCISER]
-6. Pertes (pénalités, immobilisation, frais supplémentaires) [PRÉCISER]
-7. Demandes (indemnisation, pénalités) [PRÉCISER]
-8. Délai de réponse et conséquences [PRÉCISER]
-
-Ajoute des références légales (Code civil français, Convention de Vienne sur les contrats de vente internationale).</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">Étape 2 : Local — remplissage</div>
-      <pre>Remplis la réclamation pour une rotation :
-
-Transporteur : [INDIQUER L'ENTREPRISE]
-Contrat : n° [INDIQUER LE NUMÉRO] du [INDIQUER LA DATE]
-Rotation : [INDIQUER LA VILLE] → [INDIQUER LA VILLE], [INDIQUER LA CARGAISON] 28 t
-Retard : 8 jours (prévu 18, réel 26)
-
-Pertes : pénalité de l'acheteur 16 000 $, immobilisation 8 000 $
-Demandes : indemnisation 24 000 $ + pénalités contractuelles
-
-Tous les faits proviennent des documents internes.</pre>
-    </div>
-    <p><strong>Économie :</strong> modèle dans le cloud (1 heure) + réclamation en local (1 heure).</p>
-  </div>
-
-  <div class="section">
-    <h2>Tableau récapitulatif : tâches hybrides</h2>
-    <table>
-      <tr><th>Tâche</th><th>Cloud</th><th>Local</th><th>Économie</th></tr>
-      <tr><td>Évaluation du risque de retard</td><td>Méthodologie, facteurs</td><td>Navire spécifique, cargaison, dates</td><td>1 + 1 h</td></tr>
-      <tr><td>Alertes de déroutement</td><td>Scénarios de réponse</td><td>Marchandises réelles, dates, décision</td><td>1,5 + 1 h</td></tr>
-      <tr><td>CdC pour externalisation</td><td>Modèle général</td><td>Volumes, itinéraires, exigences</td><td>2 + 1,5 h</td></tr>
-      <tr><td>Réclamation</td><td>Structure, méthodologie</td><td>Faits, dates, montants</td><td>1 + 1 h</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>Vérification des connaissances</h2>
-    <p><strong>Question 1 :</strong> Quel est le principe de l'hybride pour la logistique ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Structure à l\'extérieur, données à l\'intérieur.'">Méthodologie générale dans le cloud, données réelles en local</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchis encore. Ce n\'est pas de la copie.'">Tout faire dans le cloud, puis copier en local</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchis encore. L\'hybride suppose les deux contours.'">Tout faire en local, le cloud n'est pas nécessaire</div>
-    <div id="q1-result" class="result"></div>
-
-    <p><strong>Question 2 :</strong> L'évaluation du risque de retard — quelle étape en local ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Les données spécifiques sont à l\'intérieur.'">Lier à un navire, une cargaison, un itinéraire, des dates spécifiques</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchis encore. La méthodologie est dans le cloud.'">Élaborer l'échelle de risque et la méthodologie d'évaluation</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchis encore. La météo est une donnée publique.'">Collecter les prévisions météo sur la zone de route</div>
-    <div id="q2-result" class="result"></div>
-
-    <p><strong>Question 3 :</strong> Que faut-il obligatoirement retirer avant le cloud ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Courtiers, volumes, tarifs — à retirer.'">Noms des courtiers, volumes spécifiques, tarifs financiers</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchis encore. Le type est une connaissance générale.'">Type de transport (mer/fer/route)</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchis encore. La structure du tarif est publique.'">Structure du tarif (base + suppléments)</div>
-    <div id="q3-result" class="result"></div>
-  </div>
-
+  <div class="card card-accent"><strong>Approche hybride</strong><br><span class="highlight">Données publiques</span> dans l'IA externe.<br><span class="highlight">Données internes</span> on-prem.</div>
+<div class="section"><h2>CAPA</h2><p>Cloud: методологии. On-prem: корневые причины.</p></div>
+<div class="section"><h2>Audit</h2><p>Cloud: чек-листы. On-prem: результаты, действия.</p></div>
   <div class="nav-footer">
-    <a href="../12-2-cloud/index.html" class="nav-btn">← 13.2 Tâches externes</a>
-    <a href="../../index.html" class="nav-btn primary">Accueil</a>
+    <a href="../12-2-cloud/index.html" class="nav-btn">← 12.2 Tâches externes : Cloud</a>
+    <a href="../12-5-agents/index.html" class="nav-btn primary">→ 12.5 Scénarios agents</a>
   </div>
 </div>
-<footer><div class="container"><p>IA pour Non-Informaticiens · Entreprise de production</p></div></footer>
+<footer><div class="container"><p>IA pour Non-Techniciens · Entreprise industrielle</p></div></footer>
 </body></html>

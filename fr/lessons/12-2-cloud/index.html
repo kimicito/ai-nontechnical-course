@@ -3,329 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>13.2 Tâches logistiques externes — IA externe — IA pour Non-Informaticiens</title>
-<link rel="stylesheet" href="../../../style.css">
-<style>
-  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
-  * { box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
-  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
-  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
-  header .container { display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-  .lesson-header { padding: 32px 0 16px; }
-  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
-  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
-  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
-  .section { margin: 28px 0; }
-  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
-  .card-accent { border-left: 4px solid var(--accent); }
-  .card-success { border-left: 4px solid var(--success); }
-  .card-warning { border-left: 4px solid var(--warning); }
-  .card-danger { border-left: 4px solid var(--danger); }
-  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
-  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
-  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
-  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
-  .nav-btn:hover { border-color: var(--accent); }
-  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
-  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
-  .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
-  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
-  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
-  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
-  .result.show { display: block; }
-  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
-  ul, ol { padding-left: 20px; }
-  li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
-</style>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+<title>12.2 Tâches externes : Cloud — IA pour Non-Techniciens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>:root{--bg:#0B0F19;--card:#111827;--text:#F3F4F6;--muted:#9CA3AF;--accent:#8B5CF6;--accent2:#06B6D4;--border:rgba(255,255,255,0.08);--success:#10B981;--danger:#EF4444;}
+*{box-sizing:border-box;}body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;margin:0;}
+.container{max-width:800px;margin:0 auto;padding:0 16px;}
+header{padding:16px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:100;}
+.logo{font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.lesson-header{padding:32px 0 16px;}.lesson-header .phase{color:var(--accent);font-size:.85rem;font-weight:600;}
+.lesson-header h1{margin:8px 0;font-size:1.8rem;}.lesson-header .meta{color:var(--muted);font-size:.9rem;}
+.section{margin:28px 0;}.section h2{color:var(--accent);font-size:1.2rem;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:14px 0;}
+.card-accent{border-left:4px solid var(--accent);}.card-danger{border-left:4px solid var(--danger);}.card-success{border-left:4px solid var(--success);}
+.highlight{background:rgba(139,92,246,0.1);padding:2px 6px;border-radius:4px;}
+.example{background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:14px;margin:12px 0;}
+.example-label{color:var(--accent2);font-size:.75rem;font-weight:600;text-transform:uppercase;}
+.nav-footer{display:flex;justify-content:space-between;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap;gap:8px;}
+.nav-btn{padding:10px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;}
+.nav-btn.primary{background:var(--accent);border-color:var(--accent);}
+footer{padding:32px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border);}
+ul{padding-left:20px;}li{margin:4px 0;}
+.arch{background:#1a1f2e;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:.85rem;line-height:1.6;}
+@media(max-width:768px){.lesson-header h1{font-size:1.4rem;}.nav-footer{flex-direction:column;}}</style>
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(111617413,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">IA pour Non-Informaticiens</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour Non-Techniciens</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Niveau 13 — Logistique</div>
-    <h1>13.2 Tâches logistiques externes</h1>
-    <div class="meta">⏱ 15 min · pour les logisticiens et les spécialistes de la chaîne d'approvisionnement</div>
+    <div class="phase">Niveau 12 — Gestion de la qualité</div>
+    <h1>12.2 Tâches externes : Cloud</h1>
+    <div class="meta">⏱ 15 min · Données ouvertes (IA externe)</div>
   </div>
-
-  <div class="card card-success">
-    <strong>Données ouvertes (IA externe)</strong><br>
-    Toutes les tâches de cette leçon utilisent des <span class="highlight">sources publiques, des méthodologies générales, le marché ouvert</span>. Vous pouvez utiliser Claude, ChatGPT, Gemini.
-  </div>
-
-  <div class="section">
-    <h2>Pourquoi le cloud est meilleur que l'on-prem pour la logistique</h2>
-    <p>Les modèles cloud l'emportent quand il faut :</p>
-    <ul>
-      <li><strong>Recherche web :</strong> surveiller les indices de fret, les tarifs des chemins de fer russes, les restrictions publiques</li>
-      <li><strong>Méthodologie :</strong> élaborer une stratégie générale sans volumes réels</li>
-      <li><strong>Benchmarking :</strong> comparer les pratiques industrielles 3PL, KPI</li>
-      <li><strong>Prévisions :</strong> résumer les prévisions publiques météo/géopolitiques</li>
-      <li><strong>Modèles :</strong> créer des documents types (CMR, demandes)</li>
-    </ul>
-  </div>
-
-  <div class="card card-warning">
-    <strong>Important : avant d'envoyer dans le cloud — vérifiez</strong>, qu'il n'y a pas de volumes réels, d'itinéraires, de tarifs, de noms de contreparties dans la requête. Si c'est le cas — anonymisez ou envoyez en on-prem.
-  </div>
-
-  <div class="section">
-    <h2>1. Élaboration d'une stratégie logistique générale</h2>
-    <p>Méthodologie de construction d'un réseau d'itinéraires — sans lien avec une entreprise spécifique.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt (Claude avec recherche web)</div>
-      <pre>Préparez la structure d'une stratégie logistique pour une entreprise métallurgique :
-
-Sections :
-1. Analyse du réseau actuel (étapes typiques : matières premières → production → client)
-2. Choix du mode de transport (mer/chemin de fer/route/conteneur maritime) — critères
-3. Réservation et redondance (itinéraires de secours)
-4. Gestion des stocks (stock de sécurité, point de commande)
-5. 3PL vs interne — critères de choix
-6. Systèmes IT (TMS, WMS, EDI)
-7. KPI (OTIF, coût par tonne, délai de livraison, empreinte carbone)
-8. Gestion des risques (planification de scénarios, assurance)
-
-Sans volumes ni itinéraires spécifiques.</pre>
-    </div>
-    <p><strong>Résultat :</strong> stratégie prête, économise 5–6 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>2. Surveillance des indices de fret</h2>
-    <p>Baltic Dry Index et analogues — données publiques pour le benchmarking.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt (recherche web)</div>
-      <pre>Effectuez une surveillance des indices de fret (juillet 2026) :
-
-Indices :
-1. Baltic Dry Index (BDI) — dynamique sur 3 mois
-2. Baltic Capesize Index (BCI)
-3. Baltic Panamax Index (BPI)
-4. China Containerized Freight Index (CCFI)
-
-Questions :
-- Quelle est la dynamique depuis le début de l'année ?
-- Quels facteurs influencent (météo, géopolitique, saisonnalité) ?
-- Prévisions pour T3–T4 2026 (selon les analystes)
-- Quels itinéraires augmentent le plus vite ?
-- Recommandations pour le couverture des risques de fret
-
-Présentez sous forme de tableau avec les sources.</pre>
-    </div>
-    <p><strong>Résultat :</strong> aperçu du marché du fret, économise 2–3 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>3. Analyse des tarifs des chemins de fer russes et des opérateurs chinois</h2>
-    <p>Grilles tarifaires publiques — comparaison, recherche d'itinéraires optimaux.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt (recherche web)</div>
-      <pre>Comparez les tarifs du transport ferroviaire de conteneurs :
-
-Itinéraire (type) : [INDIQUEZ LA GARE] (RF) → [INDIQUEZ LA GARE] (RPC)
-
-Opérateurs :
-1. Chemins de fer russes (transport de conteneurs) — tarif pour 40 pieds
-2. Opérateurs chinois (CR, China Railway)
-3. Transit via le Kazakhstan (KTZ)
-4. Opérateurs multimodaux (FESCO, TransContainer)
-
-En complément :
-- Délais de livraison
-- Fréquence des départs
-- Disponibilité des wagons/plateformes
-- Frais supplémentaires (passage frontalier, terminaux)
-
-Présentez un tableau comparatif.</pre>
-    </div>
-    <p><strong>Résultat :</strong> comparaison des tarifs, économise 2 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>4. Analyse des goulots d'étranglement aux passages frontaliers</h2>
-    <p>Situation générale selon les sources ouvertes — non liée à une livraison spécifique.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt (recherche web)</div>
-      <pre>Analysez la situation aux passages frontaliers RF–RPC (2026) :
-
-Passages :
-1. [INDIQUEZ LE PASSAGE 1]
-2. [INDIQUEZ LE PASSAGE 2]
-3. [INDIQUEZ LE PASSAGE 3]
-4. [INDIQUEZ LE PASSAGE 4]
-
-Données à collecter :
-- Temps d'attente moyen (jours)
-- Capacité de passage (wagons/jour)
-- Problèmes typiques (documents, files d'attente, météo)
-- Infrastructure (entrepôts, terminaux)
-- Plans de développement (investissements, extension)
-
-Sources : statistiques officielles des douanes, médias spécialisés, forums de transporteurs.</pre>
-    </div>
-    <p><strong>Résultat :</strong> aperçu des goulots d'étranglement, économise 3–4 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>5. Collecte et résumé des prévisions météo/catastrophes</h2>
-    <p>Fonction générative — résumé des bulletins publics, pas une prévision en soi.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Résumez les prévisions ouvertes influençant les itinéraires de livraison en août 2026 :
-
-Régions :
-- Mer de Chine méridionale (typhons)
-- Cap de Bonne-Espérance (tempêtes)
-- Canal de Suez (météo, géopolitique)
-- Mer Baltique (tempêtes d'automne)
-
-Pour chacune :
-1. Prévisions publiques (services météorologiques, NOAA)
-2. Période de risque (dates)
-3. Probabilité et intensité
-4. Impact sur la navigation (fermeture de ports, restrictions)
-5. Recommandations (éviter, contourner, réserver)
-
-Format : alerte pour le service logistique.</pre>
-    </div>
-    <p><strong>Résultat :</strong> synthèse des risques, économise 1,5 heure.</p>
-  </div>
-
-  <div class="section">
-    <h2>6. Benchmarking des coûts et pratiques logistiques</h2>
-    <p>Comparaison avec les standards de l'industrie — données publiques.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt (recherche web)</div>
-      <pre>Effectuez un benchmarking des coûts logistiques dans la métallurgie (2024–2026) :
-
-Questions :
-1. Quel % du chiffre d'affaires représentent les dépenses logistiques chez les grands métallurgistes ?
-2. Quels KPI utilisent les leaders de l'industrie (OTIF, coût par tonne, intensité carbone) ?
-3. Quels prestataires 3PL travaillent avec la métallurgie (FESCO, TransContainer, DP World) ?
-4. Quels systèmes TMS sont déployés (SAP TM, 1C Logistique, Ortec) ?
-5. Quelles tendances : green logistics, jumeau numérique, blockchain dans la documentation ?
-
-Rédigez un rapport structuré avec les sources.</pre>
-    </div>
-    <p><strong>Résultat :</strong> aperçu des pratiques industrielles, économise 4–5 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>7. Modèle général de documents pour le transport international routier</h2>
-    <p>CMR, autorisations types — sans marchandises réelles.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Préparez un modèle de dossier de documents pour le transport international routier (RF → UE) :
-
-Documents :
-1. CMR (connaissement routier) — champs obligatoires
-2. Lettre de voiture (document de transport)
-3. Facture (facture commerciale)
-4. Liste de colisage
-5. Certificat d'origine (Form A, EUR.1)
-6. Permis de transport (si marchandises dangereuses — ADR)
-7. Police d'assurance (assurance CMR)
-8. Procuration pour la réception de la marchandise
-
-Pour chacun : objet, champs obligatoires, erreurs typiques.
-Emplacement pour l'insertion de données réelles : [À PRÉCISER].</pre>
-    </div>
-    <p><strong>Résultat :</strong> modèle prêt, économise 2–3 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>8. Préparation d'alertes pour détournement/report d'expédition</h2>
-    <p>Scénario général de routage — sans lien avec une marchandise spécifique.</p>
-    <div class="example">
-      <div class="example-label">Exemple de prompt</div>
-      <pre>Préparez une méthodologie d'alertes et de recommandations en cas de perturbations logistiques :
-
-Scénarios types :
-1. Tempête dans le port de chargement — retard de 3–5 jours
-2. Surcharge au passage frontalier — file d'attente 10+ jours
-3. Grève dans le port de déchargement — retard indéterminé
-4. Accident sur les voies ferrées — détour par un itinéraire alternatif
-5. Restrictions réglementaires — interdiction soudaine d'accès au port
-
-Pour chaque scénario :
-- Déclencheur de l'alerte (ce que nous surveillons)
-- Qui est notifié (logisticien, acheteur, client)
-- Options d'action (détour, report, remplacement)
-- Modèle de message au partenaire
-- Délai de décision
-
-Méthodologie sans marchandises ni dates spécifiques.</pre>
-    </div>
-    <p><strong>Résultat :</strong> méthodologie prête, économise 3–4 heures.</p>
-  </div>
-
-  <div class="section">
-    <h2>Tableau récapitulatif : tâches externes</h2>
-    <table>
-      <tr><th>Tâche</th><th>Ce qu'il faut</th><th>Format de sortie</th><th>Gain de temps</th></tr>
-      <tr><td>Stratégie logistique</td><td>Type d'entreprise</td><td>Structure de stratégie</td><td>5–6 h</td></tr>
-      <tr><td>Indices de fret</td><td>Période</td><td>Aperçu du marché</td><td>2–3 h</td></tr>
-      <tr><td>Tarifs chemins de fer/RPC</td><td>Itinéraire</td><td>Tableau comparatif</td><td>2 h</td></tr>
-      <tr><td>Passages frontaliers</td><td>Région</td><td>Aperçu des goulots d'étranglement</td><td>3–4 h</td></tr>
-      <tr><td>Prévisions météo</td><td>Région, période</td><td>Alerte de risques</td><td>1,5 h</td></tr>
-      <tr><td>Benchmarking</td><td>Industrie</td><td>Rapport avec sources</td><td>4–5 h</td></tr>
-      <tr><td>Modèles de documents</td><td>Type de transport</td><td>Dossier de documents</td><td>2–3 h</td></tr>
-      <tr><td>Alertes de perturbations</td><td>Scénarios</td><td>Méthodologie de réponse</td><td>3–4 h</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>Vérification des connaissances</h2>
-    <p><strong>Question 1 :</strong> Pourquoi la stratégie logistique — en IA externe ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Méthodologie sans volumes réels — savoir public.'">Parce que c'est une méthodologie générale sans volumes ni itinéraires spécifiques</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. La stratégie ne contient pas de données réelles.'">Parce que la stratégie n'est pas un document, mais un concept</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchissez encore. Toute stratégie peut être sensible.'">Seulement si l'on anonymise le nom de l'entreprise</div>
-    <div id="q1-result" class="result"></div>
-
-    <p><strong>Question 2 :</strong> Baltic Dry Index — quel contour ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> BDI — indice public.'">IA externe — indice de fret public</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. BDI est publié ouvertement.'">On-prem — secret commercial</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchissez encore. BDI est public, pas besoin d'hybride.'">Hybride — indice à l'extérieur, interprétation à l'intérieur</div>
-    <div id="q2-result" class="result"></div>
-
-    <p><strong>Question 3 :</strong> Modèle CMR — quel contour ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Modèle général sans données réelles.'">IA externe — document type sans marchandises réelles</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Le modèle est un document général.'">On-prem — CMR contient des données commerciales</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchissez encore. Modèle sans données — en externe.'">Hybride — modèle à l'extérieur, données à l'intérieur</div>
-    <div id="q3-result" class="result"></div>
-  </div>
-
+  <div class="card card-success"><strong>Données ouvertes (IA externe)</strong><br>Recherche, benchmark, réglementation.</div>
+<div class="section"><h2>Standards</h2><div class="example"><div class="example-label">Prompt example</div><pre>Какие стандарты ISO применимы? Требования, аудиты.</pre></div></div>
+<div class="section"><h2>Benchmark</h2><div class="example"><div class="example-label">Prompt example</div><pre>Какие KPI качества в [ОТРАСЛЬ]? Целевые значения.</pre></div></div>
   <div class="nav-footer">
-    <a href="../12-1-on-prem/index.html" class="nav-btn">← 13.1 Tâches internes</a>
-    <a href="../12-3-hybrid/index.html" class="nav-btn primary">13.3 Tâches hybrides →</a>
+    <a href="../12-1-on-prem/index.html" class="nav-btn">← 12.1 Tâches internes : On-Prem</a>
+    <a href="../12-3-hybrid/index.html" class="nav-btn primary">→ 12.3 Tâches hybrides</a>
   </div>
 </div>
-<footer><div class="container"><p>IA pour Non-Informaticiens · Entreprise industrielle</p></div></footer>
+<footer><div class="container"><p>IA pour Non-Techniciens · Entreprise industrielle</p></div></footer>
 </body></html>

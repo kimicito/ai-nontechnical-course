@@ -3,239 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>12.3 维护与维修的混合任务 — 非IT人员的AI</title>
-<link rel="stylesheet" href="../../../style.css">
-<style>
-  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
-  * { box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
-  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
-  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
-  header .container { display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-  .lesson-header { padding: 32px 0 16px; }
-  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
-  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
-  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
-  .section { margin: 28px 0; }
-  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
-  .card-accent { border-left: 4px solid var(--accent); }
-  .card-success { border-left: 4px solid var(--success); }
-  .card-warning { border-left: 4px solid var(--warning); }
-  .card-danger { border-left: 4px solid var(--danger); }
-  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
-  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
-  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
-  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
-  .nav-btn:hover { border-color: var(--accent); }
-  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
-  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .card + .card { margin-top: 40px; }
-  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
-  .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
-  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
-  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
-  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
-  .result.show { display: block; }
-  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
-  ul, ol { padding-left: 20px; }
-  li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
-</style>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+<title>11.3 混合任务 — 非技术人员的AI课程</title>
+<link rel="stylesheet" href="../../style.css">
+<style>:root{--bg:#0B0F19;--card:#111827;--text:#F3F4F6;--muted:#9CA3AF;--accent:#8B5CF6;--accent2:#06B6D4;--border:rgba(255,255,255,0.08);--success:#10B981;--danger:#EF4444;}
+*{box-sizing:border-box;}body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;margin:0;}
+.container{max-width:800px;margin:0 auto;padding:0 16px;}
+header{padding:16px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:100;}
+.logo{font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.lesson-header{padding:32px 0 16px;}.lesson-header .phase{color:var(--accent);font-size:.85rem;font-weight:600;}
+.lesson-header h1{margin:8px 0;font-size:1.8rem;}.lesson-header .meta{color:var(--muted);font-size:.9rem;}
+.section{margin:28px 0;}.section h2{color:var(--accent);font-size:1.2rem;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:14px 0;}
+.card-accent{border-left:4px solid var(--accent);}.card-danger{border-left:4px solid var(--danger);}.card-success{border-left:4px solid var(--success);}
+.highlight{background:rgba(139,92,246,0.1);padding:2px 6px;border-radius:4px;}
+.example{background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:14px;margin:12px 0;}
+.example-label{color:var(--accent2);font-size:.75rem;font-weight:600;text-transform:uppercase;}
+.nav-footer{display:flex;justify-content:space-between;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap;gap:8px;}
+.nav-btn{padding:10px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;}
+.nav-btn.primary{background:var(--accent);border-color:var(--accent);}
+footer{padding:32px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border);}
+ul{padding-left:20px;}li{margin:4px 0;}
+.arch{background:#1a1f2e;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:.85rem;line-height:1.6;}
+@media(max-width:768px){.lesson-header h1{font-size:1.4rem;}.nav-footer{flex-direction:column;}}</style>
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(111617413,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">非技术人员的AI课程</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">第12级 — 维护与维修（维修与保养）</div>
-    <h1>12.3 维护与维修的混合任务</h1>
-    <div class="meta">⏱ 20分钟 · 面向可靠性工程师</div>
+    <div class="phase">级别 11 — 公关与传播</div>
+    <h1>11.3 混合任务</h1>
+    <div class="meta">⏱ 15 min</div>
   </div>
-
-  <div class="card card-accent">
-    <strong>混合方法</strong><br>
-    在外部AI（Claude、ChatGPT）中准备通用的<span class="highlight">结构和方法论</span>。<br>
-    <span class="highlight">真实数据</span>（设备编号、参数、历史记录）添加到本地部署（on-prem）中。
-  </div>
-
-  <div class="section">
-    <h2>维护与维修混合方法的原则</h2>
-    <p>关键规则：<strong>设备越独特、越关键</strong>（电解槽、专用涡轮机）— 本地部署要求越严格。对于广泛使用的设备（泵、输送机），方法论部分可以放心交给外部系统处理。</p>
-  </div>
-
-  <div class="card card-warning">
-    <strong>云端数据匿名化规则：</strong>
-    <table>
-      <tr><th>必须移除的内容</th><th>可以保留的内容</th></tr>
-      <tr><td>资产编号、车间名称</td><td>设备类型（泵、压缩机）</td></tr>
-      <tr><td>具体故障日期</td><td>故障特征（振动、温度）</td></tr>
-      <tr><td>承包商和供应商名称</td><td>典型工作类型（大修、中修、保养）</td></tr>
-      <tr><td>财务数据（预算、价格）</td><td>通用方法论（RCM、TPM、5 Why）</td></tr>
-      <tr><td>人员姓名、班次</td><td>文档结构（记录、技术任务书、缺陷检查）</td></tr>
-      <tr><td>生产参数（配方、负荷）</td><td>通用标准（国标、ISO）</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>1. 根本原因分析 + FMEA（混合）</h2>
-    <p><strong>云端：</strong>石川图结构、原因分类、5 Why模板。<br>
-    <strong>本地：</strong>用具体机器的实际参数和运行历史填写。</p>
-    <div class="example">
-      <div class="example-label">步骤1：云端 — 准备模板</div>
-      <pre>准备旋转设备故障调查的5 Why模板：
-
-第1层：发生了什么？[请明确]
-第2层：为什么会发生？[请明确]
-第3层：为什么系统没有预防？[请明确]
-第4层：为什么之前没有发现？[请明确]
-第5层：为什么流程允许这种情况发生？[请明确]
-
-为每一层添加石川图（6M）原因分类。</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">步骤2：本地 — 用真实数据填写</div>
-      <pre>填写具体案例的5 Why模板：
-
-设备：减速器R-08（磨机M-3传动装置）
-故障：轴承损坏（2026-07-10）
-
-数据来源：检查日志、维修历史、MES参数。
-进行根本原因分析，填写石川图和5 Why。
-
-结果：填写完成的RCA报告，用于存档和上报管理层。</pre>
-    </div>
-    <p><strong>节省时间：</strong>云端准备模板（2小时）+ 本地填写RCA（再2小时）。</p>
-  </div>
-
-  <div class="section">
-    <h2>2. 大修技术任务书（混合）</h2>
-    <p><strong>云端：</strong>技术任务书的通用结构、典型章节。<br>
-    <strong>本地：</strong>具体技术参数、工作量、工期。</p>
-    <div class="example">
-      <div class="example-label">步骤1：云端 — 技术任务书结构</div>
-      <pre>准备工业设备大修技术任务书的结构：
-
-1. 对象名称 [请明确]
-2. 技术说明 [请明确]
-3. 工作清单：
-   3.1 缺陷检查 [请明确]
-   3.2 维修工作 [请明确]
-   3.3 测试 [请明确]
-4. 质量要求 [请明确]
-5. 质保义务 [请明确]
-6. 承包商文档 [请明确]
-
-所有参数 — [请明确生产信息]。</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">步骤2：本地 — 填写</div>
-      <pre>填写磨机M-3大修技术任务书：
-
-- 资产编号：M-03-2012
-- 投产年份：2012，运行时长：87,400小时
-- 上次大修：2021年
-- 缺陷检查：[实际数据]
-- 工作量：更换衬板、减速器、润滑系统
-- 工期：21天
-- 承包商：[招标结果]
-
-所有技术参数 — 来自设备护照和缺陷检查报告。</pre>
-    </div>
-    <p><strong>节省时间：</strong>云端模板（1.5小时）+ 本地填写技术任务书（1小时）。</p>
-  </div>
-
-  <div class="section">
-    <h2>3. 索赔工作（混合）</h2>
-    <p><strong>云端：</strong>基于抽象案例的索赔论证方法和结构。<br>
-    <strong>本地：</strong>实际事实、日期、金额、附件。</p>
-    <div class="example">
-      <div class="example-label">步骤1：云端 — 方法论</div>
-      <pre>准备设备供货质保索赔的结构：
-
-1. 双方信息（供应商、买方）[请明确]
-2. 合同、规格书 [请明确]
-3. 质保条件 [请明确]
-4. 故障描述 [请明确]
-5. 证据（记录、照片、鉴定结论）[请明确]
-6. 要求（更换、赔偿、损失）[请明确]
-7. 答复期限、不履行后果 [请明确]
-
-添加法律引用（民法典、供货条款）。</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">步骤2：本地 — 用真实数据填写</div>
-      <pre>填写质保索赔：
-
-设备：风机VO-16
-供应商：VentProm有限责任公司
-合同：№ 78/2025，日期：2025-03-10
-故障：叶片断裂（2026-07-08）
-
-附件：检查记录、照片、实验室鉴定结论。
-所有事实 — 来自内部文件。</pre>
-    </div>
-    <p><strong>节省时间：</strong>云端模板（1小时）+ 本地填写索赔（1小时）。</p>
-  </div>
-
-  <div class="section">
-    <h2>总结表格：混合任务</h2>
-    <table>
-      <tr><th>任务</th><th>云端</th><th>本地</th><th>节省时间</th></tr>
-      <tr><td>RCA / 5 Why</td><td>模板、结构</td><td>故障数据</td><td>2 + 2小时</td></tr>
-      <tr><td>大修技术任务书</td><td>通用结构</td><td>技术参数</td><td>1.5 + 1小时</td></tr>
-      <tr><td>索赔</td><td>方法论、结构</td><td>事实、日期、金额</td><td>1 + 1小时</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>知识检查</h2>
-    <p><strong>问题1：</strong>维护与维修混合方法的原则是什么？</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>方法论在外部，数据在内部。'">通用结构在云端，真实数据在本地</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。这不是关于删除数据。'">全部在云端做，然后再删除</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。混合方法意味着两个系统都要用。'">全部在本地做，不需要云端</div>
-    <div id="q1-result" class="result"></div>
-
-    <p><strong>问题2：</strong>大修技术任务书 — 哪个步骤在本地完成？</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>具体参数在内部完成。'">用技术参数、工作量、工期填写</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。结构是在云端准备的。'">准备文档的通用结构</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。标准规范是公开的。'">搜索规范和标准</div>
-    <div id="q2-result" class="result"></div>
-
-    <p><strong>问题3：</strong>以下哪些内容在发送到云端前必须匿名化？</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>资产编号、车间名称、供应商名称 — 必须移除。'">资产编号、车间名称、供应商名称</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。设备类型是通用知识。'">设备类型（泵、压缩机）</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。维护规范是公开的方法论。'">维护规范的结构</div>
-    <div id="q3-result" class="result"></div>
-  </div>
-
+  <div class="card card-accent"><strong>混合方法</strong><br><span class="highlight">Données publiques</span> dans l'IA externe.<br><span class="highlight">Données internes</span> on-prem.</div>
+<div class="section"><h2>Campagne</h2><p>Cloud: тренды. On-prem: аудитория, бюджет.</p></div>
+<div class="section"><h2>Événement</h2><p>Cloud: кейсы. On-prem: бюджет, гости.</p></div>
   <div class="nav-footer">
-    <a href="../11-2-cloud/index.html" class="nav-btn">← 12.2 外部任务</a>
-    <a href="../../index.html" class="nav-btn primary">返回首页</a>
+    <a href="../11-2-cloud/index.html" class="nav-btn">← 11.2 外部任务：云端</a>
+    <a href="../11-5-agents/index.html" class="nav-btn primary">→ 11.5 智能体场景</a>
   </div>
-
 </div>
-<footer><div class="container"><p>非IT人员的AI · 生产公司</p></div></footer>
+<footer><div class="container"><p>非技术人员的AI课程 · 制造企业</p></div></footer>
 </body></html>

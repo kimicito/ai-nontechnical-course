@@ -3,239 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>12.3 Tâches Hybrides de Maintenance — IA pour Non-Informaticiens</title>
-<link rel="stylesheet" href="../../../style.css">
-<style>
-  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
-  * { box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
-  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
-  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
-  header .container { display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-  .lesson-header { padding: 32px 0 16px; }
-  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
-  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
-  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
-  .section { margin: 28px 0; }
-  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
-  .card-accent { border-left: 4px solid var(--accent); }
-  .card-success { border-left: 4px solid var(--success); }
-  .card-warning { border-left: 4px solid var(--warning); }
-  .card-danger { border-left: 4px solid var(--danger); }
-  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
-  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
-  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
-  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
-  .nav-btn:hover { border-color: var(--accent); }
-  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
-  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .card + .card { margin-top: 40px; }
-  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
-  .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
-  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
-  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
-  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
-  .result.show { display: block; }
-  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
-  ul, ol { padding-left: 20px; }
-  li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
-</style>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+<title>11.3 Tâches hybrides — IA pour Non-Techniciens</title>
+<link rel="stylesheet" href="../../style.css">
+<style>:root{--bg:#0B0F19;--card:#111827;--text:#F3F4F6;--muted:#9CA3AF;--accent:#8B5CF6;--accent2:#06B6D4;--border:rgba(255,255,255,0.08);--success:#10B981;--danger:#EF4444;}
+*{box-sizing:border-box;}body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;margin:0;}
+.container{max-width:800px;margin:0 auto;padding:0 16px;}
+header{padding:16px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:100;}
+.logo{font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.lesson-header{padding:32px 0 16px;}.lesson-header .phase{color:var(--accent);font-size:.85rem;font-weight:600;}
+.lesson-header h1{margin:8px 0;font-size:1.8rem;}.lesson-header .meta{color:var(--muted);font-size:.9rem;}
+.section{margin:28px 0;}.section h2{color:var(--accent);font-size:1.2rem;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:14px 0;}
+.card-accent{border-left:4px solid var(--accent);}.card-danger{border-left:4px solid var(--danger);}.card-success{border-left:4px solid var(--success);}
+.highlight{background:rgba(139,92,246,0.1);padding:2px 6px;border-radius:4px;}
+.example{background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:14px;margin:12px 0;}
+.example-label{color:var(--accent2);font-size:.75rem;font-weight:600;text-transform:uppercase;}
+.nav-footer{display:flex;justify-content:space-between;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap;gap:8px;}
+.nav-btn{padding:10px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;}
+.nav-btn.primary{background:var(--accent);border-color:var(--accent);}
+footer{padding:32px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border);}
+ul{padding-left:20px;}li{margin:4px 0;}
+.arch{background:#1a1f2e;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:.85rem;line-height:1.6;}
+@media(max-width:768px){.lesson-header h1{font-size:1.4rem;}.nav-footer{flex-direction:column;}}</style>
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(111617413,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">IA pour Non-Informaticiens</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">IA pour Non-Techniciens</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Niveau 12 — Maintenance (Réparations et Entretien)</div>
-    <h1>12.3 Tâches Hybrides de Maintenance</h1>
-    <div class="meta">⏱ 20 min · pour ingénieurs fiabilité</div>
+    <div class="phase">Niveau 11 — RP & Communication</div>
+    <h1>11.3 Tâches hybrides</h1>
+    <div class="meta">⏱ 15 min</div>
   </div>
-
-  <div class="card card-accent">
-    <strong>Approche Hybride</strong><br>
-    La <span class="highlight">structure et la méthodologie</span> générales sont préparées dans l'IA externe (Claude, ChatGPT).<br>
-    Les <span class="highlight">données réelles</span> (numéros d'équipement, paramètres, historique) sont ajoutées en on-prem.
-  </div>
-
-  <div class="section">
-    <h2>Principe de l'approche hybride pour la maintenance</h2>
-    <p>Règle clé : <strong>plus l'équipement est unique et critique</strong> (électrolyseurs, turbines spécifiques) — plus l'on-prem est strict. Pour l'équipement largement répandu (pompes, convoyeurs), la partie méthodologique peut tranquillement aller dans le contour externe.</p>
-  </div>
-
-  <div class="card card-warning">
-    <strong>Règles d'anonymisation pour le cloud :</strong>
-    <table>
-      <tr><th>Ce qu'il faut obligatoirement retirer</th><th>Ce qu'on peut laisser</th></tr>
-      <tr><td>Numéros d'inventaire, noms d'ateliers</td><td>Type d'équipement (pompe, compresseur)</td></tr>
-      <tr><td>Dates précises des pannes</td><td>Signes de panne (vibration, température)</td></tr>
-      <tr><td>Noms des sous-traitants et fournisseurs</td><td>Types de travaux standards (RG, TR, TO)</td></tr>
-      <tr><td>Données financières (budgets, prix)</td><td>Méthodologies générales (RCM, TPM, 5 Why)</td></tr>
-      <tr><td>Nom et prénom du personnel, équipes</td><td>Structure des documents (rapport, CDC, inspection)</td></tr>
-      <tr><td>Paramètres de production (recette, charges)</td><td>Normes générales (ISO, normes sectorielles)</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>1. Root-cause + AMDE (hybride)</h2>
-    <p><strong>Cloud :</strong> structure Ishikawa, catégories de causes, modèle 5 Why.<br>
-    <strong>On-prem :</strong> remplissage avec les paramètres réels d'une machine spécifique et l'historique d'exploitation.</p>
-    <div class="example">
-      <div class="example-label">Étape 1 : Cloud — préparation du modèle</div>
-      <pre>Prépare un modèle 5 Why pour l'enquête sur une panne d'équipement rotatif :
-
-Niveau 1 : Que s'est-il passé ? [À PRÉCISER]
-Niveau 2 : Pourquoi cela s'est-il produit ? [À PRÉCISER]
-Niveau 3 : Pourquoi le système ne l'a-t-il pas prévenu ? [À PRÉCISER]
-Niveau 4 : Pourquoi cela n'a-t-il pas été détecté plus tôt ? [À PRÉCISER]
-Niveau 5 : Pourquoi le processus permet-il cela ? [À PRÉCISER]
-
-Ajoute un diagramme d'Ishikawa (6M) avec des catégories de causes pour chaque niveau.</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">Étape 2 : On-prem — remplissage avec des données réelles</div>
-      <pre>Remplis le modèle 5 Why pour un cas concret :
-
-Équipement : réducteur R-08 (entraînement du broyeur M-3)
-Panne : destruction des roulements (2026-07-10)
-
-Données issues du journal d'inspection, de l'historique des réparations, des paramètres MES.
-Effectue une analyse root-cause, remplis l'Ishikawa, le 5 Why.
-
-Résultat : rapport RCA complété pour les archives et la direction.</pre>
-    </div>
-    <p><strong>Gain de temps :</strong> modèle prêt dans le cloud (2 h) + RCA rempli en on-prem (encore 2 h).</p>
-  </div>
-
-  <div class="section">
-    <h2>2. Cahier des charges pour révision générale (hybride)</h2>
-    <p><strong>Cloud :</strong> structure générale du CDC, sections types.<br>
-    <strong>On-prem :</strong> paramètres techniques spécifiques, volumes de travaux, délais.</p>
-    <div class="example">
-      <div class="example-label">Étape 1 : Cloud — structure du CDC</div>
-      <pre>Prépare la structure d'un cahier des charges pour la révision générale d'un équipement industriel :
-
-1. Désignation de l'objet [À PRÉCISER]
-2. Description technique [À PRÉCISER]
-3. Liste des travaux :
-   3.1 Inspection [À PRÉCISER]
-   3.2 Travaux de réparation [À PRÉCISER]
-   3.3 Essais [À PRÉCISER]
-4. Exigences de qualité [À PRÉCISER]
-5. Obligations contractuelles [À PRÉCISER]
-6. Documentation de l'exécutant [À PRÉCISER]
-
-Tous les paramètres — [À PRÉCISER USINE].</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">Étape 2 : On-prem — remplissage</div>
-      <pre>Remplis le CDC pour la révision générale du broyeur M-3 :
-
-- Numéro d'inventaire : M-03-2012
-- Année de mise en service : 2012, heures de fonctionnement : 87 400 h
-- Dernière RG : 2021
-- Inspection : [données réelles]
-- Volume de travaux : remplacement du revêtement blindé, réducteur, système de lubrification
-- Délai : 21 jours
-- Exécutant : [selon résultats de l'appel d'offres]
-
-Tous les paramètres techniques — issus du passeport et de l'inspection.</pre>
-    </div>
-    <p><strong>Gain de temps :</strong> modèle dans le cloud (1,5 h) + CDC rempli en on-prem (1 h).</p>
-  </div>
-
-  <div class="section">
-    <h2>3. Gestion des réclamations (hybride)</h2>
-    <p><strong>Cloud :</strong> méthodologie et structure du fondement de la réclamation sur un cas abstrait.<br>
-    <strong>On-prem :</strong> faits réels, dates, montants, pièces jointes.</p>
-    <div class="example">
-      <div class="example-label">Étape 1 : Cloud — méthodologie</div>
-      <pre>Prépare la structure d'une réclamation pour un cas de garantie sur une livraison d'équipement :
-
-1. Coordonnées des parties (fournisseur, acheteur) [À PRÉCISER]
-2. Contrat, spécification [À PRÉCISER]
-3. Conditions de garantie [À PRÉCISER]
-4. Description de la défaillance [À PRÉCISER]
-5. Preuves (rapports, photos, expertise) [À PRÉCISER]
-6. Demandes (remplacement, indemnisation, dommages) [À PRÉCISER]
-7. Délai de réponse, conséquences de non-exécution [À PRÉCISER]
-
-Ajoute des références à la législation (code civil, articles sur la livraison).</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">Étape 2 : On-prem — remplissage avec des données réelles</div>
-      <pre>Remplis la réclamation pour un cas de garantie :
-
-Équipement : ventilateur VO-16
-Fournisseur : SARL «VentProm»
-Contrat : n° 78/2025 du 10.03.2025
-Panne : rupture d'aube (2026-07-08)
-
-Pièces jointes : rapport d'inspection, photos, expertise du laboratoire.
-Tous les faits — issus des documents internes.</pre>
-    </div>
-    <p><strong>Gain de temps :</strong> modèle dans le cloud (1 h) + réclamation remplie en on-prem (1 h).</p>
-  </div>
-
-  <div class="section">
-    <h2>Tableau récapitulatif : tâches hybrides</h2>
-    <table>
-      <tr><th>Tâche</th><th>Cloud</th><th>On-prem</th><th>Gain de temps</th></tr>
-      <tr><td>RCA / 5 Why</td><td>Modèle, structure</td><td>Données de panne</td><td>2 + 2 h</td></tr>
-      <tr><td>CDC pour révision générale</td><td>Structure générale</td><td>Paramètres techniques</td><td>1,5 + 1 h</td></tr>
-      <tr><td>Réclamation</td><td>Méthodologie, structure</td><td>Faits, dates, montants</td><td>1 + 1 h</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>Vérification des connaissances</h2>
-    <p><strong>Question 1 :</strong> Quel est le principe de l'approche hybride pour la maintenance ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct !</strong> Méthodologie à l\'extérieur, données à l\'intérieur.'">Structure générale dans le cloud, données réelles en on-prem</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchis encore. Ce n\'est pas à propos de la suppression de données.'">Tout faire dans le cloud, puis supprimer</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Réfléchis encore. L\'hybride suppose les deux contours.'">Tout faire en on-prem, le cloud n'est pas nécessaire</div>
-    <div id="q1-result" class="result"></div>
-
-    <p><strong>Question 2 :</strong> CDC pour révision générale — quelle étape en on-prem ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct !</strong> Les paramètres spécifiques — à l\'intérieur.'">Remplissage avec les paramètres techniques, volumes, délais</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchis encore. La structure — c\'est le cloud.'">Préparation de la structure générale du document</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Réfléchis encore. Les normes — publiques.'">Recherche de normes et de standards</div>
-    <div id="q2-result" class="result"></div>
-
-    <p><strong>Question 3 :</strong> Qu'est-ce qu'il faut obligatoirement anonymiser avant le cloud ?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct !</strong> Les numéros d\'inventaire, noms d\'ateliers, fournisseurs — à retirer.'">Numéros d'inventaire, noms d'ateliers, noms de fournisseurs</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchis encore. Le type d\'équipement — c\'est une connaissance générale.'">Type d'équipement (pompe, compresseur)</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Réfléchis encore. Les réglements — méthodologies publiques.'">Structure du règlement de maintenance</div>
-    <div id="q3-result" class="result"></div>
-  </div>
-
+  <div class="card card-accent"><strong>Approche hybride</strong><br><span class="highlight">Données publiques</span> dans l'IA externe.<br><span class="highlight">Données internes</span> on-prem.</div>
+<div class="section"><h2>Campagne</h2><p>Cloud: тренды. On-prem: аудитория, бюджет.</p></div>
+<div class="section"><h2>Événement</h2><p>Cloud: кейсы. On-prem: бюджет, гости.</p></div>
   <div class="nav-footer">
-    <a href="../11-2-cloud/index.html" class="nav-btn">← 12.2 Tâches Externes</a>
-    <a href="../../index.html" class="nav-btn primary">Accueil</a>
+    <a href="../11-2-cloud/index.html" class="nav-btn">← 11.2 Tâches externes : Cloud</a>
+    <a href="../11-5-agents/index.html" class="nav-btn primary">→ 11.5 Scénarios agents</a>
   </div>
-
 </div>
-<footer><div class="container"><p>IA pour Non-Informaticiens · Entreprise de production</p></div></footer>
+<footer><div class="container"><p>IA pour Non-Techniciens · Entreprise industrielle</p></div></footer>
 </body></html>

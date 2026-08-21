@@ -3,291 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>13.3 物流混合任务 — 非IT人员的AI</title>
-<link rel="stylesheet" href="../../../style.css">
-<style>
-  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
-  * { box-sizing: border-box; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
-  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
-  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
-  header .container { display: flex; justify-content: space-between; align-items: center; }
-  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
-  .lesson-header { padding: 32px 0 16px; }
-  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
-  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
-  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
-  .section { margin: 28px 0; }
-  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
-  .card-accent { border-left: 4px solid var(--accent); }
-  .card-success { border-left: 4px solid var(--success); }
-  .card-warning { border-left: 4px solid var(--warning); }
-  .card-danger { border-left: 4px solid var(--danger); }
-  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
-  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
-  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
-  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
-  .nav-btn:hover { border-color: var(--accent); }
-  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
-  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
-  .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
-  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
-  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
-  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
-  .result.show { display: block; }
-  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
-  ul, ol { padding-left: 20px; }
-  li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
-</style>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+<title>12.3 混合任务 — 非技术人员的AI课程</title>
+<link rel="stylesheet" href="../../style.css">
+<style>:root{--bg:#0B0F19;--card:#111827;--text:#F3F4F6;--muted:#9CA3AF;--accent:#8B5CF6;--accent2:#06B6D4;--border:rgba(255,255,255,0.08);--success:#10B981;--danger:#EF4444;}
+*{box-sizing:border-box;}body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;margin:0;}
+.container{max-width:800px;margin:0 auto;padding:0 16px;}
+header{padding:16px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:100;}
+.logo{font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;}
+.lesson-header{padding:32px 0 16px;}.lesson-header .phase{color:var(--accent);font-size:.85rem;font-weight:600;}
+.lesson-header h1{margin:8px 0;font-size:1.8rem;}.lesson-header .meta{color:var(--muted);font-size:.9rem;}
+.section{margin:28px 0;}.section h2{color:var(--accent);font-size:1.2rem;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:14px 0;}
+.card-accent{border-left:4px solid var(--accent);}.card-danger{border-left:4px solid var(--danger);}.card-success{border-left:4px solid var(--success);}
+.highlight{background:rgba(139,92,246,0.1);padding:2px 6px;border-radius:4px;}
+.example{background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:14px;margin:12px 0;}
+.example-label{color:var(--accent2);font-size:.75rem;font-weight:600;text-transform:uppercase;}
+.nav-footer{display:flex;justify-content:space-between;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap;gap:8px;}
+.nav-btn{padding:10px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;}
+.nav-btn.primary{background:var(--accent);border-color:var(--accent);}
+footer{padding:32px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border);}
+ul{padding-left:20px;}li{margin:4px 0;}
+.arch{background:#1a1f2e;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:.85rem;line-height:1.6;}
+@media(max-width:768px){.lesson-header h1{font-size:1.4rem;}.nav-footer{flex-direction:column;}}</style>
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(111617413,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">非IT人员的AI</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">非技术人员的AI课程</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">第13级 — 物流</div>
-    <h1>13.3 物流混合任务</h1>
-    <div class="meta">⏱ 20分钟 · 面向物流人员</div>
+    <div class="phase">级别 12 — 质量管理</div>
+    <h1>12.3 混合任务</h1>
+    <div class="meta">⏱ 15 min</div>
   </div>
-
-  <div class="card card-accent">
-    <strong>混合方法</strong><br>
-    整体<span class="highlight">结构和方法论</span>在外部AI中准备。<br>
-    <span class="highlight">真实数据</span>（货物、日期、费率、路线）在本地（on-prem）中添加。
-  </div>
-
-  <div class="section">
-    <h2>物流混合方法原则</h2>
-    <p>关键规则：<strong>数据越敏感</strong>（具体交易方、财务指标）——越需要严格的本地处理。通用方法论（文档结构、分析类别）可以安全地放到外部环境。</p>
-  </div>
-
-  <div class="card card-warning">
-    <strong>云端脱敏规则：</strong>
-    <table>
-      <tr><th>必须删除的内容</th><th>可以保留的内容</th></tr>
-      <tr><td>港口名称（如果对公司具有唯一性）</td><td>港口类型（散货港、集装箱港）</td></tr>
-      <tr><td>交易方名称（报关行、承运商）</td><td>交易方类型（报关行、第三方物流、货代）</td></tr>
-      <tr><td>具体数量（吨、TEU）</td><td>计算方法</td></tr>
-      <tr><td>财务费率、运价</td><td>费率结构（基础费+附加费）</td></tr>
-      <tr><td>与公司绑定的具体路线</td><td>通用物流概念</td></tr>
-      <tr><td>具体发货日期</td><td>季节性、典型周期</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>1. 延误风险评估（混合）</h2>
-    <p><strong>云端：</strong>通用逻辑——"如果X港口有风暴，这对散货类型的货物通常有何影响"。<br>
-    <strong>本地：</strong>关联到具体船舶、货物、客户。</p>
-    <div class="example">
-      <div class="example-label">步骤1：云端 — 评估方法论</div>
-      <pre>准备海运货物延误风险评估方法论：
-
-因素：
-1. 航线区域天气（风暴、台风）
-2. 港口拥堵情况（排队、装卸工）
-3. 地缘政治（限制、禁令）
-4. 船舶技术状况（船龄、船级）
-5. 季节性（高峰期）
-
-风险等级：低（延误≤1天）/ 中（2–3天）/ 高（≥4天）
-
-影响计算方法：延误成本 = 罚款 + 滞期费 + 替代支出
-
-【请补充：具体船舶、货物、路线、日期】</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">步骤2：本地 — 用真实数据填充</div>
-      <pre>为本次航行填写风险评估：
-
-船舶："【请填写名称】"，货物：【请填写货物】 55 000吨
-路线：【请填写港口】 → 【请填写港口】
-装货日期：2026-08-10
-
-数据：
-- 天气预报：【请填写地点】附近 8月25–27日有风暴
-- 当前位置：预计8月25日到达【请填写地点】
-- 替代方案：绕行【请填写区域】（+4天，+45 000美元燃油费）
-- 延误罚款：2026-09-05后每天3 000美元
-
-计算风险并给出建议。</pre>
-    </div>
-    <p><strong>节省：</strong>云端方法论（1小时）+ 本地评估（1小时）。</p>
-  </div>
-
-  <div class="section">
-    <h2>2. 绕行/改期预警（混合）</h2>
-    <p><strong>云端：</strong>通用路线规划场景。<br>
-    <strong>本地：</strong>基于真实日期和货物的最终决策。</p>
-    <div class="example">
-      <div class="example-label">步骤1：云端 — 应对方案</div>
-      <pre>准备装货港延误应对方案：
-
-场景：装货港延误5天（风暴、设备故障）
-
-选项：
-A. 等待（将船舶留在港口）——风险：滞期费
-B. 改道至替代港口——风险：+距离、+燃油费
-C. 更换为更易调度的船舶——风险：重装货、货损
-D. 推迟至下一窗口——风险：买方罚款
-
-选择标准：成本、时间、货损风险、声誉。
-
-【请补充：具体货物、数量、合同、日期】</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">步骤2：本地 — 做出决策</div>
-      <pre>为本次航行做出决策：
-
-货物：【请填写货物】，2 850吨（集装箱）
-船舶：在【请填写港口】延误5天（风暴）
-合同：2026-09-10前交付，罚款2 000美元/天
-
-选项：
-A. 等待——滞期费12 000美元，但无罚款
-B. 改道至【请填写港口】——+8 000美元，+2天
-C. 空运（部分货物）——+45 000美元，但准时
-
-计算并推荐。</pre>
-    </div>
-    <p><strong>节省：</strong>云端方案（1.5小时）+ 本地决策（1小时）。</p>
-  </div>
-
-  <div class="section">
-    <h2>3. 外包任务说明书（混合）</h2>
-    <p><strong>云端：</strong>脱敏的任务说明书模板。<br>
-    <strong>本地：</strong>真实数量、路线、要求。</p>
-    <div class="example">
-      <div class="example-label">步骤1：云端 — 任务说明书模板</div>
-      <pre>准备物流外包（3PL）标准任务说明书：
-
-1. 总则（范围、期限）
-2. 货流量【请补充：年吨数/TEU】
-3. 路线【请补充：典型方向】
-4. 运输要求（海运/铁路/公路/多式联运）
-5. SLA（OTIF、交付时间、索赔）
-6. IT集成（API、EDI、追踪）
-7. 报告（KPI、频率）
-8. 保险（价值的110%）
-9. 人员要求（认证）
-10. 评估标准（价格、经验、覆盖范围、IT）
-
-待插入位置：【请补充生产地点】。</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">步骤2：本地 — 填写</div>
-      <pre>为招标填写任务说明书：
-
-公司：【我方名称】
-数量：【请填写数量】吨/年 【请填写货物】
-路线：
-- 【请填写国家】（【请填写港口】）→ 【请填写国家】（【请填写港口】）：【请填写数量】吨/年（海运）
-- 【请填写城市】 → 【请填写城市】：【请填写数量】吨/年（铁路）
-- 【请填写城市】 → 【请填写城市】：【请填写数量】吨/年（公路/海运）
-
-SLA：OTIF ≥90%，月度报告
-标准：价格40%、经验25%、IT 15%、覆盖范围10%、参考案例10%
-
-所有参数均来自内部数据。</pre>
-    </div>
-    <p><strong>节省：</strong>云端模板（2小时）+ 本地填写任务说明书（1.5小时）。</p>
-  </div>
-
-  <div class="section">
-    <h2>4. 索赔工作（混合）</h2>
-    <p><strong>云端：</strong>索赔论证的结构和方法论。<br>
-    <strong>本地：</strong>真实事实、日期、金额。</p>
-    <div class="example">
-      <div class="example-label">步骤1：云端 — 方法论</div>
-      <pre>准备延误交付索赔函结构：
-
-1. 双方信息【请补充】
-2. 合同、规格【请补充】
-3. 实际运输条件【请补充】
-4. 违约情况（实际vs计划）【请补充】
-5. 原因（根据文件/声明）【请补充】
-6. 损失（罚款、滞期、额外支出）【请补充】
-7. 要求（赔偿、违约金）【请补充】
-8. 回复期限和后果【请补充】
-
-补充相关法律依据（民法典、联合国国际货物销售合同公约）。</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">步骤2：本地 — 填写</div>
-      <pre>填写本次航行的索赔函：
-
-承运商：【请填写公司】
-合同：№【请填写编号】，日期【请填写日期】
-航程：【请填写城市】 → 【请填写城市】，【请填写货物】28吨
-延误：8天（计划18天，实际26天）
-
-损失：买方罚款16 000美元，滞期费8 000美元
-要求：赔偿24 000美元 + 合同约定违约金
-
-所有事实均来自内部文件。</pre>
-    </div>
-    <p><strong>节省：</strong>云端模板（1小时）+ 本地索赔函（1小时）。</p>
-  </div>
-
-  <div class="section">
-    <h2>总结表：混合任务</h2>
-    <table>
-      <tr><th>任务</th><th>云端</th><th>本地</th><th>节省</th></tr>
-      <tr><td>延误风险评估</td><td>方法论、因素</td><td>具体船舶、货物、日期</td><td>1 + 1小时</td></tr>
-      <tr><td>绕行预警</td><td>应对方案</td><td>真实货物、日期、决策</td><td>1.5 + 1小时</td></tr>
-      <tr><td>外包任务说明书</td><td>通用模板</td><td>数量、路线、要求</td><td>2 + 1.5小时</td></tr>
-      <tr><td>索赔函</td><td>结构、方法论</td><td>事实、日期、金额</td><td>1 + 1小时</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>知识测验</h2>
-    <p><strong>问题1：</strong>物流混合原则是什么？</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>正确！</strong>方法论在外，数据在内。'">通用方法论在云端，真实数据在本地</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。这不是关于复制。'">全部在云端完成，然后复制到本地</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='再想想。混合意味着两个环境都要用。'">全部在本地完成，不需要云端</div>
-    <div id="q1-result" class="result"></div>
-
-    <p><strong>问题2：</strong>延误风险评估中，哪一步在本地完成？</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>正确！</strong>具体数据在内部。'">关联到具体船舶、货物、路线、日期</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。方法论在云端。'">制定风险等级和评估方法论</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='再想想。天气是公开数据。'">收集航线区域的天气预报</div>
-    <div id="q2-result" class="result"></div>
-
-    <p><strong>问题3：</strong>以下哪项在放入云端前必须删除？</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>正确！</strong>交易方、数量、费率都要删除。'">报关行名称、具体数量、财务费率</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。类型是通用知识。'">运输类型（海运/铁路/公路）</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='再想想。费率结构是公开的。'">费率结构（基础费+附加费）</div>
-    <div id="q3-result" class="result"></div>
-  </div>
-
+  <div class="card card-accent"><strong>混合方法</strong><br><span class="highlight">Données publiques</span> dans l'IA externe.<br><span class="highlight">Données internes</span> on-prem.</div>
+<div class="section"><h2>CAPA</h2><p>Cloud: методологии. On-prem: корневые причины.</p></div>
+<div class="section"><h2>Audit</h2><p>Cloud: чек-листы. On-prem: результаты, действия.</p></div>
   <div class="nav-footer">
-    <a href="../12-2-cloud/index.html" class="nav-btn">← 13.2 外部任务</a>
-    <a href="../../index.html" class="nav-btn primary">返回首页</a>
+    <a href="../12-2-cloud/index.html" class="nav-btn">← 12.2 外部任务：云端</a>
+    <a href="../12-5-agents/index.html" class="nav-btn primary">→ 12.5 智能体场景</a>
   </div>
 </div>
-<footer><div class="container"><p>非IT人员的AI · 生产型企业</p></div></footer>
+<footer><div class="container"><p>非技术人员的AI课程 · 制造企业</p></div></footer>
 </body></html>
