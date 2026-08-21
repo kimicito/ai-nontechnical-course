@@ -3,56 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>12.1 内部任务：本地部署 — 非技术人员的AI课程</title>
+<title>12.1 质量管理内部任务 — 本地 — AI for Non-Technical Professionals</title>
 <link rel="stylesheet" href="../../style.css">
-<style>:root{--bg:#0B0F19;--card:#111827;--text:#F3F4F6;--muted:#9CA3AF;--accent:#8B5CF6;--accent2:#06B6D4;--border:rgba(255,255,255,0.08);--success:#10B981;--danger:#EF4444;}
-*{box-sizing:border-box;}body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;margin:0;}
-.container{max-width:800px;margin:0 auto;padding:0 16px;}
-header{padding:16px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:100;}
-.logo{font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;}
-.lesson-header{padding:32px 0 16px;}.lesson-header .phase{color:var(--accent);font-size:.85rem;font-weight:600;}
-.lesson-header h1{margin:8px 0;font-size:1.8rem;}.lesson-header .meta{color:var(--muted);font-size:.9rem;}
-.section{margin:28px 0;}.section h2{color:var(--accent);font-size:1.2rem;}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:14px 0;}
-.card-accent{border-left:4px solid var(--accent);}.card-danger{border-left:4px solid var(--danger);}.card-success{border-left:4px solid var(--success);}
-.highlight{background:rgba(139,92,246,0.1);padding:2px 6px;border-radius:4px;}
-.example{background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:14px;margin:12px 0;}
-.example-label{color:var(--accent2);font-size:.75rem;font-weight:600;text-transform:uppercase;}
-.nav-footer{display:flex;justify-content:space-between;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap;gap:8px;}
-.nav-btn{padding:10px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;}
-.nav-btn.primary{background:var(--accent);border-color:var(--accent);}
-footer{padding:32px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border);}
-ul{padding-left:20px;}li{margin:4px 0;}
-.arch{background:#1a1f2e;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:.85rem;line-height:1.6;}
-@media(max-width:768px){.lesson-header h1{font-size:1.4rem;}.nav-footer{flex-direction:column;}}</style>
-<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(111617413,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .card-warning { border-left: 4px solid var(--warning); }
+  .card-danger { border-left: 4px solid var(--danger); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(111617413, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">非技术人员的AI课程</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">级别 12 — 质量管理</div>
-    <h1>12.1 内部任务：本地部署</h1>
-    <div class="meta">⏱ 20 min · 闭环（本地部署）</div>
+    <div class="phase">第12级 — 质量管理</div>
+    <h1>12.1 质量管理内部任务 — 本地</h1>
+    <div class="meta">⏱ 20 分钟 · 面向质量经理 · 封闭循环</div>
   </div>
-  <div class="card card-accent"><strong>闭环（本地部署）</strong><br>Tâches avec <span class="highlight">données réelles</span>.</div>
-  <div class="card card-danger"><strong>必须保留在本地</strong><ul><li>NCR/CAPA</li><li>Данные входного контроля</li><li>Аудиты поставщиков</li><li>Процессные данные</li></ul></div>
-<div class="section"><h2>Analyse NCR</h2><div class="example"><div class="example-label">Prompt example</div><pre>Проанализируй несоответствия:
 
-1. Топ-5 дефектов
-2. Распределение по поставщикам
-3. Тренды по месяцам
+  <div class="card card-accent">
+    <strong>封闭循环（本地）</strong><br>
+    所有任务处理<span class="highlight">真实质量数据：测量结果、检查数据、投诉数据、不符合报告</span>。使用内部模型或本地LLM。
+  </div>
 
-Результат: графики + рекомендации</pre></div></div>
-<div class="section"><h2>Score fournisseurs</h2><div class="example"><div class="example-label">Prompt example</div><pre>Оцени поставщиков:
+  <div class="section">
+    <h2>为什么本地部署对质量至关重要</h2>
+    <p>质量数据包含有关生产工艺、缺陷、客户投诉和检查结果的敏感信息。这些数据绝不能离开公司边界。</p>
+  </div>
 
-KPI: PPM, OTD, рейтинг качества
+  <div class="card card-danger">
+    <strong>必须保留在本地的数据：</strong>
+    <ul>
+      <li>测量结果和SPC数据</li>
+      <li>不符合报告</li>
+      <li>客户投诉及详情</li>
+      <li>供应商检查结果</li>
+      <li>进货检验数据</li>
+      <li>生产工艺和参数</li>
+    </ul>
+  </div>
 
-Результат: рейтинговая таблица</pre></div></div>
+  <div class="section">
+    <h2>1. 质量控制数据分析</h2>
+    <p>AI帮助分析SPC数据、识别趋势和预测质量问题。</p>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>Проанализируй данные SPC за последний месяц (файл SPC_данные.xlsx):
+
+1. Построй контрольные карты по каждому параметру
+2. Найди нарушения правил Western Electric
+3. Оцени стабильность процесса (Cpk, Ppk)
+4. Выяви тренды к ухудшению
+5. Предскажи выход за пределы допуска
+
+Результат: отчёт с приоритетными действиями.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. 客户投诉分析</h2>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>Проанализируй рекламации клиентов за квартал (файл Рекламации.xlsx):
+
+1. Классифицируй по типам дефектов
+2. Определи топ-5 проблем
+3. Свяжи с партиями/поставщиками/оборудованием
+4. Оцени стоимость возвратов и rework
+5. Предложи корректирующие мероприятия
+
+Результат: отчёт с рекомендациями для производства.</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. 供应商质量控制分析</h2>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>Проанализируй результаты входного контроля (файл Входной_контроль.xlsx):
+
+1. Рейтинг поставщиков по PPM
+2. Типы дефектов по категориям
+3. Динамика качества по месяцам
+4. Поставщики с ухудшением тренда
+5. Рекомендации по аудиту поставщиков
+
+Результат: scorecard поставщиков + план аудитов.</pre>
+    </div>
+  </div>
+
   <div class="nav-footer">
     <a href="../../index.html" class="nav-btn">首页</a>
-    <a href="../12-2-cloud/index.html" class="nav-btn primary">→ 12.2 外部任务：云端 →</a>
+    <a href="../12-2-cloud/index.html" class="nav-btn primary">12.2 外部任务 →</a>
   </div>
 </div>
-<footer><div class="container"><p>非技术人员的AI课程 · 制造企业</p></div></footer>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
 </body></html>
