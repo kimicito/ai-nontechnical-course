@@ -3,45 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>13.3 Tâches hybrides — IA pour Non-Techniciens</title>
+<title>13.3 Tâches hybrides ТОиР — AI for Non-Technical Professionals</title>
 <link rel="stylesheet" href="../../style.css">
-<style>:root{--bg:#0B0F19;--card:#111827;--text:#F3F4F6;--muted:#9CA3AF;--accent:#8B5CF6;--accent2:#06B6D4;--border:rgba(255,255,255,0.08);--success:#10B981;--danger:#EF4444;}
-*{box-sizing:border-box;}body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;margin:0;}
-.container{max-width:800px;margin:0 auto;padding:0 16px;}
-header{padding:16px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:100;}
-.logo{font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;}
-.lesson-header{padding:32px 0 16px;}.lesson-header .phase{color:var(--accent);font-size:.85rem;font-weight:600;}
-.lesson-header h1{margin:8px 0;font-size:1.8rem;}.lesson-header .meta{color:var(--muted);font-size:.9rem;}
-.section{margin:28px 0;}.section h2{color:var(--accent);font-size:1.2rem;}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:14px 0;}
-.card-accent{border-left:4px solid var(--accent);}.card-danger{border-left:4px solid var(--danger);}.card-success{border-left:4px solid var(--success);}
-.highlight{background:rgba(139,92,246,0.1);padding:2px 6px;border-radius:4px;}
-.example{background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:14px;margin:12px 0;}
-.example-label{color:var(--accent2);font-size:.75rem;font-weight:600;text-transform:uppercase;}
-.nav-footer{display:flex;justify-content:space-between;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap;gap:8px;}
-.nav-btn{padding:10px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;}
-.nav-btn.primary{background:var(--accent);border-color:var(--accent);}
-footer{padding:32px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border);}
-ul{padding-left:20px;}li{margin:4px 0;}
-.arch{background:#1a1f2e;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:.85rem;line-height:1.6;}
-@media(max-width:768px){.lesson-header h1{font-size:1.4rem;}.nav-footer{flex-direction:column;}}</style>
-<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(111617413,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(111617413, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">IA pour Non-Techniciens</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Niveau 13 — MRO & Maintenance</div>
-    <h1>13.3 Tâches hybrides</h1>
-    <div class="meta">⏱ 15 min</div>
+    <div class="phase">Niveau 13 — ТОиР</div>
+    <h1>13.3 Tâches hybrides ТОиР</h1>
+    <div class="meta">⏱ 15 min · pour responsables maintenance</div>
   </div>
-  <div class="card card-accent"><strong>Approche hybride</strong><br><span class="highlight">Données publiques</span> dans l'IA externe.<br><span class="highlight">Données internes</span> on-prem.</div>
-<div class="section"><h2>RCM</h2><p>Cloud: FMEA. On-prem: история отказов.</p></div>
-<div class="section"><h2>Investissements</h2><p>Cloud: цены, тренды. On-prem: состояние, бюджет.</p></div>
+
+  <div class="card card-accent">
+    <strong>Approche hybride</strong><br>
+    <span class="highlight">Méthodologies de maintenance générales et benchmarks</span> dans l'IA externe.<br>
+    <span class="highlight">Données réelles d'équipement et historique de maintenance</span> dans le on-prem.
+  </div>
+
+  <div class="section">
+    <h2>1. Analyse RCM (fiabilité) (hybride)</h2>
+    <p><strong>Cloud :</strong> méthodologie RCM, cadres d'analyse des modes de défaillance, études de cas sectorielles.<br>
+    <strong>On-prem :</strong> données spécifiques d'équipement, historique de pannes, contexte opérationnel.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Planification des investissements équipement (hybride)</h2>
+    <p><strong>Cloud :</strong> tarification équipement, tendances technologiques, benchmarks ROI.<br>
+    <strong>On-prem :</strong> état actuel de l'équipement, exigences de production, contraintes budgétaires.</p>
+  </div>
+
   <div class="nav-footer">
-    <a href="../13-2-cloud/index.html" class="nav-btn">← 13.2 Tâches externes : Cloud</a>
-    <a href="../13-5-agents/index.html" class="nav-btn primary">→ 13.5 Scénarios agents</a>
+    <a href="../13-2-cloud/index.html" class="nav-btn">← 13.2 Tâches externes</a>
+    <a href="../../index.html" class="nav-btn primary">Home</a>
   </div>
 </div>
-<footer><div class="container"><p>IA pour Non-Techniciens · Entreprise industrielle</p></div></footer>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
 </body></html>
