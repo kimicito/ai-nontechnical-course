@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>11.3 Tâches hybrides qualité Дирекции по качеству — données anonymisées — AI pour les non-informaticiens</title>
-<link rel="stylesheet" href="../../../style.css">
+<title>08.3 Tâches hybrides — AI for Non-Technical Professionals</title>
+<link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; }
@@ -19,12 +19,10 @@
   .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
   .section { margin: 28px 0; }
   .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
   .card-accent { border-left: 4px solid var(--accent); }
   .card-success { border-left: 4px solid var(--success); }
   .card-warning { border-left: 4px solid var(--warning); }
-  .card-danger { border-left: 4px solid var(--danger); }
   .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
   .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
   .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -33,25 +31,9 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .card + .card { margin-top: 40px; }
-  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
-  .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
-  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
-  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
-  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
-  .result.show { display: block; }
-  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
   ul, ol { padding-left: 20px; }
   li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) {
-    .lesson-header h1 { font-size: 1.4rem; }
-    .nav-footer { flex-direction: column; }
-    .nav-btn { width: 100%; text-align: center; }
-  }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -60,322 +42,104 @@
    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
+   ym(111617413, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<header>
-  <div class="container">
-    <a href="../../index.html" class="logo">AI pour les non-informaticiens</a>
-  </div>
-</header>
-
-<main class="container">
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
+<div class="container">
   <div class="lesson-header">
-    <div class="phase">Niveau 11 — Direction Qualité</div>
-    <h1>11.3 Tâches hybrides qualité: données anonymisées</h1>
-    <div class="meta">15 min · pour spécialistes qualité · combinaison cloud + on-prem</div>
+    <div class="phase">Niveau 08 — Achats</div>
+    <h1>08.3 Tâches hybrides</h1>
+    <div class="meta">⏱ 20 min · pour acheteurs</div>
+  </div>
+
+  <div class="card card-accent">
+    <strong>Approche hybride</strong><br>
+    La <span class="highlight">structure et méthodologie générale</span> est préparée dans l'IA externe.<br>
+    Les <span class="highlight">données réelles</span> (prix, noms de fournisseurs, volumes) sont ajoutées en on-prem.
   </div>
 
   <div class="section">
-    <p>Гибридные задачи — это сценарии, где часть работы делается в облаке (общая структура, методология, литературный обзор), а финальная версия с реальными данными — в on-prem (закрытом контуре).</p>
-    <p><strong>Принцип:</strong> Обезличенное описание + общая методология → облако. Конкретные параметры, рецептура, номера партий → on-prem.</p>
+    <h2>Principe : méthodologie à l'extérieur, données à l'intérieur</h2>
+    <p>Plus les données sont sensibles (prix, conditions contractuelles, positions de négociation) — plus l'on-prem est strict. La méthodologie générale (structure de document, catégories d'analyse) peut être envoyée dans le cloud.</p>
+  </div>
+
+  <div class="card card-warning">
+    <strong>Règles d'anonymisation pour le cloud :</strong>
+    <ul>
+      <li><strong>Supprimer :</strong> prix réels, noms de fournisseurs, conditions contractuelles, volumes</li>
+      <li><strong>Conserver :</strong> catégories de produits, exigences générales, méthodologies</li>
+      <li><strong>Remplacer :</strong> « Fournisseur X » au lieu des noms réels</li>
+    </ul>
   </div>
 
   <div class="section">
-    <h2>Schéma approche hybride</h2>
-    <div class="card card-accent">
-      <pre style="background:transparent;">┌─────────────────────────────────────────┐
-│  ОБЛАКО (публичные данные)              │
-│  • Структура метода                     │
-│  • Литературный обзор                   │
-│  • Общие принципы                       │
-│  • Шаблоны без данных                   │
-└─────────────────┬───────────────────────┘
-                  │
-                  ▼
-┌─────────────────────────────────────────┐
-│  ON-PREM (производственная тайна)       │
-│  • Реальные параметры процесса            │
-│  • Номера партий, клиенты                │
-│  • Рецептура, химсостав                │
-│  • Экспериментальные данные             │
-└─────────────────────────────────────────┘</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>1. Root-cause + FMEA (гибрид)</h2>
-    <p><strong>Облако:</strong> структура Ishikawa-диаграммы, 8D-шаблон, FMEA-матрица. <strong>On-prem:</strong> заполнение реальными параметрами конкретной партии.</p>
-    
+    <h2>1. Préparation d'un document d'appel d'offres (hybride)</h2>
+    <p><strong>Cloud :</strong> structure générale de l'appel d'offres, critères d'évaluation, exigences légales.<br>
+    <strong>On-prem :</strong> exigences techniques spécifiques, conditions commerciales, pondérations d'évaluation.</p>
     <div class="example">
-      <div class="example-label">Étape 1: Cloud — préparation modèle</div>
-      <pre>Подготовь шаблон 8D-расследования для металлургического производства:
+      <div class="example-label">Étape 1 : Cloud — modèle général</div>
+      <pre>Подготовь структуру тендерного документа на промышленное оборудование:
 
-D0: Критерии запуска (когда начинать 8D)
-D1: Роли команды (руководитель, инженер по качеству, технолог, производство, лаборатория)
-D2: Форма описания проблемы (5W2H)
-D3: Варианты временных сдерживающих действий
-D4: Шаблон Ishikawa (6M: Man, Machine, Material, Method, Milieu, Measurement)
-D5-D7: Форматы для корректирующих и превентивных действий
-D8: Критерии закрытия
+1. Общие положения
+2. Технические требования [УТОЧНИТЬ]
+3. Коммерческие условия [УТОЧНИТЬ]
+4. Требования к квалификации поставщика
+5. Критерии оценки [УТОЧНИТЬ]
+6. Проект договора
 
-Все поля — заполнить placeholder'ами [УТОЧНИТЬ].</pre>
+Места для данных компании: [УТОЧНИТЬ].</pre>
     </div>
-
     <div class="example">
-      <div class="example-label">Étape 2: On-prem — remplissage données réelles</div>
-      <pre>Заполни шаблон 8D для конкретного случая:
+      <div class="example-label">Étape 2 : On-prem — remplissage avec données réelles</div>
+      <pre>Заполни тендерный документ:
 
-- Партия: П-2026-1847
-- Дефект: раковины на поверхности слитка
-- Линия: №3
-- Дата: 2026-07-15
-- Параметры: [фактические данные из MES]
+Оборудование: [УКАЖИТЕ]
+Бюджет: [УКАЖИТЕ]
+Условия поставки: [УКАЖИТЕ]
+Условия оплаты: [УКАЖИТЕ]
+Веса оценки: [УКАЖИТЕ]
 
-Проведи root-cause, заполни Ishikawa, 5 Why, D5-D7.</pre>
-    </div>
-
-    <div class="card card-success">
-      <strong>Результат:</strong> готовый шаблон в облаке (экономит 2 часа) + заполненный 8D в on-prem (экономит ещё 4 часа).
+Все данные — из внутренних источников.</pre>
     </div>
   </div>
 
   <div class="section">
-    <h2>2. ТУ на продукцию (гибрид)</h2>
-    <p><strong>Облако:</strong> общая структура документа, типовые разделы. <strong>On-prem:</strong> конкретные технические параметры, допуски, рецептура.</p>
-    
+    <h2>2. Scorecard d'évaluation des fournisseurs (hybride)</h2>
+    <p><strong>Cloud :</strong> critères d'évaluation généraux, benchmarks sectoriels.<br>
+    <strong>On-prem :</strong> données réelles des fournisseurs, scoring interne.</p>
     <div class="example">
-      <div class="example-label">Шаг 1: Облако — структура ТУ</div>
-      <pre>Подготовь структуру ТУ на алюминиевый сплав для авиапрома:
+      <div class="example-label">Étape 1 : Cloud — cadre d'évaluation</div>
+      <pre>Разработай scorecard оценки поставщиков для производства:
 
-1. Область применения (пример: детали авиационных конструкций)
-2. Технические требования:
-   - Химсостав (таблица: элемент, мин, номинал, макс)
-   - Мехсвойства (σв, δ, HB, E)
-   - Допуски на размеры
-3. Методы контроля (список стандартных методов)
-4. Упаковка и маркировка (общие требования)
-5. Технологические указания (без конкретных параметров — [УТОЧНИТЬ])
-6. Критерии приёмки (статистические, 100%)
+Категории:
+1. Ценовая конкурентоспособность (вес: 30%)
+2. История качества (вес: 25%)
+3. Надёжность поставок (вес: 20%)
+4. Финансовая стабильность (вес: 15%)
+5. Уровень сервиса (вес: 10%)
 
-Все числовые значения — [УТОЧНИТЬ ПРОИЗВОДСТВО].</pre>
+Оценка: 1–5 по каждой категории
+Бенчмарки: отраслевые средние для [УКАЖИТЕ ОТРАСЛЬ]</pre>
     </div>
-
     <div class="example">
-      <div class="example-label">Шаг 2: On-prem — заполнение параметрами</div>
-      <pre>Заполни ТУ для сплава "СуперАлюм-3000":
+      <div class="example-label">Étape 2 : On-prem — scoring réel</div>
+      <pre>Оцени поставщиков по scorecard:
 
-Химсостав:
-- Al: [94.0-95.0]% — номинал 94.5%
-- Mg: [2.5-3.0]% — номинал 2.8%
-- Si: [0.8-1.5]% — номинал 1.2%
-... [конкретные данные из лаборатории]
+Поставщик А: [УКАЖИТЕ ДАННЫЕ]
+Поставщик Б: [УКАЖИТЕ ДАННЫЕ]
+Поставщик В: [УКАЖИТЕ ДАННЫЕ]
 
-Мехсвойства:
-- σв: ≥350 МПа (наши данные: 385)
-- δ: ≥10% (наши данные: 13%)
-... [конкретные данные из испытаний]
-
-Технологические указания:
-- Температура литья: 720-740°C (оптимум 730°C)
-- Скорость охлаждения: 15-20°C/мин
-... [конкретные параметры из MES]</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>3. R&D сплавов (гибрид)</h2>
-    <p><strong>Облако:</strong> литературный обзор, общие металлургические принципы. <strong>On-prem:</strong> сопоставление с реальными экспериментальными данными и принятие решения.</p>
-    
-    <div class="example">
-      <div class="example-label">Шаг 1: Облако — литературный обзор</div>
-      <pre>Проведи литературный обзор по алюминиевым сплавам с Scandium (Sc):
-
-1. Какие сплавы с Sc описаны в литературе (2020-2026)?
-2. Какие механические свойства заявлены (σв, δ, усталость)?
-3. Какие методы получения (литьё, прокатка, экструзия)?
-4. Какие области применения (авиа, автопром, спорт)?
-5. Какие проблемы (свариваемость, коррозия, стоимость Sc)?
-6. Какие компании внедряют (публичная информация)?
-
-Сделай сравнительную таблицу: сплав × свойства × проблемы.</pre>
-    </div>
-
-    <div class="example">
-      <div class="example-label">Étape 2: On-prem — comparaison avec nos données</div>
-      <pre>Сравни наши экспериментальные данные с литературными:
-
-Наш сплав: Al-Mg-Sc (0.3% Sc)
-Наши данные:
-- σв = 428 МПа (среднее, 3 партии)
-- δ = 10%
-- Проблема: растрескивание при сварке (2/3 партий)
-
-Литературные данные: [из облачного обзора]
-
-Сделай:
-1. Соответствуют ли наши результаты литературным?
-2. Если нет — в чём различия и почему?
-3. Рекомендация: продолжить / изменить состав / отказаться?
-4. Следующие шаги экспериментов (если продолжаем)</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>4. Обучающие материалы (гибрид)</h2>
-    <p><strong>Облако:</strong> базовый контент, общие принципы. <strong>On-prem:</strong> кейсы с реальными инцидентами завода как иллюстрации.</p>
-    
-    <div class="example">
-      <div class="example-label">Шаг 1: Облако — базовый контент</div>
-      <pre>Подготови обучающий модуль "Контроль качества в плавке":
-
-1. Основные дефекты плавки (типы, причины, признаки)
-   - Газовые включения
-   - Окисные плёнки
-   - Неравномерность химсостава
-   - Раковины (внутренние и поверхностные)
-2. Методы контроля (визуальный, УЗК, химанализ)
-3. Критерии приёмки (общие, без конкретных цифр)
-4. Действия при обнаружении дефекта (общий алгоритм)
-
-Без привязки к конкретному заводу — только общие принципы.</pre>
-    </div>
-
-    <div class="example">
-      <div class="example-label">Étape 2: On-prem — ajout cas réels</div>
-      <pre>Добавь в модуль реальные кейсы нашего завода:
-
-Кейс 1: "Газовые включения в партии П-2026-1847"
-- Что произошло: [описание, données anonymiséesе]
-- Причина: [реальная причина из расследования]
-- Как нашли: [метод контроля]
-- Что сделали: [корректирующие действия]
-- Чему научились: [урок для других мастеров]
-
-Кейс 2: "Неравномерность химсостава в партии П-2026-1956"
-- [аналогичная структура]
-
-Important: обезличить (убрать имена, конкретные клиенты, точные параметры, если чувствительно).</pre>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Règles d'anonymisation pour le cloud</h2>
-    <div class="card card-warning">
-      <strong>Éléments à supprimer avant envoi cloud:</strong>
-      <ul>
-        <li>Названия клиентов ("АвтоПром ООО" → "Клиент А")</li>
-        <li>Номера партий ("П-2026-1847" → "Партия X")</li>
-        <li>Конкретные химсоставы ("Al 94.5%" → "основной элемент ~95%")</li>
-        <li>Названия поставщиков ("УралСырье" → "Поставщик 1")</li>
-        <li>ФИО сотрудников ("Иванов П.С." → "мастер смены 2")</li>
-        <li>Геолокация ("цех №3" → "цех Y")</li>
-      </ul>
-    </div>
-    <div class="card card-success">
-      <strong>Éléments conservables:</strong>
-      <ul>
-        <li>Тип дефекта ("раковины", "пористость")</li>
-        <li>Общий тип процесса ("плавка", "прокатка")</li>
-        <li>Общие методы контроля ("УЗК", "химанализ")</li>
-        <li>Структура документа (разделы ТУ, форма 8D)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Tableau récapitulatif: tâches hybrides</h2>
-    <table>
-      <tr><th>Tâche</th><th>Облако (общее)</th><th>On-prem (реальные данные)</th></th>Экономия</th></tr>
-      <tr><td>Root-cause + FMEA</td><td>Шаблон Ishikawa, 8D, FMEA-матрица</td><td>Заполнение параметрами конкретной партии</td><td>6 часов → 1 час</td></tr>
-      <tr><td>ТУ на продукцию</td><td>Общая структура документа</td><td>Конкретные параметры, допуски, рецептура</td><td>3 дня → 4 часа</td></tr>
-      <tr><td>R&D сплавов</td><td>Литературный обзор, общие принципы</td><td>Сопоставление с экспериментальными данными</td><td>5 дней → 1 день</td></tr>
-      <tr><td>Обучающие материалы</td><td>Базовый контент, общие принципы</td><td>Кейсы с реальными инцидентами (обезличенные)</td><td>2 дня → 3 часа</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>Test de connaissances</h2>
-    <div class="card card-accent">
-      <p><strong>Question 1:</strong> Какой принцип гибридного подхода?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Всё делать в облаке, а потом удалить данные</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Общая структура в облаке, реальные данные в on-prem</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Всё делать в on-prem, облако не нужно</div>
-      <div class="result" id="result1"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 2:</strong> Можно ли в облаке подготовить FMEA для реального процесса?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Да, FMEA — это публичный метод</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Нет, только шаблон. Реальные данные процесса — в on-prem</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Можно, если обезличить название завода</div>
-      <div class="result" id="result2"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 3:</strong> Что из списка обязательно обезличить перед облаком?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Номера партий, названия клиентов, конкретные химсоставы</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Типы дефектов ("раковины", "пористость")</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Общие методы контроля ("УЗК", "химанализ")</div>
-      <div class="result" id="result3"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 4:</strong> Какой шаг R&D сплавов делается в on-prem?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Литературный обзор по Scandium-сплавам</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Сопоставление наших экспериментальных данных с литературными</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Поиск патентов по Al-Mg-Sc</div>
-      <div class="result" id="result4"></div>
-    </div>
-
-    <div class="card card-accent">
-      <p><strong>Question 5:</strong> Какой формат обучающих материалов — гибрид?</p>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Всё в on-prem, включая базовые принципы</div>
-      <div class="quiz-option" onclick="checkAnswer(this, true)">Базовый контент в облаке + реальные кейсы (обезличенные) в on-prem</div>
-      <div class="quiz-option" onclick="checkAnswer(this, false)">Всё в облаке, кейсы тоже без обезличивания</div>
-      <div class="result" id="result5"></div>
+Рассчитай итоговые баллы и рейтинг.</pre>
     </div>
   </div>
 
   <div class="nav-footer">
-    <a href="../08-2-cloud/index.html" class="nav-btn">← 11.2 Tâches externes</a>
-    <a href="../../index.html" class="nav-btn primary">Accueil →</a>
+    <a href="../08-2-cloud/index.html" class="nav-btn">← 08.2 Tâches externes</a>
+    <a href="../08-5-agents/index.html" class="nav-btn primary">08.5 Scénarios d'agents →</a>
   </div>
-</main>
-
-<footer>
-  <div class="container">
-    <p>AI pour les non-informaticiens · Entreprise industrielle</p>
-  </div>
-</footer>
-
-<script>
-function checkAnswer(el, isCorrect) {
-  const card = el.closest('.card');
-  const options = card.querySelectorAll('.quiz-option');
-  const result = card.querySelector('.result');
-  options.forEach(o => o.classList.add('disabled'));
-  if (isCorrect) {
-    el.classList.add('correct');
-    result.textContent = '✅ Correct!';
-    result.style.background = 'rgba(16,185,129,0.1)';
-    result.style.color = '#10B981';
-  } else {
-    el.classList.add('wrong');
-    result.textContent = '❌ Incorrect. Réfléchissez encore.';
-    result.style.background = 'rgba(239,68,68,0.1)';
-    result.style.color = '#EF4444';
-  }
-  result.classList.add('show');
-}
-</script>
-</body>
-</html>
+</div>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Entreprise de production</p></div></footer>
+</body></html>
