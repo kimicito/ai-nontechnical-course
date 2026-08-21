@@ -3,45 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>11.2 外部任务：云端 — 非技术人员的AI课程</title>
+<title>11.2 公关外部任务 — 云端 — AI for Non-Technical Professionals</title>
 <link rel="stylesheet" href="../../style.css">
-<style>:root{--bg:#0B0F19;--card:#111827;--text:#F3F4F6;--muted:#9CA3AF;--accent:#8B5CF6;--accent2:#06B6D4;--border:rgba(255,255,255,0.08);--success:#10B981;--danger:#EF4444;}
-*{box-sizing:border-box;}body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;margin:0;}
-.container{max-width:800px;margin:0 auto;padding:0 16px;}
-header{padding:16px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:100;}
-.logo{font-size:1.1rem;font-weight:700;color:var(--accent);text-decoration:none;}
-.lesson-header{padding:32px 0 16px;}.lesson-header .phase{color:var(--accent);font-size:.85rem;font-weight:600;}
-.lesson-header h1{margin:8px 0;font-size:1.8rem;}.lesson-header .meta{color:var(--muted);font-size:.9rem;}
-.section{margin:28px 0;}.section h2{color:var(--accent);font-size:1.2rem;}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:14px 0;}
-.card-accent{border-left:4px solid var(--accent);}.card-danger{border-left:4px solid var(--danger);}.card-success{border-left:4px solid var(--success);}
-.highlight{background:rgba(139,92,246,0.1);padding:2px 6px;border-radius:4px;}
-.example{background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:14px;margin:12px 0;}
-.example-label{color:var(--accent2);font-size:.75rem;font-weight:600;text-transform:uppercase;}
-.nav-footer{display:flex;justify-content:space-between;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap;gap:8px;}
-.nav-btn{padding:10px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);text-decoration:none;}
-.nav-btn.primary{background:var(--accent);border-color:var(--accent);}
-footer{padding:32px 16px;text-align:center;color:var(--muted);border-top:1px solid var(--border);}
-ul{padding-left:20px;}li{margin:4px 0;}
-.arch{background:#1a1f2e;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;font-family:monospace;font-size:.85rem;line-height:1.6;}
-@media(max-width:768px){.lesson-header h1{font-size:1.4rem;}.nav-footer{flex-direction:column;}}</style>
-<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");ym(111617413,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});</script>
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-success { border-left: 4px solid var(--success); }
+  .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(111617413, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">非技术人员的AI课程</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">级别 11 — 公关与传播</div>
-    <h1>11.2 外部任务：云端</h1>
-    <div class="meta">⏱ 15 min · 开放数据（外部AI）</div>
+    <div class="phase">第11级 — 公关与传播</div>
+    <h1>11.2 公关外部任务 — 云端</h1>
+    <div class="meta">⏱ 15 分钟 · 面向公关经理</div>
   </div>
-  <div class="card card-success"><strong>开放数据（外部AI）</strong><br>Recherche, benchmark, réglementation.</div>
-<div class="section"><h2>Veille réputation</h2><div class="example"><div class="example-label">Prompt example</div><pre>Какие негативные отзывы о [КОМПАНИЯ]? Отзовики, соцсети.</pre></div></div>
-<div class="section"><h2>Cas crises</h2><div class="example"><div class="example-label">Prompt example</div><pre>Приведи примеры кризис-менеджмента в [ОТРАСЛЬ].</pre></div></div>
+
+  <div class="card card-success">
+    <strong>开放数据（外部AI）</strong><br>
+    使用<span class="highlight">公开来源、媒体监控、行业趋势</span>的任务。使用Claude、ChatGPT或Gemini。
+  </div>
+
+  <div class="section">
+    <h2>1. 媒体监控和情感分析</h2>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>Monitor media coverage for [COMPANY NAME] last 30 days:
+
+1. Number of mentions by source type (news, social, blogs)
+2. Sentiment distribution (positive/neutral/negative)
+3. Key topics and themes
+4. Influential authors/publications
+5. Comparison with competitors [SPECIFY]
+
+Sources: Russian business media, Telegram channels</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. 新闻稿撰写</h2>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>Write a press release:
+
+Topic: [SPECIFY]
+Key messages: [SPECIFY]
+Target audience: [SPECIFY]
+Tone: professional, informative
+
+Structure: headline, lead paragraph, body, quote from leadership, boilerplate</pre>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. 危机沟通准备</h2>
+    <div class="example">
+      <div class="example-label">提示示例</div>
+      <pre>Prepare crisis communication templates for:
+
+Scenarios:
+1. Industrial accident
+2. Product recall
+3. Data breach
+4. Negative media coverage
+5. Executive departure
+
+Each template: key messages, holding statement, Q&amp;A, spokesperson brief</pre>
+    </div>
+  </div>
+
   <div class="nav-footer">
-    <a href="../11-1-on-prem/index.html" class="nav-btn">← 11.1 内部任务：本地部署</a>
-    <a href="../11-3-hybrid/index.html" class="nav-btn primary">→ 11.3 混合任务</a>
+    <a href="../11-1-on-prem/index.html" class="nav-btn">← 11.1 内部任务</a>
+    <a href="../11-3-hybrid/index.html" class="nav-btn primary">11.3 混合任务 →</a>
   </div>
 </div>
-<footer><div class="container"><p>非技术人员的AI课程 · 制造企业</p></div></footer>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
 </body></html>
