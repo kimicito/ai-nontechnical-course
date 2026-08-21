@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>12.1 Internal MRO Tasks — on-prem — AI for Non-IT Professionals</title>
-<link rel="stylesheet" href="../../../style.css">
+<title>11.1 Internal Tasks: On-Prem — AI for Non-Technical Professionals</title>
+<link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; }
@@ -19,7 +19,6 @@
   .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
   .section { margin: 28px 0; }
   .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
   .card-accent { border-left: 4px solid var(--accent); }
   .card-success { border-left: 4px solid var(--success); }
@@ -33,25 +32,9 @@
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .card + .card { margin-top: 40px; }
-  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
-  .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
-  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
-  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
-  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
-  .result.show { display: block; }
-  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
   ul, ol { padding-left: 20px; }
   li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--accent); font-weight: 600; }
-  @media (max-width: 768px) {
-    .lesson-header h1 { font-size: 1.4rem; }
-    .nav-footer { flex-direction: column; }
-    .nav-btn { width: 100%; text-align: center; }
-  }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
@@ -60,467 +43,95 @@
    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
+   ym(111617413, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<header>
-  <div class="container">
-    <a href="../../index.html" class="logo">AI for Non-IT Professionals</a>
-  </div>
-</header>
-
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Level 12 — MRO (Maintenance, Repair, and Operations)</div>
-    <h1>12.1 Internal MRO Tasks</h1>
-    <div class="meta">⏱ 20 min · for reliability engineers and mechanics</div>
+    <div class="phase">Level 11 — PR &amp; Communications</div>
+    <h1>11.1 Internal Tasks: On-Prem</h1>
+    <div class="meta">⏱ 15 min · for PR managers · closed loop</div>
   </div>
 
   <div class="card card-accent">
-    <strong>Closed Loop (on-prem)</strong><br>
-    All tasks in this lesson work with <span class="highlight">specific equipment, real failures, financial data</span>. Use an internal model or local LLM.
+    <strong>Closed loop (on-prem)</strong><br>
+    All tasks work with <span class="highlight">internal communications, employee data, corporate strategies, and unpublished materials</span>. Use internal model or local LLM.
   </div>
 
   <div class="section">
-    <h2>Why On-Prem is Critical for MRO</h2>
-    <p>MRO data is not just spare parts lists. It is:</p>
-    <ul>
-      <li><strong>Condition of real assets</strong> — defect reports describe wear of specific machines</li>
-      <li><strong>Production vulnerability</strong> — failure history reveals weak points in production lines</li>
-      <li><strong>Financial obligations</strong> — work completion certificates, basis for contractor payments</li>
-      <li><strong>Competitive information</strong> — downtime, repair schedules, budgets</li>
-    </ul>
+    <h2>Why on-prem is critical for PR</h2>
+    <p>Internal communications contain sensitive data: employee information, corporate strategy, financial results before publication, crisis plans. This data must stay within the company.</p>
   </div>
 
-  <div class="card card-warning">
-    <strong>When On-Prem is Mandatory:</strong>
+  <div class="card card-danger">
+    <strong>What must stay on-prem:</strong>
     <ul>
-      <li>Defect reports for specific equipment</li>
-      <li>Root-cause analysis with real failure data</li>
-      <li>Spare parts specifications with plant nomenclature</li>
-      <li>Failure history and MTBF (internal reliability)</li>
-      <li>Repair documentation (certificates, reports) — financially significant</li>
-      <li>Correspondence with suppliers (commercial terms)</li>
-      <li>Claims work (legally significant)</li>
-      <li>Interpretation of vibration diagnostics/NDT for specific units</li>
-      <li>Reliability reports for management</li>
-      <li>Downtime and cause analysis (may involve personnel)</li>
-      <li>Repair budget justification</li>
-      <li>"Repair vs Replace" justification — investment decision</li>
-      <li>Analysis of contractor proposals for overhaul</li>
+      <li>Internal newsletters and employee communications</li>
+      <li>Corporate strategy documents</li>
+      <li>Financial results before publication</li>
+      <li>Crisis communication plans</li>
+      <li>Employee survey data</li>
+      <li>Leadership talking points</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>1. Development and Updating of Maintenance Schedules</h2>
-    <p>Planned preventive maintenance (PPM) is the foundation of planning. LLM helps update schedules based on actual data.</p>
+    <h2>1. Internal newsletter creation</h2>
     <div class="example">
-      <div class="example-label">Prompt Example (on-prem)</div>
-      <pre>Update the PPM schedule for Workshop #3 for Q3 2026:
+      <div class="example-label">Prompt example</div>
+      <pre>Создай внутреннюю рассылку для сотрудников на основе:
 
-Source data:
-- Current schedule: Major repair of Mill M-3 (August), Medium repair of compressors (July, September)
-- Actual: Compressor K-05 failed on 2026-07-10, unplanned repair required
-- Resource: mechanic team — 6 people, availability — 80%
-- Constraints: August — vacation period, 2 people on leave
+- Финансовые результаты Q3 (файл Отчет.pdf)
+- Новые проекты: [УКАЖИТЕ]
+- Кадровые изменения: [УКАЖИТЕ]
+- Корпоративные мероприятия: [УКАЖИТЕ]
 
-Do:
-1. Adjust the schedule considering unplanned repair of K-05
-2. Redistribute work between July and September
-3. Assess team workload (person/hours) by month
-4. Risks: what will shift if more unplanned work appears
-5. Recommendations for capacity reserve</pre>
+Тон: позитивный, но честный
+Объём: 500 слов
+Структура: приветствие, ключевые достижения, планы, благодарности</pre>
     </div>
-    <p><strong>Result:</strong> adjusted PPM schedule, saves 2–3 hours.</p>
   </div>
 
   <div class="section">
-    <h2>2. Creating Defect Reports</h2>
-    <p>After equipment inspection — systematize identified defects into a standard document.</p>
+    <h2>2. Leadership talking points preparation</h2>
     <div class="example">
-      <div class="example-label">Prompt Example (on-prem LLM)</div>
-      <pre>Based on inspection data of electric motor EM-37 (Workshop #3):
-- Bearing NDE vibration: 8.2 mm/s (norm ≤4.5)
-- Winding temperature: 127°C (norm ≤105)
-- Bearing oil: darkened, contaminants
-- Shaft play: 0.35 mm (norm ≤0.1)
+      <div class="example-label">Prompt example</div>
+      <pre>Подготовь тезисы для выступления CEO на встрече с сотрудниками:
 
-Create a defect report in the standard form:
-1. Equipment name, inventory number
-2. Identified defects (list)
-3. Criticality assessment (critical / significant / minor)
-4. Recommended actions
-5. Resolution deadline
-6. Responsible department</pre>
+Темы:
+- Итоги года
+- Стратегия на следующий год
+- Изменения в организации
+- Ответы на слухи
+
+Формат: тезисы + возможные вопросы + ответы
+Тон: открытый, уверенный</pre>
     </div>
-    <p><strong>Result:</strong> ready defect report, saves 30 min on documentation.</p>
   </div>
 
   <div class="section">
-    <h2>3. Root-Cause Analysis of Failures (RCA, 5 Why)</h2>
-    <p>Investigation of failure causes tied to a specific equipment unit.</p>
+    <h2>3. Employee survey analysis</h2>
     <div class="example">
-      <div class="example-label">Prompt Example</div>
-      <pre>Failure: Pump P-12 (slurry transfer, calcination workshop) stopped on 2026-07-15 03:20.
+      <div class="example-label">Prompt example</div>
+      <pre>Проанализируй результаты опроса сотрудников (файл Опрос.xlsx):
 
-Data:
-- Operating hours since last repair: 4,847 h
-- Previous failure: 2025-11-03, bearing replacement
-- Current parameters before stop: vibration 12.4 mm/s, temperature 89°C
-- Visual inspection: impeller damage, scoring on bushing
+1. Общий индекс удовлетворённости
+2. Топ-5 проблемных зон
+3. Различия между подразделениями
+4. Тренды vs прошлый год
+5. Рекомендации по улучшению
 
-Conduct root-cause analysis:
-1. 5 Why (5 levels of "why")
-2. Ishikawa diagram (6M: Man, Machine, Material, Method, Milieu, Measurement)
-3. Root cause of failure
-4. Corrective actions (short-term)
-5. Preventive actions (long-term)
-6. Recommendations for maintenance schedule changes</pre>
+Формат: презентация для руководства</pre>
     </div>
-    <p><strong>Result:</strong> structured investigation, saves 2–3 hours.</p>
-  </div>
-
-  <div class="section">
-    <h2>4. Preparation of Spare Parts Specifications</h2>
-    <p>For a specific repair — list of required materials and spare parts tied to nomenclature.</p>
-    <div class="example">
-      <div class="example-label">Prompt Example</div>
-      <pre>Major repair of gearbox G-08 (Mill M-3 drive) is required.
-
-Based on defect inspection:
-- Bearings 22320 (2 pcs.) — worn, replacement
-- Intermediate shaft — journal wear (requires build-up + grinding)
-- Cylindrical gears — scoring on teeth (replacement)
-- Seals 80×100×10 (4 pcs.)
-- Oil I-40A — 45 L (flush + fill)
-
-Prepare spare parts and materials specification:
-1. Item, name, drawing/GOST
-2. Quantity, unit
-3. Enterprise nomenclature code (if available)
-4. Recommended supplier (from approved list)
-5. Estimated price per unit
-6. Delivery time
-7. Flag: stock / to order
-
-Add notes on replacement (e.g., analogs if original unavailable).</pre>
-    </div>
-    <p><strong>Result:</strong> ready specification for procurement, saves 1 hour.</p>
-  </div>
-
-  <div class="section">
-    <h2>5. Analysis of Failure History and MTBF</h2>
-    <p>Calculation of mean time between failures and identification of patterns.</p>
-    <div class="example">
-      <div class="example-label">Prompt Example</div>
-      <pre>Failure history of Compressor K-05 (preparation workshop):
-- 2024-03-12: suction valve failure, operating time 3,200 h
-- 2024-09-08: bearing overheating, operating time 2,850 h
-- 2025-02-20: seal damage, operating time 2,100 h
-- 2025-08-15: connecting rod breakage, operating time 2,400 h
-- 2026-01-30: discharge valve wear, operating time 2,650 h
-- 2026-07-10: bearing overheating (repeat), operating time 2,200 h
-
-Analyze:
-1. MTBF for the period (average operating time between failures)
-2. MTBF trend (improving / deteriorating / stable)
-3. Frequent failures (which components fail most often)
-4. Recommendations for maintenance schedule changes
-5. Forecast: when to expect next failure</pre>
-    </div>
-    <p><strong>Result:</strong> statistical analysis for planning, saves 1.5 hours.</p>
-  </div>
-
-  <div class="section">
-    <h2>6. Preparation of Terms of Reference for Overhaul</h2>
-    <p>Terms of Reference — main document for contractor. Contains scope of work, technical requirements, deadlines.</p>
-    <div class="example">
-      <div class="example-label">Prompt Example (on-prem)</div>
-      <pre>Prepare ToR for major repair of Mill M-3 (inv. # M-03-2012):
-
-Technical data:
-- Commissioning year: 2012, operating time: 87,400 h
-- Last major repair: 2021
-- Type: ball mill 3.2×15 m, capacity 120 t/h
-- Drive: gearbox G-08, motor 800 kW
-
-Scope of work (based on defect inspection):
-1. Replacement of lining (set, ~45 t)
-2. Repair/replacement of gearbox G-08
-3. Replacement of lubrication system (pumps, pipelines)
-4. Repair of end seals
-5. Testing (idle run, under load)
-6. Acceptance criteria (vibration ≤4.5 mm/s, temperature ≤65°C)
-
-Requirements:
-- Execution time: 21 calendar days
-- Warranty: 18 months
-- Documentation: concealed works certificates, material certificates, photo report</pre>
-    </div>
-    <p><strong>Result:</strong> ready ToR for tender, saves 3–4 hours.</p>
-  </div>
-
-  <div class="section">
-    <h2>7. Repair Documentation (Certificates, Reports)</h2>
-    <p>Documentation of completed work — basis for contractor payment.</p>
-    <div class="example">
-      <div class="example-label">Prompt Example</div>
-      <pre>Prepare a work completion certificate for major repair of Transformer T-14:
-
-Completed work:
-- Oil replacement (30,000 L)
-- Tank repair (welding, sealing)
-- HV bushing replacement (6 pcs.)
-- Testing (breakdown voltage, tg δ)
-- Body painting
-
-Contractor: LLC "EnergoRemont"
-Contract # 45/2026 dated 15.01.2026
-Execution period: 2026-07-01 — 2026-07-14
-
-Format: certificate in standard form, with attachments (concealed works, testing).</pre>
-    </div>
-    <p><strong>Result:</strong> ready certificate, saves 45 min.</p>
-  </div>
-
-  <div class="section">
-    <h2>8. Correspondence with Suppliers and Service Companies</h2>
-    <p>Negotiation of spare parts delivery terms, service maintenance deadlines.</p>
-    <div class="example">
-      <div class="example-label">Prompt Example</div>
-      <pre>Prepare a letter to supplier LLC "TekhnoSnab":
-
-Subject: Clarification of delivery time for bearings 22320 for gearbox G-08
-
-Context:
-- Order placed on 2026-06-20 (request # Z-1847)
-- Promised delivery: 4 weeks
-- Current status: not received, deadline approaching (repair scheduled for 2026-08-05)
-- Alternative: SKF bearings of similar type (clarify compatibility)
-
-Tone: business-like, urgent but non-confrontational. Mention possibility of contract penalties.</pre>
-    </div>
-    <p><strong>Result:</strong> ready letter, saves 20 min.</p>
-  </div>
-
-  <div class="section">
-    <h2>9. Claims Work for Warranty Cases</h2>
-    <p>Justification of claims against supplier or contractor for warranty failure.</p>
-    <div class="example">
-      <div class="example-label">Prompt Example</div>
-      <pre>Prepare a claim for a warranty case:
-
-Equipment: Fan VO-16, supplier LLC "VentProm"
-Contract: # 78/2025 dated 10.03.2025
-Warranty period: 18 months
-Commissioning date: 2025-06-15
-
-Defect: impeller blade breakage (2026-07-08)
-Cause (preliminary assessment): casting defect (porosity in mounting zone)
-Operating time at failure: 8,420 h (within warranty)
-
-Requirements:
-1. Free replacement of impeller
-2. Compensation for dismantling/installation costs
-3. Compensation for downtime losses (2 shifts)
-
-Attachments: inspection report, defect photos, laboratory conclusion.</pre>
-    </div>
-    <p><strong>Result:</strong> legally competent claim, saves 1–1.5 hours.</p>
-  </div>
-
-  <div class="section">
-    <h2>10. Interpretation of Vibration Diagnostics and NDT Reports</h2>
-    <p>Textual analysis of ready reports — not a replacement for DSP/ML, but help in formulating conclusions.</p>
-    <div class="example">
-      <div class="example-label">Prompt Example</div>
-      <pre>Interpret the vibration diagnostics report for Pump P-12:
-
-Data:
-- Measurement point: NDE bearing, radial vibration
-- Values (mm/s): overall — 8.2, 1× — 5.1, 2× — 1.8, 3× — 0.4, BPF — 0.3
-- 3-month trend: growth from 4.8 to 8.2 mm/s
-- Bearing temperature: 67°C (norm ≤65)
-
-Draw conclusions:
-1. What the spectrum shows (dominant frequency)
-2. Probable cause (unbalance / bearing defect / cavitation / etc.)
-3. Recommendations (urgency, actions)
-4. Forecast: how many hours until critical level</pre>
-    </div>
-    <p><strong>Result:</strong> structured interpretation, saves 30 min.</p>
-  </div>
-
-  <div class="section">
-    <h2>11. Reliability Reports for Management</h2>
-    <p>Management summary on equipment condition and trends.</p>
-    <div class="example">
-      <div class="example-label">Prompt Example</div>
-      <pre>Prepare a monthly reliability report for Workshop #3 equipment for June 2026:
-
-Data:
-- Total equipment units: 147
-- Failures: 12 (8 in May)
-- Planned repairs: 5
-- Unplanned stops: 7
-- Total downtime: 34 hours
-- Average MTBF: 2,340 h (May: 2,680 h)
-- Critical failures: 2 (compressor K-05, pump P-12)
-
-Format: 1 A4 page for production director.
-Structure: key metrics, trends, problem areas, recommendations.</pre>
-    </div>
-    <p><strong>Result:</strong> ready report, saves 1 hour.</p>
-  </div>
-
-  <div class="section">
-    <h2>12. Downtime and Cause Analysis</h2>
-    <p>Distribution of downtime by types, equipment, causes — for decision making.</p>
-    <div class="example">
-      <div class="example-label">Prompt Example</div>
-      <pre>Downtime analysis for Workshop #3 for Q2 2026:
-
-Data (in hours):
-- Equipment: pumps — 28, compressors — 45, conveyors — 12, mills — 38
-- Causes: wear — 67, operator error — 18, external factors — 14, other — 24
-- Shifts: day — 61, night — 62
-
-Conduct analysis:
-1. Pareto distribution (80/20) — what causes main downtime
-2. Trend vs Q1
-3. Risk zones (equipment with growing downtime)
-4. Recommendations (maintenance, replacement, training)</pre>
-    </div>
-    <p><strong>Result:</strong> analytics for planning, saves 1.5 hours.</p>
-  </div>
-
-  <div class="section">
-    <h2>13. Repair vs Replacement Justification</h2>
-    <p>Investment decision — repair old or buy new.</p>
-    <div class="example">
-      <div class="example-label">Prompt Example</div>
-      <pre>Justify the decision: repair or replace Compressor K-05?
-
-Data:
-- Production year: 2012 (14 years of operation)
-- Major repair cost: 8.5 mln ₽ (forecast)
-- New analog cost: 32 mln ₽
-- MTBF after major repair (history): ~2,800 h
-- MTBF of new: ~8,000 h
-- Energy consumption of old: 18% higher than new
-- Annual spare parts cost: 2.1 mln ₽
-- Residual value of old: 0
-
-Prepare comparative analysis (3 years, 5 years, 10 years), considering:
-- CAPEX (capital expenditures)
-- OPEX (operation, spare parts, energy)
-- Downtime (production loss)
-- Risks (uncertainty of MTBF after major repair)</pre>
-    </div>
-    <p><strong>Result:</strong> justified decision with numbers, saves 3–4 hours.</p>
-  </div>
-
-  <div class="section">
-    <h2>14. Budget Justification for Repairs</h2>
-    <p>Financial justification of necessary repair expenses.</p>
-    <div class="example">
-      <div class="example-label">Prompt Example</div>
-      <pre>Prepare budget justification for Workshop #3 repairs for 2027:
-
-Source data:
-- Actual 2026: 47.3 mln ₽ (plan: 42 mln, overspend 12.6%)
-- Main overspend items: unplanned compressor failures (+8.2 mln), conveyor C-04 replacement (+4.1 mln)
-- Planned repairs 2027: Major repair of Mill M-3 (15 mln), Medium repair of compressors (12 mln), current repair (18 mln)
-- Reserve for unplanned: 8 mln
-- Inflation/parts price increase: +8%
-
-Total: 57.8 mln ₽ (+22% vs 2026)
-
-Prepare justification for CFO: why +22%, what happens if cut, what risks.</pre>
-    </div>
-    <p><strong>Result:</strong> justification for board of directors, saves 2–3 hours.</p>
-  </div>
-
-  <div class="section">
-    <h2>15. Analysis of Contractor Proposals for Overhaul</h2>
-    <p>Comparison of commercial proposals by price/deadlines/experience criteria.</p>
-    <div class="example">
-      <div class="example-label">Prompt Example</div>
-      <pre>ToR: major repair of Mill M-3 (lining replacement, gearbox, lubrication system).
-
-Contractor proposals:
-1. LLC "MetallRemont" — 15.2 mln, 21 days, 5 similar objects, warranty 12 mos.
-2. LLC "GorTekhServis" — 13.8 mln, 28 days, 12 objects, warranty 18 mos.
-3. LLC "SibRemStroy" — 14.5 mln, 18 days, 3 objects, warranty 6 mos.
-
-Criteria (weight):
-- Price (30%), deadline (25%), experience (20%), warranty (15%), reviews (10%)
-
-Prepare comparison table and recommendation.</pre>
-    </div>
-    <p><strong>Result:</strong> justified contractor choice, saves 2 hours.</p>
-  </div>
-
-  <div class="section">
-    <h2>Summary Table</h2>
-    <table>
-      <tr><th>Task</th><th>What is Needed</th><th>Output Format</th><th>Time Savings</th></tr>
-      <tr><td>Defect Reports</td><td>Inspection data</td><td>Document in standard form</td><td>30 min</td></tr>
-      <tr><td>RCA / 5 Why</td><td>Failure data, history</td><td>Report with Ishikawa</td><td>2–3 h</td></tr>
-      <tr><td>Spare Parts Specifications</td><td>Defect inspection results</td><td>Table for procurement</td><td>1 h</td></tr>
-      <tr><td>MTBF Analysis</td><td>Failure history</td><td>Statistics + forecast</td><td>1.5 h</td></tr>
-      <tr><td>Repair Documentation</td><td>List of work</td><td>Certificate, report</td><td>45 min</td></tr>
-      <tr><td>Supplier Correspondence</td><td>Request context</td><td>Letter</td><td>20 min</td></tr>
-      <tr><td>Claims Work</td><td>Warranty case data</td><td>Claim</td><td>1–1.5 h</td></tr>
-      <tr><td>Vibration/NDT Interpretation</td><td>Diagnostics report</td><td>Conclusions + recommendations</td><td>30 min</td></tr>
-      <tr><td>Reliability Report</td><td>Period metrics</td><td>Summary for management</td><td>1 h</td></tr>
-      <tr><td>Downtime Analysis</td><td>Downtime data</td><td>Pareto + trends</td><td>1.5 h</td></tr>
-      <tr><td>Repair Budget</td><td>History, plans, risks</td><td>Justification</td><td>2–3 h</td></tr>
-      <tr><td>Repair vs Replace</td><td>Equipment data</td><td>Comparative analysis</td><td>3–4 h</td></tr>
-      <tr><td>Contractor Analysis</td><td>Proposals, criteria</td><td>Table + recommendation</td><td>2 h</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>Knowledge Check</h2>
-    <p><strong>Question 1:</strong> Why is analysis of contractor proposals for overhaul on-prem?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Commercial terms of competitors, prices, deadlines — confidential.'">Commercial terms of competitors, prices, deadlines — confidential</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. This is not about equipment blueprints.'">Because ToR contains secret blueprints of equipment</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Analogs are external loop.'">Because spare parts need to be found on the open market</div>
-    <div id="q1-result" class="result"></div>
-
-    <p><strong>Question 2:</strong> Can you prepare an MOP maintenance procedure for a pump in external AI?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> General structure of procedure for typical equipment — public knowledge.'">Yes, if it is a general structure for a typical pump without plant-specific data</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Not quite. Procedure without specific data is methodology.'">No, any MRO document contains production secrets</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Separation is important.'">Only if you anonymize the plant name</div>
-    <div id="q2-result" class="result"></div>
-
-    <p><strong>Question 3:</strong> "Repair vs Replace" justification — which loop?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Investment decision with specific data — internal loop.'">On-prem — contains financial data, production parameters, risks</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. General methodology is external, but calculation with real data is internal.'">Cloud — TCO calculation methodology is publicly available</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Separation by data, not by document.'">Hybrid — methodology outside, numbers inside</div>
-    <div id="q3-result" class="result"></div>
   </div>
 
   <div class="nav-footer">
     <a href="../../index.html" class="nav-btn">Home</a>
-    <a href="../11-2-cloud/index.html" class="nav-btn primary">12.2 External Tasks →</a>
+    <a href="../11-2-cloud/index.html" class="nav-btn primary">11.2 External Tasks →</a>
   </div>
 </div>
-
-<footer>
-  <div class="container">
-    <p>AI for Non-IT Professionals · Manufacturing Company</p>
-  </div>
-</footer>
-
-</body>
-</html>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
+</body></html>

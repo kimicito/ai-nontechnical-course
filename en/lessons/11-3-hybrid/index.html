@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>12.3 Hybrid Maintenance Tasks — AI for Non-IT Professionals</title>
-<link rel="stylesheet" href="../../../style.css">
+<title>11.3 Hybrid Tasks — AI for Non-Technical Professionals</title>
+<link rel="stylesheet" href="../../style.css">
 <style>
   :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
   * { box-sizing: border-box; }
@@ -19,34 +19,14 @@
   .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
   .section { margin: 28px 0; }
   .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
-  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
   .card-accent { border-left: 4px solid var(--accent); }
-  .card-success { border-left: 4px solid var(--success); }
-  .card-warning { border-left: 4px solid var(--warning); }
-  .card-danger { border-left: 4px solid var(--danger); }
   .highlight { background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px; }
-  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
-  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
   .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
   .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
   .nav-btn:hover { border-color: var(--accent); }
   .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
   footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
-  .card + .card { margin-top: 40px; }
-  .quiz-option { display: block; word-wrap: break-word; padding: 12px 16px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin: 8px 0; cursor: pointer; transition: all 0.2s; }
-  .quiz-option:hover { border-color: var(--accent); }
-  .quiz-option.correct { border-color: var(--success); background: rgba(16,185,129,0.1); }
-  .quiz-option.wrong { border-color: var(--danger); background: rgba(239,68,68,0.1); }
-  .quiz-option.disabled { opacity: 0.5; pointer-events: none; }
-  .result { display: none; padding: 16px; border-radius: 8px; margin: 16px 0; }
-  .result.show { display: block; }
-  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
-  ul, ol { padding-left: 20px; }
-  li { margin: 4px 0; }
-  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.9rem; }
-  th, td { padding: 10px; text-align: left; border-bottom: 1px solid var(--border); }
-  th { color: var(--accent); font-weight: 600; }
   @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
 </style>
 <!-- Yandex.Metrika counter -->
@@ -56,186 +36,41 @@
    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(111617413, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
+   ym(111617413, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111617413" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
 <body>
-<header><div class="container"><a href="../../index.html" class="logo">AI for Non-IT Professionals</a></div></header>
+<header><div class="container"><a href="../../index.html" class="logo">AI for Non-Technical Professionals</a></div></header>
 <div class="container">
   <div class="lesson-header">
-    <div class="phase">Level 12 — Maintenance (Repairs and Maintenance)</div>
-    <h1>12.3 Hybrid Maintenance Tasks</h1>
-    <div class="meta">⏱ 20 min · for reliability engineers</div>
+    <div class="phase">Level 11 — PR &amp; Communications</div>
+    <h1>11.3 Hybrid Tasks</h1>
+    <div class="meta">⏱ 15 min · for PR managers</div>
   </div>
 
   <div class="card card-accent">
-    <strong>Hybrid Approach</strong><br>
-    Overall <span class="highlight">structure and methodology</span> are prepared in the external AI (Claude, ChatGPT).<br>
-    <span class="highlight">Real data</span> (equipment numbers, parameters, history) is added on-prem.
+    <strong>Hybrid approach</strong><br>
+    General <span class="highlight">communication frameworks and public messaging</span> in external AI.<br>
+    <span class="highlight">Company-specific data and internal context</span> in on-prem.
   </div>
 
   <div class="section">
-    <h2>Principle of the Hybrid Approach for Maintenance</h2>
-    <p>The key rule: <strong>the more unique and critical the equipment</strong> (electrolyzers, specific turbines) — the stricter the on-prem. For widely used equipment (pumps, conveyors), the methodological part can safely go to the external cloud.</p>
-  </div>
-
-  <div class="card card-warning">
-    <strong>Anonymization Rules for the Cloud:</strong>
-    <table>
-      <tr><th>Must Remove</th><th>Can Keep</th></tr>
-      <tr><td>Asset numbers, shop names</td><td>Equipment type (pump, compressor)</td></tr>
-      <tr><td>Specific failure dates</td><td>Failure signs (vibration, temperature)</td></tr>
-      <tr><td>Contractor and supplier names</td><td>Standard work types (overhaul, medium repair, maintenance)</td></tr>
-      <tr><td>Financial data (budgets, prices)</td><td>General methodologies (RCM, TPM, 5 Why)</td></tr>
-      <tr><td>Staff names, shifts</td><td>Document structure (act, TOR, defect report)</td></tr>
-      <tr><td>Production parameters (recipe, loads)</td><td>General standards (ISO, ASME)</td></tr>
-    </table>
+    <h2>1. Annual report preparation (hybrid)</h2>
+    <p><strong>Cloud:</strong> industry benchmarks, reporting standards, design trends.<br>
+    <strong>On-prem:</strong> financial data, operational metrics, employee stories.</p>
   </div>
 
   <div class="section">
-    <h2>1. Root-cause + FMEA (Hybrid)</h2>
-    <p><strong>Cloud:</strong> Ishikawa structure, cause categories, 5 Why template.<br>
-    <strong>On-prem:</strong> filling with real parameters of a specific machine and operating history.</p>
-    <div class="example">
-      <div class="example-label">Step 1: Cloud — Template Preparation</div>
-      <pre>Prepare a 5 Why template for investigating a failure in rotating equipment:
-
-Level 1: What happened? [SPECIFY]
-Level 2: Why did it happen? [SPECIFY]
-Level 3: Why didn't the system prevent it? [SPECIFY]
-Level 4: Why wasn't it detected earlier? [SPECIFY]
-Level 5: Why does the process allow this? [SPECIFY]
-
-Add an Ishikawa diagram (6M) with cause categories for each level.</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">Step 2: On-prem — Filling with Real Data</div>
-      <pre>Fill in the 5 Why template for a specific case:
-
-Equipment: Gearbox R-08 (Mill M-3 drive)
-Failure: Bearing destruction (2026-07-10)
-
-Data from inspection logs, repair history, MES parameters.
-Conduct root-cause analysis, fill in Ishikawa, 5 Why.
-
-Result: Completed RCA report for archive and management.</pre>
-    </div>
-    <p><strong>Time savings:</strong> Ready template in the cloud (2 hours) + Completed RCA on-prem (another 2 hours).</p>
-  </div>
-
-  <div class="section">
-    <h2>2. Overhaul Terms of Reference (Hybrid)</h2>
-    <p><strong>Cloud:</strong> general TOR structure, standard sections.<br>
-    <strong>On-prem:</strong> specific technical parameters, work volumes, deadlines.</p>
-    <div class="example">
-      <div class="example-label">Step 1: Cloud — TOR Structure</div>
-      <pre>Prepare a TOR structure for an overhaul of industrial equipment:
-
-1. Object name [SPECIFY]
-2. Technical description [SPECIFY]
-3. Scope of work:
-   3.1 Defect inspection [SPECIFY]
-   3.2 Repair work [SPECIFY]
-   3.3 Testing [SPECIFY]
-4. Quality requirements [SPECIFY]
-5. Warranty obligations [SPECIFY]
-6. Contractor documentation [SPECIFY]
-
-All parameters — [SPECIFY PRODUCTION].</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">Step 2: On-prem — Filling</div>
-      <pre>Fill in the TOR for the overhaul of Mill M-3:
-
-- Asset number: M-03-2012
-- Commissioned: 2012, operating hours: 87,400
-- Last overhaul: 2021
-- Defect inspection: [actual data]
-- Work volume: replace lining, gearbox, lubrication system
-- Deadline: 21 days
-- Contractor: [as per tender results]
-
-All technical parameters — from the passport and defect report.</pre>
-    </div>
-    <p><strong>Time savings:</strong> Template in the cloud (1.5 hours) + Completed TOR on-prem (1 hour).</p>
-  </div>
-
-  <div class="section">
-    <h2>3. Claims Management (Hybrid)</h2>
-    <p><strong>Cloud:</strong> methodology and structure of claim justification on an abstract case.<br>
-    <strong>On-prem:</strong> real facts, dates, amounts, attachments.</p>
-    <div class="example">
-      <div class="example-label">Step 1: Cloud — Methodology</div>
-      <pre>Prepare a claim structure for a warranty case of equipment delivery:
-
-1. Party details (supplier, buyer) [SPECIFY]
-2. Contract, specification [SPECIFY]
-3. Warranty conditions [SPECIFY]
-4. Fault description [SPECIFY]
-5. Evidence (acts, photos, expert opinion) [SPECIFY]
-6. Demands (replacement, compensation, damages) [SPECIFY]
-7. Response deadline, consequences of non-compliance [SPECIFY]
-
-Add references to legislation (Civil Code, supply articles).</pre>
-    </div>
-    <div class="example">
-      <div class="example-label">Step 2: On-prem — Filling with Real Data</div>
-      <pre>Fill in the claim for a warranty case:
-
-Equipment: Fan VO-16
-Supplier: LLC "VentProm"
-Contract: No. 78/2025 dated 10.03.2025
-Failure: Blade breakage (2026-07-08)
-
-Attachments: inspection act, photos, lab report.
-All facts — from internal documents.</pre>
-    </div>
-    <p><strong>Time savings:</strong> Template in the cloud (1 hour) + Completed claim on-prem (1 hour).</p>
-  </div>
-
-  <div class="section">
-    <h2>Summary Table: Hybrid Tasks</h2>
-    <table>
-      <tr><th>Task</th><th>Cloud</th><th>On-prem</th><th>Time Savings</th></tr>
-      <tr><td>RCA / 5 Why</td><td>Template, structure</td><td>Failure data</td><td>2 + 2 hrs</td></tr>
-      <tr><td>Overhaul TOR</td><td>General structure</td><td>Technical parameters</td><td>1.5 + 1 hr</td></tr>
-      <tr><td>Claim</td><td>Methodology, structure</td><td>Facts, dates, amounts</td><td>1 + 1 hr</td></tr>
-    </table>
-  </div>
-
-  <div class="section">
-    <h2>Knowledge Check</h2>
-    <p><strong>Question 1:</strong> What is the principle of the hybrid approach for maintenance?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='<strong>Correct!</strong> Methodology outside, data inside.'">General structure in the cloud, real data on-prem</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[2].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. This is not about deleting data.'">Do everything in the cloud, then delete</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[0].classList.add('disabled'); document.querySelectorAll('.quiz-option')[1].classList.add('disabled'); document.getElementById('q1-result').classList.add('show'); document.getElementById('q1-result').innerHTML='Think again. Hybrid implies both contours.'">Do everything on-prem, cloud is not needed</div>
-    <div id="q1-result" class="result"></div>
-
-    <p><strong>Question 2:</strong> Overhaul TOR — which step is on-prem?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='<strong>Correct!</strong> Specific parameters go inside.'">Filling with technical parameters, volumes, deadlines</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[5].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Structure goes to the cloud.'">Preparing the general document structure</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[3].classList.add('disabled'); document.querySelectorAll('.quiz-option')[4].classList.add('disabled'); document.getElementById('q2-result').classList.add('show'); document.getElementById('q2-result').innerHTML='Think again. Standards are public.'">Searching for standards and regulations</div>
-    <div id="q2-result" class="result"></div>
-
-    <p><strong>Question 3:</strong> What from the list must be anonymized before sending to the cloud?</p>
-    <div class="quiz-option" onclick="this.classList.add('correct'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='<strong>Correct!</strong> Asset numbers, shop names, supplier names must be removed.'">Asset numbers, shop names, supplier names</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[8].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Equipment type is general knowledge.'">Equipment type (pump, compressor)</div>
-    <div class="quiz-option" onclick="this.classList.add('wrong'); document.querySelectorAll('.quiz-option')[6].classList.add('disabled'); document.querySelectorAll('.quiz-option')[7].classList.add('disabled'); document.getElementById('q3-result').classList.add('show'); document.getElementById('q3-result').innerHTML='Think again. Maintenance regimens are public methodologies.'">Structure of the maintenance regimen</div>
-    <div id="q3-result" class="result"></div>
+    <h2>2. Corporate reputation analysis (hybrid)</h2>
+    <p><strong>Cloud:</strong> public sentiment, competitor comparison, industry perception.<br>
+    <strong>On-prem:</strong> internal stakeholder feedback, employee sentiment, customer data.</p>
   </div>
 
   <div class="nav-footer">
-    <a href="../11-2-cloud/index.html" class="nav-btn">← 12.2 External Tasks</a>
+    <a href="../11-2-cloud/index.html" class="nav-btn">← 11.2 External Tasks</a>
     <a href="../../index.html" class="nav-btn primary">Home</a>
   </div>
-
 </div>
-<footer><div class="container"><p>AI for Non-IT Professionals · Manufacturing Company</p></div></footer>
+<footer><div class="container"><p>AI for Non-Technical Professionals · Manufacturing Company</p></div></footer>
 </body></html>
