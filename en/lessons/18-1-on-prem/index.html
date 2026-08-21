@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>18.1 18.1 Internal HR tasks: on-prem — AI for Non-Technical Professionals</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+  :root { --bg: #0B0F19; --card: #111827; --text: #F3F4F6; --muted: #9CA3AF; --accent: #8B5CF6; --accent2: #06B6D4; --border: rgba(255,255,255,0.08); --success: #10B981; --warning: #F59E0B; --danger: #EF4444; }
+  * { box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; margin: 0; overflow-x: hidden; }
+  .container { max-width: 800px; margin: 0 auto; padding: 0 16px; }
+  header { padding: 16px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  header .container { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); text-decoration: none; }
+  .lesson-header { padding: 32px 0 16px; }
+  .lesson-header .phase { color: var(--accent); font-size: 0.85rem; font-weight: 600; }
+  .lesson-header h1 { margin: 8px 0; font-size: 1.8rem; line-height: 1.25; }
+  .lesson-header .meta { color: var(--muted); font-size: 0.9rem; }
+  .section { margin: 28px 0; }
+  .section h2 { color: var(--accent); font-size: 1.2rem; margin-bottom: 12px; }
+  .section h3 { color: var(--accent2); font-size: 1.05rem; margin: 20px 0 10px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 14px 0; }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .example { background: rgba(6,182,212,0.05); border: 1px solid rgba(6,182,212,0.2); border-radius: 8px; padding: 14px; margin: 12px 0; }
+  .example-label { color: var(--accent2); font-size: 0.75rem; font-weight: 600; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .nav-footer { display: flex; justify-content: space-between; padding: 32px 0; border-top: 1px solid var(--border); margin-top: 32px; flex-wrap: wrap; gap: 8px; }
+  .nav-btn { padding: 10px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; color: var(--text); text-decoration: none; transition: all 0.2s; }
+  .nav-btn:hover { border-color: var(--accent); }
+  .nav-btn.primary { background: var(--accent); border-color: var(--accent); }
+  footer { padding: 32px 16px; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+  pre { background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  @media (max-width: 768px) { .lesson-header h1 { font-size: 1.4rem; } .nav-footer { flex-direction: column; } .nav-btn { width: 100%; text-align: center; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="../../en/catalog.html" class="logo">🧠 AI for Non-Technical Professionals</a>
+  </div>
+</header>
+
+<div class="container">
+  <div class="lesson-header">
+    <div class="phase">👥 Level 18 — AI for HR</div>
+    <h1>18.1 Internal HR tasks: on-prem</h1>
+    <div class="meta">⏱️ 25 min • Intermediate</div>
+  </div>
+
+  <div class="section">
+    <h2>🎯 Goal</h2>
+    <p>Automate HR processes using internal data without leaving the company perimeter.</p>
+  </div>
+
+  <div class="card card-accent">
+    <h3>✅ Allowed</h3>
+    <p>CV screening, personnel orders, assessment summaries, IDP preparation</p>
+  </div>
+  <div class="card card-accent">
+    <h3>⚠️ With caution</h3>
+    <p>Anonymized engagement surveys, training plans</p>
+  </div>
+  <div class="card card-accent">
+    <h3>🚫 Forbidden</h3>
+    <p>Personal employee data, medical info, disciplinary records</p>
+  </div>
+
+
+  <div class="example">
+    <div class="example-label">💡 Example prompt</div>
+    <pre>Проанализируй резюме кандидата на должность [ДОЛЖНОСТЬ]:
+1. Оцени соответствие требованиям
+2. Выдели ключевые достижения
+3. Определи возможные риски
+4. Дай рекомендацию по приглашению на собеседование</pre>
+  </div>
+
+  <div class="nav-footer">
+    <a href="../17-5-agents/index.html" class="nav-btn">← Previous</a>
+    <a href="../../en/catalog.html" class="nav-btn">🏠 Home</a>
+    <a href="../18-2-cloud/index.html" class="nav-btn primary">Next →</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Artur A. · AI for Non-Technical Professionals</p>
+</footer>
+
+</body>
+</html>
